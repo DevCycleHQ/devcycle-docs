@@ -1,0 +1,42 @@
+{
+  "name": "devcycle-docs",
+  "version": "1.0.0",
+  "description": "DevCycle Developer Docs",
+  "scripts": {
+    "clear": "docusaurus clear",
+    "dev": "docusaurus start",
+    "start": "docusaurus start",
+    "build": "docusaurus build",
+    "swizzle": "docusaurus swizzle",
+    "serve": "docusaurus serve"
+  },
+  "dependencies": {
+    "@docusaurus/core": "^2.0.0-beta.9",
+    "@docusaurus/preset-classic": "^2.0.0-beta.9",
+    "@heroicons/react": "^1.0.5",
+    "@tailwindcss/aspect-ratio": "^0.3.0",
+    "clsx": "^1.1.1",
+    "postcss-import": "^14.0.2",
+    "postcss-preset-env": "^6.7.0",
+    "prism": "^4.1.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "redocusaurus": "^0.4.6",
+    "tailwindcss": "^2.2.19"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
