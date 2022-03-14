@@ -1,0 +1,38 @@
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  wait-for-vercel-deployment:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Set deployment URL
+        run: "echo VERCEL_DEPLOYMENT_URL=devcycle-docs.vercel.app >> $GITHUB_ENV"
+
+      - uses: UnlyEd/github-action-await-vercel@v1.2.14
+        name: Waits for Vercel deployment to finish
+        id: await-vercel
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        with:
+          deployment-url: ${{ env.VERCEL_DEPLOYMENT_URL }}
+          timeout: 10 # Wait for 10 seconds before failing
+
+      - name: Displays the deployment name (example on how to read information about the deployment)
+        run: "echo The deployment at ${{ fromJson(steps.await-vercel.outputs.deploymentDetails).url }} is ${{ fromJson(steps.await-vercel.outputs.deploymentDetails).readyState }}"
+
+
+      - uses: actions/checkout@v2
+
+      - name: Get the content of algolia.json as config
+        id: algolia_config
+        run: echo "::set-output name=config::$(cat algolia.json | jq -r tostring)"
+
+      - name: Push indices to Algolia
+        uses: signcl/docsearch-scraper-action@master
+        env:
+          UPDATE_NB_HITS: false
+          APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
+          API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
+          CONFIG: ${{ steps.algolia_config.outputs.config }}
