@@ -18,6 +18,7 @@ The current Client-Side SDKs are:
 * **[DevCycle React SDK](/docs/sdk/client-side-sdks/react)**
 * **[DevCycle iOS SDK](/docs/sdk/client-side-sdks/ios)**
 * **[DevCycle Android SDK](/docs/sdk/client-side-sdks/android)**
+* **[DevCycle for React Native](/docs/sdk/client-side-sdks/react-native)**
 
 
 ### Server-Side SDKs
