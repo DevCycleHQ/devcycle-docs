@@ -23,11 +23,11 @@ These properties can be added to any User object with the [Identify](/docs/sdk/f
 
 To use a custom property in a targeting rule, first initialize the property in a target on the DevCycle dashboard. This can be done from the Target's definition dropdown:
 
-![add property window](/feb-2022-add-property.png)
+![add property window](/march-2022-add-property.png)
 
 Doing so will open a modal to create your new property. 
 
-![property key](/feb-2022-property-key.png)
+![property key](/march-2022-property-key.png)
 
 This modal has two mandatory fields:
 
@@ -39,7 +39,7 @@ The property key should match what is being sent by the SDKs or APIs. This is us
 
 Select the corresponding type of your custom property. This type _must_ match with the type the SDKs are sending.
 
-![property type open](/feb-2022-property-type.png)
+![property type open](/march-2022-property-type.png)
 
 The types are currently:
 * Boolean
@@ -50,7 +50,7 @@ The types are currently:
 
 There are two additional fields when creating a Custom Property at the bottom of the creation modal
 
-![property additional options](/feb-2022-additional-options-properties.png)
+![property additional options](/march-2022-additional-options.png)
 
 **Display Name**
 
@@ -65,7 +65,7 @@ This is an auto generated field based on the property key. This is the key which
 
 Once a property has been created, it will be accessible in the definition dropdown:
 
-![property type open](/feb-2022-property-dropdown-with-properties.png)
+![property type open](/march-2022-property-dropdown-with-properties.png)
 
 First, select your property to use it like any other targeting definition as outlined in [Targeting Users](/docs/home/feature-management/features-and-variables/targeting-users)
 

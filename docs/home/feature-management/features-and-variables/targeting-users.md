@@ -17,9 +17,9 @@ If a feature is toggled ON for an environment, the rules defined within the envi
 
 ### Using user properties
 
-Each targeting rule has four parts that must be set, as seen here:
+Each targeting rule has four parts that must be set, and one optional item, as seen here:
 
-![Targeting Page of a Feature, initial state with nothing selected, production environment](/targeting.png)
+![Targeting Page of a Feature, initial state with nothing selected, production environment](/march-2022-targeting.png)
 
 1. **The current targeting Status.**
 
@@ -35,8 +35,12 @@ Each targeting rule has four parts that must be set, as seen here:
 
 4. **What users will be Served**
 
-    This is what defines what a user who fills the rule will receive. Different rules may receive different variations.
+    This is what defines what a user who fills the rule will receive. Different rules may receive different variations. Additionally, a random distribution of variations can be set. 
 
+
+4. **(Optional) The Schedule of the Feature***
+
+    When set to the default (None), this rule will be enabled when the environment is enabled. However, a specific date/time can be set, as well as a gradual rollout of this Feature to the target.
 
 :::info
 
@@ -53,7 +57,7 @@ DevCycle also allows the targeting of properties that aren't in the predefined l
 Let's say for example there is a brand new feature that is meant to only roll out to internal QA users for the time being. There are numerous ways to achieve this, however for this example only known user ids or emails will be used.
 
 
-![Example Targeting Rules for a QA Audience on a Feature](/qa.png)
+![Example Targeting Rules for a QA Audience on a Feature](/march-2022-qa.png)
 
 In this example, the users with user ID of "john" and "victor" will receive the variation of "Variation ON" of this feature on the Development Environment. This type of direct user targeting is great for numerous things such as adding users to QA versions of a feature, inviting beta users to a feature, or simply targeting your own user ID for development purposes.
 
@@ -78,7 +82,7 @@ Currently, properties are limited to the following: User ID, Email, Country, and
 
 Each definition can have AND operations as well, allowing for more complex combinations of properties:
 
-![Complex Targeting Rules on a Feature with Multiple Comparators](/complex_target.png)
+![Complex Targeting Rules on a Feature with Multiple Comparators](/march-2022-complex-target.png)
 
 The above would only match on users who have:
 
@@ -93,7 +97,7 @@ Once the targeting rule is defined, the next step is to determine what Variation
 
 To choose the Variation for this targeted audience, use the "Serve" dropdown and choose the desired variation. When the environment is enabled, and if a user fulfills the targeting rule, they will then be served that variation and its associated variable values.
 
-![Serve dropdown open with arrow pointing to it](/jan-2022-serve.png)
+![Serve dropdown open with arrow pointing to it](/march-2022-serve.png)
 
 
 ### Serving a Random Variation (Experimentation / Random Distribution)
@@ -102,11 +106,11 @@ If there is a desire to serve a Random variation to a set of users, this can be 
 
 To do this, click the serve dropdown on a Targeting Rule and select "Random Distribution"
 
-![Serve dropdown open with arrow pointing to random distribution](/jan-2022-serve-random.png)
+![Serve dropdown open with arrow pointing to random distribution](/march-2022-serve-random.png)
 
 After selecting the random Distribution option, a list of all current Variations will show with an evenly spread distribution across each. 
 
-![Random Distribution chosen](/jan-2022-serve-random-percents.png)
+![Random Distribution chosen](/march-2022-serve-random-percents.png)
 
 All %s must add up to 100%, and some small rounding will occur. 
 
@@ -188,20 +192,20 @@ You may also choose to roll a feature _backwards_ to slowly phase it out, in whi
 User Targeting evaluates rules in a top-down order. A User may fall into multiple audiences, however they will see the first Variation that they match for the given Environment. 
 
 This situation allows you to group specific users into seeing a Variation, for example:
-1. Meet our user Victor, he lives in Canada and has a @devcycle.com email address. We do not want him, or other @devcycle.com users, to see our Secret Giveaway Feature.
-2. Victor has a neighbor, John that doesn’t have a @devcycle.com email address. We want all our other Canadian users to see our Secret Giveaway Feature.
-3. Victor also has several friends that live in Norway, and we want to show all our users in Norway the Secret Giveaway Feature.
+1. Meet our user Victor, he lives in Canada and has a @devcycle.com email address. We do not want him, or other @devcycle.com users, to see our Secret Getaway Feature.
+2. Victor has a neighbor, John that doesn’t have a @devcycle.com email address. We want all our other Canadian users to see our Secret Getaway Feature.
+3. Victor also has several friends that live in Norway, and we want to show all our users in Norway the Secret Getaway Feature.
 
-In this situation, here’s how we can setup our Audiences for the Secret Giveaway Feature.
+In this situation, here’s how we can setup our Audiences for the Secret Getaway Feature.
 
-First, we define our first Audience that will target Users in Canada with email addresses containing @devcycle.com to NOT see the Secret Giveaway Feature.
+First, we define our first Audience that will target Users in Canada with email addresses containing @devcycle.com to NOT see the Secret Getaway Feature.
 
-![DevCycle Targeting Rule on a Feature Specifying Country](/devcycle_canada.png)
+![DevCycle Targeting Rule on a Feature Specifying Country](/march-2022-devcycle_canada.png)
 
 Then we can add a second Audience by clicking the “Add Targeting Rule” button.
 
-![Multiple DevCycle Targeting Rules on a Feature, second one empty](/add_targeting_rule.png)
+![Multiple DevCycle Targeting Rules on a Feature, second one empty](/march-2022-add_targeting_rule.png)
 
-Lastly, we want to make sure that other Users in Canada (i.e. those without @devcycle.com emails) and all Users in Norway DO see the Secret Giveaway Feature.
+Lastly, we want to make sure that other Users in Canada (i.e. those without @devcycle.com emails) and all Users in Norway DO see the Secret Getaway Feature.
 
-![Multiple DevCycle Targeting Rules on a Feature Specifying different variations served for different rules](/users_canad_norway.png)
+![Multiple DevCycle Targeting Rules on a Feature Specifying different variations served for different rules](/march-2022-users_canad_norway.png)

@@ -15,7 +15,7 @@ To create a Feature:
 
 1. Click either the "+" button or the "Create new Feature" button
 
-![DevCycle Feature Dashboard with arrows highlighting the create button on the page as well as the persistent button in the top bar](/december_create.png)
+![DevCycle Feature Dashboard with arrows highlighting the create button on the page as well as the persistent button in the top bar](/march-2022-create.png)
 
 2. A screen for deciding your Feature Type will now appear:
 
@@ -44,7 +44,7 @@ You have now created a Feature within your project!
 
 Within DevCycle, all targeting rules of each feature are specific to Environments. This allows you to provide different rules and access across every stage of the feature's deployment. All of an Environment's targeting can be managed directly within the Feature's page itself.
 
-![Feature sidebar highlighting Environments](/december_2021_environments.png)
+![Feature sidebar highlighting Environments](/march-2022-environments.png)
 
 Once it is known how the feature should be managed and who it should target, you can now [turn the feature on](/docs/home/feature-management/getting-started/toggling-features).
 

@@ -13,7 +13,7 @@ If you already have an account feel free to skip ahead to shipping [Your First F
 
 If you don't yet have an account with DevCycle that's not a problem. We have an always free tier and any of our paid tiers come with a full 14 day free trial. To get set up with an account just go to our [plans page](https://devcycle.com/pricing/plans-and-pricing), select the tier you're looking for and sign up to get started.
 
-![Billing Pricing Page outlining the multiple plan types available for an organization](/select-a-plan.png)
+![Billing Pricing Page outlining the multiple plan types available for an organization](/march-2022-pricing-plans.png)
 
 ## Adding Team Members
 

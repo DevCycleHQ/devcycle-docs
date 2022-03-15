@@ -118,14 +118,16 @@ const config = {
       items: [
         {
           position: 'left',
-          label: 'Home',
+          label: 'DevCycle Usage',
           docId: 'home/introduction',
+          collapse: 'false',
           type: 'doc'
         },
         {
           type: 'doc',
           docId: 'sdk/sdk-types',
           position: 'left',
+          collapse: 'false',
           label: 'SDKs',
         },
         {

@@ -13,7 +13,7 @@ This article will cover how to easily turn a Feature on or off easily within the
 
 To manage a Feature, navigate to the Features's page and find the Environment you wish to manage the Feature within:
 
-![Feature sidebar highlighting Environments](/december_2021_environments.png)
+![Feature sidebar highlighting Environments](/march-2022-environments.png)
 
 
 Each Environment is managed individually and has its own toggle. To turn a Feature on or off, use the Targeting Status toggle:
