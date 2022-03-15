@@ -46,7 +46,3 @@ export default withDVCProvider(
 ## Getting Started
 
 Please refer to the [DevCycle React SDK](docs/sdk/client-side-sdks/react) documentation.
-
-
-
-
