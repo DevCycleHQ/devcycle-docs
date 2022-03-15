@@ -13,7 +13,7 @@ In short, a Feature may have any number of Variables. Variable values change dep
 
 To view the Variables and Variations within a Feature, navigate to the Code Variables section on a Feature page:
 
-![Feature Page Sidebar Highlighting Variables](/december_2021_variables_sidebar.png)
+![Feature Page Sidebar Highlighting Variables](/march-2022-variables-sidebar.png)
 
 This will lead the user to a table containing all of the Variables used by this feature and all of their values across all Variations:
 

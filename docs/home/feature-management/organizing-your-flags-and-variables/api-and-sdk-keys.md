@@ -11,7 +11,7 @@ This article serves to inform where all of your relevant SDK and API keys are an
 
 To access the [Management API](https://docs.devcycle.com/management-api/), first navigate to the Settings page. The settings page can be accessed from clicking on your profile image in the top right corner of the Dashboard. 
 
-![Dropdown on DevCycle dashboard for account settings and org info](/account-dropdown.png)
+![Dropdown on DevCycle dashboard for account settings and org info](/march-2022-account-dropdown.png)
 
 To find your key for the management API, navigate to your Organization specific settings page:
 
@@ -28,11 +28,11 @@ All Environments within a Project have their own set of key. For more informatio
 
 To find your keys for use within the various SDKs, navigate navigate to the Settings page. The settings page can be accessed from clicking on your profile image in the top right corner of the Dashboard. 
 
-![Dropdown on DevCycle dashboard for account settings and org info](/account-dropdown.png)
+![Dropdown on DevCycle dashboard for account settings and org info](/march-2022-account-dropdown.png)
 
 From here, navigate to the Environments section:
 
-![DevCycle Environment Settings for an Organization, showing the API Keys](/env-settings.png)
+![DevCycle Environment Settings for an Organization, showing the API Keys](/march-2022-env-settings.png)
 
 Each environment has three different keys: 
 

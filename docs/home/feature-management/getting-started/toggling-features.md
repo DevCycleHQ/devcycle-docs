@@ -19,7 +19,7 @@ To manage a Feature, navigate to the Features's page and find the Environment yo
 Each Environment is managed individually and has its own toggle. To turn a Feature on or off, use the Targeting Status toggle:
 
 
-![User Targeting Section of a Feature, arrow pointing to targeting status toggle](/december_2021_env-toggle.png)
+![User Targeting Section of a Feature, arrow pointing to targeting status toggle](/march-2022-env-toggle.png)
 
 After the change is made, save it to propagate the change across all devices within that environment.
 

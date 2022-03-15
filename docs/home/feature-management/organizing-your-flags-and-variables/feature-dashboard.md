@@ -6,17 +6,17 @@ sidebar_position: 1
 ## Overview
 This article serves to explain how to use the Feature Management dashboard on DevCycle. This page is where all of your features can be viewed, edited, and filtered for search. This page will show all features within the current Project. 
 
-![DevCycle Feature Dashboard showing a list of Features and a search](/feature-dash.png)
+![DevCycle Feature Dashboard showing a list of Features and a search](/march-2022-feature-dash.png)
 
 ## The Features List
 
 On this page there is a list of all of your Project's features. To view another Project's features, use the Project dropdown on the top of the Dashboard.
 
-![DevCycle top bar's Project Dropdown Expanded to show Current Project](/project-dropdown.png)
+![DevCycle top bar's Project Dropdown Expanded to show Current Project](/march-2022-project-dropdown.png)
 
 From this page, you can create a Feature Flag by clicking "Create New Feature" or the `+` in the top bar. 
 
-![DevCycle Feature Dashboard with arrows highlighting the create button on the page as well as the persistent button in the top bar](/december_create.png)
+![DevCycle Feature Dashboard with arrows highlighting the create button on the page as well as the persistent button in the top bar](/march-2022-create.png)
 
 
 To learn more about creating a Feature, start with [Your First Feature])(/docs/home/feature-management/getting-started/your-first-feature)

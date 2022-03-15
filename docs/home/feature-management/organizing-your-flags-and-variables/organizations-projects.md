@@ -19,7 +19,7 @@ This article serves to explain how DevCycle manages Organizations, Projects, and
 
 To view the current **Organization** or change Organizations, click on the Account icon dropdown on the top right of the DevCycle Dashboard.
 
-![Dropdown on DevCycle dashboard for account settings and org info pointing at current org](/account-dropdown-2.png)
+![Dropdown on DevCycle dashboard for account settings and org info pointing at current org](/march-2022-account-dropdown-2.png)
 
 The currently active Organization will have a green badge next to it. 
 
@@ -34,7 +34,7 @@ The currently viewed project will have a green badge next to it.
 
 To access the settings for the current Organization, ensure the Organization you wish to modify is selected and click the settings button in the account dropdown. 
 
-![Dropdown on DevCycle dashboard for account settings and org info pointing at settings](/account-dropdown.png)
+![Dropdown on DevCycle dashboard for account settings and org info pointing at settings](/march-2022-account-dropdown.png)
 
 This will navigate you to the Settings page.
 
