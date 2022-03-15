@@ -5,7 +5,7 @@ sidebar_position: 5
 
 # DevCycle Python Server SDK
 
-Welcome to the the DevCycle PHP SDK, initially generated via the [DevCycle Bucketing API](https://docs.devcycle.com/bucketing-api/#tag/devcycle).
+Welcome to the the DevCycle Python SDK, initially generated via the [DevCycle Bucketing API](https://docs.devcycle.com/bucketing-api/#tag/devcycle).
 
 ## Requirements.
 
