@@ -17,7 +17,7 @@ To navigate to this page, use the variables button on DevCycle dashboard's top b
 
 This will lead you to the Variables list:
 
-![Variables dashboard page with list of variables as well as search functionality](/variables.png)
+![Variables dashboard page with list of variables as well as search functionality](/march-2022-variables.png)
 
 The list will show:
 
@@ -27,7 +27,7 @@ The list will show:
 
 * **Feature**
     
-    The name of the Feature that is currently managing a variable. **Note** that Variables can only be managed by a single Feature at a time. If you wish to change what Feature is managing a Variable, first remove that Variable from a feature as outlined in [Creating Variables and Variations](/docs/home/feature-management/features-and-variables/creating-variables-and-variations). If the Variable is NOT being managed by a Feature, this column will be blank. **Click on a Feature name to navigate directly to the Feature managing this Variable**
+    The name of the Feature that is currently managing a variable. **Note** that Variables can only be managed by a single Feature at a time. If you wish to change what Feature is managing a Variable, first remove that Variable from a feature as outlined in [Creating Variables and Variations](/docs/home/feature-management/features-and-variables/creating-variables-and-variations). If the Variable is NOT being managed by a Feature, this column will note the lack of Feature. **Click on a Feature name to navigate directly to the Feature managing this Variable**
 
 * **Type**
 
@@ -36,5 +36,35 @@ The list will show:
 * **Created At**
 
     The time this Variable was first created.
+
+* **Created At**
+
+    The time this Variable was first created.
+
+### Variable Details
+
+To access variable details, click "View Info" on the Variables list page for your Desired Variable
+
+![march-2022-variable-details-info](/march-2022-variable-details-info.png)
+
+This page contains two sections:
+
+#### Variable Info
+
+![march-2022-variable-details-page](/march-2022-variable-details-page.png)
+
+This section allows for the modification of the display name of the Variable, as well as the ability to provide a more detailed description of the Variable.
+
+#### Code References
+
+:::info
+
+To use the Code Refs feature, the [DevCycle action for Code References](/docs/tools-and-integrations/Github/gh-feature-usage-action) must be enabled within your repository.
+
+:::
+
+The Code References section is a collection of all of the areas within your codebase this Variable is actually being referenced, with a link out to the exact location within your GitHub codebase.
+
+![march-2022-code-refs](/march-2022-code-refs.png)
 
 
