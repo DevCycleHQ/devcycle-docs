@@ -20,7 +20,7 @@ This SDK is compatible with React versions 16.8.0 and above.
 
 ## Installation
 
-1. Install and Initialize the [DevCycle React SDK](docs/sdk/client-side-sdks/react) and follow the steps on that page.
+1. Install and Initialize the [DevCycle React SDK](/docs/sdk/client-side-sdks/react) and follow the steps on that page.
 
 2. Import the [react-native-device-info](https://www.npmjs.com/package/react-native-device-info) package and set `global.DeviceInfo = DeviceInfo`.
 
@@ -45,4 +45,4 @@ export default withDVCProvider(
 
 ## Getting Started
 
-Please refer to the [DevCycle React SDK](docs/sdk/client-side-sdks/react) documentation.
+Please refer to the [DevCycle React SDK](/docs/sdk/client-side-sdks/react) documentation.
