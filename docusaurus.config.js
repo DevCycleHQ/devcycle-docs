@@ -36,7 +36,7 @@ const config = {
       {
         debug: Boolean(process.env.DEBUG || process.env.CI),
         docs: {
-          editUrl: ({versionDocsDirPath, docPath}) => `https://github.com/devcyclehq/devcycle-docs/edit/main/website/${versionDocsDirPath}/${docPath}`,
+          editUrl: ({versionDocsDirPath, docPath}) => `https://github.com/devcyclehq/devcycle-docs/edit/main/${versionDocsDirPath}/${docPath}`,
           showLastUpdateAuthor: false,
           showLastUpdateTime: true,
           editCurrentVersion: true,
