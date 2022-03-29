@@ -26,7 +26,7 @@ If you need help along the way feel free to message us via Intercom. And if you 
 
 ## SDK Docs
 - [Different SDK Types](/docs/sdk/sdk-types)
-- [Features and Functionality](/docs/sdk/features/features)
+- [Features and Functionality](/docs/sdk/features)
 - [Server-Side SDKs](/docs/sdk/server-side-sdks/node)
 - [Client-Side SDKs](/docs/sdk/client-side-sdks/javascript)
 

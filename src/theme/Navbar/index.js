@@ -1,10 +1,13 @@
 // Note: importing from "@theme/Footer" would fail due to the file importing itself
 import OriginalNavbar from '@theme-original/Navbar';
 import React, { useEffect } from 'react';
-import useThemeContext from '@theme/hooks/useThemeContext';
+
+import {
+  useColorMode
+} from '@docusaurus/theme-common';
 
 export default function Navbar(props) {
-  const { isDarkTheme } = useThemeContext();
+  const { isDarkTheme } = useColorMode();
 
   useEffect(() => {
     if (isDarkTheme) {

@@ -54,7 +54,7 @@ export default function Navbar(props) {
             </a>
           ))}
         </div>
-        <p className="mt-8 text-center text-base text-gray-400 dark:text-white">Copyright © {new Date().getFullYear()} DevCycle, Inc. All rights reserved.</p>
+        <p className="mt-8 text-center text-base text-gray-400 dark:text-white">Copyright © {new Date().getFullYear()} DevCycle. All rights reserved.</p>
       </div>
     </footer>
   );

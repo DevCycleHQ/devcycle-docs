@@ -4,6 +4,7 @@ const path = require('path')
  * @type {Partial<import('@docusaurus/types').DocusaurusConfig>}
  */
 const config = {
+  trailingSlash: false,
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
   plugins: [
@@ -45,7 +46,6 @@ const config = {
         sitemap: {
           changefreq: 'weekly',
           priority: 0.5,
-          trailingSlash: false,
         },
         theme: {
           customCss: [require.resolve('./src/css/custom.css')],
@@ -57,23 +57,15 @@ const config = {
       {
         debug: Boolean(process.env.DEBUG || process.env.CI),
         specs: [
-          // {
-          //   specUrl: 'https://redocly.github.io/redoc/openapi.yaml',
-          //   routePath: '/using-spec-url/',
-          // },
-          // {
-          //   specUrl: `${process.env.DEPLOY_BASE_URL || '/'}openapi-page.yaml`,
-          //   routePath: '/using-relative-url/',
-          // },
           {
-            specUrl: 'https://api.devcycle.com/swagger.json',
-            routePath: '/management-api/',
+            id: 'management-api',
+            spec: 'https://api.devcycle.com/swagger.json',
+            route: '/management-api/',
           },
           {
-            spec: 'bucketing-api.yaml',
-            // This becomes the Download URL in this case
-            specUrl: `${process.env.DEPLOY_BASE_URL || '/'}bucketing-api.yaml`,
-            routePath: '/bucketing-api/',
+            id: 'bucketing-api',
+            spec: 'https://docs.devcycle.com/bucketing-api.yaml',
+            route: '/bucketing-api/',
           },
         ],
         theme: {
@@ -96,13 +88,8 @@ const config = {
   baseUrl: '/',
   favicon: 'devcycle_favicon.ico',
   themeConfig: {
-    colorMode: {
-      switchConfig: {
-        darkIcon: '🌙'
-      }
-    },
     prism: {
-      additionalLanguages: ['ruby', 'go', 'php', 'swift', 'kotlin', 'java', 'clike', 'scala']
+      additionalLanguages: ['ruby', 'go', 'php', 'swift', 'kotlin', 'java', 'clike', 'scala', 'hcl', 'yaml', 'csharp']
     },
     algolia: {
       appId: '6TW93YPS4X',
