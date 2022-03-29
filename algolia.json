@@ -1,10 +1,10 @@
 {
   "index_name": "prod_DEVCYCLE_DOCS",
   "start_urls": [
-    "https://devcycle-docs.vercel.app/"
+    "https://docs.devcycle.com/"
   ],
   "sitemap_urls": [
-    "https://devcycle-docs.vercel.app/sitemap.xml"
+    "https://docs.devcycle.com/sitemap.xml"
   ],
   "sitemap_alternate_links": true,
   "stop_urls": [
