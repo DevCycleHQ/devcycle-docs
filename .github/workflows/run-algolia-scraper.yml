@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-     - 'search'
+     - 'main'
 
 jobs:
   wait-for-vercel-deployment:
