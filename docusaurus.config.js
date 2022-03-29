@@ -4,6 +4,7 @@ const path = require('path')
  * @type {Partial<import('@docusaurus/types').DocusaurusConfig>}
  */
 const config = {
+  trailingSlash: false,
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
   plugins: [
@@ -45,7 +46,6 @@ const config = {
         sitemap: {
           changefreq: 'weekly',
           priority: 0.5,
-          trailingSlash: false,
         },
         theme: {
           customCss: [require.resolve('./src/css/custom.css')],
