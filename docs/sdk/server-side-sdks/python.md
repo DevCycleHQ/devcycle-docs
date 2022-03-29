@@ -13,8 +13,8 @@ Python 2.7 and 3.4+
 
 ## Installation
 
-```sh
-pip install devcycle-python-server-sdk
+```shell-session
+$ pip install devcycle-python-server-sdk
 ```
 (you may need to run `pip` with root permission: `sudo pip install devcycle-python-server-sdk`)
 

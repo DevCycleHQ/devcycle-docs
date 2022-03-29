@@ -23,7 +23,7 @@ The CLI can be customized in several ways using command-line args or by creating
 <!-- tocstop -->
 # Setup
 ## Install the CLI:
-```sh-session
+```shell
 $ npm install -g @devcycle/cli
 ```
 # Authentication
@@ -63,12 +63,13 @@ $ export DVC_PROJECT_KEY=<your project key>
 ```
 ### Command-Line Arguments
 The CLI can be run with the following arguments:
-```sh-session
+```shell
 $ dvc --client-id=<your client id> --client-secret=<your client secret> --project=<your project key>
+```
 
 # Usage
 <!-- usage -->
-```sh-session
+```shell
 $ npm install -g @devcycle/cli
 $ dvc COMMAND
 running command...
@@ -76,7 +77,7 @@ $ dvc (--version)
 @devcycle/cli/3.0.0 darwin-x64 node-v16.14.0
 $ dvc --help [COMMAND]
 USAGE
-  $ dvc COMMAND
+$ dvc COMMAND
 ...
 ```
 <!-- usagestop -->
@@ -405,7 +406,7 @@ This location can be overridden using the `--config-path` flag.
 
 The configuration file format is documented below:
 
-```yml
+```yaml
 ## block for configuring "code insights" features like diff and variable usage scanning
 ## use this section to improve the detection of DevCycle usage within your code
 codeInsights:

@@ -1,5 +1,5 @@
 ---
-title: Dotnet SDK
+title: Dotnet / C# SDK
 sidebar_position: 7
 ---
 
@@ -34,7 +34,7 @@ using DevCycle.Model;
 
 To start, initialize a client using the API key. 
 
-```c
+```csharp
 using System;
 using System.Diagnostics;
 using DevCycle.Api;
@@ -61,14 +61,14 @@ The user object is required for all methods. The only required field in the user
 
 See the User class in [Dotnet User model doc](https://github.com/DevCycleHQ/dotnet-server-sdk/blob/main/docs/User.md) for all accepted fields.
 
-```c
+```csharp
 User user = new User("a_user_id");
 ```
 
 ### Getting All Features
 This method will fetch all features for a given user and return them as Dictionary<String, Feature>
 
-```c
+```csharp
 using System;
 using System.Diagnostics;
 using DevCycle.Api;
@@ -104,7 +104,7 @@ To get values from your Variables, the `value` field inside the variable object 
 
 This method will fetch all variables for a given user and returned as Dictionary&lt;String, Feature&gt;
 
-```c
+```csharp
 using System;
 using System.Diagnostics;
 using DevCycle.Api;
@@ -141,7 +141,7 @@ To get values from your Variables, the `value` field inside the variable object 
 This method will fetch a specific variable by key for a given user. It will return the variable
 object from the server unless an error occurs or the server has no response. In that case it will return a variable object with the value set to whatever was passed in as the `defaultValue` parameter.
 
-```c
+```csharp
 using System;
 using System.Diagnostics;
 using DevCycle.Api;
@@ -176,7 +176,7 @@ namespace Example
 ### Track Event
 To POST custom event for a user, pass in the user and event object.
 
-```c
+```csharp
 using System;
 using System.Diagnostics;
 using DevCycle.Api;

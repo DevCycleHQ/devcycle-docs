@@ -13,13 +13,13 @@ Welcome to the the DevCycle Go SDK, initially generated via the [DevCycle Bucket
 go get "github.com/devcyclehq/go-server-sdk"
 ```
 Put the package under your project folder and add the following in import:
-```golang
+```go
 import "github.com/devcyclehq/go-server-sdk"
 ```
 
 ## Getting Started
 
-```golang
+```go
 import (
     "github.com/devcyclehq/go-server-sdk"
     "context"
@@ -38,14 +38,14 @@ The user object is required for all methods. The only required field in the user
 
 See the UserData class in `model_user_data.go` for all accepted fields.
 
-```golang
+```go
 user := devcycle.UserData{UserId: "test"}
 ```
 
 ### Getting All Features
 This method will fetch all features for a given user and return them in a map of `key: feature_object`
 
-```golang
+```go
 features, err := client.DevcycleApi.AllFeatures(auth, user)
 ```
 
@@ -54,7 +54,7 @@ To get values from your Variables, the `value` field inside the variable object 
 
 This method will fetch all variables for a given user and return them in a map of `key: variable_object`
 
-```golang
+```go
 variables, err := client.DevcycleApi.AllVariables(auth, user)
 ```
 
@@ -67,14 +67,14 @@ and the `IsDefaulted` field boolean on the variable will be true.
 
 To get values from your Variables, the `value` field inside the variable object can be accessed.
 
-```golang
+```go
 variable, err := client.DevcycleApi.Variable(auth, user, "variable-key", "default_value")
 ```
 
 ### Track Event
 To POST custom event for a user, pass in the user and event object.
 
-```golang
+```go
 event := devcycle.Event{
     Type_: "customEvent",
     Target: "somevariable.key"}

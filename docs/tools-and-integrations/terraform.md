@@ -16,7 +16,7 @@ It also provides the ability to evaluate variables as a user and feature flag Te
 ## Setup
 
 ### Install the Terraform Provider
-```terraform
+```hcl
 terraform {
   required_providers {
     devcycle = {
@@ -50,7 +50,7 @@ project first.
 
 #### Environment Variables
 Set the following environment variables:
-```sh-session
+```shell
 $ export DEVCYCLE_CLIENT_ID=<your client id>
 $ export DEVCYCLE_CLIENT_SECRET=<your client secret>
 $ export DEVCYCLE_SERVER_TOKEN=<your server token>
@@ -65,7 +65,7 @@ For more detailed documentation on the DevCycle Terraform provider, see the [Dev
 After configuration of the provider - let's use the provider to create a DevCycle project.
 
 ### Create a Project
-```terraform
+```hcl
 resource "devcycle_project" "example" {
   name        = "Example DevCycle Project"
   key         = "example-devcycle-project"
@@ -78,7 +78,7 @@ Running `terraform apply` will create this project - and you can see it in the D
 This creates a bare project - with no features or variables. To add those, lets create a feature.
 
 ### Create a Feature
-```terraform
+```hcl
 resource "devcycle_feature" "example" {
   project_id  = devcycle_project.example.id
   name        = "Example Feature"
@@ -97,7 +97,7 @@ The feature resource can create and manage the variations and variables attached
 and to instead use the `devcycle_variable` resource.
 
 ### Create a Variable
-```terraform
+```hcl
 resource "devcycle_variable" "example" {
   name          = "Terraform Example Variable"
   key           = "example-variable"
@@ -115,7 +115,7 @@ After creating the variable - you can either read from the existing environments
 Using the data block - you can read the SDK keys that get generated for the environment to change keys automatically in your Terraform configuration.
 SDK Keys are prefixed by their type, `client`, `mobile`, or `server`.
 
-```terraform
+```hcl
 data "devcycle_environment" "test" {
   key         = "development"
   project_key = devcycle_project.example.key
@@ -130,7 +130,7 @@ output "development_sdk_keys" {
 
 One of the major features that this provider provides is the ability to evaluate variables. This is done by using the typed data blocks for the type of variable desired.
 
-```terraform
+```hcl
 data "devcycle_evaluated_variable_boolean" "create-resource" {
   default_value = false
   id = devcycle_variable.example.id

@@ -89,7 +89,7 @@ const config = {
   favicon: 'devcycle_favicon.ico',
   themeConfig: {
     prism: {
-      additionalLanguages: ['ruby', 'go', 'php', 'swift', 'kotlin', 'java', 'clike', 'scala']
+      additionalLanguages: ['ruby', 'go', 'php', 'swift', 'kotlin', 'java', 'clike', 'scala', 'hcl', 'yaml', 'csharp']
     },
     algolia: {
       appId: '6TW93YPS4X',
