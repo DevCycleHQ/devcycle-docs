@@ -3,9 +3,7 @@ module.exports = {
     preflight: false
   },
   mode: 'jit',
-  purge: [
-    './src/**/*.{js,jsx}',
-  ],
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {},
