@@ -23,7 +23,7 @@ You can use the SDK in your Maven project by adding the following to your *pom.x
 <dependency>
     <groupId>com.devcycle</groupId>
     <artifactId>java-server-sdk</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.3</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -32,7 +32,7 @@ You can use the SDK in your Maven project by adding the following to your *pom.x
 Alternatively you can use the SDK in your Gradle project by adding the following to *build.gradle*:
 
 ```yaml
-implementation("com.devcycle:java-server-sdk:1.0.0")
+implementation("com.devcycle:java-server-sdk:1.0.3")
 ```
 
 ## DNS Caching
@@ -65,7 +65,7 @@ The user object is required for all methods. The only required field in the user
 See the User class in [Java User model doc](https://github.com/DevCycleHQ/java-server-sdk/blob/main/docs/User.md) for all accepted fields.
 
 ```java
-User user = User.builder
+User user = User.builder()
     .userId("a_user_id")
     .build();
 ```
@@ -75,6 +75,9 @@ This method will fetch all features for a given user and return them as Map<Stri
 
 ```java
 import com.devcycle.sdk.server.api.DVCClient;
+import com.devcycle.sdk.server.exception.DVCException;
+import com.devcycle.sdk.server.model.Feature;
+import com.devcycle.sdk.server.model.User;
 
 public class MyClass {
     
@@ -84,7 +87,7 @@ public class MyClass {
         dvcClient = new DVCClient("your_server_key");
     }
     
-    public void allFeatures() {
+    public void allFeatures() throws DVCException {
         User user = User.builder()
                 .userId("a_user_id")
                 .country("US")
@@ -102,6 +105,9 @@ To get values from your Variables, the `value` field inside the variable object 
 
 ```java
 import com.devcycle.sdk.server.api.DVCClient;
+import com.devcycle.sdk.server.exception.DVCException;
+import com.devcycle.sdk.server.model.User;
+import com.devcycle.sdk.server.model.Variable;
 
 public class MyClass {
 
@@ -111,7 +117,7 @@ public class MyClass {
         dvcClient = new DVCClient("your_server_key");
     }
 
-    public void allVariables() {
+    public void allVariables() throws DVCException {
         User user = User.builder()
                 .userId("a_user_id")
                 .country("US")
@@ -131,6 +137,9 @@ To get values from your Variables, the `value` field inside the variable object 
 
 ```java
 import com.devcycle.sdk.server.api.DVCClient;
+import com.devcycle.sdk.server.exception.DVCException;
+import com.devcycle.sdk.server.model.User;
+import com.devcycle.sdk.server.model.Variable;
 
 public class MyClass {
 
@@ -140,7 +149,7 @@ public class MyClass {
         dvcClient = new DVCClient("your_server_key");
     }
 
-    public void setFlag() {
+    public void setFlag() throws DVCException {
         User user = User.builder()
                 .userId("a_user_id")
                 .country("US")
@@ -165,6 +174,10 @@ To POST custom event for a user, pass in the user and event object.
 
 ```java
 import com.devcycle.sdk.server.api.DVCClient;
+import com.devcycle.sdk.server.exception.DVCException;
+import com.devcycle.sdk.server.model.DVCResponse;
+import com.devcycle.sdk.server.model.Event;
+import com.devcycle.sdk.server.model.User;
 
 public class MyClass {
 
@@ -174,7 +187,7 @@ public class MyClass {
         dvcClient = new DVCClient("your_server_key");
     }
 
-    public void addAnEvent() {
+    public void addAnEvent() throws DVCException {
         User user = User.builder()
                 .userId("a_user_id")
                 .country("US")
