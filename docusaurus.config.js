@@ -5,7 +5,7 @@ const remarkYoutube = require('gridsome-plugin-remark-youtube')
  * @type {Partial<import('@docusaurus/types').DocusaurusConfig>}
  */
 const config = {
-  trailingSlash: false,
+  // trailingSlash: false,
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
   plugins: [
