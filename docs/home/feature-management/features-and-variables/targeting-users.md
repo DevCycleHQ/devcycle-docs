@@ -71,8 +71,7 @@ Currently, properties are limited to the following: User ID, Email, Country, and
 | is                                              | string, number, boolean | exact match on one of the values  |
 | is not                                          | string, number, boolean | exact match on none of the values |
 | contains                                        | string                  | substring match                   |
-| does not contain                                | string                  | substring does not match          |
-| matches, does not match                         | string                  | regular expression match          |
+| does not contain                                | string                  | substring does not match          |      |
 | exists                                          | string, number, boolean | null check                        |
 | does not exist                                  | string, number, boolean | null check                        |
 | equals, does not equal                          | number                  | math comparison                   |
