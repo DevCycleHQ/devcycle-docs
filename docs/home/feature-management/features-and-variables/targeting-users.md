@@ -186,25 +186,63 @@ You may also choose to roll a feature _backwards_ to slowly phase it out, in whi
 
 
 
-### Creating and Managing Multiple Audiences
+## Creating and Managing Multiple Targeting Rules
 
-User Targeting evaluates rules in a top-down order. A User may fall into multiple audiences, however they will see the first Variation that they match for the given Environment. 
+### Targeting Rule Evaluation Order
+
+User Targeting evaluates rules in a top-down order. A User may fall into multiple targeting rules, however they will see the first Variation that they match for the given Environment. 
 
 This situation allows you to group specific users into seeing a Variation, for example:
 1. Meet our user Victor, he lives in Canada and has a @devcycle.com email address. We do not want him, or other @devcycle.com users, to see our Secret Getaway Feature.
 2. Victor has a neighbor, John that doesn’t have a @devcycle.com email address. We want all our other Canadian users to see our Secret Getaway Feature.
 3. Victor also has several friends that live in Norway, and we want to show all our users in Norway the Secret Getaway Feature.
 
-In this situation, here’s how we can setup our Audiences for the Secret Getaway Feature.
+In this situation, here’s how we can setup our Targeting Rule for the Secret Getaway Feature.
 
-First, we define our first Audience that will target Users in Canada with email addresses containing @devcycle.com to NOT see the Secret Getaway Feature.
+First, we define our first Targeting Rule that will target Users in Canada with email addresses containing @devcycle.com to NOT see the Secret Getaway Feature.
 
 ![DevCycle Targeting Rule on a Feature Specifying Country](/march-2022-devcycle_canada.png)
 
-Then we can add a second Audience by clicking the “Add Targeting Rule” button.
+Then we can add a second Targeting Rule by clicking the “Add Targeting Rule” button.
 
 ![Multiple DevCycle Targeting Rules on a Feature, second one empty](/march-2022-add_targeting_rule.png)
 
 Lastly, we want to make sure that other Users in Canada (i.e. those without @devcycle.com emails) and all Users in Norway DO see the Secret Getaway Feature.
 
 ![Multiple DevCycle Targeting Rules on a Feature Specifying different variations served for different rules](/march-2022-users_canad_norway.png)
+
+The above will then satisfy the requirements of the defined situation.
+
+#### Order of Targeting Rules with Schedules or Rollouts
+
+As described above, there are many various elements which can go into a targeting rule. 
+
+Regardless of all of the various additions to a targeting rule such as random distributions, schedules, or rollouts, if a user matches the **definition**, they will remain in that target and not be considered for targets later in the order.
+
+For example, a set of Targeting Rules which has a schedule, as well as a later Target.
+
+![Targeting rule with a schedule and one after](/april-2022-target-order-schedule.png)
+
+There is a *schedule* to the first target, so that this target will not serve any variation until the schedule has been reached. 
+
+The address of vic@devcycle.com will **still remain in this target** even though it is not scheduled to serve the variation yet. 
+
+This is due to the fact that the target has been defined to *serve victor this variation *when this time comes*.
+
+No targets below this one would impact this user in any way.
+
+Additionally, if there is a *rollout* and a variation is being rolled out to a set of users, 
+and the user qualifies for a target but still has *not received the rollout,* 
+the user will *still* not receive a later target.
+
+### Reordering Targeting Rules
+
+Often times during development, developers might want to create specific targeting rules which target themselves as they work on a feature. Or, a larger feature with many personalized variations could have a lot of targeting rules. 
+
+Sometimes, you want to make sure a user doesn't get caught up in an earlier defined targeting rule. Or, you would like to add a new variation to served to a specific target. 
+
+In these cases, you can very simply reorder any Targeting Rule by clicking the arrows on the side of the rule, moving it up or down. 
+
+Saving this Feature will then cause the next evaluation of a variable for all users to respect the new targeting order (after the config has been updated for client-side SDKs).
+
+![targeting reorder](/april-2022-targeting-reorder.png)
