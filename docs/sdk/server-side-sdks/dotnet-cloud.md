@@ -1,11 +1,11 @@
 ---
-title: Dotnet / C# SDK
+title: .NET SDK for Cloud Bucketing
 sidebar_position: 7
 ---
 
-# DevCycle Dotnet / C# SDK
+# DevCycle .NET / C# SDK
 
-Welcome to the DevCycle Dotnet Server SDK, which interfaces with the [DevCycle Bucketing API](https://docs.devcycle.com/bucketing-api/#tag/devcycle). 
+Welcome to the DevCycle .NET Server SDK, which interfaces with the [DevCycle Bucketing API](https://docs.devcycle.com/bucketing-api/#tag/devcycle). All requests are sent to DevCycle servers to ensure the User is bucketed correctly and will receive the correct variation.
 
 ## Requirements 
 
@@ -22,7 +22,7 @@ Welcome to the DevCycle Dotnet Server SDK, which interfaces with the [DevCycle B
 - Newtonsoft.Json >=13.0.1
 
 ## Installation
-Download the SDK from Nuget - https://nuget.info/packages/DevCycle/1.0.0
+Download the SDK from Nuget - https://nuget.info/packages/DevCycle.DotNet.Server.SDK/1.0.2
 and use the namespaces:
 ```csharp
 using DevCycle.Api;
@@ -34,7 +34,7 @@ using DevCycle.Model;
 
 To start, initialize a client using the API key. 
 
-```csharp
+```c
 using System;
 using System.Diagnostics;
 using DevCycle.Api;
@@ -59,16 +59,16 @@ namespace Example
 ### User Object
 The user object is required for all methods. The only required field in the user object is userId
 
-See the User class in [Dotnet User model doc](https://github.com/DevCycleHQ/dotnet-server-sdk/blob/main/docs/User.md) for all accepted fields.
+See the User class in [.NET User model doc](https://github.com/DevCycleHQ/dotnet-server-sdk/blob/main/docs/User.md) for all accepted fields.
 
-```csharp
+```c
 User user = new User("a_user_id");
 ```
 
 ### Getting All Features
 This method will fetch all features for a given user and return them as Dictionary<String, Feature>
 
-```csharp
+```c
 using System;
 using System.Diagnostics;
 using DevCycle.Api;
@@ -104,7 +104,7 @@ To get values from your Variables, the `value` field inside the variable object 
 
 This method will fetch all variables for a given user and returned as Dictionary&lt;String, Feature&gt;
 
-```csharp
+```c
 using System;
 using System.Diagnostics;
 using DevCycle.Api;
@@ -141,7 +141,7 @@ To get values from your Variables, the `value` field inside the variable object 
 This method will fetch a specific variable by key for a given user. It will return the variable
 object from the server unless an error occurs or the server has no response. In that case it will return a variable object with the value set to whatever was passed in as the `defaultValue` parameter.
 
-```csharp
+```c
 using System;
 using System.Diagnostics;
 using DevCycle.Api;
@@ -176,7 +176,7 @@ namespace Example
 ### Track Event
 To POST custom event for a user, pass in the user and event object.
 
-```csharp
+```c
 using System;
 using System.Diagnostics;
 using DevCycle.Api;

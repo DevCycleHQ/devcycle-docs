@@ -127,7 +127,7 @@ try {
 }
 ```
 
-### **Dotnet / C# SDK**
+### **.NET / C# SDK**
 
 This method will fetch all features for a given user and return them as Dictionary<String, Feature>
 

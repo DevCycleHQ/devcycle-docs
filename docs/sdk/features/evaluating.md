@@ -196,7 +196,7 @@ try {
 }
 ```
 
-### **Dotnet / C# SDK**
+### **.NET / C# SDK**
 
 This method will fetch a specific variable by key for a given user. It will return the variable
 object from the server unless an error occurs or the server has no response. In that case it will return a variable object with the value set to whatever was passed in as the `defaultValue` parameter.
