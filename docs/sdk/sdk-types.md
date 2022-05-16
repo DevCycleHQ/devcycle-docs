@@ -34,4 +34,4 @@ The current Server-Side SDKs are:
 * **[DevCycle Ruby SDK](/docs/sdk/server-side-sdks/ruby)**
 * **[DevCycle Java SDK](/docs/sdk/server-side-sdks/java)**
 * **[DevCycle .NET SDK (Cloud Bucketing)](/docs/sdk/server-side-sdks/dotnet-cloud)**
-* **[DevCycle .NET SDK (Cloud Bucketing)](/docs/sdk/server-side-sdks/dotnet-local)**
+* **[DevCycle .NET SDK (Local Bucketing)](/docs/sdk/server-side-sdks/dotnet-local)**
