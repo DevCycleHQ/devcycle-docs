@@ -91,11 +91,11 @@ Experiments can be used to send users down various paths or provide different fu
 When a Feature is created with this type, the following will be pre-set in the Feature:
 
 * A Boolean Variable will be created with same key as feature. This can be considered your base "toggle" or "flag".
-* There will be **Three** Variations: Variation A, Variation B, and Baseline. Use baseline to represent your applications DEFAULT behavior so it may be compared against the other variations.
-* The Boolean variable will have Variation A and Variation B set to false and true, respectively, with Baseline being false. 
+* There will be **Three** Variations: Variation A, Variation B, and Control. Use Control to represent your applications DEFAULT behavior so it may be compared against the other variations.
+* The Boolean variable will have Variation A and Variation B set to false and true, respectively, with Control being false. 
 * Development Environments will automatically target ALL users. Audience name will be called "Testing group."
 * Development Environments will be enabled immediately.
-* Distribution will be set to 33/33/33 between Variations A, Variation B, and Baseline
+* Distribution will be set to 33/33/33 between Variations A, Variation B, and Control
 * Production and Staging Environments will not be enabled and will not have a default rule. 
 
 ### Permission
