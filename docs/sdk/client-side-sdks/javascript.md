@@ -118,7 +118,7 @@ client.identifyUser(user, (err, variables) => {
 
 ### Resetting User
 
-To reset the user into an anonymous user, `resetUser` will reset to the anonymous user created before or will create one with an anonymous `user_id`.
+To reset the user's identity, call `resetUser`. This will create a new anonymous user with a randomized `user_id`.
 
 ```js
 client.resetUser()

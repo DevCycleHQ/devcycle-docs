@@ -13,6 +13,12 @@ At the moment, DevCycle for React Native utilizes the [DevCycle React SDK](docs/
 
 :::
 
+:::info
+
+Currently, DevCycle for React Native only supports access via functional component hooks.
+
+:::
+
 The SDK is available as a package on npm. It is also open source and can be viewed on Github.
 
 [![Npm package version](https://badgen.net/npm/v/@devcycle/devcycle-react-sdk)](https://www.npmjs.com/package/@devcycle/devcycle-react-sdk)
@@ -39,7 +45,7 @@ npx pod-install
 The [react-native-get-random-values](https://www.npmjs.com/package/react-native-get-random-values) package provides a polyfill for cryptographic functionality used to generate random IDs.
 The [react-native-device-info](https://www.npmjs.com/package/react-native-device-info) package provides information about the current device running the SDK, which is required to correctly apply targeting rules.
 
-3. Import the `react-native-get-random-values` package somewhere in your code (e.g. in the `App.js` file). (see example below)
+3. Import the `react-native-get-random-values` package somewhere in your code (e.g. in the `App.jsx` file). (see example below)
 4. Import the `react-native-device-info` package and set `global.DeviceInfo = DeviceInfo`. (see example below)
 
 Example of the above steps:
@@ -51,7 +57,7 @@ import { withDVCProvider } from '@devcycle/devcycle-react-sdk'
 global.DeviceInfo = DeviceInfo
 ```
 
-5. Wrap your application component tree in either the `withDVCProvider` or `asyncWithDVCProvider` HOC, as explained in the [Getting Started](#getting-started) section.
+5. Wrap your application component tree in either the `withDVCProvider` or `asyncWithDVCProvider` higher-order component (HOC), as explained in the [Getting Started](#getting-started) section.
 
 Pass in the option `reactNative: true` to the HOC to tell the SDK to run in React Native mode.
 
@@ -65,7 +71,7 @@ export default withDVCProvider(
 })(App)
 ```
 
-A complete working example of an `App.ts` file is below:
+A complete working example of an `App.jsx` file is below:
 ```jsx
 import { View, Text } from "react-native";
 
@@ -147,33 +153,33 @@ import { asyncWithDVCProvider } from '@devcycle/devcycle-react-sdk'
 
 ### Getting a Variable
 
-The SDK provides two hooks to access your DevCycle values:
-* useVariable
-* useDVCClient
+The SDK provides a hook to access your DevCycle variables:
 
-### useVariable
+#### useVariableValue
 Use this hook to access the value of your DevCycle variables inside your components.
-It takes in your variable key as well as a default value and returns a DVCVariable object.
+It takes in your variable key as well as a default value and returns the value of the variable.
+
+The hook will return the default value if the SDK has not yet finished initializing.
 
 ```js
-import { useVariable } from '@devcycle/devcycle-react-sdk'
+import { useVariableValue } from '@devcycle/devcycle-react-sdk'
 
 const DVCFeaturePage = () => {
     const variableKey = 'my-feature'
     const defaultValue = 'false'
-    const featureVariable = useVariable(variableKey, defaultValue)
+    const featureVariable = useVariableValue(variableKey, defaultValue)
 
     return (
         <div>
-        { featureVariable?.value ? <div>Variable on!</div> : <div>Variable off</div> }
+        { featureVariable ? <div>Variable on!</div> : <div>Variable off</div> }
         </div>
     )
 }
 ```
 
-### UseDVCClient
-Use this hook to access the DevCycle client. This allows you to call any of the methods provided by the DevCycle JavaScript SDK.
-To learn more, visit the DevCycle JS SDK docs.
+### useDVCClient
+Use this hook to access the DevCycle client. This allows you identify users, track events, and directly access 
+variables:
 
 ```js
 import { useDVCClient } from '@devcycle/devcycle-react-sdk'
@@ -196,4 +202,98 @@ const DVCFeaturePage = () => {
     </>
     )
 }
+```
+
+### Identifying Users
+
+To change the identity of the user, or to add more properties to the same user passed into the DVC provider component, pass in the entire user properties object into `identifyUser`:
+
+```js
+const user = {
+    user_id: 'user1',
+    name: 'user 1 name',
+    customData: {
+        customKey: 'customValue'
+    }
+}
+client.identifyUser(user)
+```
+
+The client object can be obtained from the [useDVCClient](#useDVCClient) hook.
+
+To wait on Variables that will be returned from the `identify` call, you can pass in a callback or use the Promise returned if no callback is passed in:
+
+```js
+const variableSet = await client.identifyUser(user)
+
+// OR
+
+client.identifyUser(user, (err, variables) => {
+    // variables is the variable set for the identified user
+})
+```
+
+### Resetting User
+
+To reset the user's identity, call `resetUser`. This will create a new anonymous user with a randomized `user_id`.
+
+```js
+client.resetUser()
+```
+
+The client object can be obtained from the [useDVCClient](#useDVCClient) hook.
+
+
+To wait on the Features of the anonymous user, you can pass in a callback or use the Promise returned if no callback is passed in:
+
+```js
+const variableSet = await client.resetUser()
+
+// OR
+
+client.resetUser((err, variables) => {
+    // variables is the variable set for the anonymous user
+})
+```
+
+### Getting All Features / Variables
+
+To grab all the Features or Variables that have been enabled for this user:
+
+```js
+const features = client.allFeatures()
+const variables = client.allVariables()
+```
+
+The client object can be obtained from the [useDVCClient](#useDVCClient) hook.
+
+If the SDK has not finished initializing, these methods will return an empty object.
+
+### Track Events
+Events can be tracked by calling the `track` method provided by the client object, which you can access with the 
+[useDVCClient](#useDVCClient) hook. The track method takes an event type as well as other optional fields.
+
+```js
+const event = {
+    type: 'my_event_type', // this is required
+    date: new Date(),
+    target: 'my_target',
+    value: 5,
+    metaData: {
+        key: 'value'
+    }
+}
+client.track(event)
+```
+
+The SDK will flush events every 10s or `flushEventsMS` specified in the Provider options. To manually flush events, call:
+
+```js
+await client.flushEvents()
+
+// or 
+
+client.flushEvents(() => {
+    // called back after flushed events
+})
 ```
