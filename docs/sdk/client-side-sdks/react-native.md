@@ -1,9 +1,9 @@
 ---
-title: DevCycle for React Native
+title: React Native
 sidebar_position: 5
 ---
 
-# DevCycle for React Native
+# DevCycle React Native
 
 The DevCycle React SDK lets you easily integrate your React Native web applications with DevCycle. 
 
@@ -13,19 +13,42 @@ At the moment, DevCycle for React Native utilizes the [DevCycle React SDK](docs/
 
 :::
 
+:::info
+
+Currently, DevCycle for React Native only supports access via functional component hooks.
+
+:::
+
+The SDK is available as a package on npm. It is also open source and can be viewed on Github.
+
+[![Npm package version](https://badgen.net/npm/v/@devcycle/devcycle-react-sdk)](https://www.npmjs.com/package/@devcycle/devcycle-react-sdk)
+[![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)
+
 ## Requirements: 
 
-This SDK is compatible with React versions 16.8.0 and above.
+This SDK is compatible with _React_ versions 16.8.0 and above.
 
 
 ## Installation
 
-1. Import the [react-native-get-random-values](https://www.npmjs.com/package/react-native-get-random-values) package to make sure Unique Ids can be generated. This library works as a polyfill for the global crypto.getRandomValues.
+1. First install the [DevCycle React SDK](/docs/sdk/client-side-sdks/react)
+```shell
+npm install --save @devcycle/devcycle-react-sdk
+```
+2. Add the following packages that are required for React Native functionality as dependencies of your project:
+```shell
+npm install --save react-native-get-random-values
+npm install --save react-native-device-info
+npx pod-install
+```
 
-2. Import the [react-native-device-info](https://www.npmjs.com/package/react-native-device-info) package and set `global.DeviceInfo = DeviceInfo`.
+The [react-native-get-random-values](https://www.npmjs.com/package/react-native-get-random-values) package provides a polyfill for cryptographic functionality used to generate random IDs.
+The [react-native-device-info](https://www.npmjs.com/package/react-native-device-info) package provides information about the current device running the SDK, which is required to correctly apply targeting rules.
 
-3. Install and Initialize the [DevCycle React SDK](/docs/sdk/client-side-sdks/react) and follow the steps on that page.
+3. Import the `react-native-get-random-values` package somewhere in your code (e.g. in the `App.jsx` file). (see example below)
+4. Import the `react-native-device-info` package and set `global.DeviceInfo = DeviceInfo`. (see example below)
 
+Example of the above steps:
 ```javascript
 import 'react-native-get-random-values'
 import DeviceInfo from 'react-native-device-info'
@@ -34,7 +57,9 @@ import { withDVCProvider } from '@devcycle/devcycle-react-sdk'
 global.DeviceInfo = DeviceInfo
 ```
 
-3. Pass in the option `reactNative: true` to the withDVCProvider or asyncWithDVCProvider function. 
+5. Wrap your application component tree in either the `withDVCProvider` or `asyncWithDVCProvider` higher-order component (HOC), as explained in the [Getting Started](#getting-started) section.
+
+Pass in the option `reactNative: true` to the HOC to tell the SDK to run in React Native mode.
 
 ```jsx
 export default withDVCProvider(
@@ -46,6 +71,229 @@ export default withDVCProvider(
 })(App)
 ```
 
+A complete working example of an `App.jsx` file is below:
+```jsx
+import { View, Text } from "react-native";
+
+
+import 'react-native-get-random-values'
+import DeviceInfo from 'react-native-device-info'
+import { withDVCProvider } from '@devcycle/devcycle-react-sdk'
+
+global.DeviceInfo = DeviceInfo
+function App() {
+  return (
+    <View
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <Text>Universal React with Expo</Text>
+    </View>
+  );
+}
+
+export default withDVCProvider(
+{
+    envKey: 'client-xxxxxxxxxxxxxxxxxxx,
+    options: {
+        reactNative: true
+    }
+})(App)
+```
+
 ## Getting Started
 
-Please refer to the [DevCycle React SDK](/docs/sdk/client-side-sdks/react) documentation.
+There are two ways to initialize the SDK:
+* Non-Blocking: This loads your application and makes a request to initialize the SDK in the background. Once this request is complete,
+  your application will be ready to use the SDK.
+* Blocking: This allows you to delay the rendering of your application until the request to initialize the SDK is completed.
+
+To use these providers, you must grab the Environment Key from the DevCycle Dashboard.
+You can optionally pass in a user object to the provider to initialize the SDK.
+If you do not pass in a user to the provider, it will create an anonymous user and initialize the SDK with it.
+You can then call the `identifyUser` method on the client once the user has been authenticated.
+See [Identifying Users & Setting Properties](/docs/sdk/features/identify) for more details.
+
+### Non-Blocking
+
+The withDVCProvider function initializes the React SDK and wraps your root component. This provider may cause your app
+to flicker when it is first rendered, as it is waiting for the SDK to initialize.
+
+```js
+import { withDVCProvider } from '@devcycle/devcycle-react-sdk'
+```
+```js
+export default withDVCProvider({ envKey: 'ENV_KEY' })(App)
+```
+
+### Blocking
+
+The asyncWithDVCProvider function is similar to the withDVCProvider function, but allows you to block rendering of your application
+until SDK initialization is complete. This ensures your app does not flicker due to value changes.
+
+```js
+import { asyncWithDVCProvider } from '@devcycle/devcycle-react-sdk'
+```
+```js
+(async () => {
+    const DVCProvider = await asyncWithDVCProvider({ envKey: 'ENV_KEY' })
+
+    ReactDOM.render(
+        <DVCProvider>
+            <App />
+        </DVCProvider>
+    )
+})();
+```
+
+## Usage
+
+### Getting a Variable
+
+The SDK provides a hook to access your DevCycle variables:
+
+#### useVariableValue
+Use this hook to access the value of your DevCycle variables inside your components.
+It takes in your variable key as well as a default value and returns the value of the variable.
+
+The hook will return the default value if the SDK has not yet finished initializing.
+
+```js
+import { useVariableValue } from '@devcycle/devcycle-react-sdk'
+
+const DVCFeaturePage = () => {
+    const variableKey = 'my-feature'
+    const defaultValue = 'false'
+    const featureVariable = useVariableValue(variableKey, defaultValue)
+
+    return (
+        <div>
+        { featureVariable ? <div>Variable on!</div> : <div>Variable off</div> }
+        </div>
+    )
+}
+```
+
+### useDVCClient
+Use this hook to access the DevCycle client. This allows you identify users, track events, and directly access 
+variables:
+
+```js
+import { useDVCClient } from '@devcycle/devcycle-react-sdk'
+
+const DVCFeaturePage = () => {
+    const newUser = {
+      user_id: 'new_user_id'
+    }
+    const client = useDVCClient()
+
+   const identifyUser = () => {
+      client.identifyUser(newUser)
+        .then((variables) => console.log('Updated Variables:', variables))
+    }
+
+
+    return (
+    <>
+      <button onClick={() => identifyUser()}>Identify new user</button>
+    </>
+    )
+}
+```
+
+### Identifying Users
+
+To change the identity of the user, or to add more properties to the same user passed into the DVC provider component, pass in the entire user properties object into `identifyUser`:
+
+```js
+const user = {
+    user_id: 'user1',
+    name: 'user 1 name',
+    customData: {
+        customKey: 'customValue'
+    }
+}
+client.identifyUser(user)
+```
+
+The client object can be obtained from the [useDVCClient](#useDVCClient) hook.
+
+To wait on Variables that will be returned from the `identify` call, you can pass in a callback or use the Promise returned if no callback is passed in:
+
+```js
+const variableSet = await client.identifyUser(user)
+
+// OR
+
+client.identifyUser(user, (err, variables) => {
+    // variables is the variable set for the identified user
+})
+```
+
+### Resetting User
+
+To reset the user's identity, call `resetUser`. This will create a new anonymous user with a randomized `user_id`.
+
+```js
+client.resetUser()
+```
+
+The client object can be obtained from the [useDVCClient](#useDVCClient) hook.
+
+
+To wait on the Features of the anonymous user, you can pass in a callback or use the Promise returned if no callback is passed in:
+
+```js
+const variableSet = await client.resetUser()
+
+// OR
+
+client.resetUser((err, variables) => {
+    // variables is the variable set for the anonymous user
+})
+```
+
+### Getting All Features / Variables
+
+To grab all the Features or Variables that have been enabled for this user:
+
+```js
+const features = client.allFeatures()
+const variables = client.allVariables()
+```
+
+The client object can be obtained from the [useDVCClient](#useDVCClient) hook.
+
+If the SDK has not finished initializing, these methods will return an empty object.
+
+### Track Events
+Events can be tracked by calling the `track` method provided by the client object, which you can access with the 
+[useDVCClient](#useDVCClient) hook. The track method takes an event type as well as other optional fields.
+
+```js
+const event = {
+    type: 'my_event_type', // this is required
+    date: new Date(),
+    target: 'my_target',
+    value: 5,
+    metaData: {
+        key: 'value'
+    }
+}
+client.track(event)
+```
+
+The SDK will flush events every 10s or `flushEventsMS` specified in the Provider options. To manually flush events, call:
+
+```js
+await client.flushEvents()
+
+// or 
+
+client.flushEvents(() => {
+    // called back after flushed events
+})
+```

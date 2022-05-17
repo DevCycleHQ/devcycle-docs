@@ -18,7 +18,7 @@ and will periodically poll the CDN for configuration changes.
 Our library can be found on npm and installed by the following:
 
 ```
-npm install @devcycle/nodejs-server-sdk
+npm install --save @devcycle/nodejs-server-sdk
 ```
 
 ## Getting Started
