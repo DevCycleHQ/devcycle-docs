@@ -15,7 +15,7 @@ The SDK will download the latest version of your DevCycle environments configura
 Our library can be found on npm and installed by the following:
 
 ```bash
-npm install @devcycle/devcycle-js-sdk
+npm install --save @devcycle/devcycle-js-sdk
 ```
 
 To use in your project, import the `initialize` function:

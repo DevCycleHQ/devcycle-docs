@@ -20,7 +20,7 @@ The DevCycle-react-sdk is available on [npm](https://www.npmjs.com/package/@devc
 To install the SDK, run the following command:
 
 ```bash
-npm install @devcycle/devcycle-react-sdk
+npm install --save @devcycle/devcycle-react-sdk
 ```
 or
 
