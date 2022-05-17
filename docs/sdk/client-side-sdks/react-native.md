@@ -20,13 +20,16 @@ This SDK is compatible with React versions 16.8.0 and above.
 
 ## Installation
 
-1. Install and Initialize the [DevCycle React SDK](/docs/sdk/client-side-sdks/react) and follow the steps on that page.
+1. Import the [react-native-get-random-values](https://www.npmjs.com/package/react-native-get-random-values) package to make sure Unique Ids can be generated. This library works as a polyfill for the global crypto.getRandomValues.
 
 2. Import the [react-native-device-info](https://www.npmjs.com/package/react-native-device-info) package and set `global.DeviceInfo = DeviceInfo`.
 
+3. Install and Initialize the [DevCycle React SDK](/docs/sdk/client-side-sdks/react) and follow the steps on that page.
+
 ```javascript
-import { withDVCProvider } from '@devcycle/devcycle-react-sdk'
+import 'react-native-get-random-values'
 import DeviceInfo from 'react-native-device-info'
+import { withDVCProvider } from '@devcycle/devcycle-react-sdk'
 
 global.DeviceInfo = DeviceInfo
 ```
