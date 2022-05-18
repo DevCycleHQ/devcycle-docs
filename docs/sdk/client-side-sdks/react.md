@@ -9,7 +9,7 @@ The DevCycle React SDK lets you easily integrate your React web applications wit
 
 :::info
 
-Currently, DevCycle for React Native only supports access via functional component hooks.
+Currently, DevCycle for React only supports access via functional component hooks.
 
 :::
 
