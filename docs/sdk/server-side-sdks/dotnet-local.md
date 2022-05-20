@@ -5,9 +5,12 @@ sidebar_position: 8
 
 # DevCycle .NET / C# SDK
 
-Welcome to the DevCycle .NET Server SDK, which requests the bucketing config from DevCycle servers on DVCClient initialization.
+Welcome to the DevCycle .NET Server SDK, which requests the bucketing config from DevCycle servers on DVCLocalClient initialization.
+Periodic calls are made to the config CDN to retrieve the latest config, but no userdata is used outside of the application.
+
 All calls to the client will then perform local bucketing to determine if a user receives a specific variation.
-Events are queued and flushed periodically in the background.
+Events are queued and flushed periodically in the background to the events api including the user body.
+
 This version uses [.NET Standard 2.1](https://docs.microsoft.com/en-us/dotnet/standard/net-standard?tabs=net-standard-2-1) and utilizes more resources to perform local bucketing.
 
 ### Frameworks supported
@@ -31,21 +34,17 @@ This version uses [.NET Standard 2.1](https://docs.microsoft.com/en-us/dotnet/st
 
 
 ## Installation
-Download the SDK from Nuget - https://nuget.info/packages/DevCycle.DotNet.Server.Local.SDK/1.0.2
+Download the SDK from Nuget - https://nuget.info/packages/DevCycle.SDK.Server.Local/
 and use the namespaces:
 ```csharp
-using DevCycle.Api;
-using DevCycle.Client;
-using DevCycle.Model;
+using DevCycle.SDK.Server.Local.Api;
 ```
 ## Getting Started
 
-```c
+```csharp
 using System;
 using System.Diagnostics;
-using DevCycle.Api;
-using DevCycle.Client;
-using DevCycle.Model;
+using DevCycle.SDK.Server.Local.Api;
 
 namespace Example
 {
@@ -53,8 +52,8 @@ namespace Example
     {
         static Main(string[] args)
         {
-            DVCClientBuilder apiBuilder = new DVCClientBuilder();
-            using DVCClient api = apiBuilder.SetEnvironmentKey("INSERT_SDK_KEY")
+            DVCLocalClientBuilder apiBuilder = new DVCLocalClientBuilder();
+            using DVCLocalClient api = apiBuilder.SetEnvironmentKey("INSERT_SDK_KEY")
                       .Build();
         }
     }
@@ -68,7 +67,7 @@ The user object is required for all methods. The only required field in the user
 
 See the User class in [.NET User model doc](https://github.com/DevCycleHQ/dotnet-server-sdk/blob/main/docs/User.md) for all accepted fields.
 
-```c
+```csharp
 User user = new User("a_user_id");
 ```
 
@@ -76,27 +75,27 @@ User user = new User("a_user_id");
 This method will fetch all features for a given user and return them as Dictionary<String, Feature>
 
 
-```c
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using DevCycle.Api;
-using DevCycle.Model;
+using DevCycle.SDK.Server.Local.Api;
+using DevCycle.SDK.Server.Common;
 using Microsoft.Extensions.Logging;
 
 namespace Example
 {
     public class AllFeaturesExample
     {
-        private static DVCClient api;
+        private static DVCLocalClient api;
         
         static async Task Main(string[] args)
         {
             var user = new User("test");
 
-            DVCClientBuilder apiBuilder = new DVCClientBuilder();
-            api = apiBuilder.SetEnvironmentKey("INSERT_SDK_KEY")
-                .SetOptions(new DVCOptions(1000, 5000))
+            DVCLocalClientBuilder apiBuilder = new DVCLocalClientBuilder();
+            api = ((DVCLocalClientBuilder)apiBuilder.SetEnvironmentKey("INSERT_SDK_KEY")
+                .SetOptions(new DVCOptions(1000, 5000)))
                 .SetInitializedSubscriber((o, e) =>
                 {
                     if (e.Success)
@@ -140,27 +139,27 @@ To get values from your Variables, the `Value` field inside the variable object 
 
 This method will fetch all variables for a given user and returned as Dictionary&lt;String, Variable&gt;
 
-```c
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using DevCycle.Api;
-using DevCycle.Model;
+using DevCycle.SDK.Server.Local.Api;
+using DevCycle.SDK.Server.Common;
 using Microsoft.Extensions.Logging;
 
 namespace Example
 {
     public class AllVariablesExample
     {
-        private static DVCClient api;
+        private static DVCLocalClient api;
         
         static async Task Main(string[] args)
         {
             var user = new User("test");
 
-            DVCClientBuilder apiBuilder = new DVCClientBuilder();
-            api = apiBuilder.SetEnvironmentKey("INSERT_SDK_KEY")
-                .SetOptions(new DVCOptions(1000, 5000))
+            DVCLocalClientBuilder apiBuilder = new DVCLocalClientBuilder();
+            api = ((DVCLocalClientBuilder)apiBuilder.SetEnvironmentKey("INSERT_SDK_KEY")
+                .SetOptions(new DVCOptions(1000, 5000)))
                 .SetInitializedSubscriber((o, e) =>
                 {
                     if (e.Success)
@@ -205,27 +204,27 @@ To get values from your Variables, the `Value` field inside the variable object 
 This method will fetch a specific variable by key for a given user. It will return the variable
 object from the server unless an error occurs or the server has no response. In that case it will return a variable object with the value set to whatever was passed in as the `defaultValue` parameter.
 
-```c
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using DevCycle.Api;
-using DevCycle.Model;
+using DevCycle.SDK.Server.Local.Api;
+using DevCycle.SDK.Server.Common;
 using Microsoft.Extensions.Logging;
 
 namespace Example
 {
     public class VariableByKeyExample
     {
-        private static DVCClient api;
+        private static DVCLocalClient api;
         
         static async Task Main(string[] args)
         {
             var user = new User("test");
 
-            DVCClientBuilder apiBuilder = new DVCClientBuilder();
-            api = apiBuilder.SetEnvironmentKey("INSERT_SDK_KEY")
-                .SetOptions(new DVCOptions(1000, 5000))
+            DVCLocalClientBuilder apiBuilder = new DVCLocalClientBuilder();
+            api = ((DVCLocalClientBuilder)apiBuilder.SetEnvironmentKey("INSERT_SDK_KEY")
+                .SetOptions(new DVCOptions(1000, 5000)))
                 .SetInitializedSubscriber((o, e) =>
                 {
                     if (e.Success)
@@ -254,7 +253,7 @@ namespace Example
         {
             string key = "my-bool-variable";
             bool defaultValue = true;
-        
+
             Variable<bool> boolVariable = api.Variable(user, key, defaultValue);
 
             Console.WriteLine(boolVariable);
@@ -268,26 +267,26 @@ To POST custom event for a user, pass in the user and event object.
 
 Calling Track will queue the event, which will be sent in batches to the DevCycle servers.
 
-```c
+```csharp
 using System;
 using System.Threading.Tasks;
-using DevCycle.Api;
-using DevCycle.Model;
+using DevCycle.SDK.Server.Local.Api;
+using DevCycle.SDK.Server.Common;
 using Microsoft.Extensions.Logging;
 
 namespace Example
 {
     class Program
     {
-        private static DVCClient api;
+        private static DVCLocalClient api;
         
         static async Task Main(string[] args)
         {
             var user = new User("test");
 
-            DVCClientBuilder apiBuilder = new DVCClientBuilder();
-            api = apiBuilder.SetEnvironmentKey("INSERT_SDK_KEY")
-                .SetOptions(new DVCOptions(1000, 5000))
+            DVCLocalClientBuilder apiBuilder = new DVCLocalClientBuilder();
+            api = ((DVCLocalClientBuilder)apiBuilder.SetEnvironmentKey("INSERT_SDK_KEY")
+                .SetOptions(new DVCOptions(1000, 5000)))
                 .SetInitializedSubscriber((o, e) =>
                 {
                     if (e.Success)
@@ -325,7 +324,7 @@ namespace Example
             }
             catch (Exception e)
             {
-                Console.WriteLine("Exception when calling DVCClient.Track: " + e.Message );
+                Console.WriteLine("Exception when calling DVCLocalClient.Track: " + e.Message );
             }
         }
     }
@@ -336,26 +335,26 @@ namespace Example
 
 Calling this method will immediately send all queued events to the DevCycle servers
 
-```c
+```csharp
 using System;
 using System.Threading.Tasks;
-using DevCycle.Api;
-using DevCycle.Model;
+using DevCycle.SDK.Server.Local.Api;
+using DevCycle.SDK.Server.Common;
 using Microsoft.Extensions.Logging;
 
 namespace Example
 {
     class Program
     {
-        private static DVCClient api;
+        private static DVCLocalClient api;
         
         static async Task Main(string[] args)
         {
             var user = new User("test");
 
-            DVCClientBuilder apiBuilder = new DVCClientBuilder();
-            api = apiBuilder.SetEnvironmentKey("INSERT_SDK_KEY")
-                .SetOptions(new DVCOptions(1000, 5000))
+            DVCLocalClientBuilder apiBuilder = new DVCLocalClientBuilder();
+            api = ((DVCLocalClientBuilder)apiBuilder.SetEnvironmentKey("INSERT_SDK_KEY")
+                .SetOptions(new DVCOptions(1000, 5000)))
                 .SetInitializedSubscriber((o, e) =>
                 {
                     if (e.Success)

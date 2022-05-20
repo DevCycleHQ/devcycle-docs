@@ -5,9 +5,10 @@ sidebar_position: 7
 
 # DevCycle .NET / C# SDK
 
-Welcome to the DevCycle .NET Server SDK, which interfaces with the [DevCycle Bucketing API](https://docs.devcycle.com/bucketing-api/#tag/devcycle). All requests are sent to DevCycle servers to ensure the User is bucketed correctly and will receive the correct variation.
+Welcome to the DevCycle .NET Server SDK, which interfaces with the [DevCycle Bucketing API](https://docs.devcycle.com/bucketing-api/#tag/devcycle).
+All requests, including user data are sent to DevCycle servers to ensure the User is bucketed correctly and will receive the correct variation.
 
-## Requirements 
+## Requirements
 
 ### Frameworks supported
 - .NET Core >=1.0
@@ -22,24 +23,23 @@ Welcome to the DevCycle .NET Server SDK, which interfaces with the [DevCycle Buc
 - Newtonsoft.Json >=13.0.1
 
 ## Installation
-Download the SDK from Nuget - https://nuget.info/packages/DevCycle.DotNet.Server.SDK/1.0.2
+Download the SDK from Nuget - https://www.nuget.org/packages/DevCycle.SDK.Server.Cloud/
 and use the namespaces:
+
 ```csharp
-using DevCycle.Api;
-using DevCycle.Model;
-using DevCycle.Model;
+using DevCycle.SDK.Server.Cloud.Api;
+using DevCycle.SDK.Server.Common.Model;
 ```
 
 ## Getting Started
 
 To start, initialize a client using the API key. 
 
-```c
+```csharp
 using System;
 using System.Diagnostics;
-using DevCycle.Api;
-using DevCycle.Client;
-using DevCycle.Model;
+using DevCycle.SDK.Server.Cloud.Api;
+
 
 namespace Example
 {
@@ -47,8 +47,10 @@ namespace Example
     {
         public void main()
         {
-            // Ensure REST Client resources are correctly disposed once no longer required
-            using DVCClient dvcClient = new DVCClient("YOUR_API_KEY");
+            // using ensures REST Client resources are correctly disposed once no longer required.
+            using DVCCloudClient dvcClient = (DVCCloudClient) new DVCCloudClientBuilder()
+                .SetEnvironmentKey("YOUR SDK KEY")
+                .Build();
         }
     }
 }
@@ -61,18 +63,18 @@ The user object is required for all methods. The only required field in the user
 
 See the User class in [.NET User model doc](https://github.com/DevCycleHQ/dotnet-server-sdk/blob/main/docs/User.md) for all accepted fields.
 
-```c
+```csharp
 User user = new User("a_user_id");
 ```
 
 ### Getting All Features
 This method will fetch all features for a given user and return them as Dictionary<String, Feature>
 
-```c
+```csharp
 using System;
 using System.Diagnostics;
-using DevCycle.Api;
-using DevCycle.Model;
+using DevCycle.SDK.Server.Cloud.Api;
+using DevCycle.SDK.Server.Common.Model;
 
 namespace Example
 {
@@ -80,9 +82,11 @@ namespace Example
     {
         public async Task main()
         {
-            // Ensure REST Client resources are correctly disposed once no longer required
-            using DVCClient dvcClient = new DVCClient("YOUR_API_KEY");
-            var user = new User("user_id"); 
+            // using ensures REST Client resources are correctly disposed once no longer required.
+            using DVCCloudClient dvcClient = (DVCCloudClient) new DVCCloudClientBuilder()
+                .SetEnvironmentKey("YOUR SDK KEY")
+                .Build();
+            var user = new User("user_id");
 
             try
             {
@@ -91,7 +95,7 @@ namespace Example
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling DVCClient.AllFeaturesAsync: " + e.Message );
+                Debug.Print("Exception when calling dvcClient.AllFeaturesAsync: " + e.Message );
             }
         }
     }
@@ -104,11 +108,11 @@ To get values from your Variables, the `value` field inside the variable object 
 
 This method will fetch all variables for a given user and returned as Dictionary&lt;String, Feature&gt;
 
-```c
+```csharp
 using System;
 using System.Diagnostics;
-using DevCycle.Api;
-using DevCycle.Model;
+using DevCycle.SDK.Server.Cloud.Api;
+using DevCycle.SDK.Server.Common.Model;
 
 namespace Example
 {
@@ -117,17 +121,24 @@ namespace Example
         public void main()
         {
             // Ensure REST Client resources are correctly disposed once no longer required
-            using DVCClient dvcClient = new DVCClient("YOUR_API_KEY");
+            using DVCCloudClient dvcClient = (DVCCloudClient) new DVCCloudClientBuilder()
+                .SetEnvironmentKey("YOUR SDK KEY")
+                .Build();
             var user = new User("user_id"); 
 
             try
             {
-                Dictionary<string, Variable> result = await dvcClient.AllVariablesAsync(user);
-                Debug.WriteLine(result);
+                Dictionary<string, IVariable> result = await dvcClient.AllVariablesAsync(user);
+
+                foreach (var keyValuePair in result)
+                {
+                    // Casting to use the cloud specific variable features.
+                    Debug.WriteLine($"{keyValuePair.Key} : {(Variable)keyValuePair.Value}");
+                }
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling DVCClient.AllVariablesAsync: " + e.Message );
+                Debug.Print("Exception when calling dvcClient.AllVariablesAsync: " + e.Message );
             }
         }
     }
@@ -141,11 +152,12 @@ To get values from your Variables, the `value` field inside the variable object 
 This method will fetch a specific variable by key for a given user. It will return the variable
 object from the server unless an error occurs or the server has no response. In that case it will return a variable object with the value set to whatever was passed in as the `defaultValue` parameter.
 
-```c
+```csharp
 using System;
 using System.Diagnostics;
-using DevCycle.Api;
-using DevCycle.Model;
+using DevCycle.SDK.Server.Cloud.Api;
+using DevCycle.SDK.Server.Common.Model;
+using DevCycle.SDK.Server.Common.Model.Cloud;
 
 namespace Example
 {
@@ -154,19 +166,22 @@ namespace Example
         public void main()
         {
             // Ensure REST Client resources are correctly disposed once no longer required
-            using DVCClient dvcClient = new DVCClient("YOUR_API_KEY");
-            var user = new User("user_id"); 
+            using DVCCloudClient dvcClient = (DVCCloudClient) new DVCCloudClientBuilder()
+                .SetEnvironmentKey("YOUR SDK KEY")
+                .Build();
+            var user = new User("user_id");
 
             try
             {
                 var key = "YOUR_KEY";
                 var defaultValue = true;
-                Variable result = await dvcClient.VariableAsync(user, key, defaultValue);
+                // Casting from IVariable to Variable to get the cloud specific features.
+                Variable result = (Variable) await dvcClient.VariableAsync(user, key, defaultValue);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling DVCClient.VariableAsync: " + e.Message );
+                Debug.Print("Exception when calling dvcClient.VariableAsync: " + e.Message );
             }
         }
     }
@@ -176,11 +191,11 @@ namespace Example
 ### Track Event
 To POST custom event for a user, pass in the user and event object.
 
-```c
+```csharp
 using System;
 using System.Diagnostics;
-using DevCycle.Api;
-using DevCycle.Model;
+using DevCycle.SDK.Server.Cloud.Api;
+using DevCycle.SDK.Server.Common.Model;
 
 namespace Example
 {
@@ -189,24 +204,25 @@ namespace Example
         public void main()
         {
             // Ensure REST Client resources are correctly disposed once no longer required
-            using DVCClient dvcClient = new DVCClient("YOUR_API_KEY");
+            using DVCCloudClient dvcClient = (DVCCloudClient) new DVCCloudClientBuilder()
+                .SetEnvironmentKey("YOUR SDK KEY")
+                .Build();
 
             DateTimeOffset now = DateTimeOffset.UtcNow;
             long unixTimeMilliseconds = now.ToUnixTimeMilliseconds();
             
             var user = new Users("user_id");
-            var events = new List<Event>();
-            events.Add(new Event("test event", "test target", unixTimeMilliseconds, 600));
-            var userAndEvents = new UserAndEvents(events, user); 
+            var event = new Event("test event", "test target", unixTimeMilliseconds, 600,  new Dictionary<string, object>(){{"key", "value"}});
+
 
             try
             {
-                DVCResponse result = await dvcClient.TrackAsync(userAndEvents);
+                DVCResponse result = await dvcClient.TrackAsync(user, event);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling DVCClient.GetFeaturesAsync: " + e.Message );
+                Debug.Print("Exception when calling dvcClient.GetFeaturesAsync: " + e.Message );
             }
         }
     }
