@@ -97,7 +97,7 @@ function App() {
 
 export default withDVCProvider(
 {
-    envKey: 'client-xxxxxxxxxxxxxxxxxxx,
+    envKey: 'client-xxxxxxxxxxxxxxxxxxx',
     options: {
         reactNative: true
     }
