@@ -73,6 +73,7 @@ export default withDVCProvider(
 
 A complete working example of an `App.jsx` file is below:
 ```jsx
+import React from 'react'
 import { View, Text } from "react-native";
 
 
