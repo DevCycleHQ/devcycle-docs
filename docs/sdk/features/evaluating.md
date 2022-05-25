@@ -29,7 +29,7 @@ If the value is not ready, it will return the default value passed in the creati
 
 ```js
 variable.onUpdate((value) => {
-    // value returned when the value of the variable changes
+    // value returned when a new config is retrieved due to .identify being called
 })
 ```
 

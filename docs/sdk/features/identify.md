@@ -17,6 +17,12 @@ If your application handles multiple users at once, simply call the Identify fun
 
 To reset a user completely, please view [Resetting a User](/docs/sdk/features/reset).
 
+:::info
+
+In some cases, you may be releasing a feature broadly and not to users, specifically. In these cases, you can use any string as the "user_id". A user is not expressly required, just an identifier. 
+
+:::
+
 
 ### Client-Side SDK Usage
 

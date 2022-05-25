@@ -159,7 +159,7 @@ If the value is not ready, it will return the default value passed in the creati
 
 ### Variable updates
 
-A callback can be registered to be notified when the value changes on a variable.
+A callback can be registered to be notified whenever "identify" is called, triggered a new config update.
 
 #### *Kotlin example:*
 
@@ -215,8 +215,9 @@ If the SDK has not finished initializing, these methods will return an empty Map
 
 ### Identifying User
 
-To identify a different user, or the same user passed into the initialize method with more attributes, 
-build a DVCUser object and pass it into `identifyUser`:
+To identify a different user, or the same user passed into the initialize method with more attributes, build a DVCUser object and pass it into `identifyUser`:
+
+Note: If you do not have a user ID, you can use any string at all.
 
 #### *Kotlin example:*
 
@@ -269,14 +270,14 @@ dvcClient.identifyUser(user, new DVCCallback<Map<String, Variable<Object>>>() {
     public void onError(@NonNull Throwable t) {
         // user configuration failed to load from DevCycle, existing user's data will persist.
     }
+})
 ```
 
 If `onError` is called the user's configuration will not be updated and previous user's data will persist.
 
 ### Reset User
 
-To reset the user into an anonymous user, `resetUser` will reset to the anonymous user created before 
-or will create one with an anonymous `user_id`.
+Calling `resetUser` will create a new user with an anonymous `user_id` and then identify as that user.
 
 ```kotlin
 dvcClient.resetUser()
@@ -319,13 +320,13 @@ If `onError` is called the user's configuration will not be updated and previous
 
 ### Tracking Events
 
-To track events, pass in an object with at least a `type` key:
+To send events to DevCycle for metrics purposes, build an event object and then call "track". Note that these events will be periodically queued to be flushed to the DevCycle servers.
 
 #### *Kotlin example:*
 
 ```kotlin
 var event = DVCEvent.builder()
-                .withType("custom_event_type")
+                .withType("custom_event_type") //Only Required
                 .withTarget("custom_event_target")
                 .withValue(BigDecimal(10.0))
                 .withMetaData(mapOf("custom_key" to "value"))
@@ -337,7 +338,7 @@ dvcClient.track(event)
 
 ```java
 DVCEvent event = DVCEvent.builder()
-        .withType("custom_event_type")
+        .withType("custom_event_type") //Only Required Field
         .withTarget("custom_event_target")
         .withValue(BigDecimal.valueOf(10.00))
         .withMetaData(Collections.singletonMap("test", "value"))
@@ -345,7 +346,11 @@ DVCEvent event = DVCEvent.builder()
 dvcClient.track(event);
 ```
 
-The SDK will flush events every 10s or `flushEventsMS` specified in the options. To manually flush events, call:
+The SDK will flush events every 10s or `flushEventsMS` specified in the options. 
+
+**Manually Flushing Events**
+
+To manually flush events, call:
 
 ```kotlin
 dvcClient.flushEvents()
