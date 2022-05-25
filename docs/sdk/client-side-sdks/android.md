@@ -18,7 +18,7 @@ This version of the DevCycle Android Client SDK supports a minimum Android API V
 The SDK can be installed into your Android project by adding the following to *build.gradle*:
 
 ```yaml
-implementation("com.devcycle:android-client-sdk:1.0.3")
+implementation("com.devcycle:android-client-sdk:1.0.4")
 ```
 
 ## Usage
@@ -49,7 +49,8 @@ override fun onCreate(savedInstanceState: Bundle?) {
     }
     
     ...
-
+    //NOTE: It is not recommended to hardcode SDK keys into your application.
+    //Consider storing keys securely and reading from secure storage.
 }
 ```
 
@@ -73,6 +74,8 @@ protected void onCreate(Bundle savedInstanceState) {
     
     ...
 }
+    //NOTE: It is not recommended to hardcode SDK keys into your application.
+    //Consider storing keys securely and reading from secure storage.
 ```
 
 ### Notifying when DevCycle features are available
