@@ -85,7 +85,7 @@ You can attach a callback on the client to determine when your features have bee
 #### Java
 
 ```
-client.onInitialized(new DVCCallback<String>() {
+dvcClient.onInitialized(new DVCCallback<String>() {
     @Override
     public void onSuccess(String result) {
         // user configuration loaded successfully from DevCycle
