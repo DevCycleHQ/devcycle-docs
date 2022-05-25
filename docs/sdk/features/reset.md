@@ -18,17 +18,17 @@ Currently, the Identify function is only available on Client-Side SDKs. These SD
 To reset the user into an anonymous user, `resetUser` will reset to the anonymous user created before or will create one with an anonymous `user_id`.
 
 ```js
-client.resetUser()
+dvcClient.resetUser()
 ```
 
 To wait on the Features of the anonymous user, you can pass in a callback or use the Promise returned if no callback is passed in:
 
 ```js
-const variableSet = await client.resetUser()
+const variableSet = await dvcClient.resetUser()
 
 // OR
 
-client.resetUser((err, variables) => {
+dvcClient.resetUser((err, variables) => {
     // variables is the variable set for the anonymous user
 })
 ```
@@ -43,13 +43,13 @@ To reset the user into an anonymous user, `resetUser` will reset to the anonymou
 or will create one with an anonymous `user_id`.
 
 ```swift
-client.resetUser()
+dvcClient.resetUser()
 ```
 
 To wait on the Features of the anonymous user, you can pass in a DVCCallback:
 
 ```swift
-try client.resetUser { error, variables in
+try dvcClient.resetUser { error, variables in
     // anonymous user
 }
 ```

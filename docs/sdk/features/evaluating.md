@@ -16,7 +16,7 @@ If there is an error reaching DevCycle, or if the requested variable does not ex
 To get values from your Features, `.variable` is used to fetch variable values using the identifier `key` coupled with a default value. The default value can be of type string, boolean, number, or object.
 
 ```js
-const variable = client.variable('YOUR_VARIABLE_KEY', 'default value')
+const variable = dvcClient.variable('YOUR_VARIABLE_KEY', 'default value')
 ```
 
 To grab the value, there is a property on the object returned to grab the value:
@@ -66,10 +66,10 @@ const DVCFeaturePage = () => {
     const newUser = {
       user_id: 'new_user_id'
     }
-    const client = useDVCClient()
+    const dvcClient = useDVCClient()
 
    const identifyUser = () => {
-      client.identifyUser(newUser)
+      dvcClient.identifyUser(newUser)
         .then((variables) => console.log('Updated Variables:', variables))
     }
 
@@ -88,10 +88,10 @@ the variable's identifier `key` coupled with a default value. The default value 
 string, boolean, number, or JSONObject:
 
 ```swift
-let strVariable: DVCVariable<String> = client.variable(key: "str_key", defaultValue: "default")
-let boolVariable: DVCVariable<Bool> = client.variable(key: "bool_key", defaultValue: false)
-let numVariable: DVCVariable<Int> = client.variable(key: "num_key", defaultValue: 4)
-let jsonVariable: DVCVariable<[String:Any]> = client.variable(key: "json_key", defaultValue: [:])
+let strVariable: DVCVariable<String> = dvcClient.variable(key: "str_key", defaultValue: "default")
+let boolVariable: DVCVariable<Bool> = dvcClient.variable(key: "bool_key", defaultValue: false)
+let numVariable: DVCVariable<Int> = dvcClient.variable(key: "num_key", defaultValue: 4)
+let jsonVariable: DVCVariable<[String:Any]> = dvcClient.variable(key: "json_key", defaultValue: [:])
 ```
 
 To grab the value, there is a property on the object returned to grab the value:
@@ -169,7 +169,7 @@ object from the server unless an error occurs or the server has no response. In 
 a variable object with the value set to whatever was passed in as the `defaultValue` parameter.
 
 ```go
-variable, err := client.DevcycleApi.Variable(auth, user, "variable-key", "default_value")
+variable, err := dvcClient.DevcycleApi.Variable(auth, user, "variable-key", "default_value")
 ```
 
 

@@ -28,7 +28,7 @@ auth := context.WithValue(context.Background(), devcycle.ContextAPIKey, devcycle
     Key: "your_server_key_here",
 })
 
-client := devcycle.NewDVCClient()
+dvcClient := devcycle.NewDVCClient()
 ```
 
 ## Usage
@@ -46,7 +46,7 @@ user := devcycle.UserData{UserId: "test"}
 This method will fetch all features for a given user and return them in a map of `key: feature_object`
 
 ```go
-features, err := client.DevcycleApi.AllFeatures(auth, user)
+features, err := dvcClient.DevcycleApi.AllFeatures(auth, user)
 ```
 
 ### Getting All Variables
@@ -55,7 +55,7 @@ To get values from your Variables, the `value` field inside the variable object 
 This method will fetch all variables for a given user and return them in a map of `key: variable_object`
 
 ```go
-variables, err := client.DevcycleApi.AllVariables(auth, user)
+variables, err := dvcClient.DevcycleApi.AllVariables(auth, user)
 ```
 
 ### Get and Use Variable by Key
@@ -68,7 +68,7 @@ and the `IsDefaulted` field boolean on the variable will be true.
 To get values from your Variables, the `value` field inside the variable object can be accessed.
 
 ```go
-variable, err := client.DevcycleApi.Variable(auth, user, "variable-key", "default_value")
+variable, err := dvcClient.DevcycleApi.Variable(auth, user, "variable-key", "default_value")
 ```
 
 ### Track Event
@@ -79,7 +79,7 @@ event := devcycle.Event{
     Type_: "customEvent",
     Target: "somevariable.key"}
 
-response, err := client.DevcycleApi.Track(auth, user, event)
+response, err := dvcClient.DevcycleApi.Track(auth, user, event)
 ```
 
 #### About this package

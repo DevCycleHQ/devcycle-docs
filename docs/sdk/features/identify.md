@@ -32,17 +32,17 @@ const user = {
         customKey: 'customValue'
     }
 }
-client.identifyUser(user)
+dvcClient.identifyUser(user)
 ```
 
 To wait on Variables that will be returned from the identify call, you can pass in a callback or use the Promise returned if no callback is passed in:
 
 ```js
-const variableSet = await client.identifyUser(user)
+const variableSet = await dvcClient.identifyUser(user)
 
 // OR
 
-client.identifyUser(user, (err, variables) => {
+dvcClient.identifyUser(user, (err, variables) => {
     // variables is the variable set for the identified user
 })
 ```
@@ -86,13 +86,13 @@ let user = try DVCUser.builder()
                         "customkey2": "customValue2"
                     ])
                     .build()
-client.identifyUser(user)
+dvcClient.identifyUser(user)
 ```
 
 To wait on Variables that will be returned from the identify call, you can pass in a DVCCallback:
 
 ```swift
-try client.identifyUser(user) { error, variables in
+try dvcClient.identifyUser(user) { error, variables in
     if (error != nil) {
         // error identifying user
     } else {

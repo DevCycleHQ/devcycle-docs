@@ -44,7 +44,7 @@ Features which are within the Project that have rules disabled OR the user is no
 To grab all the Features returned in the config:
 
 ```js
-const variables = client.allVariables()
+const variables = dvcClient.allVariables()
 ```
 
 If the SDK has not finished initializing, these methods will return an empty object. Read [Waiting for Features](/docs/sdk/client-side-sdks/javascript#waiting-for-features) to mitigate this.
@@ -58,7 +58,7 @@ Refer to [Javascript SDK](#javascript-sdk)
 To grab all the Variables returned in the config:
 
 ```swift
-let variables: [String: Variable] = client.allVariables()
+let variables: [String: Variable] = dvcClient.allVariables()
 ```
 
 If the SDK has not finished initializing, these methods will return an empty object.
@@ -102,7 +102,7 @@ const variables = dvcClient.allVariables(user)
 This method will fetch all variables for a given user and return them in a map of `key: variable_object`
 
 ```go
-variables, err := client.DevcycleApi.AllVariables(auth, user)
+variables, err := dvcClient.DevcycleApi.AllVariables(auth, user)
 ```
 
 ### **Ruby SDK**

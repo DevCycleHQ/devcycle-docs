@@ -32,17 +32,17 @@ const event = {
         key: 'value'
     }
 }
-client.track(event)
+dvcClient.track(event)
 ```
 
 The SDK will flush events every 10s or `flushEventsMS` specified in the options. To manually flush events, call:
 
 ```js
-await client.flushEvents()
+await dvcClient.flushEvents()
 
 // or 
 
-client.flushEvents(() => {
+dvcClient.flushEvents(() => {
     // called back after flushed events
 })
 ```
@@ -63,13 +63,13 @@ let event = try DVCEvent.builder()
                         .metaData([ "key": "value" ])
                         .clientDate(Date())
                         .build()
-client.track(event)
+dvcClient.track(event)
 ```
 
 The SDK will flush events every 10s or `flushEventsMS` specified in the options. To manually flush events, call:
 
 ```swift
-client.flushEvents()
+dvcClient.flushEvents()
 ```
 
 ### Server-Side SDK Usage
@@ -119,7 +119,7 @@ event := devcycle.Event{
     Type_: "customEvent",
     Target: "somevariable.key"}
 
-response, err := client.DevcycleApi.Track(auth, user, event)
+response, err := dvcClient.DevcycleApi.Track(auth, user, event)
 ```
 
 ### **Ruby SDK**

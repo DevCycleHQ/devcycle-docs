@@ -46,7 +46,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
         )
         .withEnvironmentKey("<DEVCYCLE_MOBILE_ENVIRONMENT_KEY>")
         .build()
-    })
+    }
     
     ...
 
@@ -98,7 +98,7 @@ client.onInitialized(new DVCCallback<String>() {
 #### Kotlin
 
 ```
-client.onInitialized(object : DVCCallback<String> {
+dvcClient.onInitialized(object : DVCCallback<String> {
     override fun onSuccess(result: String) {
         // successfully initialized
     }
@@ -234,7 +234,7 @@ DVCUser user = DVCUser.builder()
                     .withEmail("test_user@devcycle.com")
                     .withCustomData(Collections.singletonMap("custom_key", "value"))
                     .build();
-client.identifyUser(user);
+dvcClient.identifyUser(user);
 ```
 
 To wait on Variables that will be returned from the identify call, you can pass in a DVCCallback:
@@ -256,7 +256,7 @@ dvcClient.identifyUser(user, object: DVCCallback<Map<String, Variable<Any>>> {
 #### *Java example:*
 
 ```java
-client.identifyUser(user, new DVCCallback<Map<String, Variable<Object>>>() {
+dvcClient.identifyUser(user, new DVCCallback<Map<String, Variable<Object>>>() {
     @Override
     public void onSuccess(Map<String, Variable<Object>> result) {
         // new user configuration loaded successfully from DevCycle
@@ -298,7 +298,7 @@ dvcClient.resetUser(object : DVCCallback<Map<String, Variable<Any>>> {
 #### *Java example:*
 
 ```java
-client.resetUser(new DVCCallback<Map<String, Variable<Object>>>() {
+dvcClient.resetUser(new DVCCallback<Map<String, Variable<Object>>>() {
     @Override
     public void onSuccess(Map<String, Variable<Object>> result) {
         // anonymous user configuration loaded successfully from DevCycle
@@ -339,7 +339,7 @@ DVCEvent event = DVCEvent.builder()
         .withValue(BigDecimal.valueOf(10.00))
         .withMetaData(Collections.singletonMap("test", "value"))
         .build();
-client.track(event);
+dvcClient.track(event);
 ```
 
 The SDK will flush events every 10s or `flushEventsMS` specified in the options. To manually flush events, call:
@@ -353,7 +353,7 @@ A callback can be passed to this method to be notified when the method has compl
 #### *Kotlin example:*
 
 ```kotlin
-client.flushEvents(object: DVCCallback<String> {
+dvcClient.flushEvents(object: DVCCallback<String> {
     override fun onSuccess(result: String) {
         // The queue was successfully flushed
     }
@@ -367,7 +367,7 @@ client.flushEvents(object: DVCCallback<String> {
 #### *Java example:*
 
 ```java
-client.flushEvents(new DVCCallback<String>() {
+dvcClient.flushEvents(new DVCCallback<String>() {
     @Override
     public void onSuccess(String result) {
         // The queue was successfully flushed
