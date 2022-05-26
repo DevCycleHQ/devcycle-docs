@@ -50,6 +50,7 @@ The [react-native-device-info](https://www.npmjs.com/package/react-native-device
 
 Example of the above steps:
 ```javascript
+import React from 'react'
 import 'react-native-get-random-values'
 import DeviceInfo from 'react-native-device-info'
 import { withDVCProvider } from '@devcycle/devcycle-react-sdk'
@@ -97,7 +98,7 @@ function App() {
 
 export default withDVCProvider(
 {
-    envKey: 'client-xxxxxxxxxxxxxxxxxxx,
+    envKey: 'client-xxxxxxxxxxxxxxxxxxx',
     options: {
         reactNative: true
     }
@@ -188,10 +189,10 @@ const DVCFeaturePage = () => {
     const newUser = {
       user_id: 'new_user_id'
     }
-    const client = useDVCClient()
+    const dvcClient = useDVCClient()
 
    const identifyUser = () => {
-      client.identifyUser(newUser)
+      dvcClient.identifyUser(newUser)
         .then((variables) => console.log('Updated Variables:', variables))
     }
 
@@ -216,7 +217,7 @@ const user = {
         customKey: 'customValue'
     }
 }
-client.identifyUser(user)
+dvcClient.identifyUser(user)
 ```
 
 The client object can be obtained from the [useDVCClient](#useDVCClient) hook.
@@ -224,11 +225,11 @@ The client object can be obtained from the [useDVCClient](#useDVCClient) hook.
 To wait on Variables that will be returned from the `identify` call, you can pass in a callback or use the Promise returned if no callback is passed in:
 
 ```js
-const variableSet = await client.identifyUser(user)
+const variableSet = await dvcClient.identifyUser(user)
 
 // OR
 
-client.identifyUser(user, (err, variables) => {
+dvcClient.identifyUser(user, (err, variables) => {
     // variables is the variable set for the identified user
 })
 ```
@@ -238,7 +239,7 @@ client.identifyUser(user, (err, variables) => {
 To reset the user's identity, call `resetUser`. This will create a new anonymous user with a randomized `user_id`.
 
 ```js
-client.resetUser()
+dvcClient.resetUser()
 ```
 
 The client object can be obtained from the [useDVCClient](#useDVCClient) hook.
@@ -247,11 +248,11 @@ The client object can be obtained from the [useDVCClient](#useDVCClient) hook.
 To wait on the Features of the anonymous user, you can pass in a callback or use the Promise returned if no callback is passed in:
 
 ```js
-const variableSet = await client.resetUser()
+const variableSet = await dvcClient.resetUser()
 
 // OR
 
-client.resetUser((err, variables) => {
+dvcClient.resetUser((err, variables) => {
     // variables is the variable set for the anonymous user
 })
 ```
@@ -261,8 +262,8 @@ client.resetUser((err, variables) => {
 To grab all the Features or Variables that have been enabled for this user:
 
 ```js
-const features = client.allFeatures()
-const variables = client.allVariables()
+const features = dvcClient.allFeatures()
+const variables = dvcClient.allVariables()
 ```
 
 The client object can be obtained from the [useDVCClient](#useDVCClient) hook.
@@ -283,17 +284,17 @@ const event = {
         key: 'value'
     }
 }
-client.track(event)
+dvcClient.track(event)
 ```
 
 The SDK will flush events every 10s or `flushEventsMS` specified in the Provider options. To manually flush events, call:
 
 ```js
-await client.flushEvents()
+await dvcClient.flushEvents()
 
 // or 
 
-client.flushEvents(() => {
+dvcClient.flushEvents(() => {
     // called back after flushed events
 })
 ```

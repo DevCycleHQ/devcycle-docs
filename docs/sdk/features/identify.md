@@ -17,6 +17,12 @@ If your application handles multiple users at once, simply call the Identify fun
 
 To reset a user completely, please view [Resetting a User](/docs/sdk/features/reset).
 
+:::info
+
+In some cases, you may be releasing a feature broadly and not to users, specifically. In these cases, you can use any string as the "user_id". A user is not expressly required, just an identifier. 
+
+:::
+
 
 ### Client-Side SDK Usage
 
@@ -32,17 +38,17 @@ const user = {
         customKey: 'customValue'
     }
 }
-client.identifyUser(user)
+dvcClient.identifyUser(user)
 ```
 
 To wait on Variables that will be returned from the identify call, you can pass in a callback or use the Promise returned if no callback is passed in:
 
 ```js
-const variableSet = await client.identifyUser(user)
+const variableSet = await dvcClient.identifyUser(user)
 
 // OR
 
-client.identifyUser(user, (err, variables) => {
+dvcClient.identifyUser(user, (err, variables) => {
     // variables is the variable set for the identified user
 })
 ```
@@ -86,13 +92,13 @@ let user = try DVCUser.builder()
                         "customkey2": "customValue2"
                     ])
                     .build()
-client.identifyUser(user)
+dvcClient.identifyUser(user)
 ```
 
 To wait on Variables that will be returned from the identify call, you can pass in a DVCCallback:
 
 ```swift
-try client.identifyUser(user) { error, variables in
+try dvcClient.identifyUser(user) { error, variables in
     if (error != nil) {
         // error identifying user
     } else {

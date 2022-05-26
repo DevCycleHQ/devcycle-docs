@@ -30,7 +30,7 @@ Call `initialize` with your client key and a user object. The user object needs 
 
 ```js
 const user = { user_id: 'my_user' }
-const client = initialize('YOUR_CLIENT_KEY', user)
+const dvcClient = initialize('YOUR_CLIENT_KEY', user)
 ```
 
 ### Waiting for Features
@@ -38,8 +38,8 @@ const client = initialize('YOUR_CLIENT_KEY', user)
 You can wait on the features to be loaded from our servers by using `.onClientInitialized()` function. It returns a promise that you can use to wait until features are ready to be used:
 
 ```js
-client.onClientInitialized().then(() => {
-    const featureToggle = client.variable('YOUR_VARIABLE_KEY', false)
+dvcClient.onClientInitialized().then(() => {
+    const featureToggle = dvcClient.variable('YOUR_VARIABLE_KEY', false)
     if (featureToggle) {
         ...
     } else {
@@ -51,11 +51,11 @@ client.onClientInitialized().then(() => {
 You can also pass in a callback which will get called after the features are loaded:
 
 ```js
-client.onClientInitialized((err) => {
+dvcClient.onClientInitialized((err) => {
     if (err) {
         // error state
     }
-        const featureToggle = client.variable('YOUR_VARIABLE_KEY', false)
+        const featureToggle = dvcClient.variable('YOUR_VARIABLE_KEY', false)
     if (featureToggle) {
         ...
     } else {
@@ -72,7 +72,7 @@ client.onClientInitialized((err) => {
 To get values from your Features, `.variable` is used to fetch variable values using the identifier `key` coupled with a default value. The default value can be of type string, boolean, number, or object.
 
 ```js
-const variable = client.variable('YOUR_VARIABLE_KEY', 'default value')
+const variable = dvcClient.variable('YOUR_VARIABLE_KEY', 'default value')
 ```
 
 To grab the value, there is a property on the object returned to grab the value:
@@ -101,17 +101,17 @@ const user = {
         customKey: 'customValue'
     }
 }
-client.identifyUser(user)
+dvcClient.identifyUser(user)
 ```
 
 To wait on Variables that will be returned from the identify call, you can pass in a callback or use the Promise returned if no callback is passed in:
 
 ```js
-const variableSet = await client.identifyUser(user)
+const variableSet = await dvcClient.identifyUser(user)
 
 // OR
 
-client.identifyUser(user, (err, variables) => {
+dvcClient.identifyUser(user, (err, variables) => {
     // variables is the variable set for the identified user
 })
 ```
@@ -121,13 +121,13 @@ client.identifyUser(user, (err, variables) => {
 To reset the user's identity, call `resetUser`. This will create a new anonymous user with a randomized `user_id`.
 
 ```js
-client.resetUser()
+dvcClient.resetUser()
 ```
 
 To wait on the Features of the anonymous user, you can pass in a callback or use the Promise returned if no callback is passed in:
 
 ```js
-const variableSet = await client.resetUser()
+const variableSet = await dvcClient.resetUser()
 
 // OR
 
@@ -141,8 +141,8 @@ client.resetUser((err, variables) => {
 To grab all the Features or Variables returned in the config:
 
 ```js
-const features = client.allFeatures()
-const variables = client.allVariables()
+const features = dvcClient.allFeatures()
+const variables = dvcClient.allVariables()
 ```
 
 If the SDK has not finished initializing, these methods will return an empty object.
@@ -162,17 +162,17 @@ const event = {
         key: 'value'
     }
 }
-client.track(event)
+dvcClient.track(event)
 ```
 
 The SDK will flush events every 10s or `flushEventsMS` specified in the options. To manually flush events, call:
 
 ```js
-await client.flushEvents()
+await dvcClient.flushEvents()
 
 // or 
 
-client.flushEvents(() => {
+dvcClient.flushEvents(() => {
     // called back after flushed events
 })
 ```

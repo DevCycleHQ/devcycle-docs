@@ -18,7 +18,7 @@ This version of the DevCycle Android Client SDK supports a minimum Android API V
 The SDK can be installed into your Android project by adding the following to *build.gradle*:
 
 ```yaml
-implementation("com.devcycle:android-client-sdk:1.0.3")
+implementation("com.devcycle:android-client-sdk:1.0.4")
 ```
 
 ## Usage
@@ -46,11 +46,12 @@ override fun onCreate(savedInstanceState: Bundle?) {
         )
         .withEnvironmentKey("<DEVCYCLE_MOBILE_ENVIRONMENT_KEY>")
         .build()
-    })
     
     ...
-
 }
+    //NOTE: It is not recommended to hardcode SDK keys into your application.
+    //Consider storing keys securely and reading from secure storage.
+
 ```
 
 #### *Java example:*
@@ -73,6 +74,8 @@ protected void onCreate(Bundle savedInstanceState) {
     
     ...
 }
+    //NOTE: It is not recommended to hardcode SDK keys into your application.
+    //Consider storing keys securely and reading from secure storage.
 ```
 
 ### Notifying when DevCycle features are available
@@ -82,7 +85,7 @@ You can attach a callback on the client to determine when your features have bee
 #### Java
 
 ```
-client.onInitialized(new DVCCallback<String>() {
+dvcClient.onInitialized(new DVCCallback<String>() {
     @Override
     public void onSuccess(String result) {
         // user configuration loaded successfully from DevCycle
@@ -98,7 +101,7 @@ client.onInitialized(new DVCCallback<String>() {
 #### Kotlin
 
 ```
-client.onInitialized(object : DVCCallback<String> {
+dvcClient.onInitialized(object : DVCCallback<String> {
     override fun onSuccess(result: String) {
         // successfully initialized
     }
@@ -156,7 +159,7 @@ If the value is not ready, it will return the default value passed in the creati
 
 ### Variable updates
 
-A callback can be registered to be notified when the value changes on a variable.
+A callback can be registered to be notified whenever "identify" is called, triggered a new config update.
 
 #### *Kotlin example:*
 
@@ -212,8 +215,9 @@ If the SDK has not finished initializing, these methods will return an empty Map
 
 ### Identifying User
 
-To identify a different user, or the same user passed into the initialize method with more attributes, 
-build a DVCUser object and pass it into `identifyUser`:
+To identify a different user, or the same user passed into the initialize method with more attributes, build a DVCUser object and pass it into `identifyUser`:
+
+Note: If you do not have a user ID, you can use any string at all.
 
 #### *Kotlin example:*
 
@@ -234,7 +238,7 @@ DVCUser user = DVCUser.builder()
                     .withEmail("test_user@devcycle.com")
                     .withCustomData(Collections.singletonMap("custom_key", "value"))
                     .build();
-client.identifyUser(user);
+dvcClient.identifyUser(user);
 ```
 
 To wait on Variables that will be returned from the identify call, you can pass in a DVCCallback:
@@ -256,7 +260,7 @@ dvcClient.identifyUser(user, object: DVCCallback<Map<String, Variable<Any>>> {
 #### *Java example:*
 
 ```java
-client.identifyUser(user, new DVCCallback<Map<String, Variable<Object>>>() {
+dvcClient.identifyUser(user, new DVCCallback<Map<String, Variable<Object>>>() {
     @Override
     public void onSuccess(Map<String, Variable<Object>> result) {
         // new user configuration loaded successfully from DevCycle
@@ -266,14 +270,14 @@ client.identifyUser(user, new DVCCallback<Map<String, Variable<Object>>>() {
     public void onError(@NonNull Throwable t) {
         // user configuration failed to load from DevCycle, existing user's data will persist.
     }
+})
 ```
 
 If `onError` is called the user's configuration will not be updated and previous user's data will persist.
 
 ### Reset User
 
-To reset the user into an anonymous user, `resetUser` will reset to the anonymous user created before 
-or will create one with an anonymous `user_id`.
+Calling `resetUser` will create a new user with an anonymous `user_id` and then identify as that user.
 
 ```kotlin
 dvcClient.resetUser()
@@ -298,7 +302,7 @@ dvcClient.resetUser(object : DVCCallback<Map<String, Variable<Any>>> {
 #### *Java example:*
 
 ```java
-client.resetUser(new DVCCallback<Map<String, Variable<Object>>>() {
+dvcClient.resetUser(new DVCCallback<Map<String, Variable<Object>>>() {
     @Override
     public void onSuccess(Map<String, Variable<Object>> result) {
         // anonymous user configuration loaded successfully from DevCycle
@@ -316,13 +320,13 @@ If `onError` is called the user's configuration will not be updated and previous
 
 ### Tracking Events
 
-To track events, pass in an object with at least a `type` key:
+To send events to DevCycle for metrics purposes, build an event object and then call "track". Note that these events will be periodically queued to be flushed to the DevCycle servers.
 
 #### *Kotlin example:*
 
 ```kotlin
 var event = DVCEvent.builder()
-                .withType("custom_event_type")
+                .withType("custom_event_type") //Only Required
                 .withTarget("custom_event_target")
                 .withValue(BigDecimal(10.0))
                 .withMetaData(mapOf("custom_key" to "value"))
@@ -334,15 +338,19 @@ dvcClient.track(event)
 
 ```java
 DVCEvent event = DVCEvent.builder()
-        .withType("custom_event_type")
+        .withType("custom_event_type") //Only Required Field
         .withTarget("custom_event_target")
         .withValue(BigDecimal.valueOf(10.00))
         .withMetaData(Collections.singletonMap("test", "value"))
         .build();
-client.track(event);
+dvcClient.track(event);
 ```
 
-The SDK will flush events every 10s or `flushEventsMS` specified in the options. To manually flush events, call:
+The SDK will flush events every 10s or `flushEventsMS` specified in the options. 
+
+**Manually Flushing Events**
+
+To manually flush events, call:
 
 ```kotlin
 dvcClient.flushEvents()
@@ -353,7 +361,7 @@ A callback can be passed to this method to be notified when the method has compl
 #### *Kotlin example:*
 
 ```kotlin
-client.flushEvents(object: DVCCallback<String> {
+dvcClient.flushEvents(object: DVCCallback<String> {
     override fun onSuccess(result: String) {
         // The queue was successfully flushed
     }
@@ -367,7 +375,7 @@ client.flushEvents(object: DVCCallback<String> {
 #### *Java example:*
 
 ```java
-client.flushEvents(new DVCCallback<String>() {
+dvcClient.flushEvents(new DVCCallback<String>() {
     @Override
     public void onSuccess(String result) {
         // The queue was successfully flushed

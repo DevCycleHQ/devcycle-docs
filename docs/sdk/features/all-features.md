@@ -44,7 +44,7 @@ Features which are within the Project that have rules disabled OR the user is no
 To grab all the Features returned in the config:
 
 ```js
-const features = client.allFeatures()
+const features = dvcClient.allFeatures()
 ```
 
 If the SDK has not finished initializing, these methods will return an empty object. Read [Waiting for Features](/docs/sdk/client-side-sdks/javascript#waiting-for-features) to mitigate this.
@@ -58,7 +58,7 @@ Refer to [Javascript SDK](#javascript-sdk)
 To grab all the Features returned in the config:
 
 ```swift
-let features: [String: Feature] = client.allFeatures()
+let features: [String: Feature] = dvcClient.allFeatures()
 ```
 
 If the SDK has not finished initializing, these methods will return an empty object.
@@ -101,7 +101,7 @@ const features = dvcClient.allFeatures(user)
 This method will fetch all features for a given user and return them in a map of `key: feature_object`
 
 ```go
-features, err := client.DevcycleApi.AllFeatures(auth, user)
+features, err := dvcClient.DevcycleApi.AllFeatures(auth, user)
 ```
 
 ### **Ruby SDK**
