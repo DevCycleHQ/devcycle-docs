@@ -46,12 +46,12 @@ override fun onCreate(savedInstanceState: Bundle?) {
         )
         .withEnvironmentKey("<DEVCYCLE_MOBILE_ENVIRONMENT_KEY>")
         .build()
-    }
     
     ...
+}
     //NOTE: It is not recommended to hardcode SDK keys into your application.
     //Consider storing keys securely and reading from secure storage.
-}
+
 ```
 
 #### *Java example:*
