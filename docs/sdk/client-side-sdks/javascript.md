@@ -26,18 +26,18 @@ import { initialize } from '@devcycle/devcycle-js-sdk'
 
 ## Getting Started
 
-Call `initialize` with your client key and a user object. The user object needs either a `user_id`, or `isAnonymous` set to `true` for an anonymous user.
+Call `initialize` with your client key and a user object. The user object needs either a `user_id`, or `isAnonymous` set to `true` for an anonymous user. 
 
-```js
+```javascript
 const user = { user_id: 'my_user' }
 const dvcClient = initialize('YOUR_CLIENT_KEY', user)
 ```
 
-### Waiting for Features
+## Waiting for Features 
 
 You can wait on the features to be loaded from our servers by using `.onClientInitialized()` function. It returns a promise that you can use to wait until features are ready to be used:
 
-```js
+```javascript
 dvcClient.onClientInitialized().then(() => {
     const featureToggle = dvcClient.variable('YOUR_VARIABLE_KEY', false)
     if (featureToggle) {
@@ -50,12 +50,13 @@ dvcClient.onClientInitialized().then(() => {
 
 You can also pass in a callback which will get called after the features are loaded:
 
-```js
+```javascript
 dvcClient.onClientInitialized((err) => {
     if (err) {
         // error state
     }
-        const featureToggle = dvcClient.variable('YOUR_VARIABLE_KEY', false)
+    
+    const featureToggle = dvcClient.variable('YOUR_VARIABLE_KEY', false)
     if (featureToggle) {
         ...
     } else {
@@ -64,36 +65,33 @@ dvcClient.onClientInitialized((err) => {
 })
 ```
 
-## Usage
-
-
-### Get and use Variable by key
+## Grabbing Variable Values
 
 To get values from your Features, `.variable` is used to fetch variable values using the identifier `key` coupled with a default value. The default value can be of type string, boolean, number, or object.
 
-```js
+```javascript
 const variable = dvcClient.variable('YOUR_VARIABLE_KEY', 'default value')
 ```
 
-To grab the value, there is a property on the object returned to grab the value:
+To grab the value, there is a property on the object returned to grab the value: 
 
-```js
+```javascript
 const value = variable.value
 ```
 
-If the value is not ready, it will return the default value passed in the creation of the variable. To get notified when the variable is loaded:
+If the value is not ready, it will return the default value passed in the creation of the variable. To get notified when the variable is loaded: 
 
-```js
+```javascript
 variable.onUpdate((value) => {
     // value returned when the value of the variable changes
 })
 ```
 
-### Identifying User
+## Identifying User
 
-To identify a different user, or the same user passed into the initialize with more properties, pass in the entire user properties object into `identifyUser`:
+To identify a different user, or the same user passed into the initialize with more attributes, pass in the entire user attribute object into `identifyUser`:
 
-```js
+```javascript
 const user = {
     user_id: 'user1',
     name: 'user 1 name',
@@ -106,7 +104,7 @@ dvcClient.identifyUser(user)
 
 To wait on Variables that will be returned from the identify call, you can pass in a callback or use the Promise returned if no callback is passed in:
 
-```js
+```javascript
 const variableSet = await dvcClient.identifyUser(user)
 
 // OR
@@ -116,43 +114,42 @@ dvcClient.identifyUser(user, (err, variables) => {
 })
 ```
 
-### Resetting User
+## Reset User
 
-To reset the user's identity, call `resetUser`. This will create a new anonymous user with a randomized `user_id`.
+To reset the user into an anonymous user, `resetUser` will reset to the anonymous user created before or will create one with an anonymous `user_id`.
 
-```js
+```javascript
 dvcClient.resetUser()
 ```
 
 To wait on the Features of the anonymous user, you can pass in a callback or use the Promise returned if no callback is passed in:
 
-```js
-const variableSet = await dvcClient.resetUser()
+```javascript
+const variableSet = await client.resetUser()
 
 // OR
 
-client.resetUser((err, variables) => {
+dvcClient.resetUser((err, variables) => {
     // variables is the variable set for the anonymous user
 })
 ```
 
-### Getting All Features / Variables
+## Grabbing All Features / Variables
 
 To grab all the Features or Variables returned in the config:
 
-```js
-const features = dvcClient.allFeatures()
-const variables = dvcClient.allVariables()
+```javascript
+const features = client.allFeatures()
+const variables = client.allVariables()
 ```
 
 If the SDK has not finished initializing, these methods will return an empty object.
 
-
-### Tracking Events
+## Tracking Events
 
 To track events, pass in an object with at least a `type` key:
 
-```js
+```javascript
 const event = {
     type: 'my_event_type', // this is required
     date: new Date(),
@@ -167,7 +164,7 @@ dvcClient.track(event)
 
 The SDK will flush events every 10s or `flushEventsMS` specified in the options. To manually flush events, call:
 
-```js
+```javascript
 await dvcClient.flushEvents()
 
 // or 
@@ -175,4 +172,34 @@ await dvcClient.flushEvents()
 dvcClient.flushEvents(() => {
     // called back after flushed events
 })
+```
+
+## EdgeDB
+
+EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user. 
+
+To get started, contact us at support@devcycle.com to enable EdgeDB for your project.
+
+Once you have EdgeDB enabled in your project, pass in the `enableEdgeDB` option to turn on EdgeDB mode for the SDK:
+
+```javascript
+const user = { 
+    user_id: 'my_user',
+    customData: {
+        amountSpent: 50
+    }
+}
+const options = {
+    enableEdgeDB: true
+}
+const dvcClient = initialize('YOUR_CLIENT_KEY', user, options)
+```
+
+This will send a request to our EdgeDB API to save the custom data under the user `my_user`.
+
+In the example, `amountSpent` is associated to the user `my_user`. In your next `identify` call for the same `user_id`, 
+you may omit any of the data you've sent already as it will be pulled from the EdgeDB storage when segmenting to experiments and features:
+
+```
+dvcClient.identifyUser({ user_id: 'my_user' }) // no need to pass in "amountSpent" any more!
 ```
