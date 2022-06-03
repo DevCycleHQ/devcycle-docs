@@ -1,0 +1,147 @@
+openapi: 3.0.0
+info:
+  title: DevCycle EdgeDB API
+  description: Documents the DevCycle edgeDB API which controls saving and getting EdgeDB data. 
+  version: 1.0.0
+tags:
+  - name: devcycle
+paths:
+  /v1/edgedb/{id}:
+    patch:
+      summary: Update EdgeDB data based on unique id and project id
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: A unique id used to fetch and update the EdgeDB data
+        - name: envKey
+          in: query
+          description: Environment Key as defined in the dashboard for your DevCycle environment.
+            One of the Authorization header or "envKey" query parameter is required to be set.
+          required: false
+          schema:
+            type: string
+      
+      requestBody:
+        description: User properties to update the EdgeDB data
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+
+      responses:
+        200:
+          description: Client SDK API Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdgeDBApiResponse'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+        404:
+          $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        user_id:
+          description: Unique id to identify the user
+          type: string
+
+        email:
+          description: User's email used to identify the user on the dashaboard / target audiences
+          type: string
+        
+        name:
+          description: User's name used to idenify the user on the dashaboard / target audiences
+          type: string
+
+        language:
+          description: User's language in ISO 639-1 format
+          additionalProperties:
+            type: string
+            maxLength: 2
+          
+        country:
+          description: User's country in ISO 3166 alpha-2 format
+          additionalProperties:
+            type: string
+            maxLength: 2
+
+        customData:
+          description: User's custom data to target the user with, data will be logged to DevCycle for use in dashboard.
+          type: object
+            
+        lastSeenDate:
+          description: Date the user was last seen being used, Unix epoch timestamp format
+          type: number
+            
+      required:
+        - user_id
+
+    EdgeDBApiResponse:
+      type: object
+      properties:
+        message:
+          description: Response message of the request
+          type: string
+      required:
+        - message
+
+    ErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Error response status code
+        message:
+          type: string
+          description: Error message
+        data:
+          type: object
+          description: Additional error information detailing the error reasoning
+      required:
+        - message
+        - statusCode
+
+  responses:
+    # 400
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+
+    # 401
+    UnauthorizedError:
+      description: Missing 'envKey' query parameter or 'Authorization' header
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+
+    # 404
+    NotFound:
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+
+    # 500
+    InternalServerError:
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'

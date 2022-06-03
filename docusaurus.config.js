@@ -69,8 +69,13 @@ const config = {
           },
           {
             id: 'bucketing-api',
-            spec: 'https://docs.devcycle.com/bucketing-api.yaml',
+            spec: 'bucketing-api.yaml',
             route: '/bucketing-api/',
+          },
+          {
+            id: 'edgedb-api',
+            spec: 'edgedb-api.yaml',
+            route: '/edgedb-api/',
           },
         ],
         theme: {
@@ -137,6 +142,11 @@ const config = {
           label: 'Bucketing API',
           position: 'left',
           to: '/bucketing-api/',
+        },
+        {
+          label: 'EdgeDB API',
+          position: 'left',
+          to: '/edgedb-api/',
         },
         {
           // type: 'page',
