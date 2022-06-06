@@ -69,7 +69,7 @@ const config = {
           },
           {
             id: 'bucketing-api',
-            spec: 'https://docs.devcycle.com/bucketing-api.yaml',
+            spec: 'bucketing-api.yaml',
             route: '/bucketing-api/',
           },
         ],
