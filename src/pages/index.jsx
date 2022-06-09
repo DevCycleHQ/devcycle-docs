@@ -44,14 +44,14 @@ const Welcome = () => {
                     <span className="block">Developer Docs!</span>
                   </h2>
                   <p className="mt-4 text-lg leading-6 text-blue-200">
-                    Our documentation site includes guides and API documentation for the complete platform including the management dashboard, management APIs, SDKs, and more. If you need help along the way feel free to reach out to support and if you don’t have an account yet, you can create a free account now.
+                    Our documentation site includes guides and API documentation for the complete platform including the management dashboard, management APIs, SDKs, and more. If you need help along the way feel free to reach out to support and if you don’t have an account yet, you can 
+    account now.
                   </p>
                   <a
-                    href="https://app.devcycle.com/"
+                    href="https://docs.devcycle.com/docs/home/introduction"
                     className="mt-8 bg-white border border-transparent rounded-md shadow px-5 py-3 inline-flex items-center text-base font-medium text-blue-600 hover:bg-blue-50"
-                    target="_blank"
                   >
-                    Create a Free Account
+                    Get Started
                   </a>
                 </div>
               </div>
