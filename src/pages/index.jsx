@@ -50,7 +50,6 @@ const Welcome = () => {
                   <a
                     href="https://docs.devcycle.com/docs/home/introduction"
                     className="mt-8 bg-white border border-transparent rounded-md shadow px-5 py-3 inline-flex items-center text-base font-medium text-blue-600 hover:bg-blue-50"
-                    target="_blank"
                   >
                     Get Started
                   </a>
