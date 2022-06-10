@@ -42,6 +42,7 @@ const config = {
           showLastUpdateAuthor: false,
           showLastUpdateTime: true,
           editCurrentVersion: true,
+          sidebarCollapsed: false,
           sidebarPath: require.resolve('./sidebars.js'),
           remarkPlugins: [
             [remarkYoutube, {width: '100%', align: 'auto'}]
