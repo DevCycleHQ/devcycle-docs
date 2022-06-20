@@ -140,8 +140,9 @@ const config = {
           to: '/bucketing-api/',
         },
         {
-          // type: 'page',
-          to: '/coming-soon',
+          type: 'doc',
+          docId: 'best-practices/best-practices',
+          to: '/best-practices/',
           position: 'left',
           label: 'Best Practices',
         },
