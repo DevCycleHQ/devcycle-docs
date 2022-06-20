@@ -6,20 +6,20 @@ sidebar_position: 7
 
 ## Overview
 
-When using client-side SDKs, particularly web client SDKs there is the potential for Ad Blockers and browser privacy features to block requests and third-party cookies. Custom Domain Proxying with DevCycle ensures all cookies and requests used are first-party and will not be blocked by ensuring requests are sent through your recognized domain. A DNS CNAME needs to be created in order to leverage this feature.
+When using client-side SDKs, particularly web client SDKs there is the potential for Ad Blockers and browser privacy features to block requests and third-party cookies. Custom Domains with DevCycle ensures all cookies and requests used are first-party and will not be blocked by ensuring requests are sent through your recognized domain. A DNS CNAME needs to be created in order to leverage this feature.
 
 :::info
 
 **Setting Up Custom Domains:**
 
-Custom Domain Proxying is an enterprise feature and requires manual setup on both your end as well as DevCycle's. If you are interested in getting set up these docs will guide you through the steps, but please reach out to support@devcycle.com for assistance.
+Custom Domains is an enterprise feature and requires manual setup on both your end as well as DevCycle's. If you are interested in getting set up these docs will guide you through the steps, but please reach out to support@devcycle.com for assistance.
 
 :::
 
 ### Custom Certificate
 If you'd like to have a custom certificate for the endpoint to be used, please contact your account representative. This requires additional steps that change the flow of this process.
 
-## Secure Domain Proxy
+## Setup Steps
 
 1. **Identifying a Hostname**
 - The first step involves **identifying** a hostname to use as the CNAME to DevCycle's endpoint. Provide this to DevCycle upon requesting to enable this feature.
