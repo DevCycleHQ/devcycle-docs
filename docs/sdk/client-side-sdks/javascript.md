@@ -26,11 +26,12 @@ import { initialize } from '@devcycle/devcycle-js-sdk'
 
 ## Getting Started
 
-Call `initialize` with your client key and a user object. The user object needs either a `user_id`, or `isAnonymous` set to `true` for an anonymous user. 
+Call `initialize` with your client key, a user object an an optional options object. The user object needs either a `user_id`, or `isAnonymous` set to `true` for an anonymous user. The options object is optional, but can passed a `logWriter` for a custom logging solution and a `logLevel`, which must be one of `info`, `debug`, `warn` or `error`. The default options are to set the `logWriter` to be the console and the `logLevel` to `error`.
 
 ```javascript
 const user = { user_id: 'my_user' }
-const dvcClient = initialize('YOUR_CLIENT_KEY', user)
+const dvcOptions = { logLevel: 'debug' }
+const dvcClient = initialize('YOUR_CLIENT_KEY', user, dvcOptions)
 ```
 
 ## Waiting for Features 
