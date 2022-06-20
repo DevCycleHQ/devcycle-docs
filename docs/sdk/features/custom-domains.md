@@ -22,7 +22,7 @@ If you'd like to have a custom certificate for the endpoint to be used, please c
 ## Setup Steps
 
 1. **Identifying a Hostname**
-- The first step involves **identifying** a hostname to use as the CNAME to DevCycle's endpoint. Provide this to DevCycle upon requesting to enable this feature.
+- The first step involves **identifying** a hostname to use as the CNAME to DevCycle's endpoint. Provide this to DevCycle upon requesting to enable this feature. The hostname should look something like this `https://api-alias.your-domain.com`.
     - If there is more than one service in use, each one will need a unique CNAME. This is also true for using DevCycle on multiple domains. Each domain needs its own CNAME.
 
 2. **DNS Validation**
