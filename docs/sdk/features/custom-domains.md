@@ -1,5 +1,5 @@
 ---
-title: Domain Proxying
+title: Custom Domains
 tags: [sdk]
 sidebar_position: 7
 ---
@@ -10,7 +10,7 @@ When using client-side SDKs, particularly web client SDKs there is the potential
 
 :::info
 
-**Setting Up Custom Domain Proxying:**
+**Setting Up Custom Domains:**
 
 Custom Domain Proxying is an enterprise feature and requires manual setup on both your end as well as DevCycle's. If you are interested in getting set up these docs will guide you through the steps, but please reach out to support@devcycle.com for assistance.
 
