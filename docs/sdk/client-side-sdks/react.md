@@ -105,6 +105,8 @@ const DVCFeaturePage = () => {
     )
 }
 ```
+See [getVariableByKey](https://docs.devcycle.com/bucketing-api/#operation/getVariableByKey) on the Bucketing API for the variable response format.
+
 
 ### Getting the DevCycle Client
 The SDK provides a hook to access the underlying DevCycle client. This allows you identify users, track events, and directly access
@@ -199,6 +201,9 @@ const variables = dvcClient.allVariables()
 The client object can be obtained from the [useDVCClient](#getting-the-devcycle-client) hook.
 
 If the SDK has not finished initializing, these methods will return an empty object.
+
+See [getVariables](https://docs.devcycle.com/bucketing-api/#operation/getVariables) and [getFeatures](https://docs.devcycle.com/bucketing-api/#operation/getFeatures) on the Bucketing API for the response formats.
+
 
 ### Track Events
 Events can be tracked by calling the `track` method provided by the client object, which you can access with the
