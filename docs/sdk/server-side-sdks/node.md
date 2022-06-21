@@ -91,6 +91,7 @@ if (variable.value) {
     // Feature Flag on
 }
 ```
+See [getVariableByKey](https://docs.devcycle.com/bucketing-api/#operation/getVariableByKey) on the Bucketing API for the variable response format.
 
 ### Getting All Variables
 
@@ -99,6 +100,7 @@ To grab all the segmented variables for a user:
 ```javascript
 const variables = dvcClient.allVariables(user)
 ```
+See [getVariables](https://docs.devcycle.com/bucketing-api/#operation/getVariables) on the Bucketing API for the variable response format.
 
 ### Getting All Features
 
@@ -107,3 +109,4 @@ You can fetch all segmented features for a user:
 ```javascript
 const features = dvcClient.allFeatures(user)
 ```
+See [getFeatures](https://docs.devcycle.com/bucketing-api/#operation/getFeatures) on the Bucketing API for the feature response format.
