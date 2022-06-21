@@ -140,7 +140,7 @@ const ENV_KEY = 'YOUR_KEY_HERE'
 
 **Replace `YOUR_KEY_HERE` with your client key**, and **use the new `ENV_KEY` variable** whenever you need to access your key.
 
-There are a few more things we need to modify if we're using React 18. Add the following to the beginning of your code:
+There are a few more things we need to modify if we're using React 18. **Add the following to the beginning of your code:**
 ```jsx
 import React from 'react';
 import ReactDOM from 'react-dom/client';
@@ -170,7 +170,7 @@ One way we can see our flag in action is to edit our user’s properties in our 
 
 We can see that our app is running the code telling us our variable is off. This is because our code does not contain an email field for our user. Let’s create one now!
 
-Add an `email` field to your `user` object, and give it a DevCycle email as shown below:
+**Add an `email` field to your `user` object**, and give it a DevCycle email as shown below:
 ```jsx
 const user = { 
 	user_id: 'my_user_id' , 
@@ -183,7 +183,7 @@ const user = {
 ![Variable On in React App](/june-2022-variable-on.png)  
 Hooray! Our Internal QA users can now see our feature!
 
-Another way to see our flag working is to toggle the Targeting switch on the feature page in DevCycle. Go into DevCycle and edit the ‘first feature’ flag we created. Turn off the toggle we had set for the Development stage and save it.
+Another way to see our flag working is to toggle the Targeting switch on the feature page in DevCycle. Go into DevCycle and edit the ‘first feature’ flag we created. **Turn off the toggle we had set for the Development stage and save it.**
 
 ![Targeting Toggle Off](/june-2022-targeting-toggle.gif)
 
