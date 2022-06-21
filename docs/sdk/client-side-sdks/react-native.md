@@ -133,6 +133,29 @@ export default withDVCProvider({ envKey: 'ENV_KEY' })(App)
 
 ### Blocking
 
+The useIsDVCProvider hook allows you to block rendering of your application until SDK initialization is complete. This ensures your app 
+does not flicker due to value changes and enables you to control what you want displayed when initialization isn't finished yet.
+
+```js
+import { useIsDVCInitialized, withDVCProvider } from '@devcycle/devcycle-react-sdk'
+```
+```js
+function App() {
+    const dvcReady = useIsDVCInitialized()
+    
+    if (!dvcReady) return <LoadingState/>
+    return <TheRestofYourApp/>
+}
+    
+export default withDVCProvider({ envKey: 'ENV_KEY' })(App)
+```
+
+:::caution
+
+The asyncWithDVCProvider function has been deprecated as of version 1.3.0
+
+:::
+
 The asyncWithDVCProvider function is similar to the withDVCProvider function, but allows you to block rendering of your application
 until SDK initialization is complete. This ensures your app does not flicker due to value changes.
 
