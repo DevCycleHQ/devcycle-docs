@@ -29,9 +29,9 @@ Next up, we can give our flag some variables and targeting rules. DevCycle has a
 
 ![Remote Variables Section](/june-2022-remote-variables.png)
 
-Once we’ve set up our variables, we can define our Targeting. DevCycle allows you to target different users for each environment all on the same page, making it quick and easy to manage who can see your feature in each stage of development. Let’s say that for our new feature release, we only want our Internal QA Users to be able to see it when it’s in development. So let’s name our targeting rule “Internal QA Users.” To set up the rule, we select a property in the “Definition” dropdown that targets our QA Users, such as their email. For this example, **let’s set our Targeting definition to User Emails containing “@taplytics.com”**
+Once we’ve set up our variables, we can define our Targeting. DevCycle allows you to target different users for each environment all on the same page, making it quick and easy to manage who can see your feature in each stage of development. Let’s say that for our new feature release, we only want our Internal QA Users to be able to see it when it’s in development. So let’s name our targeting rule “Internal QA Users.” To set up the rule, we select a property in the “Definition” dropdown that targets our QA Users, such as their email. For this example, **let’s set our Targeting definition to User Emails containing “@devcycle.com”**
 
-![Feature Targeting QA Users at Taplytics](/june-2022-targeting-rule.png)
+![Feature Targeting QA Users at DevCycle](/june-2022-targeting-rule-devcycle.png)
 
 We can also customize other aspects of our flag. The “Serve” dropdown allows us to choose which variation will apply to our targeting rule. In our case, we’ll keep it set to “Variation On” for our QA Users. The “Scheduling” dropdown allows us to schedule the release for later. We’ll leave the Scheduling set to “None.”
 
@@ -42,7 +42,7 @@ Now that we’ve set up our targeting, we’re ready to implement our feature in
 ## Step 3: Creating A React App
 In this step, we are going to create a new React app where we will implement our feature flag. If you have already created a project, skip to [Step 4: Implementation.](#step-4:-implementation) 
 
-We will create our React app using the terminal (if this is your first time, you can [view the React docs here)](https://reactjs.org/docs/create-a-new-react-app.html). **Open your computer’s terminal**, and using the `cd` command, **open the directory where you would like to create your app**. Now enter the following command:
+We will create our React app using the terminal (if this is your first time, you can [view the React docs here](https://reactjs.org/docs/create-a-new-react-app.html). **Open your computer’s terminal**, and using the `cd` command, **open the directory where you would like to create your app**. Now enter the following command:
 ```jsx
 npx create-react-app getting-started-devcycle
 ```
@@ -164,17 +164,17 @@ The resulting code should look like this:
 
 ## Step 5: Our Flag in Action
 
-One way we can see our flag in action is to edit our user’s properties in our code. Since we have “Variation On” for all users with a Taplytics email, if we do not have our user email set to something containing ‘@taplytics.com’, we won’t see our feature. To see this in action, **save your code and open the tab where your React app is running.**
+One way we can see our flag in action is to edit our user’s properties in our code. Since we have “Variation On” for all users with a DevCycle email, if we do not have our user email set to something containing ‘@devcycle.com’, we won’t see our feature. To see this in action, **save your code and open the tab where your React app is running.**
 
 ![Variable Off in React App](/june-2022-variable-off.png)
 
 We can see that our app is running the code telling us our variable is off. This is because our code does not contain an email field for our user. Let’s create one now!
 
-Add an `email` field to your `user` object, and give it a Taplytics email as shown below:
+Add an `email` field to your `user` object, and give it a DevCycle email as shown below:
 ```jsx
 const user = { 
 	user_id: 'my_user_id' , 
-	email: 'user@taplytics.com' 
+	email: 'user@devcycle.com' 
 }
 ```
 
