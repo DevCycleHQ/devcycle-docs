@@ -55,6 +55,8 @@ import devcycle_python_sdk
         print("Exception when calling DVCClient->all_features: %s\n" % e)
     
 ```
+See [getFeatures](https://docs.devcycle.com/bucketing-api/#operation/getFeatures) on the Bucketing API for the feature response format.
+
 
 ### Get and Use Variable by Key
 To get values from your Variables, `all_variables()` is used to fetch variable values using the identifier `key` coupled with a default value. The default value can be of type string, boolean, number, or object.
@@ -70,6 +72,8 @@ To get values from your Variables, `all_variables()` is used to fetch variable v
          print("Exception when calling DVCClient->variable: %s\n" % e)
 
 ```
+See [getVariableByKey](https://docs.devcycle.com/bucketing-api/#operation/getVariableByKey) on the Bucketing API for the variable response format.
+
 
 ### Getting All Variables
 To get values from your Variables, `all_variables()` is used to fetch variable values using the identifier `key` coupled with a default value. The default value can be of type string, boolean, number, or object.
@@ -84,6 +88,8 @@ To get values from your Variables, `all_variables()` is used to fetch variable v
     except ApiException as e:
         print("Exception when calling DVCClient->all_variables: %s\n" % e)
 ```
+See [getVariables](https://docs.devcycle.com/bucketing-api/#operation/getVariables) on the Bucketing API for the variable response format.
+
 
 ### Track Event
 To POST custom event for a user
