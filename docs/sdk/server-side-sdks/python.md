@@ -27,13 +27,14 @@ import devcycle_python_sdk
 
 ```python
     from __future__ import print_function
-    from devcycle_python_sdk import Configuration, DVCClient, UserData, Event
+    from devcycle_python_sdk import Configuration, DVCOptions, DVCClient, UserData, Event
     from devcycle_python_sdk.rest import ApiException
     configuration = Configuration()
     configuration.api_key['Authorization'] = 'your_server_key_here'
-
+    # pass in an optional DVCOptions instance to store user data in EdgeDB
+    options = DVCOptions(enableEdgeDB=True)
      # create an instance of the API class
-     dvc = DVCClient(configuration)
+     dvc = DVCClient(configuration, options)
     
     # all functions require user data to be an instance of the UserData class
      user = UserData(
@@ -55,6 +56,7 @@ import devcycle_python_sdk
         print("Exception when calling DVCClient->all_features: %s\n" % e)
     
 ```
+See [getFeatures](https://docs.devcycle.com/bucketing-api/#operation/getFeatures) on the Bucketing API for the feature response format.
 
 ### Get and Use Variable by Key
 To get values from your Variables, `all_variables()` is used to fetch variable values using the identifier `key` coupled with a default value. The default value can be of type string, boolean, number, or object.
@@ -70,6 +72,7 @@ To get values from your Variables, `all_variables()` is used to fetch variable v
          print("Exception when calling DVCClient->variable: %s\n" % e)
 
 ```
+See [getVariableByKey](https://docs.devcycle.com/bucketing-api/#operation/getVariableByKey) on the Bucketing API for the variable response format.
 
 ### Getting All Variables
 To get values from your Variables, `all_variables()` is used to fetch variable values using the identifier `key` coupled with a default value. The default value can be of type string, boolean, number, or object.
@@ -84,6 +87,7 @@ To get values from your Variables, `all_variables()` is used to fetch variable v
     except ApiException as e:
         print("Exception when calling DVCClient->all_variables: %s\n" % e)
 ```
+See [getVariables](https://docs.devcycle.com/bucketing-api/#operation/getVariables) on the Bucketing API for the variable response format.
 
 ### Track Event
 To POST custom event for a user
