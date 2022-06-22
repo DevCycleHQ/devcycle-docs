@@ -31,4 +31,9 @@ the custom data. The only required piece of data is `user_id`.
 
 ### Supported SDKs
 
+#### Client SDKs
 - [JS SDK](https://docs.devcycle.com/docs/sdk/client-side-sdks/javascript#edgedb)
+
+#### Server SDKs
+- [Go SDK](https://docs.devcycle.com/docs/sdk/server-side-sdks/go#edgedb)
+- [Python SDK](https://docs.devcycle.com/docs/sdk/server-side-sdks/python#edgedb)
