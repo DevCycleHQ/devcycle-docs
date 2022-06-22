@@ -399,7 +399,6 @@ let options = DVCOptions.builder()
 
 #### Objective-C
 ```objc
-
 DVCUser *user = [DVCUser initializeWithUserId:@"test-user"];
 user.customData = @{
     @"amountSpent": @50,
