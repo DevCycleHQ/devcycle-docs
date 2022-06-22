@@ -33,11 +33,11 @@ import devcycle_python_sdk
     configuration.api_key['Authorization'] = 'your_server_key_here'
     # pass in an optional DVCOptions instance to store user data in EdgeDB
     options = DVCOptions(enableEdgeDB=True)
-     # create an instance of the API class
-     dvc = DVCClient(configuration, options)
+    # create an instance of the API class
+    dvc = DVCClient(configuration, options)
     
     # all functions require user data to be an instance of the UserData class
-     user = UserData(
+    user = UserData(
         user_id='test',
         email='example@example.ca',
         country='CA'
@@ -105,6 +105,37 @@ To POST custom event for a user
     except ApiException as e:
         print("Exception when calling DVCClient->track: %s\n" % e)
 ```
+
+### EdgeDB
+
+EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user. Read more about [EdgeDB](https://docs.devcycle.com/docs/home/feature-management/edgedb/).
+
+To get started, contact us at support@devcycle.com to enable EdgeDB for your project.
+
+Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to turn on EdgeDB mode for the SDK:
+
+```python
+    from __future__ import print_function
+    from devcycle_python_sdk import Configuration, DVCOptions, DVCClient, UserData, Event
+    from devcycle_python_sdk.rest import ApiException
+    configuration = Configuration()
+    configuration.api_key['Authorization'] = 'your_server_key_here'
+    # pass in an optional DVCOptions instance to store user data in EdgeDB
+    options = DVCOptions(enableEdgeDB=True)
+    # create an instance of the API class
+    dvc = DVCClient(configuration, options)
+    
+    # all functions require user data to be an instance of the UserData class
+    user = UserData(
+        user_id='test',
+        email='example@example.ca',
+        country='CA'
+    )
+```
+
+This will send a request to our EdgeDB API to save the custom data under the user UserId.
+
+In the example, Email and Country are associated to the user `test`. In your next identify call for the same UserId, you may omit any of the data you've sent already as it will be pulled from the EdgeDB storage when segmenting to experiments and features.
 
 #### About this package
 
