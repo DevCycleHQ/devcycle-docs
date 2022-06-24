@@ -40,7 +40,7 @@ Since targeting rules are specific to each environment in a project, we can prov
 Now that we've set up our Targeting, we're ready to implement our feature into our code.
 
 ## Step 3: Creating A React App
-In this step, we are going to create a new React app where we will implement our feature flag. If you have already created a project, skip to [Step 4: Implementation.](#step-4:-implementation) 
+In this step, we are going to create a new React app where we will implement our feature flag. If you have already created a project, skip to [Step 4: Implementation.](#step-4-implementation) 
 
 We will create our React app using the terminal (if this is your first time, you can [view the React docs here](https://reactjs.org/docs/create-a-new-react-app.html). **Open your computer's terminal**, and using the `cd` command, **open the directory where you would like to create your app**. Now enter the following command:
 ```jsx
