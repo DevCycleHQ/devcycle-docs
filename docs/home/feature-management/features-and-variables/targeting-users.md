@@ -203,7 +203,7 @@ First, we define our first Targeting Rule that will target Users in Canada with 
 
 ![DevCycle Targeting Rule on a Feature Specifying Country](/march-2022-devcycle_canada.png)
 
-Then we can add a second Targeting Rule by clicking the “Add Targeting Rule” button.
+Then we can add a second Targeting Rule by clicking the “Add Targeting Rule" button.
 
 ![Multiple DevCycle Targeting Rules on a Feature, second one empty](/march-2022-add_targeting_rule.png)
 
