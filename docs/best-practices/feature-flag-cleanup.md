@@ -55,6 +55,8 @@ Because Code References list all usages of a variable in your code, you can easi
 
 To use Code References, you must enable [the DevCycle action for Code References](https://docs.devcycle.com/docs/tools-and-integrations/Github/gh-feature-usage-action) within your repository. After configuration, you can find your Code References when you click “View Info” for a variable in the Variables dashboard.
 
+For more information about Code References, [check out our docs here](https://devcycle-docs-fashce1kc-taplytics.vercel.app/docs/home/feature-management/organizing-your-flags-and-variables/variable-dashboard#code-references).
+
 ## Other ways to reduce feature flag tech debt
 
 **Have human-understandable names.** Naming conventions help other developers know the purpose of each feature flag or variable. This makes it easier to determine what flags are still in use. Obscure names such as “flag123_dont_delete” make it difficult to determine its importance and use. It would be incredibly burdensome to have to examine the code to understand its original purpose.
