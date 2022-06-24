@@ -99,20 +99,51 @@ To run a test, the following fields must be set:
 
 **Environment** - This will calculate the metric using events from the specified environments.
 
-Once these are set, a test can be run by clicking the test button. 
+Once these fields are set, the test can be ran by clicking the test button, resulting in a test result.
 
+(For these documents, our own internal metrics testing at this time were used!)
 
 ![Metrics Testing Section with the button to an arrow](/june-2022-metrics-test.png)
 
-
+The results of this test will show the actual result which would be within a Feature if this Metric was associated with it! 
 
 
 ## Attaching Metrics to Features
 
-Metrics Section
+Once a metric has been created, it can be attached to any feature for use and analysis. 
 
-* attaching a metric
-* running calculations
+Within a Feature, there is a section called "Experimentation" which is where metrics can be found and added. 
+
+(This section is named such due to the nature of the "before and after" comparative analysis metrics should largely be used) 
+
+![Metrics' abode](/june-2022-metrics-section-in-feature.png)
+
+To attach a new or existing metric to a feature, simply use the dropdown:
+
+![Attach Dropdown](/june-2022-attach-new-metric.png)
+
+Which will show a list of all existing Metrics within the current project. The user can also decide to create a brand new metric and proceed through that flow if desired.
+
+![create new metric](/june-2022-choose-metric-dropdown.png)
+
+Once one or more Metrics has been selected, you can then run the metric calculation. 
+
+While the setup has some default values, the metric requires the following fields to be filled: 
+
+**Control** -  This is what will be used to show a comparative analysis against all other variations in a feature. Typically, an "off" or "Baseline" variation would act as the control. For more information on this, please refer to the EXPERIMENTATION DOCUMENTATION. 
+
+**Date Range** - This range will default from the moment the metric (or feature) was created, to now within 30 days. If 30 days have passed since the creation of the metric or feature, the date range must be a 30 day range. 
+
+**Environment** - This will calculate the metric using events from the specified environments.
+
+Once these fields are set, the calculation can be ran by clicking the calculate button, which will run for all metrics for the feature.
+
+![run calculation button]()
+
+Which will yield results!
+
+
+
 Specifics:
 
 Errors
