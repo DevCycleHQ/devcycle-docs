@@ -8,15 +8,15 @@ sidebar_position: 1
 Feature flags are one of the safest methods for rolling out new features, so effectively managing your flags is essential to efficient deployment. DevCycle is a feature management tool that provides a simple interface for managing your flags. In this step-by-step beginner's guide, we'll introduce you to the basics of DevCycle using React. Follow along to get started on your first feature flag!
 
 ## Step 1: Creating Your First Feature
-The first thing you need to set up DevCycle is an account. Once you've created your account, you can get started with your first feature. On your DevCycle Dashboard, **click the "+" button in the header bar, or the "Create New Feature" button** on the Feature Management page.
+The first thing you need to set up DevCycle is an account. Once you've created your account, you can get started with your first feature. On your DevCycle Dashboard, **click the "+" button in the header bar or the "Create New Feature" button** on the Feature Management page.
 
 ![Create New Feature](/june-2022-create-feature.png)
 
-Next, a screen will appear allowing you to choose a Feature Template. These options determine the default state of your feature, which can always be modified as you work on your feature.
+Next a screen will appear allowing you to choose a Feature Template. These options determine the default state of your feature, which can always be modified as you work on your feature.
 
 ![Feature Templates](/june-2022-feature-templates.png)
 
-Let's say we're making a new feature for our application and we want to separate it from deployment until it's ready for release. So in our case, we'll **choose the "Release" feature template**. You can read more about our other feature templates on our docs [here](/docs/home/feature-management/getting-started/feature-types).
+Let's say we're making a new feature for our application, and we want to separate it from deployment until it's ready for release. So in our case, we'll **choose the "Release" feature template**. You can read more about our other feature templates on our docs [here](/docs/home/feature-management/getting-started/feature-types).
 
 After choosing our feature template, we'll be prompted to give our feature a descriptive name and a unique key. The key is how we will reference our feature and its variables in code. (DevCycle automatically suggests a key based on the entered name.) **Let's name our feature "first feature"** and give it a little description.
 ![Naming our first feature](/june-2022-first-feature-name.png)
@@ -35,9 +35,9 @@ Once we've set up our variables, we can define our Targeting. DevCycle allows yo
 
 We can also customize other aspects of our flag. The "Serve" dropdown allows us to choose which variation will apply to our targeting rule. In our case, we'll keep it set to "Variation On" for our QA Users. The "Scheduling" dropdown allows us to schedule the release for later. We'll leave the Scheduling set to "None."
 
-Since targeting rules are specific to each environment in a project, we can provide different rules for each stage of our feature's deployment. For this tutorial we'll just be working in the Development environment, so we can leave the targeting rules for Staging and Production environments as is. 
+Since targeting rules are specific to each environment in a project, we can provide different rules for each stage of our feature's deployment. For this tutorial, we'll just be working in the Development environment, so we can leave the targeting rules for Staging and Production environments as is. 
 
-Now that we've set up our targeting, we're ready to implement our feature into our code.
+Now that we've set up our Targeting, we're ready to implement our feature into our code.
 
 ## Step 3: Creating A React App
 In this step, we are going to create a new React app where we will implement our feature flag. If you have already created a project, skip to [Step 4: Implementation.](#step-4:-implementation) 
@@ -164,7 +164,7 @@ The resulting code should look like this:
 
 ## Step 5: Our Flag in Action
 
-One way we can see our flag in action is to edit our user's properties in our code. Since we have "Variation On" for all users with a DevCycle email, if we do not have our user email set to something containing ‘@devcycle.com', we won't see our feature. To see this in action, **save your code and open the tab where your React app is running.**
+One way we can see our flag in action is to edit our user's properties in our code. Since we have "Variation On" for all users with a DevCycle email, if we do not have our user email set to something containing '@devcycle.com', we won't see our feature. To see this in action, **save your code and open the tab where your React app is running.**
 
 ![Variable Off in React App](/june-2022-variable-off.png)
 
@@ -183,7 +183,7 @@ const user = {
 ![Variable On in React App](/june-2022-variable-on.png)  
 Hooray! Our Internal QA users can now see our feature!
 
-Another way to see our flag working is to toggle the Targeting switch on the feature page in DevCycle. Go into DevCycle and edit the ‘first feature' flag we created. **Turn off the toggle we had set for the Development stage and save it.**
+Another way to see our flag working is to toggle the Targeting switch on the feature page in DevCycle. Go into DevCycle and edit the 'first feature' flag we created. **Turn off the toggle we had set for the Development stage and save it.**
 
 ![Targeting Toggle Off](/june-2022-targeting-toggle.gif)
 
