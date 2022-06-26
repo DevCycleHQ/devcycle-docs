@@ -35,7 +35,7 @@ Below is a brief description of each column, with deeper explanations later in t
 
 ## Creating a Metric
 
-To create a Metric, navigate to the Metrics page as noted above, and click "Create a Metric". 
+To create a Metric, navigate to the Metrics page as noted above, and click "Create a Metric" 
 
 ![Image of Metrics page with arrow pointing towards create button and tab](/june-2022-metrics-section.png)
 
@@ -50,7 +50,7 @@ To set up a Metric, the following items are needed:
 * **Name** - This is the name of the Metric. It should be descriptive enough that any team member viewing it understands it and can both get the information necessary, and also decide if they would like to re-use the Metric for other Features. 
 * **Key** - Like other DevCycle keys, this is how this Metric will be referenced in the Management API and all other non-dashboard interactions with this Metric.
 
-* **Event** - This is the **EXACT** event name that is sent by the `[DevCycle Track]()` methods of the SDKs or via the DevCycle APIs. This event will be used in all calculations of the Metric. How it is used specifically is described below in HOW CALCULATIONS
+* **Event** - This is the **EXACT** event name that is sent by the [DevCycle Track](/docs/sdk/features/track) methods of the SDKs or via the DevCycle APIs. This event will be used in all calculations of the Metric. How it is used specifically is described below in HOW CALCULATIONS
 
 * **"Optimize For"** - DevCycle represents Metrics as a positive or negative depending on the desired optimization. Often times, tools will always assume that an increase is beneficial. However, in most engineering applications, the opposite is true! Things such as latency, load times, server load, and processing times are Metrics that should be decreased. DevCycle will make obvious whether a Metric is improving in the desired direction, and will soon notify you if a significant impact in either direction has been made.
 
@@ -140,19 +140,24 @@ While the setup has some default values, the Metric requires the following field
 
 **Environment** - This will calculate the Metric using events from the specified environments.
 
-Once these fields are set, the calculation can be ran by clicking the calculate button, which will run for all Metrics for the feature.
+Once these fields are set, the calculation can be ran by clicking the calculate button, which will run for all Metrics for the Feature.
 
+![Arrow pointing to calculate button on Metric](/june-2022-calculate-metric.png)
 
-Which will yield results!
+Once calculated, if there is available data for the Feature, the calculation results will show. 
 
+![Calculation results](/june-2022-metrics-calculated.png)
 
+All metrics will be calculated at the same time, and calculated
 
 ### How do Metrics get calculated?
 
-To calculate Metrics, DevCycle uses [the custom events sent via its API or SDKs](https://docs.devcycle.com/docs/sdk/features/track). Each event has the information of which user sent it, and which Feature and Variation they were in at that time. For optimal experiments, use Features with variations [randomly distributed across users](https://devcycle.com/blog/random-distribution).
+To calculate Metrics, DevCycle uses [the custom events sent via its API or SDKs](sdk/features/track). Each Event has the information of which user sent it and which Feature and Variation they were in at that time. For optimal experiments, use Features with variations [randomly distributed across users](/docs/home/feature-management/features-and-variables/targeting-users#serving-a-random-variation-experimentation--random-distribution).
 
-To read more on the queries behind the Metrics, read **ARTICLE ABOUT HOW CALCULATIONS WORK**
+To read more on the queries behind the Metrics, see [How Metrics Are Calculated](/docs/home/feature-management/features-and-variables/metrics-and-analysis/how-metrics-are-calculated)
 
-## Running Experiments
+### Running Experiments
 
-LINK TO EXPERIMENT DOC
+With Metrics on a feature, experimentation can be easily executed on any Feature. At DevCycle we believe that experimentation should be a part of the natural lifecycle of all features. So no matter the [feature type](/docs/home/feature-management/getting-started/feature-types) selected, can be experimented on.
+
+To learn more on how to run experiments with DevCycle, read [Feature Experimentation](docs/home/feature-management/features-and-variables/metrics-and-analysis/feature-experimentation)

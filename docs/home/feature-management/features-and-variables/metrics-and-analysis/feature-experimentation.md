@@ -55,7 +55,7 @@ To add a metric to your feature, scroll down to the Experimentation section of t
 
 This will bring up the option to add a metric that has already been created in the project or to create a new one.
 
-For the creation of new metrics check out our documentation [here](/docs/home/feature-management/features-and-variables/feature-experimentation).
+For the creation of new metrics check out our documentation [here](/docs/home/feature-management/features-and-variables/metrics-and-analysis/creating-and-managing-metrics).
 
 Once you have metrics in your project, all you need to do is:
 1. Select a metric you want to use to judge the performance of your experiment
