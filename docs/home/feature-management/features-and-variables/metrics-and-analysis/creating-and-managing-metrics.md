@@ -1,13 +1,13 @@
 ---
 title: Creating and Managing Metrics
 
-sidebar_position: 5
+sidebar_position: 3
 ---
 
 :::info
 Metrics rely on custom events.
 
-Metrics are available to all customers on any plan. However, to run Metrics, custom events must be sent to DevCycle. These events incur extra costs which are added to your existing plan. To learn more, read about our pricing, or contact us.
+Metrics are available to all customers on any plan. However, to run Metrics, custom events must be sent to DevCycle. These events incur extra costs, which will be added to your existing plan. To learn more, read about our pricing, or contact us.
 :::
 
 ### Overview

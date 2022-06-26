@@ -3,7 +3,7 @@
 ## Overview
 
 The EdgeDB feature allows the saving of user data into our EdgeDB storage and to be able to use the data in segmenting decisions without needing
-to pass that data in our SDKs every time. The data is stored and retrieved by the `user_id`, allowing you to store data about the users cross-platform.
+to pass that data in our SDKs every time. The data is stored and retrieved by the `user_id` allowing you to store data about the users cross-platform.
 
 ## Usage
 

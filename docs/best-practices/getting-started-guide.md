@@ -25,7 +25,7 @@ After choosing our feature template, we'll be prompted to give our feature a des
 
 ## Step 2: Variables and Targeting Rules
 
-Next up, we can give our flag some variables and targeting rules. DevCycle has a unique "Remote Variables" section that allows users to create multiple variables for one feature. Additionally, you can add variations to that variable for use cases like Personalization, Experimentation, and restrictions based on billing, permissions, or preferences. However, since we want to create a simple release flag in this example, we'll stick with the two default variations: Variation On and Variation Off. 
+Next up, we can give our flag some variables and targeting rules. DevCycle has a unique "Remote Variables" section that allows users to create multiple variables for one feature. Additionally, you can add Variations to that variable for use cases like Personalization, Experimentation, and restrictions based on billing, permissions, or preferences. However, since we want to create a simple release flag in this example, we'll stick with the two default Variations: Variation On and Variation Off. 
 
 ![Remote Variables Section](/june-2022-remote-variables.png)
 
@@ -33,7 +33,7 @@ Once we've set up our variables, we can define our Targeting. DevCycle allows yo
 
 ![Feature Targeting QA Users at DevCycle](/june-2022-targeting-rule-devcycle.png)
 
-We can also customize other aspects of our flag. The "Serve" dropdown allows us to choose which variation will apply to our targeting rule. In our case, we'll keep it set to "Variation On" for our QA Users. The "Scheduling" dropdown allows us to schedule the release for later. We'll leave the Scheduling set to "None."
+We can also customize other aspects of our flag. The "Serve" dropdown allows us to choose which Variation will apply to our targeting rule. In our case, we'll keep it set to "Variation On" for our QA Users. The "Scheduling" dropdown allows us to schedule the release for later. We'll leave the Scheduling set to "None."
 
 Since targeting rules are specific to each environment in a project, we can provide different rules for each stage of our feature's deployment. For this tutorial, we'll just be working in the Development environment, so we can leave the targeting rules for Staging and Production environments as is. 
 

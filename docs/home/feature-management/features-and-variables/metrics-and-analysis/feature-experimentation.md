@@ -1,6 +1,6 @@
 ---
 title: Feature Experimentation
-sidebar_position: 4
+sidebar_position: 2
 ---
 
 :::info
