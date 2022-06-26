@@ -107,7 +107,7 @@ Once these fields are set, the test can be ran by clicking the test button, resu
 
 (For these documents, our own internal Metrics testing at this time were used!)
 
-![Metrics Testing Section with the button to an arrow](/june-2022-Metrics-test.png)
+![Metrics Testing Section with the button to an arrow](/june-2022-metrics-test.png)
 
 The results of this test will show the actual result which would be within a Feature if this Metric was associated with it! 
 
