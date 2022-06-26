@@ -78,7 +78,7 @@ We can **delete `import logo from '.logo.svg'` on line 1** as we don't need it f
 Now that we have our app, we're ready to implement our DevCycle feature flag!
 
 ## Step 4: Implementation
-To implement our feature flag, we need to set up the proper SDK—in this case, the React Client. For more information about our other SDKs types, [check out our documentation here](https://docs.devcycle.com/docs/home/feature-management/getting-started/setting-up-sdk).
+To implement our feature flag, we need to set up the proper SDK—in this case, the React Client. For more information about our other SDKs types, [check out our documentation here](/docs/home/feature-management/getting-started/setting-up-sdk).
 
 To install the React SDK, run the following command on your terminal 
 ```jsx
@@ -126,7 +126,7 @@ const App = () => {
 Copy the code above (or the one provided in the "Example Usage" section of your feature flag's page), and use it to replace the whole `function App () {...}` section in VSCode. **Replace `YOUR_CLIENT_KEY_HERE` with your client key** found in the "Example Usage" section. You can also find your keys from **Profile → Settings → Environments & Keys** in DevCycle.
 
 ![Environments & Keys Page](/june-2022-sdk-keys.png)
-For more information about SDK keys, [head to our docs here](https://docs.devcycle.com/docs/home/feature-management/organizing-your-flags-and-variables/api-and-sdk-keys).
+For more information about SDK keys, [head to our docs here](/docs/home/feature-management/organizing-your-flags-and-variables/api-and-sdk-keys).
 
 Once you've pasted your client key, you should now have something that looks like this in VSCode:
 
