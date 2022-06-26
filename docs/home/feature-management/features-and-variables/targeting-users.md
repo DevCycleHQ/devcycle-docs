@@ -23,8 +23,8 @@ Each targeting rule has four parts that must be set, and one optional item, as s
 
 1. **The current targeting Status.**
 
-    This is what defines if the rules will be used to deliver a variation of a feature to users. If it is off, no users within the environment will receive the feature at all, regardless of the targeting rules. They will receive
-
+    This is what defines if the rules will be used to deliver a variation of a feature to users. If it is off, no users within the environment will receive the feature at all, regardless of the targeting rules. 
+    
 2. **A unique rule name.**
 
     This name can be used for debugging and informational purposes when understanding why certain users received certain variations.
