@@ -50,7 +50,7 @@ To set up a Metric, the following items are needed:
 * **Name** - This is the name of the Metric. It should be descriptive enough that any team member viewing it understands it and can both get the information necessary, and also decide if they would like to re-use the Metric for other Features. 
 * **Key** - Like other DevCycle keys, this is how this Metric will be referenced in the Management API and all other non-dashboard interactions with this Metric.
 
-* **Event** - This is the **EXACT** event name that is sent by the [DevCycle Track](../../../../sdk/features/track) methods of the SDKs or via the DevCycle APIs. This event will be used in all calculations of the Metric. How it is used specifically is described below in HOW CALCULATIONS
+* **Event** - This is the **EXACT** event name that is sent by the [DevCycle Track](/docs/sdk/features/track) methods of the SDKs or via the DevCycle APIs. This event will be used in all calculations of the Metric. How it is used specifically is described below in HOW CALCULATIONS
 
 * **"Optimize For"** - DevCycle represents Metrics as a positive or negative depending on the desired optimization. Often times, tools will always assume that an increase is beneficial. However, in most engineering applications, the opposite is true! Things such as latency, load times, server load, and processing times are Metrics that should be decreased. DevCycle will make obvious whether a Metric is improving in the desired direction, and will soon notify you if a significant impact in either direction has been made.
 
@@ -152,7 +152,7 @@ All metrics will be calculated at the same time, and calculated
 
 ### How do Metrics get calculated?
 
-To calculate Metrics, DevCycle uses [the custom events sent via its API or SDKs](sdk/features/track). Each Event has the information of which user sent it and which Feature and Variation they were in at that time. For optimal experiments, use Features with variations [randomly distributed across users](/docs/home/feature-management/features-and-variables/targeting-users#serving-a-random-variation-experimentation--random-distribution).
+To calculate Metrics, DevCycle uses [the custom events sent via its API or SDKs](/docs/sdk/features/track). Each Event has the information of which user sent it and which Feature and Variation they were in at that time. For optimal experiments, use Features with variations [randomly distributed across users](/docs/home/feature-management/features-and-variables/targeting-users#serving-a-random-variation-experimentation--random-distribution).
 
 To read more on the queries behind the Metrics, see [How Metrics Are Calculated](/docs/home/feature-management/features-and-variables/metrics-and-analysis/how-metrics-are-calculated)
 
