@@ -28,7 +28,7 @@ Simply connect your Jira Ticket IDs to a Feature in DevCycle. You can connect as
 
 ## Setup
 
-1. Install the app from the [Jira Marketplace Listing](https://marketplace.atlassian.com/apps/1227643/devcycle-feature-flag-management-for-jira). To install, select “Get App” and confirm the app installation (you will need appropriate Jira permissions)
+1. Install the app from the [Jira Marketplace Listing](https://marketplace.atlassian.com/apps/1227643/devcycle-feature-flag-management-for-jira). To install, select “Get App" and confirm the app installation (you will need appropriate Jira permissions)
 
 ![Image with installation info](/feb-2022-jira-marketplace-header.png)
 
@@ -36,7 +36,7 @@ Simply connect your Jira Ticket IDs to a Feature in DevCycle. You can connect as
 
 ![Image with installation info](/feb-2022-jira-marketplace-header-added.png)
 
- Clicking “Configure” will bring you to a page prompting you to input your DevCycle access token. 
+ Clicking “Configure" will bring you to a page prompting you to input your DevCycle access token. 
 
  At any time, you can re-configure the app by clicking DevCycle in the "Apps" dropdown in your Jira project.
 
