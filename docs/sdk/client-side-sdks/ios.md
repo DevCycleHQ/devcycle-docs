@@ -376,3 +376,38 @@ dvcClient.flushEvents()
 ```objc
 [self.dvcClient flushEvents];
 ```
+
+### EdgeDB
+
+EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user. Read more about [EdgeDB](https://docs.devcycle.com/docs/home/feature-management/edgedb/).
+
+To get started, contact us at support@devcycle.com to enable EdgeDB for your project.
+
+Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to turn on EdgeDB mode for the SDK:
+
+#### Swift
+```swift
+let user = try? DVCUser.builder()
+                       .userId("test-user")
+                       .customData([ "amountSpent": 50 ])
+                       .build()
+                 
+let options = DVCOptions.builder()
+                        .enableEdgeDB(true)
+                        .build()
+```
+
+#### Objective-C
+```objc
+DVCUser *user = [DVCUser initializeWithUserId:@"test-user"];
+user.customData = @{
+    @"amountSpent": @50,
+};
+
+DVCOptions *options = [[DVCOptions alloc] init];
+options.enableEdgeDB = @true;
+```
+
+This will send a request to our EdgeDB API to save the custom data under the user `test-user`.
+
+In the example, `amountSpent` is associated to the user `test-user`. In your next identify call for the same `userId`, you may omit any of the data you've sent already as it will be pulled from the EdgeDB storage when segmenting to experiments and features.

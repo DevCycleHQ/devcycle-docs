@@ -3,7 +3,7 @@
 ## Overview
 
 The EdgeDB feature allows the saving of user data into our EdgeDB storage and to be able to use the data in segmenting decisions without needing
-to pass that data in our SDKs every time. The data is stored and retrieved by the `user_id`, allowing you to store data about the users cross-platform.
+to pass that data in our SDKs every time. The data is stored and retrieved by the `user_id` allowing you to store data about the users cross-platform.
 
 ## Usage
 
@@ -31,4 +31,10 @@ the custom data. The only required piece of data is `user_id`.
 
 ### Supported SDKs
 
+#### Client SDKs
 - [JS SDK](https://docs.devcycle.com/docs/sdk/client-side-sdks/javascript#edgedb)
+- [iOS SDK](https://docs.devcycle.com/docs/sdk/client-side-sdks/ios#edgedb)
+
+#### Server SDKs
+- [Go SDK](https://docs.devcycle.com/docs/sdk/server-side-sdks/go#edgedb)
+- [Python SDK](https://docs.devcycle.com/docs/sdk/server-side-sdks/python#edgedb)

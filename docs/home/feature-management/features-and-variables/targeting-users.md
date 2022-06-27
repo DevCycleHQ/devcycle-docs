@@ -23,8 +23,8 @@ Each targeting rule has four parts that must be set, and one optional item, as s
 
 1. **The current targeting Status.**
 
-    This is what defines if the rules will be used to deliver a variation of a feature to users. If it is off, no users within the environment will receive the feature at all, regardless of the targeting rules. They will receive
-
+    This is what defines if the rules will be used to deliver a variation of a feature to users. If it is off, no users within the environment will receive the feature at all, regardless of the targeting rules. 
+    
 2. **A unique rule name.**
 
     This name can be used for debugging and informational purposes when understanding why certain users received certain variations.
@@ -203,7 +203,7 @@ First, we define our first Targeting Rule that will target Users in Canada with 
 
 ![DevCycle Targeting Rule on a Feature Specifying Country](/march-2022-devcycle_canada.png)
 
-Then we can add a second Targeting Rule by clicking the “Add Targeting Rule” button.
+Then we can add a second Targeting Rule by clicking the “Add Targeting Rule" button.
 
 ![Multiple DevCycle Targeting Rules on a Feature, second one empty](/march-2022-add_targeting_rule.png)
 

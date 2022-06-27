@@ -7,7 +7,7 @@ sidebar_position: 2
 
 This article serves to explain how to manage and create Variables and Variations within a Feature. 
 
-In short, a Feature may have any number of Variables. Variable values change depending on the variation a user is in. There may be as many variations of a feature as desired. All variables and variations apply across all environments. 
+In short, a Feature may have any number of Variables. Variable values change depending on the Variation a user is in. There may be as many Variations of a feature as desired. All variables and Variations apply across all environments. 
 
 ## Creating and Managing Variables in a Feature
 
@@ -19,7 +19,7 @@ This will lead the user to a table containing all of the Variables used by this 
 
 ![Feature on the Variables Page showing Initial Sate](/december_2021_variables-fancy.png)
 
-Each Feature contains its own set of Variables which it manages. **By default, upon creation of a Feature, a Boolean Variable will be created which has the same name as the Feature's key for easier reference.** Depending on the Feature type, the default Variations will be pre-set. The most common of which will be the variations of "Variation OFF" and "Variation ON", with the boolean variable being set to false and true, respectively.
+Each Feature contains its own set of Variables which it manages. **By default, upon creation of a Feature, a Boolean Variable will be created which has the same name as the Feature's key for easier reference.** Depending on the Feature type, the default Variations will be pre-set. The most common of which will be the Variations of "Variation OFF" and "Variation ON", with the boolean variable being set to false and true, respectively.
 
 When a user is "Served" a Variation based on the [Targeting Rules](/docs/home/feature-management/features-and-variables/targeting-users), the Variable Values the user receives on their devices or as an API response will be the values for the served Variation. 
 
@@ -27,7 +27,7 @@ A user can add as many Variables as they desire by simply clicking the "Add Vari
 
 ![Variables Page with arrowing pointing at Add Variable button](/december_2021_variable-add.png)
 
-Give your new variable a **name** as well as a **type**, as well as its **values** For each of the current variations.
+Give your new variable a **name** as well as a **type**, as well as its **values** For each of the current Variations.
 
 The unique variable **Name** is what is used to reference the variable in code. Variables cannot be re-used in multiple existing features, and thus the names must be fully unique.
 
@@ -40,7 +40,7 @@ Variables may be the following types:
 * Number
 * JSON
 
-The variable **Values** for each **Variation** will be what the variable's value will be in SDK and API responses if a targeting rule is targeting those specific variations. 
+The variable **Values** for each **Variation** will be what the variable's value will be in SDK and API responses if a targeting rule is targeting those specific Variations. 
 
 Once your variable is created, it will appear on the variables screen:
 
@@ -65,11 +65,11 @@ Taking this action will cause all references to the Variable in any code usage t
 
 While a Feature Flag may most commonly be used as a simple toggle of turning a Feature on or off, DevCycle offers further flexibility by allowing users to create as many different Variations of a Feature as they desire. This, in conjunction with the ability for a Feature to have numerous Variables, unlocks a great range of possible use cases such as Personalization, Experimentation, and even allowing for gating aspects of features for various reasons such as billing, permissions, or preferences.
 
-By default, most Feature types within DevCycle will begin with two Variations. At any time, extra variations can be added by clicking the "Add Variation" button on the Variables section of a feature:
+By default, most Feature types within DevCycle will begin with two Variations. At any time, extra Variations can be added by clicking the "Add Variation" button on the Variables section of a feature:
 
 ![Variables Page of a Feature with Arrow Pointing to Add Variation button](/december_2021_add-variation.png)
 
-This will allow you to create a new variation adn assign all of the relevant values. 
+This will allow you to create a new Variation and assign all of the relevant values. 
 
 ![Variables Page of a Feature](/december_2021_new-variation.png)
 
