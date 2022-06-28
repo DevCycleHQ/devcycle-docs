@@ -44,3 +44,4 @@ the custom data. The only required piece of data is `user_id`.
 - [PHP SDK](https://docs.devcycle.com/docs/sdk/server-side-sdks/php#edgedb)
 - [Python SDK](https://docs.devcycle.com/docs/sdk/server-side-sdks/python#edgedb)
 - [Ruby SDK](https://docs.devcycle.com/docs/sdk/server-side-sdks/ruby#edgedb)
+- [.NET SDK for Cloud Bucketing](https://docs.devcycle.com/docs/sdk/server-side-sdks/dotnet-cloud#edgedb)
