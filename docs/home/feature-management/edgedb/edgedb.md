@@ -35,6 +35,8 @@ the custom data. The only required piece of data is `user_id`.
 - [JS SDK](https://docs.devcycle.com/docs/sdk/client-side-sdks/javascript#edgedb)
 - [iOS SDK](https://docs.devcycle.com/docs/sdk/client-side-sdks/ios#edgedb)
 - [Android SDK](https://docs.devcycle.com/docs/sdk/client-side-sdks/android#edgedb)
+- [React SDK](https://docs.devcycle.com/docs/sdk/client-side-sdks/react#edgedb)
+- [React Native](https://docs.devcycle.com/docs/sdk/client-side-sdks/react-native#edgedb)
 
 #### Server SDKs
 - [Go SDK](https://docs.devcycle.com/docs/sdk/server-side-sdks/go#edgedb)
