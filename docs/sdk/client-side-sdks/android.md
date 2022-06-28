@@ -82,9 +82,23 @@ protected void onCreate(Bundle savedInstanceState) {
 
 You can attach a callback on the client to determine when your features have been loaded:
 
+#### Kotlin
+
+```kotlin
+dvcClient.onInitialized(object : DVCCallback<String> {
+    override fun onSuccess(result: String) {
+        // successfully initialized
+    }
+
+    override fun onError(t: Throwable) {
+        // there was an error 
+    }
+})
+```
+
 #### Java
 
-```
+```java
 dvcClient.onInitialized(new DVCCallback<String>() {
     @Override
     public void onSuccess(String result) {
@@ -96,20 +110,6 @@ dvcClient.onInitialized(new DVCCallback<String>() {
         // user configuration failed to load from DevCycle, default values will be used for Variables.
     }
 });
-```
-
-#### Kotlin
-
-```
-dvcClient.onInitialized(object : DVCCallback<String> {
-    override fun onSuccess(result: String) {
-        // successfully initialized
-    }
-
-    override fun onError(t: Throwable) {
-        // there was an error 
-    }
-})
 ```
 
 ### Using Variable Values
