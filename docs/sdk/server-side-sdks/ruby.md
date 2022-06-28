@@ -136,6 +136,38 @@ end
 ```
 
 
+### EdgeDB
+
+EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user. Read more about [EdgeDB](https://docs.devcycle.com/docs/home/feature-management/edgedb/).
+
+To get started, contact us at support@devcycle.com to enable EdgeDB for your project.
+
+Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to turn on EdgeDB mode for the SDK:
+
+```ruby
+# Load the gem
+require 'devcycle-server-sdk'
+
+# Setup authorization
+DevCycle.configure do |config|
+  # Configure API key authorization
+  config.api_key['bearerAuth'] = 'YOUR API KEY'
+  config.enable_edge_db = true
+end
+
+api_instance = DevCycle::DVCClient.new
+user_data = DevCycle::UserData.new({
+   user_id: 'test_user',
+   email: 'example@example.ca',
+   country: 'CA'
+ })
+```
+
+This will send a request to our EdgeDB API to save the custom data under the user `test_user`.
+
+In the example, Email and Country are associated to the user `test_user`. In your next identify call for the same `user_id`, you may omit any of the data you've sent already as it will be pulled from the EdgeDB storage when segmenting to experiments and features.
+
+
 ## Documentation for Models
 
 ### UserData
