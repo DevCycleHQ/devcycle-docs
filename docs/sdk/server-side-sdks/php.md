@@ -115,6 +115,23 @@ try {
 }
 ```
 
+### EdgeDB
+
+EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user. Read more about [EdgeDB](https://docs.devcycle.com/docs/home/feature-management/edgedb/).
+
+To get started, contact us at support@devcycle.com to enable EdgeDB for your project.
+
+Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to turn on EdgeDB mode for the SDK:
+
+```php
+$config = DevCycle\Configuration::getDefaultConfiguration()->setApiKey('Authorization', '<INSERT SDK KEY>');
+$options = new DevCycle\DVCOptions(true);
+$apiInstance = new DevCycle\Api\DVCClient(
+    $config,
+    dvcOptions:$options
+);
+```
+
 ## Async Methods
 
 Each method in the [Usage](#Usage) section has a corresponding asynchronous method:
@@ -187,23 +204,6 @@ Feature objects are returned by the SDK when calling `allFeatures`
 | **_variation** | **String** | Bucketed feature variation |  |
 | **eval_reason** | **String** | Evaluation reasoning | [optional] |
 
-
-### EdgeDB
-
-EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user. Read more about [EdgeDB](https://docs.devcycle.com/docs/home/feature-management/edgedb/).
-
-To get started, contact us at support@devcycle.com to enable EdgeDB for your project.
-
-Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to turn on EdgeDB mode for the SDK:
-
-```php
-$config = DevCycle\Configuration::getDefaultConfiguration()->setApiKey('Authorization', '<INSERT SDK KEY>');
-$options = new DevCycle\DVCOptions(true);
-$apiInstance = new DevCycle\Api\DVCClient(
-    $config,
-    dvcOptions:$options
-);
-```
 
 ## Tests
 
