@@ -40,6 +40,7 @@ the custom data. The only required piece of data is `user_id`.
 
 #### Server SDKs
 - [Go SDK](https://docs.devcycle.com/docs/sdk/server-side-sdks/go#edgedb)
+- [Java SDK](https://docs.devcycle.com/docs/sdk/server-side-sdks/java#edgedb) 
 - [PHP SDK](https://docs.devcycle.com/docs/sdk/server-side-sdks/php#edgedb)
 - [Python SDK](https://docs.devcycle.com/docs/sdk/server-side-sdks/python#edgedb)
 - [Ruby SDK](https://docs.devcycle.com/docs/sdk/server-side-sdks/ruby#edgedb)
