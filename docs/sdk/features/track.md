@@ -90,6 +90,25 @@ You can wait on the features to be loaded from our servers by using `getVariable
 
     await instance.postEvents({ events, user })
 ```
+### **Android SDK**
+
+To track events, pass in an object with at least a `type` key:
+
+```kotlin
+var event = DVCEvent.builder()
+                .withType("custom_event_type")
+                .withTarget("custom_event_target")
+                .withValue(BigDecimal(10.0))
+                .withMetaData(mapOf("custom_key" to "value"))
+                .build()
+dvcClient.track(event)
+```
+
+The SDK will flush events every 10s or `flushEventsMS` specified in the options. To manually flush events, call:
+
+```kotlin
+dvcClient.flushEvents()
+```
 
 ### **Python SDK**
 
@@ -159,7 +178,7 @@ try {
 }
 ```
 
-## **Dotnet / C# SDK**
+### **Dotnet / C# SDK**
 To POST custom event for a user, pass in the user and event object.
 
 ```c
@@ -232,22 +251,6 @@ public class MyClass {
 }
 ```
 
-### **Android SDK**
 
-To track events, pass in an object with at least a `type` key:
 
-```kotlin
-var event = DVCEvent.builder()
-                .withType("custom_event_type")
-                .withTarget("custom_event_target")
-                .withValue(BigDecimal(10.0))
-                .withMetaData(mapOf("custom_key" to "value"))
-                .build()
-dvcClient.track(event)
-```
 
-The SDK will flush events every 10s or `flushEventsMS` specified in the options. To manually flush events, call:
-
-```kotlin
-dvcClient.flushEvents()
-```
