@@ -67,21 +67,21 @@ The CLI can be run with the following arguments:
 $ dvc --client-id=<your client id> --client-secret=<your client secret> --project=<your project key>
 ```
 
-# Usage
+## Usage
 <!-- usage -->
 ```shell
 $ npm install -g @devcycle/cli
 $ dvc COMMAND
 running command...
 $ dvc (--version)
-@devcycle/cli/3.0.0 darwin-x64 node-v16.14.0
+@devcycle/cli/4.0.0 darwin-x64 node-v16.14.0
 $ dvc --help [COMMAND]
 USAGE
 $ dvc COMMAND
 ...
 ```
 <!-- usagestop -->
-# Commands
+## Commands
 <!-- commands -->
 * [`dvc diff [DIFF-PATTERN]`](#dvc-diff-diff-pattern)
 * [`dvc features get`](#dvc-features-get)
@@ -96,7 +96,7 @@ $ dvc COMMAND
 * [`dvc variables list`](#dvc-variables-list)
 * [`dvc variables update`](#dvc-variables-update)
 
-## `dvc diff [DIFF-PATTERN]`
+### `dvc diff [DIFF-PATTERN]`
 
 Print a diff of DevCycle variable usage between two versions of your code.
 
@@ -139,9 +139,9 @@ EXAMPLES
   $ dvc diff --match-pattern javascript="dvcClient\.variable\(\s*["']([^"']*)["']"
 ```
 
-_See code: [dist/commands/diff/index.ts](https://github.com/DevCycleHQ/cli/blob/v3.0.0/dist/commands/diff/index.ts)_
+_See code: [dist/commands/diff/index.ts](https://github.com/DevCycleHQ/cli/blob/main/dist/commands/diff/index.ts)_
 
-## `dvc features get`
+### `dvc features get`
 
 Retrieve Features from the management API
 
@@ -171,7 +171,7 @@ EXAMPLES
   $ dvc features get --keys=feature-one,feature-two
 ```
 
-## `dvc features list`
+### `dvc features list`
 
 ```
 USAGE
@@ -188,7 +188,7 @@ GLOBAL FLAGS
   --project=<value>        Project key to use for the DevCycle API requests
 ```
 
-## `dvc help [COMMAND]`
+### `dvc help [COMMAND]`
 
 Display help for dvc.
 
@@ -208,7 +208,7 @@ DESCRIPTION
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.1.10/src/commands/help.ts)_
 
-## `dvc login sso`
+### `dvc login sso`
 
 Log in through the DevCycle Universal Login. This will open a browser window
 
@@ -230,7 +230,7 @@ DESCRIPTION
   Log in through the DevCycle Universal Login. This will open a browser window
 ```
 
-## `dvc org`
+### `dvc org`
 
 Select which organization to access through the API
 
@@ -252,9 +252,9 @@ DESCRIPTION
   Select which organization to access through the API
 ```
 
-_See code: [dist/commands/org/index.ts](https://github.com/DevCycleHQ/cli/blob/v3.0.0/dist/commands/org/index.ts)_
+_See code: [dist/commands/org/index.ts](https://github.com/DevCycleHQ/cli/blob/main/dist/commands/org/index.ts)_
 
-## `dvc projects select`
+### `dvc projects select`
 
 ```
 USAGE
@@ -271,7 +271,7 @@ GLOBAL FLAGS
   --project=<value>        Project key to use for the DevCycle API requests
 ```
 
-## `dvc usages`
+### `dvc usages`
 
 Print all DevCycle variable usages in the current version of your code.
 
@@ -314,9 +314,9 @@ EXAMPLES
   $ dvc usages --match-pattern javascript="dvcClient\.variable\(\s*["']([^"']*)["']"
 ```
 
-_See code: [dist/commands/usages/index.ts](https://github.com/DevCycleHQ/cli/blob/v3.0.0/dist/commands/usages/index.ts)_
+_See code: [dist/commands/usages/index.ts](https://github.com/DevCycleHQ/cli/blob/main/src/commands/usages/index.ts)_
 
-## `dvc variables create`
+### `dvc variables create`
 
 Create a new Variable for an existing Feature.
 
@@ -338,7 +338,7 @@ DESCRIPTION
   Create a new Variable for an existing Feature.
 ```
 
-## `dvc variables get`
+### `dvc variables get`
 
 ```
 USAGE
@@ -358,7 +358,7 @@ GLOBAL FLAGS
   --project=<value>        Project key to use for the DevCycle API requests
 ```
 
-## `dvc variables list`
+### `dvc variables list`
 
 ```
 USAGE
@@ -375,7 +375,7 @@ GLOBAL FLAGS
   --project=<value>        Project key to use for the DevCycle API requests
 ```
 
-## `dvc variables update`
+### `dvc variables update`
 
 Update a Variable.
 
@@ -397,7 +397,7 @@ DESCRIPTION
   Update a Variable.
 ```
 <!-- commandsstop -->
-# Configuration
+## Configuration
 Many of the options available as command-line args can also be specified using a configuration file. The default
 location for this file is `<REPO ROOT>/.devcycle/config.yml`. It is also assumed that the CLI commands are run from the
 root of the repository.
