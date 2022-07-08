@@ -59,6 +59,8 @@ const dvcClient = await DVC.initialize('<DVC_ENVIRONMENT_SERVER_KEY>', {
 | configPollingTimeoutMS | Controls the request timeout to fetch new environment config changes, defaults to 5 seconds, must be less than the configPollingIntervalMS value, minimum value is 1 second. |
 | flushEventsMS | Controls the interval between flushing events to the DevCycle servers, defaults to 30 seconds. |
 | disableEventLogging | Disables logging of any events or user data to DevCycle. |
+| enableCloudBucketing | Switches the SDK to use Cloud Bucketing (via the DevCycle Bucketing API) instead of Local Bucketing. |
+| enableEdgeDB | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle. <br />NOTE: This is only available with Cloud Bucketing. |
 
 ### User Object
 
@@ -110,3 +112,37 @@ You can fetch all segmented features for a user:
 const features = dvcClient.allFeatures(user)
 ```
 See [getFeatures](https://docs.devcycle.com/bucketing-api/#operation/getFeatures) on the Bucketing API for the feature response format.
+
+### EdgeDB
+:::info
+
+EdgeDB is only available with Cloud Bucketing and does not have any impact on Local Bucketing.
+
+:::
+
+EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user. Read more about [EdgeDB](https://docs.devcycle.com/docs/home/feature-management/edgedb/).
+
+To get started, contact us at support@devcycle.com to enable EdgeDB for your project.
+
+Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to turn on EdgeDB mode for the SDK:
+
+```javascript
+const DVC = require('@devcycle/nodejs-server-sdk')
+
+const dvcClient = await DVC.initialize('<DVC_ENVIRONMENT_SERVER_KEY>', {
+  enableCloudBucketing: true,
+  enableEdgeDB: true
+}).onClientInitialized()
+
+const user = {
+  user_id: 'test_user',
+  email: 'example@example.ca',
+  country: 'CA'
+}
+
+const variable = dvcClient.variable(user, 'test-feature', false)
+```
+
+This will send a request to our EdgeDB API to save the custom data under the user `test_user`.
+
+In the example, Email and Country are associated to the user `test_user`. In your next variable call for the same `user_id`, you may omit any of the data you've sent already as it will be pulled from the EdgeDB storage when segmenting to experiments and features.
