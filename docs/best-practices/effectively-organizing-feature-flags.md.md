@@ -63,7 +63,7 @@ Another way to keep your workspace organized is to utilize DevCycle for Jira. De
 
 To combat the juggling of siloed information, DevCycle for Jira links tickets directly to your features. This allows you to view your feature’s status within Jira. 
 
-To start connecting Jira Ticket IDs to DevCycle features, you must install the app from the [Jira Marketplace Listing](https://marketplace.atlassian.com/apps/1227643/devcycle-feature-flag-management-for-jira). We recommend reading [DevCycle Feature Flag Management for Jira](https://docs.devcycle.com/docs/tools-and-integrations/Jira/jira-integration#operation/postEvents) for a setup guide.
+To start connecting Jira Ticket IDs to DevCycle features, you must install the app from the [Jira Marketplace Listing](https://marketplace.atlassian.com/apps/1227643/devcycle-feature-flag-management-for-jira). We recommend reading [DevCycle Feature Flag Management for Jira](/docs/tools-and-integrations/Jira/jira-integration) for a setup guide.
 
 Once you have configured a Jira project with a DevCycle project, you can connect a feature to a Jira Issue from the feature’s settings. Simply enter the IDs of the ticket(s) you’d like to associate with the feature.
 
@@ -95,9 +95,9 @@ Code References are another helpful tool to foster an organized workflow. DevCyc
 
 Each Code Reference also includes a link to the exact location of the referenced variable in your codebase, making it much easier to track variables. You can use code references to determine whether or not variables are being used in your code, or if they have fulfilled their lifecycle and are ready for removal. As a result, Code References are especially useful for cleaning up your code. 
 
-For more information about tracking variable usage and when to clean up flags, read [Technical Debt - Cleaning up your unused flags](https://docs.devcycle.com/docs/best-practices/feature-flag-cleanup).
+For more information about tracking variable usage and when to clean up flags, read [Technical Debt - Cleaning up your unused flags](/docs/best-practices/feature-flag-cleanup).
 
-To use Code References, enable [the DevCycle action for Code References](https://docs.devcycle.com/docs/tools-and-integrations/Github/gh-feature-usage-action) within your repository. Once it is configured, you can find your Code References in the Variable Dashboard by clicking “View Info” on the desired variable.
+To use Code References, enable [the DevCycle action for Code References](/docs/tools-and-integrations/Github/gh-feature-usage-action) within your repository. Once it is configured, you can find your Code References in the Variable Dashboard by clicking “View Info” on the desired variable.
 
 ## Summary
 
