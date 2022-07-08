@@ -58,7 +58,7 @@ This field is only for _changing what the property's name is in the DevCycle UI_
 
 **DevCycle Key**
 
-This is an auto generated field based on the property key. This is the key which can be used to reference the property in the [DevCycle Management API](/management-api/#tag/Custom-Properties)
+This is an auto generated field based on the property key. This is the key which can be used to reference the property in the [DevCycle Management API](/management-api/#tag/Custom-Properties).
 
 ## Using an existing Property
 
