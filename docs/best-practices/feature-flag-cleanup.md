@@ -1,6 +1,6 @@
 ---
 title: Technical Debt - Cleaning up your unused flags
-sidebar_position: 3
+sidebar_position: 5
 ---
 
 ## Overview
