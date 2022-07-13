@@ -1,11 +1,11 @@
 ---
-title: Experimenting with Custom Properties
+title: Using Custom Properties
 sidebar_position: 6
 ---
 
 ## Overview
 
-This article explains how to use Custom Properties for Targeting users. To complete this guide, we recommend an understanding of User Targeting in DevCycle, found on our docs [Targeting Users for Features](/docs/home/feature-management/features-and-variables/targeting-users).
+Custom Properties are useful for a customized Targeting of users, such as for Experimentation. To complete this guide, we recommend an understanding of User Targeting in DevCycle, found on our docs [Targeting Users for Features](/docs/home/feature-management/features-and-variables/targeting-users).
 
 DevCycle provides several properties that can be used to target users for a feature. You can target users by their User ID, Email, Country, Platform, etc. However, it may sometimes be helpful to identify users by attributes that are not predefined in DevCycle. 
 

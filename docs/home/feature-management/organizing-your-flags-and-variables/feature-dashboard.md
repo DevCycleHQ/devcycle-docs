@@ -19,7 +19,7 @@ From this page, you can create a Feature Flag by clicking "Create New Feature" o
 ![DevCycle Feature Dashboard with arrows highlighting the create button on the page as well as the persistent button in the top bar](/march-2022-create.png)
 
 
-To learn more about creating a Feature, start with [Your First Feature])(/docs/home/feature-management/getting-started/your-first-feature)
+To learn more about creating a Feature, start with [Your First Feature](/docs/home/feature-management/getting-started/your-first-feature)
 
 The features list has the following columns:
 

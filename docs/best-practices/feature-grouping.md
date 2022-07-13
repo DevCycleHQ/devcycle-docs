@@ -17,7 +17,7 @@ Not only do we want flags for each part of a feature, but we also want the abili
 
 DevCycle sees features as complex functionalities made up of several simpler working components. Each component requires a flag. As a result, DevCycle prefers to view Feature Flags as mere parts of a feature. When you create a feature, you can create flags to toggle different aspects of that feature. To do so, we can use Remote Variables. Remote Variables are flags for toggling values that affect subparts of features. This way, you can group your flags, or Variables, by feature.
 
-## Usage
+## Using Flag Grouping
 
 When you add a feature on DevCycle, DevCycle automatically creates a Variable with the same name as your feature. You can also make additional Variables to gate different components of your feature.
 
