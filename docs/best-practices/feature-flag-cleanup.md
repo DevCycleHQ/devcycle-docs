@@ -1,11 +1,11 @@
 ---
-title: Technical Debt - Cleaning up your unused flags
-sidebar_position: 3
+title: Cleaning Up Your Unused Flags
+sidebar_position: 5
 ---
 
 ## Overview
 
-This article outlines feature flag maintenance practices that help minimize technical debt with DevCycle. DevCycle’s code insights are a valuable tool in determining when to clean up your unused feature flags.
+This article outlines practices to help minimize technical debt from feature flags. DevCycle’s code insights are a valuable tool in determining when to clean up your unused feature flags.
 
 ## What is technical debt?
 

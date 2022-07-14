@@ -1,6 +1,6 @@
 ---
 title: Getting Started - A Beginner's Guide
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 # A Beginner's Guide to Implementing Your First Feature Flag

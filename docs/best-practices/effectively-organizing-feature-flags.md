@@ -1,6 +1,6 @@
 ---
 title: Effectively Organizing Your Feature Flags
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 ## Overview
