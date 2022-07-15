@@ -4,7 +4,7 @@ sidebar_position: 2
 ---
 
 :::info
-Experimentation relies on custom events.
+Experimentation relies on Custom Events.
 
 Experimentation is available to all customers on any plan. However, to perform experiments, events must be sent to DevCycle to calculate metrics. These events are added to your existing plan. To learn more, read about our pricing, or contact us.
 :::
