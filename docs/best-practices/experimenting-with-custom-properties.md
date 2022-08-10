@@ -21,19 +21,19 @@ The first step to using Custom Properties is to initialize a property on the Dev
 
 ![add property window](/march-2022-add-property.png)
 
-A modal will open allowing you to create a new property.
+A modal will open allowing you to create a new property. We will create a boolean property called `isBetaUser`.
 
-![property key](/august-2022-isBetaUser-property-key.png)
+![property key](/august-2022-isBetaUser-property-type.png)
 
 The Property Key and Property Type are mandatory fields.
 
-- The **Property Key** must match what is sent by the SDK or API.
+- The **Property Key** must match what is sent by the SDK or API. 
 - The **Property Type** must match the type sent by the SDK. The available types are boolean, number, and string.
 
 The following fields are optional:
 
 - The **Display Name** only changes the property’s display name in the DevCycle UI. This is useful for properties with long or auto-generated names. However, the *Property Key* will be used to match the SDK or API when bucketing users.
-- The **DevCycle Key** is auto generated based on the **Property Key**. You can use the DevCycle Key to reference the Property in the [DevCycle Management API](/management-api/#tag/Custom-Properties).
+- The **DevCycle Key** is auto-generated based on the **Property Key**. You can use the DevCycle Key to reference the Property in the [DevCycle Management API](/management-api/#tag/Custom-Properties).
 
 Once you’ve created a property, you can find it in the Definition dropdown when you modify the Targeting Rules. The property will be accessible across all features within your project. 
 
@@ -41,7 +41,7 @@ Once you’ve created a property, you can find it in the Definition dropdown whe
 
 ## Implementing Custom Properties
 
-Custom Properties can be added to any user object in your code by including it in the `customData` field. For example, let’s implement a boolean `isBetaUser` property using the React SDK:
+Custom Properties can be added to any user object in your code by including it in the `customData` field. For example, let’s implement the boolean `isBetaUser` property using the React SDK:
 
 ```jsx
 import { useDVCClient } from '@devcycle/devcycle-react-sdk'
