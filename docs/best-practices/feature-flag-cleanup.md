@@ -29,7 +29,8 @@ You should also remove a flag or its variables if they are inactive or not in us
 
 ## Using Code Insights for feature flag cleanup
 
-Our platform provides tools to facilitate feature flag cleanup. Feature Flag Reach and Code References on DevCycle can help you decide when to remove feature flags.
+Our platform provides tools to facilitate feature flag cleanup. Feature Flag Reach and Code References on DevCycle can help you decide when to remove feature flags. For a demo, watch our video [Cleaning up your Feature Flags using DevCycle's Code Usages](https://youtu.be/0yhmQ-3OZX8).
+
 
 ### Feature Flag Reach
 

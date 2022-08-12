@@ -53,6 +53,9 @@ When referencing your API client ID and secret, we recommend using [GitHub Secre
 | `client-id` | yes | Your organization's API client ID, see [Organization Settings](https://app.devcycle.com/settings) |
 | `client-secret` | yes | Your organization's API client secret, see [Organization Settings](https://app.devcycle.com/settings) |
 
+### Video Tutorial
+`youtube:https://youtu.be/k6xAMNCUEzc`
+
 ### Configuration
 The patterns used to identify references to variables in your code are fully customizable.
 This action uses the [DevCycle CLI](https://github.com/DevCycleHQ/cli) under the hood, for details on how to configure the pattern matcher see the [CLI configuration](https://github.com/DevCycleHQ/cli#configuration).
