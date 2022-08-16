@@ -1,6 +1,6 @@
 ---
-title: Cleaning Up Your Unused Flags
-sidebar_position: 5
+title: Cleaning Up Unused Flags
+sidebar_position: 6
 ---
 
 ## Overview

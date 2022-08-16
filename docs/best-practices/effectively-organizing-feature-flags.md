@@ -1,6 +1,6 @@
 ---
-title: Effectively Organizing Your Feature Flags
-sidebar_position: 3
+title: Keeping Track of Feature Flags
+sidebar_position: 5
 ---
 
 ## Overview
@@ -43,7 +43,7 @@ You have the option to add a description upon creating a feature in DevCycle. Al
 
 As for variables, you can add a description from the Variable Dashboard. Click “View Info” on the variable you’d like to add a description for and edit the Description box.
 
-## Feature Grouping using Variables - Using DevCycle for Better Organization
+## Feature Grouping using Variables
 
 As developers get in the groove of developing with Feature Flags, more and more flags are created. It won’t be long before hundreds or even thousands of flags are in use. Oftentimes, several of those flags may pertain to the same feature but are not categorized as such. Take into consideration our Premium Users example from earlier. Let’s say we would like to add a page for our button to link towards. On another feature management platform, we would have to create a completely new flag on the dashboard. Any other new aspect of the page would be another additional flag. Eventually, we’d have several loose flags, cluttering our workspace!
 
@@ -55,7 +55,7 @@ It is important to note that while our variable key was specific to the button, 
 
 Allowing a feature to have multiple variables eliminates the technical debt of having several uncategorized flags. When you want to create a new flag, ask yourself whether it would be appropriate to create a new feature or add a variable to an existing feature instead. Organizing by feature allows you and other developers to locate variables effortlessly based on their associated features.
 
-To learn more about adding and managing multiple variables within a feature, read [Creating Variables & Variations](https://docs.devcycle.com/docs/home/feature-management/features-and-variables/creating-variables-and-variations#overview).
+To explore Feature Grouping in greater detail, check out our best practice guide on [Feature Flag Grouping](/docs/best-practices/feature-grouping).
 
 ## Linking Your Features to Jira Tickets
 
