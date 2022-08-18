@@ -74,9 +74,9 @@ There are several scenarios where EdgeDB’s data synchronization can be useful.
 
 **Maintaining sessions in a serverless environment.** Serverless environments can make it difficult to store session information, as data is transient. With DevCycle, you can send session information to EdgeDB and use it as targeting data whenever you need it. 
 
-**Keeping Personal Identifiable Information (PII) safe from the client**-**side application**. With EdgeDB, you no longer need to repeatedly send customer data from web apps, providing an added layer of security.
+**Keeping Personal Identifiable Information (PII) safe from the client-side application**. With EdgeDB, you no longer need to repeatedly send customer data from web apps, providing an added layer of security.
 
-**Minimizing your payload size.** EdgeDB is useful when you have user objects with lots of data. Instead of sending cumbersome payload requests every time, with EdgeDB you only need to send the `user_id` and the data that is new.
+**Minimizing your payload size.** EdgeDB is useful when you have user objects with lots of data. Instead of sending cumbersome payload requests every time, with EdgeDB you only need to send the `user_id` and any new data.
 
 ## Summary
 
