@@ -8,7 +8,7 @@ sidebar_position: 2
 **[Bitbucket Marketplace Listing (coming soon)](https://marketplace.atlassian.com/addons/app/bitbucket)**
 
 
-With this Bitbucket action, your [DevCycle](https://devcycle.com/) dashboard will be updated to display code snippets for each DevCycle variable usage within your project.
+With this Bitbucket pipe, your [DevCycle](https://devcycle.com/) dashboard will be updated to display code snippets for each DevCycle variable usage within your project.
 
 **Note: This is intended to run when pushing changes to your main branch**
 
@@ -31,7 +31,9 @@ Your [DevCycle API credentials](https://app.devcycle.com/r/settings) and [projec
 
 ### Inputs
 
-| Variable           | Usage                                                       |
+- To add variables to be used in the bitbucket-pipelines.yml, an admin must add Repository Variables in Repository Settings > Repository Variables, and then add all necessary variables as secured variables
+
+| Variable           | Description                                                       |
 | --------------------- | ----------------------------------------------------------- |
 | PROJECT_KEY (*) | Your DevCycle project key, see [Projects](https://app.devcycle.com/r/projects)  |
 | CLIENT_ID (*)     | Your organization's API client ID, see [Organization Settings](https://app.devcycle.com/r/settings) |
