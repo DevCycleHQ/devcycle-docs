@@ -1,6 +1,6 @@
 ---
 title: Using Custom Properties
-sidebar_position: 6
+sidebar_position: 3
 ---
 
 ## Overview
@@ -13,7 +13,7 @@ Let’s say you would like to enable a new feature for only the beta users of yo
 
 ## What are Custom Properties?
 
-Custom Properties are Targeting attributes that developers can create to use in the dashboard. If you’d like to target users based on a property that is not in DevCycle, you can add one. For instance, if you would like to target users based on a number, such as the amount of money they’ve spent, you can create a numerical property. Or if you’d like to target beta users based on a boolean like “isBetaUser”, you can make a boolean property.
+Custom Properties are Targeting attributes that developers can create to use in the dashboard. If you’d like to target users based on a property that is not in DevCycle, you can add one. For instance, if you would like to target users based on a number, such as the amount of money they’ve spent, you can create a numerical property. Or if you’d like to target beta users based on a boolean like “isBetaUser”, you can make a boolean property. As a result, Custom Properties are incredibly useful for gradual rollouts, experimentation, and permissions features.
 
 ## Creating Properties on the DevCycle Dashboard
 

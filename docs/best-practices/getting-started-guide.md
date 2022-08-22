@@ -1,5 +1,5 @@
 ---
-title: Getting Started - A Beginner's Guide
+title: Getting Started - A Sample App
 sidebar_position: 2
 ---
 
