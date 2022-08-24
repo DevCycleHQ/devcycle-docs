@@ -13,7 +13,9 @@ The Client-Side SDKs and Server-Side SDKs function slightly differently. This do
 
 The documentation will also cover the differences between regular data and private data.
 
-Regardless of the SDK type or the type of custom data you are looking to use, the general format of user data remains largely the same. The user data object that you should use across SDKs should look something like this:
+Regardless of the SDK type or the type of custom data you are looking to use, the general format of user data remains largely the same. 
+
+The user data object that you should use across SDKs should look something like this:
 
 ```json
 {
@@ -193,4 +195,14 @@ User user = new User("a_user_id");
 
 When setting custom properties you have a choice between keeping that data completely private or allowing for the data to be logged back to DevCycle's events database. Both options allow for the same targeting capabilities, but you should use Private Custom Data if you are looking to avoid having user data saved to any external system.
 
-With Private Custom Data, data is just used solely for evaluating decisions with DevCycle's Edge Workers, it is then discarded and no record is saved anywhere. With regular Custom Data, the data used for evaluation purposes is logged back to DevCycle's events database where it can be used for debugging purposes or providing guidance on evaluation reasons. Given Private Custom Data is not written to any DevCycle systems it cannot be used with EdgeDB, as EdgeDB by its nature saves Custom Data to an Edge Database for flag evaluations.
+With Private Custom Data, data is just used solely for evaluating decisions with DevCycle's Edge Workers, it is then discarded and no record is saved anywhere. 
+
+With regular Custom Data, the data used for evaluation purposes is logged back to DevCycle's events database where it can be used for debugging purposes or providing guidance on evaluation reasons. 
+
+
+:::info
+
+**EdgeDB Usage:** Given Private Custom Data is not written to any DevCycle systems it cannot be used with EdgeDB, as EdgeDB by its nature saves Custom Data to an Edge Database for flag evaluations.
+
+:::
+
