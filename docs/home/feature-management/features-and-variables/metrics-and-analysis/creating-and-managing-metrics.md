@@ -50,7 +50,7 @@ To set up a Metric, the following items are needed:
 * **Name** - This is the name of the Metric. It should be descriptive enough that any team member viewing it understands it and can both get the information necessary, and also decide if they would like to re-use the Metric for other Features. 
 * **Key** - Like other DevCycle keys, this is how this Metric will be referenced in the Management API and all other non-dashboard interactions with this Metric.
 
-* **Event** - This is the **EXACT** event name that is sent by the [DevCycle Track](/docs/sdk/features/track) methods of the SDKs or via the DevCycle APIs. This event will be used in all calculations of the Metric. How it is used specifically is described below in HOW CALCULATIONS
+* **Event** - This is the **EXACT** event name that is sent by the [DevCycle Track](/docs/sdk/features/track) methods of the SDKs or via the DevCycle APIs. This event will be used in all calculations of the Metric. How it is used specifically is described below in [How do Metrics get calculated?](/docs/home/feature-management/features-and-variables/metrics-and-analysis/creating-and-managing-metrics#how-do-metrics-get-calculated)
 
 * **"Optimize For"** - DevCycle represents Metrics as a positive or negative depending on the desired optimization. Often times, tools will always assume that an increase is beneficial. However, in most engineering applications, the opposite is true! Things such as latency, load times, server load, and processing times are Metrics that should be decreased. DevCycle will make obvious whether a Metric is improving in the desired direction, and will soon notify you if a significant impact in either direction has been made.
 
@@ -97,7 +97,7 @@ To run a test, the following fields must be set:
 
 **Feature** - This is the specific feature this Metric should be applied to. Any event that has been sent since the creation of this Metric from a user receiving any variation of this feature will be part of this Metric. In the event that an error is shown, this means the event has not been seen from this feature yet. 
 
-**Control** - After selecting a Feature, a "control" variation must be selected. This is what will be used to show a comparative analysis against all other variations in a feature. Typically, an "off" or "Baseline" variation would act as the control. For more information on this, please refer to the EXPERIMENTATION DOCUMENTATION. 
+**Control** - After selecting a Feature, a "control" variation must be selected. This is what will be used to show a comparative analysis against all other variations in a feature. Typically, an "off" or "Baseline" variation would act as the control. For more information on this, please refer to the [Feature Experimentation documentation](https://docs.devcycle.com/docs/home/feature-management/features-and-variables/metrics-and-analysis/feature-experimentation). 
 
 **Date Range** - This range will default from the moment the Metric (or feature) was created, to now within 30 days. If 30 days have passed since the creation of the Metric or feature, the date range must be a 30 day range. 
 
@@ -134,7 +134,7 @@ Once one or more Metrics has been selected, you can then run the Metric calculat
 
 While the setup has some default values, the Metric requires the following fields to be filled: 
 
-**Control** -  This is what will be used to show a comparative analysis against all other variations in a feature. Typically, an "off" or "Baseline" variation would act as the control. For more information on this, please refer to the EXPERIMENTATION DOCUMENTATION. 
+**Control** -  This is what will be used to show a comparative analysis against all other variations in a feature. Typically, an "off" or "Baseline" variation would act as the control. For more information on this, please refer to the [Feature Experimentation documentation](https://docs.devcycle.com/docs/home/feature-management/features-and-variables/metrics-and-analysis/feature-experimentation). 
 
 **Date Range** - This range will default from the moment the Metric (or feature) was created, to now within 30 days. If 30 days have passed since the creation of the Metric or feature, the date range must be a 30 day range. 
 
