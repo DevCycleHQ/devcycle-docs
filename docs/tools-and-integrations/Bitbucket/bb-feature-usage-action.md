@@ -17,14 +17,18 @@ With this Bitbucket pipe, your [DevCycle](https://devcycle.com/) dashboard will 
 ![Example Output](https://bitbucket.org/devcyclehq/devcycle-code-refs-pipe/raw/main/example-output.png)
 
 ### Usage
-Add the following snippet to a step in your `bitbucket-pipelines.yml` file:
+Add the following snippet to your `bitbucket-pipelines.yml` file:
 
 ```yaml
-  - pipe: DevCycleHQ/DVC-code-usages:x.x.x
-      variables:
-        PROJECT_KEY: $PROJECT_KEY
-        CLIENT_ID: $CLIENT_ID
-        CLIENT_SECRET: $CLIENT_SECRET
+branches:
+  main:
+    - step:
+        script:
+          - pipe: docker://public.ecr.aws/u8b5e1o7/bitbucket-code-refs-pipe:1.0.1
+            variables:
+              PROJECT_KEY: $PROJECT_KEY
+              CLIENT_ID: $CLIENT_ID
+              CLIENT_SECRET: $CLIENT_SECRET
 ```
 
 Your [DevCycle API credentials](https://app.devcycle.com/r/settings) and [project token](https://app.devcycle.com/r/projects) are required to update the DevCycle dashboard.

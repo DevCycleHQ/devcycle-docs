@@ -17,16 +17,20 @@ With this Bitbucket pipe, information on which [DevCycle](https://devcycle.com/)
 ![Example Output](https://raw.githubusercontent.com/DevCycleHQ/feature-flag-pr-insights-action/main/example_output.png)
 
 ### Usage
-Add the following snippet to a step in your `bitbucket-pipelines.yml` file:
+Add the following snippet to your `bitbucket-pipelines.yml` file:
 
 ```yaml
-  - pipe: DevCycleHQ/DVC-pr-comment-insights:x.x.x
-      variables:
-        USER_NAME: $USER_NAME
-        PASSWORD: $PASSWORD
-        PROJECT_KEY: $PROJECT_KEY
-        CLIENT_ID: $CLIENT_ID
-        CLIENT_SECRET: $CLIENT_SECRET
+pull-requests:
+  '*':
+    - step:
+        script:
+          - pipe: docker://public.ecr.aws/u8b5e1o7/bitbucket-pr-insights-pipe:1.0.3
+              variables:
+                USER_NAME: $BITBUCKET_USER_NAME
+                PASSWORD: $BITBUCKET_APP_PASSWORD
+                PROJECT_KEY: $DEVCYCLE_PROJECT_KEY
+                CLIENT_ID: $DEVCYCLE_CLIENT_ID
+                CLIENT_SECRET: $DEVCYCLE_CLIENT_SECRET
 ```
 
 
