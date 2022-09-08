@@ -7,6 +7,12 @@ sidebar_position: 2
 
 Welcome to the the DevCycle PHP SDK, initially generated via the [DevCycle Bucketing API](https://docs.devcycle.com/bucketing-api/#tag/devcycle).
 
+:::
+
+The SDK is available as a package on Packagist. It is also open source and can be viewed on Github.
+[![Packagist](https://badgen.net/packagist/v/devcycle/php-server-sdk/latest)](https://packagist.org/packages/devcycle/php-server-sdk)
+[![GitHub](https://img.shields.io/github/stars/devcyclehq/php-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/php-server-sdk)
+
 ## Requirements
 
 PHP 7.3 and later.

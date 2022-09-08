@@ -7,6 +7,11 @@ sidebar_position: 3
 
 Welcome to the the DevCycle Go SDK, initially generated via the [DevCycle Bucketing API](https://docs.devcycle.com/bucketing-api/#tag/devcycle).
 
+:::
+
+The SDK is open source and can be viewed on Github.
+[![GitHub](https://img.shields.io/github/stars/devcyclehq/go-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/go-server-sdk)
+
 ## Installation
 
 ```bash
