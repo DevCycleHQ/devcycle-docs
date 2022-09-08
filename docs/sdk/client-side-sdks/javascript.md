@@ -10,8 +10,6 @@ providing immediate responses to variable and feature requests for a user.
 
 The SDK will download the latest version of your DevCycle environments configuration from a CDN on initialization.
 
-:::
-
 The SDK is available as a package on npm. It is also open source and can be viewed on Github.
 
 [![Npm package version](https://badgen.net/npm/v/@devcycle/devcycle-js-sdk)](https://www.npmjs.com/package/@devcycle/devcycle-js-sdk)
