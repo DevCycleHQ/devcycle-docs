@@ -5,7 +5,12 @@ sidebar_position: 6
 
 # DevCycle Java Server SDK
 
-Welcome to the DevCycle Java SDK, which interfaces with the [DevCycle Bucketing API](https://docs.devcycle.com/bucketing-api/#tag/devcycle). 
+Welcome to the DevCycle Java SDK, which interfaces with the [DevCycle Bucketing API](https://docs.devcycle.com/bucketing-api/#tag/devcycle).
+
+The SDK is available as a package on MavenCentral. It is also open source and can be viewed on Github.
+
+[![Maven](https://badgen.net/maven/v/maven-central/com.devcycle/java-server-sdk)](https://search.maven.org/artifact/com.devcycle/java-server-sdk)
+[![GitHub](https://img.shields.io/github/stars/devcyclehq/java-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/java-server-sdk)
 
 ## Requirements
 
@@ -23,7 +28,7 @@ You can use the SDK in your Maven project by adding the following to your *pom.x
 <dependency>
     <groupId>com.devcycle</groupId>
     <artifactId>java-server-sdk</artifactId>
-    <version>1.0.3</version>
+    <version>1.0.6</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -32,7 +37,7 @@ You can use the SDK in your Maven project by adding the following to your *pom.x
 Alternatively you can use the SDK in your Gradle project by adding the following to *build.gradle*:
 
 ```yaml
-implementation("com.devcycle:java-server-sdk:1.0.3")
+implementation("com.devcycle:java-server-sdk:1.0.6")
 ```
 
 ## DNS Caching
