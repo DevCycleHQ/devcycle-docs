@@ -72,7 +72,7 @@ After it runs you should receive the following message:
 
 Now that we’ve got data in EdgeDB, it can be used for targeting in any feature within DevCycle.
 
-:::Info 
+:::info 
 Any data saved to EdgeDB is considered a “Custom Property” within DevCycle and can be targeted by simply adding that same property in the dashboard. To find out more about Custom Properties, [read here](https://docs.devcycle.com/docs/home/feature-management/features-and-variables/custom-properties) 
 :::
 
