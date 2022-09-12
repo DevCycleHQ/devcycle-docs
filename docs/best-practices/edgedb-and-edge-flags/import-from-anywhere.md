@@ -3,9 +3,9 @@ title: Super Segments - Salesforce Integration via Zapier
 sidebar_position: 3
 ---
 
-# Super Segments Guide: Importing data from anywhere (salesforce example)
+## Super Segments Guide: Importing data from anywhere (salesforce example)
 
-Super segments are collections of users that are targeted by data from any external source. 
+Super Segments are collections of users that are targeted by data from any external source. 
 
 This means that users or their data can be “imported” into DevCycle for targeting in experiments or features by making use of EdgeDB. 
 
@@ -42,7 +42,7 @@ Upon selecting that, we’re now able to test it and confirm that the connection
 And now, we can send that data to DevCycle. Choose DevCycle as the followup action to the SalesForce trigger. 
 
 :::info 
-If you do not see DevCycle in the app list, please contact product@devcycle.com to ensure you are added to the list. 
+If you do not see DevCycle in the app list, please contact product@devcycle.com to ensure you are added to the list. or get access to the DevCycle Zapier integration by clicking this [link](https://zapier.com/developer/public-invite/155201/2a42e1bf3abaca344a431113f3390355/).
 :::
 
 ![Choose devcycle app](/sept_6_2022_zapier_guide_5.png)

@@ -31,5 +31,10 @@ which is used to give users features and variables (as used within the DevCycle 
 
 **Third Party Integrations**
 
+* [GitHub Action: Feature Flag Code Usages](/tools-and-integrations/Github/gh-feature-usage-action.md)
 * [GitHub Action: Feature Flag Change Insights on Pull Request](/tools-and-integrations/Github/gh-pr-comment-insights.md)
+* [Bitbucket Pipe: Feature Flag Code Usages](/tools-and-integrations/Bitbucket/bb-feature-usage-action.md)
+* [DevCycle Feature Flag Management for Jira](/tools-and-integrations/Jira/jira-integration.md)
+* [DevCycle Terraform Provider](/tools-and-integrations/terraform.md)
+
 
