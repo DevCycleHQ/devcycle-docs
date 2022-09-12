@@ -184,6 +184,18 @@ If a user qualifies for a target that has a rollout, and they have *not yet* rec
 
 You may also choose to roll a feature _backwards_ to slowly phase it out, in which case, simply create an end percentage that is lower than your start percentage.
 
+As well, the rollout of the targeting rule is deterministic based on an algorithm leveraging the User, Feature and Target IDs. This means that if a user is a part of the rollout percentage they will always receive the feature.
+
+:::info
+
+As long as you use the same targeting rule, the deterministic nature of the rollout algorithm means that users always fit into the same part of the part of the rollout.
+
+This means that if your rollout got to 50% and you have to rollback, once you rollout again when you get to 50% it will the same 50% you had originally targeted.
+
+This also means a rollout can be paused by changing the end date and end percentage of the schedule and the users in the rollout will remain consistent.
+
+:::
+
 
 
 ## Creating and Managing Multiple Targeting Rules

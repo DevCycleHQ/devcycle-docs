@@ -1,6 +1,6 @@
 ---
-title: Using EdgeDB
-sidebar_position: 8
+title: EdgeDB & Edge Flags
+sidebar_position: 2
 ---
 
 ## Overview
@@ -18,9 +18,6 @@ To complete this guide, you will need a proficient understanding of the followin
 - Custom Properties
 
 ## Setup
-:::info 
-To enable EdgeDB for your org, contact us at support@devcycle.com.
-:::
 
 EdgeDB is enabled at the project level. To enable EdgeDB for your project, go to the project settings by navigating to the “Settings” tab and clicking “Projects” on the sidebar. Find your project and click edit. There you will find a dropdown to either enable or disable EdgeDB.
 
@@ -55,6 +52,46 @@ dvcClient.identifyUser(user)
 ```
 
 In the example above, `'demo_user'` will still receive the features based on their premium Pricing Plan because the data stored in EdgeDB was used for targeting.
+
+### Rest API Usage
+
+We are able to support updates to users using our EdgeDB Public Rest API. The docs for it can be found [here](https://docs.devcycle.com/bucketing-api/).
+
+You are able to use this to update users with all of the supported data, along with custom data, and be able to use that data for segmenting in the SDKs without having to explicitly pass all of the data when `identifyUser` is called.
+
+```
+curl --location --request PATCH 'https://sdk-api.devcycle.com/v1/edgedb/my-user' \
+--header 'Authorization: <YOUR-CLIENT-KEY>' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "user_id": "my-user",
+    "customData": {
+        "amountSpent": 50
+    }
+}'
+```
+
+This will make the custom data `amountSpent` available to segment on when identifying that same user in the SDKs without having to actually pass in the custom data. The only required piece of data is `user_id`.
+
+### SDK Usage
+
+For specific documentation on how to use Edge Flags with each SDK
+
+#### Client SDKs
+- [JS SDK](https://docs.devcycle.com/docs/sdk/client-side-sdks/javascript#edgedb)
+- [iOS SDK](https://docs.devcycle.com/docs/sdk/client-side-sdks/ios#edgedb)
+- [Android SDK](https://docs.devcycle.com/docs/sdk/client-side-sdks/android#edgedb)
+- [React SDK](https://docs.devcycle.com/docs/sdk/client-side-sdks/react#edgedb)
+- [React Native](https://docs.devcycle.com/docs/sdk/client-side-sdks/react-native#edgedb)
+
+#### Server SDKs
+- [Go SDK](https://docs.devcycle.com/docs/sdk/server-side-sdks/go#edgedb)
+- [Java SDK](https://docs.devcycle.com/docs/sdk/server-side-sdks/java#edgedb)
+- [Node.js SDK](https://docs.devcycle.com/docs/sdk/server-side-sdks/node#edgedb)
+- [PHP SDK](https://docs.devcycle.com/docs/sdk/server-side-sdks/php#edgedb)
+- [Python SDK](https://docs.devcycle.com/docs/sdk/server-side-sdks/python#edgedb)
+- [Ruby SDK](https://docs.devcycle.com/docs/sdk/server-side-sdks/ruby#edgedb)
+- [.NET SDK for Cloud Bucketing](https://docs.devcycle.com/docs/sdk/server-side-sdks/dotnet-cloud#edgedb)
 
 :::info
 **Data stored in EdgeDB is only used for user segmenting (targeting rules), so EdgeDB won’t return data to the SDK.**
