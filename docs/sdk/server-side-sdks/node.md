@@ -134,10 +134,10 @@ Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to
 ```javascript
 const DVC = require('@devcycle/nodejs-server-sdk')
 
-const dvcClient = await DVC.initialize('<DVC_ENVIRONMENT_SERVER_KEY>', {
+const dvcClient = DVC.initialize('<DVC_ENVIRONMENT_SERVER_KEY>', {
   enableCloudBucketing: true,
   enableEdgeDB: true
-}).onClientInitialized()
+})
 
 const user = {
   user_id: 'test_user',
@@ -145,7 +145,7 @@ const user = {
   country: 'CA'
 }
 
-const variable = dvcClient.variable(user, 'test-feature', false)
+const variable = await dvcClient.variable(user, 'test-feature', false)
 ```
 
 This will send a request to our EdgeDB API to save the custom data under the user `test_user`.
