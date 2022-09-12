@@ -11,13 +11,13 @@ sidebar_position: 6
 
 This article serves to explain how to use the SDKs to send up custom events to DevCycle. 
 
-### Using the Track function
+## Using the Track function
 
 The Track function in the DevCycle SDKs allows you to send up custom events which can later be used for your own data analysis on enabled Features, and for metrics on A/B tests and experiments within the DevCycle dashboard.
 
-### Client-Side SDK Usage
+## Client-Side SDK Usage
 
-### **JavaScript SDK**
+### JavaScript SDK
 
 
 To track events, pass in an object with at least a `type` key:
@@ -51,7 +51,7 @@ dvcClient.flushEvents(() => {
 
 Please refer to [Javascript SDK](#javascript-sdk)
 
-### **iOS SDK**
+### iOS SDK
 
 To track events, pass in an object with at least a `type` key:
 
@@ -72,9 +72,9 @@ The SDK will flush events every 10s or `flushEventsMS` specified in the options.
 dvcClient.flushEvents()
 ```
 
-### Server-Side SDK Usage
+## Server-Side SDK Usage
 
-### **Node.js SDK (server-side)**
+### Node.js SDK (server-side)
 
 You can wait on the features to be loaded from our servers by using `getVariables()` function. It returns a promise that you can use to wait until features are ready to be used:
 
@@ -90,7 +90,7 @@ You can wait on the features to be loaded from our servers by using `getVariable
 
     await instance.postEvents({ events, user })
 ```
-### **Android SDK**
+### Android SDK
 
 To track events, pass in an object with at least a `type` key:
 
@@ -110,7 +110,7 @@ The SDK will flush events every 10s or `flushEventsMS` specified in the options.
 dvcClient.flushEvents()
 ```
 
-### **Python SDK**
+### Python SDK
 
 To POST a custom event for a User
 
@@ -129,7 +129,7 @@ To POST a custom event for a User
         print("Exception when calling DVCClient->track: %s\n" % e)
 ```
 
-### **Go SDK** 
+### Go SDK 
 
 To POST custom event for a user, pass in the user and event object.
 
@@ -141,7 +141,7 @@ event := devcycle.Event{
 response, err := dvcClient.DevcycleApi.Track(auth, user, event)
 ```
 
-### **Ruby SDK**
+### Ruby SDK
 
 ```ruby
 
@@ -163,7 +163,7 @@ rescue DevCycle::ApiError => e
 end
 ```
 
-### **PHP SDK**
+### PHP SDK
 
 ```php
 $event_data = new \DevCycle\Model\Event(array(
@@ -178,7 +178,7 @@ try {
 }
 ```
 
-### **Dotnet / C# SDK**
+### Dotnet / C# SDK
 To POST custom event for a user, pass in the user and event object.
 
 ```c
@@ -218,7 +218,7 @@ namespace Example
 }
 ```
 
-### **Java SDK**
+### Java SDK
 
 To POST custom event for a user, pass in the user and event object.
 

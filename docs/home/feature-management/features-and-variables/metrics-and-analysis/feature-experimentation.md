@@ -51,9 +51,9 @@ To set this up, create a targeting rule in Production that delivers to All Users
 
 Now that you have two segments receiving different experiences, the only other thing you need to run an experiment is a metric to evaluate the comparative performance of those experiences.
 
-To add a metric to your feature, scroll down to the Experimentation section of the feature page and click the "Attach Metric" button.
+To add a metric to your feature, click “Comparative Analysis” under the “Data & Results” section on the sidebar of the feature editing page. Click the “Choose a Metric” dropdown. This will bring up the option to add a metric that has already been created in the project or to create a new one.
 
-This will bring up the option to add a metric that has already been created in the project or to create a new one.
+![Add Metrics from Feature Editing Page](/august-2022-add-metric-feature-page.png)
 
 For the creation of new metrics check out our documentation [here](/docs/home/feature-management/features-and-variables/metrics-and-analysis/creating-and-managing-metrics).
 
@@ -67,7 +67,7 @@ Now that you have a metric added and a control Variation selected, the performan
 
 ![Reviewing Metric Performance](/feature-experiment-full.png)
 
-Any number of metrics can be added to a feature for analysis, keep clicking "Attach Metric" and add pre-existing or create new metrics as needed.
+Any number of metrics can be added to a feature for analysis, keep clicking “Choose a Metric” and add pre-existing or create new metrics as needed.
 
 ## Determining a Winner
 
