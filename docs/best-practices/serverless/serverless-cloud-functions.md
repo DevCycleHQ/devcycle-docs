@@ -11,7 +11,7 @@ If you're a team on GCP and utilizing Google's Cloud Functions, this document wi
 
 ### Example Project for Google Cloud Functions & DevCycle
 
-To get you up and started, we've put together an example repository that can be used as a reference:
+To get you up and started, we've put together an example repository to be used to follow along with in this guide 
 
 [https://github.com/DevCycleHQ/google-cloud-functions-example](https://github.com/DevCycleHQ/google-cloud-functions-example)
 
