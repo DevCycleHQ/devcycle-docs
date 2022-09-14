@@ -3,7 +3,7 @@ title: AWS Lambda
 sidebar_position: 2
 ---
 
-## AWS Lambda
+## AWS Lambda with DevCycle Feature Flags
 
 DevCycle is purpose-built to work at edge, and just because you're building in serverless environments does not mean you need to stop using feature flags!
 
@@ -19,26 +19,26 @@ To get you up and started, we've put together an example repository to be used t
 
 1. Create a new feature on the DevCycle Dashboard
     
-    ![Screen Shot 2022-09-13 at 11.05.15 AM.png](AWS%20Lambda%2027f30fc20c6743558415b42cbc414566/Screen_Shot_2022-09-13_at_11.05.15_AM.png)
+    ![Screen Shot 2022-09-13 at 11.05.15 AM.png](/Screen_Shot_2022-09-13_at_11.05.15_AM.png)
     
 2. Choose a Release type, and as per our example code we’ll name this feature `event-type`
     
-    ![Screen Shot 2022-09-13 at 4.30.46 PM.png](AWS%20Lambda%2027f30fc20c6743558415b42cbc414566/Screen_Shot_2022-09-13_at_4.30.46_PM.png)
+    ![Screen Shot 2022-09-13 at 4.30.46 PM.png](/Screen_Shot_2022-09-13_at_4.30.46_PM.png)
     
 3. By default, features will all have a boolean flag. Remove the default boolean flag by clicking the edit button next to it and “Delete” in the popped up modal
     
-    ![Screen Shot 2022-09-13 at 4.33.22 PM.png](AWS%20Lambda%2027f30fc20c6743558415b42cbc414566/Screen_Shot_2022-09-13_at_4.33.22_PM.png)
+    ![Screen Shot 2022-09-13 at 4.33.22 PM.png](/Screen_Shot_2022-09-13_at_4.33.22_PM.png)
     
-    ![Screen Shot 2022-09-13 at 4.33.49 PM.png](AWS%20Lambda%2027f30fc20c6743558415b42cbc414566/Screen_Shot_2022-09-13_at_4.33.49_PM.png)
+    ![Screen Shot 2022-09-13 at 4.33.49 PM.png](/Screen_Shot_2022-09-13_at_4.33.49_PM.png)
     
 4. “Add Variable” with `String` type and put in the string as below
     
-    ![Screen Shot 2022-09-13 at 4.35.31 PM.png](AWS%20Lambda%2027f30fc20c6743558415b42cbc414566/Screen_Shot_2022-09-13_at_4.35.31_PM.png)
+    ![Screen Shot 2022-09-13 at 4.35.31 PM.png](/Screen_Shot_2022-09-13_at_4.35.31_PM.png)
     
 5. Scroll down to “Users & Targeting” for whichever environment's server key you selected
 6. Change the targeting definition to say: `User ID` `is` `test_1` and **click “Save”**
     
-    ![Screen Shot 2022-09-13 at 4.37.20 PM.png](AWS%20Lambda%2027f30fc20c6743558415b42cbc414566/Screen_Shot_2022-09-13_at_4.37.20_PM.png)
+    ![Screen Shot 2022-09-13 at 4.37.20 PM.png](/Screen_Shot_2022-09-13_at_4.37.20_PM.png)
     
     Now that the feature is set up, we’ll test it out in Lambda!
     

@@ -3,7 +3,7 @@ title: Google Cloud Functions
 sidebar_position: 1
 ---
 
-## Google Cloud Functions
+## Google Cloud Functions with DevCycle Feature Flags
 
 DevCycle is purpose-built to work at edge, and just because you're building in serverless environments does not mean you need to stop using feature flags!
 
