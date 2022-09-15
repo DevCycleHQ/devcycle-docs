@@ -9,7 +9,7 @@ The DevCycle React SDK lets you easily integrate your React Native web applicati
 
 :::info
 
-At the moment, DevCycle for React Native utilizes the [DevCycle React SDK](docs/sdk/client-side-sdks/react) as a method of interaction with DevCycle
+At the moment, DevCycle for React Native utilizes the [DevCycle React SDK](/docs/sdk/client-side-sdks/react) as a method of interaction with DevCycle
 
 :::
 

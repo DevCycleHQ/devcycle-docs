@@ -141,7 +141,7 @@ EXAMPLES
   $ dvc cleanup some-var --value "My Custom Name" --type String
 ```
 
-_See code: [dist/commands/cleanup/index.ts](https://github.com/DevCycleHQ/cli/blob/v4.1.1/dist/commands/cleanup/index.ts)_
+_See code: [dist/commands/cleanup/index.ts](https://github.com/DevCycleHQ/cli/blob/main/dist/commands/cleanup/index.ts)_
 
 ### `dvc diff [DIFF-PATTERN]`
 
@@ -186,7 +186,7 @@ EXAMPLES
   $ dvc diff --match-pattern javascript="dvcClient\.variable\(\s*["']([^"']*)["']"
 ```
 
-_See code: [dist/commands/diff/index.ts](https://github.com/DevCycleHQ/cli/blob/main/dist/commands/diff/index.ts)_
+_See code: [dist/commands/diff/index.ts](https://github.com/DevCycleHQ/cli/blob/main/src/commands/diff/index.ts)_
 
 ### `dvc features get`
 
@@ -253,7 +253,7 @@ DESCRIPTION
   Display help for dvc.
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.1.10/src/commands/help.ts)_
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/main/src/commands/help.ts)_
 
 ### `dvc login sso`
 
@@ -299,7 +299,7 @@ DESCRIPTION
   Select which organization to access through the API
 ```
 
-_See code: [dist/commands/org/index.ts](https://github.com/DevCycleHQ/cli/blob/main/dist/commands/org/index.ts)_
+_See code: [dist/commands/org/index.ts](https://github.com/DevCycleHQ/cli/blob/main/src/commands/org/index.ts)_
 
 ### `dvc projects select`
 
