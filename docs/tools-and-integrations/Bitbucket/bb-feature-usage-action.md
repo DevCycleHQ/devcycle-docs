@@ -24,11 +24,11 @@ branches:
   main:
     - step:
         script:
-          - pipe: docker://public.ecr.aws/u8b5e1o7/bitbucket-code-refs-pipe:1.0.1
+          - pipe: devcyclehq/devcycle-code-refs-pipe:1.2.0
             variables:
-              PROJECT_KEY: $PROJECT_KEY
-              CLIENT_ID: $CLIENT_ID
-              CLIENT_SECRET: $CLIENT_SECRET
+              PROJECT_KEY: '<string>'
+              CLIENT_ID: '<string>'
+              CLIENT_SECRET: '<string>'
 ```
 
 Your [DevCycle API credentials](https://app.devcycle.com/r/settings) and [project token](https://app.devcycle.com/r/projects) are required to update the DevCycle dashboard.

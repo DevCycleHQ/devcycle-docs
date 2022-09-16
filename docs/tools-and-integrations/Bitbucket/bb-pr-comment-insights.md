@@ -5,7 +5,7 @@ sidebar_position: 2
 
 ## Overview
 
-**[Bitbucket Marketplace Listing (coming soon)](https://marketplace.atlassian.com/addons/app/bitbucket)**
+**[Bitbucket Marketplace Listing](https://bitbucket.org/product/features/pipelines/integrations??search=dev&p=devcyclehq/devcycle-pr-insights-pipe)**
 
 
 With this Bitbucket pipe, information on which [DevCycle](https://devcycle.com/) features have been added or removed in a code change will be shown directly on each Pull Request as a comment.
@@ -24,13 +24,13 @@ pull-requests:
   '*':
     - step:
         script:
-          - pipe: docker://public.ecr.aws/u8b5e1o7/bitbucket-pr-insights-pipe:1.0.3
-              variables:
-                USER_NAME: $BITBUCKET_USER_NAME
-                PASSWORD: $BITBUCKET_APP_PASSWORD
-                PROJECT_KEY: $DEVCYCLE_PROJECT_KEY
-                CLIENT_ID: $DEVCYCLE_CLIENT_ID
-                CLIENT_SECRET: $DEVCYCLE_CLIENT_SECRET
+           - pipe: devcyclehq/devcycle-pr-insights-pipe:1.2.0
+             variables:
+                USER_NAME: '<string>'
+                PASSWORD: '<string>'
+                # PROJECT_KEY: '<string>' # Optional.
+                # CLIENT_ID: '<string>' # Optional.
+                # CLIENT_SECRET: '<string>' # Optional.
 ```
 
 
