@@ -5,7 +5,7 @@ sidebar_position: 2
 
 ## Overview
 
-**[Bitbucket Marketplace Listing (coming soon)](https://marketplace.atlassian.com/addons/app/bitbucket)**
+**[Bitbucket Marketplace Listing](https://bitbucket.org/product/features/pipelines/integrations?&p=devcyclehq/devcycle-code-refs-pipe)**
 
 
 With this Bitbucket pipe, your [DevCycle](https://devcycle.com/) dashboard will be updated to display code snippets for each DevCycle variable usage within your project.
