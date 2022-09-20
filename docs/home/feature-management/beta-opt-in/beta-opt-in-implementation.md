@@ -3,7 +3,7 @@ title: Beta Opt-In Implementation
 sidebar_position: 2
 ---
 
-## Overview[](https://docs.devcycle.com/docs/sdk/features/reset#overview)
+## Overview
 
 Beta Opt-in is a feature that allows end users of your product to opt-in to a list of eligible beta features through a pre-built component that can be implemented in your app and website with one line of code. Your team has the ability to customize the look & feel of this component to your company's colour profile and logo. 
 
