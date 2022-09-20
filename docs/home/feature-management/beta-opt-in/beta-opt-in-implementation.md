@@ -19,7 +19,7 @@ The Beta Opt-In functionality can be turned on from the [Organization Settings](
 
 Once here, navigate to the "Beta Opt-In" page of the settings:
 
-![Beta Opt In Settingses](/sept-20-2022-beta-opt-in-1.png)
+![Beta Opt In Settings](/sept-20-2022-beta-opt-in-1.png)
 
 ![Enable Beta Opt In](/sept-20-2022-beta-opt-in-2.png)
 
@@ -35,16 +35,16 @@ Under the customization settings, there is a preview of the Opt-In component as 
 
 To make sure only the right features are added to the Beta Opt-In widget you need to explicitly enable Opt-In on each feature that you want to show up.
 
-Make a specific feature eligible for Opt-in by clicking the toggle under the feature settings section. This sets  `optIn` to `true` on the Feature model
+Make a specific feature eligible for Opt-in by clicking the toggle under the feature settings section. This sets  `Opt-In` to `true` on the Feature model
 
-When `optIn` is true, the feature will appear in the opt-in component.
+When `Opt-In` is true, the feature will appear in the Opt-In iFrame.
 
 ![Enable Feature for Opt In](/sept-20-2022-beta-opt-in-5.png)
 
 ### Targeting
 
-When `optIn` is true, the `Opt In` option appears in the targeting definition dropdown. This allows teams to be explicit about what happens when a user enables a feature for themselves. It also allows you to set overrides if you would like based on the priority order of targeting rules and where the Opt-In rule sits.
+When `Opt-In` is true at the feature level, the `Opt In` option will now appear in the targeting definition dropdown. This allows teams to be explicit about what happens when a user enables a feature for themselves. It also allows you to set overrides if you would like, based on the priority order of targeting rules and where the Opt-In rule sits.
 
 ![Opt In Targeting Rule](/sept-20-2022-beta-opt-in-6.png)
 
-When it is selected, any users who have toggled the feature in the Opt-In widget will receive the selected variation. In this way if you modify the text description for a feature you can have the toggle customize what is being served however you would like.
+When it is selected, any users who have toggled the feature in the Opt-In widget will receive the selected variation. In this way, if you modify the text description for a feature you can have the toggle customize what is being served however you would like.
