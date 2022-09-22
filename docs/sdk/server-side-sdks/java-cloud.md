@@ -63,6 +63,30 @@ public class MyClass {
 }
 ```
 
+### Initialization Options
+
+| DVC Option | Description |
+| --- | ----------- |
+| enableEdgeDB | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle. <br />NOTE: This is only available with Cloud Bucketing. |
+
+```java
+import com.devcycle.sdk.server.cloud.api.DVCCloudClient;
+import com.devcycle.sdk.server.cloud.model.DVCCloudOptions;
+
+public class MyClass {
+    
+    private DVCCloudClient dvcCloudClient;
+
+    private DVCCloudOptions dvcCloudOptions = DVCLocalOptions.builder()
+        .enableEdgeDB(false)
+        .build();
+    
+    public MyClass() {
+        dvcCloudClient = new DVCCloudClient("your_server_key", dvcCloudOptions);
+    }
+}
+```
+
 ## Usage
 
 ### User Object
