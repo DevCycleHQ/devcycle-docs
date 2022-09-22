@@ -1,6 +1,6 @@
 ---
 title: .NET SDK for Local Bucketing
-sidebar_position: 8
+sidebar_position: 9
 ---
 
 # DevCycle .NET / C# SDK

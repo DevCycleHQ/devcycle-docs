@@ -1,6 +1,6 @@
 ---
 title: .NET SDK for Cloud Bucketing
-sidebar_position: 7
+sidebar_position: 8
 ---
 
 # DevCycle .NET / C# SDK

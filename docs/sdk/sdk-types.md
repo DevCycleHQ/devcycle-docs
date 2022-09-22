@@ -32,6 +32,7 @@ The current Server-Side SDKs are:
 * **[DevCycle Go SDK](/docs/sdk/server-side-sdks/go)**
 * **[DevCycle Python SDK](/docs/sdk/server-side-sdks/python)**
 * **[DevCycle Ruby SDK](/docs/sdk/server-side-sdks/ruby)**
-* **[DevCycle Java SDK](/docs/sdk/server-side-sdks/java)**
+* **[DevCycle Java SDK (Cloud Bucketing)](/docs/sdk/server-side-sdks/java-cloud)**
+* **[DevCycle Java SDK (Local Bucketing)](/docs/sdk/server-side-sdks/java-local)**
 * **[DevCycle .NET SDK (Cloud Bucketing)](/docs/sdk/server-side-sdks/dotnet-cloud)**
 * **[DevCycle .NET SDK (Local Bucketing)](/docs/sdk/server-side-sdks/dotnet-local)**
