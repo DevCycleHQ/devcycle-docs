@@ -67,7 +67,7 @@ const config = {
             id: 'management-api',
             spec: 'https://api.devcycle.com/swagger.json',
             route: '/management-api/',
-          },
+          }, 
           {
             id: 'bucketing-api',
             spec: 'bucketing-api.yaml',
@@ -144,7 +144,7 @@ const config = {
           docId: 'best-practices/best-practices',
           to: '/best-practices/',
           position: 'left',
-          label: 'Best Practices',
+          label: 'Guides & Best Practices',
         },
       ],
     },

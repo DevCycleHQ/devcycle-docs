@@ -5,10 +5,10 @@ sidebar_position: 2
 
 ## Overview
 
-**[Bitbucket Marketplace Listing (coming soon)](https://marketplace.atlassian.com/addons/app/bitbucket)**
+**[Bitbucket Marketplace Listing](https://bitbucket.org/product/features/pipelines/integrations?&p=devcyclehq/devcycle-code-refs-pipe)**
 
 
-With this Bitbucket action, your [DevCycle](https://devcycle.com/) dashboard will be updated to display code snippets for each DevCycle variable usage within your project.
+With this Bitbucket pipe, your [DevCycle](https://devcycle.com/) dashboard will be updated to display code snippets for each DevCycle variable usage within your project.
 
 **Note: This is intended to run when pushing changes to your main branch**
 
@@ -17,21 +17,27 @@ With this Bitbucket action, your [DevCycle](https://devcycle.com/) dashboard wil
 ![Example Output](https://bitbucket.org/devcyclehq/devcycle-code-refs-pipe/raw/main/example-output.png)
 
 ### Usage
-Add the following snippet to a step in your `bitbucket-pipelines.yml` file:
+Add the following snippet to your `bitbucket-pipelines.yml` file:
 
 ```yaml
-  - pipe: DevCycleHQ/DVC-code-usages:x.x.x
-      variables:
-        PROJECT_KEY: $PROJECT_KEY
-        CLIENT_ID: $CLIENT_ID
-        CLIENT_SECRET: $CLIENT_SECRET
+branches:
+  main:
+    - step:
+        script:
+          - pipe: devcyclehq/devcycle-code-refs-pipe:1.2.0
+            variables:
+              PROJECT_KEY: '<string>'
+              CLIENT_ID: '<string>'
+              CLIENT_SECRET: '<string>'
 ```
 
 Your [DevCycle API credentials](https://app.devcycle.com/r/settings) and [project token](https://app.devcycle.com/r/projects) are required to update the DevCycle dashboard.
 
 ### Inputs
 
-| Variable           | Usage                                                       |
+- To add variables to be used in the bitbucket-pipelines.yml, an admin must add Repository Variables in Repository Settings > Repository Variables, and then add all necessary variables as secured variables
+
+| Variable           | Description                                                       |
 | --------------------- | ----------------------------------------------------------- |
 | PROJECT_KEY (*) | Your DevCycle project key, see [Projects](https://app.devcycle.com/r/projects)  |
 | CLIENT_ID (*)     | Your organization's API client ID, see [Organization Settings](https://app.devcycle.com/r/settings) |

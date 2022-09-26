@@ -1,11 +1,12 @@
 ---
-title: Java SDK
+title: Java SDK for Cloud Bucketing
 sidebar_position: 6
 ---
 
 # DevCycle Java Server SDK
 
 Welcome to the DevCycle Java SDK, which interfaces with the [DevCycle Bucketing API](https://docs.devcycle.com/bucketing-api/#tag/devcycle).
+All requests, including user data are sent to DevCycle servers to ensure the User is bucketed correctly and will receive the correct variation.
 
 The SDK is available as a package on MavenCentral. It is also open source and can be viewed on Github.
 
@@ -28,7 +29,7 @@ You can use the SDK in your Maven project by adding the following to your *pom.x
 <dependency>
     <groupId>com.devcycle</groupId>
     <artifactId>java-server-sdk</artifactId>
-    <version>1.0.6</version>
+    <version>1.1.1</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -37,7 +38,7 @@ You can use the SDK in your Maven project by adding the following to your *pom.x
 Alternatively you can use the SDK in your Gradle project by adding the following to *build.gradle*:
 
 ```yaml
-implementation("com.devcycle:java-server-sdk:1.0.6")
+implementation("com.devcycle:java-server-sdk:1.1.1")
 ```
 
 ## DNS Caching
@@ -50,14 +51,38 @@ Recommended settings and how to configure them can be found [here](https://docs.
 To use the DevCycle Java SDK, initialize a client object. 
 
 ```java
-import com.devcycle.sdk.server.api.DVCClient;
+import com.devcycle.sdk.server.cloud.api.DVCCloudClient;
 
 public class MyClass {
     
-    private DVCClient dvcClient;
+    private DVCCloudClient dvcCloudClient;
     
     public MyClass() {
-        dvcClient = new DVCClient("your_server_key");
+        dvcCloudClient = new DVCCloudClient("your_server_key");
+    }
+}
+```
+
+### Initialization Options
+
+| DVC Option | Description |
+| --- | ----------- |
+| enableEdgeDB | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle. <br />NOTE: This is only available with Cloud Bucketing. |
+
+```java
+import com.devcycle.sdk.server.cloud.api.DVCCloudClient;
+import com.devcycle.sdk.server.cloud.model.DVCCloudOptions;
+
+public class MyClass {
+    
+    private DVCCloudClient dvcCloudClient;
+
+    private DVCCloudOptions dvcCloudOptions = DVCLocalOptions.builder()
+        .enableEdgeDB(false)
+        .build();
+    
+    public MyClass() {
+        dvcCloudClient = new DVCCloudClient("your_server_key", dvcCloudOptions);
     }
 }
 ```
@@ -79,17 +104,17 @@ User user = User.builder()
 This method will fetch all features for a given user and return them as Map<String, Feature>
 
 ```java
-import com.devcycle.sdk.server.api.DVCClient;
-import com.devcycle.sdk.server.exception.DVCException;
-import com.devcycle.sdk.server.model.Feature;
-import com.devcycle.sdk.server.model.User;
+import com.devcycle.sdk.server.cloud.api.DVCCloudClient;
+import com.devcycle.sdk.server.common.exception.DVCException;
+import com.devcycle.sdk.server.common.model.Feature;
+import com.devcycle.sdk.server.common.model.User;
 
 public class MyClass {
     
-    private DVCClient dvcClient;
+    private DVCCloudClient dvcCloudClient;
     
     public MyClass() {
-        dvcClient = new DVCClient("your_server_key");
+        dvcCloudClient = new DVCCloudClient("your_server_key");
     }
     
     public void allFeatures() throws DVCException {
@@ -98,7 +123,7 @@ public class MyClass {
                 .country("US")
                 .build();
 
-        Map<String, Feature> features = dvcClient.allFeatures(user);
+        Map<String, Feature> features = dvcCloudClient.allFeatures(user);
     }
 }
 ```
@@ -109,17 +134,17 @@ This method will fetch all variables for a given user and returned as Map&lt;Str
 To get values from your Variables, the `value` field inside the variable object can be accessed.
 
 ```java
-import com.devcycle.sdk.server.api.DVCClient;
-import com.devcycle.sdk.server.exception.DVCException;
-import com.devcycle.sdk.server.model.User;
-import com.devcycle.sdk.server.model.Variable;
+import com.devcycle.sdk.server.cloud.api.DVCCloudClient;
+import com.devcycle.sdk.server.common.exception.DVCException;
+import com.devcycle.sdk.server.common.model.User;
+import com.devcycle.sdk.server.common.model.Variable;
 
 public class MyClass {
 
-    private DVCClient dvcClient;
+    private DVCCloudClient dvcCloudClient;
 
     public MyClass() {
-        dvcClient = new DVCClient("your_server_key");
+        dvcCloudClient = new DVCCloudClient("your_server_key");
     }
 
     public void allVariables() throws DVCException {
@@ -128,7 +153,7 @@ public class MyClass {
                 .country("US")
                 .build();
         
-        Map<String, Variable> variables = dvcClient.allVariables(user);
+        Map<String, Variable> variables = dvcCloudClient.allVariables(user);
     }
 }
 ```
@@ -141,17 +166,17 @@ To get values from your Variables, the `value` field inside the variable object 
 
 
 ```java
-import com.devcycle.sdk.server.api.DVCClient;
-import com.devcycle.sdk.server.exception.DVCException;
-import com.devcycle.sdk.server.model.User;
-import com.devcycle.sdk.server.model.Variable;
+import com.devcycle.sdk.server.cloud.api.DVCCloudClient;
+import com.devcycle.sdk.server.common.exception.DVCException;
+import com.devcycle.sdk.server.common.model.User;
+import com.devcycle.sdk.server.common.model.Variable;
 
 public class MyClass {
 
-    private DVCClient dvcClient;
+    private DVCCloudClient dvcCloudClient;
 
     public MyClass() {
-        dvcClient = new DVCClient("your_server_key");
+        dvcCloudClient = new DVCCloudClient("your_server_key");
     }
 
     public void setFlag() throws DVCException {
@@ -162,7 +187,7 @@ public class MyClass {
 
         String key = "turn_on_super_cool_feature";
         Boolean defaultValue = true;
-        Variable variable = dvcClient.variable(user, key, defaultValue);
+        Variable variable = dvcCloudClient.variable(user, key, defaultValue);
 
         if ((Boolean) variable.getValue()) {
             // New Feature code here
@@ -178,18 +203,18 @@ public class MyClass {
 To POST custom event for a user, pass in the user and event object.
 
 ```java
-import com.devcycle.sdk.server.api.DVCClient;
-import com.devcycle.sdk.server.exception.DVCException;
-import com.devcycle.sdk.server.model.DVCResponse;
-import com.devcycle.sdk.server.model.Event;
-import com.devcycle.sdk.server.model.User;
+import com.devcycle.sdk.server.cloud.api.DVCCloudClient;
+import com.devcycle.sdk.server.common.exception.DVCException;
+import com.devcycle.sdk.server.common.model.DVCResponse;
+import com.devcycle.sdk.server.common.model.Event;
+import com.devcycle.sdk.server.common.model.User;
 
 public class MyClass {
 
-    private DVCClient dvcClient;
+    private DVCCloudClient dvcCloudClient;
 
     public MyClass() {
-        dvcClient = new DVCClient("your_server_key");
+        dvcCloudClient = new DVCCloudClient("your_server_key");
     }
 
     public void addAnEvent() throws DVCException {
@@ -205,7 +230,7 @@ public class MyClass {
                 .value(new BigDecimal(600))
                 .build();
 
-        DVCResponse response = dvcClient.track(user, event);
+        DVCResponse response = dvcCloudClient.track(user, event);
     }
 }
 ```
@@ -219,15 +244,34 @@ To get started, contact us at support@devcycle.com to enable EdgeDB for your pro
 Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to turn on EdgeDB mode for the SDK:
 
 ```java
-DVCUser user = DVCUser.builder()
-                .withUserId("test_user")
+import com.devcycle.sdk.server.cloud.api.DVCCloudClient;
+import com.devcycle.sdk.server.cloud.model.DVCCloudOptions;
+
+import com.devcycle.sdk.server.common.model.User;
+import com.devcycle.sdk.server.common.model.Variable;
+
+User user = User.builder()
+                .userId("test_user")
                 .country("US")
                 .email("example@example.com")
                 .build();
+
+User onlyUserId = User.builder()
+                .userId("test_user");
                 
-DVCOptions options = DVCOptions.builder()
+DVCCloudOptions dvcCloudOptions = DVCCloudOptions.builder()
                 .enableEdgeDB(true)
                 .build();
+
+private DVCCloudClient dvcCloudClient;
+
+public MyClass() {
+    dvcCloudClient = new DVCCloudClient("your_server_key", dvcCloudOptions);
+
+    Variable<Boolean> testBooleanVariable = dvcCloud.variable(user, "test-boolean-variable", false);
+
+    Variable<String> onlyCountryVariable = dvcCloud.variable(onlyUserId, "test-string-country-variable", "Not Available");
+}
 ```
 
 This will send a request to our EdgeDB API to save the custom data under the user `test_user`.
