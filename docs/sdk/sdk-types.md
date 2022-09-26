@@ -27,9 +27,9 @@ Server-side SDKs are used in multi-user contexts where each call to the SDK will
 
 The current Server-Side SDKs are:
 
-* **[DevCycle NodeJS SDK](/docs/sdk/server-side-sdks/node)**
+* **[DevCycle NodeJS SDK (Local and Cloud)](/docs/sdk/server-side-sdks/node)**
+* **[DevCycle Go SDK (Local and Cloud)](/docs/sdk/server-side-sdks/go)**
 * **[DevCycle PHP SDK](/docs/sdk/server-side-sdks/php)**
-* **[DevCycle Go SDK](/docs/sdk/server-side-sdks/go)**
 * **[DevCycle Python SDK](/docs/sdk/server-side-sdks/python)**
 * **[DevCycle Ruby SDK](/docs/sdk/server-side-sdks/ruby)**
 * **[DevCycle Java SDK (Cloud Bucketing)](/docs/sdk/server-side-sdks/java-cloud)**
