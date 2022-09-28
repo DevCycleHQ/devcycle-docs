@@ -6,10 +6,10 @@ sidebar_position: 9
 # DevCycle .NET / C# SDK
 
 Welcome to the DevCycle .NET Server SDK, which requests the bucketing config from DevCycle servers on DVCLocalClient initialization.
-Periodic calls are made to the config CDN to retrieve the latest config, but no userdata is used outside of the application.
+Periodic calls are made to the config CDN to retrieve the latest config, but no user data is used outside of the application.
 
 All calls to the client will then perform local bucketing to determine if a user receives a specific variation.
-Events are queued and flushed periodically in the background to the events api including the user body.
+Events are queued and flushed periodically in the background to the Events API including the user body.
 
 This version uses [.NET Standard 2.1](https://docs.microsoft.com/en-us/dotnet/standard/net-standard?tabs=net-standard-2-1) and utilizes more resources to perform local bucketing.
 
@@ -46,6 +46,9 @@ using DevCycle.SDK.Server.Local.Api;
 ```
 ## Getting Started
 
+To use the DVC Server SDK in your project, import the `DevCycle.SDK.Server.Local.Api` package and 
+initialize with your DVC environment server key.
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -58,8 +61,9 @@ namespace Example
         static Main(string[] args)
         {
             DVCLocalClientBuilder apiBuilder = new DVCLocalClientBuilder();
-            using DVCLocalClient api = apiBuilder.SetEnvironmentKey("INSERT_SDK_KEY")
-                      .Build();
+            using DVCLocalClient api = apiBuilder
+                .SetEnvironmentKey("INSERT_SDK_KEY")
+                .Build();
         }
     }
 }
@@ -67,13 +71,52 @@ namespace Example
 
 ## Usage
 
+### Initialization Options
+
+The SDK exposes various initialization options which can be set using the `.SetOptions()` method on the `DVCLocalClientBuilder`:
+
+[DVCLocalOptions Schema](https://github.com/DevCycleHQ/dotnet-server-sdk/blob/main/DevCycle.SDK.Server.Common/Model/Local/DVCLocalOptions.cs#L5)
+
+```csharp
+static Main(string[] args)
+{
+    DVCLocalClientBuilder apiBuilder = new DVCLocalClientBuilder();
+    DVCLocalOptions options = new DVCLocalOptions();
+    options.ConfigPollingIntervalMs = 2000;
+
+    using DVCLocalClient api = apiBuilder
+        .SetEnvironmentKey("INSERT_SDK_KEY")
+        .SetOptions(options)
+        .Build();
+}
+```
+
+| DVC Option | Type | Default | Description |
+|----------------------------|--------|--------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ConfigPollingIntervalMs | int | 1000 | Controls the polling interval in milliseconds to fetch new environment config changes, minimum value is 1 second.
+| ConfigPollingTimeoutMs | int | 5000 | Controls the request timeout to fetch new environment config changes, must be less than the configPollingIntervalMS value, minimum value is 1 second.
+| DisableAutomaticEvents | bool | false | Disables logging of sdk generated events (e.g. aggVariableEvaluated, aggVariableDefaulted) to DevCycle.                                                                      |
+| DisableCustomEvents | bool | false | Disables logging of custom events (from track() method) and user data to DevCycle.
+| MaxEventsInQueue | int | 1000 | Controls the maximum size the event queue can grow to until events are dropped.
+| CdnUri | string | https://config-cdn.devcycle.com |
+| CdnSlug | string | |
+| CdnCustomHeaders | Dictionary<string, string> | null |
+| EventsApiUri | string | https://events.devcycle.com | 
+| EventsApiSlug | string | /v1/events/batch
+| EventsApiCustomHeaders | Dictionary<string, string> | null |
+
+
 ### User Object
-The user object is required for all methods. The only required field in the user object is userId
+
+The full user data must be passed into every method. The only required field is the `UserId`. 
+The rest are optional and are used by the system for user segmentation into variables and features.
 
 See the User class in [.NET User model doc](https://github.com/DevCycleHQ/dotnet-server-sdk/blob/main/docs/User.md) for all accepted fields.
 
 ```csharp
 User user = new User("a_user_id");
+user.email = "jane@company.com";
+user.name = "Jane Doe";
 ```
 
 ### Getting All Features
@@ -228,8 +271,8 @@ namespace Example
             var user = new User("test");
 
             DVCLocalClientBuilder apiBuilder = new DVCLocalClientBuilder();
-            api = ((DVCLocalClientBuilder)apiBuilder.SetEnvironmentKey("INSERT_SDK_KEY")
-                .SetOptions(new DVCOptions(1000, 5000)))
+            DVCLocalClient api = apiBuilder
+                .SetEnvironmentKey("INSERT_SDK_KEY")
                 .SetInitializedSubscriber((o, e) =>
                 {
                     if (e.Success)

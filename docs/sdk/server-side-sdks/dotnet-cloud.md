@@ -38,7 +38,8 @@ using DevCycle.SDK.Server.Common.Model;
 
 ## Getting Started
 
-To start, initialize a client using the API key. 
+To use the DVC Server SDK in your project, import the `DevCycle.SDK.Server.Cloud.Api` package and 
+initialize with your DVC environment server key.
 
 ```csharp
 using System;
@@ -53,23 +54,28 @@ namespace Example
         public void main()
         {
             // using ensures REST Client resources are correctly disposed once no longer required.
-            using DVCCloudClient dvcClient = (DVCCloudClient) new DVCCloudClientBuilder()
-                .SetEnvironmentKey("YOUR SDK KEY")
+            DVCCloudClientBuilder apiBuilder = new DVCCloudClientBuilder();
+            using DVCCloudClient api = apiBuilder
+                .SetEnvironmentKey("INSERT_SDK_KEY")
                 .Build();
         }
     }
 }
 ```
 
-## Usage
+## Usage 
 
 ### User Object
-The user object is required for all methods. The only required field in the user object is userId
+
+The full user data must be passed into every method. The only required field is the `user_id`. 
+The rest are optional and are used by the system for user segmentation into variables and features.
 
 See the User class in [.NET User model doc](https://github.com/DevCycleHQ/dotnet-server-sdk/blob/main/docs/User.md) for all accepted fields.
 
 ```csharp
 User user = new User("a_user_id");
+user.email = "jane@company.com";
+user.name = "Jane Doe";
 ```
 
 ### Getting All Features
