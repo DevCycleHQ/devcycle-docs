@@ -52,25 +52,35 @@ const dvcClient = await initialize('<DVC_ENVIRONMENT_SERVER_KEY>').onClientIniti
 
 The SDK exposes various initialization options which can be set on the `initialization()` method:
 
+[DVCOptions Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/nodejs/src/types.ts#L58)
+
 ```javascript
 const dvcClient = await DVC.initialize('<DVC_ENVIRONMENT_SERVER_KEY>', {
-        configPollingIntervalMS: 60 * 1000 
-    }).onClientInitialized()
+    configPollingIntervalMS: 60 * 1000
+}).onClientInitialized()
 ```
 
-| DVC Option | Description |
-| --- | ----------- |
-| configPollingIntervalMS | Controls the polling interval in milliseconds to fetch new environment config changes, defaults to 10 seconds, minimum value is 1 second. |
-| configPollingTimeoutMS | Controls the request timeout to fetch new environment config changes, defaults to 5 seconds, must be less than the configPollingIntervalMS value, minimum value is 1 second. |
-| flushEventsMS | Controls the interval between flushing events to the DevCycle servers, defaults to 30 seconds. |
-| disableEventLogging | Disables logging of any events or user data to DevCycle. |
-| enableCloudBucketing | Switches the SDK to use Cloud Bucketing (via the DevCycle Bucketing API) instead of Local Bucketing. |
-| enableEdgeDB | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle. <br />NOTE: This is only available with Cloud Bucketing. |
+| DVC Option | Type   | Description                                                                                                                                                                  |
+|----------------------------|--------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| logger | DVCLogger | Logger override to replace default logger                                                                                                                                    |
+| logLevel                   | String | Set log level of the default logger. Options are: `debug`, `info`, `warn`, `error`. Defaults to `info`.                                                                      |
+| enableCloudBucketing       |  Boolean      | Switches the SDK to use Cloud Bucketing (via the DevCycle Bucketing API) instead of Local Bucketing.                                                                         |
+| enableEdgeDB               | Boolean       | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle. <br />NOTE: This is only available with Cloud Bucketing.                                          |
+| configPollingIntervalMS    | Number | Controls the polling interval in milliseconds to fetch new environment config changes, defaults to 10 seconds, minimum value is 1 second.                                    |
+| configPollingTimeoutMS     | Number | Controls the request timeout to fetch new environment config changes, defaults to 5 seconds, must be less than the configPollingIntervalMS value, minimum value is 1 second. |
+| eventFlushIntervalMS       | Number | Controls the interval between flushing events to the DevCycle servers, defaults to 30 seconds.                                                                               |
+| disableAutomaticEventLogging | Boolean | Disables logging of sdk generated events (e.g. aggVariableEvaluated, aggVariableDefaulted) to DevCycle.                                                                      |
+| disableCustomEventLogging  | Boolean | Disables logging of custom events (from track() method) and user data to DevCycle.                                                                                           |
+| flushEventQueueSize  | Number | Controls the maximum size the event queue can grow to until a flush is forced. Defaults to `1000`.                                                                           |
+| maxEventQueueSize  | Number | Controls the maximum size the event queue can grow to until events are dropped. Defaults to `2000`.                                                                          |
+| apiProxyURL | String | Allows the SDK to communicate with a proxy of DVC bucketing API / client SDK API.                                                                                            |
 
 ### User Object
 
 The full user data must be passed into every method. The only required field is the `user_id`. 
 The rest are optional and are used by the system for user segmentation into variables and features.
+
+[DVCUser Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/nodejs/src/types.ts#L3)
 
 ```javascript
 const user = {
@@ -91,6 +101,8 @@ the user is not segmented into a feature using that variable, or the project con
 to be fetched from DevCycle's CDN. 
 
 The default value can be of type string, boolean, number, or object.
+
+[DVCVariable Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/nodejs/src/types.ts#L131)
 
 ```javascript
 const variable = dvcClient.variable(user, 'YOUR_VARIABLE_KEY', false)
@@ -113,10 +125,35 @@ See [getVariables](https://docs.devcycle.com/bucketing-api/#operation/getVariabl
 
 You can fetch all segmented features for a user:
 
+[DVCFeature Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/nodejs/src/types.ts#L193)
+
 ```javascript
 const features = dvcClient.allFeatures(user)
 ```
 See [getFeatures](https://docs.devcycle.com/bucketing-api/#operation/getFeatures) on the Bucketing API for the feature response format.
+
+### Tracking User Events
+
+Track a custom event for a user, pass in the user and event object.
+
+Calling Track will queue the event, which will be sent in batches to the DevCycle servers.
+
+[DVCEvent Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/nodejs/src/types.ts#L166)
+
+```typescript
+const event: DVCEvent = {
+    type: 'customType',
+    target: 'new_subscription',
+    value: 100.1,
+    date: Date.now()
+}
+dvcClient.track(user, event)
+```
+
+### Flush Events
+
+If you would like to force a flush of events in the event queue, you can call `flushEvents()`. 
+Events will automatically be flushed according to the `eventFlushIntervalMS` option.
 
 ### EdgeDB
 :::info
@@ -151,3 +188,8 @@ const variable = await dvcClient.variable(user, 'test-feature', false)
 This will send a request to our EdgeDB API to save the custom data under the user `test_user`.
 
 In the example, Email and Country are associated to the user `test_user`. In your next variable call for the same `user_id`, you may omit any of the data you've sent already as it will be pulled from the EdgeDB storage when segmenting to experiments and features.
+
+### Close Client
+
+If you need to close the DVCClient object to stop all open connections and timers, call `dvcClient.close()`. 
+This can be useful for cleaning DVCClient objects during unit testing.
