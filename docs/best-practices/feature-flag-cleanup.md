@@ -36,11 +36,11 @@ Our platform provides tools to facilitate feature flag cleanup. Feature Flag Rea
 
 ### Feature Flag Reach
 
-DevCycle’s Feature Flag Reach is a helpful tool for determining when a release flag is ready for removal. The Feature Flag Reach section generates a graph of how many users accessed variable(s) in each variation of the flag over time.
+DevCycle’s Feature Flag Reach is a helpful tool for determining when a release flag is ready for removal. The Feature Flag Reach section generates a graph of how many times each variable has been accessed in each variation of the flag over time.
 
-![Feature Flag Reach Example](/june-2022-routing-flag-reach.png)
+![Feature Flag Reach Example](/oct-2022-reach.png)
 
-Each variation is displayed as a line with a distinct colour. If only one coloured line is active over some time, it may be an indication that other code paths are never used. For example, if all users are receiving “Variation On,” the line for “Variation Off” will remain at zero. If this is so, it may be time to consider if that particular feature can become permanent for all users.
+Each variation is displayed as a line with a distinct color. If only one colored line is active over some time, it may be an indication that other code paths are never used. For example, if all users are receiving “Variation On,” the line for “Variation Off” will remain at zero. If this is so, it may be time to consider if that particular feature can become permanent for all users.
 
 There are two ways to find the Feature Flag Reach section. The first way is via your Feature Management page. On the very right of each feature is an “Insights” button which will navigate you to the feature’s reach section. 
 

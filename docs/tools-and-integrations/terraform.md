@@ -140,6 +140,6 @@ data "devcycle_evaluated_variable_boolean" "create-resource" {
 }
 ```
 
-This evaluation can then be access via `data.devcycle_evaluated_variable_boolean.create-resource.value`. The default value will be returned if there is no returned value from no matching variation.
+This evaluation can then be accessed via `data.devcycle_evaluated_variable_boolean.create-resource.value`. The default value will be returned if there is no returned value from no matching variation.
 
 There is another data block for each type of variable that can be evaluated (JSON, Boolean, String, Number) Each is typed explicitly because a variable type cannot be changed after creation.
