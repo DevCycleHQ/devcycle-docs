@@ -46,7 +46,7 @@ You can wait on the features to be loaded from our servers by using `.onClientIn
 ```javascript
 dvcClient.onClientInitialized().then(() => {
     const featureToggle = dvcClient.variable('YOUR_VARIABLE_KEY', false)
-    if (featureToggle) {
+    if (featureToggle.value) {
         ...
     } else {
         ...
@@ -63,7 +63,7 @@ dvcClient.onClientInitialized((err) => {
     }
     
     const featureToggle = dvcClient.variable('YOUR_VARIABLE_KEY', false)
-    if (featureToggle) {
+    if (featureToggle.value) {
         ...
     } else {
         ...
