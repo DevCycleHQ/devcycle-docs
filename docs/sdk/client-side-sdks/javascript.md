@@ -85,7 +85,12 @@ To grab the value, there is a property on the object returned to grab the value:
 const value = variable.value
 ```
 
-If the value is not ready, it will return the default value passed in the creation of the variable. To get notified when the variable is loaded: 
+If the value is not ready, it will return the default value passed in the creation of the variable. 
+
+The `onUpdate` accepts a handler function that will be called whenever a variable value has changed.
+This can occur as a result of a project configuration change or calls to `identifyUser` or `resetUser`. To learn more, visit our [Realtime Updates](/docs/sdk/features/realtime-updates) page.
+
+There can only be one onUpdate function registered at a time. Subsequent calls to this method will overwrite the previous handler:
 
 ```javascript
 variable.onUpdate((value) => {
@@ -93,7 +98,7 @@ variable.onUpdate((value) => {
 })
 ```
 
-See [getVariableByKey](https://docs.devcycle.com/bucketing-api/#operation/getVariableByKey) on the Bucketing API for the variable response format.
+The `DVCVariable` type interface can be found [here](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L233).
 
 ## Identifying User
 
@@ -153,8 +158,7 @@ const variables = client.allVariables()
 
 If the SDK has not finished initializing, these methods will return an empty object.
 
-See [getVariables](https://docs.devcycle.com/bucketing-api/#operation/getVariables) and [getFeatures](https://docs.devcycle.com/bucketing-api/#operation/getFeatures) on the Bucketing API for the response formats.
-
+See [DVCVariable](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L233) and [DVCFeature](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L18) for the type interface of the variables and features returned from `allVariables()` and `allFeatures()`.
 
 ## Tracking Events
 
@@ -184,6 +188,30 @@ dvcClient.flushEvents(() => {
     // called back after flushed events
 })
 ```
+
+## Subscribing to SDK Events
+
+The SDK can emit certain events when specific actions occur which can be listened on by subscribing to them:
+
+```javascript
+dvcClient.subscribe('variableUpdated:*', (key: string, variable: DVCVariable) => {
+    // key is the variable that has been updated
+    // The new value can be accessed from the variable object passed in: variable.value
+    console.log(`New variable value for variable ${key}: ${variable.value}`)
+})
+```
+
+The first argument is the name of the event that you can subscribe to. The `subscribe` method will throw an error if you try to
+subscribe to an event that doesn't exist. These are the events you can subscribe to:
+
+| **Event**        | **Key**             | **Handler Params**                     | **Description**                                                                                                                                                                                                                                                                 |
+|------------------|---------------------|----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Initialized      | `initialized`       | `(initialized: boolean)`               | An initialized event is emitted once the SDK has received its first config from DevCycle. This event will only be emitted once.                                                                                                                                                         |
+| Error            | `error`             | `(error: Error)`                       | If any error occurs in the SDK, this event emits that error.                                                                                                                                                                                                                    |
+| Variable Updated | `variableUpdated:*` | `(key: string, variable: DVCVariable)` | This event gets triggered when a variable value changes for a user. You can subscribe to all variable updates using the `*` identifier, or you can pass in the key of the variable you want to subscribe to, e.g. `variableUpdated:my_variable_key`. |
+| Feature Updated  | `featureUpdated:*`  | `(key: string, feature: DVCFeature)`   | This event gets triggered when a feature's variation changes for a user. You can subscribe to all feature updates using the `*` identifier, or you can pass in the key of the feature you want to subscribe to, e.g. `featureUpdated:my_feature_key`.  |
+
+
 
 ## EdgeDB
 
