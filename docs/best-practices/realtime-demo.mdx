@@ -1,0 +1,71 @@
+---
+title: Realtime Updates, try it Yourself!
+sidebar_position: 6
+---
+
+![Untitled](/oct-2022-rtu-demo-5.png)
+
+In this guide, we’ll explain how you can test the entire DevCycle UX out yourself and see updates happen live directly on an existing website. 
+
+To try it out yourself, we’ve prepared a page that is already hooked up with DevCycle, and it just requires you to make a Feature on the DevCycle website to test it out! No coding required.
+
+To get a preview of what this looks like, check out this video:
+
+`youtube:https://youtu.be/AGCqX7dHea8`
+
+**[Skip to the Setup](#make-a-feature-to-try-out-devcycle)**
+
+## Introduction to Realtime Updates
+
+DevCycle’s feature flags will update in real time on an open website or application utilizing the [subscribe](https://docs.devcycle.com/docs/sdk/client-side-sdks/javascript#subscribing-to-sdk-events) feature within the SDK, allowing your app to update instantaneously for your or your users. This has many use cases, such as:
+
+- Disaster recovery. Requiring your users to refresh a page or fully update an application when there is a failure is a poor user experience. If using DevCycle feature flags, broken functionality can be instantly turned off for all users without them ever needing to take any action.
+- Faster QA and Development. With Realtime updating, testing out different variable values doesn’t require any recompilation or refreshing of an application or website. Simply modify the variables on the DevCycle dashboard as you’re testing out a feature and watch those updates happen in realtime, vastly improving on development time.
+- Long-lived applications or websites. On websites or apps users have open for a very long time such as streaming apps or food delivery apps, you can never guarantee the next time the user will restart the app to receive new features, or have their features turned off in certain cases. With realtime updates, there is no more concern about when users may finally close
+
+## Make a feature to try out DevCycle
+
+To let you try out DevCycle and realtime updates without needing to actually implement DevCycle, [we’ve prepared a page that has DevCycle variables on it right here](https://devcycle.com/solutions/realtime-update-demo)!
+
+The variables are set up as below, allowing you to modify any of these elements:
+
+![Untitled](/oct-2022-rtu-demo-1.png)
+
+Steps:
+
+1. [Sign up for DevCycle](https://devcycle.com/signup) (completely free, no credit card required).
+2. Create a new Feature of type “Release”
+3. Make sure the feature **key** is “realtime-demo-setup”
+4. Create the following variables:
+    1. **Note:** Not all variables are necessary to set up .Keep it simple if you’d like and just pick one element!
+    2. **Note:** that the variables **Key** and **Type** are the most important parts here.
+    3. Provided are some values you can copy and paste to make setup easier, but feel free to use any text or image you wish!
+
+| Variable Key        | Variable Type | Variation On Value                                                      | Variation Off Value |
+|---------------------|---------------|-------------------------------------------------------------------------|---------------------|
+| realtime-demo-setup | Boolean       | true                                                                    | false               |
+| hero-text           | String        | Changes in Realtime                                                     |Welcome to DevCycle! |
+| secondary-text      | String        | DevCycle lets you update your features in real time!                    |                     |
+| hero-image          | String        | https://realtime-updates-demo-site.vercel.app/images/Platform-Image.png |                     |
+| left-button-text    | String        | Documentation                                                           |                     |
+| right-button        | String        | Create an Account                                                       |                     |
+
+5. Enable the feature for an environment of your choice.
+6. Make sure the environment has a definition for “all users”
+7. Make sure you serve variation off first
+
+![Untitled](/oct-2022-rtu-demo-3.png)
+
+8. **Save the changes**
+9. Now, we can navigate to the website in a different tab
+    1. **Add a query param using the SDK Key**
+
+[https://devcycle.com/solutions/realtime-update-demo**?envKey=YOUR_SDK_KEY_HERE**](https://devcycle.com/solutions/realtime-update-demo?envKey=)
+
+![Untitled](/oct-2022-rtu-demo-4.png)
+
+10. You should now see the text you set for Variation Off!
+11. Change your targeting rule to serve **Variation On** and then **Save**
+12. Check the site, you should see your **Variation On** content!
+
+That should give you a feel for how the DevCycle interface and Realtime updates work!
