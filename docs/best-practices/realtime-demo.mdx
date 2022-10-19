@@ -1,10 +1,9 @@
 ---
 title: Realtime Updates, try it Yourself!
-sidebar_position: 1
+sidebar_position: 6
 ---
 
-
-![Untitled](Realtime%20Updates%20Try%20it%20Yourself%20d3d3c939de254ce2bfba7932275854b4/oct-2022-rtu-demo-1.png)
+![Untitled](/oct-2022-rtu-demo-5.png)
 
 In this guide, we’ll explain how you can test the entire DevCycle UX out yourself and see updates happen live directly on an existing website. 
 
@@ -30,7 +29,7 @@ To let you try out DevCycle and realtime updates without needing to actually imp
 
 The variables are set up as below, allowing you to modify any of these elements:
 
-![Untitled](Realtime%20Updates%20Try%20it%20Yourself%20d3d3c939de254ce2bfba7932275854b4/oct-2022-rtu-demo-2.png)
+![Untitled](/oct-2022-rtu-demo-1.png)
 
 Steps:
 
@@ -42,28 +41,28 @@ Steps:
     2. **Note:** that the variables **Key** and **Type** are the most important parts here.
     3. Provided are some values you can copy and paste to make setup easier, but feel free to use any text or image you wish!
 
-| Variable Key | Variable Type | Variation On Value | Variation Off Value |
-| --- | --- | --- | --- |
-
-| right-button | String | Create an Account |  |
-
-Should look like this:
-
-![Untitled](Realtime%20Updates%20Try%20it%20Yourself%20d3d3c939de254ce2bfba7932275854b4/oct-2022-rtu-demo-3.png)
+| Variable Key        | Variable Type | Variation On Value                                                      | Variation Off Value |
+|---------------------|---------------|-------------------------------------------------------------------------|---------------------|
+| realtime-demo-setup | Boolean       | true                                                                    | false               |
+| hero-text           | String        | Changes in Realtime                                                     |Welcome to DevCycle! |
+| secondary-text      | String        | DevCycle lets you update your features in real time!                    |                     |
+| hero-image          | String        | https://realtime-updates-demo-site.vercel.app/images/Platform-Image.png |                     |
+| left-button-text    | String        | Documentation                                                           |                     |
+| right-button        | String        | Create an Account                                                       |                     |
 
 5. Enable the feature for an environment of your choice.
 6. Make sure the environment has a definition for “all users”
 7. Make sure you serve variation off first
 
-![Untitled](Realtime%20Updates%20Try%20it%20Yourself%20d3d3c939de254ce2bfba7932275854b4/oct-2022-rtu-demo-4.png)
+![Untitled](/oct-2022-rtu-demo-3.png)
 
 8. **Save the changes**
 9. Now, we can navigate to the website in a different tab
     1. **Add a query param using the SDK Key**
 
-[https://devcycle.com/solutions/realtime-update-demo**?envKey=](https://devcycle.com/solutions/realtime-update-demo?envKey=dvc_client_37a954d5_e21c_4617_be73_63d9682181bd_526e059)YOUR_SDK_KEY_HERE**
+[https://devcycle.com/solutions/realtime-update-demo**?envKey=YOUR_SDK_KEY_HERE**](https://devcycle.com/solutions/realtime-update-demo?envKey=)
 
-![Untitled](Realtime%20Updates%20Try%20it%20Yourself%20d3d3c939de254ce2bfba7932275854b4/oct-2022-rtu-demo-5.png)
+![Untitled](/oct-2022-rtu-demo-4.png)
 
 10. You should now see the text you set for Variation Off!
 11. Change your targeting rule to serve **Variation On** and then **Save**
