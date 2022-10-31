@@ -58,7 +58,7 @@ to flicker when it is first rendered, as it is waiting for the SDK to initialize
 import { withDVCProvider } from '@devcycle/devcycle-react-sdk'
 ```
 ```js
-export default withDVCProvider({ envKey: 'ENV_KEY' })(App)
+export default withDVCProvider({ envKey: 'CLIENT-SDK-KEY-FOR-ENV' })(App)
 ```
 
 ### Blocking
