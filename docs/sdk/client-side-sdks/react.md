@@ -77,7 +77,7 @@ function App() {
     return <TheRestofYourApp/>
 }
     
-export default withDVCProvider({ envKey: 'ENV_KEY' })(App)
+export default withDVCProvider({ envKey: 'CLIENT-SDK-KEY-FOR-ENV' })(App)
 ```
 
 :::caution
@@ -94,7 +94,7 @@ import { asyncWithDVCProvider } from '@devcycle/devcycle-react-sdk'
 ```
 ```js
 (async () => {
-    const DVCProvider = await asyncWithDVCProvider({ envKey: 'ENV_KEY' })
+    const DVCProvider = await asyncWithDVCProvider({ envKey: 'CLIENT-SDK-KEY-FOR-ENV' })
 
     ReactDOM.render(
         <DVCProvider>
@@ -280,7 +280,7 @@ const options = {
   enableEdgeDB: true
 }
 
-export default withDVCProvider({ envKey: 'ENV_KEY', user, options })(App)
+export default withDVCProvider({ envKey: 'CLIENT-SDK-KEY-FOR-ENV', user, options })(App)
 ```
 
 This will send a request to our EdgeDB API to save the custom data under the user `test_user`.
