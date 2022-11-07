@@ -207,7 +207,8 @@ If the value is not ready, it will return the default value passed in the creati
 
 ### Variable Updates
 
-To listen for updates on the variable's `value`, for example when the user's `userId` is changed or `resetUser()` is called, an `onUpdate()` handler can be used:
+Variable values update whenever `identifyUser()` or `resetUser()` are called, or when the project configuration changes (to learn more, visit our [Realtime Updates](/docs/sdk/features/realtime-updates) page).
+To listen for variable updates, the `onUpdate()` method can be used:
 
 #### Swift
 ```swift
