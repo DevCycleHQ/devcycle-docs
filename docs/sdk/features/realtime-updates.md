@@ -20,7 +20,13 @@ The following Client-Side SDKs currently have Realtime Updates:
 
 - Javascript SDK
 - React SDK
+- iOS SDK
+- Android SDK
 
 #### **Javascript SDK** & **React SDK**
 
 If the user loses focus on the webpage, the SDK will disconnect from the SSE provider and will reconnect when the user opens the tab / window again (i.e. the page's visibility state = `visible`). The SDK will also request a new configuration during reconnection to receive any updates it may have missed while the realtime connection was closed.
+
+#### **iOS SDK** & **Android SDK**
+
+If the user backgrounds the application for some period of time, the SDK will disconnect from the SSE provider and will reconnect again when the user brings the application to the foreground. When the application is brought to the foreground the SDK will request a new configuration to receive any updates it may have missed while the realtime connection was closed.

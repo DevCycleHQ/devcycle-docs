@@ -164,7 +164,8 @@ If the value is not ready, it will return the default value passed in the creati
 
 ### Variable updates
 
-A callback can be registered to be notified whenever "identify" is called, triggered a new config update.
+Variable values update whenever `identifyUser()` or `resetUser()` are called, or when the project configuration changes (to learn more, visit our [Realtime Updates](/docs/sdk/features/realtime-updates) page).
+To listen for updates, a callback can be registered using the `onUpdate()` method:
 
 #### *Kotlin example:*
 
