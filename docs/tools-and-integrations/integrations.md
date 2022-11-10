@@ -17,8 +17,8 @@ If you would like to contribute to an existing integration or tool, all of DevCy
 are [open source on the DevCycle github repository.](https://github.com/devcycleHQ)!
 
 Further, if you'd like to create a new tool or integration, a great starting point is
-[DevCycle's Management API](https://docs.devcycle.com/management-api/) which allows you to modify and interact with
-features and more within a devcycle project, as well as the [DevCycle bucketing API](https://docs.devcycle.com/bucketing-api/)
+[DevCycle's Management API](/management-api/) which allows you to modify and interact with
+features and more within a devcycle project, as well as the [DevCycle bucketing API](/bucketing-api/)
 which is used to give users features and variables (as used within the DevCycle SDKs!)
 
 :::

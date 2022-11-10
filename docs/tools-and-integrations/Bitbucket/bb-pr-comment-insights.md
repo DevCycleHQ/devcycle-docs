@@ -54,7 +54,7 @@ _(*) = required variable._
 
 ### Prerequisites
 
-1. Create a new [Project](https://docs.devcycle.com/docs/tools-and-integrations/terraform#create-a-project) & a new [Feature](https://docs.devcycle.com/docs/tools-and-integrations/terraform#create-a-feature) 
+1. Create a new [Project](/docs/tools-and-integrations/terraform#create-a-project) & a new [Feature](/docs/tools-and-integrations/terraform#create-a-feature) 
 2. Generate a new [App Password](https://bitbucket.org/account/settings/app-passwords/) 
     - Select `write` permissions under `Pull Requests`, and create the password
 3. Grab your username, can easily find it in [Personal Settings](https://bitbucket.org/account/settings/)

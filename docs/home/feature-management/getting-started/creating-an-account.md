@@ -13,7 +13,7 @@ If you already have an account feel free to skip ahead to shipping [Your First F
 
 If you don't yet have an account with DevCycle that's not a problem! [Simply make a completely free account right here.](https://app.devcycle.com/?isSignUp=true)
 
-We have an always free tier to start and the pricing will scale with usage as you need. You can create a free account right away, and if you're curious about our pricing, [check it out here](https://devcycle.com/pricing/plans-and-pricing!)
+We have an always free tier to start and the pricing will scale with usage as you need. You can create a free account right away, and if you're curious about our pricing, [check it out here](https://devcycle.com/pricing/plans-and-pricing)
 
 
 ## Adding Team Members

@@ -5,7 +5,7 @@ sidebar_position: 6
 
 # DevCycle Java Server SDK
 
-Welcome to the DevCycle Java SDK, which interfaces with the [DevCycle Bucketing API](https://docs.devcycle.com/bucketing-api/#tag/devcycle).
+Welcome to the DevCycle Java SDK, which interfaces with the [DevCycle Bucketing API](/bucketing-api/#tag/devcycle).
 All requests, including user data are sent to DevCycle servers to ensure the User is bucketed correctly and will receive the correct variation.
 
 The SDK is available as a package on MavenCentral. It is also open source and can be viewed on Github.
@@ -237,7 +237,7 @@ public class MyClass {
 
 ### EdgeDB
 
-EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user. Read more about [EdgeDB](https://docs.devcycle.com/docs/home/feature-management/edgedb/).
+EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user. Read more about [EdgeDB](/docs/home/feature-management/edgedb/what-is-edgedb).
 
 To get started, contact us at support@devcycle.com to enable EdgeDB for your project.
 

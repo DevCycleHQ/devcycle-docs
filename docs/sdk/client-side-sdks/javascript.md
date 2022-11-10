@@ -158,7 +158,8 @@ const variables = client.allVariables()
 
 If the SDK has not finished initializing, these methods will return an empty object.
 
-See [DVCVariable](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L233) and [DVCFeature](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L18) for the type interface of the variables and features returned from `allVariables()` and `allFeatures()`.
+See [getVariables](https://docs.devcycle.com/bucketing-api/#operation/getVariables) and [getFeatures](https://docs.devcycle.com/bucketing-api/#operation/getFeatures) on the Bucketing API for the response formats.
+
 
 ## Tracking Events
 

@@ -58,9 +58,9 @@ client.identifyUser(user)
 ```
 Notice that we added the Custom Property Key, `isBetaUser`, and its custom value, `true`, within the `customData` field of our user object. Remember that the Custom Property Key must be the exact same as it is displayed on the dashboard. As a result, it is a good practice to use quotation marks when indicating the key in your code, especially if the Property Key has spaces or hyphens.
 
-To reference our user’s features and variables, we use the [Identify](https://docs.devcycle.com/docs/sdk/features/identify) method from the DevCycle SDKs. A call to the Identify function will return the list of relevant Features and Variables for the user. After we define our user’s `customData`, we call the `identifyUser` method on the client object, obtained from [using the `useDVCClient` hook](/docs/sdk/client-side-sdks/react-native#usedvcclient). That way, we can reference the user’s features and variable values based on the targeting of their custom property.
+To reference our user’s features and variables, we use the [Identify](/docs/sdk/features/identify) method from the DevCycle SDKs. A call to the Identify function will return the list of relevant Features and Variables for the user. After we define our user’s `customData`, we call the `identifyUser` method on the client object, obtained from [using the `useDVCClient` hook](/docs/sdk/client-side-sdks/react-native#usedvcclient). That way, we can reference the user’s features and variable values based on the targeting of their custom property.
 
-For more documentation about the Identify method with different SDKs, read [Identifying Users & Setting Properties](https://docs.devcycle.com/docs/sdk/features/identify).
+For more documentation about the Identify method with different SDKs, read [Identifying Users & Setting Properties](/docs/sdk/features/identify).
 
 :::info
 
@@ -83,4 +83,4 @@ You can target users in numerous ways using Custom Properties. The following lis
 
 ## Summary
 
-In this guide, we explained how to enhance experimentation and feature flag targeting with Custom Properties. The common use cases list above can be used as a reference guide to provide ideas for new properties.
+In this guide, we explained how to enhance experimentation and feature flag targeting with Custom Properties. The common use case list above can be used as a reference guide to provide ideas for new properties.

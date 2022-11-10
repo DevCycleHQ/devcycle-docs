@@ -63,8 +63,7 @@ export default withDVCProvider({ envKey: 'CLIENT-SDK-KEY-FOR-ENV' })(App)
 
 ### Blocking
 
-The `useIsDVCInitialized` hook allows you to block rendering of your application until SDK initialization is complete. This ensures your app 
-does not flicker due to value changes and enables you to control what you want displayed when initialization isn't finished yet.
+The `useIsDVCInitialized` hook allows you to block rendering of your application until SDK initialization is complete. This ensures your app does not flicker due to value changes and enables you to control what you want displayed when initialization isn't finished yet.
 
 ```js
 import { useIsDVCInitialized, withDVCProvider } from '@devcycle/devcycle-react-sdk'
@@ -132,6 +131,8 @@ const DVCFeaturePage = () => {
     )
 }
 ```
+
+See [getVariableByKey](https://docs.devcycle.com/bucketing-api/#operation/getVariableByKey) on the Bucketing API for the variable response format.
 
 If a change on the dashboard triggers your variable value to change, it will rerender your page to reflect your new variable value. To learn more, visit the [Realtime Updates](/docs/sdk/features/realtime-updates) page.
 
@@ -230,7 +231,8 @@ The client object can be obtained from the [useDVCClient](#getting-the-devcycle-
 
 If the SDK has not finished initializing, these methods will return an empty object.
 
-See [DVCVariable](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L233) and [DVCFeature](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L18) for the type interface of the variables and features returned from `allVariables()` and `allFeatures()`.
+See [getVariables](https://docs.devcycle.com/bucketing-api/#operation/getVariables) and [getFeatures](https://docs.devcycle.com/bucketing-api/#operation/getFeatures) on the Bucketing API for the response formats.
+
 
 ### Track Events
 Events can be tracked by calling the `track` method provided by the client object, which you can access with the

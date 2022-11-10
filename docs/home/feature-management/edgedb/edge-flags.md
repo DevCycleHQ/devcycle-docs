@@ -23,7 +23,7 @@ EdgeDB is enabled at the project level. To enable EdgeDB for your project, go to
 
 ![EdgeDB Project Settings](/august-2022-edgedb-project-settings.png)
 
-Once EdgeDB is enabled in your project, you must turn on EdgeDB mode for the SDK within your code. To do so, pass in the `enableEdgeDB` option and set it to `true`. This will look different depending on the SDK you are using. You can view [our list of supported SDKs here](https://docs.devcycle.com/docs/home/feature-management/edgedb/#supported-sdks) for a specific example of how to enable EdgeDB for your SDK.
+Once EdgeDB is enabled in your project, you must turn on EdgeDB mode for the SDK within your code. To do so, pass in the `enableEdgeDB` option and set it to `true`. This will look different depending on the SDK you are using. You can view [our list of supported SDKs here](#sdk-usage) for a specific example of how to enable EdgeDB for your SDK.
 
 ## Example Usage
 
@@ -55,7 +55,7 @@ In the example above, `'demo_user'` will still receive the features based on the
 
 ### Rest API Usage
 
-We are able to support updates to users using our EdgeDB Public Rest API. The docs for it can be found [here](https://docs.devcycle.com/bucketing-api/).
+We are able to support updates to users using our EdgeDB Public Rest API. The docs for it can be found [here](/bucketing-api/).
 
 You are able to use this to update users with all of the supported data, along with custom data, and be able to use that data for segmenting in the SDKs without having to explicitly pass all of the data when `identifyUser` is called.
 
@@ -78,20 +78,20 @@ This will make the custom data `amountSpent` available to segment on when identi
 For specific documentation on how to use Edge Flags with each SDK
 
 #### Client SDKs
-- [JS SDK](https://docs.devcycle.com/docs/sdk/client-side-sdks/javascript#edgedb)
-- [iOS SDK](https://docs.devcycle.com/docs/sdk/client-side-sdks/ios#edgedb)
-- [Android SDK](https://docs.devcycle.com/docs/sdk/client-side-sdks/android#edgedb)
-- [React SDK](https://docs.devcycle.com/docs/sdk/client-side-sdks/react#edgedb)
-- [React Native](https://docs.devcycle.com/docs/sdk/client-side-sdks/react-native#edgedb)
+- [JS SDK](/docs/sdk/client-side-sdks/javascript#edgedb)
+- [iOS SDK](/docs/sdk/client-side-sdks/ios#edgedb)
+- [Android SDK](/docs/sdk/client-side-sdks/android#edgedb)
+- [React SDK](/docs/sdk/client-side-sdks/react#edgedb)
+- [React Native](/docs/sdk/client-side-sdks/react-native#edgedb)
 
 #### Server SDKs
-- [Go SDK](https://docs.devcycle.com/docs/sdk/server-side-sdks/go#edgedb)
-- [Java SDK](https://docs.devcycle.com/docs/sdk/server-side-sdks/java#edgedb)
-- [Node.js SDK](https://docs.devcycle.com/docs/sdk/server-side-sdks/node#edgedb)
-- [PHP SDK](https://docs.devcycle.com/docs/sdk/server-side-sdks/php#edgedb)
-- [Python SDK](https://docs.devcycle.com/docs/sdk/server-side-sdks/python#edgedb)
-- [Ruby SDK](https://docs.devcycle.com/docs/sdk/server-side-sdks/ruby#edgedb)
-- [.NET SDK for Cloud Bucketing](https://docs.devcycle.com/docs/sdk/server-side-sdks/dotnet-cloud#edgedb)
+- [Go SDK](/docs/sdk/server-side-sdks/go#edgedb)
+- [Java SDK](/docs/sdk/server-side-sdks/java-cloud#edgedb)
+- [Node.js SDK](/docs/sdk/server-side-sdks/node#edgedb)
+- [PHP SDK](/docs/sdk/server-side-sdks/php#edgedb)
+- [Python SDK](/docs/sdk/server-side-sdks/python#edgedb)
+- [Ruby SDK](/docs/sdk/server-side-sdks/ruby#edgedb)
+- [.NET SDK for Cloud Bucketing](/docs/sdk/server-side-sdks/dotnet-cloud#edgedb)
 
 :::info
 **Data stored in EdgeDB is only used for user segmenting (targeting rules), so EdgeDB won’t return data to the SDK.**
