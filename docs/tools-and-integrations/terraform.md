@@ -36,16 +36,16 @@ provider "devcycle" {
 ### Set up DevCycle API Credentials
 All actions by the Terraform provider are scoped at the organization root level. This requires DevCycle API authorization.
 Your DevCycle organization's client ID and secret must
-be provided. They can be obtained from the [settings page](https://app.devcycle.com/settings) of the DevCycle dashboard.
+be provided. They can be obtained from the [settings page](https://app.devcycle.com/r/settings) of the DevCycle dashboard.
 
 There are several ways to provide these credentials:
 #### Directly in the Terraform configuration
-This is not recommended, as your credentials will be visible in your Terraform state. But if you are securly controlling access to the state file, then this _can_ be used safely.
+This is not recommended, as your credentials will be visible in your Terraform state. But if you are securely controlling access to the state file, then this _can_ be used safely.
 Set the `client_id` and `client_secret` fields in the `provider.devcycle` block in your Terraform configuration to the respective values.
 These will be used to get an OAuth2 access token at the time of use - this value is _not_ stored in the Terraform state file for security.
 
 For the `server_sdk_token` field, this is scoped to a single DevCycle project. This should be the project you want to control your resources from.
-The server sdk token can be found in the same [settings page](https://app.devcycle.com/settings) as the client id and secret - but you need to select the right 
+The server sdk token can be found in the same [settings page](https://app.devcycle.com/r/settings) as the client id and secret - but you need to select the right 
 project first.
 
 #### Environment Variables

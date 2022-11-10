@@ -171,10 +171,7 @@ With the`VIP` variation set in `dec-campaign-proposed-name`, we can head to the 
     
     ![Screen Shot 2022-09-13 at 12.39.19 PM.png](/Screen_Shot_2022-09-13_at_12.39.19_PM.png)
 
-    
-    10. Check the “Serverless with EdgeDB”([https://www.notion.so/taplytics/Google-Cloud-Functions-5e79586093d24e9087bd5f8a9b505197#b8f514e03e9246eebfa9e6ed3754b431](https://www.notion.so/Google-Cloud-Functions-5e79586093d24e9087bd5f8a9b505197)) section for the EdgeDB usage
-
-    5. Go back to the Azure Function and run it again, you should see the “title” change to “VIP” which means we don’t need to pass in email in the below variable request and get the data `email` from EdgeDB!
+5. Go back to the Azure Function and run it again, you should see the “title” change to “VIP” which means we don’t need to pass in email in the below variable request and get the data `email` from EdgeDB!
 
 ```jsx
 const { value: proposedCampaignTitle } = await dvcClient.variable({ user_id: "testuser_1234333" }, "dec-campaign-proposed-name", "");

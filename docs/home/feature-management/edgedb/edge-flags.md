@@ -23,7 +23,7 @@ EdgeDB is enabled at the project level. To enable EdgeDB for your project, go to
 
 ![EdgeDB Project Settings](/august-2022-edgedb-project-settings.png)
 
-Once EdgeDB is enabled in your project, you must turn on EdgeDB mode for the SDK within your code. To do so, pass in the `enableEdgeDB` option and set it to `true`. This will look different depending on the SDK you are using. You can view [our list of supported SDKs here](/docs/home/feature-management/edgedb/#supported-sdks) for a specific example of how to enable EdgeDB for your SDK.
+Once EdgeDB is enabled in your project, you must turn on EdgeDB mode for the SDK within your code. To do so, pass in the `enableEdgeDB` option and set it to `true`. This will look different depending on the SDK you are using. You can view [our list of supported SDKs here](#sdk-usage) for a specific example of how to enable EdgeDB for your SDK.
 
 ## Example Usage
 
