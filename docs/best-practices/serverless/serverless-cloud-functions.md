@@ -65,7 +65,7 @@ To set the feature flags, make sure you have a DevCycle account [https://devcycl
     ![Screen Shot 2022-09-13 at 11.42.38 AM.png](/Screen_Shot_2022-09-13_at_11.42.38_AM.png)
     
 3. Add the environment variable `SERVER_KEY` under “Runtime environment variables” ([Related Google Doc](https://cloud.google.com/functions/docs/configuring/env-var#using_runtime_environment_variables)) 
-For getting the server-side SDK key from DevCycle, you can read this section ([https://docs.devcycle.com/docs/home/feature-management/organizing-your-flags-and-variables/api-and-sdk-keys](https://docs.devcycle.com/docs/home/feature-management/organizing-your-flags-and-variables/api-and-sdk-keys))
+For getting the server-side SDK key from DevCycle, you can read this section ([https://docs.devcycle.com/docs/home/feature-management/organizing-your-flags-and-variables/api-and-sdk-keys](/docs/home/feature-management/organizing-your-flags-and-variables/api-and-sdk-keys))
     
     ![Screen Shot 2022-09-13 at 11.51.57 AM.png](/Screen_Shot_2022-09-13_at_11.51.57_AM.png)
     
@@ -101,16 +101,16 @@ EdgeDB is purpose built to work at edge, and when used in conjunction with a ser
 
 Here is some more reading: 
 
-[What is EdgeDB? (https://docs.devcycle.com/docs/home/feature-management/edgedb/what-is-edgedb)
+[What is EdgeDB? (/docs/home/feature-management/edgedb/what-is-edgedb)
 
-[Use Cases of EdgeDB ](https://docs.devcycle.com/docs/home/feature-management/edgedb/edge-flags#use-cases)
+[Use Cases of EdgeDB ](/docs/home/feature-management/edgedb/edge-flags#use-cases)
 
 ### Enable EdgeDB (NodeJS SDK Version)
 
 First, you need to enable EdgeDB in the DevCycle Dashboard
-[https://docs.devcycle.com/docs/home/feature-management/edgedb/edge-flags#setup](https://docs.devcycle.com/docs/home/feature-management/edgedb/edge-flags#setup)
+[https://docs.devcycle.com/docs/home/feature-management/edgedb/edge-flags#setup](/docs/home/feature-management/edgedb/edge-flags#setup)
 
-With the [DevCycle NodeJs SDK ](https://docs.devcycle.com/docs/sdk/server-side-sdks/node) we use the `enableCloudBucketing` and `enableEdgeDB` options to enable EdgeDB usage. ([SDK initialization option details: ](https://docs.devcycle.com/docs/sdk/server-side-sdks/node#initialization-options))
+With the [DevCycle NodeJs SDK ](/docs/sdk/server-side-sdks/node) we use the `enableCloudBucketing` and `enableEdgeDB` options to enable EdgeDB usage. ([SDK initialization option details: ](/docs/sdk/server-side-sdks/node#initialization-options))
 
 ```jsx
 const dvcClient = DVC.initialize(serverKey, {

@@ -74,7 +74,7 @@ Targeting Rules also allow you to disable the entire feature for only a specific
 
 **Targeting Users:**
 
-[Read here to learn more about how to Target Users](https://docs.devcycle.com/docs/home/feature-management/features-and-variables/targeting-users).
+[Read here to learn more about how to Target Users](/docs/home/feature-management/features-and-variables/targeting-users).
 
 
 :::

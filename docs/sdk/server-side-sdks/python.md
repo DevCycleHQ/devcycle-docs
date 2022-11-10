@@ -5,7 +5,7 @@ sidebar_position: 5
 
 # DevCycle Python Server SDK
 
-Welcome to the the DevCycle Python SDK, initially generated via the [DevCycle Bucketing API](https://docs.devcycle.com/bucketing-api/#tag/devcycle).
+Welcome to the the DevCycle Python SDK, initially generated via the [DevCycle Bucketing API](/bucketing-api/#tag/devcycle).
 
 The SDK is available as a package on PyPI. It is also open source and can be viewed on Github.
 
@@ -61,7 +61,7 @@ import devcycle_python_sdk
         print("Exception when calling DVCClient->all_features: %s\n" % e)
     
 ```
-See [getFeatures](https://docs.devcycle.com/bucketing-api/#operation/getFeatures) on the Bucketing API for the feature response format.
+See [getFeatures](/bucketing-api/#operation/getFeatures) on the Bucketing API for the feature response format.
 
 ### Get and Use Variable by Key
 To get values from your Variables, `all_variables()` is used to fetch variable values using the identifier `key` coupled with a default value. The default value can be of type string, boolean, number, or object.
@@ -77,7 +77,7 @@ To get values from your Variables, `all_variables()` is used to fetch variable v
          print("Exception when calling DVCClient->variable: %s\n" % e)
 
 ```
-See [getVariableByKey](https://docs.devcycle.com/bucketing-api/#operation/getVariableByKey) on the Bucketing API for the variable response format.
+See [getVariableByKey](/bucketing-api/#operation/getVariableByKey) on the Bucketing API for the variable response format.
 
 ### Getting All Variables
 To get values from your Variables, `all_variables()` is used to fetch variable values using the identifier `key` coupled with a default value. The default value can be of type string, boolean, number, or object.
@@ -92,7 +92,7 @@ To get values from your Variables, `all_variables()` is used to fetch variable v
     except ApiException as e:
         print("Exception when calling DVCClient->all_variables: %s\n" % e)
 ```
-See [getVariables](https://docs.devcycle.com/bucketing-api/#operation/getVariables) on the Bucketing API for the variable response format.
+See [getVariables](/bucketing-api/#operation/getVariables) on the Bucketing API for the variable response format.
 
 ### Track Event
 To POST custom event for a user
@@ -113,7 +113,7 @@ To POST custom event for a user
 
 ### EdgeDB
 
-EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user. Read more about [EdgeDB](https://docs.devcycle.com/docs/home/feature-management/edgedb/).
+EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user. Read more about [EdgeDB](/docs/home/feature-management/edgedb/).
 
 To get started, contact us at support@devcycle.com to enable EdgeDB for your project.
 

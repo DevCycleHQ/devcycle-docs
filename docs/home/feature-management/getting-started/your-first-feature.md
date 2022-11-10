@@ -5,7 +5,7 @@ sidebar_position: 2
 
 ## Overview
 
-This article serves as a guide on how to create and manage Features within DevCycle. This will outline how to create and manage within the DevCycle Dashboard, however, features may also be created via the [DevCycle Management API](https://docs.devcycle.com/management-api/).
+This article serves as a guide on how to create and manage Features within DevCycle. This will outline how to create and manage within the DevCycle Dashboard, however, features may also be created via the [DevCycle Management API](/management-api/).
 
 ## Creating a Feature
 

@@ -12,7 +12,7 @@ When a Feature is running, DevCycle automatically provides a quick way to view h
 
 There are two ways to find the Feature Flag Reach section. The first way is via your Feature Management page. On the very right of each feature is an “Insights” button which will navigate you to the feature’s reach section. 
 
-The second way is from a feature’s dashboard. On the navigation to the left, click “Reach” under ”Data & Results”.
+The second way is from a Feature’s dashboard. On the navigation to the left, click “Reach” under ”Data & Results”.
 
 ![Reach button from a feature's dashboard](/june-2022-reach-feature-dashboard.png)
 

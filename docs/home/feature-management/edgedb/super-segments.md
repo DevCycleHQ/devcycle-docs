@@ -12,8 +12,8 @@ This means that users or their data can be “imported” into DevCycle for targ
 ## Usage
 
 This data can be imported to DevCycle and EdgeDB in a number of different methods:
-- Via the [EdgeDB API](https://docs.devcycle.com/docs/best-practices/edgedb-and-edge-flags/edge-db-via-api-simple)
-- Through the [Zapier Integration](https://docs.devcycle.com/docs/best-practices/edgedb-and-edge-flags/import-from-anywhere)
+- Via the [EdgeDB API](/docs/best-practices/edgedb-and-edge-flags/edge-db-via-api-simple)
+- Through the [Zapier Integration](/docs/best-practices/edgedb-and-edge-flags/import-from-anywhere)
 
 Once a Super Segment has been created in EdgeDB it can then be accessed via Feature Flags using [Custom Properties](/docs/home/feature-management/features-and-variables/custom-properties) within a targeting rule.
 

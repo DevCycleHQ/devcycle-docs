@@ -5,7 +5,7 @@ sidebar_position: 7
 
 # DevCycle Java Server SDK
 
-Welcome to the DevCycle Java SDK, which interfaces with the [DevCycle Bucketing API](https://docs.devcycle.com/bucketing-api/#tag/devcycle).
+Welcome to the DevCycle Java SDK, which interfaces with the [DevCycle Bucketing API](/bucketing-api/#tag/devcycle).
 
 The SDK is available as a package on MavenCentral. It is also open source and can be viewed on Github.
 

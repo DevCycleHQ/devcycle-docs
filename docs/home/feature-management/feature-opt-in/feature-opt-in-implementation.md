@@ -15,7 +15,7 @@ To get started with the Feature Opt-In functionality all you need are running fe
 
 ## Getting Started
 
-The Feature Opt-In functionality can be turned on from the [Organization Settings](https://docs.devcycle.com/docs/home/feature-management/organizing-your-flags-and-variables/organizations-projects#organization-settings) page.
+The Feature Opt-In functionality can be turned on from the [Organization Settings](/docs/home/feature-management/organizing-your-flags-and-variables/organizations-projects#organization-settings) page.
 
 Once here, navigate to the "Feature Opt-In" page of the settings:
 

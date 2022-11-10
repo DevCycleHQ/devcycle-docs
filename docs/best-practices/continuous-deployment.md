@@ -31,7 +31,7 @@ While you are still developing the feature, you can keep serving All Users with 
 
 When the new code is ready to be merged and delivered, update the Targeting Rules to make it visible to the appropriate users. You can easily set their variation back to “Variation Off” if something goes wrong. This gives you ample time to resolve the issues without negatively impacting users.
 
-To learn more about Targeting in DevCycle, read [Targeting Users](https://docs.devcycle.com/docs/home/feature-management/features-and-variables/targeting-users)
+To learn more about Targeting in DevCycle, read [Targeting Users](docs/home/feature-management/features-and-variables/targeting-users)
 
 ## Testing Code that Uses Feature Flags
 

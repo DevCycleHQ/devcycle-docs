@@ -93,7 +93,7 @@ variable.onUpdate((value) => {
 })
 ```
 
-See [getVariableByKey](https://docs.devcycle.com/bucketing-api/#operation/getVariableByKey) on the Bucketing API for the variable response format.
+See [getVariableByKey](/bucketing-api/#operation/getVariableByKey) on the Bucketing API for the variable response format.
 
 ## Identifying User
 
@@ -153,7 +153,7 @@ const variables = client.allVariables()
 
 If the SDK has not finished initializing, these methods will return an empty object.
 
-See [getVariables](https://docs.devcycle.com/bucketing-api/#operation/getVariables) and [getFeatures](https://docs.devcycle.com/bucketing-api/#operation/getFeatures) on the Bucketing API for the response formats.
+See [getVariables](/bucketing-api/#operation/getVariables) and [getFeatures](/bucketing-api/#operation/getFeatures) on the Bucketing API for the response formats.
 
 
 ## Tracking Events

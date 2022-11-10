@@ -110,7 +110,7 @@ if (variable.value) {
     // Feature Flag on
 }
 ```
-See [getVariableByKey](https://docs.devcycle.com/bucketing-api/#operation/getVariableByKey) on the Bucketing API for the variable response format.
+See [getVariableByKey](/bucketing-api/#operation/getVariableByKey) on the Bucketing API for the variable response format.
 
 ### Getting All Variables
 
@@ -119,7 +119,7 @@ To grab all the segmented variables for a user:
 ```javascript
 const variables = dvcClient.allVariables(user)
 ```
-See [getVariables](https://docs.devcycle.com/bucketing-api/#operation/getVariables) on the Bucketing API for the variable response format.
+See [getVariables](/bucketing-api/#operation/getVariables) on the Bucketing API for the variable response format.
 
 ### Getting All Features
 
@@ -130,7 +130,7 @@ You can fetch all segmented features for a user:
 ```javascript
 const features = dvcClient.allFeatures(user)
 ```
-See [getFeatures](https://docs.devcycle.com/bucketing-api/#operation/getFeatures) on the Bucketing API for the feature response format.
+See [getFeatures](/bucketing-api/#operation/getFeatures) on the Bucketing API for the feature response format.
 
 ### Tracking User Events
 
@@ -162,7 +162,7 @@ EdgeDB is only available with Cloud Bucketing and does not have any impact on Lo
 
 :::
 
-EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user. Read more about [EdgeDB](https://docs.devcycle.com/docs/home/feature-management/edgedb/).
+EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user. Read more about [EdgeDB](/docs/home/feature-management/edgedb/).
 
 To get started, contact us at support@devcycle.com to enable EdgeDB for your project.
 

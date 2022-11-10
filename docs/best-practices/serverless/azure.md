@@ -113,7 +113,7 @@ https://github.com/DevCycleHQ/azure-functions-example
     
     ![Screen Shot 2022-09-13 at 3.52.40 PM.png](/Screen_Shot_2022-09-13_at_3.52.40_PM.png)
     
-6. Go back to your Azure Portal and set the environment variable `SERVER_KEY` in your function app configuration and save. [You can learn more about SDK keys and where to find them here.](https://docs.devcycle.com/docs/home/feature-management/organizing-your-flags-and-variables/api-and-sdk-keys)
+6. Go back to your Azure Portal and set the environment variable `SERVER_KEY` in your function app configuration and save. [You can learn more about SDK keys and where to find them here.](/docs/home/feature-management/organizing-your-flags-and-variables/api-and-sdk-keys)
     
     ![Screen Shot 2022-09-13 at 3.55.40 PM.png](/Screen_Shot_2022-09-13_at_3.55.40_PM.png)
     
@@ -137,9 +137,9 @@ https://github.com/DevCycleHQ/azure-functions-example
     
 ### Enable EdgeDB (NodeJS SDK Version)
 
-[First, you need to enable EdgeDB in the DevCycle Dashboard](https://docs.devcycle.com/docs/home/feature-management/edgedb/edge-flags#setup)
+[First, you need to enable EdgeDB in the DevCycle Dashboard](/docs/home/feature-management/edgedb/edge-flags#setup)
 
-With the [DevCycle NodeJs SDK ](https://docs.devcycle.com/docs/sdk/server-side-sdks/node) we use the `enableCloudBucketing` and `enableEdgeDB` options to enable EdgeDB usage. ([SDK initialization option details: ](https://docs.devcycle.com/docs/sdk/server-side-sdks/node#initialization-options))
+With the [DevCycle NodeJs SDK ](/docs/sdk/server-side-sdks/node) we use the `enableCloudBucketing` and `enableEdgeDB` options to enable EdgeDB usage. ([SDK initialization option details: ](/docs/sdk/server-side-sdks/node#initialization-options))
 
 ```jsx
 const dvcClient = DVC.initialize(serverKey, {

@@ -5,7 +5,7 @@ sidebar_position: 2
 
 # DevCycle PHP Server SDK
 
-Welcome to the the DevCycle PHP SDK, initially generated via the [DevCycle Bucketing API](https://docs.devcycle.com/bucketing-api/#tag/devcycle).
+Welcome to the the DevCycle PHP SDK, initially generated via the [DevCycle Bucketing API](/bucketing-api/#tag/devcycle).
 
 The SDK is available as a package on Packagist. It is also open source and can be viewed on Github.
 
@@ -82,7 +82,7 @@ try {
     echo 'Exception when calling DVCClient->variable: ', $e->getMessage(), PHP_EOL;
 }
 ```
-See [getVariableByKey](https://docs.devcycle.com/bucketing-api/#operation/getVariableByKey) on the Bucketing API for the variable response format.
+See [getVariableByKey](/bucketing-api/#operation/getVariableByKey) on the Bucketing API for the variable response format.
 
 ### Get all Variables
 ```php
@@ -93,7 +93,7 @@ try {
     echo 'Exception when calling DVCClient->allVariables: ', $e->getMessage(), PHP_EOL;
 }
 ```
-See [getVariables](https://docs.devcycle.com/bucketing-api/#operation/getVariables) on the Bucketing API for the variable response format.
+See [getVariables](/bucketing-api/#operation/getVariables) on the Bucketing API for the variable response format.
 
 ### Getting all Features
 ```php
@@ -104,7 +104,7 @@ try {
     echo 'Exception when calling DVCClient->allFeatures: ', $e->getMessage(), PHP_EOL;
 }
 ```
-See [getFeatures](https://docs.devcycle.com/bucketing-api/#operation/getFeatures) on the Bucketing API for the feature response format.
+See [getFeatures](/bucketing-api/#operation/getFeatures) on the Bucketing API for the feature response format.
 
 ### Track Event
 ```php
@@ -122,7 +122,7 @@ try {
 
 ### EdgeDB
 
-EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user. Read more about [EdgeDB](https://docs.devcycle.com/docs/home/feature-management/edgedb/).
+EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user. Read more about [EdgeDB](/docs/home/feature-management/edgedb/).
 
 To get started, contact us at support@devcycle.com to enable EdgeDB for your project.
 
