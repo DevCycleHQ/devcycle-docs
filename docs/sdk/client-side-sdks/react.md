@@ -58,13 +58,12 @@ to flicker when it is first rendered, as it is waiting for the SDK to initialize
 import { withDVCProvider } from '@devcycle/devcycle-react-sdk'
 ```
 ```js
-export default withDVCProvider({ envKey: 'ENV_KEY' })(App)
+export default withDVCProvider({ envKey: 'CLIENT-SDK-KEY-FOR-ENV' })(App)
 ```
 
 ### Blocking
 
-The useIsDVCProvider hook allows you to block rendering of your application until SDK initialization is complete. This ensures your app 
-does not flicker due to value changes and enables you to control what you want displayed when initialization isn't finished yet.
+The `useIsDVCInitialized` hook allows you to block rendering of your application until SDK initialization is complete. This ensures your app does not flicker due to value changes and enables you to control what you want displayed when initialization isn't finished yet.
 
 ```js
 import { useIsDVCInitialized, withDVCProvider } from '@devcycle/devcycle-react-sdk'
@@ -77,7 +76,7 @@ function App() {
     return <TheRestofYourApp/>
 }
     
-export default withDVCProvider({ envKey: 'ENV_KEY' })(App)
+export default withDVCProvider({ envKey: 'CLIENT-SDK-KEY-FOR-ENV' })(App)
 ```
 
 :::caution
@@ -94,7 +93,7 @@ import { asyncWithDVCProvider } from '@devcycle/devcycle-react-sdk'
 ```
 ```js
 (async () => {
-    const DVCProvider = await asyncWithDVCProvider({ envKey: 'ENV_KEY' })
+    const DVCProvider = await asyncWithDVCProvider({ envKey: 'CLIENT-SDK-KEY-FOR-ENV' })
 
     ReactDOM.render(
         <DVCProvider>
@@ -111,6 +110,7 @@ import { asyncWithDVCProvider } from '@devcycle/devcycle-react-sdk'
 The SDK provides a hook to access your DevCycle variables:
 
 #### useVariableValue
+
 Use this hook to access the value of your DevCycle variables inside your components.
 It takes in your variable key as well as a default value and returns the value of the variable.
 
@@ -131,10 +131,13 @@ const DVCFeaturePage = () => {
     )
 }
 ```
-See [getVariableByKey](/bucketing-api/#operation/getVariableByKey) on the Bucketing API for the variable response format.
 
+See [getVariableByKey](https://docs.devcycle.com/bucketing-api/#operation/getVariableByKey) on the Bucketing API for the variable response format.
+
+If a change on the dashboard triggers your variable value to change, it will rerender your page to reflect your new variable value. To learn more, visit the [Realtime Updates](/docs/sdk/features/realtime-updates) page.
 
 ### Getting the DevCycle Client
+
 The SDK provides a hook to access the underlying DevCycle client. This allows you identify users, track events, and directly access
 variables:
 
@@ -228,7 +231,7 @@ The client object can be obtained from the [useDVCClient](#getting-the-devcycle-
 
 If the SDK has not finished initializing, these methods will return an empty object.
 
-See [getVariables](/bucketing-api/#operation/getVariables) and [getFeatures](/bucketing-api/#operation/getFeatures) on the Bucketing API for the response formats.
+See [getVariables](https://docs.devcycle.com/bucketing-api/#operation/getVariables) and [getFeatures](https://docs.devcycle.com/bucketing-api/#operation/getFeatures) on the Bucketing API for the response formats.
 
 
 ### Track Events
@@ -279,7 +282,7 @@ const options = {
   enableEdgeDB: true
 }
 
-export default withDVCProvider({ envKey: 'ENV_KEY', user, options })(App)
+export default withDVCProvider({ envKey: 'CLIENT-SDK-KEY-FOR-ENV', user, options })(App)
 ```
 
 This will send a request to our EdgeDB API to save the custom data under the user `test_user`.
