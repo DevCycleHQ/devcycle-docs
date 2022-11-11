@@ -15,6 +15,6 @@ jobs:
     - uses: actions/checkout@master
     - uses: byrnereese/github-action-mkdocs-link-check@1.0
       with:
-        use-verbose-mode: 'yes'
+        verbose-mode: 'yes'
         folder-path: 'docs/'
         file-extension: '.md, .mdx'
