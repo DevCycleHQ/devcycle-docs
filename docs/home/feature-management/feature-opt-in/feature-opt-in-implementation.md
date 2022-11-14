@@ -17,7 +17,7 @@ To get started with the Feature Opt-In functionality all you need are running fe
 
 The Feature Opt-In functionality can be turned on from the [Organization Settings](https://app.devcycle.com/r/optIn) page.
 
-Once in your , navigate to the "Feature Opt-In" page of the settings:
+Once in your Organization Settings, navigate to the "Feature Opt-In" page:
 
 ![Feature Opt-In Settings](/oct-22-2022-feature-opt-in-1.png)
 
@@ -65,4 +65,4 @@ If you disable Feature Opt-In at the project-level before you disable it at the 
 
 The Feature Opt-In widget comes built-in with an automatic re-fetch of feature configurations. If you implement the widget onto a website that already has the DevCycle JS SDK installed, when a user toggles a feature and hits save on the widget the SDK will automatically check to see if new feature configurations apply.
 
-This means that users will not have to refresh the page to see an update if your website is built to handle dynamic changes, such as by listening to the [variable onUpdate](https://docs.devcycle.com/docs/sdk/client-side-sdks/javascript#grabbing-variable-values) callback that is available.
+This means that users will not have to refresh the page to see an update if your website is built to handle dynamic changes, such as by listening to the [variable onUpdate](/docs/sdk/client-side-sdks/javascript#grabbing-variable-values) callback that is available.
