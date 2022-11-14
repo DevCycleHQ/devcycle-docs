@@ -17,7 +17,7 @@ To get started with the Feature Opt-In functionality all you need are running fe
 
 The Feature Opt-In functionality can be turned on from the [Organization Settings](https://app.devcycle.com/r/optIn) page.
 
-Once in your , navigate to the "Feature Opt-In" page of the settings:
+Once in your Organization Settings, navigate to the "Feature Opt-In" page:
 
 ![Feature Opt-In Settings](/oct-22-2022-feature-opt-in-1.png)
 
