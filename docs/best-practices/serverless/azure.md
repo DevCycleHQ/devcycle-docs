@@ -7,7 +7,7 @@ sidebar_position: 3
 
 DevCycle is purpose-built to work at the edge, and just because you're building in serverless environments does not mean you need to stop using feature flags!
 
-If you're a team on AWS and utilizing AWS Lambda, this document will outline exactly how you can get started with Feature Flags without any difficulty.
+If you're a team on Azure and utilizing Azure Functions, this document will outline exactly how you can get started with Feature Flags without any difficulty.
 
 ### Example Project for Azure Functions & DevCycle
 
@@ -37,7 +37,7 @@ Next section helps you understand how we set the 3 feature flags in DevCycle!
 
 ### Setting up the feature on DevCycle Dashboard
 
-Before setting up your Google Cloud function, we will set up three Features on the DevCycle dashboard of three different types: `campaign-switch` (Boolean), `campaign-details` (JSON), `dec-campaign-proposed-name`(String).
+Before setting up your Azure function, we will set up three Features on the DevCycle dashboard of three different types: `campaign-switch` (Boolean), `campaign-details` (JSON), `dec-campaign-proposed-name`(String).
 
 To set the feature flags, make sure you have a DevCycle account [https://devcycle.com/](https://devcycle.com/).
 
