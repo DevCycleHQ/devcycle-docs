@@ -10,6 +10,7 @@ servers:
 tags:
   - name: EdgeDB
   - name: Bucketing API
+  - name: Feature Opt-in
 paths:
   /v1/variables/{key}:
     post:
@@ -134,8 +135,6 @@ paths:
   /v1/edgedb/{id}:
     patch:
       summary: Update EdgeDB data based on unique id and project id
-      servers:
-        - url: https://sdk-api.devcycle.com
       tags:
         - EdgeDB
       parameters:
@@ -174,6 +173,72 @@ paths:
           $ref: '#/components/responses/UnauthorizedError'
         404:
           $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
+  /v1/optInConfig:
+    get:
+      summary: Fetch opt-in config
+      description: Fetch a project config to display features available for Opt-in
+      tags:
+        - Feature Opt-in
+      parameters:
+        - name: envKey
+          in: query
+          description: Environment Key as defined in the dashboard for your DevCycle environment.
+            One of the Authorization header or "envKey" query parameter is required to be set.
+          required: false
+          schema:
+            type: string
+        - name: user_id
+          in: query
+          description: Unique id to identify the user
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Opt-in Config Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OptInConfigResponse'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+        500:
+          $ref: '#/components/responses/InternalServerError'
+  /v1/optIns/:user_id:
+    put:
+      summary: Update opt-in preferences for a user
+      tags:
+        - Feature Opt-in
+      parameters:
+        - name: envKey
+          in: query
+          description: Environment Key as defined in the dashboard for your DevCycle environment.
+            One of the Authorization header or "envKey" query parameter is required to be set.
+          required: false
+          schema:
+            type: string
+      requestBody:
+        description: A map of variable keys to boolean values, true if the user has opted in, false otherwise
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserOptInData'
+      responses:
+        200:
+          description: Opt-in Config Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OptInConfigResponse'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
         500:
           $ref: '#/components/responses/InternalServerError'
 
@@ -293,6 +358,12 @@ components:
         user:
           $ref: '#/components/schemas/UserData'
 
+    UserOptInData:
+      type: object
+      additionalProperties:
+        type: boolean
+
+
     Feature:
       type: object
       properties:
@@ -368,6 +439,15 @@ components:
         - type
 
     EdgeDBApiResponse:
+      type: object
+      properties:
+        message:
+          description: Response message of the request
+          type: string
+      required:
+        - message
+
+    OptInConfigResponse:
       type: object
       properties:
         message:

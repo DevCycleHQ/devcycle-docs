@@ -9,7 +9,7 @@ This article serves to inform where all of your relevant SDK and API keys are an
 
 ### Management API Key
 
-To access the [Management API](https://docs.devcycle.com/management-api/), first navigate to the Settings page. The settings page can be accessed from clicking on your profile image in the top right corner of the Dashboard. 
+To access the [Management API](/management-api/), first navigate to the Settings page. The settings page can be accessed from clicking on your profile image in the top right corner of the Dashboard. 
 
 ![Dropdown on DevCycle dashboard for account settings and org info](/march-2022-account-dropdown.png)
 

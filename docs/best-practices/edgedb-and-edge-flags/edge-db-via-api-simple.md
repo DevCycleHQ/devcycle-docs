@@ -21,7 +21,7 @@ First, enable EdgeDB in your project’s settings.
 
 Now, lets save some data to EdgeDB. 
 
-To do this, we’ll be following the EdgeDB docs from the [Bucketing API](https://docs.devcycle.com/bucketing-api/#tag/EdgeDB).
+To do this, we’ll be following the EdgeDB docs from the [Bucketing API](/bucketing-api/#tag/EdgeDB).
 
 In this case, we will update a user simply called “example_user”
 
@@ -42,7 +42,7 @@ To test it yourself, here is the data:
 
 Next, we need to supply the auth. Switch to the authorization tab and change the type to API Key. 
 
-For the “Value”, supply the server SDK key found in your [environments & keys tab.](https://docs.devcycle.com/docs/home/feature-management/organizing-your-flags-and-variables/api-and-sdk-keys)
+For the “Value”, supply the server SDK key found in your [environments & keys tab.](/docs/home/feature-management/organizing-your-flags-and-variables/api-and-sdk-keys)
 
 ![Untitled](/sept-6-2022-edge-flags-api-3.png)
 
@@ -73,7 +73,7 @@ After it runs you should receive the following message:
 Now that we’ve got data in EdgeDB, it can be used for targeting in any feature within DevCycle.
 
 :::info 
-Any data saved to EdgeDB is considered a “Custom Property” within DevCycle and can be targeted by simply adding that same property in the dashboard. To find out more about Custom Properties, [read here](https://docs.devcycle.com/docs/home/feature-management/features-and-variables/custom-properties) 
+Any data saved to EdgeDB is considered a “Custom Property” within DevCycle and can be targeted by simply adding that same property in the dashboard. To find out more about Custom Properties, [read here](/docs/home/feature-management/features-and-variables/custom-properties) 
 :::
 
 To use the postman data from above, simply create a new custom property in the dashboard (if it does not already exist):
@@ -88,7 +88,7 @@ And then we want to target the “special” users as we set up above.
 
 ![Targeting Rule Setup](/sept-6-2022-edge-flags-api-8.png)
 
-Enable this feature for your environment, and save it, and now we can test for this user’s features using the [get variables feature in the Bucketing API](https://docs.devcycle.com/bucketing-api/#operation/getVariables)
+Enable this feature for your environment, and save it, and now we can test for this user’s features using the [get variables feature in the Bucketing API](/bucketing-api/#operation/getVariables)
 
 One thing to note is that there must be an `enableEdgeDB=true` flag
 

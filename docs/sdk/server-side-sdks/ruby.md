@@ -5,7 +5,7 @@ sidebar_position: 4
 
 # DevCycle Ruby Server SDK
 
-Welcome to the the DevCycle Ruby SDK, initially generated via the [DevCycle Bucketing API](https://docs.devcycle.com/bucketing-api/#tag/devcycle).
+Welcome to the the DevCycle Ruby SDK, initially generated via the [DevCycle Bucketing API](/bucketing-api/#tag/devcycle).
 
 The SDK is available as a package on RubyGems. It is also open source and can be viewed on Github.
 
@@ -143,7 +143,7 @@ end
 
 ### EdgeDB
 
-EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user. Read more about [EdgeDB](https://docs.devcycle.com/docs/home/feature-management/edgedb/).
+EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user. Read more about [EdgeDB](/docs/home/feature-management/edgedb/what-is-edgedb).
 
 To get started, contact us at support@devcycle.com to enable EdgeDB for your project.
 

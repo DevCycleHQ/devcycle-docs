@@ -133,7 +133,7 @@ export default withDVCProvider({ envKey: 'ENV_KEY' })(App)
 
 ### Blocking
 
-The useIsDVCProvider hook allows you to block rendering of your application until SDK initialization is complete. This ensures your app 
+The `useIsDVCInitialized` hook allows you to block rendering of your application until SDK initialization is complete. This ensures your app 
 does not flicker due to value changes and enables you to control what you want displayed when initialization isn't finished yet.
 
 ```js

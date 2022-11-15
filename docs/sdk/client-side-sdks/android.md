@@ -23,7 +23,7 @@ This version of the DevCycle Android Client SDK supports a minimum Android API V
 The SDK can be installed into your Android project by adding the following to *build.gradle*:
 
 ```yaml
-implementation("com.devcycle:android-client-sdk:1.0.7")
+implementation("com.devcycle:android-client-sdk:1.0.8")
 ```
 
 ## Usage
@@ -164,7 +164,8 @@ If the value is not ready, it will return the default value passed in the creati
 
 ### Variable updates
 
-A callback can be registered to be notified whenever "identify" is called, triggered a new config update.
+Variable values update whenever `identifyUser()` or `resetUser()` are called, or when the project configuration changes (to learn more, visit our [Realtime Updates](/docs/sdk/features/realtime-updates) page).
+To listen for updates, a callback can be registered using the `onUpdate()` method:
 
 #### *Kotlin example:*
 
@@ -395,7 +396,7 @@ dvcClient.flushEvents(new DVCCallback<String>() {
 
 ### EdgeDB
 
-EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user. Read more about [EdgeDB](https://docs.devcycle.com/docs/home/feature-management/edgedb/).
+EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user. Read more about [EdgeDB](/docs/home/feature-management/edgedb/what-is-edgedb).
 
 To get started, contact us at support@devcycle.com to enable EdgeDB for your project.
 

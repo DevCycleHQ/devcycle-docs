@@ -73,7 +73,7 @@ Which has the following fields:
     This is the Project's name which will be visible throughout the DevCycle dashboard. This may be changed at a later time.
  
 * **Key**
-    This is the Project's unique key which is used to reference the project in the [Management API](https://docs.devcycle.com/management-api/).
+    This is the Project's unique key which is used to reference the project in the [Management API](/management-api/).
 
 * **Description**
     A descriptive text about the project. Can be changed at a later time. 

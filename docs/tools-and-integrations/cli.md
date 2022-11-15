@@ -141,7 +141,7 @@ EXAMPLES
   $ dvc cleanup some-var --value "My Custom Name" --type String
 ```
 
-_See code: [dist/commands/cleanup/index.ts](https://github.com/DevCycleHQ/cli/blob/main/dist/commands/cleanup/index.ts)_
+_See code: [src/commands/cleanup/index.ts](https://github.com/DevCycleHQ/cli/blob/main/src/commands/cleanup/index.ts)_
 
 ### `dvc diff [DIFF-PATTERN]`
 
@@ -186,7 +186,7 @@ EXAMPLES
   $ dvc diff --match-pattern javascript="dvcClient\.variable\(\s*["']([^"']*)["']"
 ```
 
-_See code: [dist/commands/diff/index.ts](https://github.com/DevCycleHQ/cli/blob/main/src/commands/diff/index.ts)_
+_See code: [src/commands/diff/index.ts](https://github.com/DevCycleHQ/cli/blob/main/src/commands/diff/index.ts)_
 
 ### `dvc features get`
 
@@ -299,7 +299,7 @@ DESCRIPTION
   Select which organization to access through the API
 ```
 
-_See code: [dist/commands/org/index.ts](https://github.com/DevCycleHQ/cli/blob/main/src/commands/org/index.ts)_
+_See code: [src/commands/org/index.ts](https://github.com/DevCycleHQ/cli/blob/main/src/commands/org/index.ts)_
 
 ### `dvc projects select`
 
@@ -361,7 +361,7 @@ EXAMPLES
   $ dvc usages --match-pattern javascript="dvcClient\.variable\(\s*["']([^"']*)["']"
 ```
 
-_See code: [dist/commands/usages/index.ts](https://github.com/DevCycleHQ/cli/blob/main/src/commands/usages/index.ts)_
+_See code: [src/commands/usages/index.ts](https://github.com/DevCycleHQ/cli/blob/main/src/commands/usages/index.ts)_
 
 ### `dvc variables create`
 

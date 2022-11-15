@@ -7,7 +7,7 @@ sidebar_position: 3
 
 DevCycle is purpose-built to work at the edge, and just because you're building in serverless environments does not mean you need to stop using feature flags!
 
-If you're a team on AWS and utilizing AWS Lambda, this document will outline exactly how you can get started with Feature Flags without any difficulty.
+If you're a team on Azure and utilizing Azure Functions, this document will outline exactly how you can get started with Feature Flags without any difficulty.
 
 ### Example Project for Azure Functions & DevCycle
 
@@ -37,7 +37,7 @@ Next section helps you understand how we set the 3 feature flags in DevCycle!
 
 ### Setting up the feature on DevCycle Dashboard
 
-Before setting up your Google Cloud function, we will set up three Features on the DevCycle dashboard of three different types: `campaign-switch` (Boolean), `campaign-details` (JSON), `dec-campaign-proposed-name`(String).
+Before setting up your Azure function, we will set up three Features on the DevCycle dashboard of three different types: `campaign-switch` (Boolean), `campaign-details` (JSON), `dec-campaign-proposed-name`(String).
 
 To set the feature flags, make sure you have a DevCycle account [https://devcycle.com/](https://devcycle.com/).
 
@@ -113,7 +113,7 @@ https://github.com/DevCycleHQ/azure-functions-example
     
     ![Screen Shot 2022-09-13 at 3.52.40 PM.png](/Screen_Shot_2022-09-13_at_3.52.40_PM.png)
     
-6. Go back to your Azure Portal and set the environment variable `SERVER_KEY` in your function app configuration and save. [You can learn more about SDK keys and where to find them here.](https://docs.devcycle.com/docs/home/feature-management/organizing-your-flags-and-variables/api-and-sdk-keys)
+6. Go back to your Azure Portal and set the environment variable `SERVER_KEY` in your function app configuration and save. [You can learn more about SDK keys and where to find them here.](/docs/home/feature-management/organizing-your-flags-and-variables/api-and-sdk-keys)
     
     ![Screen Shot 2022-09-13 at 3.55.40 PM.png](/Screen_Shot_2022-09-13_at_3.55.40_PM.png)
     
@@ -137,9 +137,9 @@ https://github.com/DevCycleHQ/azure-functions-example
     
 ### Enable EdgeDB (NodeJS SDK Version)
 
-[First, you need to enable EdgeDB in the DevCycle Dashboard](https://docs.devcycle.com/docs/home/feature-management/edgedb/edge-flags#setup)
+[First, you need to enable EdgeDB in the DevCycle Dashboard](/docs/home/feature-management/edgedb/edge-flags#setup)
 
-With the [DevCycle NodeJs SDK ](https://docs.devcycle.com/docs/sdk/server-side-sdks/node) we use the `enableCloudBucketing` and `enableEdgeDB` options to enable EdgeDB usage. ([SDK initialization option details: ](https://docs.devcycle.com/docs/sdk/server-side-sdks/node#initialization-options))
+With the [DevCycle NodeJs SDK ](/docs/sdk/server-side-sdks/node) we use the `enableCloudBucketing` and `enableEdgeDB` options to enable EdgeDB usage. ([SDK initialization option details: ](/docs/sdk/server-side-sdks/node#initialization-options))
 
 ```jsx
 const dvcClient = DVC.initialize(serverKey, {
@@ -171,10 +171,7 @@ With the`VIP` variation set in `dec-campaign-proposed-name`, we can head to the 
     
     ![Screen Shot 2022-09-13 at 12.39.19 PM.png](/Screen_Shot_2022-09-13_at_12.39.19_PM.png)
 
-    
-    10. Check the “Serverless with EdgeDB”([https://www.notion.so/taplytics/Google-Cloud-Functions-5e79586093d24e9087bd5f8a9b505197#b8f514e03e9246eebfa9e6ed3754b431](https://www.notion.so/Google-Cloud-Functions-5e79586093d24e9087bd5f8a9b505197)) section for the EdgeDB usage
-
-    5. Go back to the Azure Function and run it again, you should see the “title” change to “VIP” which means we don’t need to pass in email in the below variable request and get the data `email` from EdgeDB!
+5. Go back to the Azure Function and run it again, you should see the “title” change to “VIP” which means we don’t need to pass in email in the below variable request and get the data `email` from EdgeDB!
 
 ```jsx
 const { value: proposedCampaignTitle } = await dvcClient.variable({ user_id: "testuser_1234333" }, "dec-campaign-proposed-name", "");

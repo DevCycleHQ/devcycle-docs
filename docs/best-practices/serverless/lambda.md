@@ -50,7 +50,7 @@ The  [README in the example repo has more details regarding the Lambda Setup.](h
 1. Clone the [devcycle-lambda-example](https://github.com/DevCycleHQ/devcycle-lambda-example) repo
 2. In this example, we are using a ***server* key.** Copy your server key as the `SERVER_TOKEN`
  in the `DVC.initialize` call. 
-[(You can get your Server KE the server-side SDK key from the DevCycle dashboard)](https://docs.devcycle.com/docs/home/feature-management/organizing-your-flags-and-variables/api-and-sdk-keys)
+[(You can get your Server KE the server-side SDK key from the DevCycle dashboard)](/docs/home/feature-management/organizing-your-flags-and-variables/api-and-sdk-keys)
 
 ```jsx
 const dvcClient = await DVC.initialize('<SERVER_TOKEN>').onClientInitialized()

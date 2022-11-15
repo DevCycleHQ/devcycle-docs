@@ -7,9 +7,6 @@ sidebar_position: 1
 
 This article serves to explain how to add Team Members to your organization. All Members within your organization will automatically have access to all features, however they may have different roles. To read more about roles, read [Team Member Roles](/docs/home/your-organization/manage-team/member-roles).
 
-**Note:** Users on a Free Plan can not add new Members to an organization. Please view [Billing and Usage](/docs/home/your-organization/billing-usage) for more information. 
-
-
 ### Adding Members
 
 Members are added to an Organization from the [Organization Settings](/docs/home/feature-management/organizing-your-flags-and-variables/organizations-projects#organization-settings) page. 
