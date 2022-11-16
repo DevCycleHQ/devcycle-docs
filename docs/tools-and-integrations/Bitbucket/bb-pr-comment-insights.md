@@ -14,7 +14,7 @@ With this Bitbucket pipe, information on which [DevCycle](https://devcycle.com/)
 
 ### Example Output
 
-![Example Output](https://raw.githubusercontent.com/DevCycleHQ/feature-flag-pr-insights-action/main/example_output.png)
+![Example Output](/bitbucket-example-output.png)
 
 ### Usage
 Add the following snippet to your `bitbucket-pipelines.yml` file:
