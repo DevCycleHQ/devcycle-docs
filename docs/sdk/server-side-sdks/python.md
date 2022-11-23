@@ -80,7 +80,7 @@ To get values from your Variables, `variable()` is used to fetch variable values
 See [getVariableByKey](/bucketing-api/#operation/getVariableByKey) on the Bucketing API for the variable response format.
 
 ### Getting All Variables
-To get all variables, use the `all_variables()` method to retrieve a dict with all varibles that the user receives.
+To get all variables, use the `all_variables()` method to retrieve a dict with all variables that the user receives.
 
 ```python
     try:
