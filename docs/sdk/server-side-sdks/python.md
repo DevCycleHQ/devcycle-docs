@@ -64,7 +64,7 @@ import devcycle_python_sdk
 See [getFeatures](/bucketing-api/#operation/getFeatures) on the Bucketing API for the feature response format.
 
 ### Get and Use Variable by Key
-To get values from your Variables, `all_variables()` is used to fetch variable values using the identifier `key` coupled with a default value. The default value can be of type string, boolean, number, or object.
+To get values from your Variables, `variable()` is used to fetch variable values using the identifier `key` coupled with a default value. The default value can be of type string, boolean, number, or object.
 
 ```python
     key = 'key-test' # str | Variable key
@@ -80,11 +80,9 @@ To get values from your Variables, `all_variables()` is used to fetch variable v
 See [getVariableByKey](/bucketing-api/#operation/getVariableByKey) on the Bucketing API for the variable response format.
 
 ### Getting All Variables
-To get values from your Variables, `all_variables()` is used to fetch variable values using the identifier `key` coupled with a default value. The default value can be of type string, boolean, number, or object.
+To get all variables, use the `all_variables()` method to retrieve a dict with all varibles that the user receives.
 
 ```python
-    key = 'key-test' # str | Variable key
-    
     try:
         # Get all variables for user data
         variables = dvc.all_variables(user)
