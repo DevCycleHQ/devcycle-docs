@@ -37,7 +37,7 @@ Only Features which the user has been successfully targeted for. [Targeting rule
 
 Features which are within the Project that have rules disabled OR the user is not Targeted for will not appear in the response of this function. 
 
-### Client-Side SDK Usage
+## Client-Side SDK Usage
 
 ### **JavaScript SDK**
 
@@ -63,17 +63,27 @@ let features: [String: Feature] = dvcClient.allFeatures()
 
 If the SDK has not finished initializing, these methods will return an empty object.
 
-### Grabbing All Features
+### **Android SDK**
 
 To grab all the Features returned in the config:
+
+**Kotlin**
 
 ```kotlin
 var features: Map<String, Feature>? = dvcClient.allFeatures()
 ```
 
-If the SDK has not finished initializing, this method will return an empty Map.
+**Java**
 
-### Server-Side SDK Usage
+```java
+Map<String, Variable<Object>> variables = dvcClient.allVariables();
+
+```
+
+
+If the SDK has not finished initializing, these methods will return an empty Map.
+
+## Server-Side SDK Usage
 
 ### **Node.js SDK (server-side)**
 

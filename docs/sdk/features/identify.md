@@ -160,7 +160,7 @@ dvcClient.identifyUser(user, object: DVCCallback<Map<String, Variable<Any>>> {
 
 ### Server-Side SDK Usage
 
-Unlike the Client-Side SDKs, Server-Side SDKs work in a multi-user context. Because of this a single Identify function does not make sense. Instead you must create a User object that is passed in to each function call with the relevant user data given the current application context.
+Unlike the Client-Side SDKs, Server-Side SDKs work in a multi-user context. Because of this, a single Identify function does not make sense. Instead, you must create a User object that is passed into each function call with the relevant user data given the current application context.
 
 As well, unlike the Client-Side SDKs, because Server-Side SDKs poll for project configuration updates, updating the User object that you have set will not explicitly grab new feature configurations. The User object once set can be used to get feature, variation and variable information for a given user or entity.
 
@@ -185,11 +185,76 @@ const variable = dvcClient.variable(user, 'test-feature', false)
 The full user data must be passed into every method. The only required field is the `user_id`. 
 The rest are optional and are used by the system for user segmentation into variables and features.
 
-See the User class in [.NET User model doc](https://github.com/DevCycleHQ/dotnet-server-sdk/blob/main/docs/User.md) for all accepted fields.
+See the User class in [.NET User model doc](https://github.com/DevCycleHQ/dotnet-server-sdk/blob/main/docs/User.md) for all accepted fields including custom fields.
 
 ```csharp
 User user = new User("a_user_id");
 ```
+
+### Go SDK
+
+The full user data must be passed into every method. The only required field is `UserId`. 
+The rest are optional and are used by the system for user segmentation into variables and features.
+
+See the User model in the [Go User model doc](https://github.com/DevCycleHQ/go-server-sdk/blob/main/model_user_data.go) for all accepted fields including custom fields.
+
+```go
+    user := devcycle.UserData{UserId: "test"}
+```
+
+### Python SDK
+
+The full user data must be passed into every method. The only required field is `user_id`. 
+The rest are optional and are used by the system for user segmentation into variables and features.
+
+See the User model in the [Python user model doc](https://github.com/DevCycleHQ/python-server-sdk/blob/main/devcycle_python_sdk/models/user_data.py) for all accepted fields including custom fields.
+
+```python
+user = UserData(
+    user_id='test',
+    email='example@example.ca',
+    country='CA'
+)
+```
+
+### Ruby SDK
+
+The full user data must be passed into every method. The only required field is `user_id`. 
+The rest are optional and are used by the system for user segmentation into variables and features.
+
+See the User model in the [Ruby user model doc](https://github.com/DevCycleHQ/ruby-server-sdk/blob/main/lib/devcycle-ruby-server-sdk/models/user_data.rby) for all accepted fields including custom fields.
+
+```ruby
+user_data = DevCycle::UserData.new({user_id: 'user_id_example'}) # UserData | 
+```
+
+### PHP SDK
+
+The full user data must be passed into every method. The only required field is `user_id`. 
+The rest are optional and are used by the system for user segmentation into variables and features.
+
+See the User model in the [PHP user model doc](https://github.com/DevCycleHQ/php-server-sdk/blob/main/lib/Model/UserData.php) for all accepted fields including custom fields.
+
+
+```php
+    $user_data = new \DevCycle\Model\UserData(array(
+    "user_id"=>"my-user"
+    )); // \DevCycle\Model\UserData
+```
+
+### Java SDK
+
+### User Object
+The user object is required for all methods. The only required field in the user object is `userId`.
+
+See the User class in [Java User model doc](https://github.com/DevCycleHQ/java-server-sdk/blob/main/docs/User.md) for all accepted fields including custom fields.
+
+```java
+User user = User.builder()
+    .userId("a_user_id")
+    .build();
+```
+
 
 ## Custom Data vs. Private Custom Data
 
