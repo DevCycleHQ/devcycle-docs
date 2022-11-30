@@ -5,7 +5,7 @@ sidebar_position: 3
 
 ##  Overview
 
-Custom Properties are properties on a user which can be used for [Targeting Users for Features](/docs/home/feature-management/features-and-variables/targeting-users). These properties are different than the out of the box options within DevCycle (such as app version etc) in that they are defined by user for use within the dashboard. 
+Custom Properties are properties on a user which can be used for [Targeting Users for Features](/docs/home/feature-management/features-and-variables/targeting-users). These properties are different than the out-of-the-box options within DevCycle (such as app version etc) in that they are defined by the user for use within the dashboard. 
 
 This article outlines how to define, use, and manage custom properties within DevCycle and its SDKs. 
 
@@ -17,11 +17,11 @@ Custom properties can be one of the following types:
 * Number
 * String
 
-These properties can be added to any User object with the [Identify](/docs/sdk/features/identify) method in the DevCycle SDKs, or provided as part of the user object in the .
+These properties can be added to any User object with the [Identify](/docs/sdk/features/identify) method in the DevCycle SDKs or provided as part of the user object in the initialization
 
 ## Creating a new property for use. 
 
-To use a custom property in a targeting rule, first initialize the property in a target on the DevCycle dashboard. This can be done from the Target's definition dropdown:
+To use a custom property in a targeting rule, first, initialize the property in a target on the DevCycle dashboard. This can be done from the Target's definition dropdown:
 
 ![add property window](/march-2022-add-property.png)
 
@@ -58,7 +58,7 @@ This field is only for _changing what the property's name is in the DevCycle UI_
 
 **DevCycle Key**
 
-This is an auto generated field based on the property key. This is the key which can be used to reference the property in the [DevCycle Management API](/management-api/#tag/Custom-Properties).
+This is an auto-generated field based on the property key. This is the key that can be used to reference the property in the [DevCycle Management API](/management-api/#tag/Custom-Properties).
 
 ## Using an existing Property
 
@@ -93,12 +93,12 @@ To make edits to a Custom Property, click "View Info" and you will be able to mo
 
 :::caution
 
-If the **Property Key** is changed, any Identify calls or user objects which are using the previous key will no longer be applicable to this custom property.
+If the **Property Key** is changed, any Identify calls or user objects which are using the previous key will no longer apply to this custom property.
 
 :::
 
 :::caution
 
-If a Custom Property is **Deleted** while in use in a Targeting Rule, the targeting rule will continue to function as normal. This custom property will no longer be selectable for new targeting rule defintions however.
+If a Custom Property is **Deleted** while in use in a Targeting Rule, the targeting rule will continue to function as normal. This custom property will no longer be selectable for new targeting rule definitions.
 
 :::
