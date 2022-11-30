@@ -77,3 +77,28 @@ There are no limits to the number Properties that can be used to define a single
 ## SDK Usage
 
 See the [**Identify**](/docs/sdk/features/identify) Documentation for usage of properties within each SDK.
+
+## Managing / Deleting Custom Properties
+
+To rename, modify, or edit the Custom Properties in a project, navigate to the Settings page and click on "Custom Properties"
+
+![image of custom properties settings](/nov-2022-custom-properties-settings.png)
+
+In this section, you will be able to see all custom properties in your organization, with the ability to filter by type and by project.
+
+To make edits to a Custom Property, click "View Info" and you will be able to modify the name, keys, and description of a Custom Property
+
+![image of custom properties info page](/nov-2022-custom-properties-info.png)
+
+
+:::caution
+
+If the **Property Key** is changed, any Identify calls or user objects which are using the previous key will no longer be applicable to this custom property.
+
+:::
+
+:::caution
+
+If a Custom Property is **Deleted** while in use in a Targeting Rule, the targeting rule will continue to function as normal. This custom property will no longer be selectable for new targeting rule defintions however.
+
+:::
