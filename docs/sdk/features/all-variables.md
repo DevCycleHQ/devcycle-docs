@@ -37,7 +37,7 @@ Only Variables in Features which the user has been successfully targeted for wil
 
 Features which are within the Project that have rules disabled OR the user is not Targeted for will not have their variables appear in the response of this function. 
 
-### Client-Side SDK Usage
+## Client-Side SDK Usage
 
 ### **JavaScript SDK**
 
@@ -63,17 +63,26 @@ let variables: [String: Variable] = dvcClient.allVariables()
 
 If the SDK has not finished initializing, these methods will return an empty object.
 
-### Grabbing All Variables
+### **Android SDK**
 
 To grab all the Variables returned in the config:
+
+**Kotlin**
 
 ```kotlin
 var variables: Map<String, Variable<Any>>? = dvcClient.allVariables()
 ```
 
-If the SDK has not finished initializing, this method will return an empty Map.
+**Java**
 
-### Server-Side SDK Usage
+```java
+Map<String, Variable<Object>> variables = dvcClient.allVariables();
+```
+
+If the SDK has not finished initializing, these methods will return an empty Map.
+
+
+## Server-Side SDK Usage
 
 ### **Node.js SDK (server-side)**
 
@@ -128,7 +137,7 @@ try {
 }
 ```
 
-## **Dotnet / C# SDK**
+### **Dotnet / C# SDK**
 
 This method will fetch all variables for a given user and returned as Dictionary&lt;String, Feature&gt;
 

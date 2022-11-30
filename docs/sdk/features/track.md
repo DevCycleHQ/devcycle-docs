@@ -72,24 +72,6 @@ The SDK will flush events every 10s or `flushEventsMS` specified in the options.
 dvcClient.flushEvents()
 ```
 
-## Server-Side SDK Usage
-
-### Node.js SDK (server-side)
-
-You can wait on the features to be loaded from our servers by using `getVariables()` function. It returns a promise that you can use to wait until features are ready to be used:
-
-```js
-    const events = [
-        {
-            "type": "customEvent",
-            "customType": "your_event_type_here",
-            "target": "somevariable.key",
-            "date": Date.now()
-        }
-    ]
-
-    await instance.postEvents({ events, user })
-```
 ### Android SDK
 
 To track events, pass in an object with at least a `type` key:
@@ -108,6 +90,24 @@ The SDK will flush events every 10s or `flushEventsMS` specified in the options.
 
 ```kotlin
 dvcClient.flushEvents()
+```
+
+## Server-Side SDK Usage
+
+### Node.js SDK (server-side)
+
+You can wait on the features to be loaded from our servers by using `getVariables()` function. It returns a promise that you can use to wait until features are ready to be used:
+
+```js
+    const events = [
+        {
+            "type": "customEvent",
+            "customType": "your_event_type_here",
+            "target": "somevariable.key",
+            "date": Date.now()
+        }
+    ]
+    await instance.postEvents({ events, user })
 ```
 
 ### Python SDK
