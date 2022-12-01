@@ -102,7 +102,7 @@ to be fetched from DevCycle's CDN.
 
 The default value can be of type string, boolean, number, or object.
 
-[DVCVariable Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/nodejs/src/types.ts#L141)
+[DVCVariable Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/nodejs/src/types.ts#L142)
 
 ```javascript
 const variable = dvcClient.variable(user, 'YOUR_VARIABLE_KEY', false)
