@@ -125,7 +125,7 @@ See [getVariables](/bucketing-api/#operation/getVariables) on the Bucketing API 
 
 You can fetch all segmented features for a user:
 
-[DVCFeature Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/nodejs/src/types.ts#L193)
+[DVCFeature Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/nodejs/src/types.ts#L204)
 
 ```javascript
 const features = dvcClient.allFeatures(user)
