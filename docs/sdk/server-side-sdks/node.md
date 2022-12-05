@@ -102,7 +102,7 @@ to be fetched from DevCycle's CDN.
 
 The default value can be of type string, boolean, number, or object.
 
-[DVCVariable Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/nodejs/src/types.ts#L131)
+[DVCVariable Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/nodejs/src/types.ts#L142)
 
 ```javascript
 const variable = dvcClient.variable(user, 'YOUR_VARIABLE_KEY', false)
@@ -125,7 +125,7 @@ See [getVariables](/bucketing-api/#operation/getVariables) on the Bucketing API 
 
 You can fetch all segmented features for a user:
 
-[DVCFeature Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/nodejs/src/types.ts#L193)
+[DVCFeature Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/nodejs/src/types.ts#L204)
 
 ```javascript
 const features = dvcClient.allFeatures(user)
@@ -138,7 +138,7 @@ Track a custom event for a user, pass in the user and event object.
 
 Calling Track will queue the event, which will be sent in batches to the DevCycle servers.
 
-[DVCEvent Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/nodejs/src/types.ts#L166)
+[DVCEvent Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/nodejs/src/types.ts#L177)
 
 ```typescript
 const event: DVCEvent = {
