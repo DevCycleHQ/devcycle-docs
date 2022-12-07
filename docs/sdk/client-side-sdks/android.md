@@ -123,6 +123,8 @@ The SDK exposes various initialization options which can be used by passing a `D
 | flushEventsIntervalMs | Long | 10000 | Controls the interval between flushing events to the DevCycle servers in milliseconds, defaults to 10 seconds. |
 | disableEventLogging | Boolean | false | Disables logging of SDK generated events (e.g. aggVariableEvaluated, aggVariableDefaulted) to DevCycle. |  
 | enableEdgeDB | Boolean | false | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle. |
+| configCacheTTL | Long | 604800000 | The maximum allowed age of a cached config in milliseconds, defaults to 7 days |
+| disableConfigCache | Boolean | false | Disable the use of cached configs |
 
 ### Notifying when DevCycle features are available
 
