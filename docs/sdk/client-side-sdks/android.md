@@ -23,7 +23,7 @@ This version of the DevCycle Android Client SDK supports a minimum Android API V
 The SDK can be installed into your Android project by adding the following to *build.gradle*:
 
 ```yaml
-implementation("com.devcycle:android-client-sdk:1.0.8")
+implementation("com.devcycle:android-client-sdk:1.1.2")
 ```
 
 ## Usage
@@ -123,11 +123,21 @@ To get values from your Features, the `variable()` method is used to fetch varia
 the variable's identifier `key` coupled with a default value. The default value can be of type 
 string, boolean, number, or JSONObject:
 
+#### *Kotlin example:*
+
 ```kotlin
 var strVariable: Variable<String> = dvcClient.variable("str_key", "default")
 var boolVariable: Variable<Boolean> = dvcClient.variable("bool_key", false)
 var numVariable: Variable<Number> = dvcClient.variable("num_key", 0)
 var jsonVariable: Variable<JSONObject> = dvcClient.variable("json_key", JSONObject("{ \"key\": \"value\" }"))
+```
+
+#### *Java example:*
+```java
+Variable<String> strVariable = dvcClient.variable("str_key", "default");
+Variable<Boolean> boolVariable = dvcClient.variable("bool_key", false);
+Variable<Number> numVariable = dvcClient.variable("num_key", 0);
+Variable<JSONObject> jsonVariable = dvcClient.variable("json_key", new JSONObject().put("key", "value"));
 ```
 
 To grab the value, there is a property on the object returned to grab the value:
