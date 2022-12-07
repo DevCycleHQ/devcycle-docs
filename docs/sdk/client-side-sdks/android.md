@@ -28,7 +28,7 @@ implementation("com.devcycle:android-client-sdk:+")
 ```
 :::info
 
-Refer to the latest version of the SDK on [maven](https://maven.org/artifact/com.devcycle/android-client-sdk) if you would not prefer gradle to pull the latest version automatically by using `+`+
+Refer to the latest version of the SDK on [maven central](https://maven.org/artifact/com.devcycle/android-client-sdk) if you would not prefer gradle to pull the latest version automatically by using `+`
 
 :::
 
