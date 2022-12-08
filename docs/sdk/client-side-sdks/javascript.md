@@ -39,7 +39,7 @@ const dvcOptions = { logLevel: 'debug' }
 const dvcClient = initialize('YOUR_CLIENT_KEY', user, dvcOptions)
 ```
 
-## DVC User Object
+### DVC User Object
 
 [DVCUser Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L55)
 
