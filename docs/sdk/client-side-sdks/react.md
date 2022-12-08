@@ -105,6 +105,32 @@ import { asyncWithDVCProvider } from '@devcycle/devcycle-react-sdk'
 
 ## Usage
 
+### Provider Config
+
+The `withDVCProvider` function accepts a Provider Config object:
+
+[DVC ProviderConfig Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/react/src/types.ts#L3)
+
+| Property | Type | Description |
+|------------|------|-------------|
+| envKey | string | Environment key |
+| user | [DVCUser](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L55) | DevCycle user object |
+| options | [DVCOptions](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L44) | DevCycle options object |
+
+### Initialization Options
+
+The SDK exposes various initialization options which can be set by passing a `DVCOptions` object in the Provider Config:
+
+[DVCOptions Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L44)
+
+| DVC Option | Type | Description |
+|------------|------|-------------|
+| eventFlushIntervalMS | number | Controls the interval between flushing events to the DevCycle servers in milliseconds, defaults to 10 seconds. |
+| enableEdgeDB | boolean | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle. |
+| logger | [DVCLogger](https://github.com/DevCycleHQ/js-sdks/blob/main/lib/shared/types/src/logger.ts#L2) | Logger override to replace default logger |
+| logLevel | [DVCDefaultLogLevel](https://github.com/DevCycleHQ/js-sdks/blob/main/lib/shared/types/src/logger.ts#L12) | Set log level of the default logger. Options are: `debug`, `info`, `warn`, `error`. Defaults to `info`. |
+| apiProxyURL | string | Allows the SDK to communicate with a proxy of DVC bucketing API / client SDK API.
+
 ### Getting a Variable
 
 The SDK provides a hook to access your DevCycle variables:

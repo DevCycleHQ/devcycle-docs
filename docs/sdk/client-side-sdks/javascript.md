@@ -39,6 +39,23 @@ const dvcOptions = { logLevel: 'debug' }
 const dvcClient = initialize('YOUR_CLIENT_KEY', user, dvcOptions)
 ```
 
+### DVC User Object
+
+[DVCUser Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L55)
+
+| Property | Type | Description |
+|------------|------|-------------|
+| isAnonymous | boolean | Boolean to indicate if the user is anonymous |
+| user_id | string | Unique user ID |
+| email | string | User's email |
+| name | string | User's name |
+| language | string | User's language |
+| country | string | User's country |
+| appVersion | string | App version |
+| appBuild | number | App build |
+| customData | DVCJSON | Key/value map of properties to be used for targeting |
+| privateCustomData | DVCJSON | Key/value map of properties to be used for targeting. Private properties will not be included in event logging. |
+
 ### Initialization Options
 
 The SDK exposes various initialization options which can be set on the `initialization()` method:
@@ -47,7 +64,7 @@ The SDK exposes various initialization options which can be set on the `initiali
 
 | DVC Option | Type | Description |
 |------------|------|-------------|
-| eventFlushIntervalMS | number | 10000 | Controls the interval between flushing events to the DevCycle servers in milliseconds, defaults to 10 seconds. |
+| eventFlushIntervalMS | number | Controls the interval between flushing events to the DevCycle servers in milliseconds, defaults to 10 seconds. |
 | enableEdgeDB | boolean | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle. |
 | logger | [DVCLogger](https://github.com/DevCycleHQ/js-sdks/blob/main/lib/shared/types/src/logger.ts#L2) | Logger override to replace default logger |
 | logLevel | [DVCDefaultLogLevel](https://github.com/DevCycleHQ/js-sdks/blob/main/lib/shared/types/src/logger.ts#L12) | Set log level of the default logger. Options are: `debug`, `info`, `warn`, `error`. Defaults to `info`. |
