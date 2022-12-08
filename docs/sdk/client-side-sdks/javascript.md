@@ -39,6 +39,20 @@ const dvcOptions = { logLevel: 'debug' }
 const dvcClient = initialize('YOUR_CLIENT_KEY', user, dvcOptions)
 ```
 
+### Initialization Options
+
+The SDK exposes various initialization options which can be set on the `initialization()` method:
+
+[DVCOptions Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L44)
+
+| DVC Option | Type | Description |
+|------------|------|-------------|
+| eventFlushIntervalMS | number | 10000 | Controls the interval between flushing events to the DevCycle servers in milliseconds, defaults to 10 seconds. |
+| enableEdgeDB | boolean | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle. |
+| logger | [DVCLogger](https://github.com/DevCycleHQ/js-sdks/blob/main/lib/shared/types/src/logger.ts#L2) | Logger override to replace default logger |
+| logLevel | [DVCDefaultLogLevel](https://github.com/DevCycleHQ/js-sdks/blob/main/lib/shared/types/src/logger.ts#L12) | Set log level of the default logger. Options are: `debug`, `info`, `warn`, `error`. Defaults to `info`. |
+| apiProxyURL | string | Allows the SDK to communicate with a proxy of DVC bucketing API / client SDK API.
+
 ## Waiting for Features 
 
 You can wait on the features to be loaded from our servers by using `.onClientInitialized()` function. It returns a promise that you can use to wait until features are ready to be used:
