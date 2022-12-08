@@ -118,6 +118,46 @@ For Objective-C we use a standard callback pattern to initialize the DevCycle SD
 }
 ```
 
+### DVC Client Builder
+
+The DVCClient can be built using the following methods:
+
+[DVC ClientBuilder class](https://github.com/DevCycleHQ/ios-client-sdk/blob/4c69260ce89fd7c38245f48b99aa973e08ba05ca/DevCycle/DVCClient.swift#L371)
+
+| Method | Parameter | Description |
+|--------|-----------|-------------|
+| environmentKey | String | DevCycle environment key |
+| user | [DVCUser](https://github.com/DevCycleHQ/ios-client-sdk/blob/main/DevCycle/DVCUser.swift#L116) | DevCycle user object |
+| options | [DVCOptions](https://github.com/DevCycleHQ/ios-client-sdk/blob/main/DevCycle/Models/DVCOptions.swift#L9) | DevCycle options object |
+
+### DVC User Builder
+The DVC user can be built using the following methods:
+
+[DVC UserBuilder class](https://github.com/DevCycleHQ/ios-client-sdk/blob/main/DevCycle/DVCUser.swift#L21)
+
+| Method | Parameter | Description |
+|--------|-----------|-------------|
+| userId | String | Unique user ID |
+| isAnonymous | Bool | Boolean to indicate if the user is anonymous |
+| email | String | User's email |
+| name | String | User's name |
+| language | String | User's language |
+| country | String | User's country |
+| customData | [String: Any] | Key/value map of properties to be used for targeting |
+| privateCustomData | [String: Any] | Key/value map of properties to be used for targeting. Private properties will not be included in event logging. |
+
+### DVC Options Builder
+The SDK exposes various initialization options which can be used by passing a `DVCOptions` object to the `withOptions` method of `DVCClient.builder()`:
+
+[DVC OptionsBuilder class](https://github.com/DevCycleHQ/ios-client-sdk/blob/main/DevCycle/Models/DVCOptions.swift#L17)
+
+| Method | Parameter | Default | Description |
+|--------|-----------|---------|-------------|
+| flushEventsIntervalMs | Int | 10000 | Controls the interval between flushing events to the DevCycle servers in milliseconds, defaults to 10 seconds. |
+| disableEventLogging | Bool | false | Disables logging of SDK generated events (e.g. aggVariableEvaluated, aggVariableDefaulted) to DevCycle. |
+| logLevel | LogLevel | Set log level of the default logger. Defaults to `error`|
+| enableEdgeDB | Boolean | false | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle. |
+
 ### Notifying when DevCycle features are available
 
 In the initialize call there is an optional `onInitialized` parameter you can use to determine when your features have been loaded:
