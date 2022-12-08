@@ -68,7 +68,9 @@ The SDK exposes various initialization options which can be set on the `initiali
 | enableEdgeDB | boolean | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle. |
 | logger | [DVCLogger](https://github.com/DevCycleHQ/js-sdks/blob/main/lib/shared/types/src/logger.ts#L2) | Logger override to replace default logger |
 | logLevel | [DVCDefaultLogLevel](https://github.com/DevCycleHQ/js-sdks/blob/main/lib/shared/types/src/logger.ts#L12) | Set log level of the default logger. Options are: `debug`, `info`, `warn`, `error`. Defaults to `info`. |
-| apiProxyURL | string | Allows the SDK to communicate with a proxy of DVC bucketing API / client SDK API.
+| apiProxyURL | string | Allows the SDK to communicate with a proxy of DVC bucketing API / client SDK API. |
+| configCacheTTL | number | The maximum allowed age of a cached config in milliseconds, defaults to 7 days |
+| disableConfigCache | boolean | Disable the use of cached configs |
 
 ## Waiting for Features 
 
