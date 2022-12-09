@@ -38,8 +38,11 @@ If you want to load the JS SDK on your webpage separately from your main applica
 
 Place the following code snippet as high as possible in your head tag.
 
-```bash
-<script src="https://js.devcycle.com/devcycle.min.js" type="text/javascript"></script>
+```html
+<script
+  src="https://js.devcycle.com/devcycle.min.js"
+  type="text/javascript"
+></script>
 ```
 
 ## Getting Started
