@@ -88,6 +88,8 @@ The SDK exposes various initialization options which can be set on the `initiali
 | logger               | [DVCLogger](https://github.com/DevCycleHQ/js-sdks/blob/main/lib/shared/types/src/logger.ts#L2)           | Logger override to replace default logger                                                                      |
 | logLevel             | [DVCDefaultLogLevel](https://github.com/DevCycleHQ/js-sdks/blob/main/lib/shared/types/src/logger.ts#L12) | Set log level of the default logger. Options are: `debug`, `info`, `warn`, `error`. Defaults to `info`.        |
 | apiProxyURL          | string                                                                                                   | Allows the SDK to communicate with a proxy of DVC bucketing API / client SDK API.                              |
+=======
+
 
 ## Waiting for Features
 
