@@ -36,7 +36,7 @@ import { initialize } from "@devcycle/devcycle-js-sdk";
 
 If you want to load the JS SDK on your webpage separately from your main application bundle, you can use a script tag to do so.
 
-Place the following code snippet as high as possible in your <head> tag.
+Place the following code snippet as high as possible in your head tag.
 
 ```bash
 <script src="https://js.devcycle.com/devcycle.min.js" type="text/javascript"></script>
