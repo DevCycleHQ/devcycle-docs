@@ -155,7 +155,7 @@ The SDK exposes various initialization options which can be used by passing a `D
 |--------|-----------|---------|-------------|
 | flushEventsIntervalMs | Int | 10000 | Controls the interval between flushing events to the DevCycle servers in milliseconds, defaults to 10 seconds. |
 | disableEventLogging | Bool | false | Disables logging of SDK generated events (e.g. aggVariableEvaluated, aggVariableDefaulted) to DevCycle. |
-| logLevel | LogLevel | Set log level of the default logger. Defaults to `error`|
+| logLevel | LogLevel | error | Set log level of the default logger. Defaults to `error`|
 | enableEdgeDB | Boolean | false | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle. |
 
 ### Notifying when DevCycle features are available
