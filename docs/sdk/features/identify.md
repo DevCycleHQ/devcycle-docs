@@ -32,17 +32,27 @@ The user data object that you should use across SDKs should look something like 
 
 :::info
 
+**Anonymous Users**
+
+If a user id is not supplied, client-side SDKs will automatically generate a user id and assign it to the current user. This id will be cached and used between app opens / website visits until a user id is supplied or [reset](/docs/sdk/features/reset) is called. This will ensure you will not experience a rise in MAUs if the main experience of your application is in a logged-out or anonymous state. 
+
+:::
+
+
+
+:::tip
+
 In some cases, you may be releasing a feature broadly and not to users, specifically. In these cases, you can use any string as the "user_id". A user is not expressly required, just an identifier. 
 
 :::
 
 ### Client-Side SDK Usage
 
-The Identify function is what is used on the Client-Side SDKs to set User IDs as well as custom properties. These SDKs are built to work in a single-user context on the device. The DevCycle Client-Side SDKs contain a local storage of the current user's information for re-use with each function call. Using the Identify function will add to this storage.
+The Identify function is what is used on the Client-Side SDKs to set User IDs as well as custom properties. These SDKs are built to work in a single-user context on the device. The DevCycle Client-Side SDKs contain local storage of the current user's information for re-use with each function call. Using the Identify function will add to this storage.
 
 Any call to the Identify function will return the list of relevant Features and Variables for the User. 
 
-If your application handles multiple users at once, simply call the Identify function with their new user object and DevCycle will retrieve that users's set of Features and Variables.
+If your application handles multiple users at once, simply call the Identify function with their new user object and DevCycle will retrieve that user's set of Features and Variables.
 
 To reset a user completely, please view [Resetting a User](/docs/sdk/features/reset).
 
