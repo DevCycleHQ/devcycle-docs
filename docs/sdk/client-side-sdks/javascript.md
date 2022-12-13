@@ -5,18 +5,16 @@ sidebar_position: 2
 
 # DevCycle JavaScript Client SDK
 
-The JS SDK uses local bucketing to perform all user segmentation. Furthermore, local bucketing occurs within the SDK, providing users with immediate responses to variable and feature requests.
+The DevCycle JS SDK, like all client SDKs, will retrieve a configuration for the provided User upon initialization. The configuration which is retrieved contains all of the Features and Variables, meaning no further outbound network calls will be made to retrieve Feature information unless explicitly specified. 
 
 The JS SDK is available on NPM as an open-source package that can be viewed on the DevCycle GitHub.
-
-When initialized, the SDK will download the latest version of your DevCycle environments’ configuration from a CDN.
 
 [![Npm package version](https://badgen.net/npm/v/@devcycle/devcycle-js-sdk)](https://www.npmjs.com/package/@devcycle/devcycle-js-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)
 
 ## Installation
 
-### I) NPM Module
+### 1. NPM Module
 
 The recommended way to include the JS SDK is by bundling it with the rest of your application code using our NPM Module.
 
@@ -32,7 +30,7 @@ To use the JS SDK in your project, import the `initialize` function:
 import { initialize } from "@devcycle/devcycle-js-sdk";
 ```
 
-### II) Using the CDN
+### 2. Using the CDN
 
 If you want to load the JS SDK on your webpage separately from your main application bundle, you can use a script tag to do so.
 
