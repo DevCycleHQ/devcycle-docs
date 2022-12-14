@@ -20,9 +20,9 @@ go get "github.com/devcyclehq/go-server-sdk"
 
 ## Getting Started
 
-Initialization of the SDK depends on whether you want to use Cloud, or Local bucketing.
+Initialization of the SDK depends on whether you want to use Cloud or Local bucketing.
 
-Local bucketing requires an extra step to initialize the local bucketing engine _before_ calling the SDK, and is the default 
+Local bucketing requires an extra step to initialize the local bucketing engine _before_ calling the SDK and is the default 
 mode for the SDK.
 
 If not using local bucketing - be sure to disable it via the DVCOptions setting `DisableLocalBucketing`.
