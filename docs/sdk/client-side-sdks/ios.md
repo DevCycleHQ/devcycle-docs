@@ -9,7 +9,7 @@ The iOS Client SDK for DevCycle! This SDK uses our Client SDK APIs to perform al
 and bucketing for the SDK, providing fast response times using our globally distributed edge workers
 all around the world.
 
-The SDK is available as a package on CocoaPods, Carthage and Swift Package Manager. It is also open source and can be viewed on Github.
+The SDK is available as a package on CocoaPods, Carthage and Swift Package Manager. It is also open source and can be viewed on GitHub.
 
 [![CocoaPods compatible](https://img.shields.io/cocoapods/v/DevCycle.svg)](https://cocoapods.org/pods/DevCycle)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)

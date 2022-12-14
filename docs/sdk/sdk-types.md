@@ -5,11 +5,11 @@ sidebar_position: 1
 
 ## Overview
 
-DevCycle has different types of SDKs, some being client-side and others being server-side. This page serves to describe the various differences between these SDK types and how to handle them. Implementation and usage change depending on which type of sdk is being used.
+DevCycle has different types of SDKs, some being client-side and others being server-side. This page serves to describe the differences between these SDK types and how to handle them. Implementation and usage change depending on which type of SDK is being used.
 
 ### Client-Side SDKs
 
-DevCycle client-side SDKs are meant for single-user contexts. This means that the SDKs have a persistent data store for the user while the SDK is being used. Evaluation of Features happen directly on the client's device. These SDKs also include the Mobile SDKs. For more information on the difference between mobile and standard client-side SDK keys, read [API and SDK keys](/docs/home/feature-management/organizing-your-flags-and-variables/api-and-sdk-keys).
+DevCycle client-side SDKs are meant for single-user contexts. This means that the SDKs have a persistent data store for the user while the SDK is being used. Evaluation of Features happens directly on the client's device. These SDKs also include the Mobile SDKs. For more information on the difference between mobile and standard client-side SDK keys, read [API and SDK keys](/docs/home/feature-management/organizing-your-flags-and-variables/api-and-sdk-keys).
 
 The current Client-Side SDKs are:
 
@@ -22,7 +22,7 @@ The current Client-Side SDKs are:
 
 ### Server-Side SDKs
 
-Server-side SDKs are used in multi-user contexts where each call to the SDK will likely be for a different user. Each call to a server SDK function requires the user's ID and any other targeting information to be past in on every function call. These SDKs are made for infrastructure, backend, and other such services.  
+Server-side SDKs are used in multi-user contexts where each call to the SDK will likely be for a different user. Each call to a server SDK function requires the user's ID and any other targeting information to be passed in on every function call. These SDKs are made for infrastructure, backend, and other such services.  
 
 The current Server-Side SDKs are:
 
@@ -41,7 +41,7 @@ The current Server-Side SDKs are:
 
 
 #### Cloud bucketing SDKs
-The logic which determines what a user gets is calculated in the cloud, using workers at edge which are available globally. Every function within the SDK will reach out to these edge workers and respond with the response with extremely low latency. The Cloud Bucketing SDKs will cause a large number of outbound requests as each SDK call will reach out to the DevCycle edge servers. However, the cloud bucketing SDKs are useful in cases in which a much older version of the given language is being used, as Local Bucketing generally only supports newer versions of languages.
+The logic which determines what a user gets is calculated in the cloud, using workers at the edge which are available globally. Every function within the SDK will reach out to these edge workers and respond with the response with extremely low latency. The Cloud Bucketing SDKs will cause a large number of outbound requests as each SDK call will reach out to the DevCycle edge servers. However, the cloud bucketing SDKs are useful in cases in which a much older version of the given language is being used, as Local Bucketing generally only supports newer versions of languages.
 
 #### Local Bucketing
 Local bucketing does all of the calculations locally using extremely performant Web Assembly code. The project's environment configuration is downloaded upon initialization of the SDK, and all future SDK calls will calculate values locally within the SDK. This approach will guarantee responses from the SDK in 1-10ms. The configuration will be updated at a configurable polling interval.
