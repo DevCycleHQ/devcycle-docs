@@ -5,13 +5,7 @@ sidebar_position: 5
 
 # DevCycle React Native
 
-The DevCycle React SDK lets you easily integrate your React Native web applications with DevCycle. 
-
-:::info
-
-At the moment, DevCycle for React Native utilizes the [DevCycle React SDK](/docs/sdk/client-side-sdks/react) as a method of interaction with DevCycle
-
-:::
+The DevCycle React Native SDK lets you easily integrate your React Native web applications with DevCycle. 
 
 :::info
 
@@ -21,24 +15,29 @@ Currently, DevCycle for React Native only supports access via functional compone
 
 The SDK is available as a package on npm. It is also open source and can be viewed on Github.
 
-[![Npm package version](https://badgen.net/npm/v/@devcycle/devcycle-react-sdk)](https://www.npmjs.com/package/@devcycle/devcycle-react-sdk)
+[![Npm package version](https://badgen.net/npm/v/@devcycle/devcycle-react-native-sdk)](https://www.npmjs.com/package/@devcycle/devcycle-react-native-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)
 
 ## Requirements: 
 
-This SDK is compatible with _React_ versions 16.8.0 and above.
+This SDK is compatible with _React Native_ version 0.64.0 and above.
 
 
 ## Installation
 
-1. First install the [DevCycle React SDK](/docs/sdk/client-side-sdks/react)
-```shell
-npm install --save @devcycle/devcycle-react-sdk
+To install the SDK, run the following command:
+
+```bash
+npm install --save @devcycle/devcycle-react-native-sdk
 ```
+or
+
+```bash
+yarn add @devcycle/devcycle-react-native-sdk
+```
+
 2. Add the following packages that are required for React Native functionality as dependencies of your project:
 ```shell
-npm install --save react-native-get-random-values
-npm install --save react-native-device-info
 npx pod-install
 ```
 
@@ -53,34 +52,26 @@ Example of the above steps:
 import React from 'react'
 import 'react-native-get-random-values'
 import DeviceInfo from 'react-native-device-info'
-import { withDVCProvider } from '@devcycle/devcycle-react-sdk'
+import { withDVCProvider } from '@devcycle/devcycle-react-native-sdk'
 
 global.DeviceInfo = DeviceInfo
 ```
 
 5. Wrap your application component tree in either the `withDVCProvider` or `asyncWithDVCProvider` higher-order component (HOC), as explained in the [Getting Started](#getting-started) section.
 
-Pass in the option `reactNative: true` to the HOC to tell the SDK to run in React Native mode.
 
 ```jsx
-export default withDVCProvider(
-{
-	envKey: 'ENV_KEY',
-	options: {
-		reactNative: true
-	}
-})(App)
+export default withDVCProvider({ envKey: 'CLIENT_ENV_KEY' })(App)
 ```
 
 A complete working example of an `App.jsx` file is below:
 ```jsx
-import React from 'react';
-import { View, Text } from "react-native";
-
+import React from 'react'
+import { View, Text } from 'react-native'
 
 import 'react-native-get-random-values'
 import DeviceInfo from 'react-native-device-info'
-import { withDVCProvider } from '@devcycle/devcycle-react-sdk'
+import { withDVCProvider } from '@devcycle/devcycle-react-native-sdk'
 
 global.DeviceInfo = DeviceInfo
 function App() {
@@ -88,22 +79,16 @@ function App() {
     <View
       style={{
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
+        justifyContent: 'center',
+        alignItems: 'center',
       }}
     >
       <Text>Universal React with Expo</Text>
     </View>
-  );
+  )
 }
 
-export default withDVCProvider(
-{
-    envKey: 'client-xxxxxxxxxxxxxxxxxxx',
-    options: {
-        reactNative: true
-    }
-})(App)
+export default withDVCProvider({ envKey: 'CLIENT_ENV_KEY' })(App)
 ```
 
 ## Getting Started
@@ -125,10 +110,10 @@ The withDVCProvider function initializes the React SDK and wraps your root compo
 to flicker when it is first rendered, as it is waiting for the SDK to initialize.
 
 ```js
-import { withDVCProvider } from '@devcycle/devcycle-react-sdk'
+import { withDVCProvider } from '@devcycle/devcycle-react-native-sdk'
 ```
 ```js
-export default withDVCProvider({ envKey: 'ENV_KEY' })(App)
+export default withDVCProvider({ envKey: 'CLIENT_ENV_KEY' })(App)
 ```
 
 ### Blocking
@@ -137,7 +122,7 @@ The `useIsDVCInitialized` hook allows you to block rendering of your application
 does not flicker due to value changes and enables you to control what you want displayed when initialization isn't finished yet.
 
 ```js
-import { useIsDVCInitialized, withDVCProvider } from '@devcycle/devcycle-react-sdk'
+import { useIsDVCInitialized, withDVCProvider } from '@devcycle/devcycle-react-native-sdk'
 ```
 ```js
 function App() {
@@ -147,31 +132,7 @@ function App() {
     return <TheRestofYourApp/>
 }
     
-export default withDVCProvider({ envKey: 'ENV_KEY' })(App)
-```
-
-:::caution
-
-The asyncWithDVCProvider function has been deprecated as of version 1.3.0
-
-:::
-
-The asyncWithDVCProvider function is similar to the withDVCProvider function, but allows you to block rendering of your application
-until SDK initialization is complete. This ensures your app does not flicker due to value changes.
-
-```js
-import { asyncWithDVCProvider } from '@devcycle/devcycle-react-sdk'
-```
-```js
-(async () => {
-    const DVCProvider = await asyncWithDVCProvider({ envKey: 'ENV_KEY' })
-
-    ReactDOM.render(
-        <DVCProvider>
-            <App />
-        </DVCProvider>
-    )
-})();
+export default withDVCProvider({ envKey: 'CLIENT_ENV_KEY' })(App)
 ```
 
 ## Usage
@@ -187,7 +148,7 @@ It takes in your variable key as well as a default value and returns the value o
 The hook will return the default value if the SDK has not yet finished initializing.
 
 ```js
-import { useVariableValue } from '@devcycle/devcycle-react-sdk'
+import { useVariableValue } from '@devcycle/devcycle-react-native-sdk'
 
 const DVCFeaturePage = () => {
     const variableKey = 'my-feature'
@@ -207,7 +168,7 @@ Use this hook to access the DevCycle client. This allows you identify users, tra
 variables:
 
 ```js
-import { useDVCClient } from '@devcycle/devcycle-react-sdk'
+import { useDVCClient } from '@devcycle/devcycle-react-native-sdk'
 
 const DVCFeaturePage = () => {
     const newUser = {
@@ -340,10 +301,9 @@ const user = {
   }
 }
 const options = {
-  reactNative: true,
   enableEdgeDB: true
 }
-export default withDVCProvider({ envKey: 'ENV_KEY', user, options })(App)
+export default withDVCProvider({ envKey: 'CLIENT_ENV_KEY', user, options })(App)
 ```
 
 This will send a request to our EdgeDB API to save the custom data under the user `test_user`.
@@ -352,5 +312,5 @@ In the example, `amountSpent` is associated to the user `test_user`. In your nex
 you may omit any of the data you've sent already as it will be pulled from the EdgeDB storage when segmenting to experiments and features:
 
 ```
-dvcClient.identifyUser({ user_id: 'test_user' }) // no need to pass in "amountSpent" any more!
+dvcClient.identifyUser({ user_id: 'test_user' }) // no need to pass in 'amountSpent' any more!
 ```
