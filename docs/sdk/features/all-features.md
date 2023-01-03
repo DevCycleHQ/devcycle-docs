@@ -15,7 +15,7 @@ This article serves to explain how to use the SDKs to retrieve all Features for 
 
 The "Get All Features" function in an SDK will return a map of all of the features that the user is currently in based on the information the SDK or API has received. 
 
-The response the following general format of this example, with slight changes depending on the specifics of the SDK:
+The response is the following general format, with slight changes depending on the specifics of the SDK:
 
 ```json
 {
@@ -33,19 +33,15 @@ The response the following general format of this example, with slight changes d
   },...
 ```
 
-Only Features which the user has been successfully targeted for. [Targeting rules](/docs/home/feature-management/features-and-variables/targeting-users) must be **enabled** for that environment.  
+Only Features that the User has been successfully targeted for. [Targeting rules](/docs/home/feature-management/features-and-variables/targeting-users) must be **enabled** for that environment.  
 
-Features which are within the Project that have rules disabled OR the user is not Targeted for will not appear in the response of this function. 
+Features that within the Project that have rules disabled OR the user is not Targeted for will not appear in the response of this function. 
 
 ## Client-Side SDK Usage
 
-### JavaScript SDK
+### [• JavaScript SDK](/docs/sdk/client-side-sdks/javascript#get-all-features)
 
-[View the Javascript Documentation for detailed info for getting all features for a user ](/docs/sdk/client-side-sdks/javascript#get-all-features) ➡️
-
-### React SDK
-
-[View the React Documentation for detailed info for getting all features for a user ](/docs/sdk/client-side-sdks/react#get-all-features#getting-all-features--variables) ➡️
+### [• React SDK](/docs/sdk/client-side-sdks/react#get-all-features#getting-all-features--variables)
 
 :::note
 
@@ -53,45 +49,24 @@ The DevCycle React SDK is built upon the JavaScript SDK. For more details, view 
 
 :::
 
-### iOS SDK
+### [• iOS SDK](/docs/sdk/client-side-sdks/ios#get-all-features#get-all-features)
 
-[View the iOS Documentation for detailed info for getting all features for a user using Swift/Objective-C ](/docs/sdk/client-side-sdks/ios#get-all-features#get-all-features) ➡️
-
-### Android SDK
-
-[View the iOS Documentation for detailed info for getting all features for a user using Java/Kotlin ](/docs/sdk/client-side-sdks/android#get-all-features) ➡️
+### [• Android SDK](/docs/sdk/client-side-sdks/android#get-all-features)
 
 ## Server-Side SDK Usage
 
-### NodeJS SDK (server-side)
+### [• NodeJS SDK (server-side)](/docs/sdk/server-side-sdks/node#getting-all-features)
 
-[View the NodeJS Documentation for detailed info for getting all features for a user ](/docs/sdk/server-side-sdks/node#getting-all-features) ➡️
+### [• Go SDK](/docs/sdk/server-side-sdks/go#getting-all-features)
 
-### Go SDK
+### [• Ruby SDK](/docs/sdk/server-side-sdks/ruby#getting-all-features)
 
-[View the Go Documentation for detailed info for getting all features for a user ](/docs/sdk/server-side-sdks/go#getting-all-features) ➡️
+### [• PHP SDK](/docs/sdk/server-side-sdks/php#getting-all-features)
 
-### Ruby SDK
+### [• .NET / C# Cloud SDK](/docs/sdk/server-side-sdks/dotnet-cloud#getting-all-features)
 
-[View the Ruby Documentation for detailed info for getting all features for a user ](/docs/sdk/server-side-sdks/ruby#getting-all-features) ➡️
+### [• .NET / C# Local SDK](/docs/sdk/server-side-sdks/dotnet-local#getting-all-features)
 
-### PHP SDK
+### [• Java Local SDK](/docs/sdk/server-side-sdks/java-local#getting-all-features)
 
-[View the PHP Documentation for detailed info for getting all features for a user ](/docs/sdk/server-side-sdks/php#getting-all-features) ➡️
-
-
-### .NET / C# Cloud SDK
-
-[View the Ruby Documentation for detailed info for getting all features for a user ](/docs/sdk/server-side-sdks/dotnet-cloud#getting-all-features) ➡️
-
-### .NET / C# Local SDK
-
-[View the .NET Documentation for detailed info for getting all features for a user ](/docs/sdk/server-side-sdks/dotnet-local#getting-all-features) ➡️
-
-### Java Local SDK
-
-[View the Java Documentation for detailed info for getting all features for a user ](/docs/sdk/server-side-sdks/java-local#getting-all-features) ➡️
-
-### Java Cloud SDK
-
-[View the Java Documentation for detailed info for getting all features for a user ](/docs/sdk/server-side-sdks/java-cloud#getting-all-features) ➡️
+### [• Java Cloud SDK](/docs/sdk/server-side-sdks/java-cloud#getting-all-features)

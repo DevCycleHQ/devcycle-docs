@@ -6,7 +6,7 @@ sidebar_position: 7
 
 ## Overview
 
-When using client-side SDKs, particularly web client SDKs there is the potential for Ad Blockers and browser privacy features to block requests and third-party cookies. Custom Domains with DevCycle ensures all cookies and requests used are first-party and will not be blocked by ensuring requests are sent through your recognized domain. A DNS CNAME needs to be created in order to leverage this feature.
+When using client-side SDKs, particularly web client SDKs there is the potential for Ad Blockers and browser privacy features to block requests and third-party cookies. Custom Domains with DevCycle ensures all cookies and requests used are first-party and will not be blocked by ensuring requests are sent through your recognized domain. A DNS CNAME needs to be created to leverage this feature.
 
 :::info
 
@@ -22,13 +22,13 @@ If you'd like to have a custom certificate for the endpoint to be used, please c
 ## Setup Steps
 
 1. **Identifying a Hostname**
-- The first step involves **identifying** a hostname to use as the CNAME to DevCycle's endpoint. Provide this to DevCycle upon requesting to enable this feature. The hostname should look something like this `https://api-alias.your-domain.com`.
+- The first step involves **identifying** a hostname to use as the CNAME for DevCycle's endpoint. Provide this to DevCycle upon requesting to enable this feature. The hostname should look something like this `https://api-alias.your-domain.com`.
     - If there is more than one service in use, each one will need a unique CNAME. This is also true for using DevCycle on multiple domains. Each domain needs its own CNAME.
 
 2. **DNS Validation**
-Once the setup is complete, two DNS record will be provided by DevCycle and you will need to add those records to your DNS provider (TXT validation records). 
+Once the setup is complete, two DNS records will be provided by DevCycle and you will need to add those records to your DNS provider (TXT validation records). 
 - The first DNS record will be a TXT verification record to ensure that you own the domain that you are asking DevCycle to use as a custom hostname.
-- The second DNS record will be a TXT verification record to ensure that you have permission to create an SSL certificate for said domain. This record will conflict with any existing A/AAAA or CNAME records on the hostname, and require them to be removed prior to adding the verification record.
+- The second DNS record will be a TXT verification record to ensure that you have permission to create an SSL certificate for said domain. This record will conflict with any existing A/AAAA or CNAME records on the hostname and require them to be removed before adding the verification record.
 
 Once these records have been added, please let DevCycle know. 
 
@@ -54,6 +54,6 @@ const dvcClient = initialize('YOUR_CLIENT_KEY', user, {
 });
 ```
 
-After completing the steps above, users should be able to freely maneuver around adblockers and prevent them from blocking requests to our api servers and our SDK.
+After completing the steps above, users should be able to freely maneuver around adblockers and prevent them from blocking requests to our API servers and our SDK.
 
 If you have any questions regarding this process, please reach out to our [support](mailto:support@devcycle.com) team.

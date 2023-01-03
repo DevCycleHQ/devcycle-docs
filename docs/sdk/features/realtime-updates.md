@@ -8,8 +8,7 @@ sidebar_position: 10
 This article serves to explain how the SDKs handle realtime updates triggered by changes to your features from the DevCycle dashboard.
 
 DevCycle leverages Server-Sent Events (SSE) to notify the SDKs that their config has changed and that they should fetch a new config. When a change 
-to a feature (targeting rules, variable values, etc.) has been saved, our servers send a SSE to anyone subscribed to that project and triggers
-the SDK to request a new config from DevCycle.
+to a feature (targeting rules, variable values, etc.) has been saved, our servers send an SSE to anyone subscribed to that project and trigger the SDK to request a new config from DevCycle.
 
 ### Client-Side SDK
 

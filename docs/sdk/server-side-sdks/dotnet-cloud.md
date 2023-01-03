@@ -111,7 +111,7 @@ namespace Example
 
 To get values from your Variables, the `value` field inside the variable object can be accessed.
 
-This method will fetch all variables for a given user and returned as Dictionary&lt;String, Feature&gt;
+This method will fetch all variables for a given user and return as DictionaryString, Feature;
 
 ```csharp
 using System;

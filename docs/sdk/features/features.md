@@ -5,7 +5,7 @@ sidebar_position: 1
 
 # Overview
 
-DevCycle strives to ensure that all our APIs and SDKs have identical functionality (excepting language or platform specific nuances). Below is a list of all the current functionality that DevCycle supports across the SDKs. 
+DevCycle strives to ensure that all our APIs and SDKs have identical functionality (except language or platform-specific nuances). Below is a list of all the current functionality that DevCycle supports across the SDKs. 
 
 ## Features and Functionality
 

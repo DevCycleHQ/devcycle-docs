@@ -11,21 +11,19 @@ This means that users and their data can be “imported” into DevCycle for tar
 
 This guide will outline how to insert data into DevCycle’s EdgeDB and then use it for targeting.
 
-To demonstrate this in the simplest way with no SDK installations necessary, we will use simple api calls from postman.
+To demonstrate this most simply with no SDK installations necessary, we will use simple API calls from Postman.
 
 ## Saving Data to EdgeDB from anywhere
 
 First, enable EdgeDB in your project’s settings.
 
-![Project Settings](/sept-6-2022-edge-flags-api-1.png)
-
-Now, lets save some data to EdgeDB. 
+![Project Settings]Now, let's save some data to EdgeDB. 
 
 To do this, we’ll be following the EdgeDB docs from the [Bucketing API](/bucketing-api/#tag/EdgeDB).
 
 In this case, we will update a user simply called “example_user”
 
-We will also supply some custom data. Lets use the example of the concept of a cohort of special users you’d like to create. So we can pass that data as custom data:
+We will also supply some custom data. Let's use the example of the concept of a cohort of special users you’d like to create. So we can pass that data as custom data:
 
 ![Custom Data Sending](/sept-6-2022-edge-flags-api-2.png)
 
@@ -80,7 +78,7 @@ To use the postman data from above, simply create a new custom property in the d
 
 ![Custom Property Creation](/sept-6-2022-edge-flags-api-6.png)
 
-Given that we named the custom data key “cohort id”, lets create that property in our project.
+Given that we named the custom data key “cohort id”, let's create that property in our project.
 
 ![Custom Property filled](/sept-6-2022-edge-flags-api-7.png)
 

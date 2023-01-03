@@ -69,22 +69,14 @@ If your application handles multiple users at once, simply call the Identify fun
 
 To reset a user completely, please view [Resetting a User](/docs/sdk/features/reset).
 
+### [• Javascript SDK](/docs/sdk/client-side-sdks/javascript#identifying-user)
 
-### Javascript SDK
+### [• React SDK](/docs/sdk/client-side-sdks/react#identifying-users)
 
-[View the Javascript Documentation for detailed info on identifying users/contexts ](/docs/sdk/client-side-sdks/javascript#identifying-user) ➡️
+### [• iOS SDK](/docs/sdk/client-side-sdks/ios#identifying-user)
 
-### React SDK
+### [• Android SDK](/docs/sdk/client-side-sdks/android#identifying-user)
 
-[View the React Documentation for detailed info identifying users/contexts ](/docs/sdk/client-side-sdks/react#identifying-users) ➡️
-
-### iOS SDK
-
-[View the iOS Documentation for detailed info identifying users/contexts ](/docs/sdk/client-side-sdks/ios#identifying-user) ➡️
-
-### Android SDK
-
-[View the Android Documentation for detailed info identifying users/contexts ](/docs/sdk/client-side-sdks/android#identifying-user) ➡️
 
 ## Server-Side SDK Usage
 
@@ -92,40 +84,23 @@ Unlike the Client-Side SDKs, Server-Side SDKs work in a multi-user context. Beca
 
 As well, unlike the Client-Side SDKs, because Server-Side SDKs poll for project configuration updates, updating the User object that you have set will not explicitly grab new feature configurations. The User object once set can be used to get feature, variation and variable information for a given user or entity.
 
-### Node SDK
+### [• Node SDK](/docs/sdk/server-side-sdks/node#user-object) 
 
-[View the NodeJS Documentation for detailed info identifying users/contexts ](/docs/sdk/client-side-sdks/node#user-object) ➡️
+### [• C# / .NET Local SDK](/docs/sdk/server-side-sdks/dotnet-local#user-object) 
 
-### C# / .NET Local SDK
+### [• C# / .NET Cloud SDK](/docs/sdk/server-side-sdks/dotnet-cloud#user-object)
 
-[View the .NET Local Documentation for detailed info identifying users/contexts ](/docs/sdk/server-side-sdks/dotnet-local#user-object) ➡️
+### [• Go SDK](/docs/sdk/server-side-sdks/go#user-object)
 
-### C# / .NET Cloud SDK
+### [• Python SDK](/docs/sdk/server-side-sdks/python#user-object)
 
-[View the .NET Cloud Documentation for detailed info identifying users/contexts ](/docs/sdk/server-side-sdks/dotnet-cloud#user-object) ➡️
+### [• Ruby SDK](/docs/sdk/server-side-sdks/ruby#user-object)
 
-### Go SDK
+### [• PHP SDK](/docs/sdk/server-side-sdks/php#user-object)
 
-[View the Go Documentation for detailed info identifying users/contexts ](/docs/sdk/server-side-sdks/go#user-object) ➡️
+### [• Java Local SDK](/docs/sdk/server-side-sdks/java-local#user-object)
 
-### Python SDK
+### [• Java Cloud SDK](/docs/sdk/server-side-sdks/java-cloud#user-object)
 
-[View the Python Documentation for detailed info identifying users/contexts ](/docs/sdk/server-side-sdks/python#user-object) ➡️
-
-### Ruby SDK
-
-[View the Ruby Documentation for detailed info identifying users/contexts ](/docs/sdk/server-side-sdks/ruby#user-object) ➡️
-
-### PHP SDK
-
-[View the PHP Documentation for detailed info identifying users/contexts ](/docs/sdk/server-side-sdks/php#user-object) ➡️
-
-### Java Local SDK
-
-[View the Java Local Documentation for detailed info identifying users/contexts ](/docs/sdk/server-side-sdks/java-local#user-object) ➡️
-
-### Java Cloud SDK
-
-[View the Java Local Documentation for detailed info identifying users/contexts ](/docs/sdk/server-side-sdks/java-cloud#user-object) ➡️
 
 
