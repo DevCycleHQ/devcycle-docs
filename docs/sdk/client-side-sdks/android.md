@@ -36,7 +36,7 @@ Refer to the latest version of the SDK on [maven central](https://maven.org/arti
 
 ### Initializing the SDK
 
-We recommend initializing the SDK once in `onCreate` of your `Application` class or `MainActivity` to receive features for as soon as possible, and to pass around the client instance around in your app.
+We recommend initializing the SDK once in `onCreate` of your `Application` class or `MainActivity` to receive features as soon as possible, and to pass around the client instance around in your app.
 
 Using the builder pattern we can initialize the DevCycle SDK by providing the `applicationContext`, 
 DVCUser, and DevCycle mobile environment key:
@@ -256,23 +256,38 @@ variable.onUpdate(new DVCCallback<Variable<String>>() {
 });
 ```
 
-### Grabbing All Features / Variables
+### Get All Features
 
-To grab all the Features or Variables returned in the config:
+To grab all the Features returned in the config:
 
-#### *Kotlin example:*
+**Kotlin**
 
 ```kotlin
 var features: Map<String, Feature>? = dvcClient.allFeatures()
+```
 
+**Java**
+
+```java
+Map<String, Feature<Object>> variables = dvcClient.allFeatures();
+```
+
+If the SDK has not finished initializing, these methods will return an empty Map.
+
+
+### Get All Variables
+
+To get all the Variables returned in the config:
+
+**Kotlin**
+
+```kotlin
 var variables: Map<String, Variable<Any>>? = dvcClient.allVariables()
 ```
 
-#### *Java example:*
+**Java**
 
 ```java
-Map<String, Feature> features = dvcClient.allFeatures();
-
 Map<String, Variable<Object>> variables = dvcClient.allVariables();
 ```
 
@@ -381,7 +396,7 @@ dvcClient.resetUser(new DVCCallback<Map<String, Variable<Object>>>() {
 ```
 
 
-If `onError` is called the user's configuration will not be updated and previous user's data will persist.
+If `onError` is called the user's configuration will not be updated and the previous user's data will persist.
 
 ### Tracking Events
 

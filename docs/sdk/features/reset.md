@@ -9,70 +9,16 @@ This article serves to explain how to use the SDKs to quickly reset the user con
 
 ### Identifying a User or Setting Properties
 
-Currently, the Identify function is only available on Client-Side SDKs. These SDKs are built to work in a single-user context on the device. The DevCycle Client-Side SDKs contain a local storage of the current user's information for re-use with each function call. Using the Identify function will add to this storage. Using this function will completely reset the current user in context. 
+Currently, the Identify function is only available on Client-Side SDKs. These SDKs are built to work in a single-user context on the device. The DevCycle Client-Side SDKs contain local storage of the current user's information for re-use with each function call. Using the Identify function will add to this storage. Using this function will completely reset the current user in context. 
 
-### Client-Side SDK Usage
+## Client-Side SDK Usage
 
-### **JavaScript SDK**
+### [• Javascript SDK](/docs/sdk/client-side-sdks/javascript#reset-user)
 
-To reset the user into an anonymous user, `resetUser` will reset to the anonymous user created before or will create one with an anonymous `user_id`.
+### [• React SDK](/docs/sdk/client-side-sdks/react#resetting-user)
 
-```js
-dvcClient.resetUser()
-```
+### [• React Native SDK](/docs/sdk/client-side-sdks/react#resetting-user)
 
-To wait on the Features of the anonymous user, you can pass in a callback or use the Promise returned if no callback is passed in:
+### [• iOS SDK](/docs/sdk/client-side-sdks/ios#identifying-user#reset-user)
 
-```js
-const variableSet = await dvcClient.resetUser()
-
-// OR
-
-dvcClient.resetUser((err, variables) => {
-    // variables is the variable set for the anonymous user
-})
-```
-
-### **React SDK**
-
-Refer to [JavaScript SDK](#javascript-sdk)
-
-### **iOS SDK**
-
-To reset the user into an anonymous user, `resetUser` will reset to the anonymous user created before
-or will create one with an anonymous `user_id`.
-
-```swift
-dvcClient.resetUser()
-```
-
-To wait on the Features of the anonymous user, you can pass in a DVCCallback:
-
-```swift
-try dvcClient.resetUser { error, variables in
-    // anonymous user
-}
-```
-
-### **Android SDK**
-
-To reset the user into an anonymous user, `resetUser` will reset to the anonymous user created before
-or will create one with an anonymous `user_id`.
-
-```kotlin
-dvcClient.resetUser()
-```
-
-To wait on the Features of the anonymous user, you can pass in a DVCCallback:
-
-```kotlin
-dvcClient.resetUser(object : DVCCallback<Map<String, Variable<Any>>> {
-    override fun onSuccess(result: Map<String, Variable<Any>>) {
-        // anonymous user configuration loaded successfully from DevCycle
-    }
-
-    override fun onError(t: Throwable) {
-        // user configuration failed to load from DevCycle, existing user's data will persist.
-    }
-})
-```
+### [• Android SDK](/docs/sdk/client-side-sdks/android#identifying-user#reset-user)

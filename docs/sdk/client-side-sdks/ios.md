@@ -270,17 +270,38 @@ DVCVariable *boolVar = [[self.dvcClient boolVariableWithKey:@"bool_key" defaultV
 
 ### Grabbing All Features / Variables
 
-To grab all the Features or Variables returned in the config:
+### Get All Features
 
-#### Swift
+To get all the Features returned in the config:
+
+**Swift**
+
 ```swift
 let features: [String: Feature] = dvcClient.allFeatures()
+```
+
+**Objective C**
+
+```objc
+NSDictionary *allFeatures = [self.dvcClient allFeatures];
+```
+
+If the SDK has not finished initializing, these methods will return an empty object.
+
+
+### Get All Variables
+
+To get all the variables returned in the config:
+
+**Swift**
+
+```swift
 let variables: [String: Variable] = dvcClient.allVariables()
 ```
 
-#### Objective-C
+**Objective-C**
+
 ```objc
-NSDictionary *allFeatures = [self.dvcClient allFeatures];
 NSDictionary *allVariables = [self.dvcClient allVariables];
 ```
 
