@@ -53,7 +53,7 @@ namespace Example
         public void main()
         {
             // using ensures REST Client resources are correctly disposed once no longer required.
-            using DVCCloudClient dvcClient = (DVCCloudClient) new DVCCloudClientBuilder()
+            using DVCCloudClient dvcClient = new DVCCloudClientBuilder()
                 .SetEnvironmentKey("YOUR SDK KEY")
                 .Build();
         }
@@ -88,7 +88,7 @@ namespace Example
         public async Task main()
         {
             // using ensures REST Client resources are correctly disposed once no longer required.
-            using DVCCloudClient dvcClient = (DVCCloudClient) new DVCCloudClientBuilder()
+            using DVCCloudClient dvcClient = new DVCCloudClientBuilder()
                 .SetEnvironmentKey("YOUR SDK KEY")
                 .Build();
             var user = new User("user_id");
@@ -126,7 +126,7 @@ namespace Example
         public void main()
         {
             // Ensure REST Client resources are correctly disposed once no longer required
-            using DVCCloudClient dvcClient = (DVCCloudClient) new DVCCloudClientBuilder()
+            using DVCCloudClient dvcClient = new DVCCloudClientBuilder()
                 .SetEnvironmentKey("YOUR SDK KEY")
                 .Build();
             var user = new User("user_id"); 
@@ -171,7 +171,7 @@ namespace Example
         public void main()
         {
             // Ensure REST Client resources are correctly disposed once no longer required
-            using DVCCloudClient dvcClient = (DVCCloudClient) new DVCCloudClientBuilder()
+            using DVCCloudClient dvcClient = new DVCCloudClientBuilder()
                 .SetEnvironmentKey("YOUR SDK KEY")
                 .Build();
             var user = new User("user_id");
@@ -181,7 +181,7 @@ namespace Example
                 var key = "YOUR_KEY";
                 var defaultValue = true;
                 // Casting from IVariable to Variable to get the cloud specific features.
-                Variable result = (Variable) await dvcClient.VariableAsync(user, key, defaultValue);
+                Variable result = await dvcClient.VariableAsync(user, key, defaultValue);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -209,7 +209,7 @@ namespace Example
         public void main()
         {
             // Ensure REST Client resources are correctly disposed once no longer required
-            using DVCCloudClient dvcClient = (DVCCloudClient) new DVCCloudClientBuilder()
+            using DVCCloudClient dvcClient = new DVCCloudClientBuilder()
                 .SetEnvironmentKey("YOUR SDK KEY")
                 .Build();
 
@@ -245,7 +245,7 @@ Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to
 ####
 ```csharp
 DVCCloudOptions options = new DVCCloudOptions(true);
-DVCCloudClient api = (DVCCloudClient) new DVCCloudClientBuilder()
+DVCCloudClient api = new DVCCloudClientBuilder()
                             .SetEnvironmentKey("YOUR SDK KEY")
                             .SetOptions(options)
                             .Build();
