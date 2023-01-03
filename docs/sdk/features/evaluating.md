@@ -19,6 +19,8 @@ If there is an error reaching DevCycle, if the requested variable does not exist
 
 ### [• Android SDK](/docs/sdk/client-side-sdks/android#using-variable-values)
 
+### [• React Native SDK](/docs/sdk/client-side-sdks/react-native#getting-a-variable)
+
 ## Server-Side SDK Usage
 
 ### [• Node SDK](/docs/sdk/server-side-sdks/node#get-and-use-variable-by-key) 

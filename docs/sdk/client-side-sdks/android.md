@@ -36,7 +36,7 @@ Refer to the latest version of the SDK on [maven central](https://maven.org/arti
 
 ### Initializing the SDK
 
-We recommend initializing the SDK once in `onCreate` of your `Application` class or `MainActivity` to receive features for as soon as possible, and to pass around the client instance around in your app.
+We recommend initializing the SDK once in `onCreate` of your `Application` class or `MainActivity` to receive features as soon as possible, and to pass around the client instance around in your app.
 
 Using the builder pattern we can initialize the DevCycle SDK by providing the `applicationContext`, 
 DVCUser, and DevCycle mobile environment key:
@@ -396,7 +396,7 @@ dvcClient.resetUser(new DVCCallback<Map<String, Variable<Object>>>() {
 ```
 
 
-If `onError` is called the user's configuration will not be updated and previous user's data will persist.
+If `onError` is called the user's configuration will not be updated and the previous user's data will persist.
 
 ### Tracking Events
 

@@ -54,6 +54,6 @@ const dvcClient = initialize('YOUR_CLIENT_KEY', user, {
 });
 ```
 
-After completing the steps above, users should be able to freely maneuver around adblockers and prevent them from blocking requests to our API servers and our SDK.
+After completing the steps above, users should be able to freely maneuver around AdBlockers and prevent them from blocking requests to our API servers and our SDK.
 
 If you have any questions regarding this process, please reach out to our [support](mailto:support@devcycle.com) team.

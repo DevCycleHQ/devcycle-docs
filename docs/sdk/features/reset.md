@@ -17,6 +17,8 @@ Currently, the Identify function is only available on Client-Side SDKs. These SD
 
 ### [• React SDK](/docs/sdk/client-side-sdks/react#resetting-user)
 
+### [• React Native SDK](/docs/sdk/client-side-sdks/react#resetting-user)
+
 ### [• iOS SDK](/docs/sdk/client-side-sdks/ios#identifying-user#reset-user)
 
 ### [• Android SDK](/docs/sdk/client-side-sdks/android#identifying-user#reset-user)
