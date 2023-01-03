@@ -256,23 +256,38 @@ variable.onUpdate(new DVCCallback<Variable<String>>() {
 });
 ```
 
-### Grabbing All Features / Variables
+### Get All Features
 
-To grab all the Features or Variables returned in the config:
+To grab all the Features returned in the config:
 
-#### *Kotlin example:*
+**Kotlin**
 
 ```kotlin
 var features: Map<String, Feature>? = dvcClient.allFeatures()
+```
 
+**Java**
+
+```java
+Map<String, Feature<Object>> variables = dvcClient.allFeatures();
+```
+
+If the SDK has not finished initializing, these methods will return an empty Map.
+
+
+### Get All Variables
+
+To get all the Variables returned in the config:
+
+**Kotlin**
+
+```kotlin
 var variables: Map<String, Variable<Any>>? = dvcClient.allVariables()
 ```
 
-#### *Java example:*
+**Java**
 
 ```java
-Map<String, Feature> features = dvcClient.allFeatures();
-
 Map<String, Variable<Object>> variables = dvcClient.allVariables();
 ```
 

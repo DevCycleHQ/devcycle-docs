@@ -39,161 +39,59 @@ Features which are within the Project that have rules disabled OR the user is no
 
 ## Client-Side SDK Usage
 
-### **JavaScript SDK**
+### JavaScript SDK
 
-To grab all the Features returned in the config:
+[View the Javascript Documentation for detailed info for getting all features for a user ](/docs/sdk/client-side-sdks/javascript#get-all-features) ➡️
 
-```js
-const features = dvcClient.allFeatures()
-```
+### React SDK
 
-If the SDK has not finished initializing, these methods will return an empty object. Read [Waiting for Features](/docs/sdk/client-side-sdks/javascript#waiting-for-features) to mitigate this.
+[View the React Documentation for detailed info for getting all features for a user ](/docs/sdk/client-side-sdks/react#get-all-features#getting-all-features--variables) ➡️
 
-### **React SDK**
+:::note
 
-Refer to [Javascript SDK](#javascript-sdk)
+The DevCycle React SDK is built upon the JavaScript SDK. For more details, view [the JavaScript SDK documentation](/docs/sdk/client-side-sdks/javascript#get-all-features)
 
-### **iOS SDK**
+:::
 
-To grab all the Features returned in the config:
+### iOS SDK
 
-```swift
-let features: [String: Feature] = dvcClient.allFeatures()
-```
+[View the iOS Documentation for detailed info for getting all features for a user using Swift/Objective-C ](/docs/sdk/client-side-sdks/ios#get-all-features#get-all-features) ➡️
 
-If the SDK has not finished initializing, these methods will return an empty object.
+### Android SDK
 
-### **Android SDK**
-
-To grab all the Features returned in the config:
-
-**Kotlin**
-
-```kotlin
-var features: Map<String, Feature>? = dvcClient.allFeatures()
-```
-
-**Java**
-
-```java
-Map<String, Variable<Object>> variables = dvcClient.allVariables();
-
-```
-
-
-If the SDK has not finished initializing, these methods will return an empty Map.
+[View the iOS Documentation for detailed info for getting all features for a user using Java/Kotlin ](/docs/sdk/client-side-sdks/android#get-all-features) ➡️
 
 ## Server-Side SDK Usage
 
-### **Node.js SDK (server-side)**
+### NodeJS SDK (server-side)
+
+[View the NodeJS Documentation for detailed info for getting all features for a user ](/docs/sdk/server-side-sdks/node#getting-all-features) ➡️
+
+### Go SDK
+
+[View the Go Documentation for detailed info for getting all features for a user ](/docs/sdk/server-side-sdks/go#getting-all-features) ➡️
+
+### Ruby SDK
+
+[View the Ruby Documentation for detailed info for getting all features for a user ](/docs/sdk/server-side-sdks/ruby#getting-all-features) ➡️
+
+### PHP SDK
+
+[View the PHP Documentation for detailed info for getting all features for a user ](/docs/sdk/server-side-sdks/php#getting-all-features) ➡️
 
 
-You can fetch all segmented features for a user:
+### .NET / C# Cloud SDK
 
-```javascript
-const features = dvcClient.allFeatures(user)
-```
+[View the Ruby Documentation for detailed info for getting all features for a user ](/docs/sdk/server-side-sdks/dotnet-cloud#getting-all-features) ➡️
 
-### **Python SDK**
+### .NET / C# Local SDK
 
-```python
-    try:
-        # Get all features by key for user data
-        features = dvc.all_features(user)
-        print(features)
-    except ApiException as e:
-        print("Exception when calling DVCClient->all_features: %s\n" % e)
-    
-```
+[View the .NET Documentation for detailed info for getting all features for a user ](/docs/sdk/server-side-sdks/dotnet-local#getting-all-features) ➡️
 
-### **Go SDK**
+### Java Local SDK
 
-This method will fetch all features for a given user and return them in a map of `key: feature_object`
+[View the Java Documentation for detailed info for getting all features for a user ](/docs/sdk/server-side-sdks/java-local#getting-all-features) ➡️
 
-```go
-features, err := dvcClient.DevcycleApi.AllFeatures(auth, user)
-```
+### Java Cloud SDK
 
-### **Ruby SDK**
-
-```ruby
-begin
-  #Get all features for user data
-  result = api_instance.all_features(user_data)
-  p result
-rescue DevCycle::ApiError => e
-  puts "Exception when calling DVCClient->all_features: #{e}"
-end
-```
-
-### **PHP SDK**
-
-```php
-try {
-    $result = $apiInstance->allFeatures($user_data);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling DVCClient->allFeatures: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### **.NET / C# SDK**
-
-This method will fetch all features for a given user and return them as Dictionary<String, Feature>
-
-```c
-using System;
-using System.Diagnostics;
-using DevCycle.Api;
-using DevCycle.Model;
-
-namespace Example
-{
-    public class AllFeaturesExample
-    {
-        public async Task main()
-        {
-            // Ensure REST Client resources are correctly disposed once no longer required
-            using DVCClient dvcClient = new DVCClient("YOUR_API_KEY");
-            var user = new User("user_id"); 
-
-            try
-            {
-                Dictionary<string, Feature> result = await dvcClient.AllFeaturesAsync(user);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling DVCClient.AllFeaturesAsync: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Java SDK
-
-This method will fetch all features for a given user and return them as Map<String, Feature>
-
-```java
-import com.devcycle.sdk.server.api.DVCClient;
-
-public class MyClass {
-    
-    private DVCClient dvcClient;
-    
-    public MyClass() {
-        dvcClient = new DVCClient("your_server_key");
-    }
-    
-    public void allFeatures() {
-        User user = User.builder()
-                .userId("a_user_id")
-                .country("US")
-                .build();
-
-        Map<String, Feature> features = dvcClient.allFeatures(user);
-    }
-}
-```
-
+[View the Java Documentation for detailed info for getting all features for a user ](/docs/sdk/server-side-sdks/java-cloud#getting-all-features) ➡️

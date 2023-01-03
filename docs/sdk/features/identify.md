@@ -30,15 +30,13 @@ The user data object that you should use across SDKs should look something like 
 }
 ```
 
-:::info
+### Anonymous Users
 
-**Anonymous Users**
+:::info
 
 If a user id is not supplied, client-side SDKs will automatically generate a user id and assign it to the current user. This id will be cached and used between app opens / website visits until a user id is supplied or [reset](/docs/sdk/features/reset) is called. This will ensure you will not experience a rise in MAUs if the main experience of your application is in a logged-out or anonymous state. 
 
 :::
-
-
 
 :::tip
 
@@ -46,227 +44,7 @@ In some cases, you may be releasing a feature broadly and not to users, specific
 
 :::
 
-### Client-Side SDK Usage
-
-The Identify function is what is used on the Client-Side SDKs to set User IDs as well as custom properties. These SDKs are built to work in a single-user context on the device. The DevCycle Client-Side SDKs contain local storage of the current user's information for re-use with each function call. Using the Identify function will add to this storage.
-
-Any call to the Identify function will return the list of relevant Features and Variables for the User. 
-
-If your application handles multiple users at once, simply call the Identify function with their new user object and DevCycle will retrieve that user's set of Features and Variables.
-
-To reset a user completely, please view [Resetting a User](/docs/sdk/features/reset).
-
-
-### **JavaScript SDK**
-
-To identify a different user, or the same user passed into the initialize with more properties, pass in the entire user properties object into `identifyUser`:
-
-```js
-const user = {
-    user_id: 'user1',
-    name: 'user 1 name',
-    customData: {
-        customKey: 'customValue'
-    }
-}
-dvcClient.identifyUser(user)
-```
-
-To wait on Variables that will be returned from the identify call, you can pass in a callback or use the Promise returned if no callback is passed in:
-
-```js
-const variableSet = await dvcClient.identifyUser(user)
-
-// OR
-
-dvcClient.identifyUser(user, (err, variables) => {
-    // variables is the variable set for the identified user
-})
-```
-
-### **React SDK**
-
-Similar to the Javascript SDK, you can call the `identifyUser` method on the client object obtained from using the `useDVCClient` hook:
-
-```js
-import { useDVCClient } from '@devcycle/devcycle-react-sdk'
-
-const user = {
-  user_id: 'user1',
-  name: 'user 1 name',
-  customData: {
-    customKey: 'customValue'
-  }
-}
-const client = useDVCClient()
-client.identifyUser(user)
-```
-
-### **iOS SDK**
-
-To identify a different user, or the same user passed into the initialize method with more properties,
-build a DVCUser object and pass it into `identifyUser`:
-
-```swift
-let user = try DVCUser.builder()
-                    .userId("my-user1")
-                    .email("my-email@email.com")
-                    .appBuild(1005)
-                    .appVersion("1.1.1")
-                    .country("CA")
-                    .name("My Name")
-                    .language("EN")
-                    .customData([
-                        "customkey": "customValue"
-                    ])
-                    .privateCustomData([
-                        "customkey2": "customValue2"
-                    ])
-                    .build()
-dvcClient.identifyUser(user)
-```
-
-To wait on Variables that will be returned from the identify call, you can pass in a DVCCallback:
-
-```swift
-try dvcClient.identifyUser(user) { error, variables in
-    if (error != nil) {
-        // error identifying user
-    } else {
-        // use variables 
-    }
-}
-```
-
-If `error` exists the called the user's configuration will not be updated and previous user's data will persist.
-
-### **Android SDK**
-
-To identify a different user, or the same user passed into the initialize method with more properties,
-build a DVCUser object and pass it into `identifyUser`:
-
-```kotlin
-var user = DVCUser.builder()
-                .withUserId("test_user")
-                .withEmail("test_user@devcycle.com")
-                .withCustomData(mapOf("custom_key" to "value"))
-                .build()
-dvcClient.identifyUser(user)
-```
-
-To wait on Variables that will be returned from the identify call, you can pass in a DVCCallback:
-
-```kotlin
-dvcClient.identifyUser(user, object: DVCCallback<Map<String, Variable<Any>>> {
-    override fun onSuccess(result: Map<String, Variable<Any>>) {
-         // new user configuration loaded successfully from DevCycle
-    }
-
-    override fun onError(t: Throwable) {
-        // user configuration failed to load from DevCycle, existing user's data will persist.
-    }
-})
-```
-
-### Server-Side SDK Usage
-
-Unlike the Client-Side SDKs, Server-Side SDKs work in a multi-user context. Because of this, a single Identify function does not make sense. Instead, you must create a User object that is passed into each function call with the relevant user data given the current application context.
-
-As well, unlike the Client-Side SDKs, because Server-Side SDKs poll for project configuration updates, updating the User object that you have set will not explicitly grab new feature configurations. The User object once set can be used to get feature, variation and variable information for a given user or entity.
-
-### Node SDK
-
-The full user data must be passed into every method. The only required field is the `user_id`. 
-The rest are optional and are used by the system for user segmentation into variables and features.
-
-```javascript
-const user = {
-    user_id: 'user1@devcycle.com',
-    name: 'user 1 name',
-    customData: {
-        customKey: 'customValue'
-    }
-}
-const variable = dvcClient.variable(user, 'test-feature', false)
-```
-
-### C# SDK
-
-The full user data must be passed into every method. The only required field is the `user_id`. 
-The rest are optional and are used by the system for user segmentation into variables and features.
-
-See the User class in [.NET User model doc](https://github.com/DevCycleHQ/dotnet-server-sdk/blob/main/docs/User.md) for all accepted fields including custom fields.
-
-```csharp
-User user = new User("a_user_id");
-```
-
-### Go SDK
-
-The full user data must be passed into every method. The only required field is `UserId`. 
-The rest are optional and are used by the system for user segmentation into variables and features.
-
-See the User model in the [Go User model doc](https://github.com/DevCycleHQ/go-server-sdk/blob/main/model_user_data.go) for all accepted fields including custom fields.
-
-```go
-    user := devcycle.UserData{UserId: "test"}
-```
-
-### Python SDK
-
-The full user data must be passed into every method. The only required field is `user_id`. 
-The rest are optional and are used by the system for user segmentation into variables and features.
-
-See the User model in the [Python user model doc](https://github.com/DevCycleHQ/python-server-sdk/blob/main/devcycle_python_sdk/models/user_data.py) for all accepted fields including custom fields.
-
-```python
-user = UserData(
-    user_id='test',
-    email='example@example.ca',
-    country='CA'
-)
-```
-
-### Ruby SDK
-
-The full user data must be passed into every method. The only required field is `user_id`. 
-The rest are optional and are used by the system for user segmentation into variables and features.
-
-See the User model in the [Ruby user model doc](https://github.com/DevCycleHQ/ruby-server-sdk/blob/main/lib/devcycle-ruby-server-sdk/models/user_data.rby) for all accepted fields including custom fields.
-
-```ruby
-user_data = DevCycle::UserData.new({user_id: 'user_id_example'}) # UserData | 
-```
-
-### PHP SDK
-
-The full user data must be passed into every method. The only required field is `user_id`. 
-The rest are optional and are used by the system for user segmentation into variables and features.
-
-See the User model in the [PHP user model doc](https://github.com/DevCycleHQ/php-server-sdk/blob/main/lib/Model/UserData.php) for all accepted fields including custom fields.
-
-
-```php
-    $user_data = new \DevCycle\Model\UserData(array(
-    "user_id"=>"my-user"
-    )); // \DevCycle\Model\UserData
-```
-
-### Java SDK
-
-### User Object
-The user object is required for all methods. The only required field in the user object is `userId`.
-
-See the User class in [Java User model doc](https://github.com/DevCycleHQ/java-server-sdk/blob/main/docs/User.md) for all accepted fields including custom fields.
-
-```java
-User user = User.builder()
-    .userId("a_user_id")
-    .build();
-```
-
-
-## Custom Data vs. Private Custom Data
+### Custom Data vs. Private Custom Data
 
 When setting custom properties you have a choice between keeping that data completely private or allowing for the data to be logged back to DevCycle's events database. Both options allow for the same targeting capabilities, but you should use Private Custom Data if you are looking to avoid having user data saved to any external system.
 
@@ -280,4 +58,74 @@ With regular Custom Data, the data used for evaluation purposes is logged back t
 **EdgeDB Usage:** Given Private Custom Data is not written to any DevCycle systems it cannot be used with EdgeDB, as EdgeDB by its nature saves Custom Data to an Edge Database for flag evaluations.
 
 :::
+
+## Client-Side SDK Usage
+
+The Identify function is what is used on the Client-Side SDKs to set User IDs as well as custom properties. These SDKs are built to work in a single-user context on the device. The DevCycle Client-Side SDKs contain local storage of the current user's information for re-use with each function call. Using the Identify function will add to this storage.
+
+Any call to the Identify function will return the list of relevant Features and Variables for the User. 
+
+If your application handles multiple users at once, simply call the Identify function with their new user object and DevCycle will retrieve that user's set of Features and Variables.
+
+To reset a user completely, please view [Resetting a User](/docs/sdk/features/reset).
+
+
+### Javascript SDK
+
+[View the Javascript Documentation for detailed info on identifying users/contexts ](/docs/sdk/client-side-sdks/javascript#identifying-user) ➡️
+
+### React SDK
+
+[View the React Documentation for detailed info identifying users/contexts ](/docs/sdk/client-side-sdks/react#identifying-users) ➡️
+
+### iOS SDK
+
+[View the iOS Documentation for detailed info identifying users/contexts ](/docs/sdk/client-side-sdks/ios#identifying-user) ➡️
+
+### Android SDK
+
+[View the Android Documentation for detailed info identifying users/contexts ](/docs/sdk/client-side-sdks/android#identifying-user) ➡️
+
+## Server-Side SDK Usage
+
+Unlike the Client-Side SDKs, Server-Side SDKs work in a multi-user context. Because of this, a single Identify function does not make sense. Instead, you must create a User object that is passed into each function call with the relevant user data given the current application context.
+
+As well, unlike the Client-Side SDKs, because Server-Side SDKs poll for project configuration updates, updating the User object that you have set will not explicitly grab new feature configurations. The User object once set can be used to get feature, variation and variable information for a given user or entity.
+
+### Node SDK
+
+[View the NodeJS Documentation for detailed info identifying users/contexts ](/docs/sdk/client-side-sdks/node#user-object) ➡️
+
+### C# / .NET Local SDK
+
+[View the .NET Local Documentation for detailed info identifying users/contexts ](/docs/sdk/server-side-sdks/dotnet-local#user-object) ➡️
+
+### C# / .NET Cloud SDK
+
+[View the .NET Cloud Documentation for detailed info identifying users/contexts ](/docs/sdk/server-side-sdks/dotnet-cloud#user-object) ➡️
+
+### Go SDK
+
+[View the Go Documentation for detailed info identifying users/contexts ](/docs/sdk/server-side-sdks/go#user-object) ➡️
+
+### Python SDK
+
+[View the Python Documentation for detailed info identifying users/contexts ](/docs/sdk/server-side-sdks/python#user-object) ➡️
+
+### Ruby SDK
+
+[View the Ruby Documentation for detailed info identifying users/contexts ](/docs/sdk/server-side-sdks/ruby#user-object) ➡️
+
+### PHP SDK
+
+[View the PHP Documentation for detailed info identifying users/contexts ](/docs/sdk/server-side-sdks/php#user-object) ➡️
+
+### Java Local SDK
+
+[View the Java Local Documentation for detailed info identifying users/contexts ](/docs/sdk/server-side-sdks/java-local#user-object) ➡️
+
+### Java Cloud SDK
+
+[View the Java Local Documentation for detailed info identifying users/contexts ](/docs/sdk/server-side-sdks/java-cloud#user-object) ➡️
+
 

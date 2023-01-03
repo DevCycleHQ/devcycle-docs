@@ -121,7 +121,7 @@ dvcClient.onClientInitialized((err) => {
 })
 ```
 
-## Grabbing Variable Values
+## Getting Variable Values
 
 To get values from your Features, `.variable` is used to fetch variable values using the identifier `key` coupled with a default value. The default value can be of type string, boolean, number, or object.
 
@@ -197,18 +197,29 @@ dvcClient.resetUser((err, variables) => {
 });
 ```
 
-## Grabbing All Features / Variables
+## Get All Features
 
-To grab all the Features or Variables returned in the config:
+To retrieve all the Features returned in the config:
 
-```javascript
-const features = client.allFeatures();
-const variables = client.allVariables();
+```js
+const features = dvcClient.allFeatures()
 ```
 
-If the SDK has not finished initializing, these methods will return an empty object.
+If the SDK has not finished initializing, these methods will return an empty object. Read [Waiting for Features](/docs/sdk/client-side-sdks/javascript#waiting-for-features) to mitigate this.
 
-See [getVariables](https://docs.devcycle.com/bucketing-api/#operation/getVariables) and [getFeatures](https://docs.devcycle.com/bucketing-api/#operation/getFeatures) on the Bucketing API for the response formats.
+See [getFeatures](https://docs.devcycle.com/bucketing-api/#operation/getFeatures) in the Bucketing API for detailed response formats.
+
+## Get All Variables
+
+To grab all the Features returned in the config:
+
+```js
+const variables = dvcClient.allVariables()
+```
+
+If the SDK has not finished initializing, these methods will return an empty object. Read [Waiting for Features](/docs/sdk/client-side-sdks/javascript#waiting-for-features) to mitigate this.
+
+See [getVariables](https://docs.devcycle.com/bucketing-api/#operation/getVariables) in the Bucketing API for detailed response formats.
 
 ## Tracking Events
 

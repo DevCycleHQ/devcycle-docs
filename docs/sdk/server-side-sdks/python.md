@@ -51,6 +51,21 @@ import devcycle_python_sdk
 
 ## Usage
 
+### User Object
+
+The full user data must be passed into every method. The only required field is `user_id`. 
+The rest are optional and are used by the system for user segmentation into variables and features.
+
+See the User model in the [Python user model doc](https://github.com/DevCycleHQ/python-server-sdk/blob/main/devcycle_python_sdk/models/user_data.py) for all accepted fields including custom fields.
+
+```python
+user = UserData(
+    user_id='test',
+    email='example@example.ca',
+    country='CA'
+)
+```
+
 ### Getting All Features
 ```python
     try:

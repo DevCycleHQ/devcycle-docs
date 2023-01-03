@@ -55,7 +55,7 @@ There are two ways to initialize the SDK:
   your application will be ready to use the SDK.
 * Blocking: This allows you to delay the rendering of your application until the request to initialize the SDK is completed.
 
-To use these providers, you must grab the Environment Key from the DevCycle Dashboard.
+To use these providers, you must get the Environment Key from the DevCycle Dashboard.
 You can optionally pass in a user object to the provider to initialize the SDK.
 If you do not pass in a user to the provider, it will create an anonymous user and initialize the SDK with it.
 You can then call the `identifyUser` method on the client once the user has been authenticated.
@@ -260,7 +260,7 @@ dvcClient.resetUser((err, variables) => {
 
 ### Getting All Features / Variables
 
-To grab all the Features or Variables that have been enabled for this user:
+To get all the Features or Variables that have been enabled for this user:
 
 ```js
 const features = dvcClient.allFeatures()
@@ -272,6 +272,14 @@ The client object can be obtained from the [useDVCClient](#getting-the-devcycle-
 If the SDK has not finished initializing, these methods will return an empty object.
 
 See [getVariables](https://docs.devcycle.com/bucketing-api/#operation/getVariables) and [getFeatures](https://docs.devcycle.com/bucketing-api/#operation/getFeatures) on the Bucketing API for the response formats.
+
+
+:::note
+
+The DevCycle React SDK is built upon the JavaScript SDK. For further details, view [the JavaScript SDK documentation](/docs/sdk/client-side-sdks/javascript)
+
+:::
+
 
 
 ### Track Events
