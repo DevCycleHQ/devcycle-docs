@@ -66,7 +66,7 @@ user_data = DevCycle::UserData.new({user_id: 'user_id_example'}) # UserData |
 The full user data must be passed into every method. The only required field is `user_id`. 
 The rest are optional and are used by the system for user segmentation into variables and features.
 
-See the User model in the [Ruby user model doc](https://github.com/DevCycleHQ/ruby-server-sdk/blob/main/lib/devcycle-ruby-server-sdk/models/user_data.rby) for all accepted fields including custom fields.
+See the User model in the [Ruby user model doc](https://github.com/DevCycleHQ/ruby-server-sdk/blob/main/lib/devcycle-ruby-server-sdk/models/user_data.rb) for all accepted fields including custom fields.
 
 ```ruby
 user_data = DevCycle::UserData.new({user_id: 'user_id_example'}) # UserData | 
