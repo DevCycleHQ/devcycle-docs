@@ -41,17 +41,20 @@ yarn add @devcycle/devcycle-react-native-sdk
 npx pod-install
 ```
 
+The [@react-native-async-storage/async-storage](https://www.npmjs.com/package/@react-native-async-storage/async-storage) package provides the ability to leverage on Device Storage that is used for caching by the SDK.
 The [react-native-get-random-values](https://www.npmjs.com/package/react-native-get-random-values) package provides a polyfill for cryptographic functionality used to generate random IDs.
 The [react-native-device-info](https://www.npmjs.com/package/react-native-device-info) package provides information about the current device running the SDK, which is required to correctly apply targeting rules.
 
-3. Import the `react-native-get-random-values` package somewhere in your code (e.g. in the `App.jsx` file). (see example below)
-4. Import the `react-native-device-info` package and set `global.DeviceInfo = DeviceInfo`. (see example below)
+3. Install & Import the `@react-native-async-storage/async-storage` package somewhere in your code (e.g. in the `App.jsx` file). (see example below)
+4. Install & Import the `react-native-get-random-values` package somewhere in your code (e.g. in the `App.jsx` file). (see example below)
+5. Install & Import the `react-native-device-info` package and set `global.DeviceInfo = DeviceInfo`. (see example below)
 
 Example of the above steps:
 ```javascript
 import React from 'react'
 import 'react-native-get-random-values'
 import DeviceInfo from 'react-native-device-info'
+import '@react-native-async-storage/async-storage'
 import { withDVCProvider } from '@devcycle/devcycle-react-native-sdk'
 
 global.DeviceInfo = DeviceInfo
@@ -71,6 +74,7 @@ import { View, Text } from 'react-native'
 
 import 'react-native-get-random-values'
 import DeviceInfo from 'react-native-device-info'
+import '@react-native-async-storage/async-storage'
 import { withDVCProvider } from '@devcycle/devcycle-react-native-sdk'
 
 global.DeviceInfo = DeviceInfo
