@@ -50,11 +50,11 @@ The Server-Side SDK key must be kept secret, as it has access to the full config
 
 #### Client-Side SDK Keys
 
-All of the DevCycle Client-Side SDKs (non-mobile) should be initialized with the environment's Client-Side SDK key. This SDK key provides read-only access to the features accessible by a given user on your DevCycle environment. This SDK Key grants access to the DevCycle SDK API, which returns user-customized configurations including feature information which they are permitted to access.
+All of the DevCycle Client-Side SDKs (non-mobile) should be initialized with the environment's Client-Side SDK key. This SDK key provides read-only access to the features accessible by a given user on your DevCycle environment. Specifically, it grants access to the DevCycle SDK API, which returns user-customized configurations including feature information which they are permitted to access.
 
 #### Mobile SDK Keys
 
-All of the DevCycle Mobile SDKs should be initialized with the Environment's Mobile SDK key. This SDK key provides read-only access to the features accessible by a given user on your DevCycle environment. This SDK Key grants access to the DevCycle SDK API, which returns user-customized configurations including feature information which they are permitted to access.
+All of the DevCycle Mobile SDKs should be initialized with the Environment's Mobile SDK key. This SDK key provides read-only access to the features accessible by a given user on your DevCycle environment. Specifically, it grants access to the DevCycle SDK API, which returns user-customized configurations including feature information which they are permitted to access.
 
 This key is separate from the standard SDK keys due to the differing security requirements of client-side (eg. browser) and mobile use cases. Separation allows one key to be rotated without affecting the other. In the future, it will also be possible to control feature availability specifically for mobile keys.
 
