@@ -46,13 +46,6 @@ Once your Variable is created, it will appear on the Variables screen:
 
 ![Variables Page of a Feature with Two Variables](/december_2021_two-variables.png)
 
-
-### Creating a Variable in Code
-
-DevCycle Variables do not first need to be created in the DevCycle dashboard. If a DevCycle Variable is referenced in code and that application or system connects to DevCycle, the Variable's name and type will already be known and can be seen in the [Variable dashboard](/docs/home/feature-management/organizing-your-flags-and-variables/variable-dashboard).
-
-When a Variable is not yet associated with a Feature, or if a Variable was associated with Feature which has been Archived/Deleted, it may then be associated with any Feature. 
-
 ### Deleting a Variable
 
 To "delete" a Variable, simply click on the `x` button at the end of that Variable's row and confirm the deletion in the following modal. The default or initial Variable may not be deleted. 
