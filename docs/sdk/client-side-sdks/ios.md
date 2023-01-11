@@ -250,7 +250,8 @@ If the value is not ready, it will return the default value passed in the creati
 ### Variable Updates
 
 Variable values update whenever `identifyUser()` or `resetUser()` are called, or when the project configuration changes (to learn more, visit our [Realtime Updates](/docs/sdk/features/realtime-updates) page).
-To listen for variable updates, the `onUpdate()` method can be used:
+
+To listen for variable updates, the `onUpdate()` method can be used. Please note, a strong reference to the variable is needed for `onUpdate` to be triggered.
 
 #### Swift
 ```swift
