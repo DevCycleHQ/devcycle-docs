@@ -33,10 +33,7 @@ Then, run `flutter pub get`.
 
 ### Initializing the SDK
 
-We recommend initializing the SDK once and pass around the client instance around in your app.
-
-#### Dart
-Using the builder pattern we can initialize the DevCycle SDK by providing the DVCUser and DevCycle mobile environment key:
+We recommend initializing the SDK once and pass around the client instance around in your app. Using the builder pattern we can initialize the DevCycle SDK by providing the DVCUser and DevCycle mobile environment key:
 
 ```dart
 void main() {
@@ -117,20 +114,14 @@ The SDK exposes various initialization options which can be used by passing a `D
 
 In the initialize call there is an optional `onInitialized` parameter you can use to determine when your features have been loaded:
 
-#### Swift
-
-```swift
-self.dvcClient = try? DVCClient.builder()
-        .environmentKey("<DEVCYCLE_MOBILE_ENVIRONMENT_KEY>")
-        .user(user)
-        .options(options)
-        .build(onInitialized: { error in
-            if (error != nil) {
-                // there was an error with building the client
-            } else {
-                // initialized successfully
-            }
-        })
+```dart
+final _dvcClient = DVCClientBuilder()
+    .environmentKey('<DEVCYCLE_MOBILE_ENVIRONMENT_KEY>')
+    .user(user)
+    .build()
+    .onInitialized((error) {
+        print(error)
+    });
 ```
 
 ### Using Variable Values
@@ -144,7 +135,7 @@ string, boolean, number, or JSONObject:
 final boolVariable = _dvcClient.variable(key: "bool_key", defaultValue: false)
 final strVariable = _dvcClient.variable(key: "string_key", defaultValue: "default")
 final numVariable = _dvcClient.variable(key: "num_key", defaultValue: 4)
-final jsonVariable = _dvcClient.variable(key: "json_key", defaultValue: [:])
+final jsonVariable = _dvcClient.variable(key: "json_key", defaultValue: { "key": "value" })
 ```
 
 To grab the value, there is a property on the object returned to grab the value:
@@ -220,8 +211,8 @@ DVCUser user = DVCUserBuilder()
     .country("CA")
     .name("My Name")
     .language("EN")
-    .customData([ "customkey": "customValue" ])
-    .privateCustomData([ "customkey2": "customValue2" ])
+    .customData({ "customkey": "customValue" })
+    .privateCustomData({ "customkey2": "customValue2" })
     .build()
 
 _dvcClient.identifyUser(user)
@@ -273,7 +264,7 @@ DVCEvent event = DVCEventBuilder()
     .target('my_target')
     .type('my_event')
     .value(3)
-    .metaData({'key': 'value'}).build();
+    .metaData({ 'key': 'value' }).build();
 _dvcClient.track(event);
 ```
 
@@ -295,9 +286,9 @@ Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to
 #### Dart
 ```dart
 DVCUser user = DVCUserBuilder()
-    .userId('test-user')
+    .userId('test_user')
     .email('test@example.com')
-    .customData([ "amountSpent": 50 ])
+    .customData({ "amountSpent": 50 })
     .build();
                  
 DVCOptions options = DVCOptionsBuilder()
