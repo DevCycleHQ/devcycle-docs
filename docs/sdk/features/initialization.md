@@ -29,7 +29,9 @@ If a variable is first read from the cache and has a listener for [realtime upda
 
 ### [• Android SDK](/docs/sdk/client-side-sdks/android#using-variable-values)
 
-### [• React Native SDK](/docs/sdk/client-side-sdks/android#getting-started)
+### [• React Native SDK](/docs/sdk/client-side-sdks/react-native#getting-started)
+
+### [• Flutter SDK](/docs/sdk/client-side-sdks/flutter#installation)
 
 ## Server-Side SDK Usage
 

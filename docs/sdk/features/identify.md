@@ -77,7 +77,9 @@ To reset a user completely, please view [Resetting a User](/docs/sdk/features/re
 
 ### [• Android SDK](/docs/sdk/client-side-sdks/android#identifying-user)
 
-### [• React SDK](/docs/sdk/client-side-sdks/react-native#identifying-users)
+### [• React Native SDK](/docs/sdk/client-side-sdks/react-native#identifying-users)
+
+### [• Flutter SDK](/docs/sdk/client-side-sdks/flutter#identifying-user)
 
 ## Server-Side SDK Usage
 
