@@ -139,18 +139,18 @@ To get values from your Features, the `variable()` method is used to fetch varia
 the variable's identifier `key` coupled with a default value. The default value can be of type 
 string, boolean, number, or JSONObject:
 
-#### Swift
-```swift
-let boolVariable = dvcClient.variable(key: "bool_key", defaultValue: false)
-let strVariable = dvcClient.variable(key: "string_key", defaultValue: "default")
-let numVariable = dvcClient.variable(key: "num_key", defaultValue: 4)
-let jsonVariable = dvcClient.variable(key: "json_key", defaultValue: [:])
+#### Dart
+```dart
+final boolVariable = _dvcClient.variable(key: "bool_key", defaultValue: false)
+final strVariable = _dvcClient.variable(key: "string_key", defaultValue: "default")
+final numVariable = _dvcClient.variable(key: "num_key", defaultValue: 4)
+final jsonVariable = _dvcClient.variable(key: "json_key", defaultValue: [:])
 ```
 
 To grab the value, there is a property on the object returned to grab the value:
 
-#### Swift
-```swift
+#### Dart
+```dart
 if (boolVariable.value == true) {
     // Run Feature Flag Code
 } else {
@@ -174,12 +174,12 @@ Variable values update whenever `identifyUser()` or `resetUser()` are called, or
 
 To listen for variable updates, the `onUpdate()` method can be used. Please note, a strong reference to the variable is needed for `onUpdate` to be triggered.
 
-#### Swift
-```swift
-let boolVariable = dvcClient.variable(key: "bool_key", defaultValue: false)
-                        .onUpdate { value in
-    // Variable value updated
-}
+#### Dart
+```dart
+final variable = await _dvcClient.variable('my-variable', 'Default Value');
+variable?.onUpdate((updatedVariable) {
+        // Variable value updated updatedVariable.value
+});
 ```
 
 ### Grabbing All Features / Variables
@@ -188,10 +188,9 @@ let boolVariable = dvcClient.variable(key: "bool_key", defaultValue: false)
 
 To get all the Features returned in the config:
 
-**Swift**
-
-```swift
-let features: [String: Feature] = dvcClient.allFeatures()
+#### Dart
+```dart
+Map<String, DVCFeature> features = await _dvcClient.allFeatures();
 ```
 
 If the SDK has not finished initializing, these methods will return an empty object.
@@ -201,10 +200,9 @@ If the SDK has not finished initializing, these methods will return an empty obj
 
 To get all the variables returned in the config:
 
-**Swift**
-
-```swift
-let variables: [String: Variable] = dvcClient.allVariables()
+#### Dart
+```dart
+Map<String, DVCVariable> variables = await _dvcClient.allVariables();
 ```
 
 If the SDK has not finished initializing, these methods will return an empty object.
@@ -214,22 +212,19 @@ If the SDK has not finished initializing, these methods will return an empty obj
 To identify a different user, or the same user passed into the initialize method with more attributes, 
 build a DVCUser object and pass it into `identifyUser`:
 
-#### Swift
-```swift
-do {
-    let user = try DVCUser.builder()
-                        .userId("my-user1")
-                        .email("my-email@email.com")
-                        .country("CA")
-                        .name("My Name")
-                        .language("EN")
-                        .customData([ "customkey": "customValue" ])
-                        .privateCustomData([ "customkey2": "customValue2" ])
-                        .build()
-    try dvcClient.identifyUser(user: user)
-} catch {
-    print("Error building new DVCUser: \(error)")
-}
+#### Dart
+```dart
+DVCUser user = DVCUserBuilder()
+    .userId('my-user1')
+    .email('my-email@email.com')
+    .country("CA")
+    .name("My Name")
+    .language("EN")
+    .customData([ "customkey": "customValue" ])
+    .privateCustomData([ "customkey2": "customValue2" ])
+    .build()
+
+_dvcClient.identifyUser(user)
 ```
 
 To wait on Variables that will be returned from the identify call, you can pass in a DVCCallback:
@@ -252,9 +247,9 @@ If `error` exists the called the user's configuration will not be updated and pr
 To reset the user into an anonymous user, `resetUser` will reset to the anonymous user created before 
 or will create one with an anonymous `user_id`.
 
-#### Swift
-```swift
-try dvcClient.resetUser()
+#### Dart
+```dart
+_dvcClient.resetUser();
 ```
 
 To wait on the Features of the anonymous user, you can pass in a DVCCallback:
@@ -272,23 +267,21 @@ If `error` exists is called the user's configuration will not be updated and pre
 
 To track events, pass in an object with at least a `type` key:
 
-#### Swift
-```swift
-let event = try DVCEvent.builder()
-                        .type("my_event")
-                        .target("my_target")
-                        .value(3)
-                        .metaData([ "key": "value" ])
-                        .clientDate(Date())
-                        .build()
-dvcClient.track(event)
+#### Dart
+```dart
+DVCEvent event = DVCEventBuilder()
+    .target('my_target')
+    .type('my_event')
+    .value(3)
+    .metaData({'key': 'value'}).build();
+_dvcClient.track(event);
 ```
 
 The SDK will flush events every 10s or `flushEventsMS` specified in the options. To manually flush events, call:
 
-#### Swift
-```swift
-dvcClient.flushEvents()
+#### Dart
+```dart
+_dvcClient.flushEvents();
 ```
 
 ### EdgeDB
@@ -299,16 +292,17 @@ To get started, contact us at support@devcycle.com to enable EdgeDB for your pro
 
 Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to turn on EdgeDB mode for the SDK:
 
-#### Swift
-```swift
-let user = try? DVCUser.builder()
-                       .userId("test-user")
-                       .customData([ "amountSpent": 50 ])
-                       .build()
+#### Dart
+```dart
+DVCUser user = DVCUserBuilder()
+    .userId('test-user')
+    .email('test@example.com')
+    .customData([ "amountSpent": 50 ])
+    .build();
                  
-let options = DVCOptions.builder()
-                        .enableEdgeDB(true)
-                        .build()
+DVCOptions options = DVCOptionsBuilder()
+    .enableEdgeDB(true)
+    .build();
 ```
 
 This will send a request to our EdgeDB API to save the custom data under the user `test-user`.
