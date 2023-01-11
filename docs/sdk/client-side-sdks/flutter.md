@@ -51,11 +51,13 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-    final user = DVCUserBuilder().userId('123').build();
+    final user = DVCUserBuilder().isAnonymous(true).build();
+    final options = DVCOptionsBuilder().enableEdgeDB(false).build();
 
     final _dvcClient = DVCClientBuilder()
         .environmentKey('<DEVCYCLE_MOBILE_ENVIRONMENT_KEY>')
         .user(user)
+        .options(options)
         .build();
 
     @override
