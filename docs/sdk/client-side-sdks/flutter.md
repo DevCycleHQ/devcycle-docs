@@ -133,21 +133,6 @@ self.dvcClient = try? DVCClient.builder()
         })
 ```
 
-#### Objective-C
-
-```objc
-self.dvcClient = [DVCClient initialize:@"<DEVCYCLE_MOBILE_ENVIRONMENT_KEY>"
-                               user:user
-                            options:nil
-                      onInitialized:^(NSError * _Nullable error) {
-    if (error) {
-        NSLog(@"DevCycle failed to initialize: %@", error);
-    } else {
-        // initialized successfully
-    }
-}];
-```
-
 ### Using Variable Values
 
 To get values from your Features, the `variable()` method is used to fetch variable values using 
@@ -162,27 +147,10 @@ let numVariable = dvcClient.variable(key: "num_key", defaultValue: 4)
 let jsonVariable = dvcClient.variable(key: "json_key", defaultValue: [:])
 ```
 
-#### Objective-C
-```objc
-DVCVariable *boolVariable = [self.dvcClient boolVariableWithKey:@"bool_key" defaultValue:false];
-DVCVariable *strVariable = [self.dvcClient stringVariableWithKey:@"string_key" defaultValue:@"default"];
-DVCVariable *numVariable = [self.dvcClient numberVariableWithKey:@"num_key" defaultValue:@4];
-DVCVariable *jsonVariable = [self.dvcClient jsonVariableWithKey:@"json_key" defaultValue:@{}];
-```
-
 To grab the value, there is a property on the object returned to grab the value:
 
 #### Swift
 ```swift
-if (boolVariable.value == true) {
-    // Run Feature Flag Code
-} else {
-    // Run Default Code
-}
-```
-
-#### Objective-C
-```objc
 if (boolVariable.value == true) {
     // Run Feature Flag Code
 } else {
@@ -214,14 +182,6 @@ let boolVariable = dvcClient.variable(key: "bool_key", defaultValue: false)
 }
 ```
 
-#### Objective-C
-```objc
-DVCVariable *boolVar = [[self.dvcClient boolVariableWithKey:@"bool_key" defaultValue:true]
-                        onUpdateWithHandler:^(id _Nonnull value) {
-    // Variable value updated
-}];
-```
-
 ### Grabbing All Features / Variables
 
 ### Get All Features
@@ -232,12 +192,6 @@ To get all the Features returned in the config:
 
 ```swift
 let features: [String: Feature] = dvcClient.allFeatures()
-```
-
-**Objective C**
-
-```objc
-NSDictionary *allFeatures = [self.dvcClient allFeatures];
 ```
 
 If the SDK has not finished initializing, these methods will return an empty object.
@@ -251,12 +205,6 @@ To get all the variables returned in the config:
 
 ```swift
 let variables: [String: Variable] = dvcClient.allVariables()
-```
-
-**Objective-C**
-
-```objc
-NSDictionary *allVariables = [self.dvcClient allVariables];
 ```
 
 If the SDK has not finished initializing, these methods will return an empty object.
@@ -284,25 +232,6 @@ do {
 }
 ```
 
-#### Objective-C
-```objc
-DVCUser *user = [DVCUser initializeWithUserId:@"my-user1"];
-user.email = @"my-email@email.com";
-user.appBuild = @1005;
-user.appVersion = @"1.1.1";
-user.country = @"CA";
-user.name = @"My Name";
-user.language = @"EN";
-user.customData = @{@"customKey": @"customValue"};
-user.privateCustomData = @{@"customkey2": @"customValue2"};
-
-[self.dvcClient identifyUser:user callback:^(NSError *error, NSDictionary<NSString *,id> *variables) {
-    if (error) {
-        return NSLog(@"Error calling DVCClient identifyUser:callback: %@", error);
-    }
-}];
-```
-
 To wait on Variables that will be returned from the identify call, you can pass in a DVCCallback:
 
 #### Swift
@@ -314,17 +243,6 @@ try dvcClient.identifyUser(user: user) { error, variables in
         // use variables 
     }
 }
-```
-
-#### Objective-C
-```objc
-[self.dvcClient identifyUser:user callback:^(NSError *error, NSDictionary<NSString *,id> *variables) {
-    if (error) {
-        // error identifying user
-    } else {
-        // use variables 
-    }
-}];
 ```
 
 If `error` exists the called the user's configuration will not be updated and previous user's data will persist.
@@ -339,11 +257,6 @@ or will create one with an anonymous `user_id`.
 try dvcClient.resetUser()
 ```
 
-#### Objective-C
-```objc
-[self.dvcClient resetUser:nil];
-```
-
 To wait on the Features of the anonymous user, you can pass in a DVCCallback:
 
 #### Swift
@@ -352,18 +265,6 @@ try dvcClient.resetUser { error, variables in
     // anonymous user
 }
 ```
-
-#### Objective-C
-```objc
-[self.dvcClient resetUser:^(NSError *error, NSDictionary<NSString *,id> *variables) {
-    if (error) {
-        // Error resetting user, existing user used
-    } else {
-        // anonymous user
-    }
-}];
-```
-
 
 If `error` exists is called the user's configuration will not be updated and previous user's data will persist.
 
@@ -383,26 +284,11 @@ let event = try DVCEvent.builder()
 dvcClient.track(event)
 ```
 
-#### Objective-C
-```objc
-NSError *err = nil;
-DVCEvent *event = [DVCEvent initializeWithType:@"my-event"];
-[self.dvcClient track:event err:&err];
-if (err) {
-    NSLog(@"Error calling DVCClient track:err: %@", err);
-}
-```
-
 The SDK will flush events every 10s or `flushEventsMS` specified in the options. To manually flush events, call:
 
 #### Swift
 ```swift
 dvcClient.flushEvents()
-```
-
-#### Objective-C
-```objc
-[self.dvcClient flushEvents];
 ```
 
 ### EdgeDB
@@ -423,17 +309,6 @@ let user = try? DVCUser.builder()
 let options = DVCOptions.builder()
                         .enableEdgeDB(true)
                         .build()
-```
-
-#### Objective-C
-```objc
-DVCUser *user = [DVCUser initializeWithUserId:@"test-user"];
-user.customData = @{
-    @"amountSpent": @50,
-};
-
-DVCOptions *options = [[DVCOptions alloc] init];
-options.enableEdgeDB = @true;
 ```
 
 This will send a request to our EdgeDB API to save the custom data under the user `test-user`.
