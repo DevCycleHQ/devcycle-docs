@@ -130,7 +130,6 @@ To get values from your Features, the `variable()` method is used to fetch varia
 the variable's identifier `key` coupled with a default value. The default value can be of type 
 string, boolean, number, or JSONObject:
 
-#### Dart
 ```dart
 final boolVariable = _dvcClient.variable(key: "bool_key", defaultValue: false)
 final strVariable = _dvcClient.variable(key: "string_key", defaultValue: "default")
@@ -140,7 +139,6 @@ final jsonVariable = _dvcClient.variable(key: "json_key", defaultValue: { "key":
 
 To grab the value, there is a property on the object returned to grab the value:
 
-#### Dart
 ```dart
 if (boolVariable.value == true) {
     // Run Feature Flag Code
@@ -165,7 +163,6 @@ Variable values update whenever `identifyUser()` or `resetUser()` are called, or
 
 To listen for variable updates, the `onUpdate()` method can be used. Please note, a strong reference to the variable is needed for `onUpdate` to be triggered.
 
-#### Dart
 ```dart
 final variable = await _dvcClient.variable('my-variable', 'Default Value');
 variable?.onUpdate((updatedVariable) {
@@ -179,7 +176,6 @@ variable?.onUpdate((updatedVariable) {
 
 To get all the Features returned in the config:
 
-#### Dart
 ```dart
 Map<String, DVCFeature> features = await _dvcClient.allFeatures();
 ```
@@ -191,7 +187,6 @@ If the SDK has not finished initializing, these methods will return an empty obj
 
 To get all the variables returned in the config:
 
-#### Dart
 ```dart
 Map<String, DVCVariable> variables = await _dvcClient.allVariables();
 ```
@@ -203,7 +198,6 @@ If the SDK has not finished initializing, these methods will return an empty obj
 To identify a different user, or the same user passed into the initialize method with more attributes, 
 build a DVCUser object and pass it into `identifyUser`:
 
-#### Dart
 ```dart
 DVCUser user = DVCUserBuilder()
     .userId('my-user1')
@@ -238,7 +232,6 @@ If `error` exists the called the user's configuration will not be updated and pr
 To reset the user into an anonymous user, `resetUser` will reset to the anonymous user created before 
 or will create one with an anonymous `user_id`.
 
-#### Dart
 ```dart
 _dvcClient.resetUser();
 ```
@@ -258,7 +251,6 @@ If `error` exists is called the user's configuration will not be updated and pre
 
 To track events, pass in an object with at least a `type` key:
 
-#### Dart
 ```dart
 DVCEvent event = DVCEventBuilder()
     .target('my_target')
@@ -270,9 +262,18 @@ _dvcClient.track(event);
 
 The SDK will flush events every 10s or `flushEventsMS` specified in the options. To manually flush events, call:
 
-#### Dart
 ```dart
 _dvcClient.flushEvents();
+```
+
+An Error callback can also be passed to this method, that will be triggered if there is a non-recoverable failure when flushing events.
+
+```dart
+_dvcClient.flushEvents(
+    (([error]) => {
+        print(error)
+    })
+);
 ```
 
 ### EdgeDB
@@ -283,7 +284,6 @@ To get started, contact us at support@devcycle.com to enable EdgeDB for your pro
 
 Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to turn on EdgeDB mode for the SDK:
 
-#### Dart
 ```dart
 DVCUser user = DVCUserBuilder()
     .userId('test_user')
