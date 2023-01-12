@@ -170,7 +170,7 @@ variable?.onUpdate((updatedVariable) {
 });
 ```
 
-### Grabbing All Features / Variables
+### Getting All Features / Variables
 
 ### Get All Features
 
