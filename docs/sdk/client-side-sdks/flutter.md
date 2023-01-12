@@ -1,5 +1,5 @@
 ---
-title: Flutter SDK
+title: Flutter
 sidebar_position: 6
 ---
 
@@ -48,8 +48,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-    final user = DVCUserBuilder().isAnonymous(true).build();
-    final options = DVCOptionsBuilder().enableEdgeDB(false).build();
+    static final user = DVCUserBuilder().isAnonymous(true).build();
+    static final options = DVCOptionsBuilder().logLevel(LogLevel.error).build();
 
     final _dvcClient = DVCClientBuilder()
         .environmentKey('<DEVCYCLE_MOBILE_ENVIRONMENT_KEY>')
@@ -117,7 +117,7 @@ In the initialize call there is an optional `onInitialized` parameter you can us
 ```dart
 final _dvcClient = DVCClientBuilder()
     .environmentKey('<DEVCYCLE_MOBILE_ENVIRONMENT_KEY>')
-    .user(user)
+    .user(DVCUserBuilder().isAnonymous(true).build())
     .build()
     .onInitialized((error) {
         print(error)
