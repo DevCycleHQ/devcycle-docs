@@ -21,7 +21,7 @@ Below is a brief definition of the calculations used to determine the success of
 
 ### Type: Count per Variable Evaluation
 
-This type counts the total number of times this event has been seen ONLY when the actual related variable has been evaluated. This is a very useful case, as there may be evens which already exist within your system which could potentially also be impacted by this variable. In this case, this type of Metric represents the exact number of times that event has been sent ONLY after the related variable has since been evaluated for use.
+This type counts the total number of times this event has been seen ONLY when the actual related variable has been evaluated. This is a very useful case, as there may be events which already exist within your system which could potentially also be impacted by this variable. In this case, this type of Metric represents the exact number of times that event has been sent ONLY after the related variable has since been evaluated for use.
 
 ![Per Evaluation Example](/june-2022-per-evaluation-example.png)
 
