@@ -1,5 +1,5 @@
 ---
-title: Flutter
+title: Flutter SDK
 sidebar_position: 6
 ---
 
@@ -22,7 +22,7 @@ This version of the DevCycle Flutter Client SDK supports a minimum of Flutter 2,
 
 ### Pub
 
-The SDK can be installed into your Flutter project by adding the following to your pubspec.yaml:
+The SDK can be installed into your Flutter project by adding the following to your `pubspec.yaml`:
 
 ```dart
 devcycle_flutter_client_sdk: ^1.0.0
@@ -66,7 +66,7 @@ class _MyAppState extends State<MyApp> {
 }
 ```
 
-The user object needs either a `userId`, or `isAnonymous` set to `true` for an anonymous user. 
+The user object may specify a `userId` for a given User. If the `userId` is not specified, the User is considered to be anonymous.
 
 ### DVC Client Builder
 
@@ -214,15 +214,10 @@ _dvcClient.identifyUser(user)
 
 To wait on Variables that will be returned from the identify call, you can pass in a DVCCallback:
 
-#### Swift
-```swift
-try dvcClient.identifyUser(user: user) { error, variables in
-    if (error != nil) {
-        // error identifying user
-    } else {
-        // use variables 
-    }
-}
+```dart
+_dvcClient.identifyUser(user, (error, variables) => {
+    // Error or Variables for the Identified User
+})
 ```
 
 If `error` exists the called the user's configuration will not be updated and previous user's data will persist.
@@ -238,11 +233,10 @@ _dvcClient.resetUser();
 
 To wait on the Features of the anonymous user, you can pass in a DVCCallback:
 
-#### Swift
-```swift
-try dvcClient.resetUser { error, variables in
-    // anonymous user
-}
+```dart
+_dvcClient.resetUser((error, variables) => {
+    // Error or Variables for Anonymous User
+})
 ```
 
 If `error` exists is called the user's configuration will not be updated and previous user's data will persist.
@@ -256,7 +250,9 @@ DVCEvent event = DVCEventBuilder()
     .target('my_target')
     .type('my_event')
     .value(3)
+    .date(DateTime.now())
     .metaData({ 'key': 'value' }).build();
+
 _dvcClient.track(event);
 ```
 
@@ -269,11 +265,9 @@ _dvcClient.flushEvents();
 An Error callback can also be passed to this method, that will be triggered if there is a non-recoverable failure when flushing events.
 
 ```dart
-_dvcClient.flushEvents(
-    (([error]) => {
-        print(error)
-    })
-);
+_dvcClient.flushEvents(([error]) => {
+    // Error or null for Flushing Events
+});
 ```
 
 ### EdgeDB
