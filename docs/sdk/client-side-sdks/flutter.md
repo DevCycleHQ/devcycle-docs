@@ -16,11 +16,17 @@ The SDK is available as a package on Pub. It is also open source and can be view
 
 ## Requirements
 
-This version of the DevCycle Flutter Client SDK supports a minimum of Flutter 2, iOS 12 and Android API Version 21.
+This version of the DevCycle Flutter Client SDK requires a minimum of version of Flutter 2, iOS 12 and Android API Version 21.
 
 ## Installation
 
-### Pub
+Checkout [DevCycle Flutter Client SDK Releases](https://github.com/DevCycleHQ/flutter-client-sdk/releases) for the latest versions of the SDKs.
+
+### Flutter CLI
+
+The SDK can be installed into your Flutter project by running `flutter pub add devcycle_flutter_client_sdk`.
+
+### Pub Spec
 
 The SDK can be installed into your Flutter project by adding the following to your `pubspec.yaml`:
 
@@ -36,6 +42,8 @@ Then, run `flutter pub get`.
 We recommend initializing the SDK once and pass around the client instance around in your app. Using the builder pattern we can initialize the DevCycle SDK by providing the DVCUser and DevCycle mobile environment key:
 
 ```dart
+import 'package:devcycle_flutter_client_sdk/devcycle_flutter_client_sdk.dart';
+
 void main() {
     runApp(const MyApp());
 }
@@ -97,7 +105,7 @@ The DVC user can be built using the following methods:
 | privateCustomData | [String: Any] | Key/value map of properties to be used for targeting. Private properties will not be included in event logging. |
 
 ### DVC Options Builder
-The SDK exposes various initialization options which can be used by passing a `DVCOptions` object to the `withOptions` method of `DVCClient.builder()`:
+The SDK exposes various initialization options which can be used by passing a `DVCOptions` object to the `options` method of `DVCClient.builder()`:
 
 [DVC OptionsBuilder class](https://github.com/DevCycleHQ/flutter-client-sdk/blob/main/lib/dvc_options.dart#L27)
 
@@ -117,7 +125,7 @@ In the initialize call there is an optional `onInitialized` parameter you can us
 ```dart
 final _dvcClient = DVCClientBuilder()
     .environmentKey('<DEVCYCLE_MOBILE_ENVIRONMENT_KEY>')
-    .user(DVCUserBuilder().isAnonymous(true).build())
+    .user(DVCUserBuilder().build())
     .build()
     .onInitialized((error) {
         print(error)
@@ -131,10 +139,10 @@ the variable's identifier `key` coupled with a default value. The default value 
 string, boolean, number, or JSONObject:
 
 ```dart
-final boolVariable = _dvcClient.variable(key: "bool_key", defaultValue: false)
-final strVariable = _dvcClient.variable(key: "string_key", defaultValue: "default")
-final numVariable = _dvcClient.variable(key: "num_key", defaultValue: 4)
-final jsonVariable = _dvcClient.variable(key: "json_key", defaultValue: { "key": "value" })
+final boolVariable = _dvcClient.variable(key: "bool_key", defaultValue: false);
+final strVariable = _dvcClient.variable(key: "string_key", defaultValue: "default");
+final numVariable = _dvcClient.variable(key: "num_key", defaultValue: 4);
+final jsonVariable = _dvcClient.variable(key: "json_key", defaultValue: { "key": "value" });
 ```
 
 To grab the value, there is a property on the object returned to grab the value:
@@ -207,17 +215,17 @@ DVCUser user = DVCUserBuilder()
     .language("EN")
     .customData({ "customkey": "customValue" })
     .privateCustomData({ "customkey2": "customValue2" })
-    .build()
+    .build();
 
-_dvcClient.identifyUser(user)
+_dvcClient.identifyUser(user);
 ```
 
-To wait on Variables that will be returned from the identify call, you can pass in a DVCCallback:
+To wait on Variables that will be returned from the identify call, you can pass in a callback:
 
 ```dart
 _dvcClient.identifyUser(user, (error, variables) => {
     // Error or Variables for the Identified User
-})
+});
 ```
 
 If `error` exists the called the user's configuration will not be updated and previous user's data will persist.
@@ -231,12 +239,12 @@ or will create one with an anonymous `user_id`.
 _dvcClient.resetUser();
 ```
 
-To wait on the Features of the anonymous user, you can pass in a DVCCallback:
+To wait on the Variables of the anonymous user, you can pass in a callback:
 
 ```dart
 _dvcClient.resetUser((error, variables) => {
     // Error or Variables for Anonymous User
-})
+});
 ```
 
 If `error` exists is called the user's configuration will not be updated and previous user's data will persist.
@@ -251,7 +259,8 @@ DVCEvent event = DVCEventBuilder()
     .type('my_event')
     .value(3)
     .date(DateTime.now())
-    .metaData({ 'key': 'value' }).build();
+    .metaData({ 'key': 'value' })
+    .build();
 
 _dvcClient.track(event);
 ```
