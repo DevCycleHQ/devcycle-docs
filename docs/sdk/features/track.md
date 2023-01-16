@@ -19,7 +19,9 @@ The Track function in the DevCycle SDKs allows you to send up custom events whic
 
 ### [• React SDK](/docs/sdk/client-side-sdks/react#track-events)
 
-### [• React SDK](/docs/sdk/client-side-sdks/react-native#track-events)
+### [• React Native SDK](/docs/sdk/client-side-sdks/react-native#track-events)
+
+### [• Flutter SDK](/docs/sdk/client-side-sdks/flutter#tracking-events)
 
 ### [• iOS SDK](/docs/sdk/client-side-sdks/ios#tracking-events)
 

@@ -18,6 +18,7 @@ The current Client-Side SDKs are:
 * **[DevCycle iOS SDK](/docs/sdk/client-side-sdks/ios)**
 * **[DevCycle Android SDK](/docs/sdk/client-side-sdks/android)**
 * **[React Native](/docs/sdk/client-side-sdks/react-native)**
+* **[Flutter](/docs/sdk/client-side-sdks/flutter)**
 
 
 ### Server-Side SDKs

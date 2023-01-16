@@ -38,14 +38,14 @@ const config = {
       {
         debug: Boolean(process.env.DEBUG || process.env.CI),
         docs: {
-          editUrl: ({versionDocsDirPath, docPath}) => `https://github.com/devcyclehq/devcycle-docs/edit/main/${versionDocsDirPath}/${docPath}`,
+          editUrl: ({ versionDocsDirPath, docPath }) => `https://github.com/devcyclehq/devcycle-docs/edit/main/${versionDocsDirPath}/${docPath}`,
           showLastUpdateAuthor: false,
           showLastUpdateTime: true,
           editCurrentVersion: true,
           sidebarCollapsed: false,
           sidebarPath: require.resolve('./sidebars.js'),
           remarkPlugins: [
-            [remarkYoutube, {width: '100%', align: 'auto'}]
+            [remarkYoutube, { width: '100%', align: 'auto' }]
           ],
           rehypePlugins: [],
         },
@@ -67,7 +67,7 @@ const config = {
             id: 'management-api',
             spec: 'https://api.devcycle.com/swagger.json',
             route: '/management-api/',
-          }, 
+          },
           {
             id: 'bucketing-api',
             spec: 'bucketing-api.yaml',
@@ -95,7 +95,7 @@ const config = {
   favicon: 'devcycle_favicon.ico',
   themeConfig: {
     prism: {
-      additionalLanguages: ['ruby', 'go', 'php', 'swift', 'kotlin', 'java', 'clike', 'scala', 'hcl', 'yaml', 'csharp']
+      additionalLanguages: ['ruby', 'go', 'php', 'swift', 'kotlin', 'java', 'clike', 'scala', 'hcl', 'yaml', 'csharp', 'dart']
     },
     algolia: {
       appId: '6TW93YPS4X',
@@ -179,10 +179,10 @@ const config = {
               label: 'Blog',
               href: 'https://devcycle.com/company/developer-blog',
             },
-          //   {
-          //     label: 'Status',
-          //   href: 'https://status.DevCycle.com/'
-          // },
+            //   {
+            //     label: 'Status',
+            //   href: 'https://status.DevCycle.com/'
+            // },
           ],
         },
         {
