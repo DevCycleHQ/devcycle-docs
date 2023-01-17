@@ -18,6 +18,13 @@ The SDK is open source and can be viewed on GitHub.
 go get "github.com/devcyclehq/go-server-sdk"
 ```
 
+:::note
+
+The DevCycle Go Server SDK requires [cgo](https://pkg.go.dev/cmd/cgo) to be enabled in your build in order to function. 
+
+:::
+
+
 ## Getting Started
 
 Initialization of the SDK depends on whether you want to use Cloud or Local bucketing.
