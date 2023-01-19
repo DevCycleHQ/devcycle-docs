@@ -61,6 +61,14 @@ To use the library with Swift Package Manager, include it as a dependency in you
 
 You can also add it through Xcode, i.e. `File > Swift Packages > Add Package Dependency`, then enter the repository clone URL.
 
+### Support for macOS
+
+:::info
+Support for the macOS was introduced in version 1.8.0 of the DevCycle iOS Client SDK.
+:::
+
+The DevCycle iOS SDK now supports macOS 10.13 or higher. To leverage the SDK on macOS, please use the DevCycle mobile environment key as shown in the examples below.
+
 ## Usage
 
 ### Initializing the SDK
