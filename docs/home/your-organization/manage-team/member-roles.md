@@ -18,7 +18,7 @@ If you are an enterprise customer and would like to get started with permissions
 
 ### Roles
 
-There are three main roles in DevCycle
+There are two main roles in DevCycle
 
 **Owner**
 
