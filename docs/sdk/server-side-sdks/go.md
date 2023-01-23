@@ -27,12 +27,8 @@ The DevCycle Go Server SDK requires [cgo](https://pkg.go.dev/cmd/cgo) to be enab
 
 ## Getting Started
 
-Initialization of the SDK depends on whether you want to use Cloud or Local bucketing.
-
-Local bucketing requires an extra step to initialize the local bucketing engine _before_ calling the SDK and is the default 
-mode for the SDK.
-
-If not using local bucketing - be sure to disable it via the DVCOptions setting `DisableLocalBucketing`.
+When initializing the Go SDK, you can choose to use `Cloud` or `Local` bucketing. The default mode is `Local`.
+To use `Cloud` bucketing, set the DVCOptions setting `EnableCloudBucketing` to true.
 
 ```go
 package main 
@@ -45,27 +41,18 @@ import (
 func main() {
     environmentKey := os.Getenv("DVC_SERVER_KEY")
     user := devcycle.UserData{UserId: "test"}
-    auth := context.WithValue(context.Background(), devcycle.ContextAPIKey, devcycle.APIKey{
-        Key: environmentKey,
-    })
     
     dvcOptions := devcycle.DVCOptions{
         EnableEdgeDB:                 false,
-        DisableLocalBucketing:        false,
-        EventsFlushInterval:          0,
-        PollingInterval:              10 * time.Second,
+        EnableCloudBucketing:         false,
+        EventFlushIntervalMS:         0,
+        ConfigPollingIntervalMS:      10 * time.Second,
         RequestTimeout:               10 * time.Second,
         DisableAutomaticEventLogging: false,
         DisableCustomEventLogging:    false,
     }
     
-    // This step is not needed if using cloud bucketing. Pass nil in place of the pointer to the local bucketing engine.
-    lb, err := devcycle.InitializeLocalBucketing(environmentKey, &dvcOptions)
-    if err != nil {
-        log.Fatal(err)
-    }
-    
-    client, err := devcycle.NewDVCClient(environmentKey, &dvcOptions, lb)
+    client, err := devcycle.NewDVCClient(environmentKey, &dvcOptions)
 }
 ```
 
@@ -90,7 +77,7 @@ user := devcycle.UserData{UserId: "test"}
 This method will fetch all features for a given user and return them in a map of `key: feature_object`
 
 ```go
-features, err := client.DevCycleApi.AllFeatures(auth, user)
+features, err := client.AllFeatures(user)
 ```
 
 Local Bucketing will return an error if there was a problem either
@@ -102,7 +89,7 @@ To get values from your Variables, the `value` field inside the variable object 
 This method will fetch all variables for a given user and return them in a map of `key: variable_object`
 
 ```go
-variables, err := client.DevCycleApi.AllVariables(auth, user)
+variables, err := client.AllVariables(user)
 ```
 
 ### Get and Use Variable by Key
@@ -115,7 +102,7 @@ and the `IsDefaulted` field boolean on the variable will be true.
 To get values from your Variables, the `Value` field inside the variable object can be accessed.
 
 ```go
-variable, err := client.DevCycleApi.Variable(auth, user, "elliot-test", "test")
+variable, err := client.Variable(user, "elliot-test", "test")
 ```
 
 `variable.Value` is an `interface{}` - so you'll need to cast it to your proper variable type.
@@ -136,7 +123,7 @@ event := devcycle.Event{
 Type_: "event type you want tracked",
 Target: "somevariable.key"}
 
-response, err := client.DevCycleApi.Track(auth, user, event)
+response, err := client.Track(user, event)
 ```
 
 ### EdgeDB
@@ -155,20 +142,22 @@ import (
 "github.com/devcyclehq/go-server-sdk"
 "context"
 )
-auth := context.WithValue(context.Background(), devcycle.ContextAPIKey, devcycle.APIKey{
-Key: "your_server_key_here",
-})
+
 dvcOptions := devcycle.DVCOptions{EnableEdgeDB: true}
 
-
-client, err := devcycle.NewDVCClient(environmentKey, &dvcOptions, nil)
+client, err := devcycle.NewDVCClient(environmentKey, &dvcOptions)
 
 user := devcycle.UserData{UserId: "test-user", Email:"test.user@test.com"}
+
+variable, err := devcycle.Variable(user, "test-key", "test-default")
 ```
 
-This will send a request to our EdgeDB API to save the custom data under the user UserId.
+Each call to the DevCycle API in this mode will store any user data that was sent in the request in EdgeDB.
+Any existing data that was previously stored under the same `UserId` will be merged in with the new data before
+making bucketing decisions.
 
-In the example, Email is associated to the user `test-user`. In your next identify call for the same UserId, you may
-omit any of the data you've sent already as it will be pulled from the EdgeDB storage when segmenting to experiments and
-features.
+In this example, the `Variable` call would make an API request and send along the user data specified by the call.
+That data would be used in combination with EdgeDB data to make correct bucketing decisions before returning the
+variable's value.
+
 
