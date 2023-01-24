@@ -15,7 +15,7 @@ The SDK is open source and can be viewed on GitHub.
 ## Installation
 
 ```bash
-go get "github.com/devcyclehq/go-server-sdk"
+go get "github.com/devcyclehq/go-server-sdk/v2"
 ```
 
 :::note
@@ -34,7 +34,7 @@ To use `Cloud` bucketing, set the DVCOptions setting `EnableCloudBucketing` to t
 package main 
 
 import (
-"github.com/devcyclehq/go-server-sdk"
+"github.com/devcyclehq/go-server-sdk/v2"
 "context"
 )
 
@@ -139,7 +139,7 @@ Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to
 
 ```go
 import (
-"github.com/devcyclehq/go-server-sdk"
+"github.com/devcyclehq/go-server-sdk/v2"
 "context"
 )
 
