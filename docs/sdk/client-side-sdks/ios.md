@@ -5,11 +5,14 @@ sidebar_position: 3
 
 # DevCycle iOS Client SDK
 
-The iOS Client SDK for DevCycle! This SDK uses our Client SDK APIs to perform all user segmentation
-and bucketing for the SDK, providing fast response times using our globally distributed edge workers
-all around the world.
+This Client SDK for DevCycle provides a universal Swift Framework to use DevCycle within your 
+iOS / macOS / tvOS / watchOS application. This SDK uses our Client SDK APIs to perform all user 
+segmentation and bucketing for the SDK, providing fast response times using our globally distributed 
+edge workers all around the world.
 
-The SDK is available as a package on CocoaPods, Carthage and Swift Package Manager. It is also open source and can be viewed on GitHub.
+The SDK is available as a package on [CocoaPods](https://cocoapods.org/pods/DevCycle), 
+[Carthage](https://github.com/Carthage/Carthage) and [Swift Package Manager](https://swift.org/package-manager/). 
+It is also open source and can be viewed on [GitHub](https://github.com/DevCycleHQ/ios-client-sdk).
 
 [![CocoaPods compatible](https://img.shields.io/cocoapods/v/DevCycle.svg)](https://cocoapods.org/pods/DevCycle)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
@@ -18,7 +21,13 @@ The SDK is available as a package on CocoaPods, Carthage and Swift Package Manag
 
 ## Requirements
 
-This version of the DevCycle iOS Client SDK supports a minimum of iOS 12.
+This version of the DevCycle Client SDK supports the following platforms: 
+- **iOS 12.0+**
+- **macOS 10.13+**
+- **tvOS 12.0+**
+- **watchOS 7.0+**
+
+For all environments please use the DevCycle mobile environment key as shown in the examples below.
 
 ## Installation
 
@@ -61,19 +70,13 @@ To use the library with Swift Package Manager, include it as a dependency in you
 
 You can also add it through Xcode, i.e. `File > Swift Packages > Add Package Dependency`, then enter the repository clone URL.
 
-### Support for macOS
-
-:::info
-Support for the macOS was introduced in version 1.8.0 of the DevCycle iOS Client SDK.
-:::
-
-The DevCycle iOS SDK now supports macOS 10.13 or higher. To leverage the SDK on macOS, please use the DevCycle mobile environment key as shown in the examples below.
-
 ## Usage
 
 ### Initializing the SDK
 
-We recommend initializing the SDK once in `didFinishLaunchingWithOptions` of your `AppDelegate` to receive features for as soon as possible, and to pass around the client instance around in your app.
+We recommend initializing the SDK once in `didFinishLaunchingWithOptions` of your `AppDelegate` for iOS / tvOS, 
+or `applicationDidFinishLaunching` for macOS, to receive features for as soon as possible
+and to pass around the client instance around in your app.
 
 #### Swift
 Using the builder pattern we can initialize the DevCycle SDK by providing the DVCUser and DevCycle mobile environment key:
@@ -246,7 +249,7 @@ if (boolVariable.value == true) {
 ```
 
 The `Variable` object also contains the following params: 
-    - `key`: the key indentifier for the Variable
+    - `key`: the key identifier for the Variable
     - `type`: the type of the Variable, one of: `String` / `Boolean` / `Number` / `JSON`
     - `value`: the Variable's value
     - `defaultValue`: the Variable's default value
@@ -257,9 +260,11 @@ If the value is not ready, it will return the default value passed in the creati
 
 ### Variable Updates
 
-Variable values update whenever `identifyUser()` or `resetUser()` are called, or when the project configuration changes (to learn more, visit our [Realtime Updates](/docs/sdk/features/realtime-updates) page).
+Variable values update whenever `identifyUser()` or `resetUser()` are called, or when the 
+project configuration changes (to learn more, visit our [Realtime Updates](/docs/sdk/features/realtime-updates) page).
 
-To listen for variable updates, the `onUpdate()` method can be used. Please note, a strong reference to the variable is needed for `onUpdate` to be triggered.
+To listen for variable updates, the `onUpdate()` method can be used. Please note, a strong reference to the 
+variable is needed for `onUpdate` to be triggered.
 
 #### Swift
 ```swift
@@ -296,7 +301,6 @@ NSDictionary *allFeatures = [self.dvcClient allFeatures];
 ```
 
 If the SDK has not finished initializing, these methods will return an empty object.
-
 
 ### Get All Variables
 
