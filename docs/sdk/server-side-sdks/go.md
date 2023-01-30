@@ -5,7 +5,7 @@ sidebar_position: 3
 
 # DevCycle Go Server SDK.
 
-Welcome to the the DevCycle Go SDK. We have two modes for the SDK. Cloud bucketing (using
+Welcome to the DevCycle Go SDK. We have two modes for the SDK. Cloud bucketing (using
 the [Bucketing API](https://bucketing-api.devcycle.com))
 and Local Bucketing (using the local bucketing engine natively within the SDK).
 The SDK is open source and can be viewed on GitHub.
@@ -41,7 +41,8 @@ import (
 func main() {
     environmentKey := os.Getenv("DVC_SERVER_KEY")
     user := devcycle.UserData{UserId: "test"}
-    
+    onInitializedChannel := make(chan bool) // optional
+ 
     dvcOptions := devcycle.DVCOptions{
         EnableEdgeDB:                 false,
         EnableCloudBucketing:         false,
@@ -50,6 +51,7 @@ func main() {
         RequestTimeout:               10 * time.Second,
         DisableAutomaticEventLogging: false,
         DisableCustomEventLogging:    false,
+        OnInitializedChannel:         onInitializedChannel,
     }
     
     client, err := devcycle.NewDVCClient(environmentKey, &dvcOptions)
@@ -58,6 +60,16 @@ func main() {
 
 If using local bucketing, be sure to check the error return from creating a new DVCClient - if the local bucketing engine fails to
 initialize for any reason- it'll return as an error here.
+Additionally, local bucketing mode supports an optional `OnInitializedChannel` parameter which will tell the sdk to run the initialization
+process in a separate go routine. When the channel receives a message, you will know the initialization process is complete.
+
+```go
+client, err := devcycle.NewDVCClient(environmentKey, &dvcOptions)
+log.Println("client not guaranteed to be initialized yet")
+<-onInitializedChannel
+log.Println("Devcycle client initialized")
+```
+
 
 ## Usage
 
@@ -126,6 +138,15 @@ Target: "somevariable.key"}
 response, err := client.Track(user, event)
 ```
 
+### Close
+
+You can close the DevCycle client to stop the SDK from polling for configs and flushing events on an interval. Any pending events will be immediately flushed.
+Only usable in local bucketing mode.
+
+```go
+err := client.Close()
+```
+
 ### EdgeDB
 
 EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time
@@ -140,7 +161,6 @@ Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to
 ```go
 import (
 "github.com/devcyclehq/go-server-sdk/v2"
-"context"
 )
 
 dvcOptions := devcycle.DVCOptions{EnableEdgeDB: true}
