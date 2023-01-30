@@ -140,7 +140,7 @@ response, err := client.Track(user, event)
 
 ### Close
 
-You can close the Devcycle client to stop the SDK from polling for configs and stop it from flushing events on an interval.
+You can close the DevCycle client to stop the SDK from polling for configs and flushing events on an interval. Any pending events will be immediately flushed.
 Only usable in local bucketing mode.
 
 ```go
