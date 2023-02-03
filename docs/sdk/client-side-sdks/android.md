@@ -18,6 +18,10 @@ The SDK is available as a package on MavenCentral. It is also open source and ca
 
 This version of the DevCycle Android Client SDK supports a minimum Android API Version 21.
 
+:::info 
+ **Proguard/R8:** If minifying your project, DevCycle requires **Android Gradle Plugin 7.3.1 or higher**
+:::
+
 ## Installation
 
 The SDK can be installed into your Android project by adding the following to *build.gradle*:
