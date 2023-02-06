@@ -28,7 +28,6 @@ The SDK can be installed into your Android project by adding the following to *b
 
 ```yaml
 implementation("com.devcycle:android-client-sdk:+")
-)
 ```
 :::info
 
