@@ -101,7 +101,7 @@ import { asyncWithDVCProvider, useVariable } from '@devcycle/devcycle-react-sdk'
   const user = {
       user_id: 'my_user_id'
   }
-  const DVCProvider = await asyncWithDVCProvider({ envKey: 'YOUR_CLIENT_KEY_HERE', user })
+  const DVCProvider = await asyncWithDVCProvider({ sdkKey: 'YOUR_DVC_CLIENT_SDK_KEY_HERE', user })
 
   render(
       <DVCProvider>
@@ -123,7 +123,9 @@ const App = () => {
 }
 ```
 
-Copy the code above (or the one provided in the "Example Usage" section of your feature flag's page), and use it to replace the whole `function App () {...}` section in VSCode. **Replace `YOUR_CLIENT_KEY_HERE` with your client key** found in the "Example Usage" section. You can also find your keys from **Profile → Settings → Environments & Keys** in DevCycle.
+Copy the code above (or the one provided in the "Example Usage" section of your feature flag's page), and use it to replace the whole `function App () {...}` section in VSCode. 
+**Replace `YOUR_DVC_CLIENT_SDK_KEY_HERE` with your client key** found in the "Example Usage" section. 
+You can also find your keys from **Profile → Settings → Environments & Keys** in DevCycle.
 
 ![Environments & Keys Page](/june-2022-sdk-keys.png)
 For more information about SDK keys, [head to our docs here](/docs/home/feature-management/organizing-your-flags-and-variables/api-and-sdk-keys).
@@ -135,10 +137,10 @@ Once you've pasted your client key, you should now have something that looks lik
 Notice how line 8 includes your client key. **A good practice is to use a constant variable instead whenever you use your key.** That way, we avoid any typo errors as we use our key throughout the code. After line 4, add the following:
 
 ```jsx
-const ENV_KEY = 'YOUR_KEY_HERE'
+const DVC_CLIENT_SDK_KEY = 'YOUR_DVC_CLIENT_SDK_KEY_HERE'
 ```
 
-**Replace `YOUR_KEY_HERE` with your client key**, and **use the new `ENV_KEY` variable** whenever you need to access your key.
+**Replace `YOUR_DVC_CLIENT_SDK_KEY_HERE` with your client key**, and **use the new `DVC_CLIENT_SDK_KEY` variable** whenever you need to access your key.
 
 There are a few more things we need to modify if we're using React 18. **Add the following to the beginning of your code:**
 ```jsx
@@ -164,11 +166,15 @@ The resulting code should look like this:
 
 ## Step 5: Our Flag in Action
 
-One way we can see our flag in action is to edit our user's properties in our code. Since we have "Variation On" for all users with a DevCycle email, if we do not have our user email set to something containing '@devcycle.com', we won't see our feature. To see this in action, **save your code and open the tab where your React app is running.**
+One way we can see our flag in action is to edit our user's properties in our code. 
+Since we have "Variation On" for all users with a DevCycle email, if we do not have our user email set to something 
+containing '@devcycle.com', we won't see our feature. 
+To see this in action, **save your code and open the tab where your React app is running.**
 
 ![Variable Off in React App](/june-2022-variable-off.png)
 
-We can see that our app is running the code telling us our variable is off. This is because our code does not contain an email field for our user. Let's create one now!
+We can see that our app is running the code telling us our variable is off. 
+This is because our code does not contain an email field for our user. Let's create one now!
 
 **Add an `email` field to your `user` object**, and give it a DevCycle email as shown below:
 ```jsx
