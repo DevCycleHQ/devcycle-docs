@@ -5,7 +5,7 @@ sidebar_position: 1
 
 ## Overview
 
-This article serves to describe how to control which users receive which variation of a Feature. We refer to this as "targeting" users for a variation. Each definition of which user receives which variation is a "targeting Rule".
+This article serves to describe how to control which users receive which variation of a Feature. We refer to this as "targeting" users for a variation. Each definition of which user receives which variation is a "targeting Rule". Create your definition by using User Property filters, such as User ID, Email, Country, and App Version or [Custom Properties](./features-and-variables/custom-properties).
 
 It is possible to simply target individual users to receive specific variations, as well as create more complex rules using various pieces of user or device data. These rules can be used to give features to specific user groups, slowly roll out features for monitoring, or even create and test different configurations of a feature by using [multiple variables](./creating-variables-and-variations).
 
