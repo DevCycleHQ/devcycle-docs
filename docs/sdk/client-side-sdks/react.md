@@ -55,7 +55,7 @@ There are two ways to initialize the SDK:
   your application will be ready to use the SDK.
 * Blocking: This allows you to delay the rendering of your application until the request to initialize the SDK is completed.
 
-To use these providers, you must get the Environment Key from the DevCycle Dashboard.
+To use these providers, you must get the SDK Key from the DevCycle Dashboard.
 You can optionally pass in a user object to the provider to initialize the SDK.
 If you do not pass in a user to the provider, it will create an anonymous user and initialize the SDK with it.
 You can then call the `identifyUser` method on the client once the user has been authenticated.
@@ -123,10 +123,10 @@ The `withDVCProvider` function accepts a Provider Config object:
 
 [DVC ProviderConfig Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/react/src/types.ts#L3)
 
-| Property | Type | Description |
-|------------|------|-------------|
-| sdkKey | string | Environment key |
-| user | [DVCUser](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L55) | DevCycle user object |
+| Property | Type | Description            |
+|------------|------|------------------------|
+| sdkKey | string | SDK key                |
+| user | [DVCUser](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L55) | DevCycle user object   |
 | options | [DVCOptions](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L44) | DevCycle options object |
 
 ### Initialization Options

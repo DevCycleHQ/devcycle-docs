@@ -35,7 +35,7 @@ import devcycle_python_sdk
     from devcycle_python_sdk import Configuration, DVCOptions, DVCClient, UserData, Event
     from devcycle_python_sdk.rest import ApiException
     configuration = Configuration()
-    configuration.api_key['Authorization'] = 'your_server_key_here'
+    configuration.api_key['Authorization'] = 'YOUR_DVC_SERVER_SDK_KEY'
     # pass in an optional DVCOptions instance to store user data in EdgeDB
     options = DVCOptions(enableEdgeDB=True)
     # create an instance of the API class
@@ -137,7 +137,7 @@ Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to
     from devcycle_python_sdk import Configuration, DVCOptions, DVCClient, UserData, Event
     from devcycle_python_sdk.rest import ApiException
     configuration = Configuration()
-    configuration.api_key['Authorization'] = 'your_server_key_here'
+    configuration.api_key['Authorization'] = 'YOUR_DVC_SERVER_SDK_KEY'
     # pass in an optional DVCOptions instance to store user data in EdgeDB
     options = DVCOptions(enableEdgeDB=True)
     # create an instance of the API class

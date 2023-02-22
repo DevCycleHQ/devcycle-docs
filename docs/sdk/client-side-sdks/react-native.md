@@ -113,7 +113,7 @@ There are two ways to initialize the SDK:
   your application will be ready to use the SDK.
 * Blocking: This allows you to delay the rendering of your application until the request to initialize the SDK is completed.
 
-To use these providers, you must grab the Environment Key from the DevCycle Dashboard.
+To use these providers, you must grab the SDK Key from the DevCycle Dashboard.
 You can optionally pass in a user object to the provider to initialize the SDK.
 If you do not pass in a user to the provider, it will create an anonymous user and initialize the SDK with it.
 You can then call the `identifyUser` method on the client once the user has been authenticated.
