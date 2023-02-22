@@ -64,7 +64,7 @@ In this example, the users with a user ID of "john" and "victor" will receive th
 
 ### Other Operations
 
-Currently, properties are limited to the following: User ID, Email, Country, and App Version. Each property has a type that has its own set of comparators available to it. They are as follows:
+Each property has a type that has its own set of comparators available to it. 
 
 | Operator                                        | Type                    | Action                            |
 |-------------------------------------------------|-------------------------|-----------------------------------|
