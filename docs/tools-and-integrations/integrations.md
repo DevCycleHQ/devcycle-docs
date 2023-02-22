@@ -27,14 +27,15 @@ which is used to give users features and variables (as used within the DevCycle 
 
 **DevCycle Tools**
 
-* [DevCycle Command Line Interface](/tools-and-integrations/cli.md)
+* [DevCycle Command Line Interface](/tools-and-integrations/cli)
+* [Feature Flag Importer](/tools-and-integrations/feature-importer)
 
 **Third Party Integrations**
 
-* [GitHub Action: Feature Flag Code Usages](/tools-and-integrations/Github/gh-feature-usage-action.md)
-* [GitHub Action: Feature Flag Change Insights on Pull Request](/tools-and-integrations/Github/gh-pr-comment-insights.md)
-* [Bitbucket Pipe: Feature Flag Code Usages](/tools-and-integrations/Bitbucket/bb-feature-usage-action.md)
-* [DevCycle Feature Flag Management for Jira](/tools-and-integrations/Jira/jira-integration.md)
-* [DevCycle Terraform Provider](/tools-and-integrations/terraform.md)
+* [GitHub Action: Feature Flag Code Usages](/tools-and-integrations/Github/gh-feature-usage-action)
+* [GitHub Action: Feature Flag Change Insights on Pull Request](/tools-and-integrations/Github/gh-pr-comment-insights)
+* [Bitbucket Pipe: Feature Flag Code Usages](/tools-and-integrations/Bitbucket/bb-feature-usage-action)
+* [DevCycle Feature Flag Management for Jira](/tools-and-integrations/Jira/jira-integration)
+* [DevCycle Terraform Provider](/tools-and-integrations/terraform)
 
 

@@ -37,7 +37,7 @@ The property key should match what is being sent by the SDKs or APIs. This is us
 
 **Property Type**
 
-Select the corresponding type of your custom property. This type _must_ match with the type the SDKs are sending.
+Select the corresponding type of your custom property. This type _must_ match the type the SDKs are sending.
 
 ![property type open](/march-2022-property-type.png)
 
@@ -54,7 +54,7 @@ There are two additional fields when creating a Custom Property at the bottom of
 
 **Display Name**
 
-This field is only for _changing what the property's name is in the DevCycle UI_. This can be useful when handling properties with extremely long or auto-generated names. The property _key_ is what will be used for all matching when bucketing users.
+This field is only for _changing the property's name in the DevCycle UI_. This can be useful when handling properties with extremely long or auto-generated names. The property _key_ is what will be used for all matching when bucketing users.
 
 **DevCycle Key**
 
@@ -70,13 +70,13 @@ First, select your property to use it like any other targeting definition as out
 
 Then, finish your Targeting Rule by filling out the comparator and the value fields. 
 
-There are no limits to the number Properties that can be used to define a single Targeting Rule! Use as many custom properties as necessary to accurately target your users for your features. 
+There are no limits to the number of Properties that can be used to define a single Targeting Rule! Use as many custom properties as necessary to accurately target your users for your features. 
 
 ![property type open](/feb-2022-custom-properties-in-targeting-rules.png)
 
 ## SDK Usage
 
-See the [**Identify**](/docs/sdk/features/identify) Documentation for usage of properties within each SDK.
+See the [**Identify**](/docs/sdk/features/identify) Documentation for the usage of properties within each SDK.
 
 ## Managing / Deleting Custom Properties
 

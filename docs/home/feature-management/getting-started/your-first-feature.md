@@ -7,6 +7,12 @@ sidebar_position: 2
 
 This article serves as a guide on how to create and manage Features within DevCycle. This will outline how to create and manage within the DevCycle Dashboard, however, features may also be created via the [DevCycle Management API](/management-api/).
 
+:::info
+
+If you are coming from another Feature Flagging or Feature Management tool, be sure to check out the [DevCycle Feature Importer](/docs/tools-and-integrations/feature-importer)
+
+:::
+
 ## Creating a Feature
 
 On the DevCycle Dashboard, the "Feature Management" page can be accessed at any time via the button on the top bar. In this page there is a button to "Create new Feature". Additionally, there is a "+" button in the header bar. Both of these buttons can be used to begin the Feature creation process on the DevCycle Dashboard.
