@@ -172,7 +172,7 @@ Notice how line 8 includes your client key. **A good practice is to use a consta
 your key.** That way, we avoid any typo errors as we use our key throughout the code. After line 4, add the following:
 
 ```jsx
-const DVC_CLIENT_SDK_KEY = 'YOUR_DVC_CLIENT_SDK_KEY_HERE'
+const DVC_CLIENT_SDK_KEY = '<DVC_CLIENT_SDK_KEY>'
 ```
 
 **Replace `<DVC_CLIENT_SDK_KEY>` with your client key**, and **use the new `DVC_CLIENT_SDK_KEY` variable** 

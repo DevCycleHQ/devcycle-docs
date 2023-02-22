@@ -50,7 +50,7 @@ Please follow the [installation procedure](#installation--usage) and then run th
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: bearerAuth
-$config = DevCycle\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = DevCycle\Configuration::getDefaultConfiguration()->setApiKey('Authorization', '<DVC_SERVER_SDK_KEY>');
 
 $apiInstance = new DevCycle\Api\DVCClient(
     $config,
@@ -143,7 +143,7 @@ To get started, contact us at support@devcycle.com to enable EdgeDB for your pro
 Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to turn on EdgeDB mode for the SDK:
 
 ```php
-$config = DevCycle\Configuration::getDefaultConfiguration()->setApiKey('Authorization', '<INSERT SDK KEY>');
+$config = DevCycle\Configuration::getDefaultConfiguration()->setApiKey('Authorization', '<DVC_SERVER_SDK_KEY>');
 $options = new DevCycle\DVCOptions(true);
 $apiInstance = new DevCycle\Api\DVCClient(
     $config,

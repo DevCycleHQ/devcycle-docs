@@ -114,7 +114,7 @@ and the `IsDefaulted` field boolean on the variable will be true.
 To get values from your Variables, the `Value` field inside the variable object can be accessed.
 
 ```go
-variable, err := client.Variable(user, "elliot-test", "test")
+variable, err := client.Variable(user, "my-variable-key", "test")
 ```
 
 `variable.Value` is an `interface{}` - so you'll need to cast it to your proper variable type.

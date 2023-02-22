@@ -57,7 +57,8 @@ The default options are to set the `logWriter` to be the console and the `logLev
 ```javascript
 const user = { user_id: "my_user" };
 const dvcOptions = { logLevel: "debug" };
-const dvcClient = initialize("<DVC_CLIENT_SDK_KEY>", user, dvcOptions); // replace initialize with DevCycle.initialize if using the CDN
+// replace initialize with DevCycle.initialize if using the CDN
+const dvcClient = initialize("<DVC_CLIENT_SDK_KEY>", user, dvcOptions); 
 ```
 
 ### DVC User Object
@@ -98,7 +99,7 @@ You can wait on the features to be loaded from our servers by using `.onClientIn
 
 ```javascript
 dvcClient.onClientInitialized().then(() => {
-    const featureToggle = dvcClient.variable('YOUR_VARIABLE_KEY', false)
+    const featureToggle = dvcClient.variable('<YOUR_VARIABLE_KEY>', false)
     if (featureToggle.value) {
         ...
     } else {
@@ -115,7 +116,7 @@ dvcClient.onClientInitialized((err) => {
         // error state
     }
 
-    const featureToggle = dvcClient.variable('YOUR_VARIABLE_KEY', false)
+    const featureToggle = dvcClient.variable('<YOUR_VARIABLE_KEY>', false)
     if (featureToggle.value) {
         ...
     } else {
@@ -129,7 +130,7 @@ dvcClient.onClientInitialized((err) => {
 To get values from your Features, `.variable` is used to fetch variable values using the identifier `key` coupled with a default value. The default value can be of type string, boolean, number, or object.
 
 ```javascript
-const variable = dvcClient.variable("YOUR_VARIABLE_KEY", "default value");
+const variable = dvcClient.variable("<YOUR_VARIABLE_KEY>", "default value");
 ```
 
 To grab the value, there is a property on the object returned to grab the value:

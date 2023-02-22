@@ -1,5 +1,5 @@
 ---
-title: Resetting a user
+title: Reset User
 sidebar_position: 5
 ---
 

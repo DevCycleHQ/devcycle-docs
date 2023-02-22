@@ -75,7 +75,7 @@ global.DeviceInfo = DeviceInfo
 
 
 ```jsx
-export default withDVCProvider({ sdkKey: 'DVC_CLIENT_SDK_KEY' })(App)
+export default withDVCProvider({ sdkKey: '<DVC_CLIENT_SDK_KEY>' })(App)
 ```
 
 A complete working example of an `App.jsx` file is below:
@@ -103,7 +103,7 @@ function App() {
   )
 }
 
-export default withDVCProvider({ sdkKey: 'DVC_CLIENT_SDK_KEY' })(App)
+export default withDVCProvider({ sdkKey: '<DVC_CLIENT_SDK_KEY>' })(App)
 ```
 
 ## Getting Started
@@ -128,7 +128,7 @@ to flicker when it is first rendered, as it is waiting for the SDK to initialize
 import { withDVCProvider } from '@devcycle/devcycle-react-native-sdk'
 ```
 ```js
-export default withDVCProvider({ sdkKey: 'DVC_CLIENT_SDK_KEY' })(App)
+export default withDVCProvider({ sdkKey: '<DVC_CLIENT_SDK_KEY>' })(App)
 ```
 
 ### Blocking
@@ -147,7 +147,7 @@ function App() {
     return <TheRestofYourApp/>
 }
     
-export default withDVCProvider({ sdkKey: 'DVC_CLIENT_SDK_KEY' })(App)
+export default withDVCProvider({ sdkKey: '<DVC_CLIENT_SDK_KEY>' })(App)
 ```
 
 ## Usage
@@ -318,7 +318,7 @@ const user = {
 const options = {
   enableEdgeDB: true
 }
-export default withDVCProvider({ sdkKey: 'DVC_CLIENT_SDK_KEY', user, options })(App)
+export default withDVCProvider({ sdkKey: '<DVC_CLIENT_SDK_KEY>', user, options })(App)
 ```
 
 This will send a request to our EdgeDB API to save the custom data under the user `test_user`.

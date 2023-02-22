@@ -50,6 +50,9 @@ DVCUser, and DevCycle mobile SDK key:
 override fun onCreate(savedInstanceState: Bundle?) {
 
     ...
+    
+    // NOTE: It is not recommended to hardcode SDK keys into your application.
+    // Consider storing keys securely and reading from secure storage.
 
     val dvcClient: DVCClient = DVCClient.builder()
         .withContext(applicationContext)
@@ -63,9 +66,6 @@ override fun onCreate(savedInstanceState: Bundle?) {
     
     ...
 }
-    //NOTE: It is not recommended to hardcode SDK keys into your application.
-    //Consider storing keys securely and reading from secure storage.
-
 ```
 
 #### *Java example:*
@@ -75,6 +75,9 @@ override fun onCreate(savedInstanceState: Bundle?) {
 protected void onCreate(Bundle savedInstanceState) {
 
     ...
+    
+    // NOTE: It is not recommended to hardcode SDK keys into your application.
+    // Consider storing keys securely and reading from secure storage.
 
     DVCClient dvcClient = DVCClient.builder()
         .withContext(getApplicationContext())
@@ -88,8 +91,6 @@ protected void onCreate(Bundle savedInstanceState) {
     
     ...
 }
-    //NOTE: It is not recommended to hardcode SDK keys into your application.
-    //Consider storing keys securely and reading from secure storage.
 ```
 
 ### DVC Client Builder

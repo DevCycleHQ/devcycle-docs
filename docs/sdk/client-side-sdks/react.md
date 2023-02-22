@@ -70,7 +70,7 @@ to flicker when it is first rendered, as it is waiting for the SDK to initialize
 import { withDVCProvider } from '@devcycle/devcycle-react-sdk'
 ```
 ```js
-export default withDVCProvider({ sdkKey: 'DVC_CLIENT_SDK_KEY' })(App)
+export default withDVCProvider({ sdkKey: '<DVC_CLIENT_SDK_KEY>' })(App)
 ```
 
 ### Blocking
@@ -88,7 +88,7 @@ function App() {
     return <TheRestofYourApp/>
 }
     
-export default withDVCProvider({ sdkKey: 'DVC_CLIENT_SDK_KEY' })(App)
+export default withDVCProvider({ sdkKey: '<DVC_CLIENT_SDK_KEY>' })(App)
 ```
 
 :::caution
@@ -105,7 +105,7 @@ import { asyncWithDVCProvider } from '@devcycle/devcycle-react-sdk'
 ```
 ```js
 (async () => {
-    const DVCProvider = await asyncWithDVCProvider({ sdkKey: 'DVC_CLIENT_SDK_KEY' })
+    const DVCProvider = await asyncWithDVCProvider({ sdkKey: '<DVC_CLIENT_SDK_KEY>' })
 
     ReactDOM.render(
         <DVCProvider>
@@ -330,7 +330,7 @@ const options = {
   enableEdgeDB: true
 }
 
-export default withDVCProvider({ sdkKey: 'DVC_CLIENT_SDK_KEY', user, options })(App)
+export default withDVCProvider({ sdkKey: '<DVC_CLIENT_SDK_KEY>', user, options })(App)
 ```
 
 This will send a request to our EdgeDB API to save the custom data under the user `test_user`.
