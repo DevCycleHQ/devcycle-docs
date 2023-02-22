@@ -75,7 +75,7 @@ global.DeviceInfo = DeviceInfo
 
 
 ```jsx
-export default withDVCProvider({ envKey: 'CLIENT_ENV_KEY' })(App)
+export default withDVCProvider({ sdkKey: '<DVC_CLIENT_SDK_KEY>' })(App)
 ```
 
 A complete working example of an `App.jsx` file is below:
@@ -103,7 +103,7 @@ function App() {
   )
 }
 
-export default withDVCProvider({ envKey: 'CLIENT_ENV_KEY' })(App)
+export default withDVCProvider({ sdkKey: '<DVC_CLIENT_SDK_KEY>' })(App)
 ```
 
 ## Getting Started
@@ -113,7 +113,7 @@ There are two ways to initialize the SDK:
   your application will be ready to use the SDK.
 * Blocking: This allows you to delay the rendering of your application until the request to initialize the SDK is completed.
 
-To use these providers, you must grab the Environment Key from the DevCycle Dashboard.
+To use these providers, you must grab the SDK Key from the DevCycle Dashboard.
 You can optionally pass in a user object to the provider to initialize the SDK.
 If you do not pass in a user to the provider, it will create an anonymous user and initialize the SDK with it.
 You can then call the `identifyUser` method on the client once the user has been authenticated.
@@ -128,7 +128,7 @@ to flicker when it is first rendered, as it is waiting for the SDK to initialize
 import { withDVCProvider } from '@devcycle/devcycle-react-native-sdk'
 ```
 ```js
-export default withDVCProvider({ envKey: 'CLIENT_ENV_KEY' })(App)
+export default withDVCProvider({ sdkKey: '<DVC_CLIENT_SDK_KEY>' })(App)
 ```
 
 ### Blocking
@@ -147,7 +147,7 @@ function App() {
     return <TheRestofYourApp/>
 }
     
-export default withDVCProvider({ envKey: 'CLIENT_ENV_KEY' })(App)
+export default withDVCProvider({ sdkKey: '<DVC_CLIENT_SDK_KEY>' })(App)
 ```
 
 ## Usage
@@ -318,7 +318,7 @@ const user = {
 const options = {
   enableEdgeDB: true
 }
-export default withDVCProvider({ envKey: 'CLIENT_ENV_KEY', user, options })(App)
+export default withDVCProvider({ sdkKey: '<DVC_CLIENT_SDK_KEY>', user, options })(App)
 ```
 
 This will send a request to our EdgeDB API to save the custom data under the user `test_user`.

@@ -48,12 +48,12 @@ To get you up and started, we've put together an example repository to be used t
 The  [README in the example repo has more details regarding the Lambda Setup.](https://github.com/DevCycleHQ/devcycle-lambda-example#readme) 
 
 1. Clone the [devcycle-lambda-example](https://github.com/DevCycleHQ/devcycle-lambda-example) repo
-2. In this example, we are using a ***server* key.** Copy your server key as the `SERVER_TOKEN`
+2. In this example, we are using a ***server* key.** Copy your server key as the `<DVC_SERVER_SDK_KEY>`
  in the `DVC.initialize` call. 
 [(You can get your Server KE the server-side SDK key from the DevCycle dashboard)](/docs/home/feature-management/organizing-your-flags-and-variables/api-and-sdk-keys)
 
 ```jsx
-const dvcClient = await DVC.initialize('<SERVER_TOKEN>').onClientInitialized()
+const dvcClient = await DVC.initialize('<DVC_SERVER_SDK_KEY>').onClientInitialized()
 ```
 
 1. Create a new bucket for deployment artifacts by executing `1-create-bucket.sh`

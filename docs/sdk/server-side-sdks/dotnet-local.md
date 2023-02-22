@@ -58,7 +58,7 @@ namespace Example
         static Main(string[] args)
         {
             DVCLocalClientBuilder apiBuilder = new DVCLocalClientBuilder();
-            using DVCLocalClient api = apiBuilder.SetEnvironmentKey("INSERT_SDK_KEY")
+            using DVCLocalClient api = apiBuilder.SetSDKKey("<DVC_SERVER_SDK_KEY>")
                       .Build();
         }
     }
@@ -99,7 +99,7 @@ namespace Example
             var user = new User("test");
 
             DVCLocalClientBuilder apiBuilder = new DVCLocalClientBuilder();
-            api = apiBuilder.SetEnvironmentKey("INSERT_SDK_KEY")
+            api = apiBuilder.SetSDKKey("<DVC_SERVER_SDK_KEY>")
                 .SetOptions(new DVCOptions(1000, 5000))
                 .SetInitializedSubscriber((o, e) =>
                 {
@@ -163,7 +163,7 @@ namespace Example
             var user = new User("test");
 
             DVCLocalClientBuilder apiBuilder = new DVCLocalClientBuilder();
-            api = apiBuilder.SetEnvironmentKey("INSERT_SDK_KEY")
+            api = apiBuilder.SetSDKKey("<DVC_SERVER_SDK_KEY>")
                 .SetOptions(new DVCOptions(1000, 5000))
                 .SetInitializedSubscriber((o, e) =>
                 {
@@ -228,7 +228,7 @@ namespace Example
             var user = new User("test");
 
             DVCLocalClientBuilder apiBuilder = new DVCLocalClientBuilder();
-            api = apiBuilder.SetEnvironmentKey("INSERT_SDK_KEY")
+            api = apiBuilder.SetSDKKey("<DVC_SERVER_SDK_KEY>")
                 .SetOptions(new DVCOptions(1000, 5000))
                 .SetInitializedSubscriber((o, e) =>
                 {
@@ -290,7 +290,7 @@ namespace Example
             var user = new User("test");
 
             DVCLocalClientBuilder apiBuilder = new DVCLocalClientBuilder();
-            api = apiBuilder.SetEnvironmentKey("INSERT_SDK_KEY")
+            api = apiBuilder.SetSDKKey("<DVC_SERVER_SDK_KEY>")
                 .SetOptions(new DVCOptions(1000, 5000))
                 .SetInitializedSubscriber((o, e) =>
                 {
@@ -358,7 +358,7 @@ namespace Example
             var user = new User("test");
 
             DVCLocalClientBuilder apiBuilder = new DVCLocalClientBuilder();
-            api = apiBuilder.SetEnvironmentKey("INSERT_SDK_KEY")
+            api = apiBuilder.SetSDKKey("<DVC_SERVER_SDK_KEY>")
                 .SetOptions(new DVCOptions(1000, 5000))
                 .SetInitializedSubscriber((o, e) =>
                 {

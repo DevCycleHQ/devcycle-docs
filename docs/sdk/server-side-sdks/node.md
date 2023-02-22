@@ -29,21 +29,21 @@ npm install --save @devcycle/nodejs-server-sdk
 ## Getting Started
 
 To use the DVC Server SDK in your project, import the `@devcycle/nodejs-server-sdk` package and 
-call `initialize` with your DVC environment server key. You may optionally `await` for the client
+call `initialize` with your DVC SDK server key. You may optionally `await` for the client
 to be initialized.
 
 JS Example:
 ```javascript
 const DVC = require('@devcycle/nodejs-server-sdk')
 
-const dvcClient = await DVC.initialize('<DVC_ENVIRONMENT_SERVER_KEY>').onClientInitialized()
+const dvcClient = await DVC.initialize('<DVC_SDK_SERVER_KEY>').onClientInitialized()
 ```
 
 Typescript Example:
 ```typescript
 import { initialize } from '@devcycle/nodejs-server-sdk'
 
-const dvcClient = await initialize('<DVC_ENVIRONMENT_SERVER_KEY>').onClientInitialized()
+const dvcClient = await initialize('<DVC_SDK_SERVER_KEY>').onClientInitialized()
 ```
 
 ## Usage
@@ -55,7 +55,7 @@ The SDK exposes various initialization options which can be set on the `initiali
 [DVCOptions Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/nodejs/src/types.ts#L58)
 
 ```javascript
-const dvcClient = await DVC.initialize('<DVC_ENVIRONMENT_SERVER_KEY>', {
+const dvcClient = await DVC.initialize('<DVC_SDK_SERVER_KEY>', {
     configPollingIntervalMS: 60 * 1000
 }).onClientInitialized()
 ```
@@ -105,7 +105,7 @@ The default value can be of type string, boolean, number, or object.
 [DVCVariable Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/nodejs/src/types.ts#L142)
 
 ```javascript
-const variable = dvcClient.variable(user, 'YOUR_VARIABLE_KEY', false)
+const variable = dvcClient.variable(user, '<YOUR_VARIABLE_KEY>', false)
 if (variable.value) {
     // Feature Flag on
 }
@@ -171,7 +171,7 @@ Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to
 ```javascript
 const DVC = require('@devcycle/nodejs-server-sdk')
 
-const dvcClient = DVC.initialize('<DVC_ENVIRONMENT_SERVER_KEY>', {
+const dvcClient = DVC.initialize('<DVC_SDK_SERVER_KEY>', {
   enableCloudBucketing: true,
   enableEdgeDB: true
 })

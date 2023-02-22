@@ -63,7 +63,7 @@ public class MyClass {
     private DVCLocalClient dvcLocalClient;
     
     public MyClass() {
-        dvcLocalClient = new DVCLocalClient("your_server_key");
+        dvcLocalClient = new DVCLocalClient("<DVC_SERVER_SDK_KEY>");
     }
 }
 ```
@@ -104,7 +104,7 @@ public class MyClass {
         .build();
     
     public MyClass() {
-        dvcLocalClient = new DVCLocalClient("your_server_key", dvcLocalOptions);
+        dvcLocalClient = new DVCLocalClient("<DVC_SERVER_SDK_KEY>", dvcLocalOptions);
     }
 }
 ```
@@ -135,7 +135,7 @@ public class MyClass {
     private DVCLocalClient dvcLocalClient;
     
     public MyClass() {
-        dvcLocalClient = new DVCLocalClient("your_server_key");
+        dvcLocalClient = new DVCLocalClient("<DVC_SERVER_SDK_KEY>");
     }
     
     public void allFeatures() {
@@ -164,7 +164,7 @@ public class MyClass {
     private DVCLocalClient dvcLocalClient;
 
     public MyClass() {
-        dvcLocalClient = new DVCLocalClient("your_server_key");
+        dvcLocalClient = new DVCLocalClient("<DVC_SERVER_SDK_KEY>");
     }
 
     public void allVariables() {
@@ -196,7 +196,7 @@ public class MyClass {
     private DVCLocalClient dvcLocalClient;
 
     public MyClass() {
-        dvcLocalClient = new DVCLocalClient("your_server_key");
+        dvcLocalClient = new DVCLocalClient("<DVC_SERVER_SDK_KEY>");
     }
 
     public void setFlag() {
@@ -232,7 +232,7 @@ public class MyClass {
     private DVCLocalClient dvcLocalClient;
 
     public MyClass() {
-        dvcLocalClient = new DVCLocalClient("your_server_key");
+        dvcLocalClient = new DVCLocalClient("<DVC_SERVER_SDK_KEY>");
     }
 
     public void addAnEvent() {

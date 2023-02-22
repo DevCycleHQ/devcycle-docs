@@ -29,7 +29,7 @@ require 'devcycle-server-sdk'
 # Setup authorization
 DevCycle.configure do |config|
   # Configure API key authorization
-  config.api_key['bearerAuth'] = 'YOUR API KEY'
+  config.api_key['bearerAuth'] = '<DVC_SERVER_SDK_KEY>'
 end
 
 api_instance = DevCycle::DVCClient.new
@@ -55,7 +55,7 @@ require 'devcycle-server-sdk'
 # Setup authorization
 DevCycle.configure do |config|
   # Configure API key authorization
-  config.api_key['bearerAuth'] = 'YOUR API KEY'
+  config.api_key['bearerAuth'] = '<DVC_SERVER_SDK_KEY>'
 end
 
 api_instance = DevCycle::DVCClient.new
@@ -131,7 +131,7 @@ To provide a custom logger, override the `logger` property of the SDK configurat
 ```ruby
 DevCycle.configure do |config|
   # Configure API key authorization
-  config.api_key['bearerAuth'] = 'YOUR API KEY'
+  config.api_key['bearerAuth'] = '<DVC_SERVER_SDK_KEY>'
 
   # Override the default logger
   config.logger = MyLogger
@@ -143,7 +143,7 @@ To see a detailed log of the requests being made to the DevCycle API, enable SDK
 ```ruby
 DevCycle.configure do |config|
   # Configure API key authorization
-  config.api_key['bearerAuth'] = 'YOUR API KEY'
+  config.api_key['bearerAuth'] = '<DVC_SERVER_SDK_KEY>'
 
   # Enable detailed debug logs of requests being sent to the DevCycle API
   config.debugging = true
@@ -166,7 +166,7 @@ require 'devcycle-server-sdk'
 # Setup authorization
 DevCycle.configure do |config|
   # Configure API key authorization
-  config.api_key['bearerAuth'] = 'YOUR API KEY'
+  config.api_key['bearerAuth'] = '<DVC_SERVER_SDK_KEY>'
   config.enable_edge_db = true
 end
 

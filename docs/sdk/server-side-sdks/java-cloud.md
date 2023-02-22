@@ -58,7 +58,7 @@ public class MyClass {
     private DVCCloudClient dvcCloudClient;
     
     public MyClass() {
-        dvcCloudClient = new DVCCloudClient("your_server_key");
+        dvcCloudClient = new DVCCloudClient("<DVC_SERVER_SDK_KEY>");
     }
 }
 ```
@@ -82,7 +82,7 @@ public class MyClass {
         .build();
     
     public MyClass() {
-        dvcCloudClient = new DVCCloudClient("your_server_key", dvcCloudOptions);
+        dvcCloudClient = new DVCCloudClient("<DVC_SERVER_SDK_KEY>", dvcCloudOptions);
     }
 }
 ```
@@ -114,7 +114,7 @@ public class MyClass {
     private DVCCloudClient dvcCloudClient;
     
     public MyClass() {
-        dvcCloudClient = new DVCCloudClient("your_server_key");
+        dvcCloudClient = new DVCCloudClient("<DVC_SERVER_SDK_KEY>");
     }
     
     public void allFeatures() throws DVCException {
@@ -144,7 +144,7 @@ public class MyClass {
     private DVCCloudClient dvcCloudClient;
 
     public MyClass() {
-        dvcCloudClient = new DVCCloudClient("your_server_key");
+        dvcCloudClient = new DVCCloudClient("<DVC_SERVER_SDK_KEY>");
     }
 
     public void allVariables() throws DVCException {
@@ -176,7 +176,7 @@ public class MyClass {
     private DVCCloudClient dvcCloudClient;
 
     public MyClass() {
-        dvcCloudClient = new DVCCloudClient("your_server_key");
+        dvcCloudClient = new DVCCloudClient("<DVC_SERVER_SDK_KEY>");
     }
 
     public void setFlag() throws DVCException {
@@ -214,7 +214,7 @@ public class MyClass {
     private DVCCloudClient dvcCloudClient;
 
     public MyClass() {
-        dvcCloudClient = new DVCCloudClient("your_server_key");
+        dvcCloudClient = new DVCCloudClient("<DVC_SERVER_SDK_KEY>");
     }
 
     public void addAnEvent() throws DVCException {
@@ -266,7 +266,7 @@ DVCCloudOptions dvcCloudOptions = DVCCloudOptions.builder()
 private DVCCloudClient dvcCloudClient;
 
 public MyClass() {
-    dvcCloudClient = new DVCCloudClient("your_server_key", dvcCloudOptions);
+    dvcCloudClient = new DVCCloudClient("<DVC_SERVER_SDK_KEY>", dvcCloudOptions);
 
     Variable<Boolean> testBooleanVariable = dvcCloud.variable(user, "test-boolean-variable", false);
 

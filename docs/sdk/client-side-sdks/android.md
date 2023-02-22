@@ -42,7 +42,7 @@ Refer to the latest version of the SDK on [maven central](https://maven.org/arti
 We recommend initializing the SDK once in `onCreate` of your `Application` class or `MainActivity` to receive features as soon as possible, and to pass around the client instance around in your app.
 
 Using the builder pattern we can initialize the DevCycle SDK by providing the `applicationContext`, 
-DVCUser, and DevCycle mobile environment key:
+DVCUser, and DevCycle mobile SDK key:
 
 #### *Kotlin example:*
 
@@ -50,6 +50,9 @@ DVCUser, and DevCycle mobile environment key:
 override fun onCreate(savedInstanceState: Bundle?) {
 
     ...
+    
+    // NOTE: It is not recommended to hardcode SDK keys into your application.
+    // Consider storing keys securely and reading from secure storage.
 
     val dvcClient: DVCClient = DVCClient.builder()
         .withContext(applicationContext)
@@ -58,14 +61,11 @@ override fun onCreate(savedInstanceState: Bundle?) {
                 .withUserId("test_user")
                 .build()
         )
-        .withEnvironmentKey("<DEVCYCLE_MOBILE_ENVIRONMENT_KEY>")
+        .withSDKKey("<DVC_MOBILE_SDK_KEY>")
         .build()
     
     ...
 }
-    //NOTE: It is not recommended to hardcode SDK keys into your application.
-    //Consider storing keys securely and reading from secure storage.
-
 ```
 
 #### *Java example:*
@@ -75,6 +75,9 @@ override fun onCreate(savedInstanceState: Bundle?) {
 protected void onCreate(Bundle savedInstanceState) {
 
     ...
+    
+    // NOTE: It is not recommended to hardcode SDK keys into your application.
+    // Consider storing keys securely and reading from secure storage.
 
     DVCClient dvcClient = DVCClient.builder()
         .withContext(getApplicationContext())
@@ -83,13 +86,11 @@ protected void onCreate(Bundle savedInstanceState) {
                 .withUserId("test_user")
                 .build()
             )
-        .withEnvironmentKey("<DEVCYCLE_MOBILE_ENVIRONMENT_KEY>")
+        .withSDKKey("<DVC_MOBILE_SDK_KEY>")
         .build();
     
     ...
 }
-    //NOTE: It is not recommended to hardcode SDK keys into your application.
-    //Consider storing keys securely and reading from secure storage.
 ```
 
 ### DVC Client Builder
@@ -98,14 +99,14 @@ The DVCClient can be built using the following methods:
 
 [DVCClientBuilder class](https://github.com/DevCycleHQ/android-client-sdk/blob/main/android-client-sdk/src/main/java/com/devcycle/sdk/android/api/DVCClient.kt#L459)
 
-| Method | Parameter | Description |
-|--------|-----------|-------------|
-| withContext | Context | App context |
-| withEnvironmentKey | String | DevCycle environment key |
-| withUser | [DVCUser](https://github.com/DevCycleHQ/android-client-sdk/blob/main/android-client-sdk/src/main/java/com/devcycle/sdk/android/model/DVCUser.kt#L6) | DevCycle user object |
-| withOptions | [DVCOptions](https://github.com/DevCycleHQ/android-client-sdk/blob/main/android-client-sdk/src/main/java/com/devcycle/sdk/android/api/DVCOptions.kt#L3) | DevCycle options object |
-| withLogger | Timber.Tree | Logger override to replace default logger |
-| withLogLevel | [LogLevel](https://github.com/DevCycleHQ/android-client-sdk/blob/main/android-client-sdk/src/main/java/com/devcycle/sdk/android/util/LogLevel.kt#L5) | Set log level of the default logger. Defaults to `LogLevel.ERROR`|
+| Method       | Parameter | Description                                                      |
+|--------------|-----------|------------------------------------------------------------------|
+| withContext  | Context | App context                                                      |
+| withSDKKey   | String | DevCycle SDK Key                                                 |
+| withUser     | [DVCUser](https://github.com/DevCycleHQ/android-client-sdk/blob/main/android-client-sdk/src/main/java/com/devcycle/sdk/android/model/DVCUser.kt#L6) | DevCycle user object                                             |
+| withOptions  | [DVCOptions](https://github.com/DevCycleHQ/android-client-sdk/blob/main/android-client-sdk/src/main/java/com/devcycle/sdk/android/api/DVCOptions.kt#L3) | DevCycle options object                                          |
+| withLogger   | Timber.Tree | Logger override to replace default logger                        |
+| withLogLevel | [LogLevel](https://github.com/DevCycleHQ/android-client-sdk/blob/main/android-client-sdk/src/main/java/com/devcycle/sdk/android/util/LogLevel.kt#L5) | Set log level of the default logger. Defaults to `LogLevel.ERROR` |
 
 ### DVC User Builder
 The DVC user can be built using the following methods:
