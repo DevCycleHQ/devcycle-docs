@@ -28,7 +28,7 @@ require 'devcycle-server-sdk'
 
 # Setup authorization
 options = DevCycle::DVCOptions.new(enable_cloud_bucketing: false, event_flush_interval_ms: 1000, config_polling_interval_ms: 1000)
-dvc_client = DevCycle::DVCClient.new("dvc_server_token_hash", options, true)
+dvc_client = DevCycle::DVCClient.new(sdkKey:"dvc_server_token_hash",options: options,wait_for_init: true)
 user_data = DevCycle::UserData.new({user_id: 'user_id_example'}) # UserData | 
 
 begin
@@ -50,7 +50,7 @@ require 'devcycle-server-sdk'
 
 # Setup authorization
 options = DevCycle::DVCOptions.new(enable_cloud_bucketing: false, event_flush_interval_ms: 1000, config_polling_interval_ms: 1000)
-dvc_client = DevCycle::DVCClient.new("dvc_server_token_hash", options, true)
+dvc_client = DevCycle::DVCClient.new(sdkKey:"dvc_server_token_hash",options: options,wait_for_init: true)
 
 user_data = DevCycle::UserData.new({user_id: 'user_id_example'}) # UserData | 
 ```
@@ -141,7 +141,7 @@ require 'devcycle-server-sdk'
 # Setup authorization
 options = DevCycle::DVCOptions.new(enable_edge_db: true, enable_cloud_bucketing: true)
 
-dvc_client = DevCycle::DVCClient.new("dvc_server_token_hash", options, true)
+dvc_client = DevCycle::DVCClient.new(sdkKey:"dvc_server_token_hash",options: options,wait_for_init: true)
 user_data = DevCycle::UserData.new({
    user_id: 'test_user',
    email: 'example@example.ca',
