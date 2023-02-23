@@ -11,6 +11,8 @@ calls will be made to retrieve Feature information unless explicitly specified.
 
 The JS SDK is available on NPM as an open-source package that can be viewed on the DevCycle GitHub.
 
+When initialized, the SDK will download the latest version of your DevCycle environments’ configuration from a CDN for the provided user.
+
 [![Npm package version](https://badgen.net/npm/v/@devcycle/devcycle-js-sdk)](https://www.npmjs.com/package/@devcycle/devcycle-js-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)
 
@@ -91,7 +93,6 @@ The SDK exposes various initialization options which can be set on the `initiali
 | logger               | [DVCLogger](https://github.com/DevCycleHQ/js-sdks/blob/main/lib/shared/types/src/logger.ts#L2)           | Logger override to replace default logger                                                                      |
 | logLevel             | [DVCDefaultLogLevel](https://github.com/DevCycleHQ/js-sdks/blob/main/lib/shared/types/src/logger.ts#L12) | Set log level of the default logger. Options are: `debug`, `info`, `warn`, `error`. Defaults to `info`.        |
 | apiProxyURL          | string                                                                                                   | Allows the SDK to communicate with a proxy of DVC bucketing API / client SDK API.                              |
-
 
 ## Waiting for Features
 
