@@ -144,10 +144,10 @@ paths:
             type: string
           required: true
           description: A unique id used to fetch and update the EdgeDB data
-        - name: envKey
+        - name: sdkKey
           in: query
-          description: Environment Key as defined in the dashboard for your DevCycle environment.
-            One of the Authorization header or "envKey" query parameter is required to be set.
+          description: SDK Key as defined in the dashboard for your DevCycle environment.
+            One of the Authorization header or "sdkKey" query parameter is required to be set.
           required: false
           schema:
             type: string
@@ -182,10 +182,10 @@ paths:
       tags:
         - Feature Opt-in
       parameters:
-        - name: envKey
+        - name: sdkKey
           in: query
-          description: Environment Key as defined in the dashboard for your DevCycle environment.
-            One of the Authorization header or "envKey" query parameter is required to be set.
+          description: SDK Key as defined in the dashboard for your DevCycle environment.
+            One of the Authorization header or "sdkKey" query parameter is required to be set.
           required: false
           schema:
             type: string
@@ -214,10 +214,10 @@ paths:
       tags:
         - Feature Opt-in
       parameters:
-        - name: envKey
+        - name: sdkKey
           in: query
-          description: Environment Key as defined in the dashboard for your DevCycle environment.
-            One of the Authorization header or "envKey" query parameter is required to be set.
+          description: SDK Key as defined in the dashboard for your DevCycle environment.
+            One of the Authorization header or "sdkKey" query parameter is required to be set.
           required: false
           schema:
             type: string
@@ -497,7 +497,7 @@ components:
 
     # 401
     UnauthorizedError:
-      description: Missing 'envKey' query parameter or 'Authorization' header
+      description: Missing 'sdkKey' query parameter or 'Authorization' header
       content:
         application/json:
           schema:

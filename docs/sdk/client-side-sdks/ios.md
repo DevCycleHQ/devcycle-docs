@@ -27,7 +27,7 @@ This version of the DevCycle Client SDK supports the following platforms:
 - **tvOS 12.0+**
 - **watchOS 7.0+**
 
-For all environments please use the DevCycle mobile environment key as shown in the examples below.
+For all environments please use the DevCycle mobile SDK key as shown in the examples below.
 
 ## Installation
 
@@ -79,7 +79,7 @@ or `applicationDidFinishLaunching` for macOS, to receive features for as soon as
 and to pass around the client instance around in your app.
 
 #### Swift
-Using the builder pattern we can initialize the DevCycle SDK by providing the DVCUser and DevCycle mobile environment key:
+Using the builder pattern we can initialize the DevCycle SDK by providing the DVCUser and DevCycle mobile SDK key:
 
 ```swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -91,7 +91,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
                         .build()
 
     guard let dvcClient = try DVCClient.builder()
-            .environmentKey("<DEVCYCLE_MOBILE_ENVIRONMENT_KEY>")
+            .sdkKey("<DVC_MOBILE_SDK_KEY>")
             .user(user)
             .build(onInitialized: nil)
     self.dvcClient = dvcClient
@@ -105,7 +105,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 The user object needs either a `user_id`, or `isAnonymous` set to `true` for an anonymous user. 
 
 #### Objective-C
-For Objective-C we use a standard callback pattern to initialize the DevCycle SDK by providing the DVCUser and DevCycle mobile environment key:
+For Objective-C we use a standard callback pattern to initialize the DevCycle SDK by providing the DVCUser and DevCycle mobile SDK key:
 
 ```objc
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -114,7 +114,7 @@ For Objective-C we use a standard callback pattern to initialize the DevCycle SD
 
     DVCUser *user = [DVCUser initializeWithUserId:@"my-user1"];
 
-    self.dvcClient = [DVCClient initialize:@"<DEVCYCLE_MOBILE_ENVIRONMENT_KEY>"
+    self.dvcClient = [DVCClient initialize:@"<DVC_MOBILE_SDK_KEY>"
                                 user:user
                             options:nil
                         onInitialized:^(NSError * _Nullable error) {
@@ -135,10 +135,10 @@ The DVCClient can be built using the following methods:
 
 [DVC ClientBuilder class](https://github.com/DevCycleHQ/ios-client-sdk/blob/4c69260ce89fd7c38245f48b99aa973e08ba05ca/DevCycle/DVCClient.swift#L371)
 
-| Method | Parameter | Description |
-|--------|-----------|-------------|
-| environmentKey | String | DevCycle environment key |
-| user | [DVCUser](https://github.com/DevCycleHQ/ios-client-sdk/blob/main/DevCycle/DVCUser.swift#L116) | DevCycle user object |
+| Method  | Parameter | Description             |
+|---------|-----------|-------------------------|
+| sdkKey  | String | DevCycle SDK key        |
+| user    | [DVCUser](https://github.com/DevCycleHQ/ios-client-sdk/blob/main/DevCycle/DVCUser.swift#L116) | DevCycle user object    |
 | options | [DVCOptions](https://github.com/DevCycleHQ/ios-client-sdk/blob/main/DevCycle/Models/DVCOptions.swift#L9) | DevCycle options object |
 
 ### DVC User Builder
@@ -179,7 +179,7 @@ In the initialize call there is an optional `onInitialized` parameter you can us
 
 ```swift
 self.dvcClient = try? DVCClient.builder()
-        .environmentKey("<DEVCYCLE_MOBILE_ENVIRONMENT_KEY>")
+        .sdkKey("<DVC_MOBILE_SDK_KEY>")
         .user(user)
         .options(options)
         .build(onInitialized: { error in
@@ -194,7 +194,7 @@ self.dvcClient = try? DVCClient.builder()
 #### Objective-C
 
 ```objc
-self.dvcClient = [DVCClient initialize:@"<DEVCYCLE_MOBILE_ENVIRONMENT_KEY>"
+self.dvcClient = [DVCClient initialize:@"<DVC_MOBILE_SDK_KEY>"
                                user:user
                             options:nil
                       onInitialized:^(NSError * _Nullable error) {

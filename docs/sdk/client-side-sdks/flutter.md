@@ -31,7 +31,7 @@ The SDK can be installed into your Flutter project by running `flutter pub add d
 The SDK can be installed into your Flutter project by adding the following to your `pubspec.yaml`:
 
 ```dart
-devcycle_flutter_client_sdk: ^1.0.0
+devcycle_flutter_client_sdk: ^1.1.0
 ```
 Then, run `flutter pub get`.
 
@@ -39,7 +39,8 @@ Then, run `flutter pub get`.
 
 ### Initializing the SDK
 
-We recommend initializing the SDK once and pass around the client instance around in your app. Using the builder pattern we can initialize the DevCycle SDK by providing the DVCUser and DevCycle mobile environment key:
+We recommend initializing the SDK once and pass around the client instance around in your app. 
+Using the builder pattern we can initialize the DevCycle SDK by providing the DVCUser and DevCycle mobile SDK key:
 
 ```dart
 import 'package:devcycle_flutter_client_sdk/devcycle_flutter_client_sdk.dart';
@@ -60,7 +61,7 @@ class _MyAppState extends State<MyApp> {
     static final options = DVCOptionsBuilder().logLevel(LogLevel.error).build();
 
     final _dvcClient = DVCClientBuilder()
-        .environmentKey('<DEVCYCLE_MOBILE_ENVIRONMENT_KEY>')
+        .sdkKey('<DVC_MOBILE_SDK_KEY>')
         .user(user)
         .options(options)
         .build();
@@ -82,10 +83,10 @@ The DVCClient can be built using the following methods:
 
 [DVC ClientBuilder class](https://github.com/DevCycleHQ/flutter-client-sdk/blob/main/lib/devcycle_flutter_client_sdk.dart#L207)
 
-| Method | Parameter | Description |
-|--------|-----------|-------------|
-| environmentKey | String | DevCycle environment key |
-| user | [DVCUser](https://github.com/DevCycleHQ/flutter-client-sdk/blob/main/lib/dvc_user.dart#L1) | DevCycle user object |
+| Method  | Parameter | Description             |
+|---------|-----------|-------------------------|
+| sdkKey  | String | DevCycle SDK Key        |
+| user    | [DVCUser](https://github.com/DevCycleHQ/flutter-client-sdk/blob/main/lib/dvc_user.dart#L1) | DevCycle user object    |
 | options | [DVCOptions](https://github.com/DevCycleHQ/flutter-client-sdk/blob/main/lib/dvc_options.dart#L1) | DevCycle options object |
 
 ### DVC User Builder
@@ -124,7 +125,7 @@ In the initialize call there is an optional `onInitialized` parameter you can us
 
 ```dart
 final _dvcClient = DVCClientBuilder()
-    .environmentKey('<DEVCYCLE_MOBILE_ENVIRONMENT_KEY>')
+    .sdkKey('<DVC_MOBILE_SDK_KEY>')
     .user(DVCUserBuilder().build())
     .build()
     .onInitialized((error) {

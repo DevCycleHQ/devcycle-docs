@@ -55,7 +55,7 @@ There are two ways to initialize the SDK:
   your application will be ready to use the SDK.
 * Blocking: This allows you to delay the rendering of your application until the request to initialize the SDK is completed.
 
-To use these providers, you must get the Environment Key from the DevCycle Dashboard.
+To use these providers, you must get the SDK Key from the DevCycle Dashboard.
 You can optionally pass in a user object to the provider to initialize the SDK.
 If you do not pass in a user to the provider, it will create an anonymous user and initialize the SDK with it.
 You can then call the `identifyUser` method on the client once the user has been authenticated.
@@ -70,7 +70,7 @@ to flicker when it is first rendered, as it is waiting for the SDK to initialize
 import { withDVCProvider } from '@devcycle/devcycle-react-sdk'
 ```
 ```js
-export default withDVCProvider({ envKey: 'CLIENT-SDK-KEY-FOR-ENV' })(App)
+export default withDVCProvider({ sdkKey: '<DVC_CLIENT_SDK_KEY>' })(App)
 ```
 
 ### Blocking
@@ -88,7 +88,7 @@ function App() {
     return <TheRestofYourApp/>
 }
     
-export default withDVCProvider({ envKey: 'CLIENT-SDK-KEY-FOR-ENV' })(App)
+export default withDVCProvider({ sdkKey: '<DVC_CLIENT_SDK_KEY>' })(App)
 ```
 
 :::caution
@@ -105,7 +105,7 @@ import { asyncWithDVCProvider } from '@devcycle/devcycle-react-sdk'
 ```
 ```js
 (async () => {
-    const DVCProvider = await asyncWithDVCProvider({ envKey: 'CLIENT-SDK-KEY-FOR-ENV' })
+    const DVCProvider = await asyncWithDVCProvider({ sdkKey: '<DVC_CLIENT_SDK_KEY>' })
 
     ReactDOM.render(
         <DVCProvider>
@@ -123,10 +123,10 @@ The `withDVCProvider` function accepts a Provider Config object:
 
 [DVC ProviderConfig Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/react/src/types.ts#L3)
 
-| Property | Type | Description |
-|------------|------|-------------|
-| envKey | string | Environment key |
-| user | [DVCUser](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L55) | DevCycle user object |
+| Property | Type | Description            |
+|------------|------|------------------------|
+| sdkKey | string | SDK key                |
+| user | [DVCUser](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L55) | DevCycle user object   |
 | options | [DVCOptions](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L44) | DevCycle options object |
 
 ### Initialization Options
@@ -330,7 +330,7 @@ const options = {
   enableEdgeDB: true
 }
 
-export default withDVCProvider({ envKey: 'CLIENT-SDK-KEY-FOR-ENV', user, options })(App)
+export default withDVCProvider({ sdkKey: '<DVC_CLIENT_SDK_KEY>', user, options })(App)
 ```
 
 This will send a request to our EdgeDB API to save the custom data under the user `test_user`.

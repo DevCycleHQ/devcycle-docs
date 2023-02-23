@@ -5,9 +5,13 @@ sidebar_position: 2
 
 # DevCycle JavaScript Client SDK
 
-The DevCycle JS SDK, like all client SDKs, will retrieve a configuration for the provided User upon initialization. The configuration which is retrieved contains all of the Features and Variables, meaning no further outbound network calls will be made to retrieve Feature information unless explicitly specified. 
+The DevCycle JS SDK, like all client SDKs, will retrieve a configuration for the provided User upon initialization. 
+The configuration which is retrieved contains all of the Features and Variables, meaning no further outbound network 
+calls will be made to retrieve Feature information unless explicitly specified. 
 
 The JS SDK is available on NPM as an open-source package that can be viewed on the DevCycle GitHub.
+
+When initialized, the SDK will download the latest version of your DevCycle environments’ configuration from a CDN for the provided user.
 
 [![Npm package version](https://badgen.net/npm/v/@devcycle/devcycle-js-sdk)](https://www.npmjs.com/package/@devcycle/devcycle-js-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)
@@ -48,12 +52,15 @@ Place the following code snippet as high as possible in your head tag.
 - If the JS SDK is installed using NPM, call `initialize` with your client key, a user object, and an optional options object.
 - Otherwise, If you’re using the CDN to install the JS SDK, call `DevCycle.initialize` with your client key, a user object, and an optional options object.
 
-The user object needs either a `user_id`, or `isAnonymous` set to `true` for an anonymous user. The options object is optional, but can passed a `logWriter` for a custom logging solution and a `logLevel`, which must be one of `info`, `debug`, `warn` or `error`. The default options are to set the `logWriter` to be the console and the `logLevel` to `error`.
+The user object needs either a `user_id`, or `isAnonymous` set to `true` for an anonymous user. The options object is optional, 
+but can passed a `logWriter` for a custom logging solution and a `logLevel`, which must be one of `info`, `debug`, `warn` or `error`. 
+The default options are to set the `logWriter` to be the console and the `logLevel` to `error`.
 
 ```javascript
 const user = { user_id: "my_user" };
 const dvcOptions = { logLevel: "debug" };
-const dvcClient = initialize("YOUR_CLIENT_KEY", user, dvcOptions); // replace initialize with DevCycle.initialize if using the CDN
+// replace initialize with DevCycle.initialize if using the CDN
+const dvcClient = initialize("<DVC_CLIENT_SDK_KEY>", user, dvcOptions); 
 ```
 
 ### DVC User Object
@@ -87,14 +94,13 @@ The SDK exposes various initialization options which can be set on the `initiali
 | logLevel             | [DVCDefaultLogLevel](https://github.com/DevCycleHQ/js-sdks/blob/main/lib/shared/types/src/logger.ts#L12) | Set log level of the default logger. Options are: `debug`, `info`, `warn`, `error`. Defaults to `info`.        |
 | apiProxyURL          | string                                                                                                   | Allows the SDK to communicate with a proxy of DVC bucketing API / client SDK API.                              |
 
-
 ## Waiting for Features
 
 You can wait on the features to be loaded from our servers by using `.onClientInitialized()` function. It returns a promise that you can use to wait until features are ready to be used:
 
 ```javascript
 dvcClient.onClientInitialized().then(() => {
-    const featureToggle = dvcClient.variable('YOUR_VARIABLE_KEY', false)
+    const featureToggle = dvcClient.variable('<YOUR_VARIABLE_KEY>', false)
     if (featureToggle.value) {
         ...
     } else {
@@ -111,7 +117,7 @@ dvcClient.onClientInitialized((err) => {
         // error state
     }
 
-    const featureToggle = dvcClient.variable('YOUR_VARIABLE_KEY', false)
+    const featureToggle = dvcClient.variable('<YOUR_VARIABLE_KEY>', false)
     if (featureToggle.value) {
         ...
     } else {
@@ -125,7 +131,7 @@ dvcClient.onClientInitialized((err) => {
 To get values from your Features, `.variable` is used to fetch variable values using the identifier `key` coupled with a default value. The default value can be of type string, boolean, number, or object.
 
 ```javascript
-const variable = dvcClient.variable("YOUR_VARIABLE_KEY", "default value");
+const variable = dvcClient.variable("<YOUR_VARIABLE_KEY>", "default value");
 ```
 
 To grab the value, there is a property on the object returned to grab the value:
@@ -292,7 +298,7 @@ const user = {
 const options = {
   enableEdgeDB: true,
 };
-const dvcClient = initialize("YOUR_CLIENT_KEY", user, options);
+const dvcClient = initialize("<DVC_CLIENT_SDK_KEY>", user, options);
 ```
 
 This will send a request to our EdgeDB API to save the custom data under the user `my_user`.

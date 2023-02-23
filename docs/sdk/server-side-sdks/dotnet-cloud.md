@@ -54,7 +54,7 @@ namespace Example
         {
             // using ensures REST Client resources are correctly disposed once no longer required.
             using DVCCloudClient dvcClient = new DVCCloudClientBuilder()
-                .SetEnvironmentKey("YOUR SDK KEY")
+                .SetSDKKey("<DVC_SERVER_SDK_KEY>")
                 .Build();
         }
     }
@@ -89,7 +89,7 @@ namespace Example
         {
             // using ensures REST Client resources are correctly disposed once no longer required.
             using DVCCloudClient dvcClient = new DVCCloudClientBuilder()
-                .SetEnvironmentKey("YOUR SDK KEY")
+                .SetSDKKey("<DVC_SERVER_SDK_KEY>")
                 .Build();
             var user = new User("user_id");
 
@@ -127,7 +127,7 @@ namespace Example
         {
             // Ensure REST Client resources are correctly disposed once no longer required
             using DVCCloudClient dvcClient = new DVCCloudClientBuilder()
-                .SetEnvironmentKey("YOUR SDK KEY")
+                .SetSDKKey("<DVC_SERVER_SDK_KEY>")
                 .Build();
             var user = new User("user_id"); 
 
@@ -172,7 +172,7 @@ namespace Example
         {
             // Ensure REST Client resources are correctly disposed once no longer required
             using DVCCloudClient dvcClient = new DVCCloudClientBuilder()
-                .SetEnvironmentKey("YOUR SDK KEY")
+                .SetSDKKey("<DVC_SERVER_SDK_KEY>")
                 .Build();
             var user = new User("user_id");
 
@@ -210,7 +210,7 @@ namespace Example
         {
             // Ensure REST Client resources are correctly disposed once no longer required
             using DVCCloudClient dvcClient = new DVCCloudClientBuilder()
-                .SetEnvironmentKey("YOUR SDK KEY")
+                .SetSDKKey("<DVC_SERVER_SDK_KEY>")
                 .Build();
 
             DateTimeOffset now = DateTimeOffset.UtcNow;
@@ -246,7 +246,7 @@ Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to
 ```csharp
 DVCCloudOptions options = new DVCCloudOptions(true);
 DVCCloudClient api = new DVCCloudClientBuilder()
-                            .SetEnvironmentKey("YOUR SDK KEY")
+                            .SetSDKKey("<DVC_SERVER_SDK_KEY>")
                             .SetOptions(options)
                             .Build();
 var user = new User("test_user", "example@example.com");

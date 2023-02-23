@@ -39,7 +39,7 @@ import (
 )
 
 func main() {
-    environmentKey := os.Getenv("DVC_SERVER_KEY")
+    sdkKey := os.Getenv("<DVC_SERVER_SDK_KEY>")
     user := devcycle.UserData{UserId: "test"}
     onInitializedChannel := make(chan bool) // optional
  
@@ -54,7 +54,7 @@ func main() {
         OnInitializedChannel:         onInitializedChannel,
     }
     
-    client, err := devcycle.NewDVCClient(environmentKey, &dvcOptions)
+    client, err := devcycle.NewDVCClient(sdkKey, &dvcOptions)
 }
 ```
 
@@ -64,7 +64,7 @@ Additionally, local bucketing mode supports an optional `OnInitializedChannel` p
 process in a separate go routine. When the channel receives a message, you will know the initialization process is complete.
 
 ```go
-client, err := devcycle.NewDVCClient(environmentKey, &dvcOptions)
+client, err := devcycle.NewDVCClient(sdkKey, &dvcOptions)
 log.Println("client not guaranteed to be initialized yet")
 <-onInitializedChannel
 log.Println("Devcycle client initialized")
@@ -114,7 +114,7 @@ and the `IsDefaulted` field boolean on the variable will be true.
 To get values from your Variables, the `Value` field inside the variable object can be accessed.
 
 ```go
-variable, err := client.Variable(user, "elliot-test", "test")
+variable, err := client.Variable(user, "my-variable-key", "test")
 ```
 
 `variable.Value` is an `interface{}` - so you'll need to cast it to your proper variable type.
@@ -165,7 +165,7 @@ import (
 
 dvcOptions := devcycle.DVCOptions{EnableEdgeDB: true}
 
-client, err := devcycle.NewDVCClient(environmentKey, &dvcOptions)
+client, err := devcycle.NewDVCClient(sdkKey, &dvcOptions)
 
 user := devcycle.UserData{UserId: "test-user", Email:"test.user@test.com"}
 
