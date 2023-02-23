@@ -5,9 +5,8 @@ sidebar_position: 4
 
 # DevCycle Ruby Server SDK
 
-Welcome to the the DevCycle Ruby SDK, initially generated via the [DevCycle Bucketing API](/bucketing-api/#tag/devcycle).
-
-The SDK is available as a package on RubyGems. It is also open source and can be viewed on Github.
+Welcome to the the DevCycle Ruby SDK, initially generated via the [DevCycle Bucketing API](/bucketing-api/#tag/devcycle), it now supports Local Bucketing as well.
+The SDK is available as a package on RubyGems. It is also open source and can be viewed on GitHub.
 
 [![RubyGems](https://badgen.net/rubygems/v/devcycle-ruby-server-sdk/latest)](https://rubygems.org/gems/devcycle-ruby-server-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/ruby-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/ruby-server-sdk)
@@ -22,22 +21,19 @@ Install the gem
 
 Please follow the [installation](#installation) procedure and then run the following code:
 
+Please note; the default mode is to use Local Bucketing - to use cloud bucketing - set the `enable_cloud_bucketing` option to `true`.
 ```ruby
 # Load the gem
 require 'devcycle-server-sdk'
 
 # Setup authorization
-DevCycle.configure do |config|
-  # Configure API key authorization
-  config.api_key['bearerAuth'] = '<DVC_SERVER_SDK_KEY>'
-end
-
-api_instance = DevCycle::DVCClient.new
+options = DevCycle::DVCOptions.new(enable_cloud_bucketing: false, event_flush_interval_ms: 1000, config_polling_interval_ms: 1000)
+dvc_client = DevCycle::DVCClient.new(sdkKey:"dvc_server_token_hash",options: options,wait_for_init: true)
 user_data = DevCycle::UserData.new({user_id: 'user_id_example'}) # UserData | 
 
 begin
   #Get all features for user data
-  result = api_instance.all_features(user_data)
+  result = dvc_client.all_features(user_data)
   p result
 rescue DevCycle::ApiError => e
   puts "Exception when calling DVCClient->all_features: #{e}"
@@ -53,12 +49,9 @@ end
 require 'devcycle-server-sdk'
 
 # Setup authorization
-DevCycle.configure do |config|
-  # Configure API key authorization
-  config.api_key['bearerAuth'] = '<DVC_SERVER_SDK_KEY>'
-end
+options = DevCycle::DVCOptions.new(enable_cloud_bucketing: false, event_flush_interval_ms: 1000, config_polling_interval_ms: 1000)
+dvc_client = DevCycle::DVCClient.new(sdkKey:"dvc_server_token_hash",options: options,wait_for_init: true)
 
-api_instance = DevCycle::DVCClient.new
 user_data = DevCycle::UserData.new({user_id: 'user_id_example'}) # UserData | 
 ```
 ### User Object
@@ -76,10 +69,10 @@ user_data = DevCycle::UserData.new({user_id: 'user_id_example'}) # UserData |
 ```ruby
 begin
   #Get all features for user data
-  result = api_instance.all_features(user_data)
+  result = dvc_client.all_features(user_data)
   p result
-rescue DevCycle::ApiError => e
-  puts "Exception when calling DVCClient->all_features: #{e}"
+rescue
+  puts "Exception when calling DVCClient->all_features"
 end
 ```
 
@@ -87,10 +80,10 @@ end
 ```ruby
 begin
   # Get value of given variable by key, using default value if segmentation is not passed or variable does not exit
-  result = api_instance.variable("variable-key", user_data, true)
+  result = dvc_client.variable("variable-key", user_data, true)
   p "Received value for #{result.key}: #{result.value}"
-rescue DevCycle::ApiError => e
-  puts "Exception when calling DVCClient->variable: #{e}"
+rescue
+  puts "Exception when calling DVCClient->variable"
 end
 ```
 
@@ -98,10 +91,10 @@ end
 ```ruby
 begin
   #Get all variables for user data
-  result = api_instance.all_variables(user_data)
+  result = dvc_client.all_variables(user_data)
   p result
-rescue DevCycle::ApiError => e
-  puts "Exception when calling DVCClient->all_variables: #{e}"
+rescue
+  puts "Exception when calling DVCClient->all_variables"
 end
 ```
 
@@ -119,9 +112,9 @@ event_data = DevCycle::Event.new({
 
 begin
   # Post events for given user data
-  result = api_instance.track(user_data, event_data)
+  result = dvc_client.track(user_data, event_data)
   p result
-rescue DevCycle::ApiError => e
+rescue => e
   puts "Exception when calling DVCClient->track: #{e}"
 end
 ```
@@ -129,27 +122,9 @@ end
 ### Override Logger
 To provide a custom logger, override the `logger` property of the SDK configuration.
 ```ruby
-DevCycle.configure do |config|
-  # Configure API key authorization
-  config.api_key['bearerAuth'] = '<DVC_SERVER_SDK_KEY>'
+options = DevCycle::DVCOptions.new(logger: @yourCustomLogger)
 
-  # Override the default logger
-  config.logger = MyLogger
-end
 ```
-
-### Troubleshooting
-To see a detailed log of the requests being made to the DevCycle API, enable SDK debug logging:
-```ruby
-DevCycle.configure do |config|
-  # Configure API key authorization
-  config.api_key['bearerAuth'] = '<DVC_SERVER_SDK_KEY>'
-
-  # Enable detailed debug logs of requests being sent to the DevCycle API
-  config.debugging = true
-end
-```
-
 
 ### EdgeDB
 
@@ -164,13 +139,9 @@ Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to
 require 'devcycle-server-sdk'
 
 # Setup authorization
-DevCycle.configure do |config|
-  # Configure API key authorization
-  config.api_key['bearerAuth'] = '<DVC_SERVER_SDK_KEY>'
-  config.enable_edge_db = true
-end
+options = DevCycle::DVCOptions.new(enable_edge_db: true, enable_cloud_bucketing: true)
 
-api_instance = DevCycle::DVCClient.new
+dvc_client = DevCycle::DVCClient.new(sdkKey:"dvc_server_token_hash",options: options,wait_for_init: true)
 user_data = DevCycle::UserData.new({
    user_id: 'test_user',
    email: 'example@example.ca',
@@ -180,73 +151,6 @@ user_data = DevCycle::UserData.new({
 
 This will send a request to our EdgeDB API to save the custom data under the user `test_user`.
 
-In the example, Email and Country are associated to the user `test_user`. In your next identify call for the same `user_id`, you may omit any of the data you've sent already as it will be pulled from the EdgeDB storage when segmenting to experiments and features.
-
-
-## Documentation for Models
-
-### UserData
-
-User data is provided to most SDK requests to identify the user / context of the feature evaluation
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **user_id** | **String** | Unique id to identify the user |  |
-| **email** | **String** | User&#39;s email used to identify the user on the dashboard / target audiences | [optional] |
-| **name** | **String** | User&#39;s name used to identify the user on the dashboard / target audiences | [optional] |
-| **language** | **String** | User&#39;s language in ISO 639-1 format | [optional] |
-| **country** | **String** | User&#39;s country in ISO 3166 alpha-2 format | [optional] |
-| **app_version** | **String** | App Version of the running application | [optional] |
-| **app_build** | **String** | App Build number of the running application | [optional] |
-| **custom_data** | **Object** | User&#39;s custom data to target the user with, data will be logged to DevCycle for use in dashboard. | [optional] |
-| **private_custom_data** | **Object** | User&#39;s custom data to target the user with, data will not be logged to DevCycle only used for feature bucketing. | [optional] |
-| **created_date** | **Float** | Date the user was created, Unix epoch timestamp format | [optional] |
-| **last_seen_date** | **Float** | Date the user was created, Unix epoch timestamp format | [optional] |
-| **platform** | **String** | Platform the Client SDK is running on | [optional] |
-| **platform_version** | **String** | Version of the platform the Client SDK is running on | [optional] |
-| **device_model** | **String** | User&#39;s device model | [optional] |
-| **sdk_type** | **String** | DevCycle SDK type | [optional] |
-| **sdk_version** | **String** | DevCycle SDK Version | [optional] |
-
-### Event
-
-Event data is provided to `track` calls to log events to DevCycle
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **type** | **String** | Custom event type |  |
-| **target** | **String** | Custom event target / subject of event. Contextual to event type | [optional] |
-| **date** | **Float** | Unix epoch time the event occurred according to client | [optional] |
-| **value** | **Float** | Value for numerical events. Contextual to event type | [optional] |
-| **meta_data** | **Object** | Extra JSON metadata for event. Contextual to event type | [optional] |
-
-### Variable
-
-Variable objects are returned by the SDK when calling `variable` or `all_variables`.
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **_id** | **String** | unique database id |  |
-| **key** | **String** | Unique key by Project, can be used in the SDK / API to reference by &#39;key&#39; rather than _id. |  |
-| **type** | **String** | Variable type |  |
-| **value** | **Object** | Variable value can be a string, number, boolean, or JSON |  |
-
-### Feature
-
-Feature objects are returned by the SDK when calling `all_features`
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **_id** | **String** | unique database id |  |
-| **key** | **String** | Unique key by Project, can be used in the SDK / API to reference by &#39;key&#39; rather than _id. |  |
-| **type** | **String** | Feature type |  |
-| **_variation** | **String** | Bucketed feature variation |  |
-| **eval_reason** | **String** | Evaluation reasoning | [optional] |
-
-#### About this Package
-
-This SDK is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
-
-* API version: 1.0.0
-* Package version: 1.0.0
-* Build package: org.openapitools.codegen.languages.RubyClientCodegen
+In the example, Email and Country are associated to the user `test_user`. 
+In your next identify call for the same `user_id`, you may omit any of the data you've sent already as it will be pulled
+from the EdgeDB storage when segmenting to experiments and features.
