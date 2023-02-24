@@ -28,7 +28,7 @@ until the first config is fetched and set successfully or an unrecoverable error
 
 ```ruby
 # Load the gem
-require 'devcycle-server-sdk'
+require 'devcycle-ruby-server-sdk'
 
 # Setup authorization
 options = DevCycle::DVCOptions.new(enable_cloud_bucketing: false, event_flush_interval_ms: 1000, config_polling_interval_ms: 1000)
@@ -50,7 +50,7 @@ end
 ### Configure SDK
 ```ruby
 # Load the gem
-require 'devcycle-server-sdk'
+require 'devcycle-ruby-server-sdk'
 
 # Setup authorization
 options = DevCycle::DVCOptions.new(enable_cloud_bucketing: false, event_flush_interval_ms: 1000, config_polling_interval_ms: 1000)
@@ -140,7 +140,7 @@ Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to
 
 ```ruby
 # Load the gem
-require 'devcycle-server-sdk'
+require 'devcycle-ruby-server-sdk'
 
 # Setup authorization
 options = DevCycle::DVCOptions.new(enable_edge_db: true, enable_cloud_bucketing: true)
