@@ -22,13 +22,17 @@ Install the gem
 Please follow the [installation](#installation) procedure and then run the following code:
 
 Please note; the default mode is to use Local Bucketing - to use cloud bucketing - set the `enable_cloud_bucketing` option to `true`.
+
+The last argument to `DVCClient.new` tells the sdk whether or not you want to wait for initialization - meaning that the method will block
+until the first config is fetched and set successfully or an unrecoverable error occurrs during initialization.
+
 ```ruby
 # Load the gem
 require 'devcycle-server-sdk'
 
 # Setup authorization
 options = DevCycle::DVCOptions.new(enable_cloud_bucketing: false, event_flush_interval_ms: 1000, config_polling_interval_ms: 1000)
-dvc_client = DevCycle::DVCClient.new(sdkKey:"dvc_server_token_hash",options: options,wait_for_init: true)
+dvc_client = DevCycle::DVCClient.new("dvc_server_token_hash", options, true)
 user_data = DevCycle::UserData.new({user_id: 'user_id_example'}) # UserData | 
 
 begin
@@ -50,7 +54,7 @@ require 'devcycle-server-sdk'
 
 # Setup authorization
 options = DevCycle::DVCOptions.new(enable_cloud_bucketing: false, event_flush_interval_ms: 1000, config_polling_interval_ms: 1000)
-dvc_client = DevCycle::DVCClient.new(sdkKey:"dvc_server_token_hash",options: options,wait_for_init: true)
+dvc_client = DevCycle::DVCClient.new("dvc_server_token_hash", options, true)
 
 user_data = DevCycle::UserData.new({user_id: 'user_id_example'}) # UserData | 
 ```
@@ -141,7 +145,7 @@ require 'devcycle-server-sdk'
 # Setup authorization
 options = DevCycle::DVCOptions.new(enable_edge_db: true, enable_cloud_bucketing: true)
 
-dvc_client = DevCycle::DVCClient.new(sdkKey:"dvc_server_token_hash",options: options,wait_for_init: true)
+dvc_client = DevCycle::DVCClient.new("dvc_server_token_hash", options, true)
 user_data = DevCycle::UserData.new({
    user_id: 'test_user',
    email: 'example@example.ca',
