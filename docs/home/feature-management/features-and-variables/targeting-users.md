@@ -254,3 +254,95 @@ In these cases, you can very simply reorder any Targeting Rule by clicking the a
 Saving this Feature will then cause the next evaluation of a variable for all users to respect the new targeting order (after the config has been updated for client-side SDKs).
 
 ![targeting reorder](/april-2022-targeting-reorder.png)
+
+## Reusable Audiences
+
+This topic explains how to create and manage Reusable Audiences through our Management API. 
+
+Reusable Audiences allow you to define an audience using filters, and then reuse the audience in user targeting for features.  Audiences are lists of users, defined by “filters” that you can use to manage flag targeting behaviour in bulk. Reusable Audiences are useful for managing groups of users, like `internal-users` or `loyalty-tier-gold`. 
+
+### Creating a Reusable Audience
+
+The first step is to create an audience through the Management API:
+
+```jsx
+curl --location 'https://api.devcycle.com/v1/projects/{project-key}/audiences' \
+--header 'Authorization: Bearer $TOKEN'
+--header 'Content-Type: application/json' \
+--data '{
+    "name": "Reusable-Audience",
+    "key": "reusable-audience",
+    "description": "A reusable audience!",
+    "filters": {
+        "filters": [
+            {
+                "type": "user",
+                "subType": "user_id",
+                "comparator": "=",
+                "values": [
+                    "my-user"
+                ]
+            }
+        ],
+        "operator": "and"
+    }
+}'
+```
+This will return you a response of the created resource which includes an `_id` field which will be used to include the Reusable Audience in the targeting rules of your feature.
+
+*Refer to the [Management API docs](https://docs.devcycle.com/management-api/#operation/AudiencesController_create) for more information.*
+
+To use your new audience in a feature, you must use the [Feature Configuration](https://docs.devcycle.com/management-api/#tag/Feature-Configurations) endpoint to update the targeting rules:
+
+```jsx
+curl --location --request PATCH 'https://api.devcycle.com/v1/projects/{project-key}/features/{feature-key}/configurations?environment={environment-key}' \
+--header 'Authorization: Bearer {token}' \
+--header 'Content-Type: application/json' \
+--data '{
+    "targets": [
+        {
+            "name": "Feature Enabled",
+            "distribution": [
+                {
+                    "percentage": 1.0,
+                    "_variation": "variation-a"
+                }
+            ],
+            "audience": {
+                "name": "Reusable Audience",
+                "filters": {
+                    "filters": [
+												// Audience Match Filter
+                        {
+                            "type": "audienceMatch",
+                            "comparator": "=",
+                            "_audiences": [
+																// Audience _id from creating a reusable
+																// audience from the Management API
+                                "63dd5a34cf6c623a40078a32"
+                            ]
+                        }
+                    ],
+                    "operator": "and"
+                }
+            }
+        }
+    ],
+    "status": "active"
+}'
+```
+
+Under the `filters` array, you can list an `Audience Match` filter that is used to reference any Reusable Audiences in the `_audiences` array by `_id`.
+
+You will see this in the Targeting Rules section of the feature page as a **read-only** field:
+![Read-only resuable audience in feature dashboard](/march-1-2023-readonly-resuableaudience.png)
+
+### View & Modify Reusable Audiences
+
+To see all your created Audiences, click the Audiences tab on the navigation bar: 
+![Audiences Tab](/march-1-2023-audiences-tab.png)
+
+This lists all Audiences created through the Management API. At the moment, the audiences can only be modified through the Management API. As such, all the Audiences on this page are **read-only**.
+
+To view more information about the Audience, click the `View Definition` button to see more:
+![Audiences Tab](/march-1-2023-resuableaudience-viewdefinition.png)
