@@ -222,7 +222,7 @@ paths:
           schema:
             type: string
       requestBody:
-        description: A map of variable keys to boolean values, true if the user has opted in, false otherwise
+        description: A map of feature IDs to boolean values. The value should be true if the user has opted in, false otherwise
         required: true
         content:
           application/json:
