@@ -41,7 +41,7 @@ The features list has the following columns:
 
 * **# Of Variables**
     
-    This will show a count of how many variables are used within this Feature. To learn more read [Creating Variables and Variations](/docs/home/feature-management/features-and-variables/creating-variables-and-variations)
+    This will show a count of how many variables are used within this Feature. To learn more read [Creating Variables and Variations](/docs/home/feature-management/features-and-variables/variables-and-variations)
 
 * **Edit**
     
