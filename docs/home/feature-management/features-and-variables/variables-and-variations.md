@@ -11,7 +11,7 @@ In short, a Feature may have any number of Variables. Variable values change dep
 
 ## Creating and Managing Variables in a Feature
 
-To view the Variables and Variations within a Feature, navigate to the Code Variables section on a Feature page:
+To view the Variables and Variations within a Feature, navigate to the Remote Variables section on a Feature page:
 
 ![Feature Page Sidebar Highlighting Variables](/march-2022-variables-sidebar.png)
 
@@ -60,11 +60,13 @@ To fully delete a Variable you must do so via our [Management API](/management-a
 
 ### Archiving a Variable
 
-Archiving Variables is a good way to clean up the DevCycle dashboard and ensure that it is easy to understand which Variables are available for use and which should no longer be leveraged going forward. To archive a Variable it must first be removed from any active features (see preceding documentation). Variables can be archived at the same time as removing from a feature. When the option to remove has been selected the confirmation modal will also provide the option to archive the Variable.
+Archiving Variables is a good way to clean up the DevCycle dashboard and ensure that it is easy to understand which Variables are available for use and which should no longer be leveraged going forward.
+
+To archive a Variable it must first be [removed from any active features](./variables-and-variations#removing-a-variable). Variables can be archived at the same time as removing from a feature. When the option to remove has been selected the confirmation modal will also provide the option to archive the Variable.
 
 ![Archive Variable While Removing](/march-2023-archive-variable-on-remove.png)
 
-If a Variable is not archived when it is removed from a feature it will remain active, but it won't be associated with any features and the default value will be delivered whenever the Variable is evaluated in code. If archiving a Variable from the Variable list or Variable details pages the Variable must be in this un-associated state.
+If a Variable is not archived when it is removed from a feature it will remain active, but it won't be associated with any features and the default value will be delivered whenever the Variable is evaluated in code. If you are archiving a Variable from the Variable list or Variable details page, the Variable must be in this un-associated state.
 
 Here is an example of a Variable that cannot be archived because it is still associated with a feature:
 ![Example of a Variable that Cannot be Archived](/march-2023-active-variable.png)
@@ -105,6 +107,6 @@ Users who are served this new Variation will receive the Variable Values associa
 
 ### Deleting a Variation
 
-A Variation may be deleted at any time by clicking the X on the Variation column of the Code Variables page. Variations that are currently being used in any **Enabled** environment cannot be deleted. First remove any audience being targeted by this Variation prior to deletion.
+A Variation may be deleted at any time by clicking the edit icon on the Variation column of the Remote Variables page. Variations that are currently being used in any **Enabled** environment cannot be deleted. First remove any audience being targeted by this Variation prior to deletion.
 
 
