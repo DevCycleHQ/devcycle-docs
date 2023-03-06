@@ -5,7 +5,7 @@ sidebar_position: 2
 
 ## Overview
 
-This article explains how to use retrieve the Variables of a Feature as well as use their values. For information on setting up a Feature for use, read [Variables and Variations](/docs/home/feature-management/features-and-variables/creating-variables-and-variations) and [Targeting Users](/docs/home/feature-management/features-and-variables/targeting-users)
+This article explains how to use retrieve the Variables of a Feature as well as use their values. For information on setting up a Feature for use, read [Variables and Variations](/docs/home/feature-management/features-and-variables/variables-and-variations) and [Targeting Users](/docs/home/feature-management/features-and-variables/targeting-users)
 
 If there is an error reaching DevCycle, if the requested variable does not exist, OR if the user has not been Targeted for the requested feature, the SDKs will return the default value provided to the SDK in code. In that case, the variable returned from the function will not contain the `_id` or `type` fields.
 

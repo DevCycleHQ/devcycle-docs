@@ -12,7 +12,7 @@ While experimentation is often associated with marketing and revenue, experiment
 
 To complete this guide, you may want to review the following topics:
 
-- [Creating and Managing Variations](/docs/home/feature-management/features-and-variables/creating-variables-and-variations#creating-and-using-variations-in-a-feature)
+- [Creating and Managing Variations](/docs/home/feature-management/features-and-variables/variables-and-variations#creating-and-using-variations-in-a-feature)
 - [Random Distribution Targeting](/docs/home/feature-management/features-and-variables/targeting-users#serving-a-random-variation-experimentation--random-distribution)
 - [Feature Experimentation](/docs/home/feature-management/features-and-variables/metrics-and-analysis/feature-experimentation)
 - [Creating a Metric](/docs/home/feature-management/features-and-variables/metrics-and-analysis/creating-and-managing-metrics) and [Metric Types](/docs/home/feature-management/features-and-variables/metrics-and-analysis/creating-and-managing-metrics#types)

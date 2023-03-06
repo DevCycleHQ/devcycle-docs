@@ -7,7 +7,7 @@ sidebar_position: 1
 
 This article serves to describe how to control which users receive which variation of a Feature. We refer to this as "targeting" users for a variation. Each definition of which user receives which variation is a "targeting Rule".
 
-It is possible to simply target individual users to receive specific variations, as well as create more complex rules using various pieces of user or device data. These rules can be used to give features to specific user groups, slowly roll out features for monitoring, or even create and test different configurations of a feature by using [multiple variables](./creating-variables-and-variations).
+It is possible to simply target individual users to receive specific variations, as well as create more complex rules using various pieces of user or device data. These rules can be used to give features to specific user groups, slowly roll out features for monitoring, or even create and test different configurations of a feature by using [multiple variables](./variables-and-variations).
 
 ## Creating a Targeting Rule
 
@@ -92,7 +92,7 @@ The above would only match users who have:
 
 ### Serving Specific Variations
 
-Once the targeting rule is defined, the next step is to determine what Variation users targeted by this rule should receive. Note: The available variations will be determined by the chosen Feature Type, however, [these can](/docs/home/feature-management/features-and-variables/creating-variables-and-variations) be modified and more variations can be added at any time.](/docs/home/feature-management/features-and-variables/creating-variables-and-variations)
+Once the targeting rule is defined, the next step is to determine what Variation users targeted by this rule should receive. Note: The available variations will be determined by the chosen Feature Type, however, [these can](/docs/home/feature-management/features-and-variables/variables-and-variations) be modified and more variations can be added at any time.](/docs/home/feature-management/features-and-variables/variables-and-variations)
 
 To choose the Variation for this targeted audience, use the "Serve" dropdown and choose the desired variation. When the environment is enabled, and if a user fulfills the targeting rule, they will then be served that variation and its associated variable values.
 

@@ -5,7 +5,7 @@ sidebar_position: 4
 
 ## Overview
 
-This article serves to describe the Variables page and its uses. For deeper information on creating and managing Variables within a feature, read [Creating Variables and Variations](/docs/home/feature-management/features-and-variables/creating-variables-and-variations). 
+This article serves to describe the Variables page and its uses. For deeper information on creating and managing Variables within a feature, read [Creating Variables and Variations](/docs/home/feature-management/features-and-variables/variables-and-variations). 
 
 ### Using the Variables Page
 
@@ -27,7 +27,7 @@ The list will show:
 
 * **Feature**
     
-    The name of the Feature that is currently managing a variable. **Note** that Variables can only be managed by a single Feature at a time. If you wish to change what Feature is managing a Variable, first remove that Variable from a feature as outlined in [Creating Variables and Variations](/docs/home/feature-management/features-and-variables/creating-variables-and-variations). If the Variable is NOT being managed by a Feature, this column will note the lack of Feature. **Click on a Feature name to navigate directly to the Feature managing this Variable**
+    The name of the Feature that is currently managing a variable. **Note** that Variables can only be managed by a single Feature at a time. If you wish to change what Feature is managing a Variable, first remove that Variable from a feature as outlined in [Creating Variables and Variations](/docs/home/feature-management/features-and-variables/variables-and-variations). If the Variable is NOT being managed by a Feature, this column will note the lack of Feature. **Click on a Feature name to navigate directly to the Feature managing this Variable**
 
 * **Type**
 
