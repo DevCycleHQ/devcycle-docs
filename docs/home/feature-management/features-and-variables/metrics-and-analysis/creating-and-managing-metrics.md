@@ -7,7 +7,7 @@ sidebar_position: 4
 :::info
 Metrics rely on custom events.
 
-Metrics are available to all customers on any plan. However, to run Metrics, custom events must be sent to DevCycle. These events incur extra costs, which will be added to your existing plan. To learn more, read about our pricing, or contact us.
+Metrics are available to all customers on any plan. However, to run Metrics, custom events must be sent to DevCycle. Every organization receives 5 million free events to start with. Additional events will incur costs, which will be added to your existing plan. To learn more, read about our [pricing](https://devcycle.com/pricing), or [contact us](mailto:support@devcycle.com).
 :::
 
 ### Overview
