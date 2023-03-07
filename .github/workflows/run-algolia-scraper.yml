@@ -5,7 +5,7 @@ on:
 
 jobs:
   wait-for-vercel-deployment:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     steps:
       - name: Set deployment URL
         run: "echo VERCEL_DEPLOYMENT_URL=devcycle-docs.vercel.app >> $GITHUB_ENV"
