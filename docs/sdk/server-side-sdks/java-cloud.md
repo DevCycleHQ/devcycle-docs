@@ -29,16 +29,22 @@ You can use the SDK in your Maven project by adding the following to your *pom.x
 <dependency>
     <groupId>com.devcycle</groupId>
     <artifactId>java-server-sdk</artifactId>
-    <version>1.1.1</version>
+    <version>LATEST</version>
     <scope>compile</scope>
 </dependency>
 ```
+
+:::info
+
+Refer to the latest version of the SDK on [maven central](https://maven.org/artifact/com.devcycle/android-client-sdk) if you would not prefer gradle to pull the latest version automatically by using `+`
+
+:::
 
 ### Gradle
 Alternatively you can use the SDK in your Gradle project by adding the following to *build.gradle*:
 
 ```yaml
-implementation("com.devcycle:java-server-sdk:1.1.1")
+implementation("com.devcycle:java-server-sdk:+")
 ```
 
 ## DNS Caching
