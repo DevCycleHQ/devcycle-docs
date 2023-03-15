@@ -264,8 +264,9 @@ dvcClient.subscribe(
   "variableUpdated:*",
   (key: string, variable: DVCVariable) => {
     // key is the variable that has been updated
-    // The new value can be accessed from the variable object passed in: variable.value
-    console.log(`New variable value for variable ${key}: ${variable.value}`);
+    // The new value can be accessed from the variable object passed in: variable?.value
+    // The variable argument will be undefined if the variable is no longer being served a value 
+    console.log(`New variable value for variable ${key}: ${variable?.value}`);
   }
 );
 ```
