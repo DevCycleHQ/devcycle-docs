@@ -262,10 +262,10 @@ The SDK can emit certain events when specific actions occur which can be listene
 ```javascript
 dvcClient.subscribe(
   "variableUpdated:*",
-  (key: string, variable: DVCVariable) => {
+  (key: string, variable: DVCVariable | null) => {
     // key is the variable that has been updated
     // The new value can be accessed from the variable object passed in: variable?.value
-    // The variable argument will be undefined if the variable is no longer being served a value 
+    // The variable argument will be null if the variable is no longer being served a value 
     console.log(`New variable value for variable ${key}: ${variable?.value}`);
   }
 );
@@ -278,8 +278,8 @@ subscribe to an event that doesn't exist. These are the events you can subscribe
 | ---------------- | ------------------- | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Initialized      | `initialized`       | `(initialized: boolean)`               | An initialized event is emitted once the SDK has received its first config from DevCycle. This event will only be emitted once.                                                                                                                       |
 | Error            | `error`             | `(error: Error)`                       | If any error occurs in the SDK, this event emits that error.                                                                                                                                                                                          |
-| Variable Updated | `variableUpdated:*` | `(key: string, variable: DVCVariable)` | This event gets triggered when a variable value changes for a user. You can subscribe to all variable updates using the `*` identifier, or you can pass in the key of the variable you want to subscribe to, e.g. `variableUpdated:my_variable_key`.  |
-| Feature Updated  | `featureUpdated:*`  | `(key: string, feature: DVCFeature)`   | This event gets triggered when a feature's variation changes for a user. You can subscribe to all feature updates using the `*` identifier, or you can pass in the key of the feature you want to subscribe to, e.g. `featureUpdated:my_feature_key`. |
+| Variable Updated | `variableUpdated:*` | `(key: string, variable: DVCVariable | null)` | This event gets triggered when a variable value changes for a user. You can subscribe to all variable updates using the `*` identifier, or you can pass in the key of the variable you want to subscribe to, e.g. `variableUpdated:my_variable_key`.  |
+| Feature Updated  | `featureUpdated:*`  | `(key: string, feature: DVCFeature | null)`   | This event gets triggered when a feature's variation changes for a user. You can subscribe to all feature updates using the `*` identifier, or you can pass in the key of the feature you want to subscribe to, e.g. `featureUpdated:my_feature_key`. |
 
 ## EdgeDB
 
