@@ -7,7 +7,7 @@ sidebar_position: 1
 
 DevCycle has different types of SDKs, some being client-side and others being server-side. This page serves to describe the differences between these SDK types and how to handle them. Implementation and usage change depending on which type of SDK is being used.
 
-Check out our [DevCycle SDK Sample Applications](/samples-example-apps.md) page to learn how to use our SDKs with various programming languages and frameworks.
+Check out our [DevCycle SDK Sample Applications](docs/sdk/example-apps.md) page to learn how to use our SDKs with various programming languages and frameworks.
 
 ### Client-Side SDKs
 
