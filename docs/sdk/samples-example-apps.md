@@ -5,7 +5,7 @@ sidebar_position: 2
 
 ## Overview
 
-Welcome to our page on example applications for the DevCycle SDKs. On this page, we'll explore some samples of our SDKs in action, across a variety of different programming languages.
+Welcome to the Samples & Example Apps page, which showcases example applications using the DevCycle SDKs. The goal of this page is to provide developers with a comprehensive collection of example applications that demonstrate how to utilize DevCycle's SDKs with a variety of programming languages and frameworks.
 
 ### Sample Applications
 
