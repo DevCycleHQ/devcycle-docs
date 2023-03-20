@@ -101,6 +101,7 @@ const config = {
       appId: '6TW93YPS4X',
       apiKey: '2a9dbde35586f5ae29571b19dacc71c6', // Public API key: it is safe to commit it
       indexName: 'prod_DEVCYCLE_DOCS',
+      contextualSearch: true,
     },
     navbar: {
       logo: {
@@ -124,27 +125,41 @@ const config = {
           label: 'SDKs',
         },
         {
+          type: 'dropdown',
+          label: 'APIs',
+          position: 'left',
+          items: [
+            
+        {
+          label: 'Management API',
+          to: '/management-api/',
+        },
+        {
+          label: 'Bucketing API',
+          to: '/bucketing-api/',
+        },
+          ],
+        },
+
+        {
           docId: 'tools-and-integrations/integrations',
           position: 'left',
           label: 'Tools & Integrations',
           type: 'doc'
         },
-        {
-          label: 'Management API',
-          position: 'left',
-          to: '/management-api/',
-        },
-        {
-          label: 'Bucketing API',
-          position: 'left',
-          to: '/bucketing-api/',
-        },
+
         {
           type: 'doc',
           docId: 'best-practices/best-practices',
           to: '/best-practices/',
           position: 'left',
           label: 'Guides & Best Practices',
+        },
+        {
+          href: 'https://discord.gg/pKK4fJgGxG',
+          position: 'right',
+          className: 'header-discord-link',
+          'aria-label': 'Discord',
         },
       ],
     },
@@ -170,6 +185,10 @@ const config = {
               label: 'Github',
               href: 'https://github.com/devcyclehq',
             },
+            {
+              label: 'Discord',
+              href: 'https://discord.gg/pKK4fJgGxG',
+            },
           ],
         },
         {
@@ -179,6 +198,11 @@ const config = {
               label: 'Blog',
               href: 'https://devcycle.com/company/developer-blog',
             },
+             {
+              label: 'Discord',
+              href: 'https://discord.gg/pKK4fJgGxG',
+            },
+            
             //   {
             //     label: 'Status',
             //   href: 'https://status.DevCycle.com/'
@@ -196,6 +220,10 @@ const config = {
               label: 'Medium',
               href: 'https://medium.com/devcycle',
             },
+            {
+              label: 'Discord',
+              href: 'https://discord.gg/pKK4fJgGxG'
+             }
           ],
         },
       ],
