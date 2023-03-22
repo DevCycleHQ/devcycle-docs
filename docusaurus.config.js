@@ -5,6 +5,7 @@ const remarkYoutube = require('gridsome-plugin-remark-youtube')
  * @type {Partial<import('@docusaurus/types').DocusaurusConfig>}
  */
 const config = {
+  clientModules: [require.resolve('./src/modules/mixpanelClientModule.js')],
   // trailingSlash: false,
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
@@ -26,11 +27,10 @@ const config = {
           )
           return postcssOptions
         },
-      };
+      }
     },
-    path.resolve(__dirname, 'plugins', 'custom-gtm')
+    path.resolve(__dirname, 'plugins', 'custom-gtm'),
   ],
-
 
   presets: [
     [
@@ -38,15 +38,14 @@ const config = {
       {
         debug: Boolean(process.env.DEBUG || process.env.CI),
         docs: {
-          editUrl: ({ versionDocsDirPath, docPath }) => `https://github.com/devcyclehq/devcycle-docs/edit/main/${versionDocsDirPath}/${docPath}`,
+          editUrl: ({ versionDocsDirPath, docPath }) =>
+            `https://github.com/devcyclehq/devcycle-docs/edit/main/${versionDocsDirPath}/${docPath}`,
           showLastUpdateAuthor: false,
           showLastUpdateTime: true,
           editCurrentVersion: true,
           sidebarCollapsed: false,
           sidebarPath: require.resolve('./sidebars.js'),
-          remarkPlugins: [
-            [remarkYoutube, { width: '100%', align: 'auto' }]
-          ],
+          remarkPlugins: [[remarkYoutube, { width: '100%', align: 'auto' }]],
           rehypePlugins: [],
         },
         sitemap: {
@@ -87,15 +86,34 @@ const config = {
   tagline: 'DevCycle Feature Management and Experimentation',
   customFields: {
     meta: {
-      description: 'The DevCycle documentation site includes guides and API documentation for the complete platform including the management dashboard, management APIs, SDKs, and more. If you need help along the way feel free to reach out to support and if you don’t have an account yet, you can create a free account now.',
+      description:
+        'The DevCycle documentation site includes guides and API documentation for the complete platform including the management dashboard, management APIs, SDKs, and more. If you need help along the way feel free to reach out to support and if you don’t have an account yet, you can create a free account now.',
     },
   },
-  url: (process.env.VERCEL_ENV === 'production') ? "https://docs.devcycle.com" : (process.env.VERCEL_URL) ? "https://" + process.env.VERCEL_URL : 'http://localhost:3000',
+  url:
+    process.env.VERCEL_ENV === 'production'
+      ? 'https://docs.devcycle.com'
+      : process.env.VERCEL_URL
+      ? 'https://' + process.env.VERCEL_URL
+      : 'http://localhost:3000',
   baseUrl: '/',
   favicon: 'devcycle_favicon.ico',
   themeConfig: {
     prism: {
-      additionalLanguages: ['ruby', 'go', 'php', 'swift', 'kotlin', 'java', 'clike', 'scala', 'hcl', 'yaml', 'csharp', 'dart']
+      additionalLanguages: [
+        'ruby',
+        'go',
+        'php',
+        'swift',
+        'kotlin',
+        'java',
+        'clike',
+        'scala',
+        'hcl',
+        'yaml',
+        'csharp',
+        'dart',
+      ],
     },
     algolia: {
       appId: '6TW93YPS4X',
@@ -115,7 +133,7 @@ const config = {
           label: 'DevCycle Usage',
           docId: 'home/introduction',
           collapse: 'false',
-          type: 'doc'
+          type: 'doc',
         },
         {
           type: 'doc',
@@ -129,15 +147,14 @@ const config = {
           label: 'APIs',
           position: 'left',
           items: [
-            
-        {
-          label: 'Management API',
-          to: '/management-api/',
-        },
-        {
-          label: 'Bucketing API',
-          to: '/bucketing-api/',
-        },
+            {
+              label: 'Management API',
+              to: '/management-api/',
+            },
+            {
+              label: 'Bucketing API',
+              to: '/bucketing-api/',
+            },
           ],
         },
 
@@ -145,7 +162,7 @@ const config = {
           docId: 'tools-and-integrations/integrations',
           position: 'left',
           label: 'Tools & Integrations',
-          type: 'doc'
+          type: 'doc',
         },
 
         {
@@ -198,11 +215,11 @@ const config = {
               label: 'Blog',
               href: 'https://devcycle.com/company/developer-blog',
             },
-             {
+            {
               label: 'Discord',
               href: 'https://discord.gg/pKK4fJgGxG',
             },
-            
+
             //   {
             //     label: 'Status',
             //   href: 'https://status.DevCycle.com/'
@@ -222,14 +239,14 @@ const config = {
             },
             {
               label: 'Discord',
-              href: 'https://discord.gg/pKK4fJgGxG'
-             }
+              href: 'https://discord.gg/pKK4fJgGxG',
+            },
           ],
         },
       ],
       copyright: `Copyright © ${new Date().getFullYear()} DevCycle.`,
     },
   },
-};
+}
 
-module.exports = config;
+module.exports = config
