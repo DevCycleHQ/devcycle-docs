@@ -22,6 +22,7 @@
     "@tailwindcss/aspect-ratio": "^0.3.0",
     "clsx": "^1.1.1",
     "gridsome-plugin-remark-youtube": "^1.0.1",
+    "mixpanel-browser": "^2.45.0",
     "postcss-import": "^14.0.2",
     "postcss-preset-env": "^7.0.0",
     "prism": "^4.1.2",
