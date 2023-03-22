@@ -31,7 +31,9 @@ From here, you can customize the heading, colours, logo, and descriptive text of
 
 ![Feature Opt-In](/oct-22-2022-feature-opt-in-3.png)
 
- Below the customization options and styling preview is the iFrame code snippet and a tool to test the widget with different user IDs. Select the environment you would like to test or implement in the dropdown and insert any user ID to validate what the widget will look like for a given user by clicking "Open Preview".
+ Below the customization options and styling preview is the iFrame code snippet and a tool to test the widget with different user IDs. Select the environment you would like to test or implement in the dropdown and insert any user ID to validate what the widget will look like for a given user by clicking "Open Preview". 
+
+ This code snippet is initially presented in simple HTML format, but React and Angular alternatives are available via the "Frontend framework" dropdown above the code snippet.
  
  The two most important parts of the iFrame code are the environment key and user ID. Make sure that you are setting the right key for the environment the widget will be displayed in, and ensure you always pass the relevant user ID for the user that is interacting with the widget.
 
