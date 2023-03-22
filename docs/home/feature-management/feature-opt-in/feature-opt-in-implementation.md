@@ -39,6 +39,14 @@ From here, you can customize the heading, colours, logo, and descriptive text of
 
 ![Feature Opt-In iFrame](/oct-22-2022-feature-opt-in-4.png)
 
+### Custom Widget
+
+Some users prefer to create a custom Opt-In widget, connected to our [Management API](https://docs.devcycle.com/docs/home/introduction#management-api-docs). To ensure that a user's experience is adjusted in realtime to reflect the opt-in or opt-out of a feature, trigger the following code once the opt-in state has been successfully sent to the API.
+
+```
+window.postMessage({ type: "DVC.optIn.saved" }, "*")
+```
+
 ### Select Features to be Eligible for Feature Opt-In
 
 To make sure only the right features are added to the Feature Opt-In widget you need to explicitly enable Opt-In on each feature that you want to show up in the widget.
