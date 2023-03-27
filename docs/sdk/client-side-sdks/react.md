@@ -61,6 +61,12 @@ If you do not pass in a user to the provider, it will create an anonymous user a
 You can then call the `identifyUser` method on the client once the user has been authenticated.
 See [Identifying Users & Setting Properties](/docs/sdk/features/identify) for more details.
 
+:::info
+
+ It’s best to initialize DevCycle in your root component (App.jsx or App.tsx), so that its hooks can be accessed from anywhere within your application.
+
+:::
+
 ### Non-Blocking
 
 The withDVCProvider higher-order component (HOC) initializes the React SDK and wraps your root component. This provider may cause your app
