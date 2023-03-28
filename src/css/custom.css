@@ -2,11 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+div.dropdown a:hover.navbar__link {
+  @apply bg-transparent !important;
+}
+
 a.navbar__link + a.navbar__link {
   @apply ml-2;
 }
 
-a:hover.navbar__link {
+div.dropdown a:hover.navbar__link, a.dropdown__link:hover {
   @apply dark:bg-gray-600;
   @apply bg-blue-50;
   @apply rounded-md;
