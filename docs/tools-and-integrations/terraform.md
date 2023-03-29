@@ -1,5 +1,5 @@
 ---
-title: DevCycle Terraform Provider
+title: Terraform Provider
 sidebar_position: 6
 ---
 

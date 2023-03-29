@@ -1,5 +1,6 @@
 ---
 title: Feature Flag Grouping
+sidebar_label: Flag Grouping
 sidebar_position: 4
 ---
 

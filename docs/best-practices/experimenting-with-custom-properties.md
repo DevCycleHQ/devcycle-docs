@@ -1,5 +1,6 @@
 ---
 title: Using Custom Properties
+sidebar_label: Custom Properties
 sidebar_position: 3
 ---
 

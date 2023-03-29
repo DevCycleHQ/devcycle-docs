@@ -1,5 +1,6 @@
 ---
 title: Engineering-Led Experiments
+sidebar_label: Experimentation
 sidebar_position: 9
 ---
 # Engineering-Led Experiments
