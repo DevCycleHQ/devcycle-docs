@@ -44,8 +44,10 @@ const Welcome = () => {
                     <span className="block">Developer Docs!</span>
                   </h2>
                   <p className="mt-4 text-lg leading-6 text-blue-200">
-                    Our documentation site includes guides and API documentation for the complete platform including the management dashboard, management APIs, SDKs, and more. If you need help along the way feel free to reach out to support and if you don’t have an account yet, you can 
-    account now.
+                    Find answers to all your DevCycle implementation questions, and learn more about how to start using our management dashboard, APIs, SDKs, and more. 
+                  </p>
+                  <p className="mt-4 text-md leading-6 text-blue-200">
+                  If you need help along the way feel free to reach out to our team on <a className="text-white font-bold hover:text-blue-200" href="https://discord.gg/TQfUfFbFJr"> Discord for additional support</a>.
                   </p>
                   <a
                     href="https://docs.devcycle.com/docs/home/introduction"
