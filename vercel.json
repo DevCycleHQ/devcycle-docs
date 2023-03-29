@@ -1,5 +1,6 @@
 {
-    "rewrites": [
-      { "source": "/docs/(.*)", "destination": "/$1" }
+    "redirects": [
+      { "source": "/docs/:path*", "destination": "/:path*", "statusCode": 301 }
     ]
   }
+  
