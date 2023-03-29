@@ -47,6 +47,7 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           remarkPlugins: [[remarkYoutube, { width: '100%', align: 'auto' }]],
           rehypePlugins: [],
+          routeBasePath: '/',
         },
         sitemap: {
           changefreq: 'weekly',
