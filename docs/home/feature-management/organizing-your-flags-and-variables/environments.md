@@ -20,7 +20,7 @@ Every new project within DevCycle starts with three initial Environments:
 * Staging
 * Production
 
-Each environment has its own set of SDK keys for Client-Side, Mobile, and Server-Side SDKs. To learn more about these keys and how to use them, read [Access Keys & Tokens](/docs/home/feature-management/organizing-your-flags-and-variables/api-and-sdk-keys).
+Each environment has its own set of SDK keys for Client-Side, Mobile, and Server-Side SDKs. To learn more about these keys and how to use them, read [Access Keys & Tokens](/home/feature-management/organizing-your-flags-and-variables/api-and-sdk-keys).
 
 **Every Feature you create will automatically be created on every environment within a project.** Each environment then has its own set of targeting rules. This means that a feature's code can be deployed across every environment, and its access can be managed on an environment level. 
 
@@ -28,7 +28,7 @@ You can easily view a Feature's status across all environments by simply going t
 
 ![Sidebar of a DevCycle Feature showing the list of Environments](/march-2022-environments.png)
 
-And the Feature's targeting or availability across each environment can be managed directly from that page in the associated targeting section. More details on [turning features on or off can be found here](/docs/home/feature-management/getting-started/toggling-features), and more details on creating rules for your [Feature on each environment can be found here](/docs/home/feature-management/features-and-variables/targeting-users).
+And the Feature's targeting or availability across each environment can be managed directly from that page in the associated targeting section. More details on [turning features on or off can be found here](/home/feature-management/getting-started/toggling-features), and more details on creating rules for your [Feature on each environment can be found here](/home/feature-management/features-and-variables/targeting-users).
 
 ## Managing Environments
 

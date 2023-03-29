@@ -15,35 +15,35 @@ The Track function in the DevCycle SDKs allows you to send up custom events whic
 
 ## Client-Side SDK Usage
 
-### [• Javascript SDK](/docs/sdk/client-side-sdks/javascript#tracking-events)
+### [• Javascript SDK](/sdk/client-side-sdks/javascript#tracking-events)
 
-### [• React SDK](/docs/sdk/client-side-sdks/react#track-events)
+### [• React SDK](/sdk/client-side-sdks/react#track-events)
 
-### [• React Native SDK](/docs/sdk/client-side-sdks/react-native#track-events)
+### [• React Native SDK](/sdk/client-side-sdks/react-native#track-events)
 
-### [• Flutter SDK](/docs/sdk/client-side-sdks/flutter#tracking-events)
+### [• Flutter SDK](/sdk/client-side-sdks/flutter#tracking-events)
 
-### [• iOS SDK](/docs/sdk/client-side-sdks/ios#tracking-events)
+### [• iOS SDK](/sdk/client-side-sdks/ios#tracking-events)
 
-### [• Android SDK](/docs/sdk/client-side-sdks/android#tracking-events)
+### [• Android SDK](/sdk/client-side-sdks/android#tracking-events)
 
 ## Server-Side SDK Usage
 
-### [• Node SDK](/docs/sdk/server-side-sdks/node#tracking-user-events) 
+### [• Node SDK](/sdk/server-side-sdks/node#tracking-user-events) 
 
-### [• C# / .NET Local SDK](/docs/sdk/server-side-sdks/dotnet-local#track-event) 
+### [• C# / .NET Local SDK](/sdk/server-side-sdks/dotnet-local#track-event) 
 
-### [• C# / .NET Cloud SDK](/docs/sdk/server-side-sdks/dotnet-cloud#track-event)
+### [• C# / .NET Cloud SDK](/sdk/server-side-sdks/dotnet-cloud#track-event)
 
-### [• Go SDK](/docs/sdk/server-side-sdks/go#tracking-user-event)
+### [• Go SDK](/sdk/server-side-sdks/go#tracking-user-event)
 
-### [• Python SDK](/docs/sdk/server-side-sdks/python#track-event)
+### [• Python SDK](/sdk/server-side-sdks/python#track-event)
 
-### [• Ruby SDK](/docs/sdk/server-side-sdks/ruby#track-events)
+### [• Ruby SDK](/sdk/server-side-sdks/ruby#track-events)
 
-### [• PHP SDK](/docs/sdk/server-side-sdks/php#track-event)
+### [• PHP SDK](/sdk/server-side-sdks/php#track-event)
 
-### [• Java Local SDK](/docs/sdk/server-side-sdks/java-local#track-event)
+### [• Java Local SDK](/sdk/server-side-sdks/java-local#track-event)
 
-### [• Java Cloud SDK](/docs/sdk/server-side-sdks/java-cloud#track-event)
+### [• Java Cloud SDK](/sdk/server-side-sdks/java-cloud#track-event)
 

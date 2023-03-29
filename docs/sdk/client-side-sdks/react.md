@@ -5,7 +5,7 @@ sidebar_position: 2
 
 # DevCycle React SDK
 
-The DevCycle React SDK lets you easily integrate your React web applications with DevCycle. This SDK is also utilized for [React Native](/docs/sdk/client-side-sdks/react-native)
+The DevCycle React SDK lets you easily integrate your React web applications with DevCycle. This SDK is also utilized for [React Native](/sdk/client-side-sdks/react-native)
 
 :::info
 
@@ -59,7 +59,7 @@ To use these providers, you must get the SDK Key from the DevCycle Dashboard.
 You can optionally pass in a user object to the provider to initialize the SDK.
 If you do not pass in a user to the provider, it will create an anonymous user and initialize the SDK with it.
 You can then call the `identifyUser` method on the client once the user has been authenticated.
-See [Identifying Users & Setting Properties](/docs/sdk/features/identify) for more details.
+See [Identifying Users & Setting Properties](/sdk/features/identify) for more details.
 
 :::info
 
@@ -180,7 +180,7 @@ const DVCFeaturePage = () => {
 
 See [getVariableByKey](https://docs.devcycle.com/bucketing-api/#operation/getVariableByKey) on the Bucketing API for the variable response format.
 
-If a change on the dashboard triggers your variable value to change, it will rerender your page to reflect your new variable value. To learn more, visit the [Realtime Updates](/docs/sdk/features/realtime-updates) page.
+If a change on the dashboard triggers your variable value to change, it will rerender your page to reflect your new variable value. To learn more, visit the [Realtime Updates](/sdk/features/realtime-updates) page.
 
 ### Getting the DevCycle Client
 
@@ -282,7 +282,7 @@ See [getVariables](https://docs.devcycle.com/bucketing-api/#operation/getVariabl
 
 :::note
 
-The DevCycle React SDK is built upon the JavaScript SDK. For further details, view [the JavaScript SDK documentation](/docs/sdk/client-side-sdks/javascript)
+The DevCycle React SDK is built upon the JavaScript SDK. For further details, view [the JavaScript SDK documentation](/sdk/client-side-sdks/javascript)
 
 :::
 
@@ -321,7 +321,7 @@ dvcClient.flushEvents(() => {
 
 EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user. 
 
-To get started, enable EdgeDB on your project by following the guide [here](/docs/home/feature-management/edgedb/edge-flags)
+To get started, enable EdgeDB on your project by following the guide [here](/home/feature-management/edgedb/edge-flags)
 
 Once you have EdgeDB enabled in your project, pass in the `enableEdgeDB` option to turn on EdgeDB mode for the SDK:
 

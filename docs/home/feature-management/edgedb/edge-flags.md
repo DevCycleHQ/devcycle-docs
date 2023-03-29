@@ -78,20 +78,20 @@ This will make the custom data `amountSpent` available to segment on when identi
 For specific documentation on how to use Edge Flags with each SDK
 
 #### Client SDKs
-- [JS SDK](/docs/sdk/client-side-sdks/javascript#edgedb)
-- [iOS SDK](/docs/sdk/client-side-sdks/ios#edgedb)
-- [Android SDK](/docs/sdk/client-side-sdks/android#edgedb)
-- [React SDK](/docs/sdk/client-side-sdks/react#edgedb)
-- [React Native](/docs/sdk/client-side-sdks/react-native#edgedb)
+- [JS SDK](/sdk/client-side-sdks/javascript#edgedb)
+- [iOS SDK](/sdk/client-side-sdks/ios#edgedb)
+- [Android SDK](/sdk/client-side-sdks/android#edgedb)
+- [React SDK](/sdk/client-side-sdks/react#edgedb)
+- [React Native](/sdk/client-side-sdks/react-native#edgedb)
 
 #### Server SDKs
-- [Go SDK](/docs/sdk/server-side-sdks/go#edgedb)
-- [Java SDK](/docs/sdk/server-side-sdks/java-cloud#edgedb)
-- [Node.js SDK](/docs/sdk/server-side-sdks/node#edgedb)
-- [PHP SDK](/docs/sdk/server-side-sdks/php#edgedb)
-- [Python SDK](/docs/sdk/server-side-sdks/python#edgedb)
-- [Ruby SDK](/docs/sdk/server-side-sdks/ruby#edgedb)
-- [.NET SDK for Cloud Bucketing](/docs/sdk/server-side-sdks/dotnet-cloud#edgedb)
+- [Go SDK](/sdk/server-side-sdks/go#edgedb)
+- [Java SDK](/sdk/server-side-sdks/java-cloud#edgedb)
+- [Node.js SDK](/sdk/server-side-sdks/node#edgedb)
+- [PHP SDK](/sdk/server-side-sdks/php#edgedb)
+- [Python SDK](/sdk/server-side-sdks/python#edgedb)
+- [Ruby SDK](/sdk/server-side-sdks/ruby#edgedb)
+- [.NET SDK for Cloud Bucketing](/sdk/server-side-sdks/dotnet-cloud#edgedb)
 
 :::info
 **Data stored in EdgeDB is only used for user segmenting (targeting rules), so EdgeDB won’t return data to the SDK.**

@@ -24,7 +24,7 @@ feature, which can always be modified as you work on your feature.
 
 Let's say we're making a new feature for our application, and we want to separate it from deployment until it's ready 
 for release. So in our case, we'll **choose the "Release" feature template**. You can read more about our other feature 
-templates on our docs [here](/docs/home/feature-management/getting-started/feature-types).
+templates on our docs [here](/home/feature-management/getting-started/feature-types).
 
 After choosing our feature template, we'll be prompted to give our feature a descriptive name and a unique key. 
 The key is how we will reference our feature and its variables in code. (DevCycle automatically suggests a key based 
@@ -108,7 +108,7 @@ Now that we have our app, we're ready to implement our DevCycle feature flag!
 
 ## Step 4: Implementation
 To implement our feature flag, we need to set up the proper SDK—in this case, the React Client. 
-For more information about our other SDKs types, [check out our documentation here](/docs/home/feature-management/getting-started/setting-up-sdk).
+For more information about our other SDKs types, [check out our documentation here](/home/feature-management/getting-started/setting-up-sdk).
 
 To install the React SDK, run the following command on your terminal 
 ```jsx
@@ -162,7 +162,7 @@ replace the whole `function App () {...}` section in VSCode.
 You can also find your keys from **Profile → Settings → Environments & Keys** in DevCycle.
 
 ![Environments & Keys Page](/june-2022-sdk-keys.png)
-For more information about SDK keys, [head to our docs here](/docs/home/feature-management/organizing-your-flags-and-variables/api-and-sdk-keys).
+For more information about SDK keys, [head to our docs here](/home/feature-management/organizing-your-flags-and-variables/api-and-sdk-keys).
 
 Once you've pasted your client key, you should now have something that looks like this in VSCode:
 

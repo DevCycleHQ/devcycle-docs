@@ -27,7 +27,7 @@ After the change is made, save it to propagate the change across all devices wit
 
 When a feature is either "on" or "off", the sdk or api referencing it will have different values for its variables.
 
-For information on how targeting users and using features when they are turned on, read [Targeting Users](/docs/home/feature-management/features-and-variables/targeting-users).
+For information on how targeting users and using features when they are turned on, read [Targeting Users](/home/feature-management/features-and-variables/targeting-users).
 
 ### When a feature is Off
 

@@ -11,7 +11,7 @@ It is possible to simply target individual users to receive specific variations,
 
 ## Creating a Targeting Rule
 
-To create a targeting rule, first, understand which environment you would like to create this rule for. [Read more about Environments here](/docs/home/feature-management/organizing-your-flags-and-variables/environments). To understand the impact of turning a feature on or off in a Feature read [Turning Features On and Off](/docs/home/feature-management/getting-started/toggling-features)
+To create a targeting rule, first, understand which environment you would like to create this rule for. [Read more about Environments here](/home/feature-management/organizing-your-flags-and-variables/environments). To understand the impact of turning a feature on or off in a Feature read [Turning Features On and Off](/home/feature-management/getting-started/toggling-features)
 
 If a feature is toggled ON for an environment, the rules defined within the environment will be followed.
 
@@ -48,7 +48,7 @@ Each targeting rule has four parts that must be set, and one optional item, as s
 
 DevCycle also allows the targeting of properties that aren't in the predefined list provided by SDKs. 
 
-[Read here to learn about the usage of Custom Properties](/docs/home/feature-management/features-and-variables/custom-properties)
+[Read here to learn about the usage of Custom Properties](/home/feature-management/features-and-variables/custom-properties)
 
 :::
 
@@ -92,7 +92,7 @@ The above would only match users who have:
 
 ### Serving Specific Variations
 
-Once the targeting rule is defined, the next step is to determine what Variation users targeted by this rule should receive. Note: The available variations will be determined by the chosen Feature Type, however, [these can](/docs/home/feature-management/features-and-variables/variables-and-variations) be modified and more variations can be added at any time.](/docs/home/feature-management/features-and-variables/variables-and-variations)
+Once the targeting rule is defined, the next step is to determine what Variation users targeted by this rule should receive. Note: The available variations will be determined by the chosen Feature Type, however, [these can](/home/feature-management/features-and-variables/variables-and-variations) be modified and more variations can be added at any time.](/home/feature-management/features-and-variables/variables-and-variations)
 
 To choose the Variation for this targeted audience, use the "Serve" dropdown and choose the desired variation. When the environment is enabled, and if a user fulfills the targeting rule, they will then be served that variation and its associated variable values.
 

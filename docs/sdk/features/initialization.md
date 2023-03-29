@@ -17,39 +17,39 @@ This cache will be used in scenarios where on subsequent initializations a new c
 
 Additionally, if the SDK is interacted with before any initialization (such as attempting to read a variable far early on in an application before initialization), the cached value will be read.
 
-If a variable is first read from the cache and has a listener for [realtime updates](/docs/sdk/features/realtime-updates), if a new value is retrieved after initialization, the `onUpdate` function will be triggered.
+If a variable is first read from the cache and has a listener for [realtime updates](/sdk/features/realtime-updates), if a new value is retrieved after initialization, the `onUpdate` function will be triggered.
 
 ## Client-Side SDK Usage
 
-### [• Javascript SDK](/docs/sdk/client-side-sdks/javascript#installation)
+### [• Javascript SDK](/sdk/client-side-sdks/javascript#installation)
 
-### [• React SDK](/docs/sdk/client-side-sdks/react#installation)
+### [• React SDK](/sdk/client-side-sdks/react#installation)
 
-### [• iOS SDK](/docs/sdk/client-side-sdks/ios#using-variable-values)
+### [• iOS SDK](/sdk/client-side-sdks/ios#using-variable-values)
 
-### [• Android SDK](/docs/sdk/client-side-sdks/android#using-variable-values)
+### [• Android SDK](/sdk/client-side-sdks/android#using-variable-values)
 
-### [• React Native SDK](/docs/sdk/client-side-sdks/react-native#getting-started)
+### [• React Native SDK](/sdk/client-side-sdks/react-native#getting-started)
 
-### [• Flutter SDK](/docs/sdk/client-side-sdks/flutter#installation)
+### [• Flutter SDK](/sdk/client-side-sdks/flutter#installation)
 
 ## Server-Side SDK Usage
 
-### [• Node SDK](/docs/sdk/server-side-sdks/node#installation) 
+### [• Node SDK](/sdk/server-side-sdks/node#installation) 
 
-### [• C# / .NET Local SDK](/docs/sdk/server-side-sdks/dotnet-local#installation) 
+### [• C# / .NET Local SDK](/sdk/server-side-sdks/dotnet-local#installation) 
 
-### [• C# / .NET Cloud SDK](/docs/sdk/server-side-sdks/dotnet-cloud#installation)
+### [• C# / .NET Cloud SDK](/sdk/server-side-sdks/dotnet-cloud#installation)
 
-### [• Go SDK](/docs/sdk/server-side-sdks/go#installation)
+### [• Go SDK](/sdk/server-side-sdks/go#installation)
 
-### [• Python SDK](/docs/sdk/server-side-sdks/python#installation)
+### [• Python SDK](/sdk/server-side-sdks/python#installation)
 
-### [• Ruby SDK](/docs/sdk/server-side-sdks/ruby#installation)
+### [• Ruby SDK](/sdk/server-side-sdks/ruby#installation)
 
-### [• PHP SDK](/docs/sdk/server-side-sdks/php#installation)
+### [• PHP SDK](/sdk/server-side-sdks/php#installation)
 
-### [• Java Local SDK](/docs/sdk/server-side-sdks/java-local#installation)
+### [• Java Local SDK](/sdk/server-side-sdks/java-local#installation)
 
-### [• Java Cloud SDK](/docs/sdk/server-side-sdks/java-cloud#installation)
+### [• Java Cloud SDK](/sdk/server-side-sdks/java-cloud#installation)
 

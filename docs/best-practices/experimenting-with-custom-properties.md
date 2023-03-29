@@ -6,7 +6,7 @@ sidebar_position: 3
 
 ## Overview
 
-Custom Properties are useful way to Target users for Experimentation or Permissions. To complete this guide, we recommend an understanding of User Targeting in DevCycle, found on our docs [Targeting Users for Features](/docs/home/feature-management/features-and-variables/targeting-users).
+Custom Properties are useful way to Target users for Experimentation or Permissions. To complete this guide, we recommend an understanding of User Targeting in DevCycle, found on our docs [Targeting Users for Features](/home/feature-management/features-and-variables/targeting-users).
 
 DevCycle provides several properties that can be used to target users for a feature. You can target users by their User ID, Email, Country, Platform, etc. However, it may sometimes be helpful to identify users by attributes that are not predefined in DevCycle. 
 
@@ -38,7 +38,7 @@ The following fields are optional:
 
 Once you’ve created a property, you can find it in the Definition dropdown when you modify the Targeting Rules. The property will be accessible across all features within your project. 
 
-[To learn more about creating Custom Properties, read our docs here](/docs/home/feature-management/features-and-variables/custom-properties#creating-a-new-property-for-use).
+[To learn more about creating Custom Properties, read our docs here](/home/feature-management/features-and-variables/custom-properties#creating-a-new-property-for-use).
 
 ## Implementing Custom Properties
 
@@ -59,15 +59,15 @@ client.identifyUser(user)
 ```
 Notice that we added the Custom Property Key, `isBetaUser`, and its custom value, `true`, within the `customData` field of our user object. Remember that the Custom Property Key must be the exact same as it is displayed on the dashboard. As a result, it is a good practice to use quotation marks when indicating the key in your code, especially if the Property Key has spaces or hyphens.
 
-To reference our user’s features and variables, we use the [Identify](/docs/sdk/features/identify) method from the DevCycle SDKs. A call to the Identify function will return the list of relevant Features and Variables for the user. After we define our user’s `customData`, we call the `identifyUser` method on the client object, obtained from [using the `useDVCClient` hook](/docs/sdk/client-side-sdks/react-native#usedvcclient). That way, we can reference the user’s features and variable values based on the targeting of their custom property.
+To reference our user’s features and variables, we use the [Identify](/sdk/features/identify) method from the DevCycle SDKs. A call to the Identify function will return the list of relevant Features and Variables for the user. After we define our user’s `customData`, we call the `identifyUser` method on the client object, obtained from [using the `useDVCClient` hook](/sdk/client-side-sdks/react-native#usedvcclient). That way, we can reference the user’s features and variable values based on the targeting of their custom property.
 
-For more documentation about the Identify method with different SDKs, read [Identifying Users & Setting Properties](/docs/sdk/features/identify).
+For more documentation about the Identify method with different SDKs, read [Identifying Users & Setting Properties](/sdk/features/identify).
 
 :::info
 
 Every time you identify a particular user, you must pass the custom data into the SDK. 
 
-DevCycle's EdgeDB feature enables the saving of user data into DevCycle's EdgeDB storage, allowing you to segment by custom properties without having to repeatedly pass data to the SDK. [View our EdgeDB docs to find out how it works](/docs/home/feature-management/edgedb/edge-flags).
+DevCycle's EdgeDB feature enables the saving of user data into DevCycle's EdgeDB storage, allowing you to segment by custom properties without having to repeatedly pass data to the SDK. [View our EdgeDB docs to find out how it works](/home/feature-management/edgedb/edge-flags).
 :::
 
 ## Common Use Cases for Custom Properties

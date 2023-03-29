@@ -19,7 +19,7 @@ From this page, you can create a Feature Flag by clicking "Create New Feature" o
 ![DevCycle Feature Dashboard with arrows highlighting the create button on the page as well as the persistent button in the top bar](/march-2022-create.png)
 
 
-To learn more about creating a Feature, start with [Your First Feature](/docs/home/feature-management/getting-started/your-first-feature)
+To learn more about creating a Feature, start with [Your First Feature](/home/feature-management/getting-started/your-first-feature)
 
 The features list has the following columns:
 
@@ -41,7 +41,7 @@ The features list has the following columns:
 
 * **# Of Variables**
     
-    This will show a count of how many variables are used within this Feature. To learn more read [Creating Variables and Variations](/docs/home/feature-management/features-and-variables/variables-and-variations)
+    This will show a count of how many variables are used within this Feature. To learn more read [Creating Variables and Variations](/home/feature-management/features-and-variables/variables-and-variations)
 
 * **Edit**
     

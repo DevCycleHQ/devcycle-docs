@@ -11,6 +11,6 @@ To learn more about EdgeDB check out the documentation for the features powered 
 
 ### Features Enabled by EdgeDB
 
-- [Edge Flags](/docs/home/feature-management/edgedb/edge-flags)
-- [Super Segments](/docs/home/feature-management/edgedb/super-segments)
-- [Data Residency](/docs/home/feature-management/edgedb/data-residency)
+- [Edge Flags](/home/feature-management/edgedb/edge-flags)
+- [Super Segments](/home/feature-management/edgedb/super-segments)
+- [Data Residency](/home/feature-management/edgedb/data-residency)

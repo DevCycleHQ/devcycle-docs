@@ -9,10 +9,10 @@ DevCycle strives to ensure that all our APIs and SDKs have identical functionali
 
 ## Features and Functionality
 
-* [Using Variables](/docs/sdk/features/evaluating)
-* [Getting All Variables](/docs/sdk/features/all-variables)
-* [Getting All Features](/docs/sdk/features/all-features)
-* [Identifying Users / Setting Properties](/docs/sdk/features/identify)
-* [Resetting the User](/docs/sdk/features/reset)
-* [Tracking Events](/docs/sdk/features/track)
+* [Using Variables](/sdk/features/evaluating)
+* [Getting All Variables](/sdk/features/all-variables)
+* [Getting All Features](/sdk/features/all-features)
+* [Identifying Users / Setting Properties](/sdk/features/identify)
+* [Resetting the User](/sdk/features/reset)
+* [Tracking Events](/sdk/features/track)
 
