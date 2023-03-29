@@ -69,7 +69,7 @@ For getting the server-side SDK key from DevCycle, you can read this section ([h
     
     ![Screen Shot 2022-09-13 at 11.51.57 AM.png](/Screen_Shot_2022-09-13_at_11.51.57_AM.png)
     
-4. Click “Next” and enter the ([contents of the `index.js` from the example repo](https://github.com/DevCycleHQ/google-cloud-functions-example/blob/main/index.js)) into the Consonle
+4. Click “Next” and enter the ([contents of the `index.js` from the example repo](https://github.com/DevCycleHQ/google-cloud-functions-example/blob/main/index.js)) into the Console
     ![Screen Shot 2022-09-13 at 11.47.59 AM.png](/Screen_Shot_2022-09-13_at_11.47.59_AM.png)
     
 5. Add the DevCycle SDK to `package.json`

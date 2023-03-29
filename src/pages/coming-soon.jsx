@@ -6,7 +6,7 @@ import { LightningBoltIcon, CubeIcon, ChipIcon } from '@heroicons/react/outline'
 const sections = [
   {
     name: 'Getting Started',
-    link: '/docs/home/index',
+    link: '/docs/home',
     description:
       'Find everything you need to get up and running with DevCycle here. From creating your account to getting your first Feature live in production this is your end-to-end guide to getting started.',
     icon: LightningBoltIcon,
@@ -14,7 +14,7 @@ const sections = [
   },
   {
     name: 'Using Our SDKs',
-    link: '/docs/sdk/index',
+    link: '/docs/sdk',
     description:
       'Find the right SDK for your codebase and the best way to implement it for your needs. These docs include our supported functions as well as unique behaviors on different platforms.',
     icon: CubeIcon,
