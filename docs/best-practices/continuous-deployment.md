@@ -36,7 +36,7 @@ To learn more about Targeting in DevCycle, read [Targeting Users](/home/feature-
 
 ## Testing Code that Uses Feature Flags
 
-If you’ve already adopted continuous integration, you are likely taking advantage of automated testing. For instance, CircleCI is a tool that can automatically run your tests at every commit to your main/trunk branch. You can find out how to run your tests automatically on [CircleCI’s documentation](https://circleci.com/config-intro).
+If you’ve already adopted continuous integration, you are likely taking advantage of automated testing. For instance, CircleCI is a tool that can automatically run your tests at every commit to your main/trunk branch. You can find out how to run your tests automatically on [CircleCI’s documentation](https://circleci.com/docs/config-intro).
 
 Sometimes adding a feature flag results in a failed integration test. This could be because the current state of the feature flag contradicts the assertion your test expects. One way to fix this issue is to ensure your tests identify the correct user targeted by each of your expected variations.
 

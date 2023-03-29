@@ -59,12 +59,12 @@ To set the feature flags, make sure you have a DevCycle account [https://devcycl
 
 ### Setting Up a Google Cloud Function
 
-1. Go to your Google Cloud Functions console([https://console.cloud.google.com/functions](https://console.cloud.google.com/functions)) to create a function. ([For more info from Google](https://cloud.google.com/functions/console-quickstart))
+1. Go to your Google Cloud Functions console([https://console.cloud.google.com/functions](https://console.cloud.google.com/functions)) to create a function. ([For more info from Google](https://cloud.google.com/functions/docs/console-quickstart))
 2. Follow below configurations
     
     ![Screen Shot 2022-09-13 at 11.42.38 AM.png](/Screen_Shot_2022-09-13_at_11.42.38_AM.png)
     
-3. Add the environment variable `SERVER_KEY` under “Runtime environment variables” ([Related Google Doc](https://cloud.google.com/functions/configuring/env-var#using_runtime_environment_variables)) 
+3. Add the environment variable `SERVER_KEY` under “Runtime environment variables” ([Related Google Doc](https://cloud.google.com/functions/docs/configuring/env-var) 
 For getting the server-side SDK key from DevCycle, you can read this section ([https://docs.devcycle.com/home/feature-management/organizing-your-flags-and-variables/api-and-sdk-keys](/home/feature-management/organizing-your-flags-and-variables/api-and-sdk-keys))
     
     ![Screen Shot 2022-09-13 at 11.51.57 AM.png](/Screen_Shot_2022-09-13_at_11.51.57_AM.png)

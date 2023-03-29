@@ -59,7 +59,7 @@ Because Code References list all usages of a variable in your code, you can easi
 
 To use Code References, you must enable [the DevCycle action for Code References](/tools-and-integrations/Github/gh-feature-usage-action) within your repository. After configuration, you can find your Code References when you click “View Info” for a variable in the Variables dashboard.
 
-For more information about Code References, [check out our docs here](https://devcycle-docs-fashce1kc-taplytics.vercel.app/home/feature-management/organizing-your-flags-and-variables/variable-dashboard#code-references).
+For more information about Code References, [check out our docs here](/home/feature-management/organizing-your-flags-and-variables/variable-dashboard#code-references).
 
 ## Other ways to reduce feature flag tech debt
 

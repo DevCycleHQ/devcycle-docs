@@ -30,11 +30,11 @@ $ npm install -g @devcycle/cli
 Many of the CLI commands require DevCycle API authorization. There are several ways to provide these credentials.
 ## Using Access Tokens
 ### Login Command (preferred)
-By using the [login sso command](https://github.com/DevCycleHQ/cli/blob/main/login.md#dvc-login-sso), the CLI will retrieve and store an access token, which is valid for 24 hours.
+By using the [login sso command](https://github.com/DevCycleHQ/cli/blob/main/docs/login.md#dvc-login-sso), the CLI will retrieve and store an access token, which is valid for 24 hours.
 
 This process will open browser windows to interact with the DevCycle universal login page. It will first obtain a personal access token, then prompt you to choose an organization. A second browser window is used to authenticate the CLI with your chosen organization.
 
-To switch organizations once logged in, the [org command](https://github.com/DevCycleHQ/cli/blob/main/org.md) can be used.
+To switch organizations once logged in, the [org command](https://github.com/DevCycleHQ/cli/blob/main/docs/org.md) can be used.
 ## Using Client Credentials
 ### Credentials File
 Create a subdirectory inside the directory where you're running the CLI called `.devcycle`, then inside that directory
@@ -49,7 +49,7 @@ This file should **not** be checked in to version control.
 
 You also need to specify the default project ID for the CLI to use. 
 
-This can be set using the [project select command](https://github.com/DevCycleHQ/cli/blob/main/projects.md#dvc-projects-select) or by manually updating the [configuration](#configuration) file:
+This can be set using the [project select command](https://github.com/DevCycleHQ/cli/blob/main/docs/projects.md#dvc-projects-select) or by manually updating the [configuration](#configuration) file:
 ```yaml
 project: <your project id>
 ```

@@ -65,7 +65,7 @@ const dvcClient = initialize("<DVC_CLIENT_SDK_KEY>", user, dvcOptions);
 
 ### DVC User Object
 
-[DVCUser Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L55)
+[DVCUser Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts)
 
 | Property          | Type    | Description                                                                                                     |
 | ----------------- | ------- | --------------------------------------------------------------------------------------------------------------- |
