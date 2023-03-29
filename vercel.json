@@ -1,6 +1,6 @@
 {
     "redirects": [
+      { "source": "/docs/:path*/", "destination": "/:path*", "statusCode": 301 },
       { "source": "/docs/:path*", "destination": "/:path*", "statusCode": 301 }
     ]
   }
-  
