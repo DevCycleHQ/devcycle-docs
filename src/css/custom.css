@@ -69,6 +69,9 @@ a.menu__link menu__link--active, a.menu__link--active:not(.menu__link--sublist) 
   @apply dark:text-white;
 }
 
+.hidden {
+  display: none !important;
+  }
 
 /**
  * You can override the default Infima variables here.
