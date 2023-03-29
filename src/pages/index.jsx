@@ -14,7 +14,7 @@ const sections = [
   },
   {
     name: 'Using Our SDKs',
-    link: '/docs/sdk/index',
+    link: '/docs/sdk/',
     description:
       'Find the right SDK for your codebase and the best way to implement it for your needs. These docs include our supported functions as well as unique behaviors on different platforms.',
     icon: CubeIcon,
@@ -50,7 +50,7 @@ const Welcome = () => {
                   If you need help along the way feel free to reach out to our team on <a className="text-white font-bold hover:text-blue-200" href="https://discord.gg/TQfUfFbFJr"> Discord for additional support</a>.
                   </p>
                   <a
-                    href="https://docs.devcycle.com/docs/home/introduction"
+                    href="https://docs.devcycle.com/docs/home/"
                     className="mt-8 bg-white border border-transparent rounded-md shadow px-5 py-3 inline-flex items-center text-base font-medium text-blue-600 hover:bg-blue-50"
                   >
                     Get Started
