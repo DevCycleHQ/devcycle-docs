@@ -1,5 +1,6 @@
 ---
 title: Cleaning Up Unused Flags
+sidebar_label: Flag Cleanup
 sidebar_position: 6
 ---
 

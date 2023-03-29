@@ -1,0 +1,75 @@
+---
+title: Tools & Integrations
+sidebar_class_name: hidden
+---
+import DocCardList from '@theme/DocCardList';
+
+## Overview
+
+Welcome to DevCycle Tools & Integrations! Here you will find all of the various first party tools made with the 
+DevCycle APIs, as well as third party integrations to connect DevCycle to the tools of your needs. 
+
+
+:::info
+
+**Contributing to DevCycle or creating a new Integration:**
+
+If you would like to contribute to an existing integration or tool, all of DevCycle's tools and integrations 
+are [open source on the DevCycle github repository.](https://github.com/devcycleHQ)!
+
+Further, if you'd like to create a new tool or integration, a great starting point is
+[DevCycle's Management API](/management-api/) which allows you to modify and interact with
+features and more within a devcycle project, as well as the [DevCycle bucketing API](/bucketing-api/)
+which is used to give users features and variables (as used within the DevCycle SDKs!)
+
+:::
+
+### Current Tools & Integrations
+
+**DevCycle Tools**
+
+<DocCardList items={[
+  {
+    type: 'link',
+    href: '/docs/tools-and-integrations/cli',
+    label: 'Command Line Interface (CLI)',
+  },
+  {
+    type: 'link',
+    href: '/docs/tools-and-integrations/feature-importer',
+    label: 'Feature Flag Importer',
+  },
+]} />
+
+
+**Third Party Integrations**
+
+<DocCardList items={[
+  {
+    type: 'link',
+    href: '/docs/tools-and-integrations/Github/gh-feature-usage-action',
+    label: 'GitHub Action: Feature Flag Code Usages',
+  },
+  {
+    type: 'link',
+    href: '/docs/tools-and-integrations/Github/gh-pr-comment-insights',
+    label: 'GitHub Action: Feature Flag Change Insights on Pull Request',
+  },
+  {
+    type: 'link',
+    href: '/docs/tools-and-integrations/Bitbucket/bb-feature-usage-action',
+    label: 'Bitbucket Pipe: Feature Flag Code Usages',
+  },
+  {
+    type: 'link',
+    href: '/docs/tools-and-integrations/Jira/jira-integration',
+    label: 'DevCycle Feature Flag Management for Jira',
+  },
+  {
+    type: 'link',
+    href: '/docs/tools-and-integrations/terraform',
+    label: 'Terraform Provider',
+  },
+]} />
+
+

@@ -4,7 +4,7 @@ sidebar_position: 3
 ---
 
 ## Overview
-This article serves as an initial starting point for setting up a DevCycle SDK. Deeper documentation can be found in the relevant SDK docs. Depending on your use case, DevCycle has various types of SDKs. [Read more about our server-side, mobile, and client-side SDKs here.](sdk/sdk-types.md)
+This article serves as an initial starting point for setting up a DevCycle SDK. Deeper documentation can be found in the relevant SDK docs. Depending on your use case, DevCycle has various types of SDKs. [Read more about our server-side, mobile, and client-side SDKs here.](/docs/sdk/)
 
 
 ## Setting up and Connecting a DevCycle SDK
@@ -14,7 +14,7 @@ Once you have chosen your preferred SDK, set up the SDK:
 
 1. Install the DevCycle SDK via the relevant dependency manager. For example, the react SDK is installed via npm: ```npm i @devcycle/devcycle-react-sdk```
 
-2. Import DevCycle and initialize it. Depending on which [type of SDK](sdk/sdk-types.md) and which environment you are initializing for, the SDK Key the SDK is initialized with will be different. Read more about Environments and keys [here](#to-do).
+2. Import DevCycle and initialize it. Depending on which [type of SDK](/docs/sdk/) and which environment you are initializing for, the SDK Key the SDK is initialized with will be different. Read more about Environments and keys [here](#to-do).
 
 3. Access your feature flag or variables. The SDK can return a feature, a specific variation, or a specific variation of a Feature. Read more about variables and variations [here](/docs/home/feature-management/features-and-variables/variables-and-variations).
 

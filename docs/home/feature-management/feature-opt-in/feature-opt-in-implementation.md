@@ -41,7 +41,7 @@ From here, you can customize the heading, colours, logo, and descriptive text of
 
 ### Custom Widget
 
-Some users prefer to create a custom Opt-In widget, connected to our [Management API](https://docs.devcycle.com/docs/home/introduction#management-api-docs). To ensure that a user's experience is adjusted in realtime to reflect the opt-in or opt-out of a feature, trigger the following code once the opt-in state has been successfully sent to the API.
+Some users prefer to create a custom Opt-In widget, connected to our [Management API](https://docs.devcycle.com/docs/home/index#management-api-docs). To ensure that a user's experience is adjusted in realtime to reflect the opt-in or opt-out of a feature, trigger the following code once the opt-in state has been successfully sent to the API.
 
 ```
 window.postMessage({ type: "DVC.optIn.saved" }, "*")

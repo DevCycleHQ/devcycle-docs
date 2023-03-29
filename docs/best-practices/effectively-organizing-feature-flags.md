@@ -1,5 +1,6 @@
 ---
 title: Keeping Track of Feature Flags
+sidebar_label: Organization
 sidebar_position: 5
 ---
 

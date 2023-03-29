@@ -1,6 +1,6 @@
 ---
-title: DevCycle CLI
-sidebar_position: 2
+title: CLI
+sidebar_position: 5
 ---
 
 DevCycle CLI

@@ -99,6 +99,12 @@ const config = {
   baseUrl: '/',
   favicon: 'devcycle_favicon.ico',
   themeConfig: {
+    docs: {
+      sidebar: {
+        autoCollapseCategories: true,
+        hideable: true,
+      },
+    },
     prism: {
       additionalLanguages: [
         'ruby',
@@ -130,14 +136,14 @@ const config = {
       items: [
         {
           position: 'left',
-          label: 'DevCycle Usage',
-          docId: 'home/introduction',
+          label: 'Getting Started',
+          docId: 'home/index',
           collapse: 'false',
           type: 'doc',
         },
         {
           type: 'doc',
-          docId: 'sdk/sdk-types',
+          docId: 'sdk/index',
           position: 'left',
           collapse: 'false',
           label: 'SDKs',
@@ -159,7 +165,7 @@ const config = {
         },
 
         {
-          docId: 'tools-and-integrations/integrations',
+          docId: 'tools-and-integrations/index',
           position: 'left',
           label: 'Tools & Integrations',
           type: 'doc',
@@ -167,10 +173,10 @@ const config = {
 
         {
           type: 'doc',
-          docId: 'best-practices/best-practices',
+          docId: 'best-practices/index',
           to: '/best-practices/',
           position: 'left',
-          label: 'Guides & Best Practices',
+          label: 'Best Practices',
         },
         {
           href: 'https://discord.gg/pKK4fJgGxG',

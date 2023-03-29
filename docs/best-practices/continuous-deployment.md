@@ -1,5 +1,6 @@
 ---
 title: Continuous Integration & Continuous Deployment
+sidebar_label: CI/CD
 sidebar_position: 7
 ---
 

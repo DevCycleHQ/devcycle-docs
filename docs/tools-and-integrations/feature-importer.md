@@ -1,5 +1,5 @@
 ---
-title: Importing Feature Flags
+title: Feature Importer
 sidebar_position: 7
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Turning Features On and Off
+title: Toggling Features
 sidebar_position: 4
 ---
 
