@@ -5,7 +5,7 @@ sidebar_position: 4
 
 ## Overview
 
-This article serves to explain how to use the SDKs to identify users and apply properties for use within [Targeting Rules](/docs/home/feature-management/features-and-variables/targeting-users)
+This article serves to explain how to use the SDKs to identify users and apply properties for use within [Targeting Rules](/home/feature-management/features-and-variables/targeting-users)
 
 ## Identifying a User or Setting Properties
 
@@ -34,7 +34,7 @@ The user data object that you should use across SDKs should look something like 
 
 :::info
 
-If a user id is not supplied, client-side SDKs will automatically generate a user id and assign it to the current user. This id will be cached and used between app opens / website visits until a user id is supplied or [reset](/docs/sdk/features/reset) is called. This will ensure you will not experience a rise in MAUs if the main experience of your application is in a logged-out or anonymous state. 
+If a user id is not supplied, client-side SDKs will automatically generate a user id and assign it to the current user. This id will be cached and used between app opens / website visits until a user id is supplied or [reset](/sdk/features/reset) is called. This will ensure you will not experience a rise in MAUs if the main experience of your application is in a logged-out or anonymous state. 
 
 :::
 
@@ -67,19 +67,19 @@ Any call to the Identify function will return the list of relevant Features and 
 
 If your application handles multiple users at once, simply call the Identify function with their new user object and DevCycle will retrieve that user's set of Features and Variables.
 
-To reset a user completely, please view [Resetting a User](/docs/sdk/features/reset).
+To reset a user completely, please view [Resetting a User](/sdk/features/reset).
 
-### [• Javascript SDK](/docs/sdk/client-side-sdks/javascript#identifying-user)
+### [• Javascript SDK](/sdk/client-side-sdks/javascript#identifying-user)
 
-### [• React SDK](/docs/sdk/client-side-sdks/react#identifying-users)
+### [• React SDK](/sdk/client-side-sdks/react#identifying-users)
 
-### [• iOS SDK](/docs/sdk/client-side-sdks/ios#identifying-user)
+### [• iOS SDK](/sdk/client-side-sdks/ios#identifying-user)
 
-### [• Android SDK](/docs/sdk/client-side-sdks/android#identifying-user)
+### [• Android SDK](/sdk/client-side-sdks/android#identifying-user)
 
-### [• React Native SDK](/docs/sdk/client-side-sdks/react-native#identifying-users)
+### [• React Native SDK](/sdk/client-side-sdks/react-native#identifying-users)
 
-### [• Flutter SDK](/docs/sdk/client-side-sdks/flutter#identifying-user)
+### [• Flutter SDK](/sdk/client-side-sdks/flutter#identifying-user)
 
 ## Server-Side SDK Usage
 
@@ -87,23 +87,23 @@ Unlike the Client-Side SDKs, Server-Side SDKs work in a multi-user context. Beca
 
 As well, unlike the Client-Side SDKs, because Server-Side SDKs poll for project configuration updates, updating the User object that you have set will not explicitly grab new feature configurations. The User object once set can be used to get feature, variation and variable information for a given user or entity.
 
-### [• Node SDK](/docs/sdk/server-side-sdks/node#user-object) 
+### [• Node SDK](/sdk/server-side-sdks/node#user-object) 
 
-### [• C# / .NET Local SDK](/docs/sdk/server-side-sdks/dotnet-local#user-object) 
+### [• C# / .NET Local SDK](/sdk/server-side-sdks/dotnet-local#user-object) 
 
-### [• C# / .NET Cloud SDK](/docs/sdk/server-side-sdks/dotnet-cloud#user-object)
+### [• C# / .NET Cloud SDK](/sdk/server-side-sdks/dotnet-cloud#user-object)
 
-### [• Go SDK](/docs/sdk/server-side-sdks/go#user-object)
+### [• Go SDK](/sdk/server-side-sdks/go#user-object)
 
-### [• Python SDK](/docs/sdk/server-side-sdks/python#user-object)
+### [• Python SDK](/sdk/server-side-sdks/python#user-object)
 
-### [• Ruby SDK](/docs/sdk/server-side-sdks/ruby#user-object)
+### [• Ruby SDK](/sdk/server-side-sdks/ruby#user-object)
 
-### [• PHP SDK](/docs/sdk/server-side-sdks/php#user-object)
+### [• PHP SDK](/sdk/server-side-sdks/php#user-object)
 
-### [• Java Local SDK](/docs/sdk/server-side-sdks/java-local#user-object)
+### [• Java Local SDK](/sdk/server-side-sdks/java-local#user-object)
 
-### [• Java Cloud SDK](/docs/sdk/server-side-sdks/java-cloud#user-object)
+### [• Java Cloud SDK](/sdk/server-side-sdks/java-cloud#user-object)
 
 
 

@@ -11,7 +11,7 @@ Experimentation is available to all customers on any plan. However, to perform e
 
 ##  Overview
 
-At DevCycle we believe that experimentation should be a part of the natural lifecycle of all features. So no matter the [feature type](/docs/home/feature-management/getting-started/feature-types) selected, can be experimented on. Experiments can be as simple as comparing any target audiences against a metric, or can be fully [randomized](/docs/home/feature-management/features-and-variables/targeting-users#serving-a-random-variation-experimentation--random-distribution) A/B tests using statistical methodologies.
+At DevCycle we believe that experimentation should be a part of the natural lifecycle of all features. So no matter the [feature type](/home/feature-management/getting-started/feature-types) selected, can be experimented on. Experiments can be as simple as comparing any target audiences against a metric, or can be fully [randomized](/home/feature-management/features-and-variables/targeting-users#serving-a-random-variation-experimentation--random-distribution) A/B tests using statistical methodologies.
 
 This article outlines why and how to run and analyze experiments on your features within DevCycle. 
 
@@ -39,7 +39,7 @@ To run an experiment on any feature, all you need is two things:
 
 ### Comparing Multiple Variations
 
-The primary concept of an experiment is the need to have at least two different experiences to compare performances. There are several ways in DevCycle to run multiple experiences for users. We go into depth on this in our [Targeting documentation](/docs/home/feature-management/features-and-variables/targeting-users).
+The primary concept of an experiment is the need to have at least two different experiences to compare performances. There are several ways in DevCycle to run multiple experiences for users. We go into depth on this in our [Targeting documentation](/home/feature-management/features-and-variables/targeting-users).
 
 To get started with your first feature experiment, it is best to keep it simple and run a basic A/B test comparing two variations, one control and one treatment Variation, delivered randomly to all your users.
 
@@ -55,7 +55,7 @@ To add a metric to your feature, click “Comparative Analysis” under the “D
 
 ![Add Metrics from Feature Editing Page](/august-2022-add-metric-feature-page.png)
 
-For the creation of new metrics check out our documentation [here](/docs/home/feature-management/features-and-variables/metrics-and-analysis/creating-and-managing-metrics).
+For the creation of new metrics check out our documentation [here](/home/feature-management/features-and-variables/metrics-and-analysis/creating-and-managing-metrics).
 
 Once you have metrics in your project, all you need to do is:
 1. Select a metric you want to use to judge the performance of your experiment

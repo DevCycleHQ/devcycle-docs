@@ -33,44 +33,44 @@ The response is the following general format, with slight changes depending on t
   },
 ```
 
-Only Variables in Features that the user has been successfully targeted for will be part of the response to this SDK. [Targeting rules](/docs/home/feature-management/features-and-variables/targeting-users) must be **enabled** for the environment this SDK is being called on.  
+Only Variables in Features that the user has been successfully targeted for will be part of the response to this SDK. [Targeting rules](/home/feature-management/features-and-variables/targeting-users) must be **enabled** for the environment this SDK is being called on.  
 
 Features within the Project that have rules disabled OR the user is not Targeted for will not have their variables appear in the response of this function. 
 
 ## Client-Side SDK Usage
 
-### [• JavaScript SDK](/docs/sdk/client-side-sdks/javascript#get-all-variables)
+### [• JavaScript SDK](/sdk/client-side-sdks/javascript#get-all-variables)
 
-### [• React SDK](/docs/sdk/client-side-sdks/react#getting-all-features--variables)
+### [• React SDK](/sdk/client-side-sdks/react#getting-all-features--variables)
 
 :::note
 
-The DevCycle React SDK is built upon the JavaScript SDK. For more details, view [the JavaScript SDK documentation](/docs/sdk/client-side-sdks/javascript#get-all-variables)
+The DevCycle React SDK is built upon the JavaScript SDK. For more details, view [the JavaScript SDK documentation](/sdk/client-side-sdks/javascript#get-all-variables)
 
 :::
 
-### [• React Native SDK](/docs/sdk/client-side-sdks/react-native#getting-all-features--variables)
+### [• React Native SDK](/sdk/client-side-sdks/react-native#getting-all-features--variables)
 
-### [• Flutter SDK](/docs/sdk/client-side-sdks/flutter#getting-all-features--variables)
+### [• Flutter SDK](/sdk/client-side-sdks/flutter#getting-all-features--variables)
 
-### [• iOS SDK](/docs/sdk/client-side-sdks/ios#get-all-features#get-all-variables)
+### [• iOS SDK](/sdk/client-side-sdks/ios#get-all-features#get-all-variables)
 
-### [• Android SDK](/docs/sdk/client-side-sdks/android#get-all-variables)
+### [• Android SDK](/sdk/client-side-sdks/android#get-all-variables)
 
 ## Server-Side SDK Usage
 
-### [• NodeJS SDK (server-side)](/docs/sdk/server-side-sdks/node#getting-all-variables)
+### [• NodeJS SDK (server-side)](/sdk/server-side-sdks/node#getting-all-variables)
 
-### [• Go SDK](/docs/sdk/server-side-sdks/go#getting-all-variables)
+### [• Go SDK](/sdk/server-side-sdks/go#getting-all-variables)
 
-### [• Ruby SDK](/docs/sdk/server-side-sdks/ruby#getting-all-variables)
+### [• Ruby SDK](/sdk/server-side-sdks/ruby#getting-all-variables)
 
-### [• PHP SDK](/docs/sdk/server-side-sdks/php#getting-all-variables)
+### [• PHP SDK](/sdk/server-side-sdks/php#getting-all-variables)
 
-### [• .NET / C# Cloud SDK](/docs/sdk/server-side-sdks/dotnet-cloud#getting-all-variables)
+### [• .NET / C# Cloud SDK](/sdk/server-side-sdks/dotnet-cloud#getting-all-variables)
 
-### [• .NET / C# Local SDK](/docs/sdk/server-side-sdks/dotnet-local#getting-all-variables)
+### [• .NET / C# Local SDK](/sdk/server-side-sdks/dotnet-local#getting-all-variables)
 
-### [• Java Local SDK](/docs/sdk/server-side-sdks/java-local#getting-all-variables)
+### [• Java Local SDK](/sdk/server-side-sdks/java-local#getting-all-variables)
 
-### [• Java Cloud SDK](/docs/sdk/server-side-sdks/java-cloud#getting-all-variables)
+### [• Java Cloud SDK](/sdk/server-side-sdks/java-cloud#getting-all-variables)

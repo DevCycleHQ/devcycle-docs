@@ -5,11 +5,11 @@ sidebar_position: 1
 
 ## Overview
 
-This article serves to explain how to add Team Members to your organization. All Members within your organization will automatically have access to all features, however they may have different roles. To read more about roles, read [Team Member Roles](/docs/home/your-organization/manage-team/member-roles).
+This article serves to explain how to add Team Members to your organization. All Members within your organization will automatically have access to all features, however they may have different roles. To read more about roles, read [Team Member Roles](/home/your-organization/manage-team/member-roles).
 
 ### Adding Members
 
-Members are added to an Organization from the [Organization Settings](/docs/home/feature-management/organizing-your-flags-and-variables/organizations-projects#organization-settings) page. 
+Members are added to an Organization from the [Organization Settings](/home/feature-management/organizing-your-flags-and-variables/organizations-projects#organization-settings) page. 
 
 Once here, navigate to the "Team" page of the settings:
 
@@ -25,9 +25,9 @@ This will bring up a window where you can enter the email of the user you wish t
 
 ![A modal with information on inviting a Member to the Organization](/add-modal.png)
 
-This will send an email to the Member, allowing them to start the process of [creating an account](/docs/home/feature-management/getting-started/creating-an-account)
+This will send an email to the Member, allowing them to start the process of [creating an account](/home/feature-management/getting-started/creating-an-account)
 
-When a Member is added and an account is created, the user will begin within the Member role. To learn more about Roles, read [Team Member Roles](/docs/home/your-organization/manage-team/member-roles).
+When a Member is added and an account is created, the user will begin within the Member role. To learn more about Roles, read [Team Member Roles](/home/your-organization/manage-team/member-roles).
 
 ### Editing Members
 
@@ -35,7 +35,7 @@ To view more detail of a Team Members within your Organization, click the "View 
 
 ![An arrow pointing to the "view" button on a Member on the Members list](/view-member.png)
 
-This will lead to the User's profile page where you may modify their [Team Member Role](/docs/home/your-organization/manage-team/member-roles) if you are an Owner of the Organization.
+This will lead to the User's profile page where you may modify their [Team Member Role](/home/your-organization/manage-team/member-roles) if you are an Owner of the Organization.
 
 
 ### Removing Members

@@ -24,7 +24,7 @@ The Client Secret key can be revealed which will allow for use within the Manage
 
 ### Mobile, Client, And Server-Side Keys
 
-All Environments within a Project have their own set of key. For more information about Environments, [please read here](/docs/home/feature-management/organizing-your-flags-and-variables/environments).
+All Environments within a Project have their own set of key. For more information about Environments, [please read here](/home/feature-management/organizing-your-flags-and-variables/environments).
 
 To find your keys for use within the various SDKs, navigate navigate to the Settings page. The settings page can be accessed from clicking on your profile image in the top right corner of the Dashboard. 
 

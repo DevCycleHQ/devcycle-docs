@@ -9,7 +9,7 @@ This article serves as a guide on how to create and manage Features within DevCy
 
 :::info
 
-If you are coming from another Feature Flagging or Feature Management tool, be sure to check out the [DevCycle Feature Importer](/docs/tools-and-integrations/feature-importer)
+If you are coming from another Feature Flagging or Feature Management tool, be sure to check out the [DevCycle Feature Importer](/tools-and-integrations/feature-importer)
 
 :::
 
@@ -27,7 +27,7 @@ To create a Feature:
 
 ![Screenshot of types modal showing different feature types](/december_2021_types.png)
 
-3. Choose your feature type to begin the creation process. To read more about the feature types and their uses, read [DevCycle Feature Types](/docs/home/feature-management/getting-started/feature-types)
+3. Choose your feature type to begin the creation process. To read more about the feature types and their uses, read [DevCycle Feature Types](/home/feature-management/getting-started/feature-types)
 
 4. After choosing a type, the information screen will appear:
 
@@ -46,13 +46,13 @@ You have now created a Feature within your project!
 
 ## Targeting Across Environments
 
-**Note: When a feature is created within DevCycle, it is automatically created across _all_ environments that are defined in your project. To read more on managing environments, read [Managing Environments](/docs/home/feature-management/organizing-your-flags-and-variables/environments).**
+**Note: When a feature is created within DevCycle, it is automatically created across _all_ environments that are defined in your project. To read more on managing environments, read [Managing Environments](/home/feature-management/organizing-your-flags-and-variables/environments).**
 
 Within DevCycle, all targeting rules of each feature are specific to Environments. This allows you to provide different rules and access across every stage of the feature's deployment. All of an Environment's targeting can be managed directly within the Feature's page itself.
 
 ![Feature sidebar highlighting Environments](/march-2022-environments.png)
 
-Once it is known how the feature should be managed and who it should target, you can now [turn the feature on](/docs/home/feature-management/getting-started/toggling-features).
+Once it is known how the feature should be managed and who it should target, you can now [turn the feature on](/home/feature-management/getting-started/toggling-features).
 
 
 

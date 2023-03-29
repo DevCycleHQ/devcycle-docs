@@ -33,44 +33,44 @@ The response is the following general format, with slight changes depending on t
   },...
 ```
 
-Only Features that the User has been successfully targeted for. [Targeting rules](/docs/home/feature-management/features-and-variables/targeting-users) must be **enabled** for that environment.  
+Only Features that the User has been successfully targeted for. [Targeting rules](/home/feature-management/features-and-variables/targeting-users) must be **enabled** for that environment.  
 
 Features that within the Project that have rules disabled OR the user is not Targeted for will not appear in the response of this function. 
 
 ## Client-Side SDK Usage
 
-### [• JavaScript SDK](/docs/sdk/client-side-sdks/javascript#get-all-features)
+### [• JavaScript SDK](/sdk/client-side-sdks/javascript#get-all-features)
 
-### [• React SDK](/docs/sdk/client-side-sdks/react#getting-all-features--variables)
+### [• React SDK](/sdk/client-side-sdks/react#getting-all-features--variables)
 
 :::note
 
-The DevCycle React SDK is built upon the JavaScript SDK. For more details, view [the JavaScript SDK documentation](/docs/sdk/client-side-sdks/javascript#get-all-features)
+The DevCycle React SDK is built upon the JavaScript SDK. For more details, view [the JavaScript SDK documentation](/sdk/client-side-sdks/javascript#get-all-features)
 
 :::
 
-### [• iOS SDK](/docs/sdk/client-side-sdks/ios#get-all-features#get-all-features)
+### [• iOS SDK](/sdk/client-side-sdks/ios#get-all-features#get-all-features)
 
-### [• Android SDK](/docs/sdk/client-side-sdks/android#get-all-features)
+### [• Android SDK](/sdk/client-side-sdks/android#get-all-features)
 
-### [• React Native SDK](/docs/sdk/client-side-sdks/react-native#getting-all-features--variables)
+### [• React Native SDK](/sdk/client-side-sdks/react-native#getting-all-features--variables)
 
-### [• Flutter SDK](/docs/sdk/client-side-sdks/flutter#get-all-features)
+### [• Flutter SDK](/sdk/client-side-sdks/flutter#get-all-features)
 
 ## Server-Side SDK Usage
 
-### [• NodeJS SDK (server-side)](/docs/sdk/server-side-sdks/node#getting-all-features)
+### [• NodeJS SDK (server-side)](/sdk/server-side-sdks/node#getting-all-features)
 
-### [• Go SDK](/docs/sdk/server-side-sdks/go#getting-all-features)
+### [• Go SDK](/sdk/server-side-sdks/go#getting-all-features)
 
-### [• Ruby SDK](/docs/sdk/server-side-sdks/ruby#getting-all-features)
+### [• Ruby SDK](/sdk/server-side-sdks/ruby#getting-all-features)
 
-### [• PHP SDK](/docs/sdk/server-side-sdks/php#getting-all-features)
+### [• PHP SDK](/sdk/server-side-sdks/php#getting-all-features)
 
-### [• .NET / C# Cloud SDK](/docs/sdk/server-side-sdks/dotnet-cloud#getting-all-features)
+### [• .NET / C# Cloud SDK](/sdk/server-side-sdks/dotnet-cloud#getting-all-features)
 
-### [• .NET / C# Local SDK](/docs/sdk/server-side-sdks/dotnet-local#getting-all-features)
+### [• .NET / C# Local SDK](/sdk/server-side-sdks/dotnet-local#getting-all-features)
 
-### [• Java Local SDK](/docs/sdk/server-side-sdks/java-local#getting-all-features)
+### [• Java Local SDK](/sdk/server-side-sdks/java-local#getting-all-features)
 
-### [• Java Cloud SDK](/docs/sdk/server-side-sdks/java-cloud#getting-all-features)
+### [• Java Cloud SDK](/sdk/server-side-sdks/java-cloud#getting-all-features)

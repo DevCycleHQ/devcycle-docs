@@ -21,7 +21,7 @@ This will lead the user to a table containing all of the Variables used by this 
 
 Each Feature contains its own set of Variables which it manages. **By default, upon creation of a Feature, a Boolean Variable will be created which has the same name as the Feature's key for easier reference.** Depending on the Feature type, the default Variations will be pre-set. The most common of which will be the Variations of "Variation OFF" and "Variation ON", with the boolean Variable being set to false and true, respectively.
 
-When a user is "Served" a Variation based on the [Targeting Rules](/docs/home/feature-management/features-and-variables/targeting-users), the Variable Values the user receives on their devices or as an API response will be the values for the served Variation. 
+When a user is "Served" a Variation based on the [Targeting Rules](/home/feature-management/features-and-variables/targeting-users), the Variable Values the user receives on their devices or as an API response will be the values for the served Variation. 
 
 A user can add as many Variables as they desire by simply clicking the "Add Variable" button. 
 
@@ -52,7 +52,7 @@ To remove a Variable from a feature, simply click on the edit icon next to the v
 
 ![Remove Variable Modal](/feb-2023-remove-variable.png)
 
-Removing a Variable from this page does not completely remove the Variable from DevCycle. The Variable will still be visible in the [Variable Dashboard](/docs/home/feature-management/organizing-your-flags-and-variables/variable-dashboard), but it will not be associated with any features.
+Removing a Variable from this page does not completely remove the Variable from DevCycle. The Variable will still be visible in the [Variable Dashboard](/home/feature-management/organizing-your-flags-and-variables/variable-dashboard), but it will not be associated with any features.
 
 Taking this action will cause all references to the Variable in any code usage to default only to the default value used in your codebase.
 
@@ -101,7 +101,7 @@ Once your Variable is created, it will appear on the Variables screen:
 
 ![Variables Page of a Feature with three Variations](/december_2021_three-variations.png)
 
-Once this Variation is created, it will become available as an option within the "Serve" dropdown for [Targeting Rules](/docs/home/feature-management/features-and-variables/targeting-users).
+Once this Variation is created, it will become available as an option within the "Serve" dropdown for [Targeting Rules](/home/feature-management/features-and-variables/targeting-users).
 
 Users who are served this new Variation will receive the Variable Values associated with this new Variation!
 

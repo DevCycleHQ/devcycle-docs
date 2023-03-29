@@ -143,7 +143,7 @@ const value = variable.value;
 If the value is not ready, it will return the default value passed in the creation of the variable.
 
 The `onUpdate` accepts a handler function that will be called whenever a variable value has changed.
-This can occur as a result of a project configuration change or calls to `identifyUser` or `resetUser`. To learn more, visit our [Realtime Updates](/docs/sdk/features/realtime-updates) page.
+This can occur as a result of a project configuration change or calls to `identifyUser` or `resetUser`. To learn more, visit our [Realtime Updates](/sdk/features/realtime-updates) page.
 
 There can only be one onUpdate function registered at a time. Subsequent calls to this method will overwrite the previous handler:
 
@@ -210,7 +210,7 @@ To retrieve all the Features returned in the config:
 const features = dvcClient.allFeatures()
 ```
 
-If the SDK has not finished initializing, these methods will return an empty object. Read [Waiting for Features](/docs/sdk/client-side-sdks/javascript#waiting-for-features) to mitigate this.
+If the SDK has not finished initializing, these methods will return an empty object. Read [Waiting for Features](/sdk/client-side-sdks/javascript#waiting-for-features) to mitigate this.
 
 See [getFeatures](https://docs.devcycle.com/bucketing-api/#operation/getFeatures) in the Bucketing API for detailed response formats.
 
@@ -222,7 +222,7 @@ To grab all the Features returned in the config:
 const variables = dvcClient.allVariables()
 ```
 
-If the SDK has not finished initializing, these methods will return an empty object. Read [Waiting for Features](/docs/sdk/client-side-sdks/javascript#waiting-for-features) to mitigate this.
+If the SDK has not finished initializing, these methods will return an empty object. Read [Waiting for Features](/sdk/client-side-sdks/javascript#waiting-for-features) to mitigate this.
 
 See [getVariables](https://docs.devcycle.com/bucketing-api/#operation/getVariables) in the Bucketing API for detailed response formats.
 

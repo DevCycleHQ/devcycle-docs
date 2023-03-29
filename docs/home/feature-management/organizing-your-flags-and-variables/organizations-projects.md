@@ -51,7 +51,7 @@ On the Organization settings page there are the following fields and items:
     The internal identifier for your organization. Mainly used for billing purposes
 
 * **Client ID and Client Secret**
-    Please refer to [API and SDK Keys](/docs/home/feature-management/organizing-your-flags-and-variables/api-and-sdk-keys)
+    Please refer to [API and SDK Keys](/home/feature-management/organizing-your-flags-and-variables/api-and-sdk-keys)
 
 ## Projects and Project Settings
 
@@ -61,7 +61,7 @@ To manage the Projects within the current Organization, navigate to the "Project
 
 On this page is a list of all of your Organizations Projects. 
 
-As discussed in [Environments](/docs/home/feature-management/organizing-your-flags-and-variables/environments), Environments are contained within projects. 
+As discussed in [Environments](/home/feature-management/organizing-your-flags-and-variables/environments), Environments are contained within projects. 
 
 To create a new Project, click the "Create a new Project" button. This will open the create project modal: 
 
@@ -78,7 +78,7 @@ Which has the following fields:
 * **Description**
     A descriptive text about the project. Can be changed at a later time. 
 
-Once created, the Project will be created and will have three [Environments](/docs/home/feature-management/organizing-your-flags-and-variables/environments): Development, Staging, and Production. This project will immediately be ready for use and Features can now be created within it. 
+Once created, the Project will be created and will have three [Environments](/home/feature-management/organizing-your-flags-and-variables/environments): Development, Staging, and Production. This project will immediately be ready for use and Features can now be created within it. 
 
 To **edit** a Project, click the Edit button on the Project's row on the Project list. This will bring up the editing window, which allows you to modify the Projects **Name** and **Description**.
 

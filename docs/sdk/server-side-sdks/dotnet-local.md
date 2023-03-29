@@ -70,7 +70,7 @@ namespace Example
 ### User Object
 The user object is required for all methods. The only required field in the user object is userId
 
-See the User class in [.NET User model doc](https://github.com/DevCycleHQ/dotnet-server-sdk/blob/main/docs/User.md) for all accepted fields.
+See the User class in [.NET User model doc](https://github.com/DevCycleHQ/dotnet-server-sdk/blob/main/User.md) for all accepted fields.
 
 ```csharp
 User user = new User("a_user_id");

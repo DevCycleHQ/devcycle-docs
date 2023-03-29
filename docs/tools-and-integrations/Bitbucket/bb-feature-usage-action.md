@@ -47,7 +47,7 @@ _(*) = required variable._
 
 ### Prerequisites
 
-1. Create a new [Project](/docs/tools-and-integrations/terraform#create-a-project) & a new [Feature](/docs/tools-and-integrations/terraform#create-a-feature) 
+1. Create a new [Project](/tools-and-integrations/terraform#create-a-project) & a new [Feature](/tools-and-integrations/terraform#create-a-feature) 
 2. Grab the PROJECT_KEY in [Projects](https://app.devcycle.com/r/projects), and find your specific project name & key
 3. Grab the CLIENT_ID in [Settings](https://app.devcycle.com/r/settings), under `API AUTHENTICATION`
 4. Grab the CLIENT_SECRET in [Settings](https://app.devcycle.com/r/settings), under `API AUTHENTICATION`

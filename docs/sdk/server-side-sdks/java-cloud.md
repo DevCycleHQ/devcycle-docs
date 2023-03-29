@@ -98,7 +98,7 @@ public class MyClass {
 ### User Object
 The user object is required for all methods. The only required field in the user object is userId
 
-See the User class in [Java User model doc](https://github.com/DevCycleHQ/java-server-sdk/blob/main/docs/User.md) for all accepted fields.
+See the User class in [Java User model doc](https://github.com/DevCycleHQ/java-server-sdk/blob/main/User.md) for all accepted fields.
 
 ```java
 User user = User.builder()
@@ -243,7 +243,7 @@ public class MyClass {
 
 ### EdgeDB
 
-EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user. Read more about [EdgeDB](/docs/home/feature-management/edgedb/what-is-edgedb).
+EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user. Read more about [EdgeDB](/home/feature-management/edgedb/what-is-edgedb).
 
 To get started, contact us at support@devcycle.com to enable EdgeDB for your project.
 

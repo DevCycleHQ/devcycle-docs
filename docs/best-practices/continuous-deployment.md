@@ -32,11 +32,11 @@ While you are still developing the feature, you can keep serving All Users with 
 
 When the new code is ready to be merged and delivered, update the Targeting Rules to make it visible to the appropriate users. You can easily set their variation back to “Variation Off” if something goes wrong. This gives you ample time to resolve the issues without negatively impacting users.
 
-To learn more about Targeting in DevCycle, read [Targeting Users](/docs/home/feature-management/features-and-variables/targeting-users)
+To learn more about Targeting in DevCycle, read [Targeting Users](/home/feature-management/features-and-variables/targeting-users)
 
 ## Testing Code that Uses Feature Flags
 
-If you’ve already adopted continuous integration, you are likely taking advantage of automated testing. For instance, CircleCI is a tool that can automatically run your tests at every commit to your main/trunk branch. You can find out how to run your tests automatically on [CircleCI’s documentation](https://circleci.com/docs/config-intro).
+If you’ve already adopted continuous integration, you are likely taking advantage of automated testing. For instance, CircleCI is a tool that can automatically run your tests at every commit to your main/trunk branch. You can find out how to run your tests automatically on [CircleCI’s documentation](https://circleci.com/config-intro).
 
 Sometimes adding a feature flag results in a failed integration test. This could be because the current state of the feature flag contradicts the assertion your test expects. One way to fix this issue is to ensure your tests identify the correct user targeted by each of your expected variations.
 

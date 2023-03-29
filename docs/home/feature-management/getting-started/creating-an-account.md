@@ -7,7 +7,7 @@ sidebar_position: 1
 
 The first thing you need to do to get started with DevCycle is to create an account and organization and add any colleagues to that organization. This page will get you up and running with a Free Account in a couple minutes.
 
-If you already have an account feel free to skip ahead to shipping [Your First Feature](/docs/home/feature-management/getting-started/your-first-feature) with DevCycle.
+If you already have an account feel free to skip ahead to shipping [Your First Feature](/home/feature-management/getting-started/your-first-feature) with DevCycle.
 
 ## Create a New Account
 
@@ -18,4 +18,4 @@ We have an always free tier to start and the pricing will scale with usage as yo
 
 ## Adding Team Members
 
-Creating a Feature Management program is done best with friends. Once you have an account, if you're looking for more info on how to add your colleagues to your organization head on over to our docs for [managing your team on DevCycle](/docs/home/your-organization/manage-team/team-members).
+Creating a Feature Management program is done best with friends. Once you have an account, if you're looking for more info on how to add your colleagues to your organization head on over to our docs for [managing your team on DevCycle](/home/your-organization/manage-team/team-members).
