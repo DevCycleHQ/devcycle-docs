@@ -120,7 +120,7 @@ public class MyClass {
 ### User Object
 The user object is required for all methods. The only required field in the user object is userId.
 
-See the User class in [Java User model doc](https://github.com/DevCycleHQ/java-server-sdk/blob/main/User.md) for all accepted fields.
+See the User class in [Java User model doc](https://github.com/DevCycleHQ/java-server-sdk/blob/main/docs/User.md) for all accepted fields.
 
 ```java
 User user = User.builder()
