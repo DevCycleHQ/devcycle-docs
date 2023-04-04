@@ -135,6 +135,7 @@ The SDK exposes various initialization options which can be used by passing a `D
 | enableEdgeDB | Boolean | false | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle. |
 | configCacheTTL | Long | 604800000 | The maximum allowed age of a cached config in milliseconds, defaults to 7 days |
 | disableConfigCache | Boolean | false | Disable the use of cached configs |
+| disableRealtimeUpdates | Boolean | false | Disable Realtime Updates |
 
 ### Notifying when DevCycle features are available
 
