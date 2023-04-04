@@ -2,73 +2,101 @@
 title: Tools & Integrations
 sidebar_class_name: hidden
 ---
-import DocCardList from '@theme/DocCardList';
+import CustomDocCardList from '@site/src/components/CustomDocCardList'
 
 ## Overview
 
 Welcome to DevCycle Tools & Integrations! Here you will find all of the various first party tools made with the 
 DevCycle APIs, as well as third party integrations to connect DevCycle to the tools of your needs. 
 
+<details>
+  <summary>
+ <b><i className="fas fa-arrows-alt"></i> Contributing to DevCycle or creating a new Integration:</b>
+  </summary>
+  <div>     
+    <p>
+    If you would like to contribute to an existing integration or tool, all of DevCycle's tools and integrations  are [open source on the DevCycle github repository.](https://github.com/devcycleHQ)!
 
-:::info
+ Further, if you'd like to create a new tool or integration, a great starting point is [DevCycle's Management API](/management-api/) which allows you to modify and interact with features and more within a devcycle project, as well as the [DevCycle bucketing API](/bucketing-api/) which is used to give users features and variables (as used within the DevCycle SDKs!)
+  </p>
+  </div>
+</details>
 
-**Contributing to DevCycle or creating a new Integration:**
-
-If you would like to contribute to an existing integration or tool, all of DevCycle's tools and integrations 
-are [open source on the DevCycle github repository.](https://github.com/devcycleHQ)!
-
-Further, if you'd like to create a new tool or integration, a great starting point is
-[DevCycle's Management API](/management-api/) which allows you to modify and interact with
-features and more within a devcycle project, as well as the [DevCycle bucketing API](/bucketing-api/)
-which is used to give users features and variables (as used within the DevCycle SDKs!)
-
-:::
 
 ### Current Tools & Integrations
 
 **DevCycle Tools**
 
-<DocCardList items={[
+<CustomDocCardList items={[
   {
     type: 'link',
     href: '/tools-and-integrations/cli',
     label: 'Command Line Interface (CLI)',
+    description: 'Interact with DevCycle features from the command line.',
+    iconSet: 'fa',
+icon:'terminal'
   },
   {
     type: 'link',
     href: '/tools-and-integrations/feature-importer',
+    description: 'Import resources from other feature flag providers. ',
     label: 'Feature Flag Importer',
+        iconSet: 'fa',
+icon:'file-import'
   },
 ]} />
 
 
 **Third Party Integrations**
 
-<DocCardList items={[
+<CustomDocCardList items={[
   {
     type: 'link',
     href: '/tools-and-integrations/Github/gh-feature-usage-action',
-    label: 'GitHub Action: Feature Flag Code Usages',
+    description: 'Display code snippets for each variable used in a project.',
+    label: 'GitHub: Feature Flag Code Usages',
+        iconSet: 'fab',
+icon:'github'
   },
   {
     type: 'link',
     href: '/tools-and-integrations/Github/gh-pr-comment-insights',
-    label: 'GitHub Action: Feature Flag Change Insights on Pull Request',
+    label: 'GitHub: Feature Flag Change Insights',
+      description: 'Display added/removed flags on each Pull Request.',
+    icon: 'github',
+    iconSet: 'fab'
   },
   {
     type: 'link',
     href: '/tools-and-integrations/Bitbucket/bb-feature-usage-action',
-    label: 'Bitbucket Pipe: Feature Flag Code Usages',
+     description: 'Display code snippets for each variable used in a project.',
+    label: 'Bitbucket: Feature Flag Code Usages',
+        iconSet: 'fab',
+icon:'bitbucket'
+  },
+    {
+    type: 'link',
+    href: '/tools-and-integrations/Bitbucket/bb-pr-comment-insights',
+     description: 'Display code snippets for each variable used in a project.',
+    label: 'Bitbucket: Feature Flag Change Insights',
+        iconSet: 'fab',
+icon:'bitbucket'
   },
   {
     type: 'link',
     href: '/tools-and-integrations/Jira/jira-integration',
     label: 'DevCycle Feature Flag Management for Jira',
+    description: 'Link Jira tickets directly to DecCycle features',
+        iconSet: 'fab',
+icon:'jira'
   },
   {
     type: 'link',
     href: '/tools-and-integrations/terraform',
     label: 'Terraform Provider',
+    description: 'Manage projects, features, variables, variations, and environments with Terraform',
+        iconSet: 'fa',
+icon:'flag'
   },
 ]} />
 

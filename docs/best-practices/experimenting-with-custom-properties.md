@@ -1,7 +1,10 @@
 ---
 title: Using Custom Properties
 sidebar_label: Custom Properties
+description: hidden
 sidebar_position: 3
+sidebar_custom_props: {icon: flask-vial}
+
 ---
 
 ## Overview

@@ -2,6 +2,9 @@
 title: Keeping Track of Feature Flags
 sidebar_label: Organization
 sidebar_position: 5
+description: hidden
+sidebar_custom_props: {icon: box-archive}
+
 ---
 
 ## Overview

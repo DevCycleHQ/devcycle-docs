@@ -3,7 +3,7 @@ title: Feature Management Best Practices
 sidebar_class_name: hidden
 ---
 
-import DocCardList from '@theme/DocCardList';
+import CustomDocCardList from '@site/src/components/CustomDocCardList'
 import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 
 ## Overview
@@ -12,4 +12,4 @@ In this section of our documentation, you will find some tips and tricks for eff
 
 If you ever get stuck along the way, you can message us through Intercom on the bottom right of the page.
 
-<DocCardList items={useCurrentSidebarCategory().items}/>
+<CustomDocCardList items={useCurrentSidebarCategory().items}/>

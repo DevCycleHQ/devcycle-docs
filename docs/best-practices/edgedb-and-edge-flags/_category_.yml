@@ -1,3 +1,5 @@
 label: 'Edge Flags'
 position: 3
 collapsed: true
+customProps:
+  icon: cloud

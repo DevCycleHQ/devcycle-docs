@@ -1,7 +1,10 @@
 ---
 title: Cleaning Up Unused Flags
 sidebar_label: Flag Cleanup
+description: hidden
 sidebar_position: 6
+sidebar_custom_props: {icon: broom}
+
 ---
 
 ## Overview
