@@ -80,7 +80,7 @@ const dvcClient = await DVC.initialize('<DVC_SDK_SERVER_KEY>', {
 The full user data must be passed into every method. The only required field is the `user_id`. 
 The rest are optional and are used by the system for user segmentation into variables and features.
 
-[DVCUser Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/nodejs/src/types.ts#L3)
+[DVCUser Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/nodejs/src/models/user.ts#L16)
 
 ```javascript
 const user = {
