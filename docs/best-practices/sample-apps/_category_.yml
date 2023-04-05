@@ -1,3 +1,5 @@
 label: 'Example Implementations'
 position: 11
 collapsed: true
+customProps:
+  icon: toggle-on

@@ -2,6 +2,8 @@
 title: Feature Flag Grouping
 sidebar_label: Flag Grouping
 sidebar_position: 4
+description: hidden
+sidebar_custom_props: {icon: people-group}
 ---
 
 ## Overview

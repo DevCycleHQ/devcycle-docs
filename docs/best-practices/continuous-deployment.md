@@ -2,6 +2,9 @@
 title: Continuous Integration & Continuous Deployment
 sidebar_label: CI/CD
 sidebar_position: 7
+description: hidden
+sidebar_custom_props: {icon: infinity}
+
 ---
 
 # Adopting Feature Flags for CI/CD

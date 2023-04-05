@@ -1,3 +1,5 @@
 label: 'Serverless Flagging'
 position: 2
 collapsed: true
+customProps:
+  icon: server

@@ -2,6 +2,9 @@
 title: Engineering-Led Experiments
 sidebar_label: Experimentation
 sidebar_position: 9
+description: hidden
+sidebar_custom_props: {icon: flag}
+
 ---
 # Engineering-Led Experiments
 
