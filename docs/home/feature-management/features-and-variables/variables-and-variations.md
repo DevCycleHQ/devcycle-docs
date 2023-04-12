@@ -21,15 +21,15 @@ This will lead the user to a table containing all of the Variables used by this 
 
 Each Feature contains its own set of Variables which it manages. **By default, upon creation of a Feature, a Boolean Variable will be created which has the same name as the Feature's key for easier reference.** Depending on the Feature type, the default Variations will be pre-set. The most common of which will be the Variations of "Variation OFF" and "Variation ON", with the boolean Variable being set to false and true, respectively.
 
-When a user is "Served" a Variation based on the [Targeting Rules](/home/feature-management/features-and-variables/targeting-users), the Variable Values the user receives on their devices or as an API response will be the values for the served Variation. 
+When a user is "Served" a Variation based on the [Targeting Rules](/home/feature-management/features-and-variables/targeting-users), the Variable Values the user receives on their devices or as an API response will be the values for the served Variation.
 
 A user can add as many Variables as they desire by simply clicking the "Add Variable" button. 
 
-![Variables Page with arrowing pointing at Add Variable button](/december_2021_variable-add.png)
+![Add Variable Modal](/april-2023-add-variable-modal.png)
 
-Give your new Variable a **name** as well as a **type**, as well as its **values** For each of the current Variations.
+Give your new Variable a **key** as well as a **type**, as well as its **values** For each of the current Variations.
 
-The unique Variable **Name** is what is used to reference the Variable in code. Variables cannot be re-used in multiple existing Features, and thus the names must be fully unique.
+The unique Variable **key** is what is used to reference the Variable in code. Variables cannot be re-used in multiple existing Features, and thus the keys must be fully unique.
 
 The Variable **Type** is meant to help team-wide enforcement of that Variable type so there are no type mismatches throughout the various uses of the Variable. Types are not enforced by the DevCycle SDKs, however.
 
@@ -58,6 +58,26 @@ Taking this action will cause all references to the Variable in any code usage t
 
 To fully delete a Variable you must do so via our [Management API](/management-api/#operation/VariablesController_remove).
 
+
+### Re-associating a Variable
+DevCycle has the ability to re-use existing variables and re-associate them to different features. 
+
+In the Variable Key input field, a drop down will display all **unassociated, unarchived** variables that can be re-associated to your feature while also providing you the option to add a net new variable.
+
+![Add Variable Modal Dropdown](/april-2023-add-variable-dropdown.png)
+
+In the example above, the variables `demo` and `realtime-demo` are not associated with any other feature and can be added to my feature. 
+
+If you select an existing, unassociated variable from the dropdown, the Variable type will be populated with the type of the selected variable and cannot be changed. 
+
+![Add New Variable Variable Selected](/april-2023-add-new-variable-variable-selected-tooltip.png)
+
+If you input a variable key name with the same key as an existing variable, but this variable is archived. The error below will appear, as you must first unarchive the variable. 
+
+![Add New Variable Archived Variable Error](/april-2023-add-variable-modal-archived-variable-error.png)
+
+If you wish to use it, click on the hyperlinked "**variable**" text and it will take you directly to the archived variable page for you to unarchive. 
+
 ### Archiving a Variable
 
 Archiving Variables is a good way to clean up the DevCycle dashboard and ensure that it is easy to understand which Variables are available for use and which should no longer be leveraged going forward.
@@ -66,7 +86,7 @@ To archive a Variable it must first be [removed from any active features](./vari
 
 ![Archive Variable While Removing](/march-2023-archive-variable-on-remove.png)
 
-If a Variable is not archived when it is removed from a feature it will remain active, but it won't be associated with any features and the default value will be delivered whenever the Variable is evaluated in code. If you are archiving a Variable from the Variable list or Variable details page, the Variable must be in this un-associated state.
+If a Variable is not archived when it is removed from a feature it will remain active, but it won't be associated with any features and the default value will be delivered whenever the Variable is evaluated in code. If you are archiving a Variable from the Variable list or Variable details page, the Variable must be in this unassociated state.
 
 Here is an example of a Variable that cannot be archived because it is still associated with a feature:
 ![Example of a Variable that Cannot be Archived](/march-2023-active-variable.png)
@@ -78,6 +98,26 @@ When archiving a Variable from the Variable list or details page you will need t
 Once archived, Variables can be viewed by toggling the Variable status filter to either All or Archived Variables on the Variable list page. From here Variables can also be unarchived if desired.
 
 ![List of Archived Variables](/march-2023-archived-variables.png)
+
+### Creating a New Feature with a Duplicate Initial Variable Key
+
+If a duplicate variable key belonging to an unassociated variable is submitted when creating a new feature, this modal will appear that will allow you to re-associate the variable to your new feature.
+
+![Duplicate Variable Key Modal ](/april-2023-duplicate-variable-key-modal.png)
+
+If the unassociated variable key submitted is archived, a similar modal will appear with the option to unarchive the variable & re-associate it to the new feature.
+
+![Duplicate Variable Key Modal Unarchive](/april-2023-duplicate-variable-key-unarchive-both-states.png)
+
+If you wish to unarchive & re-associate, click on the toggle and click `Yes, Proceed`. 
+
+The feature will be created along with the newly re-associated variable. The variations and corresponding variable values will be populated depending on the [Feature Type](/home/feature-management/getting-started/feature-types#types-within-devcycle) selected. 
+
+
+If a duplicate variable key that belongs to a variable that is associated with an existing feature the dashboard will return the error below. 
+
+![Duplicate Variable Key Modal Error Associated to Another Feature](/april-2023-create-new-feature-variable-associated-to-another-feature.png)
+
 
 ## Creating and using Variations in a Feature
 
