@@ -78,6 +78,10 @@ If you input a variable key name with the same key as an existing variable, but 
 
 If you wish to use it, click on the hyperlinked "**variable**" text and it will take you directly to the archived variable page for you to unarchive. 
 
+:::info
+If you would like to move a variable between features, the variable must first be removed from the previous feature to fall into an unassociated state. This means that the variable will return back to it's default values for the duration it is not associated to a feature. 
+:::
+
 ### Archiving a Variable
 
 Archiving Variables is a good way to clean up the DevCycle dashboard and ensure that it is easy to understand which Variables are available for use and which should no longer be leveraged going forward.
