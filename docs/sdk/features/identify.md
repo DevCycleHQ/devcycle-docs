@@ -71,7 +71,7 @@ To reset a user completely, please view [Resetting a User](/sdk/features/reset).
 
 ### [• Javascript SDK](/sdk/client-side-sdks/javascript/javascript-usage#identifying-user)
 
-### [• React SDK](/sdk/client-side-sdks/react#identifying-users)
+### [• React SDK](/sdk/client-side-sdks/react/react-usage#identifying-users)
 
 ### [• iOS SDK](/sdk/client-side-sdks/ios#identifying-user)
 
