@@ -21,7 +21,7 @@ If a variable is first read from the cache and has a listener for [realtime upda
 
 ## Client-Side SDK Usage
 
-### [• Javascript SDK](/sdk/client-side-sdks/javascript#installation)
+### [• Javascript SDK](/sdk/client-side-sdks/javascript/javascript-install)
 
 ### [• React SDK](/sdk/client-side-sdks/react#installation)
 

@@ -100,7 +100,7 @@ OPERATION_MAP='{"endsWith":"contain","startsWith":"contain"}'
 
 #### Migrating Code from LaunchDarkly
 - In LaunchDarkly, the primary identifier is `key`, in DVC the equivalent value should be passed as `user_id`
-- DVC supports the following top-level properties on the user object: see [DVC User Object](/sdk/client-side-sdks/javascript#dvc-user-object).
+- DVC supports the following top-level properties on the user object: see [DVC User Object](/sdk/client-side-sdks/javascript/javascript-gettingstarted#dvc-user-object).
   Any other properties used for targeting should be passed within the `customData` map.
 - If you are passing a date to be used with LD's before/after operators, the value should be converted to a Long when passed to DVC. The importer will convert `before` & `after` operators to `<` & `>` in DVC.
 - DVC doesn't support targeting by the top-level `isAnonymous` property. If you are using LD's targeting with the `anonymous` attribute, make sure to include an `anonymous` property in the user's `customData`
