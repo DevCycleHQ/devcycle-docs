@@ -19,7 +19,7 @@ This will lead the user to a table containing all of the Variables used by this 
 
 ![Feature on the Variables Page showing Initial Sate](/december_2021_variables-fancy.png)
 
-Each Feature contains its own set of Variables which it manages. **By default, upon creation of a Feature, a Boolean Variable will be created which has the same name as the Feature's key for easier reference.** Depending on the Feature type, the default Variations will be pre-set. The most common of which will be the Variations of "Variation OFF" and "Variation ON", with the boolean Variable being set to false and true, respectively.
+Each Feature manages its own set of Variables. **By default, upon creation of a Feature, a Boolean Variable will be created which has the same name as the Feature's key for easier reference.** Depending on the Feature type, the default Variations will be pre-set. The most common of which will be the Variations of "Variation OFF" and "Variation ON", with the boolean Variable being set to false and true, respectively.
 
 When a user is "Served" a Variation based on the [Targeting Rules](/home/feature-management/features-and-variables/targeting-users), the Variable Values the user receives on their devices or as an API response will be the values for the served Variation.
 
@@ -27,11 +27,11 @@ A user can add as many Variables as they desire by simply clicking the "Add Vari
 
 ![Add Variable Modal](/april-2023-add-variable-modal.png)
 
-Give your new Variable a **key** as well as a **type**, as well as its **values** For each of the current Variations.
+Give your new Variable a **key**, a **type**, and its **values** for each of the current Variations.
 
-The unique Variable **key** is what is used to reference the Variable in code. Variables cannot be re-used in multiple existing Features, and thus the keys must be fully unique.
+The unique Variable **key** is used to reference the Variable in code. Variables cannot be used in multiple existing Features, so their keys must be unique.
 
-The Variable **Type** is meant to help team-wide enforcement of that Variable type so there are no type mismatches throughout the various uses of the Variable. Types are not enforced by the DevCycle SDKs, however.
+The Variable **Type** helps enforce consistent usage across the team to avoid type mismatches in different use cases.
 
 Variables may be the following types:
 
@@ -72,14 +72,14 @@ If you select an existing, unassociated variable from the dropdown, the Variable
 
 ![Add New Variable Variable Selected](/april-2023-add-new-variable-variable-selected-tooltip.png)
 
-If you input a variable key name with the same key as an existing variable, but this variable is archived. The error below will appear, as you must first unarchive the variable. 
+If you input a variable key that matches an existing archived variable, the error below will appear, as you must first unarchive the variable.
 
 ![Add New Variable Archived Variable Error](/april-2023-add-variable-modal-archived-variable-error.png)
 
-If you wish to use it, click on the hyperlinked "**variable**" text and it will take you directly to the archived variable page for you to unarchive. 
+To use it, click the hyperlinked "**variable**" text, and you'll be directed to the archived variable page where you can unarchive it.
 
 :::info
-If you would like to move a variable between features, the variable must first be removed from the previous feature to fall into an unassociated state. This means that the variable will return back to it's default values for the duration it is not associated to a feature. 
+If you want to move a variable between features, you must first remove it from the previous feature, making it unassociated.
 :::
 
 ### Archiving a Variable

@@ -34,7 +34,6 @@ Use a Release Feature Flag to separate a feature from deployment and allow for a
 **Defaults set in DevCycle**
 
 When a Feature is created with this type, the following will be pre-set in the Feature:
-When a Feature is created with this type, the following will be pre-set in the Feature. 
 
 A variable with the chosen type will be created with the Initial Variable Key defined in the Create Feature Modal. This can be considered your "toggle" or "flag".  
 
@@ -49,7 +48,7 @@ For all initial variable types, these are the following Targeting Rule pre-sets:
 
 - Development and Staging Environments will automatically target "All Users". Rule will be named "All Users"
 - Rules will be set to serve Variation ON.
-- Development and Staging Environments will be enabled immediately.
+- The Development Environment will be enabled immediately.
 - Production Environment will not be enabled and will not have a default rule.
 
 ### Ops
@@ -67,7 +66,7 @@ When releasing features with unknown performance implications, use an Ops Featur
 
 **Defaults set in DevCycle**
 
-When a Feature is created with this type, the following will be pre-set in the Feature. 
+When a Feature is created with this type, the following will be pre-set in the Feature: 
 
 A variable with the chosen type will be created with the Initial Variable Key defined in the Create Feature Modal. This can be considered your "toggle" or "flag".  
 
@@ -84,7 +83,6 @@ For all initial variable types, these are the following Targeting Rule pre-sets:
 - Rule will be set to Variation Configuration 2.
 - Development Environments will be enabled immediately.
 - Production and Staging Environments will not be enabled
-- Production will have a pre-set stepped rollout of Configuration 2 set up with empty schedules with 10%, 50%, and 100% steps.
 
 ### Experiment
 
