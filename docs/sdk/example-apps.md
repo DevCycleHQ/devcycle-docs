@@ -21,7 +21,7 @@ Welcome to the Samples & Example Apps page, which showcases example applications
 | [Java (Local Bucketing)](https://github.com/DevCycleHQ/java-server-sdk)   | [Java (Local Bucketing) Reference Docs](/sdk/server-side-sdks/java-local.md)   |
 | [Javascript](https://github.com/DevCycleHQ/js-sdks/tree/main/sdk/js)                       | [Javascript Reference Docs](/sdk/client-side-sdks/javascript/javascript.md)    |
 | [NodeJS](https://github.com/DevCycleHQ/js-sdks/tree/main/sdk/nodejs)                           | [NodeJS Reference Docs](/sdk/server-side-sdks/node.md)                         |
-| [PHP](https://github.com/DevCycleHQ/php-server-sdk)                       | [PHP Reference Docs](/sdk/server-side-sdks/php.md)                             |
+| [PHP](https://github.com/DevCycleHQ/php-server-sdk)                       | [PHP Reference Docs](/sdk/server-side-sdks/php/php.md)                         |
 | [Python](https://github.com/DevCycleHQ/python-server-sdk)                 | [Python Reference Docs](/sdk/server-side-sdks/python.md)                       |
 | [React](https://github.com/DevCycleHQ/js-sdks/tree/main/examples/react)                            | [React Reference Docs](/sdk/client-side-sdks/react.md)                         |
 | [React Native](https://github.com/DevCycleHQ/js-sdks/tree/main/examples/react/react-native-app)                     | [React Native Reference Docs](/sdk/client-side-sdks/react-native.md)           |
