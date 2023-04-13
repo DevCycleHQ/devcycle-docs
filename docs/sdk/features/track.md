@@ -15,7 +15,7 @@ The Track function in the DevCycle SDKs allows you to send up custom events whic
 
 ## Client-Side SDK Usage
 
-### [• Javascript SDK](/sdk/client-side-sdks/javascript#tracking-events)
+### [• Javascript SDK](/sdk/client-side-sdks/javascript/javascript-usage#tracking-events)
 
 ### [• React SDK](/sdk/client-side-sdks/react#track-events)
 

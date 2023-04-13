@@ -11,7 +11,7 @@ If there is an error reaching DevCycle, if the requested variable does not exist
 
 ## Client-Side SDK Usage
 
-### [• Javascript SDK](/sdk/client-side-sdks/javascript#getting-variable-values)
+### [• Javascript SDK](/sdk/client-side-sdks/javascript/javascript-usage#getting-variable-values)
 
 ### [• React SDK](/sdk/client-side-sdks/react#getting-a-variable)
 

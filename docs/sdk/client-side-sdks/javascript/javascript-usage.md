@@ -1,101 +1,8 @@
 ---
-title: JavaScript SDK
-sidebar_position: 2
+title: Javascript SDK Usage
+sidebar_label: Usage
+sidebar_position: 3
 ---
-
-# DevCycle JavaScript Client SDK
-
-The DevCycle JS SDK, like all client SDKs, will retrieve a configuration for the provided User upon initialization. 
-The configuration which is retrieved contains all of the Features and Variables, meaning no further outbound network 
-calls will be made to retrieve Feature information unless explicitly specified. 
-
-The JS SDK is available on NPM as an open-source package that can be viewed on the DevCycle GitHub.
-
-When initialized, the SDK will download the latest version of your DevCycle environments’ configuration from a CDN for the provided user.
-
-[![Npm package version](https://badgen.net/npm/v/@devcycle/devcycle-js-sdk)](https://www.npmjs.com/package/@devcycle/devcycle-js-sdk)
-[![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)
-
-## Installation
-
-### 1. NPM Module
-
-The recommended way to include the JS SDK is by bundling it with the rest of your application code using our NPM Module.
-
-The JS SDK library can be found on NPM. To get started, install the JS SDK using NPM:
-
-```bash
-npm install --save @devcycle/devcycle-js-sdk
-```
-
-To use the JS SDK in your project, import the `initialize` function:
-
-```js
-import { initialize } from "@devcycle/devcycle-js-sdk";
-```
-
-### 2. Using the CDN
-
-If you want to load the JS SDK on your webpage separately from your main application bundle, you can use a script tag to do so.
-
-Place the following code snippet as high as possible in your head tag.
-
-```html
-<script
-  src="https://js.devcycle.com/devcycle.min.js"
-  type="text/javascript"
-></script>
-```
-
-## Getting Started
-
-- If the JS SDK is installed using NPM, call `initialize` with your client key, a user object, and an optional options object.
-- Otherwise, If you’re using the CDN to install the JS SDK, call `DevCycle.initialize` with your client key, a user object, and an optional options object.
-
-The user object needs either a `user_id`, or `isAnonymous` set to `true` for an anonymous user. The options object is optional, 
-but can passed a `logWriter` for a custom logging solution and a `logLevel`, which must be one of `info`, `debug`, `warn` or `error`. 
-The default options are to set the `logWriter` to be the console and the `logLevel` to `error`.
-
-```javascript
-const user = { user_id: "my_user" };
-const dvcOptions = { logLevel: "debug" };
-// replace initialize with DevCycle.initialize if using the CDN
-const dvcClient = initialize("<DVC_CLIENT_SDK_KEY>", user, dvcOptions); 
-```
-
-### DVC User Object
-
-[DVCUser Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts)
-
-| Property          | Type    | Description                                                                                                     |
-| ----------------- | ------- | --------------------------------------------------------------------------------------------------------------- |
-| isAnonymous       | boolean | Boolean to indicate if the user is anonymous                                                                    |
-| user_id           | string  | Unique user ID                                                                                                  |
-| email             | string  | User's email                                                                                                    |
-| name              | string  | User's name                                                                                                     |
-| language          | string  | User's language                                                                                                 |
-| country           | string  | User's country                                                                                                  |
-| appVersion        | string  | App version                                                                                                     |
-| appBuild          | number  | App build                                                                                                       |
-| customData        | DVCJSON | Key/value map of properties to be used for targeting                                                            |
-| privateCustomData | DVCJSON | Key/value map of properties to be used for targeting. Private properties will not be included in event logging. |
-
-### Initialization Options
-
-The SDK exposes various initialization options which can be set on the `initialization()` method:
-
-[DVCOptions Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L44)
-
-| DVC Option             | Type                                                                                                     | Description                                                                                                    |
-| ---------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| eventFlushIntervalMS   | number                                                                                                   | Controls the interval between flushing events to the DevCycle servers in milliseconds, defaults to 10 seconds. |
-| enableEdgeDB           | boolean                                                                                                  | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle.                                     |
-| logger                 | [DVCLogger](https://github.com/DevCycleHQ/js-sdks/blob/main/lib/shared/types/src/logger.ts#L2)           | Logger override to replace default logger                                                                      |
-| logLevel               | [DVCDefaultLogLevel](https://github.com/DevCycleHQ/js-sdks/blob/main/lib/shared/types/src/logger.ts#L12) | Set log level of the default logger. Options are: `debug`, `info`, `warn`, `error`. Defaults to `info`.        |
-| apiProxyURL            | string                                                                                                   | Allows the SDK to communicate with a proxy of DVC bucketing API / client SDK API.                              |
-| configCacheTTL         | number                                                                                                   | The maximum allowed age of a cached config in milliseconds, defaults to 7 days                                 |
-| disableConfigCache     | boolean                                                                                                  | Disable the use of cached configs                                                                              |
-| disableRealtimeUpdates | boolean                                                                                                  | Disable Realtime Updates                                                                                       |
 
 ## Waiting for Features
 
@@ -213,7 +120,7 @@ To retrieve all the Features returned in the config:
 const features = dvcClient.allFeatures()
 ```
 
-If the SDK has not finished initializing, these methods will return an empty object. Read [Waiting for Features](/sdk/client-side-sdks/javascript#waiting-for-features) to mitigate this.
+If the SDK has not finished initializing, these methods will return an empty object. Read [Waiting for Features](/sdk/client-side-sdks/javascript/javascript-usage#waiting-for-features) to mitigate this.
 
 See [getFeatures](https://docs.devcycle.com/bucketing-api/#operation/getFeatures) in the Bucketing API for detailed response formats.
 
@@ -225,7 +132,7 @@ To grab all the Features returned in the config:
 const variables = dvcClient.allVariables()
 ```
 
-If the SDK has not finished initializing, these methods will return an empty object. Read [Waiting for Features](/sdk/client-side-sdks/javascript#waiting-for-features) to mitigate this.
+If the SDK has not finished initializing, these methods will return an empty object. Read [Waiting for Features](/sdk/client-side-sdks/javascript/javascript-usage#waiting-for-features) to mitigate this.
 
 See [getVariables](https://docs.devcycle.com/bucketing-api/#operation/getVariables) in the Bucketing API for detailed response formats.
 

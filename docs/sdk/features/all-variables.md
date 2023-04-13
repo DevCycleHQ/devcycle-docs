@@ -39,13 +39,13 @@ Features within the Project that have rules disabled OR the user is not Targeted
 
 ## Client-Side SDK Usage
 
-### [• JavaScript SDK](/sdk/client-side-sdks/javascript#get-all-variables)
+### [• JavaScript SDK](/sdk/client-side-sdks/javascript/javascript-usage#get-all-variables)
 
 ### [• React SDK](/sdk/client-side-sdks/react#getting-all-features--variables)
 
 :::note
 
-The DevCycle React SDK is built upon the JavaScript SDK. For more details, view [the JavaScript SDK documentation](/sdk/client-side-sdks/javascript#get-all-variables)
+The DevCycle React SDK is built upon the JavaScript SDK. For more details, view [the JavaScript SDK documentation](/sdk/client-side-sdks/javascript/javascript-usage#get-all-variables)
 
 :::
 

@@ -78,7 +78,7 @@ This will make the custom data `amountSpent` available to segment on when identi
 For specific documentation on how to use Edge Flags with each SDK
 
 #### Client SDKs
-- [JS SDK](/sdk/client-side-sdks/javascript#edgedb)
+- [JS SDK](/sdk/client-side-sdks/javascript/javascript-usage#edgedb)
 - [iOS SDK](/sdk/client-side-sdks/ios#edgedb)
 - [Android SDK](/sdk/client-side-sdks/android#edgedb)
 - [React SDK](/sdk/client-side-sdks/react#edgedb)

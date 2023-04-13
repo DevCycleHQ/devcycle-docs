@@ -13,7 +13,7 @@ Currently, the Identify function is only available on Client-Side SDKs. These SD
 
 ## Client-Side SDK Usage
 
-### [• Javascript SDK](/sdk/client-side-sdks/javascript#reset-user)
+### [• Javascript SDK](/sdk/client-side-sdks/javascript/javascript-usage#reset-user)
 
 ### [• React SDK](/sdk/client-side-sdks/react#resetting-user)
 
