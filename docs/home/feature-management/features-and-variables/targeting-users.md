@@ -92,7 +92,7 @@ The above would only match users who have:
 
 ### Serving Specific Variations
 
-Once the targeting rule is defined, the next step is to determine what Variation users targeted by this rule should receive. Note: The available variations will be determined by the chosen Feature Type, however, [these can](/home/feature-management/features-and-variables/variables-and-variations) be modified and more variations can be added at any time.](/home/feature-management/features-and-variables/variables-and-variations)
+Once the targeting rule is defined, the next step is to determine what Variation users targeted by this rule should receive. Note: The available variations will be determined by the chosen Feature Type, however, [these can](/home/feature-management/features-and-variables/variables-and-variations) be modified and more variations can be added at any time.
 
 To choose the Variation for this targeted audience, use the "Serve" dropdown and choose the desired variation. When the environment is enabled, and if a user fulfills the targeting rule, they will then be served that variation and its associated variable values.
 
@@ -123,13 +123,13 @@ Users who reach this Targeting Rule and qualify for the Target definition will t
 
 **Adding Or Removing Variations when a random distribution has already been set:**
 
-If a Variation is **added** to a Feature that has an **enabled**** Targeting Rule containing a Random Distribution, it will be added to the random distributions with an initial 0% set. 
+If a Variation is **added** to a Feature that has an **enabled** Targeting Rule containing a Random Distribution, it will be added to the random distributions with an initial 0% set. 
 
-If a Variation is **added** From a Feature that has a **disabled**** Targeting Rule containing a Random Distribution, the new Variation will be added and all Variations will be redistributed to have an equal percentage.
+If a Variation is **added** From a Feature that has a **disabled** Targeting Rule containing a Random Distribution, the new Variation will be added and all Variations will be redistributed to have an equal percentage.
 
-If a Variation is **removed** from a Feature that has an **enabled**** Targeting Rule containing a Random Distribution, the percentage allotted to that variation will be evenly distributed among the existing Variations.
+If a Variation is **removed** from a Feature that has an **enabled** Targeting Rule containing a Random Distribution, the percentage allotted to that variation will be evenly distributed among the existing Variations.
 
-If a Variation is **removed** From a Feature that has a **disabled**** Targeting Rule containing a Random Distribution, the distribution percentages will be reset to be evenly split across all variations.
+If a Variation is **removed** From a Feature that has a **disabled** Targeting Rule containing a Random Distribution, the distribution percentages will be reset to be evenly split across all variations.
 
 :::
 
@@ -173,7 +173,7 @@ Rollouts are calculated in real-time -- meaning that the rate of increase of the
 :::
 
 While a feature is active and a rollout has been set, you can view the current % of rollout at any time:
-image with the active rollout](/feb-2022-active-rollout.png)
+![Image with the active rollout](/feb-2022-active-rollout.png)
 
 :::info
 
