@@ -110,7 +110,7 @@ Here is some more reading:
 First, you need to enable EdgeDB in the DevCycle Dashboard
 [https://docs.devcycle.com/home/feature-management/edgedb/edge-flags#setup](/home/feature-management/edgedb/edge-flags#setup)
 
-With the [DevCycle NodeJs SDK ](/sdk/server-side-sdks/node) we use the `enableCloudBucketing` and `enableEdgeDB` options to enable EdgeDB usage. ([SDK initialization option details: ](/sdk/server-side-sdks/node#initialization-options))
+With the [DevCycle NodeJs SDK ](/sdk/server-side-sdks/node) we use the `enableCloudBucketing` and `enableEdgeDB` options to enable EdgeDB usage. ([SDK initialization option details: ](/sdk/server-side-sdks/node/node-gettingstarted#initialization-options))
 
 ```jsx
 const dvcClient = DVC.initialize(serverKey, {
