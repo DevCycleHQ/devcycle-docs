@@ -43,7 +43,7 @@ If a variable is first read from the cache and has a listener for [realtime upda
 
 ### [• Go SDK](/sdk/server-side-sdks/go#installation)
 
-### [• Python SDK](/sdk/server-side-sdks/python#installation)
+### [• Python SDK](/sdk/server-side-sdks/python/python-install)
 
 ### [• Ruby SDK](/sdk/server-side-sdks/ruby#installation)
 
