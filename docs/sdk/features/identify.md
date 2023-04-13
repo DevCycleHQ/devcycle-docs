@@ -99,7 +99,7 @@ As well, unlike the Client-Side SDKs, because Server-Side SDKs poll for project 
 
 ### [• Ruby SDK](/sdk/server-side-sdks/ruby#user-object)
 
-### [• PHP SDK](/sdk/server-side-sdks/php#user-object)
+### [• PHP SDK](/sdk/server-side-sdks/php/php-usage#user-object)
 
 ### [• Java Local SDK](/sdk/server-side-sdks/java-local#user-object)
 

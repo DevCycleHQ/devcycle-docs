@@ -37,7 +37,7 @@ If there is an error reaching DevCycle, if the requested variable does not exist
 
 ### [• Ruby SDK](/sdk/server-side-sdks/ruby#get-and-use-variable-by-key)
 
-### [• PHP SDK](/sdk/server-side-sdks/php#get-and-use-variable-by-key)
+### [• PHP SDK](/sdk/server-side-sdks/php/php-usage#get-and-use-variable-by-key)
 
 ### [• Java Local SDK](/sdk/server-side-sdks/java-local#get-and-use-variable-by-key)
 

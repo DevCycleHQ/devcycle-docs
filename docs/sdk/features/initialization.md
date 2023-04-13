@@ -47,7 +47,7 @@ If a variable is first read from the cache and has a listener for [realtime upda
 
 ### [• Ruby SDK](/sdk/server-side-sdks/ruby#installation)
 
-### [• PHP SDK](/sdk/server-side-sdks/php#installation)
+### [• PHP SDK](/sdk/server-side-sdks/php/php-install)
 
 ### [• Java Local SDK](/sdk/server-side-sdks/java-local#installation)
 
