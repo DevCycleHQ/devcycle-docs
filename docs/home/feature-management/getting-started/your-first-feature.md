@@ -31,15 +31,21 @@ To create a Feature:
 
 4. After choosing a type, the information screen will appear:
 
-![Modal which shows information necessary to create a Feature](/december_2021_create_modal.png)
+![Modal which shows information necessary to create a Feature](/april-2023-create-feature-modal.png) 
 
 5. Enter a descriptive Feature Name
 
 6. Enter a unique feature key. This key is how the feature and is variables will be referenced in code. (A key will be automatically suggested based on the entered name.)
 
-7. Optionally, you may choose to provide a detailed description of the feature.
+7. Enter a unique Initial Variable Key. 
+Initial Variable Key allows you to define an initial variable key that can differ from the new feature key name. As you type in the Feature Name, the feature Key and the Initial Variable Key will mimic whatever input is entered in the Feature Name field formatted in kebab case.
 
-8. Click "create"
+8. Select the Initial Variable Type. 
+Initial Variable Type allows you to select the type of variable for the initial variable created along with your feature (Boolean, JSON, String, or Number).
+
+9. Optionally, you may choose to provide a detailed description of the feature.
+
+10. Click "create"
 
 You have now created a Feature within your project!
 

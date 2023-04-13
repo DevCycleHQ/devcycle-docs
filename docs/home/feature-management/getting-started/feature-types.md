@@ -15,7 +15,7 @@ This article outlines the various Feature Types, what they do, and how to think 
 
 For more information on Feature Types and using Toggles, read **[Feature toggles (aka Feature Flags)](https://martinfowler.com/articles/feature-toggles.html) by Pete Hodgson** on the Martin Fowler site. It contains deep information on when to use feature toggles, how to use them, and how to think about them. Much of the DevCycle methodology is based around the concepts in this article. 
 
-## Types within DevCycle.
+## Types within DevCycle
 
 ### Release
 
@@ -35,14 +35,21 @@ Use a Release Feature Flag to separate a feature from deployment and allow for a
 
 When a Feature is created with this type, the following will be pre-set in the Feature:
 
-* A Boolean Variable will be created with same key as feature. This can be considered your "toggle" or "flag"
-* There will be two Variations: Variation ON and Variation OFF. 
-* The Boolean variable will have On / Off set to true/false in each Variation accordingly.
-* Development and Staging Environments will automatically target "All Users". Rule will be named "All Users"
-* Rules will be set to serve Variation ON.
-* Development and Staging Environments will be enabled immediately.
-* Production Environment will not be enabled and will not have a default rule. 
+A variable with the chosen type will be created with the Initial Variable Key defined in the Create Feature Modal. This can be considered your "toggle" or "flag".  
 
+There will be two Variations: Variation ON and Variation OFF.
+
+- If you select Initial Variable Type as **Boolean**, the variable will have ON / OFF set to `true` / `false` in each Variation accordingly.
+- If you select Initial Variable Type as **JSON**, the variable values for Variation ON and Variation OFF,  will be  `{ “status”:”on”}` and `{ “status”:”off”}` respectively.
+- If you select Initial Variable Type as **String**, the variable values for Variation ON and Variation OFF,   are  `on` and `off`  respectively.
+- If you select Initial Variable Type as **Number**, the variable values for the Variation ON and Variation OFF, are  `0` and `1` respectively.
+
+For all initial variable types, these are the following Targeting Rule pre-sets: 
+
+- Development and Staging Environments will automatically target "All Users". Rule will be named "All Users"
+- Rules will be set to serve Variation ON.
+- The Development Environment will be enabled immediately.
+- Production Environment will not be enabled and will not have a default rule.
 
 ### Ops
 
@@ -59,16 +66,23 @@ When releasing features with unknown performance implications, use an Ops Featur
 
 **Defaults set in DevCycle**
 
-When a Feature is created with this type, the following will be pre-set in the Feature:
+When a Feature is created with this type, the following will be pre-set in the Feature: 
 
-* A Boolean Variable will be created with same key as feature. This can be considered your base "toggle" or "flag".
-* There will be two Variations: Variation ON and Variation OFF. 
-* The Boolean variable will have On / Off set to true/false in each Variation accordingly.
-* Development Environments will automatically target the current user (if email is set).
-* Rule will be set to Variation ON
-* Development Environments will be enabled immediately.
-* Production and Staging Environments will not be enabled 
-* Production will have a pre-se stepped rollout of Variation ON set up with empty schedules with 10%, 50%, and 100% steps.
+A variable with the chosen type will be created with the Initial Variable Key defined in the Create Feature Modal. This can be considered your "toggle" or "flag".  
+
+There will be two Variations: Configuration 1 and Configuration 2.
+
+- If you select Initial Variable Type as **Boolean**, the variable values for Configuration 1 & Configuration 2 will be set to `true` / `false` in each Variation accordingly.
+- If you select Initial Variable Type as **JSON**,  the variable values for Configuration 1 & Configuration 2 will be set to `{ “key”:”value”}` and `{ “key”:”value”}` in each Variation accordingly.
+- If you select Initial Variable Type as **String**, the the variable values for Configuration 1 & Configuration 2 will be set to `string1` and `string2` in each Variation accordingly.
+- If you select Initial Variable Type as **Number**, the variable values for Configuration 1 & Configuration 2 will be set to `0` and `1` in each Variation accordingly.
+
+For all initial variable types, these are the following Targeting Rule pre-sets: 
+
+- Development Environments will automatically target the current user (if email is set).
+- Rule will be set to Variation Configuration 2.
+- Development Environments will be enabled immediately.
+- Production and Staging Environments will not be enabled
 
 ### Experiment
 
@@ -90,13 +104,21 @@ Experiments can be used to send users down various paths or provide different fu
 
 When a Feature is created with this type, the following will be pre-set in the Feature:
 
-* A Boolean Variable will be created with same key as feature. This can be considered your base "toggle" or "flag".
-* There will be **Three** Variations: Variation A, Variation B, and Control. Use Control to represent your applications DEFAULT behavior so it may be compared against the other variations.
-* The Boolean variable will have Variation A and Variation B set to false and true, respectively, with Control being false. 
-* Development Environments will automatically target ALL users. Audience name will be called "Testing group."
-* Development Environments will be enabled immediately.
-* Distribution will be set to 33/33/33 between Variations A, Variation B, and Control
-* Production and Staging Environments will not be enabled and will not have a default rule. 
+A variable with the chosen type will be created with the Initial Variable Key defined in the Create Feature Modal. This can be considered your "toggle" or "flag".  
+
+There will be **Three** Variations: Control, Variation A, and Variation B. Use Control to represent your applications DEFAULT behaviour so it may be compared against the other variations.
+
+- If you select Initial Variable Type as **Boolean**, the variable values for Control, Variation A, and Variation be will be set to  `false` , `false` , and `true` respectively.
+- If you select Initial Variable Type as **JSON**, the variable values for all variations will be `{ “key”:”value”}`.
+- If you select Initial Variable Type as **String**, the variable values for Control, Variation A, and Variation be will be set to  `string1` , `string2` , and `string3` respectively.
+- If you select Initial Variable Type as **Number**, the variable values for Control, Variation A, and Variation be will be set to  `0` , `1` , and `2` respectively.
+
+For all initial variable types, these are the following Targeting Rule pre-sets: 
+
+- Development Environments will automatically target ALL users. Audience name will be called "Testing group."
+- Development Environments will be enabled immediately.
+- Distribution will be set to 33% / 33% / 33% between Control, Variation A, and Variation B
+- Production and Staging Environments will not be enabled and will not have a default rule. 
 
 ### Permission
 
@@ -115,9 +137,15 @@ A Permission Feature is used to manage different product features that are gated
 
 When a Feature is created with this type, the following will be pre-set in the Feature:
 
-* A Boolean Variable will be created with same key as feature. This can be considered your "toggle" or "flag"
-* There will be two Variations: Variation ON and Variation OFF. 
-* The Boolean variable will have On / Off set to true/false in each Variation accordingly.
-* Development, Staging, and Production Environments will automatically target your organization's Email. Rule will be named "Internal Users"
-* Rules will be set to serve Variation ON.
-* Development and Staging Environments will be enabled immediately.
+There will be two Variations: Configuration 1 and Configuration 2.
+
+- If you select Initial Variable Type as **Boolean**, the variable values for Configuration 1 & Configuration 2 will be set to `true` / `false` in each Variation accordingly.
+- If you select Initial Variable Type as **JSON**,  the variable values for Configuration 1 & Configuration 2 will be set to `{ “key”:”value”}` and `{ “key”:”value”}` in each Variation accordingly.
+- If you select Initial Variable Type as **String**, the the variable values for Configuration 1 & Configuration 2 will be set to `string1` and `string2` in each Variation accordingly.
+- If you select Initial Variable Type as **Number**, the variable values for Configuration 1 & Configuration 2 will be set to `0` and `1` in each Variation accordingly.
+
+For all initial variable types, these are the following Targeting Rule pre-sets: 
+
+- Development, Staging, and Production Environments will automatically target your organization's Email. Rule will be named "Internal Users"
+- Rules will be set to serve Variation ON.
+- Development and Staging Environments will be enabled immediately.
