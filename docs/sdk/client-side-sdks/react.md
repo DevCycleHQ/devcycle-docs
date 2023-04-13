@@ -5,7 +5,7 @@ sidebar_position: 2
 
 # DevCycle React SDK
 
-The DevCycle React SDK lets you easily integrate your React web applications with DevCycle. This SDK is also utilized for [React Native](/sdk/client-side-sdks/react-native)
+The DevCycle React SDK lets you easily integrate your React web applications with DevCycle. This SDK is also utilized for [React Native](/sdk/client-side-sdks/react-native/)
 
 :::info
 

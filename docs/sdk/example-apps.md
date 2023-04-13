@@ -24,5 +24,5 @@ Welcome to the Samples & Example Apps page, which showcases example applications
 | [PHP](https://github.com/DevCycleHQ/php-server-sdk)                       | [PHP Reference Docs](/sdk/server-side-sdks/php/php.md)                         |
 | [Python](https://github.com/DevCycleHQ/python-server-sdk)                 | [Python Reference Docs](/sdk/server-side-sdks/python.md)                       |
 | [React](https://github.com/DevCycleHQ/js-sdks/tree/main/examples/react)                            | [React Reference Docs](/sdk/client-side-sdks/react.md)                         |
-| [React Native](https://github.com/DevCycleHQ/js-sdks/tree/main/examples/react/react-native-app)                     | [React Native Reference Docs](/sdk/client-side-sdks/react-native.md)           |
+| [React Native](https://github.com/DevCycleHQ/js-sdks/tree/main/examples/react/react-native-app)                     | [React Native Reference Docs](/sdk/client-side-sdks/react-native/react-native.md)           |
 | [Ruby](https://github.com/DevCycleHQ/ruby-server-sdk)                     | [Ruby Reference Docs](/sdk/server-side-sdks/ruby.md)                           |

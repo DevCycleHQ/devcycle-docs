@@ -19,7 +19,7 @@ If there is an error reaching DevCycle, if the requested variable does not exist
 
 ### [• Android SDK](/sdk/client-side-sdks/android#using-variable-values)
 
-### [• React Native SDK](/sdk/client-side-sdks/react-native#getting-a-variable)
+### [• React Native SDK](/sdk/client-side-sdks/react-native/react-native-usage#getting-a-variable)
 
 ### [• Flutter SDK](/sdk/client-side-sdks/flutter#using-variable-values)
 
