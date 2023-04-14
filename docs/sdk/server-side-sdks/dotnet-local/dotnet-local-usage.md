@@ -1,73 +1,13 @@
 ---
-title: .NET SDK for Local Bucketing
-sidebar_position: 9
+title: .NET / C# Local SDK Usage
+sidebar_label: Usage
+sidebar_position: 3
 ---
-
-# DevCycle .NET / C# SDK
-
-Welcome to the DevCycle .NET Server SDK, which requests the bucketing config from DevCycle servers on DVCLocalClient initialization.
-Periodic calls are made to the config CDN to retrieve the latest config, but no userdata is used outside of the application.
-
-All calls to the client will then perform local bucketing to determine if a user receives a specific variation.
-Events are queued and flushed periodically in the background to the events api including the user body.
-
-This version uses [.NET Standard 2.1](https://docs.microsoft.com/en-us/dotnet/standard/net-standard?tabs=net-standard-2-1) and utilizes more resources to perform local bucketing.
-
-The SDK is available as a package on Nuget. It is also open source and can be viewed on Github.
 
 [![Nuget](https://badgen.net/nuget/v/DevCycle.SDK.Server.Local)](https://www.nuget.org/packages/DevCycle.SDK.Server.Local/)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/dotnet-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/dotnet-server-sdk)
 
-### Frameworks supported
-- .NET & .NET Core >=3.0
-- Mono >=6.4
-- Xamarin.iOS >=12.16
-- Xamarin.Mac >=5.16
-- Xamarin.Android >=10.0
-- Unity >=2021.2
-
-### Dependencies
-- FubarCoder.RestSharp.Portable.Core >=4.0.8
-- FubarCoder.RestSharp.Portable.HttpClient >=4.0.8
-- JsonSubTypes >=1.8.0
-- Microsoft.Extensions.Logging.Abstractions >= 6.0.1
-- Microsoft.Extensions.Logging.Console >= 6.0.1
-- Microsoft.Extensions.Logging >= 6.0.0
-- Newtonsoft.Json >=13.0.1
-- TypeSupport >= 1.1.12
-- Wasmtime >= 0.34.0-preview1
-
-
-## Installation
-Download the SDK from Nuget - https://nuget.info/packages/DevCycle.SDK.Server.Local/
-and use the namespaces:
-```csharp
-using DevCycle.SDK.Server.Local.Api;
-```
-## Getting Started
-
-```csharp
-using System;
-using System.Diagnostics;
-using DevCycle.SDK.Server.Local.Api;
-
-namespace Example
-{
-    public class Example
-    {
-        static Main(string[] args)
-        {
-            DVCLocalClientBuilder apiBuilder = new DVCLocalClientBuilder();
-            using DVCLocalClient api = apiBuilder.SetSDKKey("<DVC_SERVER_SDK_KEY>")
-                      .Build();
-        }
-    }
-}
-```
-
-## Usage
-
-### User Object
+## User Object
 The user object is required for all methods. The only required field in the user object is userId
 
 See the User class in [.NET User model doc](https://github.com/DevCycleHQ/dotnet-server-sdk/blob/main/docs/User.md) for all accepted fields.
@@ -76,7 +16,7 @@ See the User class in [.NET User model doc](https://github.com/DevCycleHQ/dotnet
 User user = new User("a_user_id");
 ```
 
-### Getting All Features
+## Getting All Features
 This method will fetch all features for a given user and return them as Dictionary<String, Feature>
 
 
@@ -138,7 +78,7 @@ namespace Example
 }
 ```
 
-### Get all Variables
+## Getting All Variables
 
 To get values from your Variables, the `Value` field inside the variable object can be accessed.
 
@@ -202,7 +142,7 @@ namespace Example
 }
 ```
 
-### Get and use Variable by key
+## Get and use Variable by key
 
 To get values from your Variables, the `Value` field inside the variable object can be accessed.
 
@@ -267,7 +207,7 @@ namespace Example
 }
 ```
 
-### Track Event
+## Track Event
 To POST custom event for a user, pass in the user and event object.
 
 Calling Track will queue the event, which will be sent in batches to the DevCycle servers.
@@ -336,7 +276,7 @@ namespace Example
 }
 ```
 
-### Flush Events
+## Flush Events
 
 Calling this method will immediately send all queued events to the DevCycle servers
 

@@ -89,7 +89,7 @@ As well, unlike the Client-Side SDKs, because Server-Side SDKs poll for project 
 
 ### [• Node SDK](/sdk/server-side-sdks/node#user-object) 
 
-### [• C# / .NET Local SDK](/sdk/server-side-sdks/dotnet-local#user-object) 
+### [• C# / .NET Local SDK](/sdk/server-side-sdks/dotnet-local/dotnet-local-usage#user-object) 
 
 ### [• C# / .NET Cloud SDK](/sdk/server-side-sdks/dotnet-cloud/dotnet-cloud-usage#user-object)
 
