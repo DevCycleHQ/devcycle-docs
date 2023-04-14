@@ -23,4 +23,4 @@ Currently, the Identify function is only available on Client-Side SDKs. These SD
 
 ### [• iOS SDK](/sdk/client-side-sdks/ios/ios-usage#reset-user)
 
-### [• Android SDK](/sdk/client-side-sdks/android#reset-user)
+### [• Android SDK](/sdk/client-side-sdks/android/android-usage#reset-user)

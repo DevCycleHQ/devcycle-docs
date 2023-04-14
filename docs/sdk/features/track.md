@@ -25,7 +25,7 @@ The Track function in the DevCycle SDKs allows you to send up custom events whic
 
 ### [• iOS SDK](/sdk/client-side-sdks/ios/ios-usage#tracking-events)
 
-### [• Android SDK](/sdk/client-side-sdks/android#tracking-events)
+### [• Android SDK](/sdk/client-side-sdks/android/android-usage#tracking-events)
 
 ## Server-Side SDK Usage
 

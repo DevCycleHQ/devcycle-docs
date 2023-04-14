@@ -51,7 +51,7 @@ The DevCycle React SDK is built upon the JavaScript SDK. For more details, view 
 
 ### [• iOS SDK](/sdk/client-side-sdks/ios/ios-usage#get-all-features)
 
-### [• Android SDK](/sdk/client-side-sdks/android#get-all-features)
+### [• Android SDK](/sdk/client-side-sdks/android/android-usage#get-all-features)
 
 ### [• React Native SDK](/sdk/client-side-sdks/react-native/react-native-usage#getting-all-features--variables)
 
