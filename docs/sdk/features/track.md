@@ -29,7 +29,7 @@ The Track function in the DevCycle SDKs allows you to send up custom events whic
 
 ## Server-Side SDK Usage
 
-### [• Node SDK](/sdk/server-side-sdks/node#tracking-user-events) 
+### [• Node SDK](/sdk/server-side-sdks/node/node-usage#tracking-user-events) 
 
 ### [• C# / .NET Local SDK](/sdk/server-side-sdks/dotnet-local/dotnet-local-usage#track-event) 
 

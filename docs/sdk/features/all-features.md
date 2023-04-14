@@ -59,7 +59,7 @@ The DevCycle React SDK is built upon the JavaScript SDK. For more details, view 
 
 ## Server-Side SDK Usage
 
-### [• NodeJS SDK (server-side)](/sdk/server-side-sdks/node#getting-all-features)
+### [• NodeJS SDK](/sdk/server-side-sdks/node/node-usage#getting-all-features)
 
 ### [• Go SDK](/sdk/server-side-sdks/go/go-usage#getting-all-features)
 

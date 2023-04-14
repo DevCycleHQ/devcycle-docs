@@ -87,7 +87,7 @@ Unlike the Client-Side SDKs, Server-Side SDKs work in a multi-user context. Beca
 
 As well, unlike the Client-Side SDKs, because Server-Side SDKs poll for project configuration updates, updating the User object that you have set will not explicitly grab new feature configurations. The User object once set can be used to get feature, variation and variable information for a given user or entity.
 
-### [• Node SDK](/sdk/server-side-sdks/node#user-object) 
+### [• Node SDK](/sdk/server-side-sdks/node/node-usage#user-object) 
 
 ### [• C# / .NET Local SDK](/sdk/server-side-sdks/dotnet-local/dotnet-local-usage#user-object) 
 
