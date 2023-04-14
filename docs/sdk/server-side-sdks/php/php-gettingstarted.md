@@ -10,6 +10,8 @@ sidebar_position: 2
 
 Please follow the [installation procedure](/sdk/server-side-sdks/php/php-install) and then run the following:
 
+## Initializing SDK 
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');

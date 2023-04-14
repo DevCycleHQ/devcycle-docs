@@ -93,7 +93,7 @@ As well, unlike the Client-Side SDKs, because Server-Side SDKs poll for project 
 
 ### [• C# / .NET Cloud SDK](/sdk/server-side-sdks/dotnet-cloud/dotnet-cloud-usage#user-object)
 
-### [• Go SDK](/sdk/server-side-sdks/go#user-object)
+### [• Go SDK](/sdk/server-side-sdks/go/go-usage#user-object)
 
 ### [• Python SDK](/sdk/server-side-sdks/python/python-gettingstarted#user-object)
 
