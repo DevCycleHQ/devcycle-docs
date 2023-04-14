@@ -71,6 +71,6 @@ The DevCycle React SDK is built upon the JavaScript SDK. For more details, view 
 
 ### [• .NET / C# Local SDK](/sdk/server-side-sdks/dotnet-local#getting-all-features)
 
-### [• Java Local SDK](/sdk/server-side-sdks/java-local#getting-all-features)
+### [• Java Local SDK](/sdk/server-side-sdks/java-local/java-local-usage#getting-all-features)
 
 ### [• Java Cloud SDK](/sdk/server-side-sdks/java-cloud#getting-all-features)
