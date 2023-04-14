@@ -103,7 +103,7 @@ As well, unlike the Client-Side SDKs, because Server-Side SDKs poll for project 
 
 ### [• Java Local SDK](/sdk/server-side-sdks/java-local/java-local-usage#user-object)
 
-### [• Java Cloud SDK](/sdk/server-side-sdks/java-cloud#user-object)
+### [• Java Cloud SDK](/sdk/server-side-sdks/java-cloud/java-cloud-usage#user-object)
 
 
 

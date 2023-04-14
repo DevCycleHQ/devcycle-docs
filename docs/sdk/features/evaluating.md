@@ -41,4 +41,4 @@ If there is an error reaching DevCycle, if the requested variable does not exist
 
 ### [• Java Local SDK](/sdk/server-side-sdks/java-local/java-local-usage#get-and-use-variable-by-key)
 
-### [• Java Cloud SDK](/sdk/server-side-sdks/java-cloud#get-and-use-variable-by-key)
+### [• Java Cloud SDK](/sdk/server-side-sdks/java-cloud/java-cloud-usage#get-and-use-variable-by-key)
