@@ -27,7 +27,7 @@ If there is an error reaching DevCycle, if the requested variable does not exist
 
 ### [• Node SDK](/sdk/server-side-sdks/node#get-and-use-variable-by-key) 
 
-### [• C# / .NET Local SDK](/sdk/server-side-sdks/dotnet-local#get-and-use-variable-by-key) 
+### [• C# / .NET Local SDK](/sdk/server-side-sdks/dotnet-local/dotnet-local-usage#get-and-use-variable-by-key) 
 
 ### [• C# / .NET Cloud SDK](/sdk/server-side-sdks/dotnet-cloud/dotnet-cloud-usage#get-and-use-variable-by-key)
 

@@ -1,5 +1,5 @@
 ---
-title: .NET / C# SDK Cloud Getting Started
+title: .NET / C# Cloud SDK Getting Started
 sidebar_label: Getting Started
 sidebar_position: 2
 ---
@@ -9,7 +9,7 @@ sidebar_position: 2
 
 ## Initializing SDK 
 
-To start, initialize a client using the API key. 
+To start, initialize a client using the SDK key. 
 
 ```csharp
 using System;

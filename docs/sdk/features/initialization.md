@@ -37,7 +37,7 @@ If a variable is first read from the cache and has a listener for [realtime upda
 
 ### [• Node SDK](/sdk/server-side-sdks/node#installation) 
 
-### [• C# / .NET Local SDK](/sdk/server-side-sdks/dotnet-local#installation) 
+### [• C# / .NET Local SDK](/sdk/server-side-sdks/dotnet-local/dotnet-local-gettingstarted) 
 
 ### [• C# / .NET Cloud SDK](/sdk/server-side-sdks/dotnet-cloud/dotnet-cloud-gettingstarted)
 
