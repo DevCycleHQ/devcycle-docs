@@ -4,6 +4,10 @@ sidebar_label: Installation
 sidebar_position: 1
 ---
 
+[![Maven](https://badgen.net/maven/v/maven-central/com.devcycle/android-client-sdk)](https://search.maven.org/artifact/com.devcycle/android-client-sdk)
+[![GitHub](https://img.shields.io/github/stars/devcyclehq/android-client-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/android-client-sdk)
+
+
 ## Requirements
 
 This version of the DevCycle Android Client SDK supports a minimum Android API Version 21.
