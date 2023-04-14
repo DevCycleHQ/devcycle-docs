@@ -39,7 +39,7 @@ The Track function in the DevCycle SDKs allows you to send up custom events whic
 
 ### [• Python SDK](/sdk/server-side-sdks/python/python-usage#track-event)
 
-### [• Ruby SDK](/sdk/server-side-sdks/ruby#track-events)
+### [• Ruby SDK](/sdk/server-side-sdks/ruby/ruby-usage#track-events)
 
 ### [• PHP SDK](/sdk/server-side-sdks/php/php-usage#track-event)
 

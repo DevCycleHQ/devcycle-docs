@@ -21,7 +21,7 @@ If a variable is first read from the cache and has a listener for [realtime upda
 
 ## Client-Side SDK Usage
 
-### [• Javascript SDK](/sdk/client-side-sdks/javascript/javascript-install)
+### [• Javascript SDK](/sdk/client-side-sdks/javascript/javascript-gettingstarted)
 
 ### [• React SDK](/sdk/client-side-sdks/react/react-gettingstarted)
 
@@ -43,11 +43,11 @@ If a variable is first read from the cache and has a listener for [realtime upda
 
 ### [• Go SDK](/sdk/server-side-sdks/go#installation)
 
-### [• Python SDK](/sdk/server-side-sdks/python/python-install)
+### [• Python SDK](/sdk/server-side-sdks/python/python-gettingstarted)
 
-### [• Ruby SDK](/sdk/server-side-sdks/ruby#installation)
+### [• Ruby SDK](/sdk/server-side-sdks/ruby/ruby-gettingstarted)
 
-### [• PHP SDK](/sdk/server-side-sdks/php/php-install)
+### [• PHP SDK](/sdk/server-side-sdks/php/php-gettingstarted)
 
 ### [• Java Local SDK](/sdk/server-side-sdks/java-local/java-local-gettingstarted)
 

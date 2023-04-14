@@ -3,6 +3,8 @@ title: Javascript SDK Usage
 sidebar_label: Usage
 sidebar_position: 3
 ---
+[![Npm package version](https://badgen.net/npm/v/@devcycle/devcycle-js-sdk)](https://www.npmjs.com/package/@devcycle/devcycle-js-sdk)
+[![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)
 
 ## Waiting for Features
 

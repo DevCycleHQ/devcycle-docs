@@ -90,7 +90,7 @@ For specific documentation on how to use Edge Flags with each SDK
 - [Node.js SDK](/sdk/server-side-sdks/node#edgedb)
 - [PHP SDK](/sdk/server-side-sdks/php/php-usage#edgedb)
 - [Python SDK](/sdk/server-side-sdks/python/python-usage#edgedb)
-- [Ruby SDK](/sdk/server-side-sdks/ruby#edgedb)
+- [Ruby SDK](/sdk/server-side-sdks/ruby/ruby-usage#edgedb)
 - [.NET SDK for Cloud Bucketing](/sdk/server-side-sdks/dotnet-cloud/dotnet-cloud-usage#edgedb)
 
 :::info

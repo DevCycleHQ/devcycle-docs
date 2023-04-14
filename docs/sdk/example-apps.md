@@ -9,8 +9,8 @@ Welcome to the Samples & Example Apps page, which showcases example applications
 
 ### Sample Applications
 
-| Sample SDK App                                                            | SDK Reference Documentation                                                    |
-| ------------------------------------------------------------------------- |--------------------------------------------------------------------------------|
+| Sample SDK App                                                            | SDK Reference Documentation                                                                 |
+| ------------------------------------------------------------------------- |---------------------------------------------------------------------------------------------|
 | [.NET (Cloud Bucketing)](https://github.com/DevCycleHQ/dotnet-server-sdk) | [.NET (Cloud Bucketing) Reference Docs](/sdk/server-side-sdks/dotnet-cloud/dotnet-cloud.md) |
 | [.NET (Local Bucketing)](https://github.com/DevCycleHQ/dotnet-server-sdk) | [.NET (Local Bucketing) Reference Docs](/sdk/server-side-sdks/dotnet-local.md) |
 | [Android](https://github.com/DevCycleHQ/android-client-sdk)               | [Android Reference Docs](/sdk/client-side-sdks/android/android.md)                     |
@@ -25,4 +25,4 @@ Welcome to the Samples & Example Apps page, which showcases example applications
 | [Python](https://github.com/DevCycleHQ/python-server-sdk)                 | [Python Reference Docs](/sdk/server-side-sdks/python/python.md)                       |
 | [React](https://github.com/DevCycleHQ/js-sdks/tree/main/examples/react)                            | [React Reference Docs](/sdk/client-side-sdks/react/react.md)                      |
 | [React Native](https://github.com/DevCycleHQ/js-sdks/tree/main/examples/react/react-native-app)                     | [React Native Reference Docs](/sdk/client-side-sdks/react-native/react-native.md)           |
-| [Ruby](https://github.com/DevCycleHQ/ruby-server-sdk)                     | [Ruby Reference Docs](/sdk/server-side-sdks/ruby.md)                           |
+| [Ruby](https://github.com/DevCycleHQ/ruby-server-sdk)                     | [Ruby Reference Docs](/sdk/server-side-sdks/ruby/ruby.md)                                   |
