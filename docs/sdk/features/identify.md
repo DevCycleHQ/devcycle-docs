@@ -75,7 +75,7 @@ To reset a user completely, please view [Resetting a User](/sdk/features/reset).
 
 ### [• iOS SDK](/sdk/client-side-sdks/ios/ios-usage#identifying-user)
 
-### [• Android SDK](/sdk/client-side-sdks/android#identifying-user)
+### [• Android SDK](/sdk/client-side-sdks/android/android-usage#identifying-user)
 
 ### [• React Native SDK](/sdk/client-side-sdks/react-native/react-native-usage#identifying-users)
 
