@@ -61,7 +61,7 @@ The DevCycle React SDK is built upon the JavaScript SDK. For more details, view 
 
 ### [• NodeJS SDK (server-side)](/sdk/server-side-sdks/node#getting-all-variables)
 
-### [• Go SDK](/sdk/server-side-sdks/go#getting-all-variables)
+### [• Go SDK](/sdk/server-side-sdks/go/go-usage#getting-all-variables)
 
 ### [• Ruby SDK](/sdk/server-side-sdks/ruby/ruby-usage#getting-all-variables)
 

@@ -41,7 +41,7 @@ If a variable is first read from the cache and has a listener for [realtime upda
 
 ### [• C# / .NET Cloud SDK](/sdk/server-side-sdks/dotnet-cloud/dotnet-cloud-gettingstarted)
 
-### [• Go SDK](/sdk/server-side-sdks/go#installation)
+### [• Go SDK](/sdk/server-side-sdks/go/go-gettingstarted)
 
 ### [• Python SDK](/sdk/server-side-sdks/python/python-gettingstarted)
 

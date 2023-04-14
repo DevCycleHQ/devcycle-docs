@@ -15,7 +15,7 @@ Welcome to the Samples & Example Apps page, which showcases example applications
 | [.NET (Local Bucketing)](https://github.com/DevCycleHQ/dotnet-server-sdk) | [.NET (Local Bucketing) Reference Docs](/sdk/server-side-sdks/dotnet-local.md) |
 | [Android](https://github.com/DevCycleHQ/android-client-sdk)               | [Android Reference Docs](/sdk/client-side-sdks/android/android.md)                     |
 | [Flutter](https://github.com/devcyclehq/flutter-client-sdk)               | [Flutter Reference Docs](/sdk/client-side-sdks/flutter/flutter.md)                     |
-| [Go](https://github.com/DevCycleHQ/go-server-sdk)                         | [Go Reference Docs](/sdk/server-side-sdks/go.md)                               |
+| [Go](https://github.com/DevCycleHQ/go-server-sdk)                         | [Go Reference Docs](/sdk/server-side-sdks/go/go.md)                               |
 | [iOS](https://github.com/devcyclehq/ios-client-sdk)                       | [iOS Reference Docs](/sdk/client-side-sdks/ios/ios.md)                             |
 | [Java (Cloud Bucketing)](https://github.com/DevCycleHQ/java-server-sdk)   | [Java (Cloud Bucketing) Reference Docs](/sdk/server-side-sdks/java-cloud/java-cloud.md)   |
 | [Java (Local Bucketing)](https://github.com/DevCycleHQ/java-server-sdk)   | [Java (Local Bucketing) Reference Docs](/sdk/server-side-sdks/java-local/java-local.md)   |

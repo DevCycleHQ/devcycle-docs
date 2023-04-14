@@ -31,7 +31,7 @@ If there is an error reaching DevCycle, if the requested variable does not exist
 
 ### [• C# / .NET Cloud SDK](/sdk/server-side-sdks/dotnet-cloud/dotnet-cloud-usage#get-and-use-variable-by-key)
 
-### [• Go SDK](/sdk/server-side-sdks/go#get-and-use-variable-by-key)
+### [• Go SDK](/sdk/server-side-sdks/go/go-usage#get-and-use-variable-by-key)
 
 ### [• Python SDK](/sdk/server-side-sdks/python/python-usage#get-and-use-variable-by-key)
 

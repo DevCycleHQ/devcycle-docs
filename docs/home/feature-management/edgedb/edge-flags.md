@@ -85,8 +85,8 @@ For specific documentation on how to use Edge Flags with each SDK
 - [React Native](/sdk/client-side-sdks/react-native/react-native-usage#edgedb)
 
 #### Server SDKs
-- [Go SDK](/sdk/server-side-sdks/go#edgedb)
-- [Java SDK](/sdk/server-side-sdks/java-cloud/java-cloud-usage#edgedb)
+- [Go SDK](/sdk/server-side-sdks/go/go-usage#edgedb)
+- [Java SDK](/sdk/server-side-sdks/java-cloud#edgedb)
 - [Node.js SDK](/sdk/server-side-sdks/node#edgedb)
 - [PHP SDK](/sdk/server-side-sdks/php/php-usage#edgedb)
 - [Python SDK](/sdk/server-side-sdks/python/python-usage#edgedb)
