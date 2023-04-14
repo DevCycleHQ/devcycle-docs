@@ -25,7 +25,7 @@ If a variable is first read from the cache and has a listener for [realtime upda
 
 ### [• React SDK](/sdk/client-side-sdks/react/react-gettingstarted)
 
-### [• iOS SDK](/sdk/client-side-sdks/ios#using-variable-values)
+### [• iOS SDK](/sdk/client-side-sdks/ios/ios-gettingstarted)
 
 ### [• Android SDK](/sdk/client-side-sdks/android#using-variable-values)
 

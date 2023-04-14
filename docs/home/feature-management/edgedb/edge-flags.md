@@ -79,7 +79,7 @@ For specific documentation on how to use Edge Flags with each SDK
 
 #### Client SDKs
 - [JS SDK](/sdk/client-side-sdks/javascript/javascript-usage#edgedb)
-- [iOS SDK](/sdk/client-side-sdks/ios#edgedb)
+- [iOS SDK](/sdk/client-side-sdks/ios/ios-usage#edgedb)
 - [Android SDK](/sdk/client-side-sdks/android#edgedb)
 - [React SDK](/sdk/client-side-sdks/react/react-usage#edgedb)
 - [React Native](/sdk/client-side-sdks/react-native/react-native-usage#edgedb)

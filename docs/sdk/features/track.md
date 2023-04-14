@@ -23,7 +23,7 @@ The Track function in the DevCycle SDKs allows you to send up custom events whic
 
 ### [• Flutter SDK](/sdk/client-side-sdks/flutter#tracking-events)
 
-### [• iOS SDK](/sdk/client-side-sdks/ios#tracking-events)
+### [• iOS SDK](/sdk/client-side-sdks/ios/ios-usage#tracking-events)
 
 ### [• Android SDK](/sdk/client-side-sdks/android#tracking-events)
 
