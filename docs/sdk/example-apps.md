@@ -18,7 +18,7 @@ Welcome to the Samples & Example Apps page, which showcases example applications
 | [Go](https://github.com/DevCycleHQ/go-server-sdk)                         | [Go Reference Docs](/sdk/server-side-sdks/go.md)                               |
 | [iOS](https://github.com/devcyclehq/ios-client-sdk)                       | [iOS Reference Docs](/sdk/client-side-sdks/ios/ios.md)                             |
 | [Java (Cloud Bucketing)](https://github.com/DevCycleHQ/java-server-sdk)   | [Java (Cloud Bucketing) Reference Docs](/sdk/server-side-sdks/java-cloud.md)   |
-| [Java (Local Bucketing)](https://github.com/DevCycleHQ/java-server-sdk)   | [Java (Local Bucketing) Reference Docs](/sdk/server-side-sdks/java-local.md)   |
+| [Java (Local Bucketing)](https://github.com/DevCycleHQ/java-server-sdk)   | [Java (Local Bucketing) Reference Docs](/sdk/server-side-sdks/java-local/java-local.md)   |
 | [Javascript](https://github.com/DevCycleHQ/js-sdks/tree/main/sdk/js)                       | [Javascript Reference Docs](/sdk/client-side-sdks/javascript/javascript.md)    |
 | [NodeJS](https://github.com/DevCycleHQ/js-sdks/tree/main/sdk/nodejs)                           | [NodeJS Reference Docs](/sdk/server-side-sdks/node.md)                         |
 | [PHP](https://github.com/DevCycleHQ/php-server-sdk)                       | [PHP Reference Docs](/sdk/server-side-sdks/php/php.md)                         |

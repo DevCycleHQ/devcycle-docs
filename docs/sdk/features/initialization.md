@@ -49,7 +49,7 @@ If a variable is first read from the cache and has a listener for [realtime upda
 
 ### [• PHP SDK](/sdk/server-side-sdks/php/php-install)
 
-### [• Java Local SDK](/sdk/server-side-sdks/java-local#installation)
+### [• Java Local SDK](/sdk/server-side-sdks/java-local/java-local-gettingstarted)
 
 ### [• Java Cloud SDK](/sdk/server-side-sdks/java-cloud#installation)
 
