@@ -15,13 +15,13 @@ If there is an error reaching DevCycle, if the requested variable does not exist
 
 ### [• React SDK](/sdk/client-side-sdks/react/react-usage#getting-a-variable)
 
-### [• iOS SDK](/sdk/client-side-sdks/ios#using-variable-values)
+### [• iOS SDK](/sdk/client-side-sdks/ios/ios-usage#using-variable-values)
 
-### [• Android SDK](/sdk/client-side-sdks/android#using-variable-values)
+### [• Android SDK](/sdk/client-side-sdks/android/android-usage#using-variable-values)
 
 ### [• React Native SDK](/sdk/client-side-sdks/react-native/react-native-usage#getting-a-variable)
 
-### [• Flutter SDK](/sdk/client-side-sdks/flutter#using-variable-values)
+### [• Flutter SDK](/sdk/client-side-sdks/flutter/flutter-usage#using-variable-values)
 
 ## Server-Side SDK Usage
 
@@ -39,6 +39,6 @@ If there is an error reaching DevCycle, if the requested variable does not exist
 
 ### [• PHP SDK](/sdk/server-side-sdks/php/php-usage#get-and-use-variable-by-key)
 
-### [• Java Local SDK](/sdk/server-side-sdks/java-local#get-and-use-variable-by-key)
+### [• Java Local SDK](/sdk/server-side-sdks/java-local/java-local-usage#get-and-use-variable-by-key)
 
 ### [• Java Cloud SDK](/sdk/server-side-sdks/java-cloud#get-and-use-variable-by-key)

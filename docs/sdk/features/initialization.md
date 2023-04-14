@@ -25,13 +25,13 @@ If a variable is first read from the cache and has a listener for [realtime upda
 
 ### [• React SDK](/sdk/client-side-sdks/react/react-gettingstarted)
 
-### [• iOS SDK](/sdk/client-side-sdks/ios#using-variable-values)
+### [• iOS SDK](/sdk/client-side-sdks/ios/ios-gettingstarted)
 
-### [• Android SDK](/sdk/client-side-sdks/android#using-variable-values)
+### [• Android SDK](/sdk/client-side-sdks/android/android-gettingstarted)
 
 ### [• React Native SDK](/sdk/client-side-sdks/react-native/react-native-gettingstarted)
 
-### [• Flutter SDK](/sdk/client-side-sdks/flutter#installation)
+### [• Flutter SDK](/sdk/client-side-sdks/flutter/flutter-gettingstarted)
 
 ## Server-Side SDK Usage
 
@@ -49,7 +49,7 @@ If a variable is first read from the cache and has a listener for [realtime upda
 
 ### [• PHP SDK](/sdk/server-side-sdks/php/php-gettingstarted)
 
-### [• Java Local SDK](/sdk/server-side-sdks/java-local#installation)
+### [• Java Local SDK](/sdk/server-side-sdks/java-local/java-local-gettingstarted)
 
 ### [• Java Cloud SDK](/sdk/server-side-sdks/java-cloud#installation)
 

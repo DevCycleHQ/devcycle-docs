@@ -49,13 +49,13 @@ The DevCycle React SDK is built upon the JavaScript SDK. For more details, view 
 
 :::
 
-### [• iOS SDK](/sdk/client-side-sdks/ios#get-all-features#get-all-features)
+### [• iOS SDK](/sdk/client-side-sdks/ios/ios-usage#get-all-features)
 
-### [• Android SDK](/sdk/client-side-sdks/android#get-all-features)
+### [• Android SDK](/sdk/client-side-sdks/android/android-usage#get-all-features)
 
 ### [• React Native SDK](/sdk/client-side-sdks/react-native/react-native-usage#getting-all-features--variables)
 
-### [• Flutter SDK](/sdk/client-side-sdks/flutter#get-all-features)
+### [• Flutter SDK](/sdk/client-side-sdks/flutter/flutter-usage#get-all-features)
 
 ## Server-Side SDK Usage
 
@@ -71,6 +71,6 @@ The DevCycle React SDK is built upon the JavaScript SDK. For more details, view 
 
 ### [• .NET / C# Local SDK](/sdk/server-side-sdks/dotnet-local#getting-all-features)
 
-### [• Java Local SDK](/sdk/server-side-sdks/java-local#getting-all-features)
+### [• Java Local SDK](/sdk/server-side-sdks/java-local/java-local-usage#getting-all-features)
 
 ### [• Java Cloud SDK](/sdk/server-side-sdks/java-cloud#getting-all-features)

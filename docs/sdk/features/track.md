@@ -21,11 +21,11 @@ The Track function in the DevCycle SDKs allows you to send up custom events whic
 
 ### [• React Native SDK](/sdk/client-side-sdks/react-native/react-native-usage#track-events)
 
-### [• Flutter SDK](/sdk/client-side-sdks/flutter#tracking-events)
+### [• Flutter SDK](/sdk/client-side-sdks/flutter/flutter-usage#tracking-events)
 
-### [• iOS SDK](/sdk/client-side-sdks/ios#tracking-events)
+### [• iOS SDK](/sdk/client-side-sdks/ios/ios-usage#tracking-events)
 
-### [• Android SDK](/sdk/client-side-sdks/android#tracking-events)
+### [• Android SDK](/sdk/client-side-sdks/android/android-usage#tracking-events)
 
 ## Server-Side SDK Usage
 
@@ -43,7 +43,7 @@ The Track function in the DevCycle SDKs allows you to send up custom events whic
 
 ### [• PHP SDK](/sdk/server-side-sdks/php/php-usage#track-event)
 
-### [• Java Local SDK](/sdk/server-side-sdks/java-local#track-event)
+### [• Java Local SDK](/sdk/server-side-sdks/java-local/java-local-usage#track-event)
 
 ### [• Java Cloud SDK](/sdk/server-side-sdks/java-cloud#track-event)
 

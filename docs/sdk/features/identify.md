@@ -73,13 +73,13 @@ To reset a user completely, please view [Resetting a User](/sdk/features/reset).
 
 ### [• React SDK](/sdk/client-side-sdks/react/react-usage#identifying-users)
 
-### [• iOS SDK](/sdk/client-side-sdks/ios#identifying-user)
+### [• iOS SDK](/sdk/client-side-sdks/ios/ios-usage#identifying-user)
 
-### [• Android SDK](/sdk/client-side-sdks/android#identifying-user)
+### [• Android SDK](/sdk/client-side-sdks/android/android-usage#identifying-user)
 
 ### [• React Native SDK](/sdk/client-side-sdks/react-native/react-native-usage#identifying-users)
 
-### [• Flutter SDK](/sdk/client-side-sdks/flutter#identifying-user)
+### [• Flutter SDK](/sdk/client-side-sdks/flutter/flutter-usage#identifying-user)
 
 ## Server-Side SDK Usage
 
@@ -101,7 +101,7 @@ As well, unlike the Client-Side SDKs, because Server-Side SDKs poll for project 
 
 ### [• PHP SDK](/sdk/server-side-sdks/php/php-usage#user-object)
 
-### [• Java Local SDK](/sdk/server-side-sdks/java-local#user-object)
+### [• Java Local SDK](/sdk/server-side-sdks/java-local/java-local-usage#user-object)
 
 ### [• Java Cloud SDK](/sdk/server-side-sdks/java-cloud#user-object)
 

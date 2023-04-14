@@ -19,8 +19,8 @@ Currently, the Identify function is only available on Client-Side SDKs. These SD
 
 ### [• React Native SDK](/sdk/client-side-sdks/react-native/react-native-usage#resetting-user)
 
-### [• Flutter SDK](/sdk/client-side-sdks/flutter#reset-user)
+### [• Flutter SDK](/sdk/client-side-sdks/flutter/flutter-usage#reset-user)
 
-### [• iOS SDK](/sdk/client-side-sdks/ios#identifying-user#reset-user)
+### [• iOS SDK](/sdk/client-side-sdks/ios/ios-usage#reset-user)
 
-### [• Android SDK](/sdk/client-side-sdks/android#identifying-user#reset-user)
+### [• Android SDK](/sdk/client-side-sdks/android/android-usage#reset-user)
