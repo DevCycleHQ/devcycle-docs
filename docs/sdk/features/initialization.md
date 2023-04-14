@@ -31,7 +31,7 @@ If a variable is first read from the cache and has a listener for [realtime upda
 
 ### [• React Native SDK](/sdk/client-side-sdks/react-native/react-native-gettingstarted)
 
-### [• Flutter SDK](/sdk/client-side-sdks/flutter#installation)
+### [• Flutter SDK](/sdk/client-side-sdks/flutter/flutter-gettingstarted)
 
 ## Server-Side SDK Usage
 
