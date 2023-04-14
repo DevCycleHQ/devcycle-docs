@@ -91,7 +91,7 @@ For specific documentation on how to use Edge Flags with each SDK
 - [PHP SDK](/sdk/server-side-sdks/php/php-usage#edgedb)
 - [Python SDK](/sdk/server-side-sdks/python/python-usage#edgedb)
 - [Ruby SDK](/sdk/server-side-sdks/ruby#edgedb)
-- [.NET SDK for Cloud Bucketing](/sdk/server-side-sdks/dotnet-cloud#edgedb)
+- [.NET SDK for Cloud Bucketing](/sdk/server-side-sdks/dotnet-cloud/dotnet-cloud-usage#edgedb)
 
 :::info
 **Data stored in EdgeDB is only used for user segmenting (targeting rules), so EdgeDB won’t return data to the SDK.**
