@@ -15,7 +15,7 @@ If there is an error reaching DevCycle, if the requested variable does not exist
 
 ### [• React SDK](/sdk/client-side-sdks/react/react-usage#getting-a-variable)
 
-### [• iOS SDK](/sdk/client-side-sdks/ios#using-variable-values)
+### [• iOS SDK](/sdk/client-side-sdks/ios/ios-usage#using-variable-values)
 
 ### [• Android SDK](/sdk/client-side-sdks/android#using-variable-values)
 

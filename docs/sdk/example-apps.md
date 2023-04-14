@@ -16,7 +16,7 @@ Welcome to the Samples & Example Apps page, which showcases example applications
 | [Android](https://github.com/DevCycleHQ/android-client-sdk)               | [Android Reference Docs](/sdk/client-side-sdks/android.md)                     |
 | [Flutter](https://github.com/devcyclehq/flutter-client-sdk)               | [Flutter Reference Docs](/sdk/client-side-sdks/flutter.md)                     |
 | [Go](https://github.com/DevCycleHQ/go-server-sdk)                         | [Go Reference Docs](/sdk/server-side-sdks/go.md)                               |
-| [iOS](https://github.com/devcyclehq/ios-client-sdk)                       | [iOS Reference Docs](/sdk/client-side-sdks/ios.md)                             |
+| [iOS](https://github.com/devcyclehq/ios-client-sdk)                       | [iOS Reference Docs](/sdk/client-side-sdks/ios/ios.md)                             |
 | [Java (Cloud Bucketing)](https://github.com/DevCycleHQ/java-server-sdk)   | [Java (Cloud Bucketing) Reference Docs](/sdk/server-side-sdks/java-cloud.md)   |
 | [Java (Local Bucketing)](https://github.com/DevCycleHQ/java-server-sdk)   | [Java (Local Bucketing) Reference Docs](/sdk/server-side-sdks/java-local.md)   |
 | [Javascript](https://github.com/DevCycleHQ/js-sdks/tree/main/sdk/js)                       | [Javascript Reference Docs](/sdk/client-side-sdks/javascript/javascript.md)    |

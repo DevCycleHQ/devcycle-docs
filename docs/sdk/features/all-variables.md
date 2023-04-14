@@ -53,7 +53,7 @@ The DevCycle React SDK is built upon the JavaScript SDK. For more details, view 
 
 ### [• Flutter SDK](/sdk/client-side-sdks/flutter#getting-all-features--variables)
 
-### [• iOS SDK](/sdk/client-side-sdks/ios#get-all-features#get-all-variables)
+### [• iOS SDK](/sdk/client-side-sdks/ios/ios-usage#grabbing-all-features--variables)
 
 ### [• Android SDK](/sdk/client-side-sdks/android#get-all-variables)
 
