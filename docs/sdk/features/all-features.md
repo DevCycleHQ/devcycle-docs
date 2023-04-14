@@ -41,7 +41,7 @@ Features that within the Project that have rules disabled OR the user is not Tar
 
 ### [• JavaScript SDK](/sdk/client-side-sdks/javascript/javascript-usage#get-all-features)
 
-### [• React SDK](/sdk/client-side-sdks/react#getting-all-features--variables)
+### [• React SDK](/sdk/client-side-sdks/react/react-usage#getting-all-features--variables)
 
 :::note
 

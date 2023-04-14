@@ -13,7 +13,7 @@ If there is an error reaching DevCycle, if the requested variable does not exist
 
 ### [• Javascript SDK](/sdk/client-side-sdks/javascript/javascript-usage#getting-variable-values)
 
-### [• React SDK](/sdk/client-side-sdks/react#getting-a-variable)
+### [• React SDK](/sdk/client-side-sdks/react/react-usage#getting-a-variable)
 
 ### [• iOS SDK](/sdk/client-side-sdks/ios#using-variable-values)
 

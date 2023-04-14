@@ -5,7 +5,7 @@ sidebar_position: 1
 ---
 
 
-## 1. NPM Module
+## NPM Module
 
 The recommended way to include the JS SDK is by bundling it with the rest of your application code using our NPM Module.
 
@@ -21,7 +21,7 @@ To use the JS SDK in your project, import the `initialize` function:
 import { initialize } from "@devcycle/devcycle-js-sdk";
 ```
 
-## 2. Using the CDN
+## Using the CDN
 
 If you want to load the JS SDK on your webpage separately from your main application bundle, you can use a script tag to do so.
 

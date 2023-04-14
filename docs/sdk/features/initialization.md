@@ -23,7 +23,7 @@ If a variable is first read from the cache and has a listener for [realtime upda
 
 ### [• Javascript SDK](/sdk/client-side-sdks/javascript/javascript-install)
 
-### [• React SDK](/sdk/client-side-sdks/react#installation)
+### [• React SDK](/sdk/client-side-sdks/react/react-gettingstarted)
 
 ### [• iOS SDK](/sdk/client-side-sdks/ios#using-variable-values)
 
