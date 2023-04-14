@@ -4,6 +4,9 @@ sidebar_label: Usage
 sidebar_position: 3
 ---
 
+[![Maven](https://badgen.net/maven/v/maven-central/com.devcycle/android-client-sdk)](https://search.maven.org/artifact/com.devcycle/android-client-sdk)
+[![GitHub](https://img.shields.io/github/stars/devcyclehq/android-client-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/android-client-sdk)
+
 ## Using Variable Values
 
 To get values from your Features, the `variable()` method is used to fetch variable values using 
