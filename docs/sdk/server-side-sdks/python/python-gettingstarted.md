@@ -3,6 +3,8 @@ title: DevCycle Python Server SDK Getting Started
 sidebar_label: Getting Started
 sidebar_position: 2
 ---
+[![PyPI](https://badgen.net/pypi/v/devcycle-python-server-sdk)](https://pypi.org/project/devcycle-python-server-sdk/)
+[![GitHub](https://img.shields.io/github/stars/devcyclehq/python-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/python-server-sdk)
 
 Code sample for importing and setting up the DVCClient.
 

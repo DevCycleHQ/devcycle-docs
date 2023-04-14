@@ -97,7 +97,7 @@ As well, unlike the Client-Side SDKs, because Server-Side SDKs poll for project 
 
 ### [• Python SDK](/sdk/server-side-sdks/python/python-gettingstarted#user-object)
 
-### [• Ruby SDK](/sdk/server-side-sdks/ruby#user-object)
+### [• Ruby SDK](/sdk/server-side-sdks/ruby/ruby-usage#user-object)
 
 ### [• PHP SDK](/sdk/server-side-sdks/php/php-usage#user-object)
 

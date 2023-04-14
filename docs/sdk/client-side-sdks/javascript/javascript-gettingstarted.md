@@ -3,6 +3,9 @@ title: Javascript SDK Getting Started
 sidebar_label: Getting Started
 sidebar_position: 2
 ---
+[![Npm package version](https://badgen.net/npm/v/@devcycle/devcycle-js-sdk)](https://www.npmjs.com/package/@devcycle/devcycle-js-sdk)
+[![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)
+
 
 - If the JS SDK is installed using NPM, call `initialize` with your client key, a user object, and an optional options object.
 - Otherwise, If you’re using the CDN to install the JS SDK, call `DevCycle.initialize` with your client key, a user object, and an optional options object.

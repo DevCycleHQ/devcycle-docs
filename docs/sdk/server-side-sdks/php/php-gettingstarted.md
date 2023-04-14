@@ -3,6 +3,9 @@ title: DevCycle PHP Server SDK Getting Started
 sidebar_label: Getting Started
 sidebar_position: 2
 ---
+[![Packagist](https://badgen.net/packagist/v/devcycle/php-server-sdk/latest)](https://packagist.org/packages/devcycle/php-server-sdk)
+[![GitHub](https://img.shields.io/github/stars/devcyclehq/php-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/php-server-sdk)
+
 
 
 Please follow the [installation procedure](/sdk/server-side-sdks/php/php-install) and then run the following:
