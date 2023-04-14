@@ -67,7 +67,7 @@ The DevCycle React SDK is built upon the JavaScript SDK. For more details, view 
 
 ### [• PHP SDK](/sdk/server-side-sdks/php/php-usage#get-all-variables)
 
-### [• .NET / C# Cloud SDK](/sdk/server-side-sdks/dotnet-cloud#getting-all-variables)
+### [• .NET / C# Cloud SDK](/sdk/server-side-sdks/dotnet-cloud/dotnet-cloud-usage#getting-all-variables)
 
 ### [• .NET / C# Local SDK](/sdk/server-side-sdks/dotnet-local#getting-all-variables)
 

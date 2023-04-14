@@ -11,7 +11,7 @@ Welcome to the Samples & Example Apps page, which showcases example applications
 
 | Sample SDK App                                                            | SDK Reference Documentation                                                    |
 | ------------------------------------------------------------------------- |--------------------------------------------------------------------------------|
-| [.NET (Cloud Bucketing)](https://github.com/DevCycleHQ/dotnet-server-sdk) | [.NET (Cloud Bucketing) Reference Docs](/sdk/server-side-sdks/dotnet-cloud.md) |
+| [.NET (Cloud Bucketing)](https://github.com/DevCycleHQ/dotnet-server-sdk) | [.NET (Cloud Bucketing) Reference Docs](/sdk/server-side-sdks/dotnet-cloud/dotnet-cloud.md) |
 | [.NET (Local Bucketing)](https://github.com/DevCycleHQ/dotnet-server-sdk) | [.NET (Local Bucketing) Reference Docs](/sdk/server-side-sdks/dotnet-local.md) |
 | [Android](https://github.com/DevCycleHQ/android-client-sdk)               | [Android Reference Docs](/sdk/client-side-sdks/android.md)                     |
 | [Flutter](https://github.com/devcyclehq/flutter-client-sdk)               | [Flutter Reference Docs](/sdk/client-side-sdks/flutter.md)                     |
