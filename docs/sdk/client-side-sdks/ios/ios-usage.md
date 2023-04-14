@@ -4,6 +4,12 @@ sidebar_label: Usage
 sidebar_position: 3
 ---
 
+[![CocoaPods compatible](https://img.shields.io/cocoapods/v/DevCycle)](https://cocoapods.org/pods/DevCycle)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![SwiftPM compatible](https://img.shields.io/badge/SwiftPM-compatible-4BC51D.svg?style=flat)](https://swift.org/package-manager/)
+[![GitHub](https://img.shields.io/github/stars/devcyclehq/ios-client-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/ios-client-sdk)
+
+
 ## Using Variable Values
 
 To get values from your Features, the `variable()` method is used to fetch variable values using 
