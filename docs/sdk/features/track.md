@@ -45,5 +45,5 @@ The Track function in the DevCycle SDKs allows you to send up custom events whic
 
 ### [• Java Local SDK](/sdk/server-side-sdks/java-local/java-local-usage#track-event)
 
-### [• Java Cloud SDK](/sdk/server-side-sdks/java-cloud#track-event)
+### [• Java Cloud SDK](/sdk/server-side-sdks/java-cloud/java-cloud-usage#track-event)
 

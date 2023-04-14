@@ -73,4 +73,4 @@ The DevCycle React SDK is built upon the JavaScript SDK. For more details, view 
 
 ### [• Java Local SDK](/sdk/server-side-sdks/java-local/java-local-usage#getting-all-variables)
 
-### [• Java Cloud SDK](/sdk/server-side-sdks/java-cloud#getting-all-variables)
+### [• Java Cloud SDK](/sdk/server-side-sdks/java-cloud/java-cloud-usage#getting-all-variables)
