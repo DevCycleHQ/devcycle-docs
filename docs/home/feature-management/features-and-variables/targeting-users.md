@@ -5,13 +5,13 @@ sidebar_position: 1
 
 ## Overview
 
-This article serves to describe how to control which users receive which variation of a Feature. We refer to this as "targeting" users for a variation. Each definition of which user receives which variation is a "targeting Rule".
+This article covers how to control which users receive which variation of a feature. We refer to this as "targeting" users for a variation. Each "targeting rule" defines which user gets which variation.
 
-It is possible to simply target individual users to receive specific variations, as well as create more complex rules using various pieces of user or device data. These rules can be used to give features to specific user groups, slowly roll out features for monitoring, or even create and test different configurations of a feature by using [multiple variables](./variables-and-variations).
+Targeting rules can be used to grant features to specific user groups, incrementally roll out features for monitoring, or create and test different feature configurations by using [multiple variables](./variables-and-variations).
 
 ## Creating a Targeting Rule
 
-To create a targeting rule, first, understand which environment you would like to create this rule for. [Read more about Environments here](/home/feature-management/organizing-your-flags-and-variables/environments). To understand the impact of turning a feature on or off in a Feature read [Turning Features On and Off](/home/feature-management/getting-started/toggling-features)
+To create a targeting rule, choose which [environment](/home/feature-management/organizing-your-flags-and-variables/environments) it should apply to. To learn more about the impact of turning a feature ON or OFF in a environtment, see [Turning Features On and Off](/home/feature-management/getting-started/toggling-features)
 
 If a feature is toggled ON for an environment, the rules defined within the environment will be followed.
 
@@ -21,7 +21,7 @@ Each targeting rule has four parts that must be set, and one optional item, as s
 
 ![Targeting Page of a Feature, initial state with nothing selected, production environment](/march-2022-targeting.png)
 
-1. **The current targeting Status.**
+1. **The current targeting status.**
 
     This is what defines if the rules will be used to deliver a variation of a feature to users. If it is off, no users within the environment will receive the feature at all, regardless of the targeting rules. 
     
