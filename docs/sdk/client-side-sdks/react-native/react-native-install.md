@@ -30,12 +30,12 @@ The [react-native-device-info](https://www.npmjs.com/package/react-native-device
 3.  Install the SDK dependencies, run the following command
 
 ```bash
-npm install --save @react-native-async-storage react-native-get-random-values react-native-device-info
+npm install --save @react-native-async-storage/async-storage react-native-get-random-values react-native-device-info
 ```
 or
 
 ```bash
-yarn add @react-native-async-storage react-native-get-random-values react-native-device-info
+yarn add @react-native-async-storage/async-storage react-native-get-random-values react-native-device-info
 ```
 
 4.  Import the `@react-native-async-storage/async-storage` package somewhere in your code (e.g. in the `App.jsx` file). (see example below)
