@@ -2,6 +2,9 @@
 title: iOS SDK
 ---
 
+import CustomDocCardList from '@site/src/components/CustomDocCardList'
+import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
+
 # DevCycle iOS Client SDK
 
 This Client SDK for DevCycle provides a universal Swift Framework to use DevCycle within your 
@@ -9,8 +12,11 @@ iOS / macOS / tvOS / watchOS application. This SDK uses our Client SDK APIs to p
 segmentation and bucketing for the SDK, providing fast response times using our globally distributed 
 edge workers all around the world.
 
+<CustomDocCardList items={useCurrentSidebarCategory().items} columnWidth={4} />
+
 The SDK is available as a package on [CocoaPods](https://cocoapods.org/pods/DevCycle), 
 [Carthage](https://github.com/Carthage/Carthage) and [Swift Package Manager](https://swift.org/package-manager/). 
+
 It is also open source and can be viewed on [GitHub](https://github.com/DevCycleHQ/ios-client-sdk).
 
 [![CocoaPods compatible](https://img.shields.io/cocoapods/v/DevCycle.svg)](https://cocoapods.org/pods/DevCycle)

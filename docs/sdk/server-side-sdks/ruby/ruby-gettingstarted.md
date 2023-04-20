@@ -2,6 +2,8 @@
 title: DevCycle Ruby Server SDK Getting Started
 sidebar_label: Getting Started
 sidebar_position: 2
+description: hidden
+sidebar_custom_props: {icon: rocket}
 ---
 
 [![RubyGems](https://badgen.net/rubygems/v/devcycle-ruby-server-sdk/latest)](https://rubygems.org/gems/devcycle-ruby-server-sdk)

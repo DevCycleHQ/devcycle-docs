@@ -3,47 +3,174 @@ title: SDKs
 sidebar_class_name: hidden
 ---
 
+import CustomDocCardList from '@site/src/components/CustomDocCardList'
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 ## Overview
 
 DevCycle has different types of SDKs, some being client-side and others being server-side. This page serves to describe the differences between these SDK types and how to handle them. Implementation and usage change depending on which type of SDK is being used.
 
+:::tip
 Check out our [DevCycle SDK Sample Applications](docs/sdk/example-apps.md) page to learn how to use our SDKs with various programming languages and frameworks.
+:::
 
-### Client-Side SDKs
+<Tabs>
+  <TabItem value="client" label="Client-Side SDKs" default>
 
 DevCycle client-side SDKs are meant for single-user contexts. This means that the SDKs have a persistent data store for the user while the SDK is being used. Evaluation of Features happens directly on the client's device. These SDKs also include the Mobile SDKs. For more information on the difference between mobile and standard client-side SDK keys, read [API and SDK keys](/home/feature-management/organizing-your-flags-and-variables/api-and-sdk-keys).
 
 The current Client-Side SDKs are:
 
-* **[DevCycle Javascript SDK](/sdk/client-side-sdks/javascript)**
-* **[DevCycle React SDK](/sdk/client-side-sdks/react)**
-* **[DevCycle iOS SDK](/sdk/client-side-sdks/ios)**
-* **[DevCycle Android SDK](/sdk/client-side-sdks/android)**
-* **[React Native](/sdk/client-side-sdks/react-native)**
-* **[Flutter](/sdk/client-side-sdks/flutter)**
-
-
-### Server-Side SDKs
+<CustomDocCardList  columnWidth={4}  items={[
+  {
+    type: 'link',
+    href: '/sdk/client-side-sdks/javascript',
+    label: 'JavaScript SDK',
+    description: 'hidden',
+    iconSet: 'fab',
+icon:'js'
+  },
+  {
+    type: 'link',
+    href: '/sdk/client-side-sdks/react',
+    label: 'React SDK',
+    description: 'hidden',
+        iconSet: 'fab',
+icon:'react'
+  },
+  {
+    type: 'link',
+    href: '/sdk/client-side-sdks/ios',
+    label: 'iOS SDK',
+    description: 'hidden',
+        iconSet: 'fab',
+icon:'app-store-ios'
+  },
+  {
+    type: 'link',
+    href: '/sdk/client-side-sdks/android',
+    label: 'Android SDK',
+    description: 'hidden',
+        iconSet: 'fab',
+icon:'android'
+  },
+  {
+    type: 'link',
+    href: '/sdk/client-side-sdks/react-native',
+    label: 'React Native SDK',
+    description: 'hidden',
+        iconSet: 'fab',
+icon:'react'
+  },
+  {
+    type: 'link',
+    href: '/sdk/client-side-sdks/flutter',
+    label: 'Flutter SDK',
+    description: 'hidden',
+        iconSet: 'fa',
+icon:'toggle-on'
+  },
+]} />
+  </TabItem>
+  <TabItem value="server" label="Server-Side SDKs">
 
 Server-side SDKs are used in multi-user contexts where each call to the SDK will likely be for a different user. Each call to a server SDK function requires the user's ID and any other targeting information to be passed in on every function call. These SDKs are made for infrastructure, backend, and other such services.  
 
 The current Server-Side SDKs are:
 
-* **[DevCycle NodeJS SDK (Local and Cloud)](/sdk/server-side-sdks/node)**
-* **[DevCycle Go SDK (Local and Cloud)](/sdk/server-side-sdks/go)**
-* **[DevCycle PHP SDK](/sdk/server-side-sdks/php)**
-* **[DevCycle Python SDK](/sdk/server-side-sdks/python)**
-* **[DevCycle Ruby SDK](/sdk/server-side-sdks/ruby)**
-* **[DevCycle Java SDK (Cloud Bucketing)](/sdk/server-side-sdks/java-cloud)**
-* **[DevCycle Java SDK (Local Bucketing)](/sdk/server-side-sdks/java-local)**
-* **[DevCycle .NET SDK (Cloud Bucketing)](/sdk/server-side-sdks/dotnet-cloud)**
-* **[DevCycle .NET SDK (Local Bucketing)](/sdk/server-side-sdks/dotnet-local)**
+
+<CustomDocCardList columnWidth={4} items={[
+  {
+    type: 'link',
+    href: '/sdk/server-side-sdks/node',
+    label: 'NodeJS SDK',
+    description: 'Local and Cloud Bucketing',
+    iconSet: 'fab',
+    icon:'node'
+  },
+   {
+    type: 'link',
+    href: '/sdk/server-side-sdks/go',
+    label: 'Go SDK',
+    description: 'Local and Cloud Bucketing',
+    iconSet: 'fab',
+icon:'golang'
+  },
+   {
+    type: 'link',
+    href: '/sdk/server-side-sdks/php',
+    label: 'PHP SDK',
+    description: 'Cloud Bucketing',
+    iconSet: 'fab',
+    icon:'php'
+  },
+    {
+    type: 'link',
+    href: '/sdk/server-side-sdks/python',
+    label: 'Python SDK',
+    description: 'Cloud Bucketing',
+    iconSet: 'fab',
+    icon:'python'
+  },
+ {
+    type: 'link',
+    href: '/sdk/server-side-sdks/ruby',
+    label: 'Ruby SDK',
+    description: 'Local and Cloud Bucketing',
+    iconSet: 'fa',
+    icon:'gem'
+  },
+  {
+    type: 'link',
+    href: '/sdk/server-side-sdks/java-cloud',
+    label: 'Java SDK',
+    description: 'Cloud Bucketing',
+    iconSet: 'fab',
+    icon:'java'
+  },
+  {
+    type: 'link',
+    href: '/sdk/server-side-sdks/java-local',
+    label: 'Java SDK',
+    description: 'Local Bucketing',
+    iconSet: 'fab',
+    icon:'java'
+  },
+   {
+    type: 'link',
+    href: '/sdk/server-side-sdks/dotnet-cloud',
+    label: '.NET SDK',
+    description: 'Cloud Bucketing',
+    iconSet: 'fab',
+    icon:'microsoft'
+  },
+  {
+    type: 'link',
+    href: '/sdk/server-side-sdks/dotnet-local',
+    label: '.NET SDK',
+    description: 'Local Bucketing',
+    iconSet: 'fab',
+    icon:'microsoft'
+  },
+]} />
+ </TabItem>
+ 
+</Tabs>
+
+
+
+
+
 
 
 ### Difference between Local and Cloud Bucketing
 
-#### Cloud bucketing SDKs
-The logic which determines what a user gets is calculated in the cloud, using workers at the edge which are available globally. Every function within the SDK will reach out to these edge workers and respond with the response with extremely low latency. The Cloud Bucketing SDKs will cause a large number of outbound requests as each SDK call will reach out to the DevCycle edge servers. However, the cloud bucketing SDKs are useful in cases in which a much older version of the given language is being used, as Local Bucketing generally only supports newer versions of languages.
-
-#### Local Bucketing
-Local bucketing does all of the calculations locally using extremely performant Web Assembly code. The project's environment configuration is downloaded upon initialization of the SDK, and all future SDK calls will calculate values locally within the SDK. This approach will guarantee responses from the SDK in 1-10ms. The configuration will be updated at a configurable polling interval.
+<Tabs>
+ <TabItem value="local" label="Local bucketing SDKs" default>
+    Local bucketing does all of the calculations locally using extremely performant Web Assembly code. The project's environment configuration is downloaded upon initialization of the SDK, and all future SDK calls will calculate values locally within the SDK. This approach will guarantee responses from the SDK in 1-10ms. The configuration will be updated at a configurable polling interval.
+  </TabItem>
+  <TabItem value="cloud" label="Cloud bucketing SDKs" >
+    The logic which determines what a user gets is calculated in the cloud, using workers at the edge which are available globally. Every function within the SDK will reach out to these edge workers and respond with the response with extremely low latency. The Cloud Bucketing SDKs will cause a large number of outbound requests as each SDK call will reach out to the DevCycle edge servers. However, the cloud bucketing SDKs are useful in cases in which a much older version of the given language is being used, as Local Bucketing generally only supports newer versions of languages.
+  </TabItem>
+</Tabs>

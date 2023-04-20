@@ -2,6 +2,8 @@
 title: DevCycle Go Server SDK Usage
 sidebar_label: Usage
 sidebar_position: 3
+description: hidden
+sidebar_custom_props: {icon: toggle-on}
 ---
 
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/go-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/go-server-sdk)

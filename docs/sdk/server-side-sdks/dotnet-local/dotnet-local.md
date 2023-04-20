@@ -2,6 +2,9 @@
 title: .NET SDK for Local Bucketing
 ---
 
+import CustomDocCardList from '@site/src/components/CustomDocCardList'
+import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
+
 # DevCycle .NET / C# SDK
 
 Welcome to the DevCycle .NET Server SDK, which requests the bucketing config from DevCycle servers on DVCLocalClient initialization.
@@ -11,6 +14,8 @@ All calls to the client will then perform local bucketing to determine if a user
 Events are queued and flushed periodically in the background to the events api including the user body.
 
 This version uses [.NET Standard 2.1](https://docs.microsoft.com/en-us/dotnet/standard/net-standard?tabs=net-standard-2-1) and utilizes more resources to perform local bucketing.
+
+<CustomDocCardList items={useCurrentSidebarCategory().items} columnWidth={4} />
 
 The SDK is available as a package on Nuget. It is also open source and can be viewed on Github.
 

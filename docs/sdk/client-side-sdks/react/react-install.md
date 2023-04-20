@@ -2,7 +2,12 @@
 title: React SDK Installation
 sidebar_label: Installation
 sidebar_position: 1
+description: hidden
+sidebar_custom_props: {icon: screwdriver-wrench}
 ---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 [![Npm package version](https://badgen.net/npm/v/@devcycle/devcycle-react-sdk)](https://www.npmjs.com/package/@devcycle/devcycle-react-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)
@@ -28,11 +33,23 @@ For additional help, please contact DevCycle support at [support@devcycle.com](m
 
 To install the SDK, run the following command:
 
-```bash
-npm install --save @devcycle/devcycle-react-sdk
-```
-or
+<Tabs>
 
-```bash
-yarn add @devcycle/devcycle-react-sdk
-```
+<TabItem value="npm" label="npm" default>
+
+  ```bash
+    npm install --save @devcycle/devcycle-react-sdk
+  ```
+
+  </TabItem>
+<TabItem value="yarn" label="yarn">
+
+  ```bash
+    yarn add @devcycle/devcycle-react-sdk
+  ```
+
+  </TabItem>
+  
+</Tabs>
+
+

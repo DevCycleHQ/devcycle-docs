@@ -2,6 +2,8 @@
 title: .NET / C# Local SDK Installation
 sidebar_label: Installation
 sidebar_position: 1
+description: hidden
+sidebar_custom_props: {icon: screwdriver-wrench}
 ---
 
 [![Nuget](https://badgen.net/nuget/v/DevCycle.SDK.Server.Local)](https://www.nuget.org/packages/DevCycle.SDK.Server.Local/)

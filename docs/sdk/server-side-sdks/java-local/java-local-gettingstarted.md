@@ -2,6 +2,8 @@
 title: DevCycle Java Local Server SDK Getting Started
 sidebar_label: Getting Started
 sidebar_position: 2
+description: hidden
+sidebar_custom_props: {icon: rocket}
 ---
 
 [![Maven](https://badgen.net/maven/v/maven-central/com.devcycle/java-server-sdk)](https://search.maven.org/artifact/com.devcycle/java-server-sdk)

@@ -2,6 +2,8 @@
 title: Flutter SDK Getting Started
 sidebar_label: Getting Started
 sidebar_position: 2
+description: hidden
+sidebar_custom_props: {icon: rocket}
 ---
 
 [![Pub](https://img.shields.io/pub/v/devcycle_flutter_client_sdk)](https://img.shields.io/pub/v/devcycle_flutter_client_sdk)
