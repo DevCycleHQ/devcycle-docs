@@ -2,6 +2,8 @@
 title: iOS SDK Usage
 sidebar_label: Usage
 sidebar_position: 3
+description: hidden
+sidebar_custom_props: {icon: toggle-on}
 ---
 
 [![CocoaPods compatible](https://img.shields.io/cocoapods/v/DevCycle)](https://cocoapods.org/pods/DevCycle)

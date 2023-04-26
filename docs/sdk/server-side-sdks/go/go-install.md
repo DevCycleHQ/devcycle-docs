@@ -2,6 +2,8 @@
 title: DevCycle Go Server SDK Installation
 sidebar_label: Installation
 sidebar_position: 1
+description: hidden
+sidebar_custom_props: {icon: screwdriver-wrench}
 ---
 
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/go-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/go-server-sdk)

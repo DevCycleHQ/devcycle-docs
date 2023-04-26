@@ -11,7 +11,7 @@ function DocCardListForCurrentSidebarCategory({ className }) {
   return <CustomDocCardList items={category.items} className={className} />;
 }
 export default function DocCardList(props) {  
-  const { items, className, sidebar_class_name } = props;
+  const { items, className, columnWidth = 6, sidebar_class_name } = props;
 
   if (!items) {
     return <DocCardListForCurrentSidebarCategory {...props} />;
@@ -20,7 +20,7 @@ export default function DocCardList(props) {
   return (
     <section className={clsx('row', className)}>
       {filteredItems.map((item, index) => (
-        <article key={index} className="col col--6 margin-bottom--lg">
+        <article key={index} className={`col col--${columnWidth} margin-bottom--lg`}>
           <CustomDocCard item={item} />
         </article>
       ))}

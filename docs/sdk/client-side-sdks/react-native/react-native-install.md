@@ -2,21 +2,37 @@
 title: React Native SDK Installation
 sidebar_label: Installation
 sidebar_position: 1
+description: hidden
+sidebar_custom_props: {icon: screwdriver-wrench}
 ---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 [![Npm package version](https://badgen.net/npm/v/@devcycle/devcycle-react-native-sdk)](https://www.npmjs.com/package/@devcycle/devcycle-react-native-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)
 
 To install the SDK, run the following command:
 
-```bash
-npm install --save @devcycle/devcycle-react-native-sdk 
-```
-or
+<Tabs>
 
-```bash
-yarn add @devcycle/devcycle-react-native-sdk 
-```
+<TabItem value="npm" label="npm" default>
+
+  ```bash
+    npm install --save @devcycle/devcycle-react-native-sdk 
+  ```
+
+  </TabItem>
+<TabItem value="yarn" label="yarn">
+
+  ```bash
+    yarn add @devcycle/devcycle-react-native-sdk 
+  ```
+
+  </TabItem>
+  
+</Tabs>
+
 
 2. Add the following packages that are required for React Native functionality as dependencies of your project:
 ```shell
@@ -29,14 +45,24 @@ The [react-native-device-info](https://www.npmjs.com/package/react-native-device
 
 3.  Install the SDK dependencies, run the following command
 
-```bash
-npm install --save @react-native-async-storage/async-storage react-native-get-random-values react-native-device-info
-```
-or
+<Tabs>
 
-```bash
-yarn add @react-native-async-storage/async-storage react-native-get-random-values react-native-device-info
-```
+<TabItem value="npm" label="npm" default>
+
+  ```bash
+    npm install --save @react-native-async-storage/async-storage react-native-get-random-values react-native-device-info
+  ```
+
+  </TabItem>
+<TabItem value="yarn" label="yarn">
+
+  ```bash
+    yarn add @react-native-async-storage/async-storage react-native-get-random-values react-native-device-info
+  ```
+
+  </TabItem>
+  
+</Tabs>
 
 4.  Import the `@react-native-async-storage/async-storage` package somewhere in your code (e.g. in the `App.jsx` file). (see example below)
 5.  Import the `react-native-get-random-values` package somewhere in your code (e.g. in the `App.jsx` file). (see example below)

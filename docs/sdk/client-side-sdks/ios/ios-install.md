@@ -2,7 +2,12 @@
 title: iOS SDK Installation
 sidebar_label: Installation
 sidebar_position: 1
+description: hidden
+sidebar_custom_props: {icon: screwdriver-wrench}
 ---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 [![CocoaPods compatible](https://img.shields.io/cocoapods/v/DevCycle.svg)](https://cocoapods.org/pods/DevCycle)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
@@ -22,16 +27,19 @@ For all environments please use the DevCycle mobile SDK key as shown in the exam
 
 ## Installation
 
-### CocoaPods
+<Tabs>
 
-The SDK can be installed into your iOS project by adding the following to your cocoapod spec:
+<TabItem value="cocoapods" label="CocoaPods" default>
+
+  The SDK can be installed into your iOS project by adding the following to your cocoapod spec:
 
 ```swift
 pod 'DevCycle'
 ```
 Then, run `pod install`.
 
-### Carthage
+  </TabItem>
+<TabItem value="carthage" label="Carthage">
 
 Include the following in your `Cartfile` to integrate DevCycle as a dependency to your project: 
 
@@ -41,7 +49,9 @@ github "DevCycleHQ/ios-client-sdk"
 
 Then, run `carthage update --use-xcframeworks`. Drag the built .xcframework bundles from Carthage/Build into the "Frameworks and Libraries" section of your application’s Xcode project.
 
-### Swift Package Manager
+  </TabItem>
+
+  <TabItem value="Sswift" label="Swift Package Manager">
 
 To use the library with Swift Package Manager, include it as a dependency in your `Package.swift` file like so:
 
@@ -60,3 +70,6 @@ To use the library with Swift Package Manager, include it as a dependency in you
 ```
 
 You can also add it through Xcode, i.e. `File > Swift Packages > Add Package Dependency`, then enter the repository clone URL.
+  </TabItem>
+  
+</Tabs>

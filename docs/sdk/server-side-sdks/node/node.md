@@ -2,6 +2,9 @@
 title: Node.js SDK
 ---
 
+import CustomDocCardList from '@site/src/components/CustomDocCardList'
+import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
+
 # DevCycle NodeJS Server SDK
 
 The NodeJS Server SDK for DevCycle.
@@ -11,6 +14,8 @@ providing immediate responses to variable and feature requests for a user.
 
 The SDK will download the latest version of your DevCycle environments configuration from a CDN on initialization,
 and will periodically poll the CDN for configuration changes.
+
+<CustomDocCardList items={useCurrentSidebarCategory().items} columnWidth={4} />
 
 The SDK is available as a package on npm. It is also open source and can be viewed on Github.
 
