@@ -1,6 +1,7 @@
 {
-    "redirects": [
-      { "source": "/docs/:path*/", "destination": "/:path*", "statusCode": 301 },
-      { "source": "/docs/:path*", "destination": "/:path*", "statusCode": 301 }
-    ]
-  }
+  "redirects": [
+    { "source": "/sdk/sdk-types", "destination": "/docs/sdk/", "statusCode": 301 },
+    { "source": "/docs/:path*/", "destination": "/:path*", "statusCode": 301 },
+    { "source": "/docs/:path*", "destination": "/:path*", "statusCode": 301 }
+  ]
+}
