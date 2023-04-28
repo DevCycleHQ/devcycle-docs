@@ -16,7 +16,9 @@ The only required field in the user object is UserId
 See the UserData class in `model_user_data.go` for all accepted fields.
 
 ```go
-user := devcycle.UserData{UserId: "test"}
+user := devcycle.DVCUser{
+    UserId: "example_user_id",
+}
 ```
 
 ## Getting All Features
@@ -59,24 +61,26 @@ eg.
 
 `variable.Value.(string)` for the above example
 
+If the variable returned does not match the type of the defaultValue parameter, the defaultValue will be returned instead. This helps to protect your code against unexpected types being returned from the server. To avoid confusion when testing new variables, make sure you're using the correct type for the defaultValue parameter.
+
 ## Track Event
 
 To POST custom event for a user, pass in the user and event object.
 
-When in local bucketing mode - these requests are batched. Not sent immediately.
+When in local bucketing mode, these requests are queued and sent in the background in batches, not sent immediately.
 
 ```go
-event := devcycle.Event{
-Type_: "event type you want tracked",
-Target: "somevariable.key"}
+event := devcycle.DVCEvent{
+    Type_:  "event type you want tracked",
+    Target: "somevariable.key",
+}
 
 response, err := client.Track(user, event)
 ```
 
 ## Close
 
-You can close the DevCycle client to stop the SDK from polling for configs and flushing events on an interval. Any pending events will be immediately flushed.
-Only usable in local bucketing mode.
+You can close the DevCycle client to stop the SDK from polling for configs and flushing events on an interval. Any pending events will be immediately flushed. This method is only usable in local bucketing mode.
 
 ```go
 err := client.Close()
@@ -95,16 +99,18 @@ Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to
 
 ```go
 import (
-"github.com/devcyclehq/go-server-sdk/v2"
+    "github.com/devcyclehq/go-server-sdk/v2"
 )
 
-dvcOptions := devcycle.DVCOptions{EnableEdgeDB: true}
+dvcOptions := devcycle.DVCOptions{
+    EnableEdgeDB: true,
+}
 
 client, err := devcycle.NewDVCClient(sdkKey, &dvcOptions)
 
-user := devcycle.UserData{UserId: "test-user", Email:"test.user@test.com"}
+user := devcycle.DVCUser{UserId: "test-user", Email:"test.user@test.com"}
 
-variable, err := devcycle.Variable(user, "test-key", "test-default")
+variable, err := client.Variable(user, "test-key", "test-default")
 ```
 
 Each call to the DevCycle API in this mode will store any user data that was sent in the request in EdgeDB.
