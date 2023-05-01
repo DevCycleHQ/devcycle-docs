@@ -1,5 +1,5 @@
 ---
-title: Getting Started - A Sample App
+title: React App Demo
 sidebar_position: 2
 ---
 
