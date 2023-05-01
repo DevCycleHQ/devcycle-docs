@@ -2,6 +2,8 @@
 title: Flutter SDK Usage
 sidebar_label: Usage
 sidebar_position: 3
+description: hidden
+sidebar_custom_props: {icon: toggle-on}
 ---
 
 [![Pub](https://img.shields.io/pub/v/devcycle_flutter_client_sdk)](https://img.shields.io/pub/v/devcycle_flutter_client_sdk)

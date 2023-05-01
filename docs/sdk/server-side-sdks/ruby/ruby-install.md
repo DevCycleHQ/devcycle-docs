@@ -2,6 +2,8 @@
 title: DevCycle Ruby Server SDK Installation
 sidebar_label: Installation
 sidebar_position: 1
+description: hidden
+sidebar_custom_props: {icon: screwdriver-wrench}
 ---
 
 [![RubyGems](https://badgen.net/rubygems/v/devcycle-ruby-server-sdk/latest)](https://rubygems.org/gems/devcycle-ruby-server-sdk)
@@ -10,4 +12,6 @@ sidebar_position: 1
 
 Install the gem
 
-`gem install devcycle-ruby-server-sdk`
+```ruby 
+gem install devcycle-ruby-server-sdk
+```

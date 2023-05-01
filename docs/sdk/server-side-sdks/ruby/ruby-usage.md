@@ -2,6 +2,8 @@
 title: DevCycle Ruby Server SDK Usage
 sidebar_label: Usage
 sidebar_position: 3
+description: hidden
+sidebar_custom_props: {icon: toggle-on}
 ---
 
 [![RubyGems](https://badgen.net/rubygems/v/devcycle-ruby-server-sdk/latest)](https://rubygems.org/gems/devcycle-ruby-server-sdk)

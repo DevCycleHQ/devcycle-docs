@@ -2,6 +2,8 @@
 title: Javascript SDK Usage
 sidebar_label: Usage
 sidebar_position: 3
+description: hidden
+sidebar_custom_props: {icon: toggle-on}
 ---
 [![Npm package version](https://badgen.net/npm/v/@devcycle/devcycle-js-sdk)](https://www.npmjs.com/package/@devcycle/devcycle-js-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)
@@ -191,6 +193,7 @@ subscribe to an event that doesn't exist. These are the events you can subscribe
 | Initialized      | `initialized`       | `(initialized: boolean)`               | An initialized event is emitted once the SDK has received its first config from DevCycle. This event will only be emitted once.                                                                                                                       |
 | Error            | `error`             | `(error: Error)`                       | If any error occurs in the SDK, this event emits that error.                                                                                                                                                                                          |
 | Variable Updated | `variableUpdated:*` | <code>(key: string, variable: DVCVariable &#124; null)</code> | This event gets triggered when a variable value changes for a user. You can subscribe to all variable updates using the `*` identifier, or you can pass in the key of the variable you want to subscribe to, e.g. `variableUpdated:my_variable_key`.  |
+| Variable Evaluated | `variableEvaluated:*` | <code>(key: string, variable: DVCVariable)</code> | This event gets triggered when a variable is evaluated. You can subscribe to all variable evaluations using the `*` identifier, or you can pass in the key of the variable evaluation you want to subscribe to, e.g. `variableEvaluated:my_variable_key`.  |
 | Feature Updated  | `featureUpdated:*`  | <code>(key: string, feature: DVCFeature &#124; null)</code>   | This event gets triggered when a feature's variation changes for a user. You can subscribe to all feature updates using the `*` identifier, or you can pass in the key of the feature you want to subscribe to, e.g. `featureUpdated:my_feature_key`. |
 
 ## EdgeDB

@@ -2,7 +2,12 @@
 title: Java SDK for Local Bucketing
 ---
 
+import CustomDocCardList from '@site/src/components/CustomDocCardList'
+import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
+
 Welcome to the DevCycle Java SDK, which interfaces with the [DevCycle Bucketing API](/bucketing-api/#tag/devcycle).
+
+<CustomDocCardList items={useCurrentSidebarCategory().items} columnWidth={4} />
 
 The SDK is available as a package on MavenCentral. It is also open source and can be viewed on Github.
 

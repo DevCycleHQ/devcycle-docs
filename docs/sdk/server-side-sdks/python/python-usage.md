@@ -2,6 +2,8 @@
 title: DevCycle Python Server SDK Usage
 sidebar_label: Usage
 sidebar_position: 3
+description: hidden
+sidebar_custom_props: {icon: toggle-on}
 ---
 [![PyPI](https://badgen.net/pypi/v/devcycle-python-server-sdk)](https://pypi.org/project/devcycle-python-server-sdk/)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/python-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/python-server-sdk)

@@ -2,6 +2,8 @@
 title: Flutter SDK Installation
 sidebar_label: Installation
 sidebar_position: 1
+description: hidden
+sidebar_custom_props: {icon: screwdriver-wrench}
 ---
 
 [![Pub](https://img.shields.io/pub/v/devcycle_flutter_client_sdk)](https://img.shields.io/pub/v/devcycle_flutter_client_sdk)

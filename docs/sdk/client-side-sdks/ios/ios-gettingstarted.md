@@ -2,6 +2,8 @@
 title: iOS SDK Getting Started
 sidebar_label: Getting Started
 sidebar_position: 2
+description: hidden
+sidebar_custom_props: {icon: rocket}
 ---
 
 [![CocoaPods compatible](https://img.shields.io/cocoapods/v/DevCycle.svg)](https://cocoapods.org/pods/DevCycle)

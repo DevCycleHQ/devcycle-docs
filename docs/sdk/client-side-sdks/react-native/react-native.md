@@ -2,6 +2,9 @@
 title: React Native
 ---
 
+import CustomDocCardList from '@site/src/components/CustomDocCardList'
+import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
+
 # DevCycle React Native
 
 The DevCycle React Native SDK lets you easily integrate your React Native web applications with DevCycle. 
@@ -11,6 +14,8 @@ The DevCycle React Native SDK lets you easily integrate your React Native web ap
 Currently, DevCycle for React Native only supports access via functional component hooks.
 
 :::
+
+<CustomDocCardList items={useCurrentSidebarCategory().items} columnWidth={4} />
 
 The SDK is available as a package on npm. It is also open source and can be viewed on Github.
 

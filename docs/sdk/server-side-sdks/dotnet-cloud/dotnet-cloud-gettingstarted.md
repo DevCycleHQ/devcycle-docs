@@ -2,6 +2,8 @@
 title: .NET / C# Cloud SDK Getting Started
 sidebar_label: Getting Started
 sidebar_position: 2
+description: hidden
+sidebar_custom_props: {icon: rocket}
 ---
 
 [![Nuget](https://badgen.net/nuget/v/DevCycle.SDK.Server.Cloud)](https://www.nuget.org/packages/DevCycle.SDK.Server.Cloud/)

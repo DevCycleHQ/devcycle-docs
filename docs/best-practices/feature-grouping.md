@@ -8,23 +8,23 @@ sidebar_custom_props: {icon: people-group}
 
 ## Overview
 
-This guide describes how to manage large amounts of feature flags with DevCycle. DevCycle’s Feature Grouping can act as a “master switch” for multiple flags in a group. In this article, you will learn the difference between Features and Variables in DevCycle and how they play into feature flag organization.
+This guide describes how to manage large amounts of feature flags with DevCycle. DevCycle’s Feature Grouping can act as a “master switch” for multiple flags in a group. Here you will learn the difference between Features and Variables in DevCycle and how they play into feature flag organization.
 
 ## Why Group Flags?
 
-Feature Flags can accumulate very quickly. Without an organizational mechanism, the feature management dashboard would be extremely cluttered. Imagine developing a complex feature with various parts, such as the [Metrics and Experimentation feature in DevCycle](/home/feature-management/features-and-variables/metrics-and-analysis/feature-experimentation). Each piece of functionality needs a flag: There’s a flag for the API, a flag for the UI, flags for each type of experimentation, string flags for naming, and so on. It would be helpful to have the ability to find all these flags in the same place.
+Feature Flags can accumulate very quickly. Without an organizational mechanism, the feature management dashboard would be extremely cluttered. Imagine developing a complex feature with various parts, such as the [Metrics and Experimentation feature in DevCycle](/home/feature-management/features-and-variables/metrics-and-analysis/feature-experimentation). Each piece of functionality needs a flag: There’s a flag for the API, the UI, each type of experimentation, string flags for naming, and so on. It would be helpful to have the ability to find all these flags in the same place.
 
-Not only do we want flags for each part of a feature, but we also want the ability to turn off the entire feature all at once in case something goes wrong. Other Feature Flag management solutions require you to create complex feature flag dependencies to set up a “master switch” for a group of flags. In contrast, DevCycle allows you to group feature flags and disable them simultaneously with one switch.
+Not only do we want flags for each part of a feature, but we also want the ability to turn off the entire feature, all at once, in case something goes wrong. Other Feature Flag management solutions require you to create complex feature flag dependencies to set up a “master switch” for a group of flags. In contrast, DevCycle allows you to easily group feature flags and disable them simultaneously with one switch.
 
 ## How DevCycle Sees Features
 
-DevCycle sees features as complex functionalities made up of several simpler working components. Each component requires a flag. As a result, DevCycle prefers to view Feature Flags as mere parts of a feature. When you create a feature, you can create flags to toggle different aspects of that feature. To do so, we can use Remote Variables. Remote Variables are flags for toggling values that affect subparts of features. This way, you can group your flags, or Variables, by feature.
+DevCycle sees features as complex functionalities made up of several simpler working components. Each component requires a flag. As a result, DevCycle views flags as mere parts of a feature. When you create a feature, you can create flags to toggle different aspects of that feature. To do so, we can use Remote Variables. Remote Variables are flags for toggling values that affect subparts of features. This way, you can group your flags, or Variables, by feature.
 
 ## Using Flag Grouping
 
 When you add a feature on DevCycle, DevCycle automatically creates a Variable with the same name as your feature. You can also make additional Variables to gate different components of your feature.
 
-For instance, let’s return to our example about DevCycle’s Metrics feature. Let’s say we’ve added a feature to our dashboard called “Metrics and Experimentation”, and we want to create one flag to control the API and one for the UI. We can create a variable called `show-metrics-api` and another variable called `show-metrics-ui`, setting their values to `true` for Variation On and `false` for Variation Off.
+For instance, let’s return to our example about DevCycle’s Metrics feature. Let’s say we’ve added a feature to our dashboard called “Metrics and Experimentation”, and want to implement two flags: one to control the API and one to control the UI. We can create a variable called `show-metrics-api` and another called `show-metrics-ui`, setting their values to `true` for Variation On and `false` for Variation Off.
 
 ![Variables for Metrics Feature](/july-2022-metrics-example-variables.png)
 
@@ -50,7 +50,7 @@ Doing so will hide the API from users receiving the General Users variation, whi
 
 **Managing multiple Variables and Variations:**
 
-To learn more about managing multiple Variables and Variations within a feature, [Read here for more about managing multiple Variables and Variations](/home/feature-management/features-and-variables/variables-and-variations).
+To learn more about managing multiple Variables and Variations within a feature, [Read here](/home/feature-management/features-and-variables/variables-and-variations).
 
 :::
 
