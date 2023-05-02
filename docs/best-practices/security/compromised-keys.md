@@ -20,6 +20,7 @@ SDK keys play a vital role in accessing features and functionalities in your Dev
 - Reputation damage due to security breaches
 
 To prevent these risks, it is essential to keep your SDK keys secure and manage them according to the best practices outlined in our **[SDK Key Security and GitHub Secret Scanning](/best-practices/security/api-keys-secret-scanning)** documentation.
+Server SDK Keys are considered especially high risk in a leak context - as they authorize requests to the environment's full configuration - which may expose targeting rules, or features/variations that are not released yet.
 
 ## **How and when to rotate an SDK Key**
 
