@@ -38,7 +38,7 @@ DevCycle splits its SDK keys into 3 categories:
 1. **Client**: Meant for single-user contexts, these keys are used in SDK's that have a persistent data store for the user while the SDK is being used. Evaluation of Features happens in the Client SDK API Worker, which then returns all valid features/variables for a given user. These SDKs also include the Mobile SDKs. For more information on the difference between mobile and standard client-side SDK keys, read [API and SDK keys](/home/feature-management/organizing-your-flags-and-variables/api-and-sdk-keys).
 These keys are considered safe to be in a client facing application - but should not be checked into source control.
 2. **Mobile**: These keys are used for Mobile SDKs and provide read-only access to the features accessible by a given user on your DevCycle environment. They grant access to the DevCycle SDK API, which returns user-customized configurations including feature information that they are permitted to access.
-3. **Server**: Used for server-side SDKs, these keys provide read-only access to the features on your DevCycle environment. They are used for SDKs that make continuous calls to the DevCycle APIs for each SDK interaction per user and have access to the full project configuration data.
+3. **Server**: Used for server-side SDKs, these keys provide read-only access to the features on your DevCycle environment. They are used for SDKs that make continuous calls to the DevCycle APIs for each SDK interaction per user and have access to the full project configuration data. **These are considered the highest security keys, and should be immediately rotated if compromised.**
 
 Each key type has different permissions and usages, and that's why we allow you to use and rotate them separately.
 
