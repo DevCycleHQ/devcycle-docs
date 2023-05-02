@@ -16,7 +16,7 @@ The only required field in the user object is UserId
 See the UserData class in `model_user_data.go` for all accepted fields.
 
 ```go
-user := devcycle.DVCUser{
+user := devcycle.User{
     UserId: "example_user_id",
 }
 ```
@@ -70,7 +70,7 @@ To POST custom event for a user, pass in the user and event object.
 When in local bucketing mode, these requests are queued and sent in the background in batches, not sent immediately.
 
 ```go
-event := devcycle.DVCEvent{
+event := devcycle.Event{
     Type_:  "event type you want tracked",
     Target: "somevariable.key",
 }
@@ -102,13 +102,13 @@ import (
     "github.com/devcyclehq/go-server-sdk/v2"
 )
 
-dvcOptions := devcycle.DVCOptions{
+dvcOptions := devcycle.Options{
     EnableEdgeDB: true,
 }
 
-client, err := devcycle.NewDVCClient(sdkKey, &dvcOptions)
+client, err := devcycle.NewClient(sdkKey, &dvcOptions)
 
-user := devcycle.DVCUser{UserId: "test-user", Email:"test.user@test.com"}
+user := devcycle.User{UserId: "test-user", Email:"test.user@test.com"}
 
 variable, err := client.Variable(user, "test-key", "test-default")
 ```
