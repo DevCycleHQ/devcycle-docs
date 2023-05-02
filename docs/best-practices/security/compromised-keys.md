@@ -1,0 +1,62 @@
+---
+title: Compromised SDK Keys
+sidebar_label: Compromised SDK Keys
+sidebar_position: 2
+description: hidden
+---
+
+# **Compromised SDK Keys**
+
+## **Overview**
+
+This document is meant to guide you through the process of addressing compromised SDK keys in your environment, which may have been detected through our integration with **[GitHub Secret Scanning](docs/best-practices/api-and-sdk-key-security-with-github-secret-scanning)**. Compromised SDK keys pose a security risk as they can lead to unauthorized access, exposure of sensitive data, or misuse of your application's resources. To maintain the security and integrity of your application, it is crucial to keep SDK keys secure and confidential.
+
+## **Why SDK keys should never be compromised**
+
+SDK keys play a vital role in accessing features and functionalities in your DevCycle environment. Compromised keys can lead to:
+
+- Unauthorized access to your application's resources and sensitive data
+- Exposure of user information to potential attackers
+- Financial loss due to misuse of paid services and APIs
+- Reputation damage due to security breaches
+
+To prevent these risks, it is essential to keep your SDK keys secure and manage them according to the best practices outlined in our **[SDK Key Security and GitHub Secret Scanning](/docs/sdk-key-security-and-github-secret-scanning)** documentation.
+
+## **What to do if DevCycle detects a Compromised Key**
+
+If you see a banner on the DevCycle website indicating that GitHub Secret Scanning has detected a compromised key, follow these steps to resolve the issue:
+
+1. Generate new SDK keys for the affected environment.
+2. Replace the compromised SDK keys with the newly generated ones in your application.
+3. Invalidate the compromised SDK keys.
+
+### **Generate New SDK Keys**
+
+To generate new SDK keys for the affected environment, use the **`SdkKeysController_generate`** API endpoint:
+
+**`POST /projects/{project}/environments/{environment}/sdk-keys`**
+
+Replace **`{project}`** with the Project key or ID, and **`{environment}`** with the environment key or ID.
+
+The request body should follow the schema **`GenerateSdkTokensDto`**. Please refer to the **[API documentation](/management-api/#tag/Environments/operation/SdkKeysController_generate)** for more details.
+
+### **Replace Compromised SDK Keys in Your Application**
+
+After generating the new SDK keys, replace the compromised keys in your application with the new ones. Make sure to update all instances where the compromised keys were used.
+
+### **Invalidate Compromised SDK Keys**
+
+To invalidate the compromised SDK keys, use the **`SdkKeysController_invalidate`** API endpoint:
+
+**`DELETE /projects/{project}/environments/{environment}/sdk-keys/{key}`**
+
+Replace **`{project}`** with the Project key or ID, **`{environment}`** with the environment key or ID, and **`{key}`** with the compromised SDK key.
+
+Please refer to the **[API documentation](/management-api/#tag/Environments/operation/SdkKeysController_invalidate)** for more details.
+
+## **Next Steps**
+
+After completing these steps, your application should be using the newly generated SDK keys and the compromised keys should be invalidated. Remember to periodically check for any security issues and always follow the best practices for keeping your SDK keys secure.
+
+
+For further assistance or support, please **[contact our support team](mailto:support@devcycle.com)** or ask us on our **[Discord](https://discord.gg/pKK4fJgGxG)**.
