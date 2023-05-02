@@ -9,7 +9,7 @@ description: hidden
 
 ## **Overview**
 
-This document is meant to guide you through the process of addressing compromised SDK keys in your environment, which may have been detected through our integration with **[GitHub Secret Scanning](/best-practices/security/api-keys-secret-scanning)**. Compromised SDK keys pose a security risk as they can lead to unauthorized access, exposure of sensitive data, or misuse of your application's resources. To maintain the security and integrity of your application, it is crucial to keep SDK keys secure and confidential.
+This document is meant to guide you through the process of addressing compromised SDK keys in your environment, which may have been detected through our integration with **[GitHub Secret Scanning](/best-practices/security/api-keys-secret-scanning)**. Compromised SDK keys pose a security risk as they can lead to unauthorized access, exposure of sensitive data, or misuse of your application's resources. To maintain the security and integrity of your application, it is crucial to keep relevant SDK keys secure and confidential.
 ## **Why SDK keys should never be compromised**
 
 SDK keys play a vital role in accessing features and functionalities in your DevCycle environment. Compromised keys can lead to:
