@@ -10,13 +10,13 @@ description: hidden
 
 ## Overview
 
-At DevCycle, we value the security of your API and SDK keys. To ensure the safety of these keys, we have integrated with GitHub Secret Scanning. This integration helps detect any compromised keys in your GitHub repositories and notifies you about them. This article outlines the best practices for managing the security of your API and SDK keys in conjunction with GitHub Secret Scanning, including the different types of SDK keys: Client, Mobile, and Server.
+At DevCycle, we value the security of your API and SDK keys. To ensure the safety of these keys, we have integrated with [GitHub Secret Scanning](https://docs.github.com/en/code-security/secret-scanning). This integration helps detect any compromised keys in your GitHub repositories and notifies you about them. This article outlines the best practices for managing the security of your API and SDK keys in conjunction with GitHub Secret Scanning, including the different types of SDK keys: Client, Mobile, and Server.
 
 ## GitHub Secret Scanning Integration
 
 If you are using GitHub, we will leverage its Secret Scanning feature to detect any compromised keys in your repositories. This process helps prevent unauthorized access to your DevCycle projects and environments.
 
-When a compromised key is detected, we will display a banner on the DevCycle website, notifying you of the issue. This banner will include a link to the location where the compromised key was first detected, allowing you to identify the source of the problem.
+When a compromised key is detected, we will display a banner on the DevCycle website, notifying you of the issue. This banner will include a link to the keys page, which will show which keys are compromised. Each compromised key will have a link to where the compromised key was first detected, allowing you to identify the source of the problem.
 
 To resolve the issue, you will need to rotate the compromised key and invalidate the old one. Follow the steps outlined in the [Compromised SDK Keys](/best-practices/security/compromised-keys) section.
 
@@ -28,10 +28,10 @@ To maintain the security of your API and SDK keys, follow these best practices:
 1. **Store your keys securely**: Keep your API and SDK keys in a secure location, such as environment variables, secret managers, or secure file storage. Avoid hardcoding keys directly into your source code or configuration files.
 2. **Limit key access**: Restrict access to your API and SDK keys only to the necessary personnel and services.
 3. **Regularly review key usage**: Periodically review the usage of your API and SDK keys to detect any anomalies or unauthorized access.
-4. **Rotate keys**: Rotate your API and SDK keys periodically, especially when team members leave the project or in case of a security breach.
+4. **Rotate keys**: Rotate your API and SDK keys periodically, especially when team members leave the project or in case of a security breach as mentioned above.
 5. **Use different keys for different environments**: Use separate API and SDK keys for different environments (e.g., development, staging, and production) to minimize the potential impact of a compromised key. [Luckily, this is made very easy within DevCycle](/home/feature-management/organizing-your-flags-and-variables/environments)
 
-### Understanding SDK Key Types
+### Understanding SDK Key Types and their security implications
 
 DevCycle splits its SDK keys into 3 categories:
 

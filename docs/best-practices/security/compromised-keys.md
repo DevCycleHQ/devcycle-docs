@@ -21,9 +21,9 @@ SDK keys play a vital role in accessing features and functionalities in your Dev
 
 To prevent these risks, it is essential to keep your SDK keys secure and manage them according to the best practices outlined in our **[SDK Key Security and GitHub Secret Scanning](/best-practices/security/api-keys-secret-scanning)** documentation.
 
-## **What to do if DevCycle detects a Compromised Key**
+## **How and when to rotate an SDK Key**
 
-If you see a banner on the DevCycle website indicating that GitHub Secret Scanning has detected a compromised key, follow these steps to resolve the issue:
+If you see a banner on the DevCycle website indicating that GitHub Secret Scanning has detected a compromised key, OR if you are aware of a compromised key and must rotate, follow these steps to resolve the issue:
 
 1. Generate new SDK keys for the affected environment.
 2. Replace the compromised SDK keys with the newly generated ones in your application.
