@@ -53,6 +53,8 @@ To invalidate the compromised SDK keys, use the **`SdkKeysController_invalidate`
 Replace **`{project}`** with the Project key or ID, **`{environment}`** with the environment key or ID, and **`{key}`** with the compromised SDK key.
 
 Please refer to the **[API documentation](/management-api/#tag/Environments/operation/SdkKeysController_invalidate)** for more details.
+After invalidation - the token is no longer available for use - and any future requests with the token will fail as the configuration attached to it has been deleted. Be aware the older versions of mobile/client applications may now return the default as the token they have is invalid.
+
 
 ## **Next Steps**
 
