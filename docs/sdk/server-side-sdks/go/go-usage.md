@@ -102,11 +102,11 @@ import (
     "github.com/devcyclehq/go-server-sdk/v2"
 )
 
-dvcOptions := devcycle.Options{
+options := devcycle.Options{
     EnableEdgeDB: true,
 }
 
-client, err := devcycle.NewClient(sdkKey, &dvcOptions)
+client, err := devcycle.NewClient(sdkKey, &options)
 
 user := devcycle.User{UserId: "test-user", Email:"test.user@test.com"}
 

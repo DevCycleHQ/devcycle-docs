@@ -27,7 +27,7 @@ import (
 func main() {
 	sdkKey := os.Getenv("DVC_SERVER_SDK_KEY")
 
-	dvcOptions := devcycle.Options{
+	options := devcycle.Options{
 		EnableEdgeDB:                 false,
 		EnableCloudBucketing:         false,
 		EventFlushIntervalMS:         30 * time.Second,
@@ -37,7 +37,7 @@ func main() {
 		DisableCustomEventLogging:    false,
 	}
 
-	client, err := devcycle.NewClient(sdkKey, &dvcOptions)
+	client, err := devcycle.NewClient(sdkKey, &options)
 	if err != nil {
 		log.Fatalf("Error initializing DevCycle client: %v", err)
 	}
@@ -54,12 +54,12 @@ process in a separate go routine. When the channel receives a message, you will 
 
 ```go
 onInitializedChannel := make(chan bool)
-dvcOptions := devcycle.Options{
+options := devcycle.Options{
     OnInitializedChannel:    onInitializedChannel,
     // other options omitted for this example
 }
 
-client, err := devcycle.NewClient(sdkKey, &dvcOptions)
+client, err := devcycle.NewClient(sdkKey, &options)
 if err != nil {
     // handle client initialization error
 }
