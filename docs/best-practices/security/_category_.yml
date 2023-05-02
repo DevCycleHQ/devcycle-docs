@@ -1,0 +1,5 @@
+label: 'Security'
+position: 2
+collapsed: true
+customProps:
+  icon: keys
