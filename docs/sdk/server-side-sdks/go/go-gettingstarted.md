@@ -11,7 +11,7 @@ sidebar_custom_props: {icon: rocket}
 ## Initializing SDK 
 
 When initializing the Go SDK, you can choose to use `Cloud` or `Local` bucketing. The default mode is `Local`.
-To use `Cloud` bucketing, set the DVCOptions setting `EnableCloudBucketing` to true.
+To use `Cloud` bucketing, set the `devcycle.Options` setting `EnableCloudBucketing` to true.
 
 ```go
 package main
@@ -27,7 +27,7 @@ import (
 func main() {
 	sdkKey := os.Getenv("DVC_SERVER_SDK_KEY")
 
-	dvcOptions := devcycle.DVCOptions{
+	options := devcycle.Options{
 		EnableEdgeDB:                 false,
 		EnableCloudBucketing:         false,
 		EventFlushIntervalMS:         30 * time.Second,
@@ -37,14 +37,14 @@ func main() {
 		DisableCustomEventLogging:    false,
 	}
 
-	client, err := devcycle.NewDVCClient(sdkKey, &dvcOptions)
+	client, err := devcycle.NewClient(sdkKey, &options)
 	if err != nil {
 		log.Fatalf("Error initializing DevCycle client: %v", err)
 	}
 }
 ```
 
-If using local bucketing, be sure to check the error return from creating a new DVCClient - if the local bucketing engine fails to
+If using local bucketing, be sure to check the error return from creating a new Client - if the local bucketing engine fails to
 initialize for any reason- it'll return as an error here.
 
 ## Async Initialization
@@ -54,12 +54,12 @@ process in a separate go routine. When the channel receives a message, you will 
 
 ```go
 onInitializedChannel := make(chan bool)
-dvcOptions := devcycle.DVCOptions{
+options := devcycle.Options{
     OnInitializedChannel:    onInitializedChannel,
     // other options omitted for this example
 }
 
-client, err := devcycle.NewDVCClient(sdkKey, &dvcOptions)
+client, err := devcycle.NewClient(sdkKey, &options)
 if err != nil {
     // handle client initialization error
 }
