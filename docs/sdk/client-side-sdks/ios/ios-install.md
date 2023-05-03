@@ -51,14 +51,14 @@ Then, run `carthage update --use-xcframeworks`. Drag the built .xcframework bund
 
   </TabItem>
 
-  <TabItem value="Sswift" label="Swift Package Manager">
+  <TabItem value="Swift" label="Swift Package Manager">
 
 To use the library with Swift Package Manager, include it as a dependency in your `Package.swift` file like so:
 
 ```
 ...
     dependencies: [
-        .package(url: "https://github.com/DevCycleHQ/ios-client-sdk.git", .upToNextMinor("1.2.1")),
+        .package(url: "https://github.com/DevCycleHQ/ios-client-sdk.git", .upToNextMajor("1.11.2")),
     ],
     targets: [
         .target(
