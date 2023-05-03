@@ -41,7 +41,7 @@ Then, run `pod install`.
 
 :::caution
 
-Installing the DevCycle iOS SDK for macOS with Carthage is currently not working correctly. We are investigating a solution.
+Carthage support for MacOS development with the DevCycle iOS SDK is currently not supported. Please contact us for more info. 
 
 :::
 
