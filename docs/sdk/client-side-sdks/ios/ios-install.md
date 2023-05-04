@@ -23,8 +23,6 @@ This version of the DevCycle Client SDK supports the following platforms:
 - **tvOS 12.0+**
 - **watchOS 7.0+**
 
-For all environments please use the DevCycle mobile SDK key as shown in the examples below.
-
 ## Installation
 
 <Tabs>
@@ -41,13 +39,21 @@ Then, run `pod install`.
   </TabItem>
 <TabItem value="carthage" label="Carthage">
 
+:::caution
+
+Carthage support for MacOS development with the DevCycle iOS SDK is currently not supported. Please contact us for more info. 
+
+:::
+
 Include the following in your `Cartfile` to integrate DevCycle as a dependency to your project: 
 
 ```swift
 github "DevCycleHQ/ios-client-sdk"
 ```
 
-Then, run `carthage update --use-xcframeworks`. Drag the built .xcframework bundles from Carthage/Build into the "Frameworks and Libraries" section of your application’s Xcode project.
+Then, run `carthage update --platform <platform> --use-xcframeworks` where `platform` is the platform you are using the SDK on: `iOS | macOS | watchOS | tvOS`.
+
+Drag the built .xcframework bundles from Carthage/Build into the "Frameworks and Libraries" section of your application’s Xcode project.
 
   </TabItem>
 
