@@ -31,12 +31,22 @@ Practicing healthy feature flag hygiene is a good way to mitigate technical debt
 
 You should also remove a flag or its variables if they are inactive or not in use. Perhaps the feature was never shipped, or it was shipped with a different flag or variable. Either way, removing it will clear the clutter in your dashboard and your code.
 
+## Using DevCycle CLI to cleanup feature flags
+
+Currently only supported in JavaScript, Node and React SDKs.
+
+Our CLI provides the functionality of removing all instances of a feature flag automatically. 
+
+The `dvc cleanup` command scans your code for all instances of a DevCycle Variable through the provided key, all references are changed to the value provided removing all `useVariable` or `useVariableValue` calls along with simplifying any `if` statement and blocks with the desired value. 
+
+### DevCycle CLI cleanup command Demo Video
+`youtube: https://youtu.be/yIGkjdQ_Yd0`
+
 ## Using Code Insights for feature flag cleanup
 
 Our platform provides tools to facilitate feature flag cleanup. Feature Flag Reach and Code References on DevCycle can help you decide when to remove feature flags.
 ### Code Insights Demo Video
 `youtube: https://youtu.be/0yhmQ-3OZX8`
-
 
 ### Feature Flag Reach
 
