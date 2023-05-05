@@ -1,6 +1,7 @@
 const path = require('path')
 const remarkYoutube = require('gridsome-plugin-remark-youtube')
 
+
 /**
  * @type {Partial<import('@docusaurus/types').DocusaurusConfig>}
  */
@@ -45,7 +46,7 @@ const config = {
           editCurrentVersion: true,
           sidebarCollapsed: false,
           sidebarPath: require.resolve('./sidebars.js'),
-          remarkPlugins: [[remarkYoutube, { width: '100%', align: 'auto' }]],
+          remarkPlugins: [[remarkYoutube, { width: '100%', align: 'auto' }], require("remark-docusaurus-tabs")],
           rehypePlugins: [],
           routeBasePath: '/',
         },
