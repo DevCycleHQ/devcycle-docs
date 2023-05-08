@@ -103,7 +103,7 @@ $ dvc COMMAND
 
 Currently only supported in JavaScript, Node and React SDKs.
 
-This command scans your files for the DevCycle varible passed in through [KEY] and replaces the `useVariableValue` method calls along with all refrences of the variable with the new value. Used for removing the feature flag at the end of its lifecycle 
+This command scans your files for the DevCycle variable passed in through [KEY] and replaces the `useVariableValue` method calls along with all references of the variable with the new value. Used for removing the feature flag at the end of its lifecycle 
 
 ```
 USAGE
