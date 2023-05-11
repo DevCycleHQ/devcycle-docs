@@ -34,3 +34,5 @@ Code sample for importing and setting up the DVCClient.
         country='CA'
     )
 ```
+
+For a Django specific sample app, please see the [Python Django Example App](https://github.com/DevCycleHQ/python-django-example-app/tree/main).
