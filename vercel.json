@@ -1,6 +1,7 @@
 {
   "redirects": [
     { "source": "/sdk/sdk-types", "destination": "/sdk/", "statusCode": 301 },
+    { "source": "/.well-known/:path*", "destination": "/.well-known/:path*", "statusCode": 200 },
     { "source": "/docs/:path*/", "destination": "/:path*", "statusCode": 301 },
     { "source": "/docs/:path*", "destination": "/:path*", "statusCode": 301 },
     { "source": "/best-practices/sample-apps/getting-started-guide", "destination": "/home/demos/react", "statusCode": 301 },
