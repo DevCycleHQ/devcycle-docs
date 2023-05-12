@@ -7,7 +7,7 @@ import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 
 # DevCycle Go Server SDK.
 
-Welcome to the DevCycle Go SDK. We have two modes for the SDK. Cloud bucketing (using the [Bucketing API](https://bucketing-api.devcycle.com)) and Local Bucketing (using the local bucketing engine natively within the SDK).
+Welcome to the DevCycle Go SDK. We have two modes for the SDK. Cloud bucketing (using the [Bucketing API](https://docs.devcycle.com/bucketing-api/)) and Local Bucketing (using the local bucketing engine natively within the SDK).
 
 <CustomDocCardList items={useCurrentSidebarCategory().items} columnWidth={4} />
 
