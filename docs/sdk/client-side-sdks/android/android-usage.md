@@ -72,30 +72,17 @@ To listen for updates, a callback can be registered using the `onUpdate()` metho
 ### *Kotlin example:*
 
 ```kotlin
-variable.onUpdate(object: DVCCallback<Variable<String>> {
-    override fun onSuccess(result: Variable<String>) {
-        // use the new value
-    }
-
-    override fun onError(t: Throwable) {
-        // optionally handle the error, the previous value will still be used
-    }
-})
+variable.onUpdate {
+    // grab the variable value using it.value
+}
 ```
 
 ### *Java example:*
 
 ```java
-variable.onUpdate(new DVCCallback<Variable<String>>() {
-    @Override
-    public void onSuccess(Variable<String> result) {
-        // use the new value
-    }
-
-    @Override
-    public void onError(@NonNull Throwable t) {
-        // optionally handle the error, the previous value will still be used
-    }
+variable.onUpdate((result) -> {
+    // use the new value result.getValue()
+    return Unit.INSTANCE;
 });
 ```
 

@@ -5,5 +5,15 @@
     { "source": "/docs/:path*", "destination": "/:path*", "statusCode": 301 },
     { "source": "/best-practices/sample-apps/getting-started-guide", "destination": "/home/demos/react", "statusCode": 301 },
     { "source": "/best-practices/sample-apps/realtime-demo", "destination": "/home/demos/realtime", "statusCode": 301 }
-  ]
+  ],
+  "rewrites": [
+    { "source": "/.well-known/ai-plugin.json", "destination": "/.well-known/ai-plugin.json" }
+  ],
+  "headers": [{
+    "source": "/.well-known/ai-plugin.json",
+    "headers": [{
+      "key": "Content-Type",
+      "value": "application/json"
+    }]
+  }]
 }

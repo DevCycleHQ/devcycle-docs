@@ -6,9 +6,6 @@ description: hidden
 sidebar_custom_props: {icon: screwdriver-wrench}
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 [![CocoaPods compatible](https://img.shields.io/cocoapods/v/DevCycle.svg)](https://cocoapods.org/pods/DevCycle)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![SwiftPM compatible](https://img.shields.io/badge/SwiftPM-compatible-4BC51D.svg?style=flat)](https://swift.org/package-manager/)
@@ -23,13 +20,11 @@ This version of the DevCycle Client SDK supports the following platforms:
 - **tvOS 12.0+**
 - **watchOS 7.0+**
 
-For all environments please use the DevCycle mobile SDK key as shown in the examples below.
-
 ## Installation
 
-<Tabs>
+<!--tabs-->
 
-<TabItem value="cocoapods" label="CocoaPods" default>
+### CocoaPods
 
   The SDK can be installed into your iOS project by adding the following to your cocoapod spec:
 
@@ -38,8 +33,13 @@ pod 'DevCycle'
 ```
 Then, run `pod install`.
 
-  </TabItem>
-<TabItem value="carthage" label="Carthage">
+### Carthage
+
+:::caution
+
+Carthage support for MacOS development with the DevCycle iOS SDK is currently not supported. Please contact us for more info. 
+
+:::
 
 Include the following in your `Cartfile` to integrate DevCycle as a dependency to your project: 
 
@@ -47,11 +47,11 @@ Include the following in your `Cartfile` to integrate DevCycle as a dependency t
 github "DevCycleHQ/ios-client-sdk"
 ```
 
-Then, run `carthage update --use-xcframeworks`. Drag the built .xcframework bundles from Carthage/Build into the "Frameworks and Libraries" section of your application’s Xcode project.
+Then, run `carthage update --platform <platform> --use-xcframeworks` where `platform` is the platform you are using the SDK on: `iOS | macOS | watchOS | tvOS`.
 
-  </TabItem>
+Drag the built .xcframework bundles from Carthage/Build into the "Frameworks and Libraries" section of your application’s Xcode project.
 
-  <TabItem value="Swift" label="Swift Package Manager">
+### Swift Package Manager
 
 To use the library with Swift Package Manager, include it as a dependency in your `Package.swift` file like so:
 
@@ -70,6 +70,3 @@ To use the library with Swift Package Manager, include it as a dependency in you
 ```
 
 You can also add it through Xcode, i.e. `File > Swift Packages > Add Package Dependency`, then enter the repository clone URL.
-  </TabItem>
-  
-</Tabs>

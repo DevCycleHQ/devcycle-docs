@@ -1,0 +1,24 @@
+{
+  "name": "devcycle-apis",
+  "version": "0.5.1",
+  "apis": [
+    {
+      "name": "bucketing-api",
+      "main": "https://docs.devcycle.com/redocusaurus/bucketing-api.yaml",
+      "auth": {
+        "type": "none"
+      }
+    },
+    {
+      "name": "management-api",
+      "main": "https://api.devcycle.com/swagger.json",
+      "auth": {
+        "type": "oauth",
+        "client_url": "https://auth.devcycle.com/oauth/token",
+        "authorization_url": "https://auth.devcycle.com/oauth/token",
+        "authorization_content_type": "application/x-www-form-urlencoded",
+      }
+    }
+  ],
+  "description": "A plugin that provides easy access to the APIs."
+}
