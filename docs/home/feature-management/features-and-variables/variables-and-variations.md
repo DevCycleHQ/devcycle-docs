@@ -42,6 +42,12 @@ Variables may be the following types:
 
 The Variable **Values** for each **Variation** will be what the Variable's value will be in SDK and API responses if a targeting rule is targeting those specific Variations. 
 
+:::caution
+
+For JSON variables, the only allowable **Values** are JSON objects with key-value pairs. 
+
+:::
+
 Once your Variable is created, it will appear on the Variables screen:
 
 ![Variables Page of a Feature with Two Variables](/december_2021_two-variables.png)
