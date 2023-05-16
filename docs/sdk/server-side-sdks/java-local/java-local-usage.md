@@ -21,7 +21,8 @@ User user = User.builder()
     .build();
 ```
 
-## Get and Use Variable By Key
+## Get and use Variable by key
+
 This method will fetch a specific variable value by key for a given user. The default value will be used in cases where
 the user is not segmented into a feature using that variable, or the project configuration is unavailable
 to be fetched from DevCycle's CDN.
@@ -44,7 +45,7 @@ public class MyClass {
                 .country("US")
                 .build();
 
-        Boolean variableValue = dvcLocalClient.variableValue(user, "super_cool_feature", true);
+        bool variableValue = dvcLocalClient.variableValue(user, "super_cool_feature", true);
         if (variableValue) {
             // New Feature code here
         } else {
