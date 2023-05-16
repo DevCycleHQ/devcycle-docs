@@ -44,7 +44,8 @@ if (value) {
 The default value can be of type string, boolean, number, or object.
 
 If you would like to get the full Variable object defined by [DVCVariable Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/nodejs/src/types.ts#L95)
-you can use `dvcClient.variable()` instead of `dvcClient.variableValue()`.
+you can use `dvcClient.variable()` instead. This contains fields such as:
+`key`, `value`, `type`, `defaultValue`, `isDefaulted`.
 
 ## Getting All Variables
 
