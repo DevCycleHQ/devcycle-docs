@@ -42,7 +42,7 @@ If you would like to get the full `Variable` object using the `variable()` metho
 
 If the value is not ready, it will return the default value passed in the creation of the variable.
 
-## Variable updates
+## Variable Updates
 
 Variable values update whenever `identifyUser()` or `resetUser()` are called, 
 or when the project configuration changes (to learn more, visit our [Realtime Updates](/sdk/features/realtime-updates) page).

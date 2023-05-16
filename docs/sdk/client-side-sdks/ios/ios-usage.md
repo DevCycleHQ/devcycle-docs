@@ -14,53 +14,33 @@ sidebar_custom_props: {icon: toggle-on}
 
 ## Using Variable Values
 
-To get values from your Features, the `variable()` method is used to fetch variable values using 
-the variable's identifier `key` coupled with a default value. The default value can be of type 
-string, boolean, number, or JSONObject:
+To get values from your Features, the `variableValue()` method is used to fetch variable values using
+the variable's identifier `key` coupled with a default value. The default value can be of type
+`String`, `Boolean`, `Number`, or `JSONObject`:
 
 ### Swift
 ```swift
-let boolVariable = dvcClient.variable(key: "bool_key", defaultValue: false)
-let strVariable = dvcClient.variable(key: "string_key", defaultValue: "default")
-let numVariable = dvcClient.variable(key: "num_key", defaultValue: 4)
-let jsonVariable = dvcClient.variable(key: "json_key", defaultValue: [:])
+let boolValue = dvcClient.variableValue(key: "bool_key", defaultValue: false)
+let strValue = dvcClient.variableValue(key: "string_key", defaultValue: "default")
+let numValue = dvcClient.variableValue(key: "num_key", defaultValue: 4)
+let jsonValue = dvcClient.variableValue(key: "json_key", defaultValue: [:])
 ```
 
 ### Objective-C
 ```objc
-DVCVariable *boolVariable = [self.dvcClient boolVariableWithKey:@"bool_key" defaultValue:false];
-DVCVariable *strVariable = [self.dvcClient stringVariableWithKey:@"string_key" defaultValue:@"default"];
-DVCVariable *numVariable = [self.dvcClient numberVariableWithKey:@"num_key" defaultValue:@4];
-DVCVariable *jsonVariable = [self.dvcClient jsonVariableWithKey:@"json_key" defaultValue:@{}];
+Bool boolValue = [self.dvcClient boolVariableValueWithKey:@"bool_key" defaultValue:false];
+NSString *strValue = [self.dvcClient stringVariableValueWithKey:@"string_key" defaultValue:@"default"];
+NSNumber *numValue = [self.dvcClient numberVariableValueWithKey:@"num_key" defaultValue:@4];
+NSObject *jsonValue = [self.dvcClient jsonVariableValueWithKey:@"json_key" defaultValue:@{}];
 ```
 
-To grab the value, there is a property on the object returned to grab the value:
-
-### Swift
-```swift
-if (boolVariable.value == true) {
-    // Run Feature Flag Code
-} else {
-    // Run Default Code
-}
-```
-
-### Objective-C
-```objc
-if (boolVariable.value == true) {
-    // Run Feature Flag Code
-} else {
-    // Run Default Code
-}
-```
-
-The `Variable` object also contains the following params: 
-    - `key`: the key identifier for the Variable
-    - `type`: the type of the Variable, one of: `String` / `Boolean` / `Number` / `JSON`
-    - `value`: the Variable's value
-    - `defaultValue`: the Variable's default value
-    - `isDefaulted`: if the Variable is using the `defaultValue`
-    - `evalReason`: evaluation reason for why the variable was bucketed into its value
+If you would like to get the full `Variable` object using the `variable()` method it also contains the following params:
+- `key`: the key identifier for the Variable
+- `type`: the type of the Variable, one of: `String` / `Boolean` / `Number` / `JSON`
+- `value`: the Variable's value
+- `defaultValue`: the Variable's default value
+- `isDefaulted`: if the Variable is using the `defaultValue`
+- `evalReason`: evaluation reason for why the variable was bucketed into its value
 
 If the value is not ready, it will return the default value passed in the creation of the variable.
 
