@@ -11,60 +11,41 @@ sidebar_custom_props: {icon: toggle-on}
 
 ## Using Variable Values
 
-To get values from your Features, the `variable()` method is used to fetch variable values using 
+To get values from your Variables, the `variableValue()` method is used to fetch variable values using 
 the variable's identifier `key` coupled with a default value. The default value can be of type 
-string, boolean, number, or JSONObject:
+`String`, `Boolean`, `Number`, or `JSONObject`:
 
 ```dart
-final boolVariable = _dvcClient.variable(key: "bool_key", defaultValue: false);
-final strVariable = _dvcClient.variable(key: "string_key", defaultValue: "default");
-final numVariable = _dvcClient.variable(key: "num_key", defaultValue: 4);
-final jsonVariable = _dvcClient.variable(key: "json_key", defaultValue: { "key": "value" });
+final boolValue = _dvcClient.variableValue(key: "bool_key", defaultValue: false);
+final strValue = _dvcClient.variableValue(key: "string_key", defaultValue: "default");
+final numValue = _dvcClient.variableValue(key: "num_key", defaultValue: 4);
+final jsonValue = _dvcClient.variableValue(key: "json_key", defaultValue: { "key": "value" });
 ```
 
-To grab the value, there is a property on the object returned to grab the value:
-
-```dart
-if (boolVariable.value == true) {
-    // Run Feature Flag Code
-} else {
-    // Run Default Code
-}
-```
-
-The `Variable` object also contains the following params: 
-    - `key`: the key indentifier for the Variable
-    - `type`: the type of the Variable, one of: `String` / `Boolean` / `Number` / `JSON`
-    - `value`: the Variable's value
-    - `defaultValue`: the Variable's default value
-    - `isDefaulted`: if the Variable is using the `defaultValue`
-    - `evalReason`: evaluation reason for why the variable was bucketed into its value
+If you would like to get the full `Variable` object using the `variable()` method it also contains the following params:
+- `key`: the key identifier for the Variable
+- `type`: the type of the Variable, one of: `String` / `Boolean` / `Number` / `JSON`
+- `value`: the Variable's value
+- `defaultValue`: the Variable's default value
+- `isDefaulted`: if the Variable is using the `defaultValue`
+- `evalReason`: evaluation reason for why the variable was bucketed into its value
 
 If the value is not ready, it will return the default value passed in the creation of the variable.
 
 ## Variable Updates
 
-Variable values update whenever `identifyUser()` or `resetUser()` are called, or when the project configuration changes (to learn more, visit our [Realtime Updates](/sdk/features/realtime-updates) page).
+Variable values update whenever `identifyUser()` or `resetUser()` are called, 
+or when the project configuration changes (to learn more, visit our [Realtime Updates](/sdk/features/realtime-updates) page).
 
-To listen for variable updates, the `onUpdate()` method can be used. Please note, a strong reference to the variable is needed for `onUpdate` to be triggered.
+To listen for variable updates, the `onUpdate()` method can be used on a Variable Object. 
+Please note, a strong reference to the variable is needed for `onUpdate` to be triggered.
 
 ```dart
 final variable = await _dvcClient.variable('my-variable', 'Default Value');
 variable?.onUpdate((updatedVariable) {
-        // Variable value updated updatedVariable.value
+    // Variable value updated updatedVariable.value
 });
 ```
-
-## Get All Features
-
-To get all the Features returned in the config:
-
-```dart
-Map<String, DVCFeature> features = await _dvcClient.allFeatures();
-```
-
-If the SDK has not finished initializing, these methods will return an empty object.
-
 
 ## Get All Variables
 
@@ -72,6 +53,16 @@ To get all the variables returned in the config:
 
 ```dart
 Map<String, DVCVariable> variables = await _dvcClient.allVariables();
+```
+
+If the SDK has not finished initializing, these methods will return an empty object.
+
+## Get All Features
+
+To get all the Features returned in the config:
+
+```dart
+Map<String, DVCFeature> features = await _dvcClient.allFeatures();
 ```
 
 If the SDK has not finished initializing, these methods will return an empty object.
@@ -156,7 +147,8 @@ _dvcClient.flushEvents(([error]) => {
 
 ## EdgeDB
 
-EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user. Read more about [EdgeDB](/home/feature-management/edgedb/what-is-edgedb).
+EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user. 
+Read more about [EdgeDB](/home/feature-management/edgedb/what-is-edgedb).
 
 To get started, contact us at support@devcycle.com to enable EdgeDB for your project.
 
@@ -176,4 +168,5 @@ DVCOptions options = DVCOptionsBuilder()
 
 This will send a request to our EdgeDB API to save the custom data under the user `test-user`.
 
-In the example, `amountSpent` is associated to the user `test-user`. In your next identify call for the same `userId`, you may omit any of the data you've sent already as it will be pulled from the EdgeDB storage when segmenting to experiments and features.
+In the example, `amountSpent` is associated to the user `test-user`. In your next identify call for the same `userId`, 
+you may omit any of the data you've sent already as it will be pulled from the EdgeDB storage when segmenting to experiments and features.

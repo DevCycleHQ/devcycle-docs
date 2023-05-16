@@ -32,7 +32,7 @@ Number numValue = dvcClient.variableValue("num_key", 0);
 JSONObject jsonValue = dvcClient.variableValue("json_key", new JSONObject().put("key", "value"));
 ```
 
-If you would like to get the full `Variable` object it also contains the following params: 
+If you would like to get the full `Variable` object using the `variable()` method it also contains the following params: 
 - `key`: the key identifier for the Variable
 - `type`: the type of the Variable, one of: `String` / `Boolean` / `Number` / `JSON`
 - `value`: the Variable's value
