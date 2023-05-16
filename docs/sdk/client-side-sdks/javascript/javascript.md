@@ -12,7 +12,8 @@ calls will be made to retrieve Feature information unless explicitly specified.
 
 <CustomDocCardList items={useCurrentSidebarCategory().items} columnWidth={4} />
 
-The JS SDK is available on NPM as an open-source package that can be viewed on the DevCycle GitHub.
+The DevCycle JS SDK is available as a NPM package will a full Typescript interface, 
+the open-source code can be viewed on the [DevCycle GitHub](https://github.com/DevCycleHQ/js-sdks/tree/main/sdk/js).
 
 When initialized, the SDK will download the latest version of your DevCycle environments’ configuration from a CDN for the provided user.
 

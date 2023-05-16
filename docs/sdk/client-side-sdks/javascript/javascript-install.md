@@ -11,7 +11,7 @@ sidebar_custom_props: {icon: screwdriver-wrench}
 
 ## NPM Module
 
-The recommended way to include the JS SDK is by bundling it with the rest of your application code using our NPM Module.
+The recommended way to include the JS SDK is by bundling it with the rest of your Javascript or Typescript application code using our NPM Module.
 
 The JS SDK library can be found on NPM. To get started, install the JS SDK using NPM:
 
