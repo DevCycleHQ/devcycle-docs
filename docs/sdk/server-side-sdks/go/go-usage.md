@@ -21,6 +21,43 @@ user := devcycle.User{
 }
 ```
 
+## Get and Use Variable by Key
+
+This method will fetch a specific variable value by key for a given user. It will return the variable
+value unless an error occurs. In that case it will return a variable value set to whatever was passed in as the `defaultValue` parameter.
+
+```go
+variableValue, err := client.VariableValue(user, "my-variable-key", "test")
+```
+
+`variableValue` is an `interface{}` - so you'll need to cast it to your proper variable type.
+When using `JSON` as the variable type, you'll have to have JSON to unmarshal it to a proper type instead of accessing it raw.
+
+eg. `variableValue.(string)` for the above example
+
+If the variable value returned does not match the type of the defaultValue parameter, the `defaultValue` will be returned instead. 
+This helps to protect your code against unexpected types being returned from the server. 
+To avoid confusion when testing new variables, make sure you're using the correct type for the defaultValue parameter.
+
+To access the full Variable Object use `client.Variable(user, "my-variable-key", "test")` instead. 
+This will return a `Variable` object containing the `key`, `value`, `type`, `defaultValue`, `isDefaulted` fields.
+The same rules apply for the `value` field as above for `VariableValue`.
+
+## Track Event
+
+To POST custom event for a user, pass in the user and event object.
+
+When in local bucketing mode, these requests are queued and sent in the background in batches, not sent immediately.
+
+```go
+event := devcycle.Event{
+    Type_:  "event type you want tracked",
+    Target: "somevariable.key",
+}
+
+response, err := client.Track(user, event)
+```
+
 ## Getting All Features
 
 This method will fetch all features for a given user and return them in a map of `key: feature_object`
@@ -39,43 +76,6 @@ This method will fetch all variables for a given user and return them in a map o
 
 ```go
 variables, err := client.AllVariables(user)
-```
-
-## Get and Use Variable by Key
-
-This method will fetch a specific variable by key for a given user. It will return the variable
-object from the server unless an error occurs or the server has no response. In that case it will return
-a variable object with the value set to whatever was passed in as the `defaultValue` parameter,
-and the `IsDefaulted` field boolean on the variable will be true.
-
-To get values from your Variables, the `Value` field inside the variable object can be accessed.
-
-```go
-variable, err := client.Variable(user, "my-variable-key", "test")
-```
-
-`variable.Value` is an `interface{}` - so you'll need to cast it to your proper variable type.
-When using `JSON` as the variable type, you'll have to have JSON to unmarshal it to a proper type instead of accessing it raw.
-
-eg.
-
-`variable.Value.(string)` for the above example
-
-If the variable returned does not match the type of the defaultValue parameter, the defaultValue will be returned instead. This helps to protect your code against unexpected types being returned from the server. To avoid confusion when testing new variables, make sure you're using the correct type for the defaultValue parameter.
-
-## Track Event
-
-To POST custom event for a user, pass in the user and event object.
-
-When in local bucketing mode, these requests are queued and sent in the background in batches, not sent immediately.
-
-```go
-event := devcycle.Event{
-    Type_:  "event type you want tracked",
-    Target: "somevariable.key",
-}
-
-response, err := client.Track(user, event)
 ```
 
 ## Close
