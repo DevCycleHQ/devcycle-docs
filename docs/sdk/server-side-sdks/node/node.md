@@ -17,7 +17,8 @@ and will periodically poll the CDN for configuration changes.
 
 <CustomDocCardList items={useCurrentSidebarCategory().items} columnWidth={4} />
 
-The SDK is available as a package on npm. It is also open source and can be viewed on Github.
+The SDK is available as a package on NPM, will a full Typescript interface. 
+It is also open source and can be viewed on the [DevCycle GitHub](https://github.com/DevCycleHQ/js-sdks/tree/main/sdk/nodejs).
 
 [![Npm package version](https://badgen.net/npm/v/@devcycle/nodejs-server-sdk)](https://www.npmjs.com/package/@devcycle/nodejs-server-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)
