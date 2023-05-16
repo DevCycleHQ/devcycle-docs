@@ -1,5 +1,5 @@
 ---
-title: DevCycle Java Local Server SDK Installation
+title: Java Local Server SDK Installation
 sidebar_label: Installation
 sidebar_position: 1
 description: hidden

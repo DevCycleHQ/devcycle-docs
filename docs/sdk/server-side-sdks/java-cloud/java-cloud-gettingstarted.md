@@ -1,5 +1,5 @@
 ---
-title: DevCycle Java Cloud Server SDK Getting Started
+title: Java Cloud Server SDK Getting Started
 sidebar_label: Getting Started
 sidebar_position: 2
 description: hidden

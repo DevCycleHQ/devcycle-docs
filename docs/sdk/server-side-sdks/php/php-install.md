@@ -1,5 +1,5 @@
 ---
-title: DevCycle PHP Server SDK Installation
+title: PHP Server SDK Installation
 sidebar_label: Installation
 sidebar_position: 1
 description: hidden

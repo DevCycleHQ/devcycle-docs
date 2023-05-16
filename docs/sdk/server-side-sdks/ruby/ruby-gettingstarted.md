@@ -1,5 +1,5 @@
 ---
-title: DevCycle Ruby Server SDK Getting Started
+title: Ruby Server SDK Getting Started
 sidebar_label: Getting Started
 sidebar_position: 2
 description: hidden

@@ -1,5 +1,5 @@
 ---
-title: DevCycle Java Cloud Server SDK Usage
+title: Java Local Server SDK Usage
 sidebar_label: Usage
 sidebar_position: 3
 description: hidden
@@ -21,37 +21,10 @@ User user = User.builder()
     .build();
 ```
 
-## Getting All Features
-This method will fetch all features for a given user and return them as Map&lt;String, Feature&gt;. If the project configuration is unavailable, this will return an empty map.
-
-```java
-import com.devcycle.sdk.server.local.api.DVCLocalClient;
-import com.devcycle.sdk.server.common.model.Feature;
-import com.devcycle.sdk.server.common.model.User;
-
-public class MyClass {
-    
-    private DVCLocalClient dvcLocalClient;
-    
-    public MyClass() {
-        dvcLocalClient = new DVCLocalClient("<DVC_SERVER_SDK_KEY>");
-    }
-    
-    public void allFeatures() {
-        User user = User.builder()
-                .userId("a_user_id")
-                .country("US")
-                .build();
-
-        Map<String, Feature> features = dvcLocalClient.allFeatures(user);
-    }
-}
-```
-
-## Getting All Variables
-This method will fetch all variables for a given user and returned as Map&lt;String, Feature&gt;. If the project configuration is unavailable, this will return an empty map.
-
-To get values from your Variables, the `value` field inside the variable object can be accessed.
+## Get and Use Variable By Key
+This method will fetch a specific variable value by key for a given user. The default value will be used in cases where
+the user is not segmented into a feature using that variable, or the project configuration is unavailable
+to be fetched from DevCycle's CDN.
 
 ```java
 import com.devcycle.sdk.server.local.api.DVCLocalClient;
@@ -59,7 +32,43 @@ import com.devcycle.sdk.server.common.model.User;
 import com.devcycle.sdk.server.common.model.Variable;
 
 public class MyClass {
+    private DVCLocalClient dvcLocalClient;
 
+    public MyClass() {
+        dvcLocalClient = new DVCLocalClient("<DVC_SERVER_SDK_KEY>");
+    }
+
+    public void setFlag() {
+        User user = User.builder()
+                .userId("a_user_id")
+                .country("US")
+                .build();
+
+        Boolean variableValue = dvcLocalClient.variableValue(user, "super_cool_feature", true);
+        if (variableValue) {
+            // New Feature code here
+        } else {
+            // Old code here
+        }
+    }
+}
+```
+
+The default value can be of type `String`, `Boolean`, `Number`, or `Object`.
+
+If you would like to get the full Variable Object you can use `variable()` instead. This contains fields such as:
+`key`, `value`, `type`, `defaultValue`, `isDefaulted`.
+
+## Getting All Variables
+This method will fetch all variables for a given user and returned as Map&lt;String, Feature&gt;. 
+If the project configuration is unavailable, this will return an empty map.
+
+To get values from your Variables, the `value` field inside the variable object can be accessed.
+
+```java
+...
+
+public class MyClass {
     private DVCLocalClient dvcLocalClient;
 
     public MyClass() {
@@ -77,42 +86,27 @@ public class MyClass {
 }
 ```
 
-## Get and Use Variable By Key
-This method will fetch a specific variable by key for a given user. The default variable will be used in cases where
-the user is not segmented into a feature using that variable, or the project configuration is unavailable 
-to be fetched from DevCycle's CDN.
-
-To get values from your Variables, the `value` field inside the variable object can be accessed.
-
+## Getting All Features
+This method will fetch all features for a given user and return them as Map&lt;String, Feature&gt;. 
+If the project configuration is unavailable, this will return an empty map.
 
 ```java
-import com.devcycle.sdk.server.local.api.DVCLocalClient;
-import com.devcycle.sdk.server.common.model.User;
-import com.devcycle.sdk.server.common.model.Variable;
+...
 
-public class MyClass {
-
+public class MyClass { 
     private DVCLocalClient dvcLocalClient;
-
+    
     public MyClass() {
         dvcLocalClient = new DVCLocalClient("<DVC_SERVER_SDK_KEY>");
     }
-
-    public void setFlag() {
+    
+    public void allFeatures() {
         User user = User.builder()
                 .userId("a_user_id")
                 .country("US")
                 .build();
 
-        String key = "turn_on_super_cool_feature";
-        Boolean defaultValue = true;
-        Variable variable = dvcLocalClient.variable(user, key, defaultValue);
-
-        if ((Boolean) variable.getValue()) {
-            // New Feature code here
-        } else {
-            // Old code here
-        }
+        Map<String, Feature> features = dvcLocalClient.allFeatures(user);
     }
 }
 ```
@@ -122,12 +116,9 @@ public class MyClass {
 To POST custom event for a user, pass in the user and event object.
 
 ```java
-import com.devcycle.sdk.server.local.api.DVCLocalClient;
-import com.devcycle.sdk.server.common.model.Event;
-import com.devcycle.sdk.server.common.model.User;
+...
 
 public class MyClass {
-
     private DVCLocalClient dvcLocalClient;
 
     public MyClass() {

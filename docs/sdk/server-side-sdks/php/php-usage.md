@@ -1,5 +1,5 @@
 ---
-title: DevCycle PHP Server SDK Usage
+title: PHP Server SDK Usage
 sidebar_label: Usage
 sidebar_position: 3
 description: hidden

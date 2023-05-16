@@ -1,5 +1,5 @@
 ---
-title: DevCycle Go Server SDK Usage
+title: Go Server SDK Usage
 sidebar_label: Usage
 sidebar_position: 3
 description: hidden

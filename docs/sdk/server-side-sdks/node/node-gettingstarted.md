@@ -1,5 +1,5 @@
 ---
-title: DevCycle Node.js SDK Getting Started
+title: Node.js SDK Getting Started
 sidebar_label: Getting Started
 sidebar_position: 2
 description: hidden

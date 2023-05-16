@@ -1,5 +1,5 @@
 ---
-title: DevCycle Java Cloud Server SDK Installation
+title: Java Cloud Server SDK Installation
 sidebar_label: Installation
 sidebar_position: 1
 description: hidden

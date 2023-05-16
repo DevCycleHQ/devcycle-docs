@@ -1,5 +1,5 @@
 ---
-title: DevCycle Node.js SDK Usage
+title: Node.js SDK Usage
 sidebar_label: Usage
 sidebar_position: 3
 description: hidden

@@ -1,5 +1,5 @@
 ---
-title: DevCycle Python Server SDK Usage
+title: Python Server SDK Usage
 sidebar_label: Usage
 sidebar_position: 3
 description: hidden

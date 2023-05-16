@@ -1,5 +1,5 @@
 ---
-title: DevCycle Ruby Server SDK Usage
+title: Ruby Server SDK Usage
 sidebar_label: Usage
 sidebar_position: 3
 description: hidden
