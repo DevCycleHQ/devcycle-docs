@@ -17,21 +17,31 @@ See the User model in the [PHP user model doc](https://github.com/DevCycleHQ/php
 
 
 ```php
-    $user_data = new \DevCycle\Model\UserData(array(
+$user_data = new \DevCycle\Model\UserData(array(
     "user_id"=>"my-user"
-    )); // \DevCycle\Model\UserData
+)); // \DevCycle\Model\UserData
 ```
 
 ## Get and use Variable by key
+
+To get values from your Variables, `variableValue()` is used to fetch variable values using the user data,
+variable `key`, coupled with a default value for the variable. The default variable will be used in cases where
+the user is not segmented into a feature using that variable, or the project configuration is unavailable
+to be fetched from DevCycle's CDN.
+
 ```php
 try {
-    $result = $apiInstance->variable($user_data, "my-key", "default");
+    $result = $apiInstance->variableValue($user_data, "my-key", "default");
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DVCClient->variable: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DVCClient->variableValue: ', $e->getMessage(), PHP_EOL;
 }
 ```
-See [getVariableByKey](/bucketing-api/#operation/getVariableByKey) on the Bucketing API for the variable response format.
+
+The default value can be of type string, boolean, number, or object.
+
+If you would like to get the full Variable object defined by [getVariableByKey](/bucketing-api/#operation/getVariableByKey)
+you can use `variable()` instead of `variableValue()`.
 
 ## Get all Variables
 ```php
