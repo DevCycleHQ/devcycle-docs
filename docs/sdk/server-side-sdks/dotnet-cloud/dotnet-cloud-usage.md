@@ -51,9 +51,9 @@ namespace Example {
 }
 ```
 
-The default value can be of type `String`, `Boolean`, `Number`, or `object`.
+The default value can be of type `String`, `Boolean`, `Number`, or `Object`.
 
-If you would like to get the full Variable Object you can use `VariableAsync()` instead. This contains fields such as:
+If you would like to get the full Variable object you can use `VariableAsync()` instead. This contains fields such as:
 `key`, `value`, `type`, `defaultValue`, `isDefaulted`.
 
 ## Getting All Variables
