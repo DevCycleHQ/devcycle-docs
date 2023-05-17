@@ -1,5 +1,5 @@
 ---
-title: DevCycle Python Server SDK Usage
+title: Python Server SDK Usage
 sidebar_label: Usage
 sidebar_position: 3
 description: hidden
@@ -14,7 +14,8 @@ sidebar_custom_props: {icon: toggle-on}
 The full user data must be passed into every method. The only required field is `user_id`.
 The rest are optional and are used by the system for user segmentation into variables and features.
 
-See the User model in the [Python user model doc](https://github.com/DevCycleHQ/python-server-sdk/blob/main/devcycle_python_sdk/models/user_data.py) for all accepted fields including custom fields.
+See the User model in the [Python user model doc](https://github.com/DevCycleHQ/python-server-sdk/blob/main/devcycle_python_sdk/models/user_data.py) 
+for all accepted fields including custom fields.
 
 ```python
 user = UserData(
@@ -24,35 +25,32 @@ user = UserData(
 )
 ```
 
-## Getting All Features
-```python
-    try:
-        # Get all features by key for user data
-        features = dvc.all_features(user)
-        print(features)
-    except ApiException as e:
-        print("Exception when calling DVCClient->all_features: %s\n" % e)
-    
-```
-See [getFeatures](/bucketing-api/#operation/getFeatures) on the Bucketing API for the feature response format.
-
 ## Get and Use Variable by Key
-To get values from your Variables, `variable()` is used to fetch variable values using the identifier `key` coupled with a default value. The default value can be of type string, boolean, number, or object.
+
+To get values from your Variables, `variable_value()` is used to fetch variable values using the user data,
+variable `key`, coupled with a default value for the variable. The default variable will be used in cases where
+the user is not segmented into a feature using that variable, or the project configuration is unavailable
+to be fetched from DevCycle's CDN.
 
 ```python
     key = 'key-test' # str | Variable key
 
     try:
         # Get variable by key for user data
-        variable = dvc.variable(user, key, 'default-value')
-        print("Variable value is: ", variable.value)
+        variable_value = dvc.variable_value(user, key, 'default-value')
+        print("Variable value is: ", variable_value)
     except ApiException as e:
-         print("Exception when calling DVCClient->variable: %s\n" % e)
+         print("Exception when calling DVCClient->variable_value: %s\n" % e)
 
 ```
-See [getVariableByKey](/bucketing-api/#operation/getVariableByKey) on the Bucketing API for the variable response format.
+
+The default value can be of type string, boolean, number, or object.
+
+If you would like to get the full Variable you can use `variable()` instead. This contains fields such as:
+`key`, `value`, `type`, `defaultValue`, `isDefaulted`.
 
 ## Getting All Variables
+
 To get all variables, use the `all_variables()` method to retrieve a dict with all variables that the user receives.
 
 ```python
@@ -65,8 +63,23 @@ To get all variables, use the `all_variables()` method to retrieve a dict with a
 ```
 See [getVariables](/bucketing-api/#operation/getVariables) on the Bucketing API for the variable response format.
 
+## Getting All Features
+
+```python
+    try:
+        # Get all features by key for user data
+        features = dvc.all_features(user)
+        print(features)
+    except ApiException as e:
+        print("Exception when calling DVCClient->all_features: %s\n" % e)
+    
+```
+See [getFeatures](/bucketing-api/#operation/getFeatures) on the Bucketing API for the feature response format.
+
 ## Track Event
+
 To POST custom event for a user
+
 ```python
     # event needs to be an instance of the Event class
     event = Event(

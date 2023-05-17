@@ -1,5 +1,5 @@
 ---
-title: DevCycle Ruby Server SDK Usage
+title: Ruby Server SDK Usage
 sidebar_label: Usage
 sidebar_position: 3
 description: hidden
@@ -14,13 +14,39 @@ sidebar_custom_props: {icon: toggle-on}
 The full user data must be passed into every method. The only required field is `user_id`.
 The rest are optional and are used by the system for user segmentation into variables and features.
 
-See the User model in the [Ruby user model doc](https://github.com/DevCycleHQ/ruby-server-sdk/blob/main/lib/devcycle-ruby-server-sdk/models/user_data.rb) for all accepted fields including custom fields.
+See the User model in the [Ruby user model doc](https://github.com/DevCycleHQ/ruby-server-sdk/blob/main/lib/devcycle-ruby-server-sdk/models/user_data.rb) 
+for all accepted fields including custom fields.
 
 ```ruby
 user_data = DevCycle::UserData.new({user_id: 'user_id_example'}) # UserData | 
 ```
 
+## Get and use Variable by key
+
+To get values from your Variables, `dvc_client.variable_value()` is used to fetch variable values using the user data,
+variable `key`, coupled with a default value for the variable. The default variable will be used in cases where
+the user is not segmented into a feature using that variable, or the project configuration is unavailable
+to be fetched from DevCycle's CDN.
+
+```ruby
+begin
+  # Get value of given variable by key, using default value if segmentation is not passed or variable does not exit
+  result = dvc_client.variable_value("variable-key", user_data, true)
+  p "Received value for 'variable-key': #{result}"
+rescue
+  puts "Exception when calling DVCClient->variable_value"
+end
+```
+
+The default value can be of type string, boolean, number, or object.
+
+If you would like to get the full Variable you can use `dvc_client.variable()` instead. This contains fields such as: 
+`key`, `value`, `type`, `defaultValue`, `isDefaulted`.
+
 ## Getting all Features
+
+You can fetch all segmented features for a user:
+
 ```ruby
 begin
   #Get all features for user data
@@ -31,18 +57,10 @@ rescue
 end
 ```
 
-## Get and use Variable by key
-```ruby
-begin
-  # Get value of given variable by key, using default value if segmentation is not passed or variable does not exit
-  result = dvc_client.variable("variable-key", user_data, true)
-  p "Received value for #{result.key}: #{result.value}"
-rescue
-  puts "Exception when calling DVCClient->variable"
-end
-```
-
 ## Getting all Variables
+
+To grab all the segmented variables for a user:
+
 ```ruby
 begin
   #Get all variables for user data
@@ -54,8 +72,12 @@ end
 ```
 
 ## Track Events
-```ruby
 
+Track a custom event for a user, pass in the user and event object.
+
+Calling Track will queue the event, which will be sent in batches to the DevCycle servers.
+
+```ruby
 event_data = DevCycle::Event.new({
   type: "my-event",
   target: "some_event_target",
@@ -76,14 +98,15 @@ end
 
 ## Override Logger
 To provide a custom logger, override the `logger` property of the SDK configuration.
+
 ```ruby
 options = DevCycle::DVCOptions.new(logger: @yourCustomLogger)
-
 ```
 
 ## EdgeDB
 
-EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user. Read more about [EdgeDB](/home/feature-management/edgedb/what-is-edgedb).
+EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user. 
+Read more about [EdgeDB](/home/feature-management/edgedb/what-is-edgedb).
 
 To get started, contact us at support@devcycle.com to enable EdgeDB for your project.
 

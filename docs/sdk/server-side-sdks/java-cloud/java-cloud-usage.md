@@ -1,5 +1,5 @@
 ---
-title: DevCycle Java Cloud Server SDK Usage
+title: Java Cloud Server SDK Usage
 sidebar_label: Usage
 sidebar_position: 3
 description: hidden
@@ -21,38 +21,10 @@ User user = User.builder()
     .build();
 ```
 
-## Getting All Features
-This method will fetch all features for a given user and return them as Map<String, Feature>
-
-```java
-import com.devcycle.sdk.server.cloud.api.DVCCloudClient;
-import com.devcycle.sdk.server.common.exception.DVCException;
-import com.devcycle.sdk.server.common.model.Feature;
-import com.devcycle.sdk.server.common.model.User;
-
-public class MyClass {
-    
-    private DVCCloudClient dvcCloudClient;
-    
-    public MyClass() {
-        dvcCloudClient = new DVCCloudClient("<DVC_SERVER_SDK_KEY>");
-    }
-    
-    public void allFeatures() throws DVCException {
-        User user = User.builder()
-                .userId("a_user_id")
-                .country("US")
-                .build();
-
-        Map<String, Feature> features = dvcCloudClient.allFeatures(user);
-    }
-}
-```
-
-## Getting All Variables
-This method will fetch all variables for a given user and returned as Map&lt;String, Feature&gt;
-
-To get values from your Variables, the `value` field inside the variable object can be accessed.
+## Get and Use Variable By Key
+This method will fetch a specific variable value by key for a given user. It will return the variable
+value from the server unless an error occurs or the server has no response. 
+In that case it will return a variable value with the value set to whatever was passed in as the `defaultValue` parameter.
 
 ```java
 import com.devcycle.sdk.server.cloud.api.DVCCloudClient;
@@ -61,7 +33,43 @@ import com.devcycle.sdk.server.common.model.User;
 import com.devcycle.sdk.server.common.model.Variable;
 
 public class MyClass {
+    private DVCCloudClient dvcCloudClient;
 
+    public MyClass() {
+        dvcCloudClient = new DVCCloudClient("<DVC_SERVER_SDK_KEY>");
+    }
+
+    public void setFlag() throws DVCException {
+        User user = User.builder()
+                .userId("a_user_id")
+                .country("US")
+                .build();
+
+        Boolean variableValue = dvcCloudClient.variableValue(user, "turn_on_super_cool_feature", true);
+
+        if (variableValue.booleanValue()) {
+            // New Feature code here
+        } else {
+            // Old code here
+        }
+    }
+}
+```
+
+The default value can be of type `String`, `Boolean`, `Number`, or `Object`.
+
+If you would like to get the full Variable Object you can use `variable()` instead. This contains fields such as:
+`key`, `value`, `type`, `defaultValue`, `isDefaulted`.
+
+## Getting All Variables
+This method will fetch all variables for a given user and returned as Map&lt;String, Feature&gt;
+
+To get values from your Variables, the `value` field inside the variable object can be accessed.
+
+```java
+...
+
+public class MyClass {
     private DVCCloudClient dvcCloudClient;
 
     public MyClass() {
@@ -79,42 +87,26 @@ public class MyClass {
 }
 ```
 
-## Get and Use Variable By Key
-This method will fetch a specific variable by key for a given user. It will return the variable
-object from the server unless an error occurs or the server has no response. In that case it will return a variable object with the value set to whatever was passed in as the `defaultValue` parameter.
-
-To get values from your Variables, the `value` field inside the variable object can be accessed.
-
+## Getting All Features
+This method will fetch all features for a given user and return them as Map<String, Feature>
 
 ```java
-import com.devcycle.sdk.server.cloud.api.DVCCloudClient;
-import com.devcycle.sdk.server.common.exception.DVCException;
-import com.devcycle.sdk.server.common.model.User;
-import com.devcycle.sdk.server.common.model.Variable;
+...
 
 public class MyClass {
-
     private DVCCloudClient dvcCloudClient;
-
+    
     public MyClass() {
         dvcCloudClient = new DVCCloudClient("<DVC_SERVER_SDK_KEY>");
     }
-
-    public void setFlag() throws DVCException {
+    
+    public void allFeatures() throws DVCException {
         User user = User.builder()
                 .userId("a_user_id")
                 .country("US")
                 .build();
 
-        String key = "turn_on_super_cool_feature";
-        Boolean defaultValue = true;
-        Variable variable = dvcCloudClient.variable(user, key, defaultValue);
-
-        if ((Boolean) variable.getValue()) {
-            // New Feature code here
-        } else {
-            // Old code here
-        }
+        Map<String, Feature> features = dvcCloudClient.allFeatures(user);
     }
 }
 ```
@@ -124,14 +116,9 @@ public class MyClass {
 To POST custom event for a user, pass in the user and event object.
 
 ```java
-import com.devcycle.sdk.server.cloud.api.DVCCloudClient;
-import com.devcycle.sdk.server.common.exception.DVCException;
-import com.devcycle.sdk.server.common.model.DVCResponse;
-import com.devcycle.sdk.server.common.model.Event;
-import com.devcycle.sdk.server.common.model.User;
+...
 
 public class MyClass {
-
     private DVCCloudClient dvcCloudClient;
 
     public MyClass() {
@@ -158,7 +145,8 @@ public class MyClass {
 
 ## EdgeDB
 
-EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user. Read more about [EdgeDB](/home/feature-management/edgedb/what-is-edgedb).
+EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user. 
+Read more about [EdgeDB](/home/feature-management/edgedb/what-is-edgedb).
 
 To get started, contact us at support@devcycle.com to enable EdgeDB for your project.
 
@@ -189,12 +177,14 @@ private DVCCloudClient dvcCloudClient;
 public MyClass() {
     dvcCloudClient = new DVCCloudClient("<DVC_SERVER_SDK_KEY>", dvcCloudOptions);
 
-    Variable<Boolean> testBooleanVariable = dvcCloud.variable(user, "test-boolean-variable", false);
+    Boolean testBoolean = dvcCloud.variableValue(user, "test-boolean-variable", false);
 
-    Variable<String> onlyCountryVariable = dvcCloud.variable(onlyUserId, "test-string-country-variable", "Not Available");
+    String onlyCountry = dvcCloud.variableValue(onlyUserId, "test-string-country-variable", "Not Available");
 }
 ```
 
 This will send a request to our EdgeDB API to save the custom data under the user `test_user`.
 
-In the example, Email and Country are associated to the user `test_user`. In your next identify call for the same `userId`, you may omit any of the data you've sent already as it will be pulled from the EdgeDB storage when segmenting to experiments and features.
+In the example, Email and Country are associated to the user `test_user`. 
+In your next identify call for the same `userId`, you may omit any of the data you've sent already as it will be pulled 
+from the EdgeDB storage when segmenting to experiments and features.

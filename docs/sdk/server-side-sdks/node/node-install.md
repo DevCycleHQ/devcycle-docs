@@ -1,5 +1,5 @@
 ---
-title: DevCycle Node.js SDK Installation
+title: Node.js SDK Installation
 sidebar_label: Installation
 sidebar_position: 1
 description: hidden

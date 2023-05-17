@@ -11,67 +11,47 @@ sidebar_custom_props: {icon: toggle-on}
 
 ## Using Variable Values
 
-To get values from your Features, the `variable()` method is used to fetch variable values using 
+To get values from your Features, the `variableValue()` method is used to fetch variable values using 
 the variable's identifier `key` coupled with a default value. The default value can be of type 
-string, boolean, number, or JSONObject:
+`String`, `Boolean`, `Number`, or `JSONObject`:
 
 ### *Kotlin example:*
 
 ```kotlin
-var strVariable: Variable<String> = dvcClient.variable("str_key", "default")
-var boolVariable: Variable<Boolean> = dvcClient.variable("bool_key", false)
-var numVariable: Variable<Number> = dvcClient.variable("num_key", 0)
-var jsonVariable: Variable<JSONObject> = dvcClient.variable("json_key", JSONObject("{ \"key\": \"value\" }"))
+var strValue: String = dvcClient.variableValue("str_key", "default")
+var boolValue: Boolean = dvcClient.variableValue("bool_key", false)
+var numValue: Number = dvcClient.variableValue("num_key", 0)
+var jsonValue: JSONObject = dvcClient.variableValue("json_key", JSONObject("{ \"key\": \"value\" }"))
 ```
 
 ### *Java example:*
 ```java
-Variable<String> strVariable = dvcClient.variable("str_key", "default");
-Variable<Boolean> boolVariable = dvcClient.variable("bool_key", false);
-Variable<Number> numVariable = dvcClient.variable("num_key", 0);
-Variable<JSONObject> jsonVariable = dvcClient.variable("json_key", new JSONObject().put("key", "value"));
+String strValue = dvcClient.variableValue("str_key", "default");
+Boolean boolValue = dvcClient.variableValue("bool_key", false);
+Number numValue = dvcClient.variableValue("num_key", 0);
+JSONObject jsonValue = dvcClient.variableValue("json_key", new JSONObject().put("key", "value"));
 ```
 
-To grab the value, there is a property on the object returned to grab the value:
-
-### *Kotlin example:*
-
-```kotlin
-if (boolVariable.value == true) {
-    // run feature flag code
-} else {
-    // run default code
-}
-```
-
-### *Java example:*
-
-```java
-if (boolVariable.getValue() == true) {
-    // run feature flag code
-} else {
-    // run default code
-}
-```
-
-The `Variable` object also contains the following params: 
-    - `key`: the key identifier for the Variable
-    - `type`: the type of the Variable, one of: `String` / `Boolean` / `Number` / `JSON`
-    - `value`: the Variable's value
-    - `defaultValue`: the Variable's default value
-    - `isDefaulted`: if the Variable is using the `defaultValue`
-    - `evalReason`: evaluation reason for why the variable was bucketed into its value
+If you would like to get the full `Variable` object using the `variable()` method it also contains the following params: 
+- `key`: the key identifier for the Variable
+- `type`: the type of the Variable, one of: `String` / `Boolean` / `Number` / `JSON`
+- `value`: the Variable's value
+- `defaultValue`: the Variable's default value
+- `isDefaulted`: if the Variable is using the `defaultValue`
+- `evalReason`: evaluation reason for why the variable was bucketed into its value
 
 If the value is not ready, it will return the default value passed in the creation of the variable.
 
-## Variable updates
+## Variable Updates
 
-Variable values update whenever `identifyUser()` or `resetUser()` are called, or when the project configuration changes (to learn more, visit our [Realtime Updates](/sdk/features/realtime-updates) page).
+Variable values update whenever `identifyUser()` or `resetUser()` are called, 
+or when the project configuration changes (to learn more, visit our [Realtime Updates](/sdk/features/realtime-updates) page).
 To listen for updates, a callback can be registered using the `onUpdate()` method:
 
 ### *Kotlin example:*
 
 ```kotlin
+var variable: Variable<String> = dvcClient.variable("str_key", "default")
 variable.onUpdate {
     // grab the variable value using it.value
 }
@@ -80,30 +60,12 @@ variable.onUpdate {
 ### *Java example:*
 
 ```java
+Variable<String> variable = dvcClient.variable("str_key", "default");
 variable.onUpdate((result) -> {
     // use the new value result.getValue()
     return Unit.INSTANCE;
 });
 ```
-
-## Get All Features
-
-To grab all the Features returned in the config:
-
-### *Kotlin example:*
-
-```kotlin
-var features: Map<String, Feature>? = dvcClient.allFeatures()
-```
-
-### *Java example:*
-
-```java
-Map<String, Feature<Object>> variables = dvcClient.allFeatures();
-```
-
-If the SDK has not finished initializing, these methods will return an empty Map.
-
 
 ## Get All Variables
 
@@ -119,6 +81,24 @@ var variables: Map<String, Variable<Any>>? = dvcClient.allVariables()
 
 ```java
 Map<String, Variable<Object>> variables = dvcClient.allVariables();
+```
+
+If the SDK has not finished initializing, these methods will return an empty Map.
+
+## Get All Features
+
+To grab all the Features returned in the config:
+
+### *Kotlin example:*
+
+```kotlin
+var features: Map<String, Feature>? = dvcClient.allFeatures()
+```
+
+### *Java example:*
+
+```java
+Map<String, Feature<Object>> variables = dvcClient.allFeatures();
 ```
 
 If the SDK has not finished initializing, these methods will return an empty Map.

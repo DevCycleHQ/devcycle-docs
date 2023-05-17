@@ -14,8 +14,7 @@ You can wait on the features to be loaded from our servers by using `.onClientIn
 
 ```javascript
 dvcClient.onClientInitialized().then(() => {
-    const featureToggle = dvcClient.variable('<YOUR_VARIABLE_KEY>', false)
-    if (featureToggle.value) {
+    if (dvcClient.variableValue('<YOUR_VARIABLE_KEY>', false)) {
         ...
     } else {
         ...
@@ -31,8 +30,7 @@ dvcClient.onClientInitialized((err) => {
         // error state
     }
 
-    const featureToggle = dvcClient.variable('<YOUR_VARIABLE_KEY>', false)
-    if (featureToggle.value) {
+    if (dvcClient.variableValue('<YOUR_VARIABLE_KEY>', false)) {
         ...
     } else {
         ...
@@ -40,34 +38,41 @@ dvcClient.onClientInitialized((err) => {
 })
 ```
 
-## Getting Variable Values
+## Using Variable Values
 
-To get values from your Features, `.variable` is used to fetch variable values using the identifier `key` coupled with a default value. The default value can be of type string, boolean, number, or object.
-
-```javascript
-const variable = dvcClient.variable("<YOUR_VARIABLE_KEY>", "default value");
-```
-
-To grab the value, there is a property on the object returned to grab the value:
+To get values from your Variables, `variableValue()` is used to fetch variable values using the identifier `key` coupled with a default value. 
+The default value can be of type `String`, `Boolean`, `Number`, or `Object`.
 
 ```javascript
-const value = variable.value;
+const variable = dvcClient.variableValue("<YOUR_VARIABLE_KEY>", "default value");
 ```
 
-If the value is not ready, it will return the default value passed in the creation of the variable.
+If you would like to get the full `Variable` object using the `variable()` method it also contains the following params:
+- `key`: the key identifier for the Variable
+- `type`: the type of the Variable, one of: `String` / `Boolean` / `Number` / `JSON`
+- `value`: the Variable's value
+- `defaultValue`: the Variable's default value
+- `isDefaulted`: if the Variable is using the `defaultValue`
+- `evalReason`: evaluation reason for why the variable was bucketed into its value
 
-The `onUpdate` accepts a handler function that will be called whenever a variable value has changed.
-This can occur as a result of a project configuration change or calls to `identifyUser` or `resetUser`. To learn more, visit our [Realtime Updates](/sdk/features/realtime-updates) page.
+The `DVCVariable` type interface can be found [here](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L242).
+
+If the value is not ready, it will return the default value used in the creation of the variable.
+
+## Variable Updates
+
+The `onUpdate` param on a `Variable` Object accepts a handler function that will be called whenever a variable value has changed.
+This can occur as a result of a project configuration change or calls to `identifyUser()` or `resetUser()`. 
+To learn more, visit our [Realtime Updates](/sdk/features/realtime-updates) page.
 
 There can only be one onUpdate function registered at a time. Subsequent calls to this method will overwrite the previous handler:
 
 ```javascript
+const variable = dvcClient.variable("<YOUR_VARIABLE_KEY>", "default value");
 variable.onUpdate((value) => {
   // value returned when the value of the variable changes
 });
 ```
-
-The `DVCVariable` type interface can be found [here](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L233).
 
 ## Identifying User
 

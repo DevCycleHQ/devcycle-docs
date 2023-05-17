@@ -1,5 +1,5 @@
 ---
-title: DevCycle Python Server SDK Installation
+title: Python Server SDK Installation
 sidebar_label: Installation
 sidebar_position: 1
 description: hidden

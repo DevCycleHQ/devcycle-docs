@@ -1,5 +1,5 @@
 ---
-title: DevCycle Node.js OpenFeature Provider
+title: Node.js OpenFeature Provider
 sidebar_label: OpenFeature
 sidebar_position: 4
 description: hidden

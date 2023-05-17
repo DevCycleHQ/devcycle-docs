@@ -1,5 +1,5 @@
 ---
-title: DevCycle Go Server SDK Installation
+title: Go Server SDK Installation
 sidebar_label: Installation
 sidebar_position: 1
 description: hidden

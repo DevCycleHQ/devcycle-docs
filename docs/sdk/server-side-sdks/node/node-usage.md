@@ -1,5 +1,5 @@
 ---
-title: DevCycle Node.js SDK Usage
+title: Node.js SDK Usage
 sidebar_label: Usage
 sidebar_position: 3
 description: hidden
@@ -29,22 +29,23 @@ const variable = dvcClient.variable(user, 'test-feature', false)
 
 ## Get and Use Variable by Key
 
-To get values from your Variables, `dvcClient.variable()` is used to fetch variable values using the user data, 
+To get values from your Variables, `dvcClient.variableValue()` is used to fetch variable values using the user data, 
 variable `key`, coupled with a default value for the variable. The default variable will be used in cases where
 the user is not segmented into a feature using that variable, or the project configuration is unavailable 
 to be fetched from DevCycle's CDN. 
 
-The default value can be of type string, boolean, number, or object.
-
-[DVCVariable Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/nodejs/src/types.ts#L142)
-
 ```javascript
-const variable = dvcClient.variable(user, '<YOUR_VARIABLE_KEY>', false)
-if (variable.value) {
+const value = dvcClient.variableValue(user, '<YOUR_VARIABLE_KEY>', false)
+if (value) {
     // Feature Flag on
 }
 ```
-See [getVariableByKey](/bucketing-api/#operation/getVariableByKey) on the Bucketing API for the variable response format.
+
+The default value can be of type string, boolean, number, or object.
+
+If you would like to get the full Variable object defined by [DVCVariable Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/nodejs/src/types.ts#L95)
+you can use `dvcClient.variable()` instead. This contains fields such as:
+`key`, `value`, `type`, `defaultValue`, `isDefaulted`.
 
 ## Getting All Variables
 

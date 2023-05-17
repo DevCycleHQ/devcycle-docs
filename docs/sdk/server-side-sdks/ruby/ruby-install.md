@@ -1,5 +1,5 @@
 ---
-title: DevCycle Ruby Server SDK Installation
+title: Ruby Server SDK Installation
 sidebar_label: Installation
 sidebar_position: 1
 description: hidden
