@@ -23,7 +23,7 @@ user_data = DevCycle::UserData.new({user_id: 'user_id_example'}) # UserData |
 
 ## Get and use Variable by key
 
-To get values from your Variables, `dvc_client.variableV_value()` is used to fetch variable values using the user data,
+To get values from your Variables, `dvc_client.variable_value()` is used to fetch variable values using the user data,
 variable `key`, coupled with a default value for the variable. The default variable will be used in cases where
 the user is not segmented into a feature using that variable, or the project configuration is unavailable
 to be fetched from DevCycle's CDN.

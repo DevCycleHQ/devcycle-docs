@@ -60,7 +60,7 @@ namespace Example {
         }
 
         private static void ClientInitialized(User user) {
-            bool boolVarValue = api.Variable(user, "my-bool-variable", true);
+            bool boolVarValue = api.VariableValue(user, "my-bool-variable", true);
             Console.WriteLine(boolVarValue);
         }
     }

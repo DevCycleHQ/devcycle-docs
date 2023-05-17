@@ -45,8 +45,8 @@ public class MyClass {
                 .country("US")
                 .build();
 
-        bool variableValue = dvcLocalClient.variableValue(user, "super_cool_feature", true);
-        if (variableValue) {
+        Boolean variableValue = dvcLocalClient.variableValue(user, "super_cool_feature", true);
+        if (variableValue.booleanValue()) {
             // New Feature code here
         } else {
             // Old code here

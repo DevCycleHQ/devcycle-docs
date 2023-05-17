@@ -45,9 +45,9 @@ public class MyClass {
                 .country("US")
                 .build();
 
-        Boolean variableValue = dvcCloudClient.variableValueuser, "turn_on_super_cool_feature", true);
+        Boolean variableValue = dvcCloudClient.variableValue(user, "turn_on_super_cool_feature", true);
 
-        if (variableValue) {
+        if (variableValue.booleanValue()) {
             // New Feature code here
         } else {
             // Old code here
