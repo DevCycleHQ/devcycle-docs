@@ -52,6 +52,26 @@ Once your Variable is created, it will appear on the Variables screen:
 
 ![Variables Page of a Feature with Two Variables](/december_2021_two-variables.png)
 
+### Editing a Variable
+
+DevCycle allows users to edit the Variable Type of existing variables. We understand the importance of type-safety in variable management in addition to having flexibility when creating & editing variables. As such, editing unassociated variable versus associated variables differs slightly so you have as much context as possible on the ramifications of changing a variable type & its impact on your code.
+
+To edit an unassociated Variable, navigate to the Variable Details page of the variable you want to edit and select the new type from the dropdown.
+
+![Variable Details Page Variable Type Dropdown](/may-2023-variable-type-dropdown-variable-detail-page.png)
+
+If a variable is currently associated with a feature, changes to the Variable Type must be done on the associated feature page. 
+
+Once on the feature page, click on the edit icon next to the variable key and select a new Variable Type from the dropdown and click Update. 
+
+![Edit Variable Modal Variable Type Dropdown](/may-2023-variable-type-dropdown-edit-variable-modal.png)
+
+:::caution
+
+Be cautious when editing variable types as any code that is evaluating this variable must also be updated to expect the new type. A mismatch in variable types between the dashboard and your code will result in your code always returning the default value. 
+
+:::
+
 ### Removing a Variable
 
 To remove a Variable from a feature, simply click on the edit icon next to the variable key and select the option to remove the variable from the variable edit modal.
