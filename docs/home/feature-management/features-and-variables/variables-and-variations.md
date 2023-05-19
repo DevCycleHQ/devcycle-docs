@@ -54,7 +54,7 @@ Once your Variable is created, it will appear on the Variables screen:
 
 ### Editing a Variable
 
-DevCycle allows users to edit the Variable Type of existing variables. 
+DevCycle allows users to edit the Variable Type of existing variables. We understand the importance of type-safety in variable management in addition to having flexibility when creating & editing variables. As such, editing unassociated variable versus associated variables differs slightly so you have as much context as possible on the ramifications of changing a variable type & its impact on your code.
 
 To edit an unassociated Variable, navigate to the Variable Details page of the variable you want to edit and select the new type from the dropdown.
 
