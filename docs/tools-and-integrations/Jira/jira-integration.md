@@ -20,7 +20,7 @@ Easily connect your Feature Flags and see their status directly in Jira.
 
 ![Jira example 1](/feb-2022-jira-section-1.png)
 
-**Connect your tickets in DevCYcle**
+**Connect your tickets in DevCycle**
 
 Simply connect your Jira Ticket IDs to a Feature in DevCycle. You can connect as many as you want, and connect one ticket to multiple features and vice-versa.
 
