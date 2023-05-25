@@ -8,34 +8,46 @@ sidebar_custom_props: {icon: rocket}
 
 ## Local Bucketing in PHP
 
-Due to how PHP executes, and the application lifecycle - we can't implement the local bucketing functionality the same way 
-as other SDKs. 
+Due to complexities with the PHP application lifecycle and state management, local bucketing functionality requires a different approach compared to the other server SDKS. 
 
-As a result - we have a "proxy" process that can either run on the same host as your PHP application, or on a different host. 
-We expose two functionality modes for it - unix domain sockets for localhost usage and TCP sockets for remote usage and localhost usage.
-This proxy mimics the cloud bucketing endpoints but allows for higher speed variable evaluations due to the lack of network latency, and config caching 
-thanks to the underlying Go Server SDK.
+To access this functionality in PHP, DevCycle provides **proxy** process that can run alongside your PHP application or on a separate host in your environment. This proxy mimics the Cloud Bucketing API but provides for higher speed variable evaluations due to the reduction of network latency and config caching; all powered by DevCycle's high performance Go Server SDK.
+
+The proxy handles two modes of operation, either as an HTTP server with TCP port or as a process exposing Unix domain sockets. The latter is recommended for servers that will deploy the proxy on the same machine as the PHP process using the SDK, removing the need for network calls. 
 
 The local bucketing proxy can be downloaded as a binary or package from here: https://github.com/DevCycleHQ/local-bucketing-proxy/releases
 
 ### Proxy Configuration
 
-The proxy can be configured via environment variables or command line arguments - see the README for the latest values:
+Once the proxy is downloaded and installed, it can be configured via either environment variables or command line arguments. See the README for the configuration options:
 https://github.com/DevCycleHQ/local-bucketing-proxy/blob/main/README.md#options
 
-To get up and running - the only environment variable needed for basic operation is `DVC_LB_PROXY_SDK_KEY` - which must be set to your SDK Token for your PHP application.
+At a minimum, you will need set the `DVC_LB_PROXY_SDK_KEY` environment variable to activate the proxy. This should be set to your SDK key for your PHP application.
 The rest of the values can be left unchanged for basic operation. This will default to starting an HTTP server on port 8080.
 
-#### OS Packaged Version
-If you've installed an OS packaged version - the binary will be installed to `/usr/bin/local-bucketing-proxy`.
-There currently is not any supervisor/orchestrator like systemd or upstart scripts for the packaged version - so you will need to create your own if you need a long lived process.
 
+### Running the Proxy
+
+The proxy can be started by just executing the binary:
+
+```bash
+
+$ local-bucketing-proxy
+
+HTTP server started on port 8080
+
+```
+
+At this point the proxy is live and ready to accept requests from the PHP SDK.
+
+#### OS Packaged Version
+If you have installed an OS packaged version of the proxy - the binary will be installed to `/usr/bin/local-bucketing-proxy`.
+
+You will need to configure a separate supervisor/orchestrator such as `systemd` or `upstart` if no you need to create a long-lived process. 
 
 ### PHP SDK Configuration
-Because this is a new endpoint - the configuration for the PHP sdk needs to set the target host for all the requests to be `localhost:8080`.
+Once the local bucketing proxy is up and running, you will need to update the configuration for your PHP SDK to point at the proxy host.  
 
-This can be by the following:
-
+The default configuration of the proxy will start run at `localhost:8080` and the PHP SDK would be setup as follows: 
 
 ```php
 $config = DevCycle\Configuration::getDefaultConfiguration()
@@ -43,4 +55,4 @@ $config = DevCycle\Configuration::getDefaultConfiguration()
     ->setHost("http://localhost:8080");
 ```
 
-The SDK needs no other configuration for this to work. Ensure that the proxy is started and running before the PHP application makes a request to it.
+No other configuration is necessary. Ensure that the local bucketing proxy is running before the PHP application makes a request to it.
