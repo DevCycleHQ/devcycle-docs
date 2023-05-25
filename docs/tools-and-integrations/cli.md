@@ -31,18 +31,18 @@ $ npm install -g @devcycle/cli
 Many of the CLI commands require DevCycle API authorization. There are several ways to provide these credentials.
 ## Using Access Tokens
 ### Login Command (preferred)
-By using the [`login sso` command](docs/login.md#dvc-login-sso), the CLI will retrieve and store an access token, which is valid for 24 hours.
+By using the [`login sso` command](https://github.com/DevCycleHQ/cli/blob/main/docs/login.md#dvc-login-sso), the CLI will retrieve and store an access token, which is valid for 24 hours.
 
-The [`login again` command](docs/login.md#dvc-login-again) can be used to retrieve a new access token using the saved project and organization without prompting for them.
+The [`login again` command](https://github.com/DevCycleHQ/cli/blob/main/docs/login.md#dvc-login-again) can be used to retrieve a new access token using the saved project and organization without prompting for them.
 
 This process will open browser windows to interact with the DevCycle universal login page. It will first obtain a personal access token, then prompt you to choose an organization. A second browser window is used to authenticate the CLI with your chosen organization.
 
-To switch organizations once logged in, the [`org` command](docs/org.md) can be used.
+To switch organizations once logged in, the [`org` command](https://github.com/DevCycleHQ/cli/blob/main/docs/org.md) can be used.
 ### Repo Init Command (preferred)
-The [`repo init` command](docs/repo.md#dvc-repo-init) behaves in the same way as `login sso`, but creates a [repo configuration file](#repo-configuration) and stores the project and organization choices there instead.
+The [`repo init` command](https://github.com/DevCycleHQ/cli/blob/main/docs/repo.md#dvc-repo-init) behaves in the same way as `login sso`, but creates a [repo configuration file](#repo-configuration) and stores the project and organization choices there instead.
 ## Using Client Credentials
 ### Client Credentials in Auth File
-Use the [`dvc status` command](docs/status.md#dvc-status) to find the configuration file location for your platform. The credentials can be stored in the file pointed to by the Auth config path. Create the file if it does not exist, with the following contents.
+Use the [`dvc status` command](https://github.com/DevCycleHQ/cli/blob/main/docs/status.md#dvc-status) to find the configuration file location for your platform. The credentials can be stored in the file pointed to by the Auth config path. Create the file if it does not exist, with the following contents.
 
 ```yaml
 clientCredentials:
@@ -53,14 +53,14 @@ This file should **not** be checked in to version control.
 
 The default location is based on the [oclif configDir](https://oclif.io/docs/config)
 
-If you intend to run the CLI using options that override config file locations, the [`dvc status` command](docs/status.md#dvc-status) command can be run with those options to confirm that the file locations are as expected.
+If you intend to run the CLI using options that override config file locations, the [`dvc status` command](https://github.com/DevCycleHQ/cli/blob/main/docs/status.md#dvc-status) command can be run with those options to confirm that the file locations are as expected.
 ## Project Selection
 
 You also need to specify the default project ID for the CLI to use.
 
-If there is a repo configuration file, the [`dvc diff`](docs/diff.md) and [`dvc usages`](docs/usages.md) commands will use the project defined there.
+If there is a repo configuration file, the [`dvc diff`](https://github.com/DevCycleHQ/cli/blob/main/docs/diff.md) and [`dvc usages`](https://github.com/DevCycleHQ/cli/blob/main/docs/usages.md) commands will use the project defined there.
 
-Otherwise, this is chosen during login or set using the [project select command](docs/projects.md#dvc-projects-select)
+Otherwise, this is chosen during login or set using the [project select command](https://github.com/DevCycleHQ/cli/blob/main/docs/projects.md#dvc-projects-select)
 
 ### Environment Variables
 Set the following environment variables:
@@ -94,30 +94,30 @@ USAGE
 <!-- commands -->
 # Command Topics
 
-* [`dvc alias`](docs/alias.md) - Manage repository variable aliases
-* [`dvc cleanup`](docs/cleanup.md) - Replace a DevCycle variable with a static value in the current version of your code. Currently only JavaScript is supported.
-* [`dvc diff`](docs/diff.md) - Print a diff of DevCycle variable usage between two versions of your code.
-* [`dvc environments`](docs/environments.md) - Create a new Environment for an existing Feature.
-* [`dvc features`](docs/features.md) - Access or modify Features with the Management API
-* [`dvc generate`](docs/generate.md) - Generate Devcycle related files
-* [`dvc help`](docs/help.md) - Display help for dvc.
-* [`dvc keys`](docs/keys.md) - Retrieve SDK keys from the management API
-* [`dvc login`](docs/login.md) - Log in to DevCycle
-* [`dvc logout`](docs/logout.md) - Discards any auth configuration that has been stored in the auth configuration file.
-* [`dvc org`](docs/org.md) - Switch organizations
-* [`dvc projects`](docs/projects.md) - Access Projects with the Management API
-* [`dvc repo`](docs/repo.md) - Manage repository configuration
-* [`dvc status`](docs/status.md) - Check CLI status
-* [`dvc usages`](docs/usages.md) - Print all DevCycle variable usages in the current version of your code.
-* [`dvc variables`](docs/variables.md) - Access or modify Variables with the Management API
+* [`dvc alias`](https://github.com/DevCycleHQ/cli/blob/main/docs/alias.md) - Manage repository variable aliases
+* [`dvc cleanup`](https://github.com/DevCycleHQ/cli/blob/main/docs/cleanup.md) - Replace a DevCycle variable with a static value in the current version of your code. Currently only JavaScript is supported.
+* [`dvc diff`](https://github.com/DevCycleHQ/cli/blob/main/docs/diff.md) - Print a diff of DevCycle variable usage between two versions of your code.
+* [`dvc environments`](https://github.com/DevCycleHQ/cli/blob/main/docs/environments.md) - Create a new Environment for an existing Feature.
+* [`dvc features`](https://github.com/DevCycleHQ/cli/blob/main/docs/features.md) - Access or modify Features with the Management API
+* [`dvc generate`](https://github.com/DevCycleHQ/cli/blob/main/docs/generate.md) - Generate Devcycle related files
+* [`dvc help`](https://github.com/DevCycleHQ/cli/blob/main/docs/help.md) - Display help for dvc.
+* [`dvc keys`](https://github.com/DevCycleHQ/cli/blob/main/docs/keys.md) - Retrieve SDK keys from the management API
+* [`dvc login`](https://github.com/DevCycleHQ/cli/blob/main/docs/login.md) - Log in to DevCycle
+* [`dvc logout`](https://github.com/DevCycleHQ/cli/blob/main/docs/logout.md) - Discards any auth configuration that has been stored in the auth configuration file.
+* [`dvc org`](https://github.com/DevCycleHQ/cli/blob/main/docs/org.md) - Switch organizations
+* [`dvc projects`](https://github.com/DevCycleHQ/cli/blob/main/docs/projects.md) - Access Projects with the Management API
+* [`dvc repo`](https://github.com/DevCycleHQ/cli/blob/main/docs/repo.md) - Manage repository configuration
+* [`dvc status`](https://github.com/DevCycleHQ/cli/blob/main/docs/status.md) - Check CLI status
+* [`dvc usages`](https://github.com/DevCycleHQ/cli/blob/main/docs/usages.md) - Print all DevCycle variable usages in the current version of your code.
+* [`dvc variables`](https://github.com/DevCycleHQ/cli/blob/main/docs/variables.md) - Access or modify Variables with the Management API
 
 <!-- commandsstop -->
 # Repo Configuration
 The following commands can only be run from the root of a configured repository
-* [`dvc diff`](docs/diff.md)
-* [`dvc usages`](docs/usages.md)
-* [`dvc alias`](docs/alias.md)
-* [`dvc cleanup`](docs/cleanup.md)
+* [`dvc diff`](https://github.com/DevCycleHQ/cli/blob/main/docs/diff.md)
+* [`dvc usages`](https://github.com/DevCycleHQ/cli/blob/main/docs/usages.md)
+* [`dvc alias`](https://github.com/DevCycleHQ/cli/blob/main/docs/alias.md)
+* [`dvc cleanup`](https://github.com/DevCycleHQ/cli/blob/main/docs/cleanup.md)
 
 Many of the options available as command-line args can also be specified using a repo configuration file. The default
 location for this file is `<REPO ROOT>/.devcycle/config.yml`.
