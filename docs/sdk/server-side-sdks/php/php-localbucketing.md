@@ -10,7 +10,7 @@ sidebar_custom_props: {icon: rocket}
 
 Due to complexities with the PHP application lifecycle and state management, local bucketing functionality requires a different approach compared to the other server SDKS. 
 
-To access this functionality in PHP, DevCycle provides **proxy** process that can run alongside your PHP application or on a separate host in your environment. This proxy mimics the Cloud Bucketing API but provides for higher speed variable evaluations due to the reduction of network latency and config caching; all powered by DevCycle's high performance Go Server SDK.
+To access this functionality in PHP, DevCycle provides a **proxy** process that can run alongside your PHP application or on a separate host in your environment. This proxy mimics the Cloud Bucketing API but provides for higher speed variable evaluations due to the reduction of network latency and config caching; all powered by DevCycle's high performance Go Server SDK.
 
 The proxy handles two modes of operation, either as an HTTP server with TCP port or as a process exposing Unix domain sockets. The latter is recommended for servers that will deploy the proxy on the same machine as the PHP process using the SDK, removing the need for network calls. 
 
