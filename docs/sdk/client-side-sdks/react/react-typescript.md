@@ -53,9 +53,9 @@ See the [documentation](https://docs.devcycle.com/tools-and-integrations/cli#dvc
 Ensure that the CLI is properly setup and authenticated to your project before running this command. See the [CLI docs](https://docs.devcycle.com/tools-and-integrations/cli)
 for further instructions on setting up the CLI.
 
-This command will generate a file called `dvcVariableTypes.ts` in the configured output directory. When this file is 
-included in your Typescript program, the overrides it contains will automatically redefine the types from the React SDK
-to be more specific to your project.
+This command will generate a file called `dvcVariableTypes.ts` in the configured output directory. This file contains 
+new definitions for the `useVariable` and `useVariableValue` hooks which wrap the original SDK methods in more specific
+types. These wrapped methods should now be used in place of the original methods provided by the SDK.
 
 Consider configuring this command to run as part of your build process to keep your type definitions up to date with
 the latest configuration from DevCycle.
