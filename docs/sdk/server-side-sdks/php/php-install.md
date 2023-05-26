@@ -38,8 +38,7 @@ Download the files and include `autoload.php`:
 require_once('/path/to/DevCycle/vendor/autoload.php');
 ```
 
-
-### Local Bucketing Proxy
+## Local Bucketing Proxy
 
 Due to complexities with the PHP application lifecycle and state management, local bucketing functionality requires a different approach compared to the other server SDKS.
 
