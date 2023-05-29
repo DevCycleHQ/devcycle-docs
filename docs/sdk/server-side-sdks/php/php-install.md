@@ -51,7 +51,7 @@ The local bucketing proxy can be downloaded as a binary or package from here: ht
 Once the proxy is downloaded and installed, it can be configured via either environment variables or command line arguments. See the [README](https://github.com/DevCycleHQ/local-bucketing-proxy#options) for the configuration options.
 
 At a minimum, you will need set the `DVC_LB_PROXY_SDK_KEY` environment variable to activate the proxy. This should be set to your SDK key for your PHP application.
-The rest of the values can be left unchanged for basic operation. This will default to starting an HTTP server on port 8080.
+The rest of the values can be left unchanged for basic operation. This will default to starting an HTTP server on port **8080**. You can change the port with the `DVC_LB_PROXY_HTTP_PORT` environment variable.
 
 
 #### Running the Proxy
