@@ -9,17 +9,17 @@ const config = {
   // trailingSlash: false,
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
-  // scripts: [
-  //   {
-  //     src: 'https://widget.kapa.ai/kapa-widget.bundle.js',
-  //     'data-website-id': '585d136a-8362-4153-888c-8f4e60966007',
-  //     'data-project-name': 'DevCycle',
-  //     'data-project-color': '#1F2937',
-  //     'data-project-logo':
-  //       'https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_23a6ffcf221b44d55e965ca45eedbfd9/devcycle.jpg',
-  //     async: true,
-  //   },
-  // ],
+  scripts: [
+    {
+      src: 'https://widget.kapa.ai/kapa-widget.bundle.js',
+      'data-website-id': '585d136a-8362-4153-888c-8f4e60966007',
+      'data-project-name': 'DevCycle',
+      'data-project-color': '#1F2937',
+      'data-project-logo':
+        'https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_23a6ffcf221b44d55e965ca45eedbfd9/devcycle.jpg',
+      async: true,
+    },
+  ],
   plugins: [
     () => {
       // ...
