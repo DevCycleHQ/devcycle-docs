@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   title: DevCycle Bucketing API
   description:
-    Documents the DevCycle Bucketing API (https://bucketing-api.devcycle.com/) which provides an API interface to
+    Documents the DevCycle Bucketing API (https://docs.devcycle.com/bucketing-api/) which provides an API interface to
     User Bucketing and for generated SDKs.
   version: 1.1.0
 servers:
