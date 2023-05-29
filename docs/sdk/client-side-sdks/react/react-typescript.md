@@ -48,7 +48,7 @@ To generate the type definitions with the CLI, you can use the `generate types` 
 dvc generate types --react
 ```
 
-See the [documentation](https://docs.devcycle.com/tools-and-integrations/cli#dvc-generate-types) for this command
+See the [documentation](https://github.com/DevCycleHQ/cli/blob/main/docs/generate.md#dvc-generate-types) for this command
 
 Ensure that the CLI is properly setup and authenticated to your project before running this command. See the [CLI docs](https://docs.devcycle.com/tools-and-integrations/cli)
 for further instructions on setting up the CLI.
