@@ -60,7 +60,7 @@ The proxy can be started by just executing the binary:
 
 ```bash
 
-$ local-bucketing-proxy
+$ devcycle-local-bucketing-proxy
 
 HTTP server started on port 8080
 
@@ -69,7 +69,7 @@ HTTP server started on port 8080
 At this point the proxy is live and ready to accept requests from the PHP SDK.
 
 ##### OS Packaged Version
-If you have installed an OS packaged version of the proxy - the binary will be installed to `/usr/bin/local-bucketing-proxy`.
+If you have installed an OS packaged version of the proxy - the binary will be installed to `/usr/bin/devcycle-local-bucketing-proxy`.
 
 You will need to configure a separate supervisor/orchestrator such as `systemd` or `upstart` if no you need to create a long-lived process.
 
