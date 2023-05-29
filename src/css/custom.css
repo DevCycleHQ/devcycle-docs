@@ -127,4 +127,7 @@ html[data-theme="dark"] .DocSearch {
   );
 }
 
-
+#kapa-widget-container button {
+  left: 20px;
+  z-index: 9999;
+}
