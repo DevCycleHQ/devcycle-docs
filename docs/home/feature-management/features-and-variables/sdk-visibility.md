@@ -9,9 +9,9 @@ These settings allow for control over which SDKs can receive a feature. Only SDK
 
 ## How to enable
 
-To use SDK visibility settings, the feature must first be enabled from the organization settings page.
+To use SDK visibility settings, the feature must first be enabled from the Edit Project page.
 
-![Organization SDK Visibility Setting](/org-sdk-visibility-setting.png)
+![Organization SDK Visibility Setting](/sdk-visibility-setting.png)
 
 Once enabled, the setting will appear on the feature page, and you can control which SDK types can use the feature.
 
