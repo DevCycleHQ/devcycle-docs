@@ -200,7 +200,7 @@ subscribe to an event that doesn't exist. These are the events you can subscribe
 | Variable Updated | `variableUpdated:*` | <code>(key: string, variable: DVCVariable &#124; null)</code> | This event gets triggered when a variable value changes for a user. You can subscribe to all variable updates using the `*` identifier, or you can pass in the key of the variable you want to subscribe to, e.g. `variableUpdated:my_variable_key`.  |
 | Variable Evaluated | `variableEvaluated:*` | <code>(key: string, variable: DVCVariable)</code> | This event gets triggered when a variable is evaluated. You can subscribe to all variable evaluations using the `*` identifier, or you can pass in the key of the variable evaluation you want to subscribe to, e.g. `variableEvaluated:my_variable_key`.  |
 | Feature Updated  | `featureUpdated:*`  | <code>(key: string, feature: DVCFeature &#124; null)</code>   | This event gets triggered when a feature's variation changes for a user. You can subscribe to all feature updates using the `*` identifier, or you can pass in the key of the feature you want to subscribe to, e.g. `featureUpdated:my_feature_key`. |
-| Config Updated  | `configUpdated`  | <code></code>   | This event gets triggered when there are any variable, variation, or feature changes. |
+| Config Updated  | `configUpdated`  |   | This event gets triggered when there are any variable, variation, or feature changes. |
 
 ## EdgeDB
 
