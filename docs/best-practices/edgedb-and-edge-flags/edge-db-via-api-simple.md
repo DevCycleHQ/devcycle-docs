@@ -96,7 +96,7 @@ So we set it up like so:
 
 ![Postman Setup](/sept-6-2022-edge-flags-api-9.png)
 
-Ensure the authorization is set up with your server sdk key like above:
+Ensure the authorization is set up with your server SDK key like above:
 
 ![Authorization setup](/sept-6-2022-edge-flags-api-10.png)
 
@@ -109,6 +109,6 @@ curl --location --request POST 'https://bucketing-api.devcycle.com/v1/variables/
 --data-raw '{"user_id":"example_user"}'
 ```
 
-After running it: Vola! We receive the special feature which requires custom properties to target, without sending it in the request! It is successfully getting the data from EdgeDB:
+After running it: Voila! We receive the special feature which requires custom properties to target, without sending it in the request! It is successfully getting the data from EdgeDB:
 
 ![Success Feature Flag check!](/sept-6-2022-edge-flags-api-11.png)
