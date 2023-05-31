@@ -15,13 +15,27 @@ This article serves to explain how DevCycle manages Organizations, Projects, and
 
 **Features** are contained within Projects. Each Feature is unique to its project.
 
-## Viewing your Organization or Project
+## Viewing your Organizations or Projects
+
+### Switching Organizations
 
 To view the current **Organization** or change Organizations, click on the Account icon dropdown on the top right of the DevCycle Dashboard.
 
-![Dropdown on DevCycle dashboard for account settings and org info pointing at current org](/march-2022-account-dropdown-2.png)
+![Dropdown on DevCycle dashboard for account settings and org info pointing at current org](/may-2023-account-dropdown-2.png)
 
 The currently active Organization will have a green badge next to it. 
+
+### Discovering Organizations
+
+To find other organizations that might have been created by people within your Company / Domain, you can easily navigate to the Discovery page:
+
+![Dropdown on DevCycle dashboard for account settings and org info pointing at find orgs](/may-2023-account-dropdown-3.png)
+
+This will lead you to a list of all of the organizations within your domain's network. From here, you can request to join other organizations, or create new ones: 
+
+![Discovery page](/may-2023-organization-discover.png)
+
+### Viewing and Changing Projects
 
 To view the current **Project** or change projects, click the Projects dropdown on the top left of the Dashboard.
 
