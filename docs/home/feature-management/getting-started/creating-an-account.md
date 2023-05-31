@@ -21,6 +21,8 @@ When you first sign up, you will notice that you will be prompted to create an [
 
 If signing up with a non-generic email, you may notice that others with your company email may have signed up and created an organization already. You can choose to create one yourself, or just request to join one!
 
+![Discovery Page](/may-2023-organization-discover.png)
+
 [Read more about organizations here.](/home/feature-management/organizing-your-flags-and-variables/organizations-projects)
 
 ## Adding Team Members
