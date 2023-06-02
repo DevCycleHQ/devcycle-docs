@@ -2,7 +2,7 @@
 title: Compromised SDK Keys
 sidebar_label: Compromised SDK Keys
 sidebar_position: 2
-description: hidden
+description: How to address compromised SDK keys in your environmentden
 ---
 
 # **Compromised SDK Keys**

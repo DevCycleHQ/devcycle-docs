@@ -2,7 +2,7 @@
 title: SDK Key Security with GitHub Secret Scanning
 sidebar_label: Github Secret Scanning
 sidebar_position: 1
-description: hidden
+description: Leverage GitHub Secret Scanning to detect compromised keys in your repositories
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Cleaning Up Unused Flags
 sidebar_label: Flag Cleanup
-description: hidden
+description: Practices to help minimize technical debt from feature flags
 sidebar_position: 6
 sidebar_custom_props: {icon: broom}
 

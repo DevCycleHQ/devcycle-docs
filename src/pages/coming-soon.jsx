@@ -98,7 +98,7 @@ const Welcome = () => {
 
 function Docs() {
   return (
-    <Layout title="Welcome to the DevCycle Best Practice Guides" description="With different use-cases">
+    <Layout title="Welcome to the DevCycle Best Practice Guides" description="Find answers to all your DevCycle implementation questions, and learn more about how to start using our management dashboard, APIs, SDKs, and more.">
       <Welcome />
     </Layout>
   );

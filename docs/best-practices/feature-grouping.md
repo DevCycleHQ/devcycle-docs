@@ -2,7 +2,7 @@
 title: Feature Flag Grouping
 sidebar_label: Flag Grouping
 sidebar_position: 4
-description: hidden
+description: Manage large amounts of feature flags with DevCycle
 sidebar_custom_props: {icon: people-group}
 ---
 

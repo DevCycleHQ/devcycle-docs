@@ -1,7 +1,7 @@
 ---
 title: Using Custom Properties
 sidebar_label: Custom Properties
-description: hidden
+description: How to target users for Experimentation or Permissions
 sidebar_position: 3
 sidebar_custom_props: {icon: flask-vial}
 

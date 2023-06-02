@@ -2,7 +2,7 @@
 title: Flutter SDK Getting Started
 sidebar_label: Getting Started
 sidebar_position: 2
-description: hidden
+description: Initializing the SDK
 sidebar_custom_props: {icon: rocket}
 ---
 

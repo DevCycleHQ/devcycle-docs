@@ -2,7 +2,7 @@
 title: Observability
 sidebar_label: Observability
 sidebar_position: 10
-description: hidden
+description: Observability Best Practices Using DevCycle with Datadog's RUM Feature Flag Tracking
 sidebar_custom_props: {icon: microscope}
 ---
 

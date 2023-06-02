@@ -2,7 +2,7 @@
 title: PHP Server SDK Usage
 sidebar_label: Usage
 sidebar_position: 3
-description: hidden
+description: Using the SDK
 sidebar_custom_props: {icon: toggle-on}
 ---
 [![Packagist](https://badgen.net/packagist/v/devcycle/php-server-sdk/latest)](https://packagist.org/packages/devcycle/php-server-sdk)

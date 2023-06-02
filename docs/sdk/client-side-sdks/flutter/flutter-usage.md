@@ -2,7 +2,7 @@
 title: Flutter SDK Usage
 sidebar_label: Usage
 sidebar_position: 3
-description: hidden
+description: Using the SDK
 sidebar_custom_props: {icon: toggle-on}
 ---
 

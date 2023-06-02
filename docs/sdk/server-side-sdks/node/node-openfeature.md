@@ -2,7 +2,7 @@
 title: Node.js OpenFeature Provider
 sidebar_label: OpenFeature
 sidebar_position: 4
-description: hidden
+description: How to impliment the OpenFeature Provider
 sidebar_custom_props: {icon: toggle-off}
 ---
 

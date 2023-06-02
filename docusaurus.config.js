@@ -114,6 +114,7 @@ const config = {
   baseUrl: '/',
   favicon: 'devcycle_favicon.ico',
   themeConfig: {
+    image: 'devcycle_card.png',
     docs: {
       sidebar: {
         autoCollapseCategories: true,
