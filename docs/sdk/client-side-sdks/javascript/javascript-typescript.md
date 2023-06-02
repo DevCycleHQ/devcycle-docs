@@ -2,7 +2,7 @@
 title: Javascript SDK Typescript Usage
 sidebar_label: Typescript
 sidebar_position: 4
-description: hidden
+description: Using the SDK
 sidebar_custom_props: {icon: screwdriver-wrench}
 ---
 [![Npm package version](https://badgen.net/npm/v/@devcycle/devcycle-js-sdk)](https://www.npmjs.com/package/@devcycle/devcycle-js-sdk)

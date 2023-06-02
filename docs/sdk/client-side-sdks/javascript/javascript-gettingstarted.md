@@ -2,7 +2,7 @@
 title: Javascript SDK Getting Started
 sidebar_label: Getting Started
 sidebar_position: 2
-description: hidden
+description: Initializing the SDK
 sidebar_custom_props: {icon: rocket}
 ---
 [![Npm package version](https://badgen.net/npm/v/@devcycle/devcycle-js-sdk)](https://www.npmjs.com/package/@devcycle/devcycle-js-sdk)

@@ -2,7 +2,7 @@
 title: Javascript SDK Installation
 sidebar_label: Installation
 sidebar_position: 1
-description: hidden
+description: Installing the SDK
 sidebar_custom_props: {icon: screwdriver-wrench}
 ---
 [![Npm package version](https://badgen.net/npm/v/@devcycle/devcycle-js-sdk)](https://www.npmjs.com/package/@devcycle/devcycle-js-sdk)

@@ -2,7 +2,7 @@
 title: Keeping Track of Feature Flags
 sidebar_label: Organization
 sidebar_position: 5
-description: hidden
+description: Tips for keeping your Feature Flag workspace organized in DevCycle
 sidebar_custom_props: {icon: box-archive}
 
 ---

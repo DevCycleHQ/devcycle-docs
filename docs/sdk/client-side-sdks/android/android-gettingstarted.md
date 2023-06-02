@@ -1,8 +1,8 @@
 ---
 title: Android SDK Getting Started
+description: Initializing the SDK
 sidebar_label: Getting Started
 sidebar_position: 2
-description: hidden
 sidebar_custom_props: {icon: rocket}
 ---
 

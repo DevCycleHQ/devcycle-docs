@@ -2,7 +2,7 @@
 title: Python Server SDK Installation
 sidebar_label: Installation
 sidebar_position: 1
-description: hidden
+description: Installing the SDK
 sidebar_custom_props: {icon: screwdriver-wrench}
 ---
 [![PyPI](https://badgen.net/pypi/v/devcycle-python-server-sdk)](https://pypi.org/project/devcycle-python-server-sdk/)

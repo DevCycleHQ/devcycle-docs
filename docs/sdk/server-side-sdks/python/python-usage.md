@@ -2,7 +2,7 @@
 title: Python Server SDK Usage
 sidebar_label: Usage
 sidebar_position: 3
-description: hidden
+description: Using the SDK
 sidebar_custom_props: {icon: toggle-on}
 ---
 [![PyPI](https://badgen.net/pypi/v/devcycle-python-server-sdk)](https://pypi.org/project/devcycle-python-server-sdk/)

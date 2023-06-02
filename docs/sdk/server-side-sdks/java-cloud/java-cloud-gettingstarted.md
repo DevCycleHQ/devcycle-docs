@@ -2,7 +2,7 @@
 title: Java Cloud Server SDK Getting Started
 sidebar_label: Getting Started
 sidebar_position: 2
-description: hidden
+description: First Steps to Impliment the Java Cloud Server SDK
 sidebar_custom_props: {icon: rocket}
 ---
 
