@@ -198,7 +198,7 @@ Each schema type requires  a **Brief Description**. For example, when defining a
 
 You also must set an **Example Value**. The example value will be used as the initial value for each variation when adding this variable to a feature.
 
-An **Enum** schema will allow you to to input allowable values for a string or number variable. 
+An **Enum** schema will allow you to input allowable values for a string or number variable. 
 
 If “enum” type is selected, users define the allowable variable values in the **Enum Values** input field below the type dropdown.
 
