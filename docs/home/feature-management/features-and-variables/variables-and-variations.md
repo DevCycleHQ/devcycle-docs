@@ -194,7 +194,7 @@ There are three different types of schemas that you can define for your variable
 - Regex (*String Variable*)
 - JSON (*JSON Variable*)
 
-For each type of schema, you must write a **Brief Description** for the variable schema you are about to define. For example, if I was to create define an Enum schema for a String variable that controlled a user greeting message on a sign up page, a sample description could be “Greeting options for sign-up page.” 
+Each schema type requires  a **Brief Description**. For example, when defining an Enum schema for a String variable that's meant for a greeting message on a sign up page, a sample description could be “Greeting options for sign-up page.” 
 
 You also must set an **Example Value**. The example value will be used as the initial value for each variation when adding this variable to a feature.
 
