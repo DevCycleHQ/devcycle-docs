@@ -200,7 +200,7 @@ You also must set an **Example Value**. The example value will be used as the in
 
 An **Enum** schema will allow you to input allowable values for a string or number variable. 
 
-If “enum” type is selected, users define the allowable variable values in the **Enum Values** input field below the type dropdown.
+If “Enum” type is selected, users must define the allowable values in the **Enum Values** input field.
 
 *Enum Example:*
 ![Enum Schema Example](/june-2023-enum-schema-example.png)
