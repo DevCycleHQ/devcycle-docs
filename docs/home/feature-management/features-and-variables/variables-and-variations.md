@@ -180,3 +180,59 @@ Users who are served this new Variation will receive the Variable Values associa
 A Variation may be deleted at any time by clicking the edit icon on the Variation column of the Remote Variables page. Variations that are currently being used in any **Enabled** environment cannot be deleted. First remove any audience being targeted by this Variation prior to deletion.
 
 
+## Variable Schemas
+
+Variable Schemas is a new DevCycle feature that lets you define allowable values for your variables when creating feature variations. Variable Schemas help developers ensure that team members can easily select allowable inputs for variable values without being nervous that a certain value might cause an application crash or negatively impact end user experience. 
+
+### Defining a Variable Schema
+
+To define a Variable Schema for a variable, navigate to the Schema section of the Variable Details page to select and define a schema for that particular variable. The variable must be unassociated in order to select and define a schema. 
+
+There are three different types of schemas that you can define for your variable: 
+
+- Enum (*String or Number Variable)*
+- Regex (*String Variable*)
+- JSON (*JSON Variable*)
+
+For each type of schema, you must write a **Brief Description** for the variable schema you are about to define. For example, if I was to create define an Enum schema for a String variable that controlled a user greeting message on a sign up page, a sample description could be “Greeting options for sign-up page.” 
+
+You also must set an **Example Value**. The example value will be used as the initial value for each variation when adding this variable to a feature.
+
+An **Enum** schema will allow you to to input allowable values for a string or number variable. 
+
+If “enum” type is selected, users define the allowable variable values in the **Enum Values** input field below the type dropdown.
+
+*Enum Example:*
+![Enum Schema Example](/june-2023-enum-schema-example.png)
+
+
+A **Regex** schema allows you to define a regex pattern that that must be followed for the string variable values. 
+
+*Regex Example:* 
+![Regex Schema Example](/june-2023-regex-schema-example.png)
+
+A **JSON** schema will allow DVC users to define a JSON schema that must be followed for the JSON variable values.  If “JSON schema” type is selected, users can define the schema below in a JSON editor. 
+
+*JSON Example:* 
+![JSON Schema Example](/june-2023-json-schema-example.png)
+
+Once a variable is created and schema has been defined, click save and then you can add this variable to a feature. 
+
+### Adding a Variable with a Defined Schema
+
+Once the variable is created and a schema has been defined, you can add it to a feature like any other unassociated variable and select it from the dropdown in the Add New Variable modal within a feature. 
+
+![Add Variable Modal with Schema Example](/june-2023-adding-variable-with-schema-modal.png)
+
+If a variable that has a schema is selected, an info box will appear that outlines the schema type and has the Brief Description of the schema defined on the Variable details page. 
+
+You can also click on the word *"here”* to open a side panel which displays the schema definition along with other details about the variable. 
+
+![Add New Variable JSON Schema Selected](/june-2023-add-new-variable-json-schema-selected.png)
+
+
+### Adding a New Variation for Variables with a Defined Schema 
+
+When adding a new variation for a variable with a schema, you can click on the variable name (e.g. *inline-search* in this example) to open a side panel which displays the schema definition along with other details about the variable. 
+
+![Add New Variable JSON Schema Selected](/june-2023-add-new-variation-with-schema.png)
