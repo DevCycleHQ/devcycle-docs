@@ -206,7 +206,7 @@ If “Enum” type is selected, users must define the allowable values in the **
 ![Enum Schema Example](/june-2023-enum-schema-example.png)
 
 
-A **Regex** schema allows you to define a regex pattern that that must be followed for the string variable values. 
+A **Regex** schema allows you to define a regex pattern. Variation values for a variable with a Regex schema type must match the pattern defined in the schema.
 
 *Regex Example:* 
 ![Regex Schema Example](/june-2023-regex-schema-example.png)
