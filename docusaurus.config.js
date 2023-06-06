@@ -1,3 +1,4 @@
+require('dotenv').config()
 const path = require('path')
 const remarkYoutube = require('gridsome-plugin-remark-youtube')
 
@@ -5,21 +6,13 @@ const remarkYoutube = require('gridsome-plugin-remark-youtube')
  * @type {Partial<import('@docusaurus/types').DocusaurusConfig>}
  */
 const config = {
-  clientModules: [require.resolve('./src/modules/mixpanelClientModule.js')],
-  // trailingSlash: false,
+  scripts: ['https://js.devcycle.com/devcycle.min.js'],
+  clientModules: [
+    require.resolve('./src/modules/mixpanelClientModule.js'),
+    require.resolve('./src/modules/devcycleClientModule.js'),
+  ],
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
-  scripts: [
-    {
-      src: 'https://widget.kapa.ai/kapa-widget.bundle.js',
-      'data-website-id': '585d136a-8362-4153-888c-8f4e60966007',
-      'data-project-name': 'DevCycle',
-      'data-project-color': '#1F2937',
-      'data-project-logo':
-        'https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_23a6ffcf221b44d55e965ca45eedbfd9/devcycle.jpg',
-      async: true,
-    },
-  ],
   plugins: [
     () => {
       // ...
@@ -104,6 +97,7 @@ const config = {
       description:
         'The DevCycle documentation site includes guides and API documentation for the complete platform including the management dashboard, management APIs, SDKs, and more. If you need help along the way feel free to reach out to support and if you don’t have an account yet, you can create a free account now.',
     },
+    DEVCYCLE_CLIENT_SDK_KEY: process.env.DEVCYCLE_CLIENT_SDK_KEY,
   },
   url:
     process.env.VERCEL_ENV === 'production'

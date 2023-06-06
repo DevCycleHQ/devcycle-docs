@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "DevCycle Developer Docs",
   "scripts": {
+    "vercel": "vercel",
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
     "build": "docusaurus build",
@@ -15,6 +16,7 @@
     "dev": "docusaurus start"
   },
   "dependencies": {
+    "@devcycle/devcycle-js-sdk": "^1.11.1",
     "@docusaurus/core": "^2.4.0",
     "@docusaurus/plugin-content-docs": "^2.4.0",
     "@docusaurus/preset-classic": "^2.4.0",
@@ -26,6 +28,7 @@
     "@heroicons/react": "^1.0.5",
     "@tailwindcss/aspect-ratio": "^0.3.0",
     "clsx": "^1.1.1",
+    "dotenv": "^16.1.4",
     "gridsome-plugin-remark-youtube": "^1.0.1",
     "mixpanel-browser": "^2.45.0",
     "postcss-import": "^14.0.2",
@@ -35,7 +38,8 @@
     "react-dom": "^17.0.2",
     "redocusaurus": "^1.0.1",
     "remark-docusaurus-tabs": "^0.2.0",
-    "tailwindcss": "^3.0.0"
+    "tailwindcss": "^3.0.0",
+    "vercel": "^30.1.2"
   },
   "devDependencies": {
     "@types/react": "^17.0.0"
