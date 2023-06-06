@@ -211,7 +211,7 @@ A **Regex** schema allows you to define a regex pattern. Variation values for a 
 *Regex Example:* 
 ![Regex Schema Example](/june-2023-regex-schema-example.png)
 
-A **JSON** schema will allow DVC users to define a JSON schema that must be followed for the JSON variable values.  If “JSON schema” type is selected, users can define the schema below in a JSON editor. 
+A **JSON** schema will allow DVC users to define a JSON schema that variation values must follow.  If “JSON schema” type is selected, users can define the schema below in a JSON editor. Example JSON Schemas and more information about them can be found [here](https://json-schema.org/learn/miscellaneous-examples.html#basic).
 
 *JSON Example:* 
 ![JSON Schema Example](/june-2023-json-schema-example.png)
