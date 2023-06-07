@@ -7,10 +7,7 @@ const remarkYoutube = require('gridsome-plugin-remark-youtube')
  */
 const config = {
   scripts: ['https://js.devcycle.com/devcycle.min.js'],
-  clientModules: [
-    require.resolve('./src/modules/mixpanelClientModule.js'),
-    require.resolve('./src/modules/devcycleClientModule.js'),
-  ],
+  clientModules: [require.resolve('./src/modules/mixpanelClientModule.js')],
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
   plugins: [
@@ -34,6 +31,12 @@ const config = {
       }
     },
     path.resolve(__dirname, 'plugins', 'custom-gtm'),
+    [
+      path.resolve(__dirname, 'plugins', 'devcycle'),
+      {
+        sdkKey: process.env.DEVCYCLE_CLIENT_SDK_KEY,
+      },
+    ],
   ],
 
   presets: [
