@@ -21,7 +21,6 @@ The following Client-Side SDKs currently have Realtime Updates:
 - React SDK
 - iOS SDK
 - Android SDK
-- React Native SDK
 - Flutter SDK
 
 #### **Javascript SDK**, **React SDK**
