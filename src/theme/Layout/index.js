@@ -1,7 +1,6 @@
 import React from 'react'
 import Layout from '@theme-original/Layout'
 import Toggle from '@theme/MDXComponents/Toggle'
-import useIsBrowser from '@docusaurus/useIsBrowser'
 import Head from '@docusaurus/Head'
 
 export default function LayoutWrapper(props) {
