@@ -6,7 +6,6 @@ const remarkYoutube = require('gridsome-plugin-remark-youtube')
  * @type {Partial<import('@docusaurus/types').DocusaurusConfig>}
  */
 const config = {
-  scripts: ['https://js.devcycle.com/devcycle.min.js'],
   clientModules: [require.resolve('./src/modules/mixpanelClientModule.js')],
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
