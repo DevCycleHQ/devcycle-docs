@@ -1901,7 +1901,7 @@
   resolved "https://registry.npmjs.org/@csstools/selector-specificity/-/selector-specificity-2.1.1.tgz"
   integrity sha512-jwx+WCqszn53YHOfvFMJJRd/B2GqkCBt+1MJSG6o5/s8+ytHMvDZXsJgUEWLk12UnLd7HYKac4BYU5i/Ron1Cw==
 
-"@devcycle/devcycle-js-sdk@1.11.1":
+"@devcycle/devcycle-js-sdk@1.11.1", "@devcycle/devcycle-js-sdk@^1.11.1":
   version "1.11.1"
   resolved "https://registry.yarnpkg.com/@devcycle/devcycle-js-sdk/-/devcycle-js-sdk-1.11.1.tgz#6ef8f0999a9ee80123c02899623a465ceaa51f52"
   integrity sha512-6g351I1A6KA4Ww7BvWXo959hOLmPtYgsrzFnjwkbGWHAhKtE/q+JDy+GrRcslh1CMKs65ItNcUHs/L4G4PulhQ==
