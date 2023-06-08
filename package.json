@@ -16,8 +16,7 @@
     "dev": "docusaurus start"
   },
   "dependencies": {
-    "@devcycle/devcycle-js-sdk": "^1.11.1",
-    "@devcycle/devcycle-react-sdk": "^1.9.4",
+    "@devcycle/docusaurus-devcycle-plugin": "^0.0.0-rc.5",
     "@docusaurus/core": "^2.4.1",
     "@docusaurus/plugin-content-docs": "^2.4.1",
     "@docusaurus/preset-classic": "^2.4.1",
