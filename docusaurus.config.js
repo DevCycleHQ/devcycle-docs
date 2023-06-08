@@ -32,7 +32,7 @@ const config = {
     },
     path.resolve(__dirname, 'plugins', 'custom-gtm'),
     [
-      path.resolve(__dirname, 'plugins', 'devcycle'),
+      '@devcycle/docusaurus-devcycle-plugin',
       {
         sdkKey: process.env.DEVCYCLE_CLIENT_SDK_KEY,
       },
