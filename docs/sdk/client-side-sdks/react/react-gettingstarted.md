@@ -81,6 +81,45 @@ import { asyncWithDVCProvider } from '@devcycle/devcycle-react-sdk'
 })();
 ```
 
+## Deferred Initialization
+In many cases, user data is not available at the time the `DVCProvider` is created. If the provider is not passed a
+`user` object, then by default the SDK will be instantiated with an "anonymous" user and a configuration will be 
+downloaded from DevCycle. The SDK will be considered "initialized" and the aforementioned `useIsDVCInitialized` hook
+will return `true` once this configuration has been downloaded.
+
+If you would like to defer initialization of the SDK until your user data is available, you can pass the 
+`deferInitialization` option to the `DVCProvider`. This will cause the SDK to not fetch a configuration until the
+[`dvcClient.identifyUser`](/sdk/client-side-sdks/react/react-usage#identifying-users) method is called with the user data. 
+The `useIsDVCInitialized` hook will return `false` until
+that method has been called and a corresponding config has been retrieved. Until that config is retrieved, all calls
+to retrieve variable values will return their default values.
+
+```js
+import { useIsDVCInitialized, withDVCProvider } from '@devcycle/devcycle-react-sdk'
+
+let identified = false
+function App() {
+    // e.g. a React Query style hook that retrieves user data
+    const { data: user, isFetched } = useUserFromMyUserStorage()
+    if (user && !identified) {
+        dvcClient.identifyUser(user)
+        identified = true
+    }
+    const dvcReady = useIsDVCInitialized()
+    
+    // rendering is blocked until the user is loaded, and has finished being identified in DevCycle
+    if (!dvcReady) return <LoadingState/>
+    return <TheRestofYourApp/>
+}
+    
+export default withDVCProvider({ 
+    sdkKey: '<DVC_CLIENT_SDK_KEY>',
+    options: {
+        deferInitialization: true
+    } 
+})(App)
+```
+
 ## Provider Config
 
 The `withDVCProvider` function accepts a Provider Config object:
@@ -99,13 +138,14 @@ The SDK exposes various initialization options which can be set by passing a `DV
 
 [DVCOptions Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L44)
 
-| DVC Option | Type | Description |
-|------------|------|-------------|
-| eventFlushIntervalMS | number | Controls the interval between flushing events to the DevCycle servers in milliseconds, defaults to 10 seconds. |
-| enableEdgeDB | boolean | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle. |
-| logger | [DVCLogger](https://github.com/DevCycleHQ/js-sdks/blob/main/lib/shared/types/src/logger.ts#L2) | Logger override to replace default logger |
-| logLevel | [DVCDefaultLogLevel](https://github.com/DevCycleHQ/js-sdks/blob/main/lib/shared/types/src/logger.ts#L12) | Set log level of the default logger. Options are: `debug`, `info`, `warn`, `error`. Defaults to `info`. |
-| apiProxyURL | string | Allows the SDK to communicate with a proxy of DVC bucketing API / client SDK API. |
-| configCacheTTL | number | The maximum allowed age of a cached config in milliseconds, defaults to 7 days |
-| disableConfigCache | boolean | Disable the use of cached configs |
-| disableRealtimeUpdates | boolean | Disable Realtime Updates |
+| DVC Option             | Type | Description                                                                                                    |
+|------------------------|------|----------------------------------------------------------------------------------------------------------------|
+| eventFlushIntervalMS   | number | Controls the interval between flushing events to the DevCycle servers in milliseconds, defaults to 10 seconds. |
+| enableEdgeDB           | boolean | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle.                                     |
+| logger                 | [DVCLogger](https://github.com/DevCycleHQ/js-sdks/blob/main/lib/shared/types/src/logger.ts#L2) | Logger override to replace default logger                                                                      |
+| logLevel               | [DVCDefaultLogLevel](https://github.com/DevCycleHQ/js-sdks/blob/main/lib/shared/types/src/logger.ts#L12) | Set log level of the default logger. Options are: `debug`, `info`, `warn`, `error`. Defaults to `info`.        |
+| apiProxyURL            | string | Allows the SDK to communicate with a proxy of DVC bucketing API / client SDK API.                              |
+| configCacheTTL         | number | The maximum allowed age of a cached config in milliseconds, defaults to 7 days                                 |
+| disableConfigCache     | boolean | Disable the use of cached configs                                                                              |
+| disableRealtimeUpdates | boolean | Disable Realtime Updates                                                                                       |
+| deferInitialization    | boolean | Defer initialization (fetching configuration from DevCycle) until user is identified with `identifyUser` call  |
