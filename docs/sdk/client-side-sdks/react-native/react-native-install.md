@@ -96,7 +96,7 @@ function App() {
         alignItems: 'center',
       }}
     >
-      <Text>Universal React with Expo</Text>
+      <Text>My React App</Text>
     </View>
   )
 }
