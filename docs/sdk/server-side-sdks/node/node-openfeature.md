@@ -12,6 +12,8 @@ OpenFeature is an open standard that provides a vendor-agnostic, community-drive
 
 DevCycle provides a NodeJS implementation of the [OpenFeature](https://openfeature.dev/) Provider interface, if you prefer to use the OpenFeature API.
 
+[![Npm package version](https://badgen.net/npm/v/@devcycle/openfeature-nodejs-provider)](https://www.npmjs.com/package/@devcycle/openfeature-nodejs-provider)
+[![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/js-sdks/tree/main/examples/openfeature-nodejs)
 
 ## Usage
 
