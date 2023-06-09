@@ -89,7 +89,7 @@ will return `true` once this configuration has been downloaded.
 
 If you would like to defer initialization of the SDK until your user data is available, you can pass the 
 `deferInitialization` option to the `DVCProvider`. This will cause the SDK to not fetch a configuration until the
-[`dvcClient.identifyUser`](/sdk/react/react-usage#identifying-users) method is called with the user data. 
+[`dvcClient.identifyUser`](/sdk/client-side-sdks/react/react-usage#identifying-users) method is called with the user data. 
 The `useIsDVCInitialized` hook will return `false` until
 that method has been called and a corresponding config has been retrieved. Until that config is retrieved, all calls
 to retrieve variable values will return their default values.
