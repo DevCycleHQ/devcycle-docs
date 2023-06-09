@@ -26,5 +26,7 @@ The SDK is available as a package on npm. It is also open source and can be view
 
 This SDK is compatible with _React Native_ version 0.64.0 and above.
 
+This SDK is not compatible with React Native Expo.
+
 
 
