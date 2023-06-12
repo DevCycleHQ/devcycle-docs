@@ -25,7 +25,7 @@ import { useVariableValue } from '@devcycle/devcycle-react-sdk'
 
 const DVCFeaturePage = () => {
     const variableKey = 'my-feature'
-    const defaultValue = 'false'
+    const defaultValue = false
     const featureVariable = useVariableValue(variableKey, defaultValue)
 
     return (
