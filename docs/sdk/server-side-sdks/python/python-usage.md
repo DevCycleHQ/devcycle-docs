@@ -14,11 +14,11 @@ sidebar_custom_props: {icon: toggle-on}
 The full user data must be passed into every method. The only required field is `user_id`.
 The rest are optional and are used by the system for user segmentation into variables and features.
 
-See the User model in the [Python user model doc](https://github.com/DevCycleHQ/python-server-sdk/blob/main/devcycle_python_sdk/models/user_data.py) 
+See the User model in the [Python user model doc](https://github.com/DevCycleHQ/python-server-sdk/blob/main/devcycle_python_sdk/models/user.py) 
 for all accepted fields including custom fields.
 
 ```python
-user = UserData(
+user = User(
     user_id='test',
     email='example@example.ca',
     country='CA'
@@ -40,7 +40,7 @@ to be fetched from DevCycle's CDN.
         variable_value = dvc.variable_value(user, key, 'default-value')
         print("Variable value is: ", variable_value)
     except Exception as e:
-         print("Exception when calling DVCCloudClient->variable_value: %s\n" % e)
+         print("Exception when calling DevCycleCloudClient->variable_value: %s\n" % e)
 
 ```
 
@@ -59,7 +59,7 @@ To get all variables, use the `all_variables()` method to retrieve a dict with a
         variables = dvc.all_variables(user)
         print(variables)
     except Exception as e:
-        print("Exception when calling DVCCloudClient->all_variables: %s\n" % e)
+        print("Exception when calling DevCycleCloudClient->all_variables: %s\n" % e)
 ```
 See [getVariables](/bucketing-api/#operation/getVariables) on the Bucketing API for the variable response format.
 
@@ -71,7 +71,7 @@ See [getVariables](/bucketing-api/#operation/getVariables) on the Bucketing API 
         features = dvc.all_features(user)
         print(features)
     except Exception as e:
-        print("Exception when calling DVCCloudClient->all_features: %s\n" % e)
+        print("Exception when calling DevCycleCloudClient->all_features: %s\n" % e)
     
 ```
 See [getFeatures](/bucketing-api/#operation/getFeatures) on the Bucketing API for the feature response format.
@@ -92,7 +92,7 @@ To POST custom event for a user
         api_response = dvc.track(user, event)
         print(api_response)
     except Exception as e:
-        print("Exception when calling DVCCloudClient->track: %s\n" % e)
+        print("Exception when calling DevCycleCloudClient->track: %s\n" % e)
 ```
 
 ## EdgeDB
@@ -104,17 +104,17 @@ To get started, contact us at support@devcycle.com to enable EdgeDB for your pro
 Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to turn on EdgeDB mode for the SDK:
 
 ```python
-    from devcycle_python_sdk import DVCCloudClient, DVCCloudOptions
-    from devcycle_python_sdk.models.user_data import UserData
+    from devcycle_python_sdk import DevCycleCloudClient, DevCycleCloudOptions
+    from devcycle_python_sdk.models.user import User
     
-    # Create an optional DVCCloudOptions instance to store user data in EdgeDB
-    options = DVCCloudOptions(enable_edge_db=True)
+    # Create an options object and enable storing user data in EdgeDB
+    options = DevCycleCloudOptions(enable_edge_db=True)
     
-    # create an instance of the DVCCloudClient class
-    dvc = DVCCloudClient('YOUR_DVC_SERVER_SDK_KEY', options)
+    # create an instance of the DevCycleCloudClient class
+    dvc = DevCycleCloudClient('YOUR_DVC_SERVER_SDK_KEY', options)
     
-    # all functions require user data to be an instance of the UserData class
-    user = UserData(
+    # all functions require user data to be an instance of the User class
+    user = User(
         user_id='test',
         email='example@example.ca',
         country='CA'

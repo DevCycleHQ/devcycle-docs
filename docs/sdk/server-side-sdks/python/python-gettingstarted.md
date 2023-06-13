@@ -10,20 +10,20 @@ sidebar_custom_props: {icon: rocket}
 
 ## Initializing SDK 
 
-Code sample for importing and setting up the DVCCloudClient.
+Code sample for importing and setting up the DevCycleCloudClient.
 
 ```python
-    from devcycle_python_sdk import DVCCloudClient, DVCCloudOptions
-    from devcycle_python_sdk.models.user_data import UserData
+    from devcycle_python_sdk import DevCycleCloudClient, DevCycleCloudOptions
+    from devcycle_python_sdk.models.user import User
     
-    # Create an optional DVCCloudOptions instance to store user data in EdgeDB
-    options = DVCCloudOptions(enable_edge_db=True)
+    # Create an options object and enable storing user data in EdgeDB
+    options = DevCycleCloudOptions(enable_edge_db=True)
     
-    # create an instance of the DVCCloudClient class
-    dvc = DVCCloudClient('YOUR_DVC_SERVER_SDK_KEY', options)
+    # create an instance of the DevCycleCloudClient class
+    dvc = DevCycleCloudClient('YOUR_DVC_SERVER_SDK_KEY', options)
     
-    # all functions require user data to be an instance of the UserData class
-    user = UserData(
+    # all functions require user data to be an instance of the User class
+    user = User(
         user_id='test',
         email='example@example.ca',
         country='CA'
