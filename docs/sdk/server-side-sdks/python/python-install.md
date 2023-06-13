@@ -8,7 +8,7 @@ sidebar_custom_props: {icon: screwdriver-wrench}
 [![PyPI](https://badgen.net/pypi/v/devcycle-python-server-sdk)](https://pypi.org/project/devcycle-python-server-sdk/)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/python-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/python-server-sdk)
 
-For Python 2.7 and 3.4+
+For Python 3.7+
 
 ```shell-session
 $ pip install devcycle-python-server-sdk
