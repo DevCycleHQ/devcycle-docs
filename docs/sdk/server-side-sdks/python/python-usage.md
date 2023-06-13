@@ -39,8 +39,8 @@ to be fetched from DevCycle's CDN.
         # Get variable by key for user data
         variable_value = dvc.variable_value(user, key, 'default-value')
         print("Variable value is: ", variable_value)
-    except ApiException as e:
-         print("Exception when calling DVCClient->variable_value: %s\n" % e)
+    except Exception as e:
+         print("Exception when calling DVCCloudClient->variable_value: %s\n" % e)
 
 ```
 
@@ -58,8 +58,8 @@ To get all variables, use the `all_variables()` method to retrieve a dict with a
         # Get all variables for user data
         variables = dvc.all_variables(user)
         print(variables)
-    except ApiException as e:
-        print("Exception when calling DVCClient->all_variables: %s\n" % e)
+    except Exception as e:
+        print("Exception when calling DVCCloudClient->all_variables: %s\n" % e)
 ```
 See [getVariables](/bucketing-api/#operation/getVariables) on the Bucketing API for the variable response format.
 
@@ -70,8 +70,8 @@ See [getVariables](/bucketing-api/#operation/getVariables) on the Bucketing API 
         # Get all features by key for user data
         features = dvc.all_features(user)
         print(features)
-    except ApiException as e:
-        print("Exception when calling DVCClient->all_features: %s\n" % e)
+    except Exception as e:
+        print("Exception when calling DVCCloudClient->all_features: %s\n" % e)
     
 ```
 See [getFeatures](/bucketing-api/#operation/getFeatures) on the Bucketing API for the feature response format.
@@ -91,8 +91,8 @@ To POST custom event for a user
         # Post events to DevCycle for user
         api_response = dvc.track(user, event)
         print(api_response)
-    except ApiException as e:
-        print("Exception when calling DVCClient->track: %s\n" % e)
+    except Exception as e:
+        print("Exception when calling DVCCloudClient->track: %s\n" % e)
 ```
 
 ## EdgeDB
@@ -104,15 +104,14 @@ To get started, contact us at support@devcycle.com to enable EdgeDB for your pro
 Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to turn on EdgeDB mode for the SDK:
 
 ```python
-    from __future__ import print_function
-    from devcycle_python_sdk import Configuration, DVCOptions, DVCClient, UserData, Event
-    from devcycle_python_sdk.rest import ApiException
-    configuration = Configuration()
-    configuration.api_key['Authorization'] = '<DVC_SERVER_SDK_KEY>'
-    # pass in an optional DVCOptions instance to store user data in EdgeDB
-    options = DVCOptions(enableEdgeDB=True)
-    # create an instance of the API class
-    dvc = DVCClient(configuration, options)
+    from devcycle_python_sdk import DVCCloudClient, DVCCloudOptions
+    from devcycle_python_sdk.models.user_data import UserData
+    
+    # Create an optional DVCCloudOptions instance to store user data in EdgeDB
+    options = DVCCloudOptions(enable_edge_db=True)
+    
+    # create an instance of the DVCCloudClient class
+    dvc = DVCCloudClient('YOUR_DVC_SERVER_SDK_KEY', options)
     
     # all functions require user data to be an instance of the UserData class
     user = UserData(
