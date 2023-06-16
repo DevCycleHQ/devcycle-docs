@@ -180,18 +180,22 @@ To **instantly rollout or rollback** a feature to a specfic percentage of users 
 #### How it Works (FAQ)
 
 **How often are rollouts evaluated? / When does the rollout % update?**
+
 Rollouts are calculated in real-time -- meaning that the rate of increase of the current % is based on the time between the start and end dates. 
 
 **How do rollouts actually work?**
+
 The rollout of the targeting rule is deterministic based on an algorithm leveraging the User, Feature and Target IDs. This effectively means that a user will be guaranteed to receive a feature at a specific percentage point for that targeting rule. If the rollout is higher than that percentage point, the user will recieve the feature, and if the rollout is lower than that percentage point, then the user will not receive the feature. It doesn't matter how often the rollout changes. This logic applies to all users and where each user's "percentage point" is randomly distributed.
 
 *Example:*
 Your Production evironment is targeting all users and the rollout is at 30% but you find out that you have to rollback to 0% because of an issue. Once you roll out again to 30%, the 30% of users that were originally targeted are guaranteed to receive the feature again.
 
 **Will a user receive a Feature right away once they qualify for the rollout?**
+
 A User will qualify for the Feature on the first config request after they are part of the rollout percentage. Rollouts will not trigger a Realtime Update on the SDK. 
 
 **If a User meets the Targeting Rule's definition but does not qualify for the Feature by rollout, will they proceed to evaluate the next Targeting Rule?**
+
 If a user qualifies for a target that has a rollout, and they have  _not yet_  received the rollout, the user will not proceed to the next target. Instead, they will remain in the rollout target. ex: If the rollout on the targeting rule is 0% and the user meets the targeting rule's definition, they will stay on the current targeting rule.
 
 
