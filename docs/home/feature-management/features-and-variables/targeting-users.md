@@ -177,7 +177,7 @@ To **instantly rollout or rollback** a feature to a specfic percentage of users 
 
 :::
 
-### How it Works (FAQ)
+#### How it Works (FAQ)
 
 **How often are rollouts evaluated? / When does the rollout % update?**
 Rollouts are calculated in real-time -- meaning that the rate of increase of the current % is based on the time between the start and end dates. 
