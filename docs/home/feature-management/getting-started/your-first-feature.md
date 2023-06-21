@@ -35,7 +35,7 @@ To create a Feature:
 
 5. Enter a descriptive Feature Name
 
-6. Enter a unique feature key. This key is how the feature and is variables will be referenced in code. (A key will be automatically suggested based on the entered name.)
+6. Enter a unique feature key. This key is how the feature and its variables will be referenced in code. (A key will be automatically suggested based on the entered name.)
 
 7. Enter a unique Initial Variable Key. 
 Initial Variable Key allows you to define an initial variable key that can differ from the new feature key name. As you type in the Feature Name, the feature Key and the Initial Variable Key will mimic whatever input is entered in the Feature Name field formatted in kebab case.
