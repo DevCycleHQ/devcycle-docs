@@ -42,7 +42,7 @@ that configuration data updates are available.
 1. On initialization, the Server SDK retrieves the configuration data from the CDN.
 The configuration data is written into a shared WebAssembly bucketing and segmentation library.
 
-2. On each `variable()` call, bucketing and segmentation library combines user data, device data, 
+2. On each `variableValue()` / `variable()` call, bucketing and segmentation library combines user data, device data, 
 and the configuration data to bucket users into features and variations to determine variable values.
 
 3. Configuration updates are received via a server-sent event (SSE) connection or polling against the CDN.
@@ -53,8 +53,8 @@ and the configuration data to bucket users into features and variations to deter
 
 // TODO insert diagram here
 
-1. On each `variable()` call, the Cloud Bucketing Server SDKs fetch data from the [Bucketing API](/bucketing-api/) 
-served by Cloudflare Workers at the edge.
+1. On each `variableValue()` / `variable()` call, the Cloud Bucketing Server SDKs fetch data from the 
+[Bucketing API](/bucketing-api/) served by Cloudflare Workers at the edge.
 
 2. The Bucketing API calls the shared WebAssembly bucketing and segmentation library to combine user data, 
 device data, and configuration data to bucket the user into features and variations to determine variable values.
@@ -71,7 +71,7 @@ the SDK will fall back to the previously cached configuration data or default va
 
 2. The Client SDK API calls the shared WebAssembly bucketing and segmentation library to combine user data, 
 device data, and configuration data to bucket the user into features and variations to determine variable values. 
-This data is returned to the SDKs to be cached and used each time `variable()` is called.
+This data is returned to the SDKs to be cached and used each time `variableValue()` / `variable()` is called.
 
 3. When user data is updated, using the `identifyUser()` or `resetUser()` methods, the SDKs will 
 request a new configuration from the Client SDK API.
