@@ -13,7 +13,7 @@ This page is built using [Docusaurus](https://docusaurus.io/), and is hosted usi
   * If yarn is not available, run `brew install yarn`
   * If on Windows, [get yarn here](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable)
 * link vercel cli to your project `yarn vercel link` and follow the prompt
-* download the environment variables `yarn vercel pull`
+* download the environment variables `yarn pull:env`
 * run `yarn dev`
 
 This will spin up a local version of the docs site for your usage. 
