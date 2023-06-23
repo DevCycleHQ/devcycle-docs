@@ -43,7 +43,7 @@ that configuration data updates are available.
 The configuration data is written into a shared WebAssembly bucketing and segmentation library.
 
 2. On each `variableValue()` / `variable()` call, bucketing and segmentation library combines user data, device data, 
-and the configuration data to bucket users into features and variations to determine variable values.
+and the configuration data locally to bucket users into features and variations to determine variable values.
 
 3. Configuration updates are received via a server-sent event (SSE) connection or polling against the CDN.
 
