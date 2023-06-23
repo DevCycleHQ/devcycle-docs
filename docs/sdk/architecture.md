@@ -35,12 +35,33 @@ which can serve new data in approximately ~1 second globally.
 6. Finally, an update notification is pushed to all connected SDKs via a server-sent event (SSE) connection 
 that configuration data updates are available.
 
+## Shared Bucketing and Segmentation Library
+
+The core of most of our APIs and SDKs that serve feature flag values is a shared WebAssembly (WASM) 
+[bucketing and segmentation library](https://github.com/DevCycleHQ/js-sdks/tree/main/lib/shared/bucketing-assembly-script). 
+The portability of the WASM codebase allows us to achieve the following goals:
+
+- **Fast**: WASM is compiled to a load-time-efficient binary format loaded very quickly and executed at near-native speeds. 
+For higher-level languages, we have seen faster execution times than native code.
+
+- **Portable**: WASM is a portable binary format that runs on various platforms that support it. 
+We use the recommended WASMTime runtimes supported by the Bytecode Alliance across our SDKs. 
+This enables us to share the same core feature flag decisioning logic across all our SDKs and edge-based APIs.
+
+- **Well Tested**: By relying on one core library making decisions across our SDKs and APIs, 
+we can more easily ensure it is well-tested and reliable. In addition to thorough unit testing, 
+we have a cross-platform end-to-end SDK test-harness to ensure platform consistency.
+
+- **Secure**: WASM runs in a memory-safe sandboxed execution environment that has been proven to be secure over many years.
+
+However, WASM is not a silver bullet, and for certain very highly threaded low-level use cases, 
+we have built a native implementation, for example, in our [GO SDK](https://github.com/DevCycleHQ/go-server-sdk).
+
 ## Local Bucketing Server SDK Architecture
 
 // TODO insert diagram here
 
-1. On initialization, the Server SDK retrieves the configuration data from the CDN.
-The configuration data is written into a shared WebAssembly bucketing and segmentation library.
+1. On initialization, the Server SDK retrieves the configuration data from the CDN, and stored locally.
 
 2. On each `variableValue()` / `variable()` call, bucketing and segmentation library combines user data, device data, 
 and the configuration data locally to bucket users into features and variations to determine variable values.
@@ -56,7 +77,7 @@ and the configuration data locally to bucket users into features and variations 
 1. On each `variableValue()` / `variable()` call, the Cloud Bucketing Server SDKs fetch data from the 
 [Bucketing API](/bucketing-api/) served by Cloudflare Workers at the edge.
 
-2. The Bucketing API calls the shared WebAssembly bucketing and segmentation library to combine user data, 
+2. The Bucketing API calls the shared bucketing and segmentation library to combine user data, 
 device data, and configuration data to bucket the user into features and variations to determine variable values.
 
 3. Event data is aggregated and sent to the Events API on an interval.
@@ -69,7 +90,7 @@ device data, and configuration data to bucket the user into features and variati
 If the SDK fails to make a connection to our APIs, for example a mobile device with a poor internet connection, 
 the SDK will fall back to the previously cached configuration data or default values. 
 
-2. The Client SDK API calls the shared WebAssembly bucketing and segmentation library to combine user data, 
+2. The Client SDK API calls the shared bucketing and segmentation library to combine user data, 
 device data, and configuration data to bucket the user into features and variations to determine variable values. 
 This data is returned to the SDKs to be cached and used each time `variableValue()` / `variable()` is called.
 
