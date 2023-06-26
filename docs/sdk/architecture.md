@@ -7,8 +7,8 @@ sidebar_position: 2
 
 When building DevCycle, we decided on a couple of core design goals from our experience of building global services and SDKs:
 - SDKs should be easy to understand and have consistent functionality across platforms.
-- Feature Flags should evaluate quickly and served from as close to the end user as possible.
-- Business-critical code should be shared across platforms to reduce the amount we need to maintain.
+- Feature Flags should evaluate quickly and be served from as close to the end user as possible.
+- Business-critical code should be shared across platforms to ensure consistency and reduce bugs.
 - A cross-platform end-to-end test-harness is required to ensure SDKs are working as expected. 
 - SDKs should limit the number of start options that change the core behaviour of the SDK.
 
@@ -32,8 +32,8 @@ and SDK type combination.
 5. Changes to the configuration data trigger Cloudflare's CDN cache invalidation, 
 which can serve new data in approximately ~1 second globally.
 
-6. Finally, an update notification is pushed to all connected SDKs via a server-sent event (SSE) connection 
-that configuration data updates are available.
+6. Finally, an update notification is pushed to all connected SDKs via a server-sent event (SSE) connection
+that informs them that new configuration data updates are available.
 
 ## Shared Bucketing and Segmentation Library
 
@@ -52,7 +52,8 @@ This enables us to share the same core feature flag decisioning logic across all
 we can more easily ensure it is well-tested and reliable. In addition to thorough unit testing, 
 we have a cross-platform end-to-end SDK test-harness to ensure platform consistency.
 
-- **Secure**: WASM runs in a memory-safe sandboxed execution environment that has been proven to be secure over many years.
+- **Secure**: WASM runs in a [memory-safe sandboxed execution environment](https://webassembly.org/docs/security/) 
+that has been proven to be secure over many years.
 
 However, WASM is not a silver bullet, and for certain very highly threaded low-level use cases, 
 we have built a native implementation, for example, in our [GO SDK](https://github.com/DevCycleHQ/go-server-sdk).
@@ -61,7 +62,7 @@ we have built a native implementation, for example, in our [GO SDK](https://gith
 
 // TODO insert diagram here
 
-1. On initialization, the Server SDK retrieves the configuration data from the CDN, and stored locally.
+1. On initialization, the Server SDK retrieves the configuration data from the CDN, and stores it locally.
 
 2. On each `variableValue()` / `variable()` call, bucketing and segmentation library combines user data, device data, 
 and the configuration data locally to bucket users into features and variations to determine variable values.
