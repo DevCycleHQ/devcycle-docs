@@ -60,7 +60,7 @@ we have built a native implementation, for example, in our [GO SDK](https://gith
 
 ## Local Bucketing Server SDK Architecture
 
-// TODO insert diagram here
+![Architecture Docs Diagrams - Local Server SDK.svg](..%2F..%2Fstatic%2FArchitecture%20Docs%20Diagrams%20-%20Local%20Server%20SDK.svg)
 
 1. On initialization, the Server SDK retrieves the configuration data from the CDN, and stores it locally.
 
@@ -73,7 +73,7 @@ and the configuration data locally to bucket users into features and variations 
 
 ## Cloud Bucketing Server SDK Architecture
 
-// TODO insert diagram here
+![Architecture Docs Diagrams - Cloud Server SDK.svg](..%2F..%2Fstatic%2FArchitecture%20Docs%20Diagrams%20-%20Cloud%20Server%20SDK.svg)
 
 1. On each `variableValue()` / `variable()` call, the Cloud Bucketing Server SDKs fetch data from the 
 [Bucketing API](/bucketing-api/) served by Cloudflare Workers at the edge.
@@ -85,7 +85,7 @@ device data, and configuration data to bucket the user into features and variati
 
 ## Client + Mobile SDK Architecture
 
-// TODO insert diagram here
+![Architecture Docs Diagrams - Client Mobile SDK.svg](..%2F..%2Fstatic%2FArchitecture%20Docs%20Diagrams%20-%20Client%20Mobile%20SDK.svg)
 
 1. On initialization, Mobile and Client SDKs call the Client SDK API served by Cloudflare Workers at the edge. 
 If the SDK fails to make a connection to our APIs, for example a mobile device with a poor internet connection, 
