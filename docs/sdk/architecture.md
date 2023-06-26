@@ -15,9 +15,9 @@ When building DevCycle, we decided on a couple of core design goals from our exp
 With these design goals in mind, we have developed a set of Client / Mobile / Server SDKs that deliver 
 fast global response times and local evaluation of feature flag values.
 
-## How our APIs build environment configurations
+## How our APIs build Configuration data
 
-// TODO insert diagram here
+![architexture-api-diagram.svg](..%2F..%2Fstatic%2Farchitexture-api-diagram.svg)
 
 1. Features created in the Dashboard interact directly with our public [Management API](/management-api/), 
 to create and manage various models like Audiences / Features / Variables / Variations / etc.
