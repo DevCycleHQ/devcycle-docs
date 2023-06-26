@@ -33,7 +33,7 @@ const config = {
     [
       '@devcycle/docusaurus-devcycle-plugin',
       {
-        sdkKey: process.env.DEVCYCLE_CLIENT_SDK_KEY,
+        sdkKey: process.env.DEVCYCLE_CLIENT_SDK_KEY || 'dvc_client_sdk_key',
       },
     ],
   ],
