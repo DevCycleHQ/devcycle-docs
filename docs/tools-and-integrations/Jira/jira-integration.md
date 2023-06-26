@@ -8,7 +8,7 @@ sidebar_position: 1
 
 ![Image with installation info](/feb-2022-jira-marketplace-header.png)
 
-1. Once the app has been installed you will see an option to configure the application
+2. Once the app has been installed you will see an option to configure the application
 
 ![Image with installation info](/feb-2022-jira-marketplace-header-added.png)
 
@@ -18,15 +18,33 @@ sidebar_position: 1
 
  ![jira dropdown](/feb-2022-jira-dropdown.png)
 
-2. Your DevCycle Jira access token is Project specific, and can be found under Settings > Projects in your DevCycle dashboard. Click "edit" on the project 
+:::tip
+You can choose to connect a DevCycle project to Jira individually, or connect your entire DevCycle Organization and all of its projects to your Jira project with a single token.  Details below.
+:::
+
+### Connecting an Organization (all projects) to Jira
+
+1. If you choose to connect an organization to Jira, it will connect all DevCycle projects to Jira. To do this, use the Organization's jira token which can be found under Settings in your DevCycle dashboard.
+
+![Org info for jira copy](/june-2023-jira-organization-connect.png)
+
+3. Paste your Jira Connection Token into the Jira configuration page, and save.
+ 
+![Screen Shot 2022-02-25 at 3.12.31 PM.png](/feb-2022-jira-app-config.png)
+    
+Your Jira project is now configured with your DevCycle project!
+
+### Connecting an Individual DevCycle Project
+
+1. If you choose to only connect a single DevCycle Project to jira, use the project's jira token which can be found under Settings > Projects in your DevCycle dashboard. Click "edit" on the project 
 
 ![DevCycle project settings page](/feb-2022-jira-project-settings-1.png)
 
-3. Copy this token:
+2. Copy this token:
 
 ![project info for jira copy](/feb-2022-jira-copy.png)
 
-1. Paste your Jira Connection Token into the Jira configuration page, and save.
+3. Paste your Jira Connection Token into the Jira configuration page, and save.
  
 ![Screen Shot 2022-02-25 at 3.12.31 PM.png](/feb-2022-jira-app-config.png)
     

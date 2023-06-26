@@ -19,23 +19,29 @@ import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
     icon:'jira'
   }]} />
 
+
 ### Overview
 
-DevCycle for Jira enables the linking of Jira tickets directly to features within DevCycle, showing the feature status within Jira.
+DevCycle for Jira streamlines your workflow by enabling the linking of Jira tickets directly to features within DevCycle, making the feature status easily viewable within Jira. 
 
-Feature development teams have a number of different tools to track and enhance their workflow from project management, to code repositories and feature management tools. When these tools have siloed information it can be very difficult to piece together what the exact status of a feature is in the development lifecycle.
+Feature development teams often utilize a diverse array of tools, from project management and code repositories to feature management tools. However, these tools often contain siloed information, making it a daunting task to track the exact status of a feature in the development lifecycle.
 
+DevCycle for Jira is the solution to this problem. It establishes a two-way synchronization between Jira, the leading project management tool, and DevCycle, the top feature management tool. With DevCycle for Jira enabled, teams can quickly identify which feature flags are tied to their tickets and understand their current configuration and status. This results in smoother standups, code reviews, QA, and planning processes.
 
-DevCycle for Jira solves this problem by creating a two-way sync between Jira, the number 1 project management tool and DevCycle, the number 1 feature management tool. With DevCycle for Jira enabled, teams can quickly and easily see which feature flags are associated with their tickets and understand their current configuration and status, making standups, code review, QA and planning instantly easier.
+### See Your Feature's Status in Jira
 
-**See your Feature's status in Jira**
-
-Easily connect your Feature Flags and see their status directly in Jira.
+Link your Feature Flags to Jira effortlessly and monitor their status directly in Jira.
 
 ![Jira example 1](/feb-2022-jira-section-1.png)
 
-**Connect your tickets in DevCycle**
+### Connect Your Tickets in DevCycle
 
-Simply connect your Jira Ticket IDs to a Feature in DevCycle. You can connect as many as you want, and connect one ticket to multiple features and vice-versa.
+Integrate your Jira Ticket IDs with any Feature in DevCycle. This flexibility allows you to associate one ticket with multiple features and vice versa, according to your project needs.
 
 ![Jira example 2](/feb-2022-jira-section-2.png)
+
+### More Info
+
+DevCycle for Jira equips your team to comprehend the full context of every ticket in Jira, simplifying the task of finding the Jira context within DevCycle. This integration allows for a quicker understanding of the current status of all tasks, enabling you to develop your features faster and with more confidence. 
+
+Simply input the Jira ticket numbers on your feature to connect existing Features to Jira tickets. You can view the status of a feature in every environment through a single connection in Jira. Associate one Jira ticket with numerous DevCycle Features, or link numerous Jira tickets to one DevCycle feature, providing a flexible view of your work. Note that each DevCycle project can only be connected to a single Jira project.
