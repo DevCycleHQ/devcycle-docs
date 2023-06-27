@@ -104,5 +104,12 @@ request a new configuration from the Client SDK API.
 
 5. Event data is sent on an interval to our Events API.
 
+## SDK Test Harness
 
+Our [SDK Test Harness](https://github.com/DevCycleHQ/test-harness) aims to define a set of standardized end-to-end tests 
+that run against multiple SDKs written in different languages. The tests defined using Jest
+are run using a set of HTTP requests made to a series of proxy servers for each language of the SDKs.
 
+These proxy servers then take the commands from the requests made from the tests to set up the SDKs in different ways, 
+execute all the core SDK methods, and measure their responses. They ensure that each SDK behaves the same way and 
+returns the same results, or throws the same errors, for each test.
