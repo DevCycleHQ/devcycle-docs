@@ -13,7 +13,9 @@ When building DevCycle, we decided on a couple of core design goals from our exp
 - SDKs should limit the number of start options that change the core behaviour of the SDK.
 
 With these design goals in mind, we have developed a set of Client / Mobile / Server SDKs that deliver 
-fast global response times and local evaluation of feature flag values.
+fast global response times and local evaluation of feature flag values. The following explanations of our
+various SDK architectures have generally been fully implemented, outside of some instances where we still 
+need to implement Server-Sent Event (SSE) connections fully.
 
 ## How our APIs build Configuration data
 
