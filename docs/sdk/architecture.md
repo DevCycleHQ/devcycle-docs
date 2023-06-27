@@ -39,7 +39,11 @@ that informs them that new configuration data updates are available.
 
 ## Shared Bucketing and Segmentation Library
 
-The core of most of our APIs and SDKs that serve feature flag values is a shared WebAssembly (WASM) 
+The shared bucketing and segmentation library is the core of our SDKs and APIs logic. It combines configuration data 
+containing Feature / Variable / Variation / Audience / Targeting Rule definitions with user data to bucket users into 
+features and variations and determines variable values.
+
+Most of our APIs and SDKs use a shared WebAssembly (WASM) 
 [bucketing and segmentation library](https://github.com/DevCycleHQ/js-sdks/tree/main/lib/shared/bucketing-assembly-script). 
 The portability of the WASM codebase allows us to achieve the following goals:
 
