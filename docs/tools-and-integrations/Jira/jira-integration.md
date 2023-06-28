@@ -1,38 +1,14 @@
 ---
-title: "DevCycle Feature Flag Management for Jira"
+title: "DevCycle Jira Integration Setup"
 sidebar_position: 1
 ---
-
-## Overview
-
-**[Jira Marketplace Listing](https://marketplace.atlassian.com/apps/1227643/devcycle-feature-flag-management-for-jira)**
-
-DevCycle for Jira enables the linking of Jira tickets directly to features within DevCycle, showing the feature status within Jira.
-
-Feature development teams have a number of different tools to track and enhance their workflow from project management, to code repositories and feature management tools. When these tools have siloed information it can be very difficult to piece together what the exact status of a feature is in the development lifecycle.
-
-
-DevCycle for Jira solves this problem by creating a two-way sync between Jira, the number 1 project management tool and DevCycle, the number 1 feature management tool. With DevCycle for Jira enabled, teams can quickly and easily see which feature flags are associated with their tickets and understand their current configuration and status, making standups, code review, QA and planning instantly easier.
-
-**See your Feature's status in Jira**
-
-Easily connect your Feature Flags and see their status directly in Jira.
-
-![Jira example 1](/feb-2022-jira-section-1.png)
-
-**Connect your tickets in DevCycle**
-
-Simply connect your Jira Ticket IDs to a Feature in DevCycle. You can connect as many as you want, and connect one ticket to multiple features and vice-versa.
-
-![Jira example 2](/feb-2022-jira-section-2.png)
-
 ## Setup
 
 1. Install the app from the [Jira Marketplace Listing](https://marketplace.atlassian.com/apps/1227643/devcycle-feature-flag-management-for-jira). To install, select “Get App" and confirm the app installation (you will need appropriate Jira permissions)
 
 ![Image with installation info](/feb-2022-jira-marketplace-header.png)
 
-1. Once the app has been installed you will see an option to configure the application
+2. Once the app has been installed you will see an option to configure the application
 
 ![Image with installation info](/feb-2022-jira-marketplace-header-added.png)
 
@@ -42,15 +18,33 @@ Simply connect your Jira Ticket IDs to a Feature in DevCycle. You can connect as
 
  ![jira dropdown](/feb-2022-jira-dropdown.png)
 
-2. Your DevCycle Jira access token is Project specific, and can be found under Settings > Projects in your DevCycle dashboard. Click "edit" on the project 
+:::tip
+You can choose to connect a DevCycle project to Jira individually, or connect your entire DevCycle Organization and all of its projects to your Jira project with a single token.  Details below.
+:::
+
+### Connecting an Organization (all projects) to Jira
+
+1. If you choose to connect an organization to Jira, it will connect all DevCycle projects to Jira. To do this, use the Organization's jira token which can be found under Settings in your DevCycle dashboard.
+
+![Org info for jira copy](/june-2023-jira-organization-connect.png)
+
+3. Paste your Jira Connection Token into the Jira configuration page, and save.
+ 
+![Screen Shot 2022-02-25 at 3.12.31 PM.png](/feb-2022-jira-app-config.png)
+    
+Your Jira project is now configured with your DevCycle project!
+
+### Connecting an Individual DevCycle Project
+
+1. If you choose to only connect a single DevCycle Project to jira, use the project's jira token which can be found under Settings > Projects in your DevCycle dashboard. Click "edit" on the project 
 
 ![DevCycle project settings page](/feb-2022-jira-project-settings-1.png)
 
-3. Copy this token:
+2. Copy this token:
 
 ![project info for jira copy](/feb-2022-jira-copy.png)
 
-1. Paste your Jira Connection Token into the Jira configuration page, and save.
+3. Paste your Jira Connection Token into the Jira configuration page, and save.
  
 ![Screen Shot 2022-02-25 at 3.12.31 PM.png](/feb-2022-jira-app-config.png)
     
