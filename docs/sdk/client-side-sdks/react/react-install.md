@@ -41,3 +41,59 @@ To install the SDK, run the following command:
   ```bash
     yarn add @devcycle/devcycle-react-sdk
   ```
+
+<!--/tabs-->
+
+
+### Using With Create-React-App
+
+Due to [a known issue with create-react-app and cjs](https://github.com/facebook/create-react-app/pull/12021#issuecomment-1108426483), the following steps are required to ensure compatibility with the SDK.
+
+**1. Install [react-app-rewired](https://github.com/timarney/react-app-rewired)**
+
+```
+yarn add react-app-rewired --dev
+```
+
+or
+
+```
+npm install react-app-rewired --save-dev
+```
+
+**2. Create a file at the root of your project called `config-overrides.js`**
+
+```
+// config-overrides.js
+module.exports = {
+    webpack: function (config, env) {
+        config.module.rules = config.module.rules.map((rule) => {
+            if (rule.oneOf instanceof Array) {
+                rule.oneOf[rule.oneOf.length - 1].exclude = [
+                    /\.(js|mjs|jsx|cjs|ts|tsx)$/,
+                    /\.html$/,
+                    /\.json$/,
+                ]
+            }
+            return rule
+        })
+        return config
+    },
+}
+```
+
+**3. Update the `scripts` section of your `package.json` to use `react-app-rewired`**
+
+```
+/* package.json */
+
+  "scripts": {
+-   "start": "react-scripts start",
++   "start": "react-app-rewired start",
+-   "build": "react-scripts build",
++   "build": "react-app-rewired build",
+-   "test": "react-scripts test",
++   "test": "react-app-rewired test",
+    "eject": "react-scripts eject"
+}
+```
