@@ -40,11 +40,11 @@ to be fetched from DevCycle's CDN.
         variable_value = client.variable_value(user, key, 'default-value')
         print("Variable value is: ", variable_value)
     except Exception as e:
-         print("Exception when calling DevCycleLocalClient->variable_value: %s\n" % e)
+         print(f"Exception when calling DevCycleLocalClient->variable_value: {e}")
 
 ```
 
-The default value can be of type string, boolean, number, or dict[str, Any].
+The default value can be of type string, boolean, number, or dictionary.
 
 If you would like to get the full Variable you can use `variable()` instead. This contains fields such as:
 `key`, `value`, `type`, `defaultValue`, `isDefaulted`.
@@ -59,7 +59,7 @@ Use the `all_variables()` method to retrieve a dictionary with all the segmented
         variables = client.all_variables(user)
         print(variables)
     except Exception as e:
-        print("Exception when calling DevCycleLocalClient->all_variables: %s\n" % e)
+        print(f"Exception when calling DevCycleLocalClient->all_variables: {e}")
 ```
 See [getVariables](/bucketing-api/#operation/getVariables) on the Bucketing API for the variable response format.
 
@@ -73,7 +73,7 @@ Use the `all_features()` method to retrieve a dictionary with all the segmented 
         features = client.all_features(user)
         print(features)
     except Exception as e:
-        print("Exception when calling DevCycleLocalClient->all_features: %s\n" % e)
+        print(f"Exception when calling DevCycleLocalClient->all_features: {e}")
     
 ```
 See [getFeatures](/bucketing-api/#operation/getFeatures) on the Bucketing API for the feature response format.
@@ -96,7 +96,7 @@ To POST custom event for a user:
         api_response = client.track(user, event)
         print(api_response)
     except Exception as e:
-        print("Exception when calling DevCycleLocalClient->track: %s\n" % e)
+        print(f"Exception when calling DevCycleLocalClient->track: {e}")
 ```
 
 
