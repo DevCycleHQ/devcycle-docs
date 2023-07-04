@@ -36,6 +36,45 @@ const config = {
         sdkKey: process.env.DEVCYCLE_CLIENT_SDK_KEY || 'dvc_client_sdk_key',
       },
     ],
+    [
+      "docusaurus-plugin-remote-content",
+      {
+        name: "cli",
+        sourceBaseUrl: "https://raw.githubusercontent.com/DevCycleHQ/cli/main/",
+        outDir: "docs/tools-and-integrations/cli",
+        documents: [
+          'README.md',
+          'docs/alias.md',
+          'docs/cleanup.md',
+          'docs/diff.md',
+          'docs/environments.md',
+          'docs/features.md',
+          'docs/generate.md',
+          'docs/help.md',
+          'docs/keys.md',
+          'docs/login.md',
+          'docs/logout.md',
+          'docs/org.md',
+          'docs/projects.md',
+          'docs/repo.md',
+          'docs/status.md',
+          'docs/targeting.md',
+          'docs/usages.md',
+          'docs/variables.md',
+          'docs/variations.md',
+        ],
+        performCleanup: true,
+        modifyContent: (filename, content) => {
+          if (filename.includes('README')) {
+            return {
+              // reduce headers to use with table of contents
+              content: content.replace(/#\s/g, '## '),
+            }
+          }
+          return undefined
+        }
+      },
+    ],
   ],
 
   presets: [

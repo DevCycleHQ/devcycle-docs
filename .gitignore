@@ -24,6 +24,10 @@ packages/docusaurus/lib/
 packages/docusaurus-*/lib/*
 packages/docusaurus-*/lib-next/
 
+# Auto-generated files
+docs/tools-and-integrations/cli/docs/*.md
+docs/tools-and-integrations/cli/*.md
+
 website/netlifyDeployPreview/*
 !website/netlifyDeployPreview/index.html
 !website/netlifyDeployPreview/_redirects
