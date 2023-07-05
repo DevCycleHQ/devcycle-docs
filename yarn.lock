@@ -4278,6 +4278,13 @@ axios@^0.25.0:
   dependencies:
     follow-redirects "^1.14.7"
 
+axios@^0.26.1:
+  version "0.26.1"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.26.1.tgz#1ede41c51fcf51bbbd6fd43669caaa4f0495aaa9"
+  integrity sha512-fPwcX4EvnSHuInCMItEhAGnaSEXRBjtzh9fOtsE6E1G6p7vl7edEeZe11QHf18+6+9gR5PbKV/sGKNaD8YaMeA==
+  dependencies:
+    follow-redirects "^1.14.8"
+
 axios@^0.27.2:
   version "0.27.2"
   resolved "https://registry.yarnpkg.com/axios/-/axios-0.27.2.tgz#207658cc8621606e586c85db4b41a750e756d972"
@@ -5673,6 +5680,16 @@ docusaurus-plugin-redoc@1.6.0:
     "@redocly/openapi-core" "1.0.0-beta.123"
     redoc "2.0.0"
 
+docusaurus-plugin-remote-content@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/docusaurus-plugin-remote-content/-/docusaurus-plugin-remote-content-3.1.0.tgz#d9349da5e098ba65050c5e00ef2425f3edb5e837"
+  integrity sha512-859WYmC75l9hRYa1f/2FNF+FLcKbkHCM/0dehN1Wl1fIuoFzEPf3tcWs4jcEobRHYnoMjyupqAhmu0q5j3JoIg==
+  dependencies:
+    axios "^0.26.1"
+    picocolors "^1.0.0"
+    pretty-ms "^7.0.1"
+    rimraf "^3.0.2"
+
 docusaurus-theme-redoc@1.6.1:
   version "1.6.1"
   resolved "https://registry.npmjs.org/docusaurus-theme-redoc/-/docusaurus-theme-redoc-1.6.1.tgz"
@@ -6530,7 +6547,7 @@ flux@^4.0.1:
     fbemitter "^3.0.0"
     fbjs "^3.0.1"
 
-follow-redirects@^1.0.0, follow-redirects@^1.14.7, follow-redirects@^1.14.9:
+follow-redirects@^1.0.0, follow-redirects@^1.14.7, follow-redirects@^1.14.8, follow-redirects@^1.14.9:
   version "1.15.2"
   resolved "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.15.2.tgz"
   integrity sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==
