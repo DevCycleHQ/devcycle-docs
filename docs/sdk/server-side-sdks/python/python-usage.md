@@ -99,6 +99,20 @@ To POST custom event for a user:
         print(f"Exception when calling DevCycleLocalClient->track: {e}")
 ```
 
+## Set Global Custom Data
+
+To assist with segmentation and bucketing you can set a global custom data dictionary that will be used for all variable and feature evaluations. User specific custom data will override global custom data.
+
+```python
+    # Set global custom data
+    client.set_client_custom_data({
+        "some-key": "some-value"
+    })
+```
+
+:::caution
+Global Custom Data is only available for the Local Bucketing SDK
+:::
 
 ## EdgeDB
 
