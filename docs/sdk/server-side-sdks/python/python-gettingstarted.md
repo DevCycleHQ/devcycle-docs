@@ -20,7 +20,7 @@ from devcycle_python_sdk.models.user import DevCycleUser
 options = DevCycleLocalOptions()
 
 # create an instance of the DevCycleCloudClient class
-client = DevCycleLocalClient('YOUR_DEVCYCLE_SERVER_SDK_KEY', options)
+client = DevCycleLocalClient('DEVCYCLE_SERVER_SDK_KEY', options)
 
 # all client functions require user data to be an instance of the DevCycleUser class
 user = DevCycleUser(
@@ -42,7 +42,7 @@ from devcycle_python_sdk.models.user import DevCycleUser
 options = DevCycleCloudOptions(enable_edge_db=True)
 
 # create an instance of the DevCycleCloudClient class
-client = DevCycleCloudClient('YOUR_DEVCYCLE_SERVER_SDK_KEY', options)
+client = DevCycleCloudClient('DEVCYCLE_SERVER_SDK_KEY', options)
 
 # all client functions require user data to be an instance of the DevCycleUser class
 user = DevCycleUser(
