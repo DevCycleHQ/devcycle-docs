@@ -33,15 +33,14 @@ the user is not segmented into a feature using that variable, or the project con
 to be fetched from DevCycle's CDN.
 
 ```python
-    key = 'key-test' # str | Variable key
+key = 'key-test' # str | Variable key
 
-    try:
-        # Get variable by key for user data
-        variable_value = client.variable_value(user, key, 'default-value')
-        print("Variable value is: ", variable_value)
-    except Exception as e:
-         print(f"Exception when calling DevCycleLocalClient->variable_value: {e}")
-
+try:
+    # Get variable by key for user data
+    variable_value = client.variable_value(user, key, 'default-value')
+    print("Variable value is: ", variable_value)
+except Exception as e:
+     print(f"Exception when calling DevCycleLocalClient->variable_value: {e}")
 ```
 
 The default value can be of type string, boolean, number, or dictionary.
@@ -54,12 +53,12 @@ If you would like to get the full Variable you can use `variable()` instead. Thi
 Use the `all_variables()` method to retrieve a dictionary with all the segmented variables for the user.
 
 ```python
-    try:
-        # Get all variables for user data
-        variables = client.all_variables(user)
-        print(variables)
-    except Exception as e:
-        print(f"Exception when calling DevCycleLocalClient->all_variables: {e}")
+try:
+    # Get all variables for user data
+    variables = client.all_variables(user)
+    print(variables)
+except Exception as e:
+    print(f"Exception when calling DevCycleLocalClient->all_variables: {e}")
 ```
 See [getVariables](/bucketing-api/#operation/getVariables) on the Bucketing API for the variable response format.
 
@@ -68,13 +67,12 @@ See [getVariables](/bucketing-api/#operation/getVariables) on the Bucketing API 
 Use the `all_features()` method to retrieve a dictionary with all the segmented features for the user.
 
 ```python
-    try:
-        # Get all features by key for user data
-        features = client.all_features(user)
-        print(features)
-    except Exception as e:
-        print(f"Exception when calling DevCycleLocalClient->all_features: {e}")
-    
+try:
+    # Get all features by key for user data
+    features = client.all_features(user)
+    print(features)
+except Exception as e:
+    print(f"Exception when calling DevCycleLocalClient->all_features: {e}")
 ```
 See [getFeatures](/bucketing-api/#operation/getFeatures) on the Bucketing API for the feature response format.
 
@@ -83,20 +81,20 @@ See [getFeatures](/bucketing-api/#operation/getFeatures) on the Bucketing API fo
 To POST custom event for a user:
 
 ```python
-    from devcycle_python_sdk.models.event import DevCycleEvent, EventType
+from devcycle_python_sdk.models.event import DevCycleEvent, EventType
 
-    # event needs to be an instance of the DevCycleEvent class
-    event = DevCycleEvent(
-        type=EventType.CustomEvent,
-        target="somevariable.key"
-    )
-   
-    try:
-        # Post events to DevCycle for user
-        api_response = client.track(user, event)
-        print(api_response)
-    except Exception as e:
-        print(f"Exception when calling DevCycleLocalClient->track: {e}")
+# event needs to be an instance of the DevCycleEvent class
+event = DevCycleEvent(
+    type=EventType.CustomEvent,
+    target="somevariable.key"
+)
+
+try:
+    # Post events to DevCycle for user
+    api_response = client.track(user, event)
+    print(api_response)
+except Exception as e:
+    print(f"Exception when calling DevCycleLocalClient->track: {e}")        
 ```
 
 ## Set Global Custom Data
@@ -104,10 +102,10 @@ To POST custom event for a user:
 To assist with segmentation and bucketing you can set a global custom data dictionary that will be used for all variable and feature evaluations. User specific custom data will override global custom data.
 
 ```python
-    # Set global custom data
-    client.set_client_custom_data({
-        "some-key": "some-value"
-    })
+# Set global custom data
+client.set_client_custom_data({
+    "some-key": "some-value"
+})
 ```
 
 :::caution
@@ -123,21 +121,21 @@ To get started, contact us at support@devcycle.com to enable EdgeDB for your pro
 Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to turn on EdgeDB mode for the SDK:
 
 ```python
-    from devcycle_python_sdk import DevCycleCloudClient, DevCycleCloudOptions
-    from devcycle_python_sdk.models.user import User
-    
-    # Create an options object and enable storing user data in EdgeDB
-    options = DevCycleCloudOptions(enable_edge_db=True)
-    
-    # create an instance of the DevCycleCloudClient class
-    dvc = DevCycleCloudClient('YOUR_DVC_SERVER_SDK_KEY', options)
-    
-    # all functions require user data to be an instance of the User class
-    user = User(
-        user_id='test',
-        email='example@example.ca',
-        country='CA'
-    )
+from devcycle_python_sdk import DevCycleCloudClient, DevCycleCloudOptions
+from devcycle_python_sdk.models.user import User
+
+# Create an options object and enable storing user data in EdgeDB
+options = DevCycleCloudOptions(enable_edge_db=True)
+
+# create an instance of the DevCycleCloudClient class
+dvc = DevCycleCloudClient('YOUR_DVC_SERVER_SDK_KEY', options)
+
+# all functions require user data to be an instance of the User class
+user = User(
+    user_id='test',
+    email='example@example.ca',
+    country='CA'
+)
 ```
 
 This will send a request to our EdgeDB API to save the custom data under the user UserId.
