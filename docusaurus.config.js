@@ -3,6 +3,12 @@ const path = require('path')
 const remarkYoutube = require('gridsome-plugin-remark-youtube')
 
 /**
+ * Pinned version of the CLI to use for docs
+ * When bumping the version, add any new commands to the documents array
+ */
+const DVC_CLI_VERSION = 'v4.6.0'
+
+/**
  * @type {Partial<import('@docusaurus/types').DocusaurusConfig>}
  */
 const config = {
@@ -40,7 +46,7 @@ const config = {
       "docusaurus-plugin-remote-content",
       {
         name: "cli",
-        sourceBaseUrl: "https://raw.githubusercontent.com/DevCycleHQ/cli/main/",
+        sourceBaseUrl: `https://raw.githubusercontent.com/DevCycleHQ/cli/${DVC_CLI_VERSION}`,
         outDir: "docs/tools-and-integrations/cli",
         documents: [
           'README.md',
