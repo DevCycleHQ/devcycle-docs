@@ -7,7 +7,7 @@ import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 
 # DevCycle Python Server SDK
 
-Welcome to the the DevCycle Python SDK, initially generated via the [DevCycle Bucketing API](/bucketing-api/#tag/devcycle).
+Welcome to the DevCycle Python Server SDK. We have two modes for the SDK. Local Bucketing (using the local bucketing engine) and Cloud bucketing (using the [DevCycle Bucketing API](/bucketing-api/#tag/devcycle)).
 
 <CustomDocCardList items={useCurrentSidebarCategory().items} columnWidth={4} />
 
