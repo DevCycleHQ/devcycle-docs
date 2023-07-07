@@ -258,13 +258,13 @@ Saving this Feature will then cause the next evaluation of a variable for all us
 
 ![targeting reorder](/april-2022-targeting-reorder.png)
 
-## Reusable Audiences
+## Audiences
 
-This topic explains how to create and manage Reusable Audiences through our Management API. 
+This topic explains how to create and manage Audiences via our API or within the DevCycle dashboard. 
 
-Reusable Audiences allow you to define an audience using filters, and then reuse the audience in user targeting for features.  Audiences are lists of users, defined by “filters” that you can use to manage flag targeting behaviour in bulk. Reusable Audiences are useful for managing groups of users, like `internal-users` or `loyalty-tier-gold`. 
+Audiences allow you to define an audience using filters, and then reuse the audience in user targeting for features.  Audiences are lists of users, defined by “filters” that you can use to manage flag targeting behaviour in bulk. Audiences are useful for managing groups of users, like `internal-users` or `loyalty-tier-gold`. 
 
-### Creating a Reusable Audience
+### Creating an Audience via API
 
 The first step is to create an audience through the Management API:
 
@@ -291,7 +291,7 @@ curl --location 'https://api.devcycle.com/v1/projects/{project-key}/audiences' \
     }
 }'
 ```
-This will return you a response of the created resource which includes an `_id` field which will be used to include the Reusable Audience in the targeting rules of your feature.
+This will return you a response of the created resource which includes an `_id` field which will be used to include the Audience in the targeting rules of your feature.
 
 *Refer to the [Management API docs](https://docs.devcycle.com/management-api/#operation/AudiencesController_create) for more information.*
 
@@ -335,12 +335,12 @@ curl --location --request PATCH 'https://api.devcycle.com/v1/projects/{project-k
 }'
 ```
 
-Under the `filters` array, you can list an `Audience Match` filter that is used to reference any Reusable Audiences in the `_audiences` array by `_id`.
+Under the `filters` array, you can list an `Audience Match` filter that is used to reference any Audiences in the `_audiences` array by `_id`.
 
 You will see this in the Targeting Rules section of the feature page as a **read-only** field:
 ![Read-only resuable audience in feature dashboard](/march-1-2023-readonly-resuableaudience.png)
 
-### View & Modify Reusable Audiences
+### View & Modify Audiences via API
 
 To see all your created Audiences, click the Audiences tab on the navigation bar: 
 ![Audiences Tab](/march-1-2023-audiences-tab.png)
@@ -349,3 +349,30 @@ This lists all Audiences created through the Management API. At the moment, the 
 
 To view more information about the Audience, click the `View Definition` button to see more:
 ![Audiences Tab](/march-1-2023-resuableaudience-viewdefinition.png)
+
+### Create & Manage Audiences in the Dashboard
+
+When Audiences have been enabled for your organization, you will see an Audiences tab at the top of your navigation bar. Here you will be able to view all Audiences that have been created within your project.
+
+![Audiences Tab](/july-2023-audiences-tab-example.png)
+
+To create a new Audience within the DevCycle Dashboard:
+1. Navigate to the **Audiences** tab.
+2. Click **Create New Audience** and the Create New Audience modal will appear. 
+![Create New Audience Modal](/july-2023-create-audience-modal-filled.png)
+3. Give your segment a human-readable **Audience Name**.
+4. Enter an **Audience Key** for this Audience (this field auto-populates based on the Audience Name, but you can change it if you need to) 
+5. *(Optional)* Add a **Description**.
+6. *(Optional)* Add **Tags**.
+7. Click Create and you’ll be taken to your newly created Audience details page. The Info section will have the same details that you entered into the modal. 
+![Audience Details Page](/july-2023-audience-editing-page.png)
+8. Scroll down or click on Definition in the side bar. Click `Define Audience` and the same interface that is used to create targeting rules will appear. We have also introduced the ability to have top-level ORs within an Audience. 
+![Audience Definition](/july-2023-audience-definition-OR-callout.png)
+9. Define your Audience. 
+![Audience Definition](/july-2023-audience-definition.png)
+10. Click Save at the top of the page when complete. 
+
+
+
+
+
