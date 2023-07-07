@@ -355,7 +355,7 @@ To view more information about the Audience, click the `View Definition` button 
 
 ### Create & Manage Audiences in the Dashboard
 
-When Audiences have been enabled for your organization, you will see an Audiences tab at the top of your navigation bar. Here you will be able to see all Audiences that have been created within your project.
+When Audiences have been enabled for your organization, you will see an Audiences tab at the top of your navigation bar. Here you will be able to view all Audiences that have been created within your project.
 
 ![Audiences Tab](/july-2023-audiences-tab-example.png)
 
@@ -364,7 +364,7 @@ To create a new Audience within the DevCycle Dashboard:
 2. Click **Create New Audience** and the Create New Audience modal will appear. 
 ![Create New Audience Modal](/july-2023-create-audience-modal-filled.png)
 3. Give your segment a human-readable **Audience Name**.
-4. Enter an **Audience Key** for the segment (this field auto-populates based on the Audience Name, but you can change it if you need to) 
+4. Enter an **Audience Key** for this Audience (this field auto-populates based on the Audience Name, but you can change it if you need to) 
 5. *(Optional)* Add a **Description**.
 6. *(Optional)* Add **Tags**.
 7. Click Create and you’ll be taken to your newly created Audience details page. The Info section will have the same details that you entered into the modal. 
