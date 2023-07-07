@@ -260,12 +260,9 @@ Saving this Feature will then cause the next evaluation of a variable for all us
 
 ## Audiences
 
-This topic explains how to create and manage Audiences through our Management API. 
+This topic explains how to create and manage Audiences via our API or within the DevCycle dashboard. 
 
 Audiences allow you to define an audience using filters, and then reuse the audience in user targeting for features.  Audiences are lists of users, defined by “filters” that you can use to manage flag targeting behaviour in bulk. Audiences are useful for managing groups of users, like `internal-users` or `loyalty-tier-gold`. 
-
-
-You can create and manage Audiences via our API or within the DevCycle dashboard.
 
 ### Creating an Audience via API
 
