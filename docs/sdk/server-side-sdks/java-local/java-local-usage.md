@@ -144,6 +144,30 @@ public class MyClass {
 }
 ```
 
+## Set Client Custom Data
+
+To assist with segmentation and bucketing you can set a custom data map that will be used for all variable and feature evaluations. User specific custom data will override client custom data.
+
+```java
+
+public class MyClass {
+    private DVCLocalClient dvcLocalClient;
+
+    public MyClass() {
+        dvcLocalClient = new DVCLocalClient("<DVC_SERVER_SDK_KEY>");
+    }
+
+    public void setCustomData() {
+        // create a map of custom data
+        Map<String,Object> customData = new HashMap();
+        customData.put("some-key", "some-value");
+
+        // set the map into the DevCycle client
+        dvcLocalClient.setClientCustomData(customData);
+    }
+}
+```
+
 ## EdgeDB
 
 :::caution

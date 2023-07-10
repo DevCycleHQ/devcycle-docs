@@ -66,8 +66,6 @@ This method will fetch all features for a given user and return them in a map of
 features, err := client.AllFeatures(user)
 ```
 
-Local Bucketing will return an error if there was a problem either
-
 ## Getting All Variables
 
 To get values from your Variables, the `value` field inside the variable object can be accessed.
@@ -85,6 +83,21 @@ You can close the DevCycle client to stop the SDK from polling for configs and f
 ```go
 err := client.Close()
 ```
+
+## Set Client Custom Data
+
+To assist with segmentation and bucketing you can set a custom data map that will be used for all variable and feature evaluations. User specific custom data will override this client custom data.
+
+```go
+err = client.SetClientCustomData(map[string]interface{}{
+    "some-key": "some-value",
+})
+```
+
+:::caution
+Client Custom Data is only available for the Local Bucketing SDK
+:::
+
 
 ## EdgeDB
 

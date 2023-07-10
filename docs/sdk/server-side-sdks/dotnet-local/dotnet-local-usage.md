@@ -258,3 +258,46 @@ namespace Example {
     }
 }
 ```
+
+## Set Client Custom Data
+
+To assist with segmentation and bucketing you can set a custom data dictionary that will be used for all variable and feature evaluations. User specific custom data will override client custom data.
+
+```csharp
+namespace Example {
+    public class ClientCustomDataExample {
+        private static DVCLocalClient api;
+        
+        static async Task Main(string[] args) {
+            var user = new User("test");
+
+            DVCLocalClientBuilder apiBuilder = new DVCLocalClientBuilder();
+            api = apiBuilder.SetSDKKey("<DVC_SERVER_SDK_KEY>")
+                .SetOptions(new DVCOptions(1000, 5000))
+                .SetInitializedSubscriber((o, e) => {
+                    if (e.Success) {
+                        ClientInitialized(user);
+                    } else {
+                        Console.WriteLine($"Client did not initialize. Error: {e.Error}");
+                    }
+                })
+                .SetLogger(LoggerFactory.Create(builder => builder.AddConsole()))
+                .Build();
+
+            try {
+                await Task.Delay(5000);
+            } catch (TaskCanceledException) {
+                System.Environment.Exit(0);
+            }
+        }
+
+        private static void ClientInitialized(User user) {
+            Dictionary<string, object> customData = new Dictionary<string, object>();
+            customData.Add("some-key", "some-value");
+            
+            // set the data into the DevCycle client
+            api.SetClientCustomData(customData);
+        }
+    }
+}
+```

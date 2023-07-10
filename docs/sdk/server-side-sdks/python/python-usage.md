@@ -97,19 +97,22 @@ except Exception as e:
     print(f"Exception when calling DevCycleLocalClient->track: {e}")        
 ```
 
-## Set Global Custom Data
+## Set Client Custom Data
 
-To assist with segmentation and bucketing you can set a global custom data dictionary that will be used for all variable and feature evaluations. User specific custom data will override global custom data.
+To assist with segmentation and bucketing you can set a custom data dictionary that will be used for all variable and feature evaluations. User specific custom data will override this client custom data.
 
 ```python
-# Set global custom data
-client.set_client_custom_data({
-    "some-key": "some-value"
-})
+try:
+    # Set client custom data
+    client.set_client_custom_data({
+        "some-key": "some-value"
+    })
+except Exception as e:
+    print(f"Exception when calling DevCycleLocalClient->set_client_custom_data: {e}")
 ```
 
 :::caution
-Global Custom Data is only available for the Local Bucketing SDK
+Client Custom Data is only available for the Local Bucketing SDK
 :::
 
 ## EdgeDB

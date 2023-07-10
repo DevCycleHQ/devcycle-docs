@@ -49,7 +49,7 @@ You can fetch all segmented features for a user:
 
 ```ruby
 begin
-  #Get all features for user data
+  # Get all features for user data
   result = dvc_client.all_features(user_data)
   p result
 rescue
@@ -63,7 +63,7 @@ To grab all the segmented variables for a user:
 
 ```ruby
 begin
-  #Get all variables for user data
+  # Get all variables for user data
   result = dvc_client.all_variables(user_data)
   p result
 rescue
@@ -102,6 +102,24 @@ To provide a custom logger, override the `logger` property of the SDK configurat
 ```ruby
 options = DevCycle::DVCOptions.new(logger: @yourCustomLogger)
 ```
+
+## Set Client Custom Data
+
+To assist with segmentation and bucketing you can set a custom data hash that will be used for all variable and feature evaluations. User specific custom data will override this client custom data.
+
+```ruby
+begin
+  # Set client custom data
+  custom_data = {"some-key" : "some-value"}
+  dvc_client.set_client_custom_data(custom_data)
+rescue => e
+  puts "Exception when calling DVCClient->set_client_custom_data: #{e}"
+end
+```
+
+:::caution
+Client Custom Data is only available for the Local Bucketing SDK
+:::
 
 ## EdgeDB
 
