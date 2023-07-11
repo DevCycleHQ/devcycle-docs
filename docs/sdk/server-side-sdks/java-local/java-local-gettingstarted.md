@@ -17,10 +17,10 @@ import com.devcycle.sdk.server.local.api.DVCLocalClient;
 
 public class MyClass {
     
-    private DVCLocalClient dvcLocalClient;
+    private DVCLocalClient client;
     
     public MyClass() {
-        dvcLocalClient = new DVCLocalClient("<DVC_SERVER_SDK_KEY>");
+        client = new DVCLocalClient("<DVC_SERVER_SDK_KEY>");
     }
 }
 ```
@@ -45,9 +45,10 @@ import com.devcycle.sdk.server.local.model.DVCLocalOptions;
 
 public class MyClass {
     
-    private DVCLocalClient dvcLocalClient;
-
-    private DVCLocalOptions dvcLocalOptions = DVCLocalOptions.builder()
+    private DVCLocalClient client;
+    
+    public MyClass() {
+        DVCLocalOptions options = DVCLocalOptions.builder()
         .configPollingIntervalMs(60000)
         .configRequestTimeoutMs(30000)
         .eventFlushIntervalMS(10000)
@@ -60,8 +61,7 @@ public class MyClass {
         .disableCustomEventLogging(false)
         .build();
     
-    public MyClass() {
-        dvcLocalClient = new DVCLocalClient("<DVC_SERVER_SDK_KEY>", dvcLocalOptions);
+        client = new DVCLocalClient("<DVC_SERVER_SDK_KEY>", options);
     }
 }
 ```

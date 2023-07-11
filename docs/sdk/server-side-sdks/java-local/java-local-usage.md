@@ -17,8 +17,9 @@ See the User class in [Java User model doc](https://github.com/DevCycleHQ/java-s
 
 ```java
 User user = User.builder()
-    .userId("a_user_id")
-    .build();
+        .userId("a_user_id")
+        .country("US")
+        .build();
 ```
 
 ## Get and use Variable by key
@@ -28,30 +29,11 @@ the user is not segmented into a feature using that variable, or the project con
 to be fetched from DevCycle's CDN.
 
 ```java
-import com.devcycle.sdk.server.local.api.DVCLocalClient;
-import com.devcycle.sdk.server.common.model.User;
-import com.devcycle.sdk.server.common.model.Variable;
-
-public class MyClass {
-    private DVCLocalClient dvcLocalClient;
-
-    public MyClass() {
-        dvcLocalClient = new DVCLocalClient("<DVC_SERVER_SDK_KEY>");
-    }
-
-    public void setFlag() {
-        User user = User.builder()
-                .userId("a_user_id")
-                .country("US")
-                .build();
-
-        Boolean variableValue = dvcLocalClient.variableValue(user, "super_cool_feature", true);
-        if (variableValue.booleanValue()) {
-            // New Feature code here
-        } else {
-            // Old code here
-        }
-    }
+Boolean variableValue = client.variableValue(user, "super_cool_feature", true);
+if (variableValue.booleanValue()) {
+    // New Feature code here
+} else {
+    // Old code here
 }
 ```
 
@@ -67,24 +49,7 @@ If the project configuration is unavailable, this will return an empty map.
 To get values from your Variables, the `value` field inside the variable object can be accessed.
 
 ```java
-...
-
-public class MyClass {
-    private DVCLocalClient dvcLocalClient;
-
-    public MyClass() {
-        dvcLocalClient = new DVCLocalClient("<DVC_SERVER_SDK_KEY>");
-    }
-
-    public void allVariables() {
-        User user = User.builder()
-                .userId("a_user_id")
-                .country("US")
-                .build();
-        
-        Map<String, Variable> variables = dvcLocalClient.allVariables(user);
-    }
-}
+Map<String, Variable> variables = client.allVariables(user);
 ```
 
 ## Getting All Features
@@ -92,24 +57,7 @@ This method will fetch all features for a given user and return them as Map&lt;S
 If the project configuration is unavailable, this will return an empty map.
 
 ```java
-...
-
-public class MyClass { 
-    private DVCLocalClient dvcLocalClient;
-    
-    public MyClass() {
-        dvcLocalClient = new DVCLocalClient("<DVC_SERVER_SDK_KEY>");
-    }
-    
-    public void allFeatures() {
-        User user = User.builder()
-                .userId("a_user_id")
-                .country("US")
-                .build();
-
-        Map<String, Feature> features = dvcLocalClient.allFeatures(user);
-    }
-}
+Map<String, Feature> features = client.allFeatures(user);
 ```
 
 ## Track Event
@@ -117,31 +65,14 @@ public class MyClass {
 To POST custom event for a user, pass in the user and event object.
 
 ```java
-...
+Event event = Event.builder()
+        .date(Instant.now().toEpochMilli())
+        .target("test target")
+        .type("test event")
+        .value(new BigDecimal(600))
+        .build();
 
-public class MyClass {
-    private DVCLocalClient dvcLocalClient;
-
-    public MyClass() {
-        dvcLocalClient = new DVCLocalClient("<DVC_SERVER_SDK_KEY>");
-    }
-
-    public void addAnEvent() {
-        User user = User.builder()
-                .userId("a_user_id")
-                .country("US")
-                .build();
-
-        Event event = Event.builder()
-                .date(Instant.now().toEpochMilli())
-                .target("test target")
-                .type("test event")
-                .value(new BigDecimal(600))
-                .build();
-
-        dvcLocalClient.track(user, event);
-    }
-}
+client.track(user, event);
 ```
 
 ## Set Client Custom Data
@@ -149,23 +80,48 @@ public class MyClass {
 To assist with segmentation and bucketing you can set a custom data map that will be used for all variable and feature evaluations. User specific custom data will override client custom data.
 
 ```java
+// create a map of custom data
+Map<String,Object> customData = new HashMap();
+customData.put("some-key", "some-value");
 
-public class MyClass {
-    private DVCLocalClient dvcLocalClient;
+// set the map into the DevCycle client
+client.setClientCustomData(customData);
+```
 
-    public MyClass() {
-        dvcLocalClient = new DVCLocalClient("<DVC_SERVER_SDK_KEY>");
+## Override Logging
+
+The SDK logs to stdout by default and does not require any specific logging package. To integrate with your own logging system, such as Java Logging or SLF4J, you can create a wrapper that implements the IDVCLogger interface. Then you can set the logger into the Java Server SDK setting the Custom Logger property in the options object used to initialize the client.
+
+```java
+IDVCLogger loggingWrapper = new IDVCLogger() {
+    @Override
+    public void debug(String message) {
+        // Your logging implementation here
     }
 
-    public void setCustomData() {
-        // create a map of custom data
-        Map<String,Object> customData = new HashMap();
-        customData.put("some-key", "some-value");
-
-        // set the map into the DevCycle client
-        dvcLocalClient.setClientCustomData(customData);
+    @Override
+    public void info(String message) {
+        // Your logging implementation here
     }
-}
+
+    @Override
+    public void warning(String message) {
+        // Your logging implementation here
+    }
+
+    @Override
+    public void error(String message) {
+        // Your logging implementation here
+    }
+
+    @Override
+    public void error(String message, Throwable throwable) {
+        // Your logging implementation here
+    }
+};
+
+// Set the logger in the options before creating the DVCLocalClient
+DVCLocalOptions options = DVCLocalOptions.builder().customLogger(loggingWrapper).build();
 ```
 
 ## EdgeDB
