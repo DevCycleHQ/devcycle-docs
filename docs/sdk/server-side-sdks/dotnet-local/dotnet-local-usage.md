@@ -74,7 +74,12 @@ To get values from your Variables, the `Value` field inside the variable object 
 This method will fetch all variables for a given user and returned as Dictionary&lt;String, Variable&gt;
 
 ```csharp
-...
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using DevCycle.SDK.Server.Local.Api;
+using DevCycle.SDK.Server.Common;
+using Microsoft.Extensions.Logging;
 
 namespace Example {
     public class AllVariablesExample {
@@ -118,7 +123,12 @@ namespace Example {
 This method will fetch all features for a given user and return them as Dictionary<String, Feature>
 
 ```csharp
-...
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using DevCycle.SDK.Server.Local.Api;
+using DevCycle.SDK.Server.Common;
+using Microsoft.Extensions.Logging;
 
 namespace Example {
     public class AllFeaturesExample {
@@ -164,7 +174,12 @@ To POST custom event for a user, pass in the user and event object.
 Calling Track will queue the event, which will be sent in batches to the DevCycle servers.
 
 ```csharp
-...
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using DevCycle.SDK.Server.Local.Api;
+using DevCycle.SDK.Server.Common;
+using Microsoft.Extensions.Logging;
 
 namespace Example {
     class Program {
@@ -214,7 +229,12 @@ namespace Example {
 Calling this method will immediately send all queued events to the DevCycle servers
 
 ```csharp
-...
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using DevCycle.SDK.Server.Local.Api;
+using DevCycle.SDK.Server.Common;
+using Microsoft.Extensions.Logging;
 
 namespace Example {
     class Program {
@@ -264,6 +284,13 @@ namespace Example {
 To assist with segmentation and bucketing you can set a custom data dictionary that will be used for all variable and feature evaluations. User specific custom data will override client custom data.
 
 ```csharp
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using DevCycle.SDK.Server.Local.Api;
+using DevCycle.SDK.Server.Common;
+using Microsoft.Extensions.Logging;
+
 namespace Example {
     public class ClientCustomDataExample {
         private static DVCLocalClient api;
