@@ -95,7 +95,6 @@ const config = {
           showLastUpdateAuthor: false,
           showLastUpdateTime: true,
           editCurrentVersion: true,
-          sidebarCollapsed: false,
           sidebarPath: require.resolve('./sidebars.js'),
           remarkPlugins: [
             [remarkYoutube, { width: '100%', align: 'auto' }],
@@ -228,29 +227,74 @@ const config = {
             },
           ],
         },
-
         {
-          docId: 'tools-and-integrations/index',
-          position: 'left',
-          label: 'Integrations',
-          type: 'doc',
-        },
-
-        {
-          type: 'doc',
-          docId: 'best-practices/index',
-          to: '/best-practices/',
-          position: 'left',
+          type: 'dropdown',
           label: 'Resources',
+          position: 'left',
+          items: [
+            {
+              to: '/tools-and-integrations/',
+              label: 'Tools & Integrations',
+            },
+            {
+              to: '/best-practices/',
+              label: 'Best Practices',
+            },
+            {
+              to: '/demos/',
+              label: 'Demos',
+            },
+
+          ],
+        },    
+        {
+          type: 'dropdown',
+          label: 'Community',
+          position: 'left',
+          items: [
+            {
+              href: 'https://www.meetup.com/devcycle/',
+              label: 'MeetUps',
+              target: '_blank',
+              rel: null,
+            },
+            {
+              href: 'https://www.devcycle.com/blog',
+              label: 'Blog',
+              target: '_blank',
+              rel: null,
+            },
+            {
+              href: 'https://discord.gg/pKK4fJgGxG',
+              label: 'Discord',
+              target: '_blank',
+              rel: null,
+            },
+            {
+              href: 'https://www.twitter.com/devcyclehq',
+              label: 'Twitter',
+              target: '_blank',
+              rel: null,
+            },
+
+          ],
+        }, 
+        {
+          type: 'search',
+          position: 'right',
         },
         {
-          type: 'doc',
-          docId: 'demos/index',
-          to: '/demos/',
-          position: 'left',
-          label: 'Demos',
+          href: 'https://devcycle.com/contact/request-demo',
+          position: 'right',
+          label: 'Book a Demo',
+          className: 'navbar-book-demo',
         },
-     
+        {
+          href: 'https://app.devcycle.com/?isSignUp=true',
+          position: 'right',
+          className: 'header-signup-link',
+          label: 'Sign Up',
+        },
         {
           href: 'https://discord.gg/pKK4fJgGxG',
           position: 'right',
