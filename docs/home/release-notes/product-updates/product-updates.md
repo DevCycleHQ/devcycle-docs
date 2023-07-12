@@ -6,7 +6,7 @@ title: Product Updates
 
 Here are the latest product updates:
 
-<iframe src="/updates.html" width="100%" height="500px" frameborder="0"></iframe>
+<iframe src="https://app.getbeamer.com/devcycle/en" width="100%" height="500px" frameborder="0"></iframe>
 
 ## Expanded Python SDK to include local bucketing
 

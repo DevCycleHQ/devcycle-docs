@@ -36,6 +36,7 @@ const config = {
       }
     },
     path.resolve(__dirname, 'plugins', 'custom-gtm'),
+    path.resolve(__dirname, 'plugins', 'custom-beamer'),
     [
       '@devcycle/docusaurus-devcycle-plugin',
       {
@@ -240,6 +241,12 @@ const config = {
           position: 'right',
           className: 'header-discord-link',
           'aria-label': 'Discord',
+        },
+        {
+          href: '#',
+          position: 'right',
+          className: 'header-beamer-link',
+          'aria-label': 'Beamer',
         },
       ],
     },
