@@ -1,9 +1,9 @@
 ---
-title: React App Demo
+title: ReactJS App Demo
 sidebar_position: 2
 ---
 
-# A Beginner's Guide to Implementing Your First Feature Flag
+# Implementing Your First Feature Flag with React
 
 Feature flags are one of the safest methods for rolling out new features, so effectively managing your flags is 
 essential to efficient deployment. DevCycle is a feature management tool that provides a simple interface for managing 

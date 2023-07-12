@@ -2,7 +2,7 @@ module.exports = {
   home: [
     {
       type: "category",
-      label: "Getting Started",
+      label: "Home",
       link: {type: 'doc', id: 'home/index'},
       collapsed: false,
       collapsible: false,
