@@ -156,6 +156,13 @@ const config = {
   baseUrl: '/',
   favicon: 'devcycle_favicon.ico',
   themeConfig: {
+    announcementBar: {
+      id: 'support_us',
+      content:'Ready to start feature flagging? Sign-up for a free <a target="_blank" rel="noopener noreferrer" href="https://devcycle.com">DevCycle account</a> today 🏳️',
+      backgroundColor: 'rgb(17 24 39)',
+      textColor: '#FFFFFF',
+      isCloseable: false,
+    },
     image: 'devcycle_card.png',
     docs: {
       sidebar: {
@@ -194,7 +201,7 @@ const config = {
       items: [
         {
           position: 'left',
-          label: 'Getting Started',
+          label: 'Home',
           docId: 'home/index',
           collapse: 'false',
           type: 'doc',
@@ -225,7 +232,7 @@ const config = {
         {
           docId: 'tools-and-integrations/index',
           position: 'left',
-          label: 'Tools & Integrations',
+          label: 'Integrations',
           type: 'doc',
         },
 
@@ -234,8 +241,16 @@ const config = {
           docId: 'best-practices/index',
           to: '/best-practices/',
           position: 'left',
-          label: 'Best Practices',
+          label: 'Resources',
         },
+        {
+          type: 'doc',
+          docId: 'demos/index',
+          to: '/demos/',
+          position: 'left',
+          label: 'Demos',
+        },
+     
         {
           href: 'https://discord.gg/pKK4fJgGxG',
           position: 'right',
@@ -285,11 +300,6 @@ const config = {
               label: 'Blog',
               href: 'https://devcycle.com/company/developer-blog',
             },
-            {
-              label: 'Discord',
-              href: 'https://discord.gg/pKK4fJgGxG',
-            },
-
             //   {
             //     label: 'Status',
             //   href: 'https://status.DevCycle.com/'
@@ -302,10 +312,6 @@ const config = {
             {
               label: 'Twitter',
               href: 'https://twitter.com/devcyclehq',
-            },
-            {
-              label: 'Medium',
-              href: 'https://medium.com/devcycle',
             },
             {
               label: 'Discord',
