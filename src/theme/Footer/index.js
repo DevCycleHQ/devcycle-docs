@@ -5,7 +5,6 @@ const navigation = {
     { name: 'DevCycle', href: 'https://devcycle.com' },
     { name: 'Dashboard', href: 'https://app.devcycle.com' },
     { name: 'Blog', href: 'https://devcycle.com/blog' },
-    { name: 'Discord', href: 'https://discord.gg/pKK4fJgGxG' },
   ],
   social: [
     {

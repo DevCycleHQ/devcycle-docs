@@ -36,6 +36,7 @@ const config = {
       }
     },
     path.resolve(__dirname, 'plugins', 'custom-gtm'),
+    path.resolve(__dirname, 'plugins', 'custom-beamer'),
     [
       '@devcycle/docusaurus-devcycle-plugin',
       {
@@ -94,7 +95,6 @@ const config = {
           showLastUpdateAuthor: false,
           showLastUpdateTime: true,
           editCurrentVersion: true,
-          sidebarCollapsed: false,
           sidebarPath: require.resolve('./sidebars.js'),
           remarkPlugins: [
             [remarkYoutube, { width: '100%', align: 'auto' }],
@@ -155,6 +155,13 @@ const config = {
   baseUrl: '/',
   favicon: 'devcycle_favicon.ico',
   themeConfig: {
+    announcementBar: {
+      id: 'support_us',
+      content:'Ready to start feature flagging? Sign-up for a free <a target="_blank" rel="noopener noreferrer" href="https://devcycle.com">DevCycle account</a> today 🏳️',
+      backgroundColor: 'rgb(17 24 39)',
+      textColor: '#FFFFFF',
+      isCloseable: false,
+    },
     image: 'devcycle_card.png',
     docs: {
       sidebar: {
@@ -193,7 +200,7 @@ const config = {
       items: [
         {
           position: 'left',
-          label: 'Getting Started',
+          label: 'Home',
           docId: 'home/index',
           collapse: 'false',
           type: 'doc',
@@ -220,26 +227,85 @@ const config = {
             },
           ],
         },
-
         {
-          docId: 'tools-and-integrations/index',
+          type: 'dropdown',
+          label: 'Resources',
           position: 'left',
-          label: 'Tools & Integrations',
-          type: 'doc',
+          items: [
+            {
+              to: '/tools-and-integrations/',
+              label: 'Tools & Integrations',
+            },
+            {
+              to: '/best-practices/',
+              label: 'Best Practices',
+            },
+            {
+              to: '/demos/',
+              label: 'Demos',
+            },
+
+          ],
+        },    
+        {
+          type: 'dropdown',
+          label: 'Community',
+          position: 'left',
+          items: [
+            {
+              href: 'https://www.meetup.com/devcycle/',
+              label: 'MeetUps',
+              target: '_blank',
+              rel: null,
+            },
+            {
+              href: 'https://www.devcycle.com/blog',
+              label: 'Blog',
+              target: '_blank',
+              rel: null,
+            },
+            {
+              href: 'https://discord.gg/pKK4fJgGxG',
+              label: 'Discord',
+              target: '_blank',
+              rel: null,
+            },
+            {
+              href: 'https://www.twitter.com/devcyclehq',
+              label: 'Twitter',
+              target: '_blank',
+              rel: null,
+            },
+
+          ],
+        }, 
+        {
+          type: 'search',
+          position: 'right',
         },
-
         {
-          type: 'doc',
-          docId: 'best-practices/index',
-          to: '/best-practices/',
-          position: 'left',
-          label: 'Best Practices',
+          href: 'https://devcycle.com/contact/request-demo',
+          position: 'right',
+          label: 'Book a Demo',
+          className: 'navbar-book-demo',
+        },
+        {
+          href: 'https://app.devcycle.com/?isSignUp=true',
+          position: 'right',
+          className: 'header-signup-link',
+          label: 'Sign Up',
         },
         {
           href: 'https://discord.gg/pKK4fJgGxG',
           position: 'right',
           className: 'header-discord-link',
           'aria-label': 'Discord',
+        },
+        {
+          href: '#',
+          position: 'right',
+          className: 'header-beamer-link',
+          'aria-label': 'Beamer',
         },
       ],
     },
@@ -278,11 +344,6 @@ const config = {
               label: 'Blog',
               href: 'https://devcycle.com/company/developer-blog',
             },
-            {
-              label: 'Discord',
-              href: 'https://discord.gg/pKK4fJgGxG',
-            },
-
             //   {
             //     label: 'Status',
             //   href: 'https://status.DevCycle.com/'
@@ -295,10 +356,6 @@ const config = {
             {
               label: 'Twitter',
               href: 'https://twitter.com/devcyclehq',
-            },
-            {
-              label: 'Medium',
-              href: 'https://medium.com/devcycle',
             },
             {
               label: 'Discord',

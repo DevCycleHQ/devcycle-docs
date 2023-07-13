@@ -48,17 +48,59 @@ a:hover.menu__link {
 .header-discord-link {
   display: flex;
   padding: 0;
-  padding-right: 25pt;
   margin: 0;
-  /* width: 24px;
-  height: 24px; */
   opacity: 1;
 }
 
-.header-discord-link:before {
-  content: "Chat with us on Discord";
-  padding-right: 5pt;
+
+.header-beamer-link:hover {
+  opacity: 0.6;
 }
+
+.header-beamer-link:after {
+  content: "";
+  display: inline-block;
+  height: 24px;
+  width: 24px;
+  background-color: currentColor;
+  mask-image: url("data:image/svg+xml,%3Csvg%20fill%3D%22currentColor%22%20viewBox%3D%220%200%2024%2024%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20aria-hidden%3D%22true%22%3E%3Cpath%20clip-rule%3D%22evenodd%22%20fill-rule%3D%22evenodd%22%20d%3D%22M5.25%209a6.75%206.75%200%200113.5%200v.75c0%202.123.8%204.057%202.118%205.52a.75.75%200%2001-.297%201.206c-1.544.57-3.16.99-4.831%201.243a3.75%203.75%200%2001-7.48%200%2024.585%2024.585%200%2001-4.831-1.244.75.75%200%2001-.298-1.205A8.217%208.217%200%20005.25%209.75V9zm4.502%208.9a2.25%202.25%200%20104.496%200%2025.057%2025.057%200%2001-4.496%200z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.header-beamer-link {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+}
+
+.beamer_icon.active {
+  z-index: 20 !important;
+  width: 13px !important;
+  height:13px !important;
+  line-height: 13px !important;
+}
+
+.header-signup-link {
+  display: flex;
+  background-color: red;
+  opacity: 1;
+  background-color: #1d4ed8; /* Green */
+  border: none;
+  color: white;
+  padding: 5px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.navbar-book-demo svg {
+  display: none;
+}
+
 
 
 
@@ -130,4 +172,12 @@ html[data-theme="dark"] .DocSearch {
 #kapa-widget-container button {
   left: 20px;
   z-index: 9999;
+}
+
+.theme-doc-sidebar-item-category-level-1  > * >  .menu__link {
+    font-weight: 700;
+}
+
+.theme-doc-sidebar-item-link-level-1 > .menu__link {
+  font-weight: 700;
 }
