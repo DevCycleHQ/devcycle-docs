@@ -74,13 +74,13 @@ To get all the Variables returned in the config:
 ### *Kotlin example:*
 
 ```kotlin
-var variables: Map<String, Variable<Any>>? = dvcClient.allVariables()
+var variables: Map<String, BaseConfigVariable>? = dvcClient.allVariables()
 ```
 
 ### *Java example:*
 
 ```java
-Map<String, Variable<Object>> variables = dvcClient.allVariables();
+Map<String, BaseConfigVariable> variables = dvcClient.allVariables();
 ```
 
 If the SDK has not finished initializing, these methods will return an empty Map.
@@ -136,8 +136,8 @@ To wait on Variables that will be returned from the identify call, you can pass 
 ### *Kotlin example:*
 
 ```kotlin
-dvcClient.identifyUser(user, object: DVCCallback<Map<String, Variable<Any>>> {
-    override fun onSuccess(result: Map<String, Variable<Any>>) {
+dvcClient.identifyUser(user, object: DVCCallback<Map<String, BaseConfigVariable>> {
+    override fun onSuccess(result: Map<String, BaseConfigVariable>) {
         // new user configuration loaded successfully from DevCycle
     }
 
@@ -150,9 +150,9 @@ dvcClient.identifyUser(user, object: DVCCallback<Map<String, Variable<Any>>> {
 ### *Java example:*
 
 ```java
-dvcClient.identifyUser(user, new DVCCallback<Map<String, Variable<Object>>>() {
+dvcClient.identifyUser(user, new DVCCallback<Map<String, BaseConfigVariable>>() {
     @Override
-    public void onSuccess(Map<String, Variable<Object>> result) {
+    public void onSuccess(Map<String, BaseConfigVariable> result) {
         // new user configuration loaded successfully from DevCycle
     }
 
@@ -178,8 +178,8 @@ dvcClient.resetUser()
 To wait on the Features of the anonymous user, you can pass in a DVCCallback:
 
 ```kotlin
-dvcClient.resetUser(object : DVCCallback<Map<String, Variable<Any>>> {
-    override fun onSuccess(result: Map<String, Variable<Any>>) {
+dvcClient.resetUser(object : DVCCallback<Map<String, BaseConfigVariable>> {
+    override fun onSuccess(result: Map<String, BaseConfigVariable>) {
         // anonymous user configuration loaded successfully from DevCycle
     }
 
@@ -192,9 +192,9 @@ dvcClient.resetUser(object : DVCCallback<Map<String, Variable<Any>>> {
 ### *Java example:*
 
 ```java
-dvcClient.resetUser(new DVCCallback<Map<String, Variable<Object>>>() {
+dvcClient.resetUser(new DVCCallback<Map<String, BaseConfigVariable>>() {
     @Override
-    public void onSuccess(Map<String, Variable<Object>> result) {
+    public void onSuccess(Map<String, BaseConfigVariable> result) {
         // anonymous user configuration loaded successfully from DevCycle
     }
 
