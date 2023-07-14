@@ -26,7 +26,7 @@ namespace Example
         public void main()
         {
             // using ensures REST Client resources are correctly disposed once no longer required.
-            using DVCCloudClient dvcClient = new DVCCloudClientBuilder()
+            using DVCCloudClient client = new DVCCloudClientBuilder()
                 .SetSDKKey("<DVC_SERVER_SDK_KEY>")
                 .Build();
         }

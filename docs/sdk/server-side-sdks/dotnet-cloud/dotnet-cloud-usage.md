@@ -25,30 +25,7 @@ value from the server unless an error occurs or the server has no response.
 In that case it will return a variable value with the value set to whatever was passed in as the `defaultValue` parameter.
 
 ```csharp
-using System;
-using System.Diagnostics;
-using DevCycle.SDK.Server.Cloud.Api;
-using DevCycle.SDK.Server.Common.Model;
-using DevCycle.SDK.Server.Common.Model.Cloud;
-
-namespace Example {
-    public class VariableExample {
-        public void main() {
-            // Ensure REST Client resources are correctly disposed once no longer required
-            using DVCCloudClient dvcClient = new DVCCloudClientBuilder()
-                .SetSDKKey("<DVC_SERVER_SDK_KEY>")
-                .Build();
-            var user = new User("user_id");
-
-            try {
-                Boolean result = await dvcClient.VariableValueAsync(user, "YOUR_KEY", true);
-                Debug.WriteLine(result);
-            } catch (Exception e) {
-                Debug.Print("Exception when calling dvcClient.VariableValueAsync: " + e.Message);
-            }
-        }
-    }
-}
+Boolean result = await client.VariableValueAsync(user, "YOUR_KEY", true);
 ```
 
 The default value can be of type `String`, `Boolean`, `Number`, or `Object`.
@@ -63,85 +40,26 @@ To get values from your Variables, the `value` field inside the variable object 
 This method will fetch all variables for a given user and return as DictionaryString, Feature;
 
 ```csharp
-namespace Example {
-    public class AllVariablesExample {
-        public void main() {
-            // Ensure REST Client resources are correctly disposed once no longer required
-            using DVCCloudClient dvcClient = new DVCCloudClientBuilder()
-                .SetSDKKey("<DVC_SERVER_SDK_KEY>")
-                .Build();
-            var user = new User("user_id"); 
-
-            try {
-                Dictionary<string, IVariable> result = await dvcClient.AllVariablesAsync(user);
-
-                foreach (var keyValuePair in result) {
-                    // Casting to use the cloud specific variable features.
-                    Debug.WriteLine($"{keyValuePair.Key} : {(Variable)keyValuePair.Value}");
-                }
-            } catch (Exception e) {
-                Debug.Print("Exception when calling dvcClient.AllVariablesAsync: " + e.Message);
-            }
-        }
-    }
-}
+Dictionary<string, IVariable> result = await client.AllVariablesAsync(user);
 ```
 
 ## Getting All Features
 This method will fetch all features for a given user and return them as Dictionary<String, Feature>
 
 ```csharp
-...
-
-namespace Example {
-    public class AllFeaturesExample {
-        public async Task main() {
-            // using ensures REST Client resources are correctly disposed once no longer required.
-            using DVCCloudClient dvcClient = new DVCCloudClientBuilder()
-                .SetSDKKey("<DVC_SERVER_SDK_KEY>")
-                .Build();
-            var user = new User("user_id");
-
-            try {
-                Dictionary<string, Feature> result = await dvcClient.AllFeaturesAsync(user);
-                Debug.WriteLine(result);
-            } catch (Exception e) {
-                Debug.Print("Exception when calling dvcClient.AllFeaturesAsync: " + e.Message);
-            }
-        }
-    }
-}
+Dictionary<string, Feature> result = await client.AllFeaturesAsync(user);
 ```
 
 ## Track Event
 To POST custom event for a user, pass in the user and event object.
 
 ```csharp
-...
+DateTimeOffset now = DateTimeOffset.UtcNow;
+long unixTimeMilliseconds = now.ToUnixTimeMilliseconds();
 
-namespace Example {
-    public class TrackExample {
-        public void main() {
-            // Ensure REST Client resources are correctly disposed once no longer required
-            using DVCCloudClient dvcClient = new DVCCloudClientBuilder()
-                .SetSDKKey("<DVC_SERVER_SDK_KEY>")
-                .Build();
+var event = new Event("test event", "test target", unixTimeMilliseconds, 600, new Dictionary<string, object>(){{"key", "value"}});
 
-            DateTimeOffset now = DateTimeOffset.UtcNow;
-            long unixTimeMilliseconds = now.ToUnixTimeMilliseconds();
-            
-            var user = new Users("user_id");
-            var event = new Event("test event", "test target", unixTimeMilliseconds, 600, new Dictionary<string, object>(){{"key", "value"}});
-
-            try {
-                DVCResponse result = await dvcClient.TrackAsync(user, event);
-                Debug.WriteLine(result);
-            } catch (Exception e) {
-                Debug.Print("Exception when calling dvcClient.GetFeaturesAsync: " + e.Message);
-            }
-        }
-    }
-}
+DVCResponse result = await client.TrackAsync(user, event);
 ```
 
 ## EdgeDB
