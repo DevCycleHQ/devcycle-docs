@@ -25,7 +25,7 @@ value from the server unless an error occurs or the server has no response.
 In that case it will return a variable value with the value set to whatever was passed in as the `defaultValue` parameter.
 
 ```csharp
-Boolean result = await client.VariableValueAsync(user, "YOUR_KEY", true);
+bool result = await client.VariableValueAsync(user, "YOUR_KEY", true);
 ```
 
 The default value can be of type `String`, `Boolean`, `Number`, or `Object`.
