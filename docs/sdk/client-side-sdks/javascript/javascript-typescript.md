@@ -23,23 +23,23 @@ produce a type error:
 
 ```typescript
 // type error, can't use a boolean default value since we know it's a string
-const myVariable = dvcClient.variable('my-variable', false)
+const myVariable = devcycleClient.variable('my-variable', false)
 
 ...
 
 // type error, can't use the unknown key 'some-key'
-const myVariable = dvcClient.variable('some-key', 'default-value')
+const myVariable = devcycleClient.variable('some-key', 'default-value')
 
 ...
 
 // this works, since we know this key exists and is a string
-const myVariable = dvcClient.variable('my-variable', 'default-value')
+const myVariable = devcycleClient.variable('my-variable', 'default-value')
 ```
 
 ## Usage
 
 To use this enhanced type-safety, you can pass a type definition containing the variable keys and types
-to the `initialize` function:
+to the `initializeDevCycle` function:
 
 ```typescript
 type VariableTypes = {
@@ -48,7 +48,7 @@ type VariableTypes = {
 
 const user = { user_id: "my_user" };
 const dvcOptions = { logLevel: "debug" };
-const dvcClient = initialize<VariableTypes>("<DVC_CLIENT_SDK_KEY>", user, dvcOptions); 
+const devcycleClient = initializeDevCycle<VariableTypes>("<DEVCYCLE_CLIENT_SDK_KEY>", user, dvcOptions); 
 ```
 
 The keys of `VariableTypes` must match the keys of the variables defined in DevCycle, and the values must match the 
@@ -70,7 +70,7 @@ Ensure that the CLI is properly setup and authenticated to your project before r
 for further instructions on setting up the CLI.
 
 This command will generate a file called `dvcVariableTypes.ts` in the configured output directory.
-You can then import the generated types from this file, and pass them to the generic arg of the `initialize` call as
+You can then import the generated types from this file, and pass them to the generic arg of the `initializeDevCycle` call as
 described above. 
 
 Consider configuring this command to run as part of your build process to keep your type definitions up to date with 

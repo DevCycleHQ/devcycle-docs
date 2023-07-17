@@ -9,8 +9,8 @@ sidebar_custom_props: {icon: rocket}
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)
 
 
-- If the JS SDK is installed using NPM, call `initialize` with your client key, a user object, and an optional options object.
-- Otherwise, If you’re using the CDN to install the JS SDK, call `DevCycle.initialize` with your client key, a user object, and an optional options object.
+- If the JS SDK is installed using NPM, call `initializeDevCycle` with your client key, a user object, and an optional options object.
+- Otherwise, If you’re using the CDN to install the JS SDK, call `DevCycle.initializeDevCycle` with your client key, a user object, and an optional options object.
 
 The user object needs either a `user_id`, or `isAnonymous` set to `true` for an anonymous user. The options object is optional,
 but can passed a `logWriter` for a custom logging solution and a `logLevel`, which must be one of `info`, `debug`, `warn` or `error`.
@@ -19,13 +19,13 @@ The default options are to set the `logWriter` to be the console and the `logLev
 ```javascript
 const user = { user_id: "my_user" };
 const dvcOptions = { logLevel: "debug" };
-// replace initialize with DevCycle.initialize if using the CDN
-const dvcClient = initialize("<DVC_CLIENT_SDK_KEY>", user, dvcOptions); 
+// replace initializeDevCycle with DevCycle.initializeDevCycle if using the CDN
+const devcycleClient = initializeDevCycle("<DEVCYCLE_CLIENT_SDK_KEY>", user, dvcOptions); 
 ```
 
-## DVC User Object
+## DevCycleUser Object
 
-[DVCUser Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts)
+[DevCycleUser Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts)
 
 | Property          | Type    | Description                                                                                                     |
 | ----------------- | ------- | --------------------------------------------------------------------------------------------------------------- |
@@ -46,13 +46,15 @@ The SDK exposes various initialization options which can be set on the `initiali
 
 [DVCOptions Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L44)
 
-| DVC Option             | Type                                                                                                     | Description                                                                                                    |
-| ---------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| DevCycle Option        | Type                                                                                                     | Description                                                                                                   |
+| ---------------------- | -------------------------------------------------------------------------------------------------------- |---------------------------------------------------------------------------------------------------------------|
 | eventFlushIntervalMS   | number                                                                                                   | Controls the interval between flushing events to the DevCycle servers in milliseconds, defaults to 10 seconds. |
-| enableEdgeDB           | boolean                                                                                                  | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle.                                     |
-| logger                 | [DVCLogger](https://github.com/DevCycleHQ/js-sdks/blob/main/lib/shared/types/src/logger.ts#L2)           | Logger override to replace default logger                                                                      |
-| logLevel               | [DVCDefaultLogLevel](https://github.com/DevCycleHQ/js-sdks/blob/main/lib/shared/types/src/logger.ts#L12) | Set log level of the default logger. Options are: `debug`, `info`, `warn`, `error`. Defaults to `info`.        |
-| apiProxyURL            | string                                                                                                   | Allows the SDK to communicate with a proxy of DVC bucketing API / client SDK API.                              |
-| configCacheTTL         | number                                                                                                   | The maximum allowed age of a cached config in milliseconds, defaults to 7 days                                 |
-| disableConfigCache     | boolean                                                                                                  | Disable the use of cached configs                                                                              |
-| disableRealtimeUpdates | boolean                                                                                                  | Disable Realtime Updates                                                                                       |
+| enableEdgeDB           | boolean                                                                                                  | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle.                                    |
+| logger                 | [DVCLogger](https://github.com/DevCycleHQ/js-sdks/blob/main/lib/shared/types/src/logger.ts#L2)           | Logger override to replace default logger                                                                     |
+| logLevel               | [DVCDefaultLogLevel](https://github.com/DevCycleHQ/js-sdks/blob/main/lib/shared/types/src/logger.ts#L12) | Set log level of the default logger. Options are: `debug`, `info`, `warn`, `error`. Defaults to `info`.       |
+| apiProxyURL            | string                                                                                                   | Allows the SDK to communicate with a proxy of DevCycle bucketing API / client SDK API.                        |
+| configCacheTTL         | number                                                                                                   | The maximum allowed age of a cached config in milliseconds, defaults to 7 days                                |
+| disableConfigCache     | boolean                                                                                                  | Disable the use of cached configs                                                                             |
+| disableRealtimeUpdates | boolean                                                                                                  | Disable Realtime Updates                                                                                      |
+| disableAutomaticEventLogging | boolean                                                                                                 | Disables logging of sdk generated events (e.g. variableEvaluated, variableDefaulted) to DevCycle.             |
+| disableCustomEventLogging | boolean                                                                                                 | Disables logging of custom events, from `track()` method, and user data to DevCycle.                          |
