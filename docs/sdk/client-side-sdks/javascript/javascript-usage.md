@@ -13,8 +13,8 @@ sidebar_custom_props: {icon: toggle-on}
 You can wait on the features to be loaded from our servers by using `.onClientInitialized()` function. It returns a promise that you can use to wait until features are ready to be used:
 
 ```javascript
-dvcClient.onClientInitialized().then(() => {
-    if (dvcClient.variableValue('<YOUR_VARIABLE_KEY>', false)) {
+devcycleClient.onClientInitialized().then(() => {
+    if (devcycleClient.variableValue('<YOUR_VARIABLE_KEY>', false)) {
         ...
     } else {
         ...
@@ -25,12 +25,12 @@ dvcClient.onClientInitialized().then(() => {
 You can also pass in a callback which will get called after the features are loaded:
 
 ```javascript
-dvcClient.onClientInitialized((err) => {
+devcycleClient.onClientInitialized((err) => {
     if (err) {
         // error state
     }
 
-    if (dvcClient.variableValue('<YOUR_VARIABLE_KEY>', false)) {
+    if (devcycleClient.variableValue('<YOUR_VARIABLE_KEY>', false)) {
         ...
     } else {
         ...
@@ -44,7 +44,7 @@ To get values from your Variables, `variableValue()` is used to fetch variable v
 The default value can be of type `String`, `Boolean`, `Number`, or `Object`.
 
 ```javascript
-const variable = dvcClient.variableValue("<YOUR_VARIABLE_KEY>", "default value");
+const variable = devcycleClient.variableValue("<YOUR_VARIABLE_KEY>", "default value");
 ```
 
 If you would like to get the full `Variable` object using the `variable()` method it also contains the following params:
@@ -68,7 +68,7 @@ To learn more, visit our [Realtime Updates](/sdk/features/realtime-updates) page
 There can only be one onUpdate function registered at a time. Subsequent calls to this method will overwrite the previous handler:
 
 ```javascript
-const variable = dvcClient.variable("<YOUR_VARIABLE_KEY>", "default value");
+const variable = devcycleClient.variable("<YOUR_VARIABLE_KEY>", "default value");
 variable.onUpdate((value) => {
   // value returned when the value of the variable changes
 });
@@ -76,7 +76,7 @@ variable.onUpdate((value) => {
 
 ## Identifying User
 
-To identify a different user, or the same user passed into the initialize with more attributes, pass in the entire user attribute object into `identifyUser`:
+To identify a different user, or the same user passed into the initialize function with more attributes, pass in the entire user attribute object into `identifyUser`:
 
 ```javascript
 const user = {
@@ -86,17 +86,17 @@ const user = {
     customKey: "customValue",
   },
 };
-dvcClient.identifyUser(user);
+devcycleClient.identifyUser(user);
 ```
 
 To wait on Variables that will be returned from the identify call, you can pass in a callback or use the Promise returned if no callback is passed in:
 
 ```javascript
-const variableSet = await dvcClient.identifyUser(user);
+const variableSet = await devcycleClient.identifyUser(user);
 
 // OR
 
-dvcClient.identifyUser(user, (err, variables) => {
+devcycleClient.identifyUser(user, (err, variables) => {
   // variables is the variable set for the identified user
 });
 ```
@@ -106,7 +106,7 @@ dvcClient.identifyUser(user, (err, variables) => {
 To reset the user into an anonymous user, `resetUser` will reset to the anonymous user created before or will create one with an anonymous `user_id`.
 
 ```javascript
-dvcClient.resetUser();
+devcycleClient.resetUser();
 ```
 
 To wait on the Features of the anonymous user, you can pass in a callback or use the Promise returned if no callback is passed in:
@@ -116,7 +116,7 @@ const variableSet = await client.resetUser();
 
 // OR
 
-dvcClient.resetUser((err, variables) => {
+devcycleClient.resetUser((err, variables) => {
   // variables is the variable set for the anonymous user
 });
 ```
@@ -126,7 +126,7 @@ dvcClient.resetUser((err, variables) => {
 To retrieve all the Features returned in the config:
 
 ```js
-const features = dvcClient.allFeatures()
+const features = devcycleClient.allFeatures()
 ```
 
 If the SDK has not finished initializing, these methods will return an empty object. Read [Waiting for Features](/sdk/client-side-sdks/javascript/javascript-usage#waiting-for-features) to mitigate this.
@@ -138,7 +138,7 @@ See [getFeatures](https://docs.devcycle.com/bucketing-api/#operation/getFeatures
 To grab all the Features returned in the config:
 
 ```js
-const variables = dvcClient.allVariables()
+const variables = devcycleClient.allVariables()
 ```
 
 If the SDK has not finished initializing, these methods will return an empty object. Read [Waiting for Features](/sdk/client-side-sdks/javascript/javascript-usage#waiting-for-features) to mitigate this.
@@ -159,17 +159,17 @@ const event = {
     key: "value",
   },
 };
-dvcClient.track(event);
+devcycleClient.track(event);
 ```
 
 The SDK will flush events every 10s or `flushEventsMS` specified in the options. To manually flush events, call:
 
 ```javascript
-await dvcClient.flushEvents();
+await devcycleClient.flushEvents();
 
 // or
 
-dvcClient.flushEvents(() => {
+devcycleClient.flushEvents(() => {
   // called back after flushed events
 });
 ```
@@ -179,7 +179,7 @@ dvcClient.flushEvents(() => {
 The SDK can emit certain events when specific actions occur which can be listened on by subscribing to them:
 
 ```javascript
-dvcClient.subscribe(
+devcycleClient.subscribe(
   "variableUpdated:*",
   (key: string, variable: DVCVariable | null) => {
     // key is the variable that has been updated
@@ -220,7 +220,7 @@ const user = {
 const options = {
   enableEdgeDB: true,
 };
-const dvcClient = initialize("<DVC_CLIENT_SDK_KEY>", user, options);
+const devcycleClient = initializeDevCycle("<DEVCYCLE_CLIENT_SDK_KEY>", user, options);
 ```
 
 This will send a request to our EdgeDB API to save the custom data under the user `my_user`.
@@ -229,5 +229,5 @@ In the example, `amountSpent` is associated to the user `my_user`. In your next 
 you may omit any of the data you've sent already as it will be pulled from the EdgeDB storage when segmenting to experiments and features:
 
 ```
-dvcClient.identifyUser({ user_id: 'my_user' }) // no need to pass in "amountSpent" any more!
+devcycleClient.identifyUser({ user_id: 'my_user' }) // no need to pass in "amountSpent" any more!
 ```

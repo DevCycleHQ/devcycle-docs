@@ -73,7 +73,7 @@ global.DeviceInfo = DeviceInfo
 
 
 ```jsx
-export default withDVCProvider({ sdkKey: '<DVC_CLIENT_SDK_KEY>' })(App)
+export default withDVCProvider({ sdkKey: '<DEVCYCLE_CLIENT_SDK_KEY>' })(App)
 ```
 
 A complete working example of an `App.jsx` file is below:
@@ -101,5 +101,5 @@ function App() {
   )
 }
 
-export default withDVCProvider({ sdkKey: '<DVC_CLIENT_SDK_KEY>' })(App)
+export default withDVCProvider({ sdkKey: '<DEVCYCLE_CLIENT_SDK_KEY>' })(App)
 ```

@@ -19,10 +19,10 @@ The JS SDK library can be found on NPM. To get started, install the JS SDK using
 npm install --save @devcycle/js-client-sdk
 ```
 
-To use the JS SDK in your project, import the `initialize` function:
+To use the JS SDK in your project, import the `initializeDevCycle` function:
 
 ```js
-import { initialize } from "@devcycle/js-client-sdk";
+import { initializeDevCycle } from "@devcycle/js-client-sdk";
 ```
 
 ## Using the CDN

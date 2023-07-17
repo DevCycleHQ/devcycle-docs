@@ -23,7 +23,7 @@ The hook will return the default value if the SDK has not yet finished initializ
 ```js
 import { useVariableValue } from '@devcycle/react-client-sdk'
 
-const DVCFeaturePage = () => {
+const DevCycleFeaturePage = () => {
     const variableKey = 'my-feature'
     const defaultValue = false
     const featureVariable = useVariableValue(variableKey, defaultValue)
@@ -45,19 +45,19 @@ If a change on the dashboard triggers your variable value to change, it will rer
 The SDK provides a hook to access the underlying DevCycle client. This allows you identify users, track events, and directly access
 variables:
 
-### useDVCClient
+### useDevCycleClient
 
 ```js
-import { useDVCClient } from '@devcycle/react-client-sdk'
+import { useDevCycleClient } from '@devcycle/react-client-sdk'
 
-const DVCFeaturePage = () => {
+const DevCycleFeaturePage = () => {
     const newUser = {
       user_id: 'new_user_id'
     }
-    const dvcClient = useDVCClient()
+    const devcycleClient = useDevCycleClient()
 
    const identifyUser = () => {
-      dvcClient.identifyUser(newUser)
+      devcycleClient.identifyUser(newUser)
         .then((variables) => console.log('Updated Variables:', variables))
     }
 
@@ -72,7 +72,7 @@ const DVCFeaturePage = () => {
 
 ## Identifying Users
 
-To change the identity of the user, or to add more properties to the same user passed into the DVC provider component, pass in the entire user properties object into `identifyUser`:
+To change the identity of the user, or to add more properties to the same user passed into the DevCycle provider component, pass in the entire user properties object into `identifyUser`:
 
 ```js
 const user = {
@@ -82,19 +82,19 @@ const user = {
         customKey: 'customValue'
     }
 }
-dvcClient.identifyUser(user)
+devcycleClient.identifyUser(user)
 ```
 
-The client object can be obtained from the [useDVCClient](#getting-the-devcycle-client) hook.
+The client object can be obtained from the [useDevCycleClient](#getting-the-devcycle-client) hook.
 
 To wait on Variables that will be returned from the `identify` call, you can pass in a callback or use the Promise returned if no callback is passed in:
 
 ```js
-const variableSet = await dvcClient.identifyUser(user)
+const variableSet = await devcycleClient.identifyUser(user)
 
 // OR
 
-dvcClient.identifyUser(user, (err, variables) => {
+devcycleClient.identifyUser(user, (err, variables) => {
     // variables is the variable set for the identified user
 })
 ```
@@ -104,20 +104,20 @@ dvcClient.identifyUser(user, (err, variables) => {
 To reset the user's identity, call `resetUser`. This will create a new anonymous user with a randomized `user_id`.
 
 ```js
-dvcClient.resetUser()
+devcycleClient.resetUser()
 ```
 
-The client object can be obtained from the [useDVCClient](#getting-the-devcycle-client) hook.
+The client object can be obtained from the [useDevCycleClient](#getting-the-devcycle-client) hook.
 
 
 To wait on the Features of the anonymous user, you can pass in a callback or use the Promise returned if no callback is passed in:
 
 ```js
-const variableSet = await dvcClient.resetUser()
+const variableSet = await devcycleClient.resetUser()
 
 // OR
 
-dvcClient.resetUser((err, variables) => {
+devcycleClient.resetUser((err, variables) => {
     // variables is the variable set for the anonymous user
 })
 ```
@@ -127,11 +127,11 @@ dvcClient.resetUser((err, variables) => {
 To get all the Features or Variables that have been enabled for this user:
 
 ```js
-const features = dvcClient.allFeatures()
-const variables = dvcClient.allVariables()
+const features = devcycleClient.allFeatures()
+const variables = devcycleClient.allVariables()
 ```
 
-The client object can be obtained from the [useDVCClient](#getting-the-devcycle-client) hook.
+The client object can be obtained from the [useDevCycleClient](#getting-the-devcycle-client) hook.
 
 If the SDK has not finished initializing, these methods will return an empty object.
 
@@ -148,7 +148,7 @@ The DevCycle React SDK is built upon the JavaScript SDK. For further details, vi
 
 ## Track Events
 Events can be tracked by calling the `track` method provided by the client object, which you can access with the
-[useDVCClient](#getting-the-devcycle-client) hook. The track method takes an event type as well as other optional fields.
+[useDevCycleClient](#getting-the-devcycle-client) hook. The track method takes an event type as well as other optional fields.
 
 ```js
 const event = {
@@ -160,17 +160,17 @@ const event = {
         key: 'value'
     }
 }
-dvcClient.track(event)
+devcycleClient.track(event)
 ```
 
 The SDK will flush events every 10s or `flushEventsMS` specified in the Provider options. To manually flush events, call:
 
 ```js
-await dvcClient.flushEvents()
+await devcycleClient.flushEvents()
 
 // or 
 
-dvcClient.flushEvents(() => {
+devcycleClient.flushEvents(() => {
     // called back after flushed events
 })
 ```
@@ -194,7 +194,7 @@ const options = {
   enableEdgeDB: true
 }
 
-export default withDVCProvider({ sdkKey: '<DVC_CLIENT_SDK_KEY>', user, options })(App)
+export default withDevCycleProvider({ sdkKey: '<DEVCYCLE_CLIENT_SDK_KEY>', user, options })(App)
 ```
 
 This will send a request to our EdgeDB API to save the custom data under the user `test_user`.
@@ -203,5 +203,5 @@ In the example, `amountSpent` is associated to the user `test_user`. In your nex
 you may omit any of the data you've sent already as it will be pulled from the EdgeDB storage when segmenting to experiments and features:
 
 ```
-dvcClient.identifyUser({ user_id: 'test_user' }) // no need to pass in "amountSpent" any more!
+devcycleClient.identifyUser({ user_id: 'test_user' }) // no need to pass in "amountSpent" any more!
 ```
