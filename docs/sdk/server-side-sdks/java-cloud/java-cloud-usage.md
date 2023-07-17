@@ -27,32 +27,12 @@ value from the server unless an error occurs or the server has no response.
 In that case it will return a variable value with the value set to whatever was passed in as the `defaultValue` parameter.
 
 ```java
-import com.devcycle.sdk.server.cloud.api.DVCCloudClient;
-import com.devcycle.sdk.server.common.exception.DVCException;
-import com.devcycle.sdk.server.common.model.User;
-import com.devcycle.sdk.server.common.model.Variable;
+Boolean variableValue = client.variableValue(user, "turn_on_super_cool_feature", true);
 
-public class MyClass {
-    private DVCCloudClient dvcCloudClient;
-
-    public MyClass() {
-        dvcCloudClient = new DVCCloudClient("<DVC_SERVER_SDK_KEY>");
-    }
-
-    public void setFlag() throws DVCException {
-        User user = User.builder()
-                .userId("a_user_id")
-                .country("US")
-                .build();
-
-        Boolean variableValue = dvcCloudClient.variableValue(user, "turn_on_super_cool_feature", true);
-
-        if (variableValue.booleanValue()) {
-            // New Feature code here
-        } else {
-            // Old code here
-        }
-    }
+if (variableValue.booleanValue()) {
+    // New Feature code here
+} else {
+    // Old code here
 }
 ```
 
@@ -67,48 +47,14 @@ This method will fetch all variables for a given user and returned as Map&lt;Str
 To get values from your Variables, the `value` field inside the variable object can be accessed.
 
 ```java
-...
-
-public class MyClass {
-    private DVCCloudClient dvcCloudClient;
-
-    public MyClass() {
-        dvcCloudClient = new DVCCloudClient("<DVC_SERVER_SDK_KEY>");
-    }
-
-    public void allVariables() throws DVCException {
-        User user = User.builder()
-                .userId("a_user_id")
-                .country("US")
-                .build();
-        
-        Map<String, Variable> variables = dvcCloudClient.allVariables(user);
-    }
-}
+Map<String, Variable> variables = client.allVariables(user);
 ```
 
 ## Getting All Features
 This method will fetch all features for a given user and return them as Map<String, Feature>
 
 ```java
-...
-
-public class MyClass {
-    private DVCCloudClient dvcCloudClient;
-    
-    public MyClass() {
-        dvcCloudClient = new DVCCloudClient("<DVC_SERVER_SDK_KEY>");
-    }
-    
-    public void allFeatures() throws DVCException {
-        User user = User.builder()
-                .userId("a_user_id")
-                .country("US")
-                .build();
-
-        Map<String, Feature> features = dvcCloudClient.allFeatures(user);
-    }
-}
+Map<String, Feature> features = client.allFeatures(user);
 ```
 
 ## Track Event
@@ -116,31 +62,14 @@ public class MyClass {
 To POST custom event for a user, pass in the user and event object.
 
 ```java
-...
+Event event = Event.builder()
+        .date(Instant.now().toEpochMilli())
+        .target("test target")
+        .type("test event")
+        .value(new BigDecimal(600))
+        .build();
 
-public class MyClass {
-    private DVCCloudClient dvcCloudClient;
-
-    public MyClass() {
-        dvcCloudClient = new DVCCloudClient("<DVC_SERVER_SDK_KEY>");
-    }
-
-    public void addAnEvent() throws DVCException {
-        User user = User.builder()
-                .userId("a_user_id")
-                .country("US")
-                .build();
-
-        Event event = Event.builder()
-                .date(Instant.now().toEpochMilli())
-                .target("test target")
-                .type("test event")
-                .value(new BigDecimal(600))
-                .build();
-
-        DVCResponse response = dvcCloudClient.track(user, event);
-    }
-}
+DVCResponse response = client.track(user, event);
 ```
 
 ## EdgeDB
@@ -188,3 +117,40 @@ This will send a request to our EdgeDB API to save the custom data under the use
 In the example, Email and Country are associated to the user `test_user`. 
 In your next identify call for the same `userId`, you may omit any of the data you've sent already as it will be pulled 
 from the EdgeDB storage when segmenting to experiments and features.
+
+
+## Override Logging
+
+The SDK logs to stdout by default and does not require any specific logging package. To integrate with your own logging system, such as Java Logging or SLF4J, you can create a wrapper that implements the IDVCLogger interface. Then you can set the logger into the Java Server SDK setting the Custom Logger property in the options object used to initialize the client.
+
+```java
+IDVCLogger loggingWrapper = new IDVCLogger() {
+    @Override
+    public void debug(String message) {
+        // Your logging implementation here
+    }
+
+    @Override
+    public void info(String message) {
+        // Your logging implementation here
+    }
+
+    @Override
+    public void warning(String message) {
+        // Your logging implementation here
+    }
+
+    @Override
+    public void error(String message) {
+        // Your logging implementation here
+    }
+
+    @Override
+    public void error(String message, Throwable throwable) {
+        // Your logging implementation here
+    }
+};
+
+// Set the logger in the options before creating the DVCLocalClient
+DVCCloudOptions options = DVCCloudOptions.builder().customLogger(loggingWrapper).build();
+```

@@ -17,10 +17,10 @@ import com.devcycle.sdk.server.cloud.api.DVCCloudClient;
 
 public class MyClass {
     
-    private DVCCloudClient dvcCloudClient;
+    private DVCCloudClient client;
     
     public MyClass() {
-        dvcCloudClient = new DVCCloudClient("<DVC_SERVER_SDK_KEY>");
+        client = new DVCCloudClient("<DVC_SERVER_SDK_KEY>");
     }
 }
 ```
@@ -37,14 +37,14 @@ import com.devcycle.sdk.server.cloud.model.DVCCloudOptions;
 
 public class MyClass {
     
-    private DVCCloudClient dvcCloudClient;
+    private DVCCloudClient client;
 
-    private DVCCloudOptions dvcCloudOptions = DVCLocalOptions.builder()
-        .enableEdgeDB(false)
-        .build();
-    
     public MyClass() {
-        dvcCloudClient = new DVCCloudClient("<DVC_SERVER_SDK_KEY>", dvcCloudOptions);
+        DVCCloudOptions options = DVCLocalOptions.builder()
+            .enableEdgeDB(false)
+            .build();
+        
+        client = new DVCCloudClient("<DVC_SERVER_SDK_KEY>", options);
     }
 }
 ```
