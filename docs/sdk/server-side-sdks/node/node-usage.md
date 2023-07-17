@@ -14,7 +14,7 @@ sidebar_custom_props: {icon: toggle-on}
 The full user data must be passed into every method. The only required field is the `user_id`. 
 The rest are optional and are used by the system for user segmentation into variables and features.
 
-[DVCUser Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/nodejs/src/models/user.ts#L16)
+[DevCycleUser Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/nodejs/src/models/user.ts#L16)
 
 ```javascript
 const user = {
@@ -24,18 +24,18 @@ const user = {
         customKey: 'customValue'
     }
 }
-const variable = dvcClient.variable(user, 'test-feature', false)
+const variable = devcycleClient.variable(user, 'test-feature', false)
 ```
 
 ## Get and Use Variable by Key
 
-To get values from your Variables, `dvcClient.variableValue()` is used to fetch variable values using the user data, 
+To get values from your Variables, `devcycleClient.variableValue()` is used to fetch variable values using the user data, 
 variable `key`, coupled with a default value for the variable. The default variable will be used in cases where
 the user is not segmented into a feature using that variable, or the project configuration is unavailable 
 to be fetched from DevCycle's CDN. 
 
 ```javascript
-const value = dvcClient.variableValue(user, '<YOUR_VARIABLE_KEY>', false)
+const value = devcycleClient.variableValue(user, '<YOUR_VARIABLE_KEY>', false)
 if (value) {
     // Feature Flag on
 }
@@ -44,7 +44,7 @@ if (value) {
 The default value can be of type string, boolean, number, or object.
 
 If you would like to get the full Variable object defined by [DVCVariable Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/nodejs/src/types.ts#L95)
-you can use `dvcClient.variable()` instead. This contains fields such as:
+you can use `devcycleClient.variable()` instead. This contains fields such as:
 `key`, `value`, `type`, `defaultValue`, `isDefaulted`.
 
 ## Getting All Variables
@@ -52,7 +52,7 @@ you can use `dvcClient.variable()` instead. This contains fields such as:
 To grab all the segmented variables for a user:
 
 ```javascript
-const variables = dvcClient.allVariables(user)
+const variables = devcycleClient.allVariables(user)
 ```
 See [getVariables](/bucketing-api/#operation/getVariables) on the Bucketing API for the variable response format.
 
@@ -63,7 +63,7 @@ You can fetch all segmented features for a user:
 [DVCFeature Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/nodejs/src/types.ts#L204)
 
 ```javascript
-const features = dvcClient.allFeatures(user)
+const features = devcycleClient.allFeatures(user)
 ```
 See [getFeatures](/bucketing-api/#operation/getFeatures) on the Bucketing API for the feature response format.
 
@@ -73,16 +73,16 @@ Track a custom event for a user, pass in the user and event object.
 
 Calling Track will queue the event, which will be sent in batches to the DevCycle servers.
 
-[DVCEvent Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/nodejs/src/types.ts#L177)
+[DevCycleEvent Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/nodejs/src/types.ts#L177)
 
 ```typescript
-const event: DVCEvent = {
+const event: DevCycleEvent = {
     type: 'customType',
     target: 'new_subscription',
     value: 100.1,
     date: Date.now()
 }
-dvcClient.track(user, event)
+devcycleClient.track(user, event)
 ```
 
 ## Flush Events
@@ -104,9 +104,9 @@ To get started, contact us at support@devcycle.com to enable EdgeDB for your pro
 Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to turn on EdgeDB mode for the SDK:
 
 ```javascript
-const DVC = require('@devcycle/nodejs-server-sdk')
+const DevCycle = require('@devcycle/nodejs-server-sdk')
 
-const dvcClient = DVC.initialize('<DVC_SDK_SERVER_KEY>', {
+const devcycleClient = DevCycle.initializeDevCycle('<DEVCYCLE_SDK_SERVER_KEY>', {
   enableCloudBucketing: true,
   enableEdgeDB: true
 })
@@ -117,7 +117,7 @@ const user = {
   country: 'CA'
 }
 
-const variable = await dvcClient.variable(user, 'test-feature', false)
+const variable = await devcycleClient.variable(user, 'test-feature', false)
 ```
 
 This will send a request to our EdgeDB API to save the custom data under the user `test_user`.
@@ -126,5 +126,5 @@ In the example, Email and Country are associated to the user `test_user`. In you
 
 ## Close Client
 
-If you need to close the DVCClient object to stop all open connections and timers, call `dvcClient.close()`. 
-This can be useful for cleaning DVCClient objects during unit testing.
+If you need to close the DevCycleClient object to stop all open connections and timers, call `devcycleClient.close()`. 
+This can be useful for cleaning DevCycleClient objects during unit testing.

@@ -30,14 +30,14 @@ Initialize the DevCycle SDK and set the DevCycleProvider as the provider for Ope
 ```typescript
 import { OpenFeature, Client } from '@openfeature/js-sdk'
 import { DevCycleProvider } from '@devcycle/openfeature-nodejs-provider'
-import { initialize } from '@devcycle/nodejs-server-sdk'
+import { initializeDevCycle } from '@devcycle/nodejs-server-sdk'
 
 ... 
 
 // Initialize the DevCycle SDK
-const dvcClient = await initialize(DVC_SERVER_SDK_KEY).onClientInitialized()
+const devcycleClient = await initializeDevCycle(DEVCYCLE_SERVER_SDK_KEY).onClientInitialized()
 // Set the initialzed DevCycle client as the provider for OpenFeature
-OpenFeature.setProvider(new DevCycleProvider(dvcClient))
+OpenFeature.setProvider(new DevCycleProvider(devcycleClient))
 // Get the OpenFeature client
 openFeatureClient = OpenFeature.getClient()
 // Set the context for the OpenFeature client, you can use 'targetingKey' or 'user_id'
@@ -48,27 +48,27 @@ openFeatureClient.setContext({ targetingKey: 'node_sdk_test' })
 const boolFlag = await openFeatureClient.getBooleanValue('boolean-flag', false)
 ```
 
-### Passing DVCOptions to the DevCycleProvider
+### Passing DevCycleOptions to the DevCycleProvider
 
-Ensure that you pass any custom DVCOptions set on the `DVCClient` instance to the DevCycleProvider constructor
+Ensure that you pass any custom DevCycleOptions set on the `DevCycleClient` instance to the DevCycleProvider constructor
 
 ```typescript
 const options = { logger: dvcDefaultLogger({ level: 'debug' }) }
-const dvcClient = await initialize(DVC_SERVER_SDK_KEY, options).onClientInitialized()
-OpenFeature.setProvider(new DevCycleProvider(dvcClient, options))
+const devcycleClient = await initializeDevCycle(DEVCYCLE_SERVER_SDK_KEY, options).onClientInitialized()
+OpenFeature.setProvider(new DevCycleProvider(devcycleClient, options))
 ```
 
 ### Required TargetingKey
 
 For DevCycle SDK to work we require either a `targetingKey` or `user_id` to be set on the OpenFeature context.
-This is used to identify the user as the `user_id` for a `DVCUser` in DevCycle.
+This is used to identify the user as the `user_id` for a `DevCycleUser` in DevCycle.
 
-### Context properties to DVCUser
+### Context properties to DevCycleUser
 
-The provider will automatically translate known `DVCUser` properties from the OpenFeature context to the `DVCUser` object.
-[DVCUser TypeScript Interface](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/nodejs/src/models/user.ts#L16)
+The provider will automatically translate known `DevCycleUser` properties from the OpenFeature context to the `DevCycleUser` object.
+[DevCycleUser TypeScript Interface](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/nodejs/src/models/user.ts#L16)
 
-For example all these properties will be set on the `DVCUser`:
+For example all these properties will be set on the `DevCycleUser`:
 ```typescript
 openFeatureClient.setContext({
     user_id: 'user_id',
@@ -83,8 +83,8 @@ openFeatureClient.setContext({
 })
 ```
 
-Context properties that are not known `DVCUser` properties will be automatically
-added to the `customData` property of the `DVCUser`.
+Context properties that are not known `DevCycleUser` properties will be automatically
+added to the `customData` property of the `DevCycleUser`.
 
 ### Context Limitations
 
