@@ -29,41 +29,41 @@ See [Identifying Users & Setting Properties](/sdk/features/identify) for more de
 
 ## Non-Blocking
 
-The withDVCProvider higher-order component (HOC) initializes the React SDK and wraps your root component. This provider may cause your app
+The withDevCycleProvider higher-order component (HOC) initializes the React SDK and wraps your root component. This provider may cause your app
 to flicker when it is first rendered, as it is waiting for the SDK to initialize.
 
 ```js
-import { withDVCProvider } from '@devcycle/react-client-sdk'
+import { withDevCycleProvider } from '@devcycle/react-client-sdk'
 ```
 ```js
-export default withDVCProvider({ sdkKey: '<DVC_CLIENT_SDK_KEY>' })(App)
+export default withDevCycleProvider({ sdkKey: '<DEVCYCLE_CLIENT_SDK_KEY>' })(App)
 ```
 
 ## Blocking
 
-The `useIsDVCInitialized` hook allows you to block rendering of your application until SDK initialization is complete. This ensures your app does not flicker due to value changes and enables you to control what you want displayed when initialization isn't finished yet.
+The `useIsDevCycleInitialized` hook allows you to block rendering of your application until SDK initialization is complete. This ensures your app does not flicker due to value changes and enables you to control what you want displayed when initialization isn't finished yet.
 
 ```js
-import { useIsDVCInitialized, withDVCProvider } from '@devcycle/react-client-sdk'
+import { useIsDevCycleInitialized, withDevCycleProvider } from '@devcycle/react-client-sdk'
 ```
 ```js
 function App() {
-    const dvcReady = useIsDVCInitialized()
+    const dvcReady = useIsDevCycleInitialized()
     
     if (!dvcReady) return <LoadingState/>
     return <TheRestofYourApp/>
 }
     
-export default withDVCProvider({ sdkKey: '<DVC_CLIENT_SDK_KEY>' })(App)
+export default withDevCycleProvider({ sdkKey: '<DEVCYCLE_CLIENT_SDK_KEY>' })(App)
 ```
 
 :::caution
 
-The asyncWithDVCProvider function has been deprecated as of version 1.3.0
+The `asyncWithDVCProvider` function has been deprecated as of version 1.3.0
 
 :::
 
-The asyncWithDVCProvider function is similar to the withDVCProvider function, but allows you to block rendering of your application
+The `asyncWithDVCProvider` function is similar to the `withDevCycleProvider` function, but allows you to block rendering of your application
 until SDK initialization is complete. This ensures your app does not flicker due to value changes.
 
 ```js
@@ -71,49 +71,49 @@ import { asyncWithDVCProvider } from '@devcycle/react-client-sdk'
 ```
 ```js
 (async () => {
-    const DVCProvider = await asyncWithDVCProvider({ sdkKey: '<DVC_CLIENT_SDK_KEY>' })
+    const DevCycleProvider = await asyncWithDVCProvider({ sdkKey: '<DEVCYCLE_CLIENT_SDK_KEY>' })
 
     ReactDOM.render(
-        <DVCProvider>
+        <DevCycleProvider>
             <App />
-        </DVCProvider>
+        </DevCycleProvider>
     )
 })();
 ```
 
 ## Deferred Initialization
-In many cases, user data is not available at the time the `DVCProvider` is created. If the provider is not passed a
+In many cases, user data is not available at the time the `DevCycleProvider` is created. If the provider is not passed a
 `user` object, then by default the SDK will be instantiated with an "anonymous" user and a configuration will be 
-downloaded from DevCycle. The SDK will be considered "initialized" and the aforementioned `useIsDVCInitialized` hook
+downloaded from DevCycle. The SDK will be considered "initialized" and the aforementioned `useIsDevCycleInitialized` hook
 will return `true` once this configuration has been downloaded.
 
 If you would like to defer initialization of the SDK until your user data is available, you can pass the 
-`deferInitialization` option to the `DVCProvider`. This will cause the SDK to not fetch a configuration until the
-[`dvcClient.identifyUser`](/sdk/client-side-sdks/react/react-usage#identifying-users) method is called with the user data. 
-The `useIsDVCInitialized` hook will return `false` until
+`deferInitialization` option to the `DevCycleProvider`. This will cause the SDK to not fetch a configuration until the
+[`devcycleClient.identifyUser`](/sdk/client-side-sdks/react/react-usage#identifying-users) method is called with the user data. 
+The `useIsDevCycleInitialized` hook will return `false` until
 that method has been called and a corresponding config has been retrieved. Until that config is retrieved, all calls
 to retrieve variable values will return their default values.
 
 ```js
-import { useIsDVCInitialized, withDVCProvider } from '@devcycle/react-client-sdk'
+import { useIsDevCycleInitialized, withDevCycleProvider } from '@devcycle/react-client-sdk'
 
 let identified = false
 function App() {
     // e.g. a React Query style hook that retrieves user data
     const { data: user, isFetched } = useUserFromMyUserStorage()
     if (user && !identified) {
-        dvcClient.identifyUser(user)
+        devcycleClient.identifyUser(user)
         identified = true
     }
-    const dvcReady = useIsDVCInitialized()
+    const dvcReady = useIsDevCycleInitialized()
     
     // rendering is blocked until the user is loaded, and has finished being identified in DevCycle
     if (!dvcReady) return <LoadingState/>
     return <TheRestofYourApp/>
 }
     
-export default withDVCProvider({ 
-    sdkKey: '<DVC_CLIENT_SDK_KEY>',
+export default withDevCycleProvider({ 
+    sdkKey: '<DEVCYCLE_CLIENT_SDK_KEY>',
     options: {
         deferInitialization: true
     } 
@@ -122,29 +122,29 @@ export default withDVCProvider({
 
 ## Provider Config
 
-The `withDVCProvider` function accepts a Provider Config object:
+The `withDevCycleProvider` function accepts a Provider Config object:
 
-[DVC ProviderConfig Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/react/src/types.ts#L3)
+[DevCycle ProviderConfig Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/react/src/types.ts#L3)
 
 | Property | Type | Description            |
 |------------|------|------------------------|
 | sdkKey | string | SDK key                |
-| user | [DVCUser](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L55) | DevCycle user object   |
-| options | [DVCOptions](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L44) | DevCycle options object |
+| user | [DevCycleUser](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L55) | DevCycleUser object    |
+| options | [DevCycleOptions](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L44) | DevCycleOptions object |
 
 ## Initialization Options
 
-The SDK exposes various initialization options which can be set by passing a `DVCOptions` object in the Provider Config:
+The SDK exposes various initialization options which can be set by passing a `DevCycleOptions` object in the Provider Config:
 
-[DVCOptions Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L44)
+[DevCycleOptions Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L44)
 
-| DVC Option             | Type | Description                                                                                                    |
+| DevCycle Option             | Type | Description                                                                                                    |
 |------------------------|------|----------------------------------------------------------------------------------------------------------------|
 | eventFlushIntervalMS   | number | Controls the interval between flushing events to the DevCycle servers in milliseconds, defaults to 10 seconds. |
 | enableEdgeDB           | boolean | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle.                                     |
-| logger                 | [DVCLogger](https://github.com/DevCycleHQ/js-sdks/blob/main/lib/shared/types/src/logger.ts#L2) | Logger override to replace default logger                                                                      |
-| logLevel               | [DVCDefaultLogLevel](https://github.com/DevCycleHQ/js-sdks/blob/main/lib/shared/types/src/logger.ts#L12) | Set log level of the default logger. Options are: `debug`, `info`, `warn`, `error`. Defaults to `info`.        |
-| apiProxyURL            | string | Allows the SDK to communicate with a proxy of DVC bucketing API / client SDK API.                              |
+| logger                 | [DevCycleLogger](https://github.com/DevCycleHQ/js-sdks/blob/main/lib/shared/types/src/logger.ts#L2) | Logger override to replace default logger                                                                      |
+| logLevel               | [DevCycleDefaultLogLevel](https://github.com/DevCycleHQ/js-sdks/blob/main/lib/shared/types/src/logger.ts#L12) | Set log level of the default logger. Options are: `debug`, `info`, `warn`, `error`. Defaults to `info`.        |
+| apiProxyURL            | string | Allows the SDK to communicate with a proxy of DevCycle bucketing API / client SDK API.                              |
 | configCacheTTL         | number | The maximum allowed age of a cached config in milliseconds, defaults to 7 days                                 |
 | disableConfigCache     | boolean | Disable the use of cached configs                                                                              |
 | disableRealtimeUpdates | boolean | Disable Realtime Updates                                                                                       |
