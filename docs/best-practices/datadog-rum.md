@@ -62,8 +62,8 @@ For React, we recommend encapsulating your RUM code within a React hook. Conside
 
 ```javascript
 import { DatadogRum } from '@Datadog/browser-rum'
-import { DVCVariableValue, useDVCClient } from '@devcycle/devcycle-react-sdk'
-import { DVCVariable } from '@devcycle/devcycle-js-sdk'
+import { DVCVariableValue, useDVCClient } from '@devcycle/react-client-sdk'
+import { DVCVariable } from '@devcycle/js-client-sdk'
 import { useEffect } from 'react'
 
 let didInit = false

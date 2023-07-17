@@ -5,7 +5,7 @@ sidebar_position: 1
 description: Installing the SDK
 sidebar_custom_props: {icon: screwdriver-wrench}
 ---
-[![Npm package version](https://badgen.net/npm/v/@devcycle/devcycle-js-sdk)](https://www.npmjs.com/package/@devcycle/devcycle-js-sdk)
+[![Npm package version](https://badgen.net/npm/v/@devcycle/js-client-sdk)](https://www.npmjs.com/package/@devcycle/js-client-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)
 
 
@@ -16,13 +16,13 @@ The recommended way to include the JS SDK is by bundling it with the rest of you
 The JS SDK library can be found on NPM. To get started, install the JS SDK using NPM:
 
 ```bash
-npm install --save @devcycle/devcycle-js-sdk
+npm install --save @devcycle/js-client-sdk
 ```
 
 To use the JS SDK in your project, import the `initialize` function:
 
 ```js
-import { initialize } from "@devcycle/devcycle-js-sdk";
+import { initialize } from "@devcycle/js-client-sdk";
 ```
 
 ## Using the CDN

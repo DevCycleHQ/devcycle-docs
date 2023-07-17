@@ -48,7 +48,7 @@ Once you’ve created a property, you can find it in the Definition dropdown whe
 Custom Properties can be added to any user object in your code by including it in the `customData` field. For example, let’s implement the boolean `isBetaUser` property using the React SDK:
 
 ```jsx
-import { useDVCClient } from '@devcycle/devcycle-react-sdk'
+import { useDVCClient } from '@devcycle/react-client-sdk'
 
 const user = {
   user_id: 'user1',

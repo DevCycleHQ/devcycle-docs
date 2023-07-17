@@ -17,5 +17,5 @@ the open-source code can be viewed on the [DevCycle GitHub](https://github.com/D
 
 When initialized, the SDK will download the latest version of your DevCycle environments’ configuration from a CDN for the provided user.
 
-[![Npm package version](https://badgen.net/npm/v/@devcycle/devcycle-js-sdk)](https://www.npmjs.com/package/@devcycle/devcycle-js-sdk)
+[![Npm package version](https://badgen.net/npm/v/@devcycle/js-client-sdk)](https://www.npmjs.com/package/@devcycle/js-client-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)

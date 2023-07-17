@@ -6,7 +6,7 @@ description: Installing the SDK
 sidebar_custom_props: {icon: screwdriver-wrench}
 ---
 
-[![Npm package version](https://badgen.net/npm/v/@devcycle/devcycle-react-sdk)](https://www.npmjs.com/package/@devcycle/devcycle-react-sdk)
+[![Npm package version](https://badgen.net/npm/v/@devcycle/react-client-sdk)](https://www.npmjs.com/package/@devcycle/react-client-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)
 
 ## Requirements
@@ -34,12 +34,12 @@ To install the SDK, run the following command:
 
 ### npm
 ```bash
-    npm install --save @devcycle/devcycle-react-sdk
+    npm install --save @devcycle/react-client-sdk
   ```
 
 ### yarn
   ```bash
-    yarn add @devcycle/devcycle-react-sdk
+    yarn add @devcycle/react-client-sdk
   ```
 
 <!--/tabs-->

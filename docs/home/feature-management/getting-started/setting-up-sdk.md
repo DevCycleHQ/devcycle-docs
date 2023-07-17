@@ -12,7 +12,7 @@ The easiest way to ensure a proper SDK setup is to first [set up a feature flag 
 
 Once you have chosen your preferred SDK, set up the SDK:
 
-1. Install the DevCycle SDK via the relevant dependency manager. For example, the react SDK is installed via npm: ```npm i @devcycle/devcycle-react-sdk```
+1. Install the DevCycle SDK via the relevant dependency manager. For example, the react SDK is installed via npm: ```npm i @devcycle/react-client-sdk```
 
 2. Import DevCycle and initialize it. Depending on which [type of SDK](/sdk/) and which environment you are initializing for, the SDK Key the SDK is initialized with will be different. Read more about Environments and keys [here](#to-do).
 

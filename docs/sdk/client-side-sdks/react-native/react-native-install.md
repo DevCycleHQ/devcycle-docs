@@ -6,7 +6,7 @@ description: Installing the SDK
 sidebar_custom_props: {icon: screwdriver-wrench}
 ---
 
-[![Npm package version](https://badgen.net/npm/v/@devcycle/devcycle-react-native-sdk)](https://www.npmjs.com/package/@devcycle/devcycle-react-native-sdk)
+[![Npm package version](https://badgen.net/npm/v/@devcycle/react-native-client-sdk)](https://www.npmjs.com/package/@devcycle/react-native-client-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)
 
 To install the SDK, run the following command:
@@ -16,13 +16,13 @@ To install the SDK, run the following command:
 ### npm
 
   ```bash
-    npm install --save @devcycle/devcycle-react-native-sdk 
+    npm install --save @devcycle/react-native-client-sdk 
   ```
 
 ### yarn
 
   ```bash
-    yarn add @devcycle/devcycle-react-native-sdk 
+    yarn add @devcycle/react-native-client-sdk 
   ```
 
 <!--/tabs-->
@@ -64,7 +64,7 @@ import React from 'react'
 import 'react-native-get-random-values'
 import DeviceInfo from 'react-native-device-info'
 import '@react-native-async-storage/async-storage'
-import { withDVCProvider } from '@devcycle/devcycle-react-native-sdk'
+import { withDVCProvider } from '@devcycle/react-native-client-sdk'
 
 global.DeviceInfo = DeviceInfo
 ```
@@ -84,7 +84,7 @@ import { View, Text } from 'react-native'
 import 'react-native-get-random-values'
 import DeviceInfo from 'react-native-device-info'
 import '@react-native-async-storage/async-storage'
-import { withDVCProvider } from '@devcycle/devcycle-react-native-sdk'
+import { withDVCProvider } from '@devcycle/react-native-client-sdk'
 
 global.DeviceInfo = DeviceInfo
 function App() {

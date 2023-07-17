@@ -112,7 +112,7 @@ For more information about our other SDKs types, [check out our documentation he
 
 To install the React SDK, run the following command on your terminal 
 ```jsx
-npm install --save @devcycle/devcycle-react-sdk
+npm install --save @devcycle/react-client-sdk
 ```
 
 Next, we import DevCycle and initialize it. An example usage of our feature flag is conveniently located in the 
@@ -128,7 +128,7 @@ DevCycle then provides you with the code you need, along with your unique SDK Ke
 The provided code for your  feature flag will look like this, with `<DVC_CLIENT_SDK_KEY>` replaced with your actual client key:
 
 ```jsx
-import { asyncWithDVCProvider, useVariable } from '@devcycle/devcycle-react-sdk'
+import { asyncWithDVCProvider, useVariable } from '@devcycle/react-client-sdk'
 
 (async () => {
   const user = {
