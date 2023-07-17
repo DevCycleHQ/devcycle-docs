@@ -6,7 +6,7 @@ description: Using the SDK
 sidebar_custom_props: {icon: toggle-on}
 ---
 
-[![Npm package version](https://badgen.net/npm/v/@devcycle/devcycle-react-native-sdk)](https://www.npmjs.com/package/@devcycle/devcycle-react-native-sdk)
+[![Npm package version](https://badgen.net/npm/v/@devcycle/react-native-client-sdk)](https://www.npmjs.com/package/@devcycle/react-native-client-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)
 
 ## Getting a Variable
@@ -20,7 +20,7 @@ It takes in your variable key as well as a default value and returns the value o
 The hook will return the default value if the SDK has not yet finished initializing.
 
 ```js
-import { useVariableValue } from '@devcycle/devcycle-react-native-sdk'
+import { useVariableValue } from '@devcycle/react-native-client-sdk'
 
 const DVCFeaturePage = () => {
     const variableKey = 'my-feature'
@@ -40,7 +40,7 @@ Use this hook to access the DevCycle client. This allows you identify users, tra
 variables:
 
 ```js
-import { useDVCClient } from '@devcycle/devcycle-react-native-sdk'
+import { useDVCClient } from '@devcycle/react-native-client-sdk'
 
 const DVCFeaturePage = () => {
     const newUser = {

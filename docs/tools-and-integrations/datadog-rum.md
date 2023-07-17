@@ -70,8 +70,8 @@ We recommend encapsulating your RUM code within a React hook, so consider the fo
 
 ```jsx
 import { datadogRum } from '@datadog/browser-rum'
-import { DVCVariableValue, useDVCClient } from '@devcycle/devcycle-react-sdk'
-import { DVCVariable } from '@devcycle/devcycle-js-sdk'
+import { DVCVariableValue, useDVCClient } from '@devcycle/react-client-sdk'
+import { DVCVariable } from '@devcycle/js-client-sdk'
 
 let didInit = false
 

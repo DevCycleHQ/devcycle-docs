@@ -6,7 +6,7 @@ description: Initializing the SDK
 sidebar_custom_props: {icon: rocket}
 ---
 
-[![Npm package version](https://badgen.net/npm/v/@devcycle/devcycle-react-sdk)](https://www.npmjs.com/package/@devcycle/devcycle-react-sdk)
+[![Npm package version](https://badgen.net/npm/v/@devcycle/react-client-sdk)](https://www.npmjs.com/package/@devcycle/react-client-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)
 
 There are two ways to initialize the SDK:
@@ -33,7 +33,7 @@ The withDVCProvider higher-order component (HOC) initializes the React SDK and w
 to flicker when it is first rendered, as it is waiting for the SDK to initialize.
 
 ```js
-import { withDVCProvider } from '@devcycle/devcycle-react-sdk'
+import { withDVCProvider } from '@devcycle/react-client-sdk'
 ```
 ```js
 export default withDVCProvider({ sdkKey: '<DVC_CLIENT_SDK_KEY>' })(App)
@@ -44,7 +44,7 @@ export default withDVCProvider({ sdkKey: '<DVC_CLIENT_SDK_KEY>' })(App)
 The `useIsDVCInitialized` hook allows you to block rendering of your application until SDK initialization is complete. This ensures your app does not flicker due to value changes and enables you to control what you want displayed when initialization isn't finished yet.
 
 ```js
-import { useIsDVCInitialized, withDVCProvider } from '@devcycle/devcycle-react-sdk'
+import { useIsDVCInitialized, withDVCProvider } from '@devcycle/react-client-sdk'
 ```
 ```js
 function App() {
@@ -67,7 +67,7 @@ The asyncWithDVCProvider function is similar to the withDVCProvider function, bu
 until SDK initialization is complete. This ensures your app does not flicker due to value changes.
 
 ```js
-import { asyncWithDVCProvider } from '@devcycle/devcycle-react-sdk'
+import { asyncWithDVCProvider } from '@devcycle/react-client-sdk'
 ```
 ```js
 (async () => {
@@ -95,7 +95,7 @@ that method has been called and a corresponding config has been retrieved. Until
 to retrieve variable values will return their default values.
 
 ```js
-import { useIsDVCInitialized, withDVCProvider } from '@devcycle/devcycle-react-sdk'
+import { useIsDVCInitialized, withDVCProvider } from '@devcycle/react-client-sdk'
 
 let identified = false
 function App() {

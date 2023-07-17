@@ -6,7 +6,7 @@ description: Using the SDK
 sidebar_custom_props: {icon: toggle-on}
 ---
 
-[![Npm package version](https://badgen.net/npm/v/@devcycle/devcycle-react-sdk)](https://www.npmjs.com/package/@devcycle/devcycle-react-sdk)
+[![Npm package version](https://badgen.net/npm/v/@devcycle/react-client-sdk)](https://www.npmjs.com/package/@devcycle/react-client-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)
 
 ## Getting a Variable
@@ -21,7 +21,7 @@ It takes in your variable key as well as a default value and returns the value o
 The hook will return the default value if the SDK has not yet finished initializing.
 
 ```js
-import { useVariableValue } from '@devcycle/devcycle-react-sdk'
+import { useVariableValue } from '@devcycle/react-client-sdk'
 
 const DVCFeaturePage = () => {
     const variableKey = 'my-feature'
@@ -48,7 +48,7 @@ variables:
 ### useDVCClient
 
 ```js
-import { useDVCClient } from '@devcycle/devcycle-react-sdk'
+import { useDVCClient } from '@devcycle/react-client-sdk'
 
 const DVCFeaturePage = () => {
     const newUser = {
