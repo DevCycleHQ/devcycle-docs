@@ -1,0 +1,120 @@
+---
+title: Overview
+sidebar_position: 1
+---
+import CustomDocCardList from '@site/src/components/CustomDocCardList'
+
+## Overview
+
+Welcome to DevCycle Tools & Integrations! Here you will find all of the various first party tools made with the 
+DevCycle APIs, as well as third party integrations to connect DevCycle to the tools of your needs. 
+
+<details>
+  <summary>
+ <b><i className="fas fa-arrows-alt"></i> Contributing to DevCycle or creating a new Integration:</b>
+  </summary>
+  <div>     
+    <p>
+    If you would like to contribute to an existing integration or tool, all of DevCycle's tools and integrations  are <a href="https://github.com/devcycleHQ">open source on the DevCycle github repository.</a>
+</p>
+<p>
+ Further, if you'd like to create a new tool or integration, a great starting point is <a href="/management-api/">DevCycle's Management API</a> which allows you to modify and interact with features and more within a devcycle project, as well as the <a href="/bucketing-api/">DevCycle Bucketing API</a>  which is used to give users features and variables (as used within the DevCycle SDKs!)
+  </p>
+  </div>
+</details>
+
+
+### Current Tools & Integrations
+
+**DevCycle Tools**
+
+<CustomDocCardList items={[
+  {
+    type: 'link',
+    href: '/tools-and-integrations/cli',
+    label: 'Command Line Interface (CLI)',
+    description: 'Interact with DevCycle features from the command line.',
+    iconSet: 'fa',
+icon:'terminal'
+  },
+  {
+    type: 'link',
+    href: '/tools-and-integrations/feature-importer',
+    description: 'Import resources from other feature flag providers. ',
+    label: 'Feature Flag Importer',
+        iconSet: 'fa',
+icon:'file-import'
+  },
+]} />
+
+
+**Third Party Integrations**
+
+<CustomDocCardList items={[
+  {
+    type: 'link',
+    href: '/tools-and-integrations/Github/gh-feature-usage-action',
+    description: 'Display code snippets for each variable used in a project.',
+    label: 'GitHub: Feature Flag Code Usages',
+        iconSet: 'fab',
+icon:'github'
+  },
+  {
+    type: 'link',
+    href: '/tools-and-integrations/Github/gh-pr-comment-insights',
+    label: 'GitHub: Feature Flag Change Insights',
+      description: 'Display added/removed flags on each Pull Request.',
+    icon: 'github',
+    iconSet: 'fab'
+  },
+  {
+    type: 'link',
+    href: '/tools-and-integrations/Bitbucket/bb-feature-usage-action',
+     description: 'Display code snippets for each variable used in a project.',
+    label: 'Bitbucket: Feature Flag Code Usages',
+        iconSet: 'fab',
+icon:'bitbucket'
+  },
+    {
+    type: 'link',
+    href: '/tools-and-integrations/Bitbucket/bb-pr-comment-insights',
+     description: 'Display code snippets for each variable used in a project.',
+    label: 'Bitbucket: Feature Flag Change Insights',
+        iconSet: 'fab',
+icon:'bitbucket'
+  },
+  {
+    type: 'link',
+    href: '/tools-and-integrations/Jira/jira-integration',
+    label: 'DevCycle Feature Flag Management for Jira',
+    description: 'Link Jira tickets directly to DecCycle features',
+        iconSet: 'fab',
+icon:'jira'
+  },
+  {
+    type: 'link',
+    href: '/tools-and-integrations/terraform',
+    label: 'Terraform Provider',
+    description: 'Manage projects, features, variables, variations, and environments with Terraform',
+        iconSet: 'fa',
+icon:'flag'
+  },
+  {
+    type: 'link',
+    href: '/tools-and-integrations/datadog-rum',
+    label: 'DataDog RUM Feature Tracking',
+    description: 'Associate served feature flags with RUM sessions',
+    iconSet: 'fac',
+    icon:'datadog'
+  },
+  {
+    type: 'link',
+    href: '/tools-and-integrations/snowflake',
+    label: 'Snowflake Data Sharing',
+    description: 'Access your DevCycle Organziation\'s Event data through Data Sharing',
+    iconSet: 'fa',
+    icon:'snowflake'
+  }
+]} />
+
+

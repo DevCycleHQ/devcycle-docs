@@ -48,7 +48,7 @@ const config = {
       {
         name: "cli",
         sourceBaseUrl: `https://raw.githubusercontent.com/DevCycleHQ/cli/${DVC_CLI_VERSION}`,
-        outDir: "docs/tools-and-integrations/cli",
+        outDir: "docs/cli",
         documents: [
           'README.md',
           'docs/alias.md',
@@ -228,14 +228,14 @@ const config = {
           ],
         },
         {
+          label: 'CLI',
+          to: '/cli/',
+        },
+        {
           type: 'dropdown',
           label: 'Resources',
           position: 'left',
           items: [
-            {
-              to: '/tools-and-integrations/',
-              label: 'Tools & Integrations',
-            },
             {
               to: '/best-practices/',
               label: 'Best Practices',
