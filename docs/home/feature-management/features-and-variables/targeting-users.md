@@ -31,7 +31,7 @@ Each targeting rule has four parts that must be set, and one optional item, as s
 
 3. **The Rule Definition.**
 
-    This is the logic of who will receive the specified variation, based on various properties of the user. The many ways to create a definition will be outlined below.
+    This is the logic of who will receive the specified variation, based on various properties of the user (e.g. User ID, User Email, Audience, etc,). The many ways to create a definition will be outlined below.
 
 4. **What users will be Served**
 
@@ -371,8 +371,30 @@ To create a new Audience within the DevCycle Dashboard:
 9. Define your Audience. 
 ![Audience Definition](/july-2023-audience-definition.png)
 10. Click Save at the top of the page when complete. 
+11. You can now use this Audience when defining a Targeting Rule within a Feature
+
+In addition to the Audience Info & Definition, in the Feature Usage secion for the Audience Detials page you will also be able to view the Features that are actively using that Audience.
+
+![Audience Details Page Feature Usage](/july-2023-audience-details-page-feature-usage.png)
+
+If you wish to update or edit an active Audience, a warning message will appear that displays all Features that are actively using that Audience. 
+
+![Audience Editing Active Audience Pop-up](/july-2023-audience-details-page-editing-active-audience.png)
 
 
+### Using an Audience in a Targeting Rule
 
+Once you've created an Audience, you will now be able to use it in a Targeting Rule for one or multiple features. 
 
-
+To use an Audience in a Targeting Rule: 
+1. Navigate to the Users & Targeting section of a feature page
+2. Give your Targeting Rule a descriptive Name. 
+3. Open the user property dropdown, and select **Audience**
+![Audience Targeting Rule User Property Dropdown](/july-2023-targeting-rule-filter-audience.png)
+4. Choose a comparator. 
+![Audience Targeting Rule Comparators](/july-2023-targeting-rule-audience-comparator.png)
+5. Choose the Audience(s) that you would like to use in this targeting rule. When multiple Audiences are selected within the same rule, they audiences will act like a a top-level OR, e.g. if the user/target is in `audience-1` or `audience-2`. 
+![Audience Targeting Rule Dropdown](/july-2023-targeting-rule-audience-dropdown.png)
+6. Choose a variation to serve. 
+7. *(Optional)* Choose a schedule. 
+8. Click Save at the top of the page when complete.
