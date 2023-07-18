@@ -31,7 +31,7 @@ Each targeting rule has four parts that must be set, and one optional item, as s
 
 3. **The Rule Definition.**
 
-    This is the logic of who will receive the specified variation, based on various properties of the user (e.g. User ID, User Email, Audience, etc,). The many ways to create a definition will be outlined below.
+    This is the logic of who will receive the specified variation, based on various properties of the user (e.g. User ID, User Email, Audience, etc). The many ways to create a definition will be outlined below.
 
 4. **What users will be Served**
 
