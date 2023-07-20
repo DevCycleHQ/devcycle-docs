@@ -52,6 +52,7 @@ const config = {
         documents: [
           'README.md',
           'docs/alias.md',
+          'docs/autocomplete.md',
           'docs/cleanup.md',
           'docs/diff.md',
           'docs/environments.md',
