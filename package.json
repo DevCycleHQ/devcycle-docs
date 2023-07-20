@@ -17,7 +17,7 @@
     "dev": "docusaurus start"
   },
   "dependencies": {
-    "@devcycle/docusaurus-devcycle-plugin": "^0.0.0-rc.6",
+    "@devcycle/docusaurus-plugin": "^0.0.0-rc.6",
     "@docusaurus/core": "^2.4.1",
     "@docusaurus/plugin-content-docs": "^2.4.1",
     "@docusaurus/preset-classic": "^2.4.1",
