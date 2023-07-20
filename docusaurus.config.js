@@ -6,7 +6,7 @@ const remarkYoutube = require('gridsome-plugin-remark-youtube')
  * Pinned version of the CLI to use for docs
  * When bumping the version, add any new commands to the documents array
  */
-const DVC_CLI_VERSION = 'v4.6.0'
+const DVC_CLI_VERSION = 'v4.6.4' // auto updated by dvc cli release workflow
 
 /**
  * @type {Partial<import('@docusaurus/types').DocusaurusConfig>}
@@ -52,6 +52,7 @@ const config = {
         documents: [
           'README.md',
           'docs/alias.md',
+          'docs/autocomplete.md',
           'docs/cleanup.md',
           'docs/diff.md',
           'docs/environments.md',
