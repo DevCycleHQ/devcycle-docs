@@ -1926,10 +1926,10 @@
     "@devcycle/types" "1.1.3"
     hoist-non-react-statics "^3.3.2"
 
-"@devcycle/docusaurus-devcycle-plugin@^0.0.0-rc.6":
+"@devcycle/docusaurus-plugin@^0.0.0-rc.6":
   version "0.0.0-rc.6"
-  resolved "https://registry.yarnpkg.com/@devcycle/docusaurus-devcycle-plugin/-/docusaurus-devcycle-plugin-0.0.0-rc.6.tgz#244f255ce15b3753ac347d6770b31dae45896239"
-  integrity sha512-llZEx9weZPPs2Sw3SgxoaocjLzb/Ygo29KkSaiRnDvH/3PMWuXH1La5N3SqFwEft+nH3IV/y4pCGrM9mHE58Xw==
+  resolved "https://registry.yarnpkg.com/@devcycle/docusaurus-plugin/-/docusaurus-plugin-0.0.0-rc.6.tgz#1c82bb3a8659c154514abc47dfdcab9d2f445a3e"
+  integrity sha512-VYWddgOkK4rriDq3SccuFZ+uW35o1XGgv5mPxzR7kVabPpexeh8Hn4NHzhIarJw2hzgQv+YvbKEJhO2KQg+mBQ==
   dependencies:
     "@devcycle/devcycle-js-sdk" "1.11.1"
     "@devcycle/devcycle-react-sdk" "1.9.4"

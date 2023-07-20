@@ -38,7 +38,7 @@ const config = {
     path.resolve(__dirname, 'plugins', 'custom-gtm'),
     path.resolve(__dirname, 'plugins', 'custom-beamer'),
     [
-      '@devcycle/docusaurus-devcycle-plugin',
+      '@devcycle/docusaurus-plugin',
       {
         sdkKey: process.env.DEVCYCLE_CLIENT_SDK_KEY || 'dvc_client_sdk_key',
       },
@@ -246,7 +246,7 @@ const config = {
             },
 
           ],
-        },    
+        },
         {
           type: 'dropdown',
           label: 'Community',
@@ -278,7 +278,7 @@ const config = {
             },
 
           ],
-        }, 
+        },
         {
           type: 'search',
           position: 'right',
