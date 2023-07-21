@@ -134,7 +134,7 @@ Events can be tracked by calling the `track` method provided by the client objec
 ```js
 const event = {
     type: 'my_event_type', // this is required
-    date: new Date(),
+    date: Date().now(),
     target: 'my_target',
     value: 5,
     metaData: {
