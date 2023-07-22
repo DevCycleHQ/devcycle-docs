@@ -200,13 +200,6 @@ const config = {
       },
       items: [
         {
-          position: 'left',
-          label: 'Home',
-          docId: 'home/index',
-          collapse: 'false',
-          type: 'doc',
-        },
-        {
           type: 'doc',
           docId: 'sdk/index',
           position: 'left',

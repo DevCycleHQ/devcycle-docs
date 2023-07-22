@@ -66,3 +66,17 @@ _(*) = required variable._
 ### Configuration
 The patterns used to identify references to variables in your code are fully customizable.
 This action uses the [DevCycle CLI](https://github.com/DevCycleHQ/cli) under the hood, for details on how to configure the pattern matcher see the [CLI configuration](https://github.com/DevCycleHQ/cli#configuration).
+
+<details>
+  <summary>
+ <b><i className="fas fa-arrows-alt"></i> Contributing to DevCycle or creating a new Integration:</b>
+  </summary>
+  <div>     
+    <p>
+    If you would like to contribute to an existing integration or tool, all of DevCycle's tools and integrations  are <a href="https://github.com/devcycleHQ">open source on the DevCycle github repository.</a>
+</p>
+<p>
+ Further, if you'd like to create a new tool or integration, a great starting point is <a href="/management-api/">DevCycle's Management API</a> which allows you to modify and interact with features and more within a devcycle project, as well as the <a href="/bucketing-api/">DevCycle Bucketing API</a>  which is used to give users features and variables (as used within the DevCycle SDKs!)
+  </p>
+  </div>
+</details>

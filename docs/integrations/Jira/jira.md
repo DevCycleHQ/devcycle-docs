@@ -45,3 +45,17 @@ Integrate your Jira Ticket IDs with any Feature in DevCycle. This flexibility al
 DevCycle for Jira equips your team to comprehend the full context of every ticket in Jira, simplifying the task of finding the Jira context within DevCycle. This integration allows for a quicker understanding of the current status of all tasks, enabling you to develop your features faster and with more confidence. 
 
 Simply input the Jira ticket numbers on your feature to connect existing Features to Jira tickets. You can view the status of a feature in every environment through a single connection in Jira. Associate one Jira ticket with numerous DevCycle Features, or link numerous Jira tickets to one DevCycle feature, providing a flexible view of your work. Note that each DevCycle project can only be connected to a single Jira project.
+
+<details>
+  <summary>
+ <b><i className="fas fa-arrows-alt"></i> Contributing to DevCycle or creating a new Integration:</b>
+  </summary>
+  <div>     
+    <p>
+    If you would like to contribute to an existing integration or tool, all of DevCycle's tools and integrations  are <a href="https://github.com/devcycleHQ">open source on the DevCycle github repository.</a>
+</p>
+<p>
+ Further, if you'd like to create a new tool or integration, a great starting point is <a href="/management-api/">DevCycle's Management API</a> which allows you to modify and interact with features and more within a devcycle project, as well as the <a href="/bucketing-api/">DevCycle Bucketing API</a>  which is used to give users features and variables (as used within the DevCycle SDKs!)
+  </p>
+  </div>
+</details>

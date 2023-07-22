@@ -103,3 +103,17 @@ OPERATION_MAP='{"endsWith":"contain","startsWith":"contain"}'
   Any other properties used for targeting should be passed within the `customData` map.
 - If you are passing a date to be used with LD's before/after operators, the value should be converted to a Long when passed to DVC. The importer will convert `before` & `after` operators to `<` & `>` in DVC.
 - DVC doesn't support targeting by the top-level `isAnonymous` property. If you are using LD's targeting with the `anonymous` attribute, make sure to include an `anonymous` property in the user's `customData`
+
+<details>
+  <summary>
+ <b><i className="fas fa-arrows-alt"></i> Contributing to DevCycle or creating a new Integration:</b>
+  </summary>
+  <div>     
+    <p>
+    If you would like to contribute to an existing integration or tool, all of DevCycle's tools and integrations  are <a href="https://github.com/devcycleHQ">open source on the DevCycle github repository.</a>
+</p>
+<p>
+ Further, if you'd like to create a new tool or integration, a great starting point is <a href="/management-api/">DevCycle's Management API</a> which allows you to modify and interact with features and more within a devcycle project, as well as the <a href="/bucketing-api/">DevCycle Bucketing API</a>  which is used to give users features and variables (as used within the DevCycle SDKs!)
+  </p>
+  </div>
+</details>

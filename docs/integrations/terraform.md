@@ -143,3 +143,17 @@ data "devcycle_evaluated_variable_boolean" "create-resource" {
 This evaluation can then be accessed via `data.devcycle_evaluated_variable_boolean.create-resource.value`. The default value will be returned if there is no returned value from no matching variation.
 
 There is another data block for each type of variable that can be evaluated (JSON, Boolean, String, Number) Each is typed explicitly because a variable type cannot be changed after creation.
+
+<details>
+  <summary>
+ <b><i className="fas fa-arrows-alt"></i> Contributing to DevCycle or creating a new Integration:</b>
+  </summary>
+  <div>     
+    <p>
+    If you would like to contribute to an existing integration or tool, all of DevCycle's tools and integrations  are <a href="https://github.com/devcycleHQ">open source on the DevCycle github repository.</a>
+</p>
+<p>
+ Further, if you'd like to create a new tool or integration, a great starting point is <a href="/management-api/">DevCycle's Management API</a> which allows you to modify and interact with features and more within a devcycle project, as well as the <a href="/bucketing-api/">DevCycle Bucketing API</a>  which is used to give users features and variables (as used within the DevCycle SDKs!)
+  </p>
+  </div>
+</details>

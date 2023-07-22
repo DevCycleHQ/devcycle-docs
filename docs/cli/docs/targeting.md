@@ -1,7 +1,7 @@
 `dvc targeting`
 ===============
 
-Access and Modify Targeting Rules for a Feature with the Management API.
+Create, view, or modify Targeting Rules for a Feature with the Management API.
 
 * [`dvc targeting disable [FEATURE] [ENVIRONMENT]`](#dvc-targeting-disable-feature-environment)
 * [`dvc targeting enable [FEATURE] [ENVIRONMENT]`](#dvc-targeting-enable-feature-environment)
@@ -105,19 +105,21 @@ EXAMPLES
 
 ## `dvc targeting update [FEATURE] [ENVIRONMENT]`
 
-Update Targeting rules
+Update Targeting rules for a Feature. The definition is the audience for the feature, while serve is the key of the variation to serve to the audience.
 
 ```
 USAGE
   $ dvc targeting update [FEATURE] [ENVIRONMENT] [--config-path <value>] [--auth-path <value>] [--repo-config-path
     <value>] [--client-id <value>] [--client-secret <value>] [--project <value>] [--no-api] [--headless] [--targets
-    <value>]
+    <value>] [--status enable|disable]
 
 ARGUMENTS
   FEATURE      The Feature for the Targeting Rule.
   ENVIRONMENT  The Environment where the Targeting Rule will be updated.
 
 FLAGS
+  --status=<option>  The status to set the targeting rule to.
+                     <options: enable|disable>
   --targets=<value>  List of targeting rules.
 
 GLOBAL FLAGS
@@ -132,5 +134,6 @@ GLOBAL FLAGS
   --repo-config-path=<value>  Override the default location to look for the repo config.yml file
 
 DESCRIPTION
-  Update Targeting rules
+  Update Targeting rules for a Feature. The definition is the audience for the feature, while serve is the key of the
+  variation to serve to the audience.
 ```
