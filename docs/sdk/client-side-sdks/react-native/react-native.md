@@ -9,6 +9,12 @@ import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 
 The DevCycle React Native SDK lets you easily integrate your React Native web applications with DevCycle. 
 
+:::caution
+
+This SDK is not compatible with React Native Expo.
+
+:::
+
 :::info
 
 Currently, DevCycle for React Native only supports access via functional component hooks.
@@ -25,8 +31,3 @@ The SDK is available as a package on npm. It is also open source and can be view
 ## Requirements: 
 
 This SDK is compatible with _React Native_ version 0.64.0 and above.
-
-This SDK is not compatible with React Native Expo.
-
-
-
