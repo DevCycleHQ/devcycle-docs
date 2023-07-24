@@ -3,11 +3,9 @@ title: Projects
 sidebar_position: 2
 ---
 
-## Overview
-
 This article serves to explain how DevCycle manages Organizations, Projects, and Features. Organizations contain Projects which contain your Features and Environments. A user may be part of multiple Organizations. All users in an Organization are part of all Projects. 
 
-### Structure
+## Structure
 
 **Organizations** Are the top level of the Account hierarchy within DevCycle. Organizations are where all Projects and Users are managed. An Organization contains Projects and Users. Users within an organization will have the same permissions across all projects.
 

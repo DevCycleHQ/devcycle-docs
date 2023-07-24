@@ -3,13 +3,11 @@ title: Variables
 sidebar_position: 6
 ---
 
-## Overview 
-
 This article will cover how to manage and create Variables and Variations within a Feature. 
 
 In short, a Feature may have any number of Variables. Variable values change depending on the Variation a user is in. There may be as many Variations of a Feature as desired. All Variables and Variations apply across all environments. 
 
-### Variables Dashboard
+## Variables Dashboard
 
 The Variables dashboard is a collection of all Variables used within a project on a single list. In more complex or longer running projects, the Variables dashboard is useful to quickly find exactly what Feature is controlling a Variable (if any). 
 

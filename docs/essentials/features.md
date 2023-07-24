@@ -3,8 +3,6 @@ title: Features
 sidebar_position: 5
 ---
 
-## Overview
-
 Feature Types within the DevCycle dashboard are a way of describing and handling Feature Toggles / Feature Flags in more complex and diverse ways. Typically one would use a Feature Flag tool to do extremely simple toggling of a feature to be on or off. In reality, this simple approach can be very limiting as you become more familiar with the concept of Feature Flags. 
 
 With this in mind, DevCycle prefers to view Feature Toggles as a _part_ of a Feature. A Feature may have one or many toggles, and may have states other than On or Off. A Feature may have something other than a boolean that should be variable across the potential states (or Variations). 
@@ -196,17 +194,3 @@ The features list has the following columns:
 Use the search input to search by Name, Key, or Description. The filters can be used to filter by Type or Creator. Each column header can be clicked to sort the column. 
 
 By default, the list is sorted by created date ascending. 
-
-## SDK Visbiility 
-
-These settings allow for control over which SDKs can receive a feature. Only SDKs corresponding to the checked types will receive the feature in the configuration, and targeting rules will not be evaluated for unchecked platforms. Using a feature variable on unchecked SDK platforms will result in the default value being served. 
-
-### How to enable
-
-To use SDK visibility settings, the feature must first be enabled from the Edit Project page.
-
-![Organization SDK Visibility Setting](/sdk-visibility-setting.png)
-
-Once enabled, the setting will appear on the feature page, and you can control which SDK types can use the feature.
-
-![Feature SDK Visibility Setting](/sdk-settings.png)

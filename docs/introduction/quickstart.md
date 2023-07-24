@@ -1,5 +1,5 @@
 ---
-title: QuickStart
+title: Quickstart
 sidebar_position: 1
 ---
 
