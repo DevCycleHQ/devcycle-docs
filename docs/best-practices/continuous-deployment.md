@@ -9,8 +9,6 @@ sidebar_custom_props: {icon: infinity}
 
 # Adopting Feature Flags for CI/CD
 
-## Overview
-
 Continuous integration (CI) and continuous deployment (CD) are processes that streamline the development lifecycle. Feature flags enhance a continuous deployment system in that it allows developers to merge and deploy code without impacting end-users. With feature flags, developers can easily detect and fix integration issues without hindering the productivity of other teams. Feature flags also allow code changes to live hidden from end-users in a production environment until the feature flag is enabled.
 
 This article will discuss feature flag guidelines that optimize continuous integration and deployment. To complete this guide, you will need the following:
@@ -35,7 +33,7 @@ While you are still developing the feature, you can keep serving All Users with 
 
 When the new code is ready to be merged and delivered, update the Targeting Rules to make it visible to the appropriate users. You can easily set their variation back to “Variation Off” if something goes wrong. This gives you ample time to resolve the issues without negatively impacting users.
 
-To learn more about Targeting in DevCycle, read [Targeting Users](/home/feature-management/features-and-variables/targeting-users)
+To learn more about Targeting in DevCycle, read [Targeting Users](/sdk/features)
 
 ## Testing Code that Uses Feature Flags
 

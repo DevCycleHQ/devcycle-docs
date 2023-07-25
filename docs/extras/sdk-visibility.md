@@ -1,9 +1,7 @@
 ---
-title: SDK Visbility
-sidebar_position: 2
+title: SDK Visibility
+sidebar_position: 6
 ---
-
-## OVerview
 
 These settings allow for control over which SDKs can receive a feature. Only SDKs corresponding to the checked types will receive the feature in the configuration, and targeting rules will not be evaluated for unchecked platforms. Using a feature variable on unchecked SDK platforms will result in the default value being served. 
 

@@ -3,8 +3,6 @@ title: DataDog
 sidebar_position: 3
 ---
 
-## Overview
-
 DevCycle's clientside Javascript SDKs - including JS and React, can now be easily integrated with [DataDog RUM Feature Flag Tracking](https://docs.datadoghq.com/real_user_monitoring/feature_flag_tracking) - enabling the enrichment of your RUM data with DevCycle's variable data.
 
 ![DataDog RUM Feature Flag Tracking screen shot](/datadog-rum-screenshot.png)

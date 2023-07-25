@@ -9,7 +9,7 @@ Super Segments are collections of users that are targeted by data from any exter
 
 This means that users or their data can be “imported” into DevCycle for targeting in experiments or features by making use of EdgeDB. 
 
-While this can all be handled via the [EdgeDB API](/bucketing-api/#tag/EdgeDB), as outlined in [here](/home/feature-management/edgedb/edge-flags), DevCycle has created a Zapier integration which allows for easy sending of data directly to the desired EdgeDB environment in a project. This makes connecting any tools with Zapier integrations directly to DevCycle extremely simple!
+While this can all be handled via the [EdgeDB API](/bucketing-api/#tag/EdgeDB), as outlined in [here](/extras/edgedb/edge-flags), DevCycle has created a Zapier integration which allows for easy sending of data directly to the desired EdgeDB environment in a project. This makes connecting any tools with Zapier integrations directly to DevCycle extremely simple!
 
 Lets say for example you have a particular group in SalesForce you’d like to target. Or, better yet, you’d like a live updating cohort users from salesforce to target as they come in as new leads.
 
@@ -59,7 +59,7 @@ If you connect your account, the following fields will require input.
 
 ![Authorize DevCycle](/sept_6_2022_zapier_guide_8.png)
 
-[These keys can be found directly on your Organization’s setting page within DevCycle.](/home/feature-management/organizing-your-flags-and-variables/api-and-sdk-keys)
+[These keys can be found directly on your Organization’s setting page within DevCycle.](/essentials/keys)
 
 ![Keys Successful](/sept_6_2022_zapier_guide_9.png)
 
@@ -96,7 +96,7 @@ Now, any time a new lead enters SalesForce, it will be sent to EdgeDB with their
 Now that we’ve got data in EdgeDB, it can be used for targeting in any feature within DevCycle.
 
 :::info 
-Any data saved to EdgeDB is considered a “Custom Property” within DevCycle and can be targeted by simply adding that same property in the dashboard. To find out more about Custom Properties, [read here.](/home/feature-management/features-and-variables/custom-properties) 
+Any data saved to EdgeDB is considered a “Custom Property” within DevCycle and can be targeted by simply adding that same property in the dashboard. To find out more about Custom Properties, [read here.](/extras/custom-properties) 
 :::
 
 To use the SalesForce data from above, simply create a new custom property in the dashboard (if it does not already exist):

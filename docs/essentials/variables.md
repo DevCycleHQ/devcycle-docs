@@ -27,7 +27,7 @@ The list will show:
 
 * **Feature**
     
-    The name of the Feature that is currently managing a variable. **Note** that Variables can only be managed by a single Feature at a time. If you wish to change what Feature is managing a Variable, first remove that Variable from a feature as outlined in [Creating Variables and Variations](/home/feature-management/features-and-variables/variables-and-variations). If the Variable is NOT being managed by a Feature, this column will note the lack of Feature. **Click on a Feature name to navigate directly to the Feature managing this Variable**
+    The name of the Feature that is currently managing a variable. **Note** that Variables can only be managed by a single Feature at a time. If you wish to change what Feature is managing a Variable, first remove that Variable from a feature as outlined in [Creating Variables and Variations](./variables). If the Variable is NOT being managed by a Feature, this column will note the lack of Feature. **Click on a Feature name to navigate directly to the Feature managing this Variable**
 
 * **Type**
 
@@ -59,7 +59,7 @@ This section allows for the modification of the display name of the Variable, as
 
 :::info
 
-To use the Code Refs feature, the [DevCycle action for Code References](/tools-and-integrations/Github/gh-feature-usage-action) must be enabled within your repository.
+To use the Code Refs feature, the [DevCycle action for Code References](/integrations/github/gh-feature-usage-action) must be enabled within your repository.
 
 :::
 
@@ -80,7 +80,7 @@ This will lead the user to a table containing all of the Variables used by this 
 
 Each Feature manages its own set of Variables. **By default, upon creation of a Feature, a Boolean Variable will be created which has the same name as the Feature's key for easier reference.** Depending on the Feature type, the default Variations will be pre-set. The most common of which will be the Variations of "Variation OFF" and "Variation ON", with the boolean Variable being set to false and true, respectively.
 
-When a user is "Served" a Variation based on the [Targeting Rules](/home/feature-management/features-and-variables/targeting-users), the Variable Values the user receives on their devices or as an API response will be the values for the served Variation.
+When a user is "Served" a Variation based on the [Targeting Rules](./targeting), the Variable Values the user receives on their devices or as an API response will be the values for the served Variation.
 
 A user can add as many Variables as they desire by simply clicking the "Add Variable" button. 
 
@@ -137,7 +137,7 @@ To remove a Variable from a feature, simply click on the edit icon next to the v
 
 ![Remove Variable Modal](/feb-2023-remove-variable.png)
 
-Removing a Variable from this page does not completely remove the Variable from DevCycle. The Variable will still be visible in the [Variable Dashboard](/home/feature-management/organizing-your-flags-and-variables/variable-dashboard), but it will not be associated with any features.
+Removing a Variable from this page does not completely remove the Variable from DevCycle. The Variable will still be visible in the [Variable Dashboard](#variables-dashboard), but it will not be associated with any features.
 
 Taking this action will cause all references to the Variable in any code usage to default only to the default value used in your codebase.
 
@@ -171,7 +171,7 @@ If you want to move a variable between features, you must first remove it from t
 
 Archiving Variables is a good way to clean up the DevCycle dashboard and ensure that it is easy to understand which Variables are available for use and which should no longer be leveraged going forward.
 
-To archive a Variable it must first be [removed from any active features](./variables-and-variations#removing-a-variable). Variables can be archived at the same time as removing from a feature. When the option to remove has been selected the confirmation modal will also provide the option to archive the Variable.
+To archive a Variable it must first be [removed from any active features](#removing-a-variable). Variables can be archived at the same time as removing from a feature. When the option to remove has been selected the confirmation modal will also provide the option to archive the Variable.
 
 ![Archive Variable While Removing](/march-2023-archive-variable-on-remove.png)
 
@@ -200,7 +200,7 @@ If the unassociated variable key submitted is archived, a similar modal will app
 
 If you wish to unarchive & re-associate, click on the toggle and click `Yes, Proceed`. 
 
-The feature will be created along with the newly re-associated variable. The variations and corresponding variable values will be populated depending on the [Feature Type](/home/feature-management/getting-started/feature-types#types-within-devcycle) selected. 
+The feature will be created along with the newly re-associated variable. The variations and corresponding variable values will be populated depending on the [Feature Type](./features#types-within-devcycle) selected. 
 
 
 If a duplicate variable key that belongs to a variable that is associated with an existing feature the dashboard will return the error below. 
@@ -230,7 +230,7 @@ Once your Variable is created, it will appear on the Variables screen:
 
 ![Variables Page of a Feature with three Variations](/december_2021_three-variations.png)
 
-Once this Variation is created, it will become available as an option within the "Serve" dropdown for [Targeting Rules](/home/feature-management/features-and-variables/targeting-users).
+Once this Variation is created, it will become available as an option within the "Serve" dropdown for [Targeting Rules](./targeting).
 
 Users who are served this new Variation will receive the Variable Values associated with this new Variation!
 

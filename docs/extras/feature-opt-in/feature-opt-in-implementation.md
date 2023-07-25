@@ -3,8 +3,6 @@ title: Feature Opt-In Implementation
 sidebar_position: 2
 ---
 
-## Overview
-
 Feature Opt-in allows end users of your product to opt-in to a list of eligible features through a pre-built widget that can be implemented in your app and website with one line of code. Your team has the ability to customize the look & feel of this widget to your company's colour profile and logo. 
 
 This article explains how to implement our Feature Opt-in functionality on your app or website. 

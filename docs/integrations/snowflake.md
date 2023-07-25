@@ -3,8 +3,6 @@ title: Snowflake
 sidebar_position: 6
 ---
 
-## Overview
-
 DevCycle's Snowflake Data Sharing integration allows you to gain access to all data that are collected by the DevCycle SDKs for your organization. Data Sharing provides a secure and straightforward approach to sharing data between companies.
 
 For further information, you may visit Snowflake's dedicated page on [Data Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro).

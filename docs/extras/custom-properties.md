@@ -1,11 +1,9 @@
 ---
 title: Custom Properties
-sidebar_position: 3
+sidebar_position: 2
 ---
 
-##  Overview
-
-Custom Properties are properties on a user which can be used for [Targeting Users for Features](/home/feature-management/features-and-variables/targeting-users). These properties are different than the out-of-the-box options within DevCycle (such as app version etc) in that they are defined by the user for use within the dashboard. 
+Custom Properties are properties on a user which can be used for [Targeting Users for Features](/essentials/targeting). These properties are different than the out-of-the-box options within DevCycle (such as app version etc) in that they are defined by the user for use within the dashboard. 
 
 This article outlines how to define, use, and manage custom properties within DevCycle and its SDKs. 
 
@@ -17,7 +15,7 @@ Custom properties can be one of the following types:
 * Number
 * String
 
-These properties can be added to any User object with the [Identify](/sdk/features/identify) method in the DevCycle SDKs or provided as part of the user object in the initialization
+These properties can be added to any User object with the [Identify](/sdk/features) method in the DevCycle SDKs or provided as part of the user object in the initialization
 
 ## Creating a new property for use. 
 
@@ -66,7 +64,7 @@ Once a property has been created, it will be accessible in the definition dropdo
 
 ![property type open](/march-2022-property-dropdown-with-properties.png)
 
-First, select your property to use it like any other targeting definition as outlined in [Targeting Users](/home/feature-management/features-and-variables/targeting-users)
+First, select your property to use it like any other targeting definition as outlined in [Targeting Users](/essentials/targeting)
 
 Then, finish your Targeting Rule by filling out the comparator and the value fields. 
 
@@ -76,7 +74,7 @@ There are no limits to the number of Properties that can be used to define a sin
 
 ## SDK Usage
 
-See the [**Identify**](/sdk/features/identify) Documentation for the usage of properties within each SDK.
+See the [**Identify**](/sdk/features#identify) Documentation for the usage of properties within each SDK.
 
 ## Managing / Deleting Custom Properties
 

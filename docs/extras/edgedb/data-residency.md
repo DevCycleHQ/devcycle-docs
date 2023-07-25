@@ -3,8 +3,6 @@ title: Data Residency
 sidebar_position: 4
 ---
 
-## Overview
-
 ![data residency header](/sept-12-2022-edgedb-data-residency.png)
 
 With EdgeDB you are in complete control of your data. While the primary purpose of EdgeDB is to make data available across platforms, globally. You can also lock down the locales that data is saved to.

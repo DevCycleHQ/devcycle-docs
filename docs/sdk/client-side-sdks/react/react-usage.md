@@ -38,7 +38,7 @@ const DevCycleFeaturePage = () => {
 
 See [getVariableByKey](https://docs.devcycle.com/bucketing-api/#operation/getVariableByKey) on the Bucketing API for the variable response format.
 
-If a change on the dashboard triggers your variable value to change, it will rerender your page to reflect your new variable value. To learn more, visit the [Realtime Updates](/sdk/features/realtime-updates) page.
+If a change on the dashboard triggers your variable value to change, it will rerender your page to reflect your new variable value. To learn more, visit the [Realtime Updates](/sdk/features#realtime-updates) page.
 
 ## Getting the DevCycle Client
 
@@ -179,7 +179,7 @@ devcycleClient.flushEvents(() => {
 
 EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user. 
 
-To get started, enable EdgeDB on your project by following the guide [here](/home/feature-management/edgedb/edge-flags)
+To get started, enable EdgeDB on your project by following the guide [here](/extras/edgedb/edge-flags)
 
 Once you have EdgeDB enabled in your project, pass in the `enableEdgeDB` option to turn on EdgeDB mode for the SDK:
 

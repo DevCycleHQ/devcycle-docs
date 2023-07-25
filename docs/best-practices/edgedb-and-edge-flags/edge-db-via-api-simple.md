@@ -40,7 +40,7 @@ To test it yourself, here is the data:
 
 Next, we need to supply the auth. Switch to the authorization tab and change the type to API Key. 
 
-For the “Value”, supply the server SDK key found in your [environments & keys tab.](/home/feature-management/organizing-your-flags-and-variables/api-and-sdk-keys)
+For the “Value”, supply the server SDK key found in your [environments & keys tab.](/essentials/keys)
 
 ![Untitled](/sept-6-2022-edge-flags-api-3.png)
 
@@ -71,7 +71,7 @@ After it runs you should receive the following message:
 Now that we’ve got data in EdgeDB, it can be used for targeting in any feature within DevCycle.
 
 :::info 
-Any data saved to EdgeDB is considered a “Custom Property” within DevCycle and can be targeted by simply adding that same property in the dashboard. To find out more about Custom Properties, [read here](/home/feature-management/features-and-variables/custom-properties) 
+Any data saved to EdgeDB is considered a “Custom Property” within DevCycle and can be targeted by simply adding that same property in the dashboard. To find out more about Custom Properties, [read here](/sdk/features) 
 :::
 
 To use the postman data from above, simply create a new custom property in the dashboard (if it does not already exist):

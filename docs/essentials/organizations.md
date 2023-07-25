@@ -54,12 +54,12 @@ On the Organization settings page there are the following fields and items:
     The internal identifier for your organization. Mainly used for billing purposes
 
 * **Client ID and Client Secret**
-    Please refer to [API and SDK Keys](/home/feature-management/organizing-your-flags-and-variables/api-and-sdk-keys)
+    Please refer to [API and SDK Keys](/essentials/keys)
 
 
 ## Organization Members
 
-Members are added to an Organization from the [Organization Settings](/home/feature-management/organizing-your-flags-and-variables/organizations-projects#organization-settings) page. 
+Members are added to an Organization from the [Organization Settings](#organization-settings) page. 
 
 Once here, navigate to the "Team" page of the settings:
 
@@ -75,9 +75,9 @@ This will bring up a window where you can enter the email of the user you wish t
 
 ![A modal with information on inviting a Member to the Organization](/add-modal.png)
 
-This will send an email to the Member, allowing them to start the process of [creating an account](/home/feature-management/getting-started/creating-an-account)
+This will send an email to the Member, allowing them to start the process of [creating an account](/introduction/quickstart#creating-an-account)
 
-When a Member is added and an account is created, the user will begin within the Member role. To learn more about Roles, read [Team Member Roles](/home/your-organization/manage-team/member-roles).
+When a Member is added and an account is created, the user will begin within the Member role. To learn more about Roles, read [Team Member Roles](/essentials/organizations).
 
 ### Editing Members
 
@@ -85,7 +85,7 @@ To view more detail of a Team Members within your Organization, click the "View 
 
 ![An arrow pointing to the "view" button on a Member on the Members list](/view-member.png)
 
-This will lead to the User's profile page where you may modify their [Team Member Role](/home/your-organization/manage-team/member-roles) if you are an Owner of the Organization.
+This will lead to the User's profile page where you may modify their [Team Member Role](#roles) if you are an Owner of the Organization.
 
 
 ### Removing Members

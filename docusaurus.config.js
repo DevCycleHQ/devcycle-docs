@@ -155,6 +155,13 @@ const config = {
       : 'http://localhost:3000',
   baseUrl: '/',
   favicon: 'devcycle_favicon.ico',
+  scripts: [
+    {
+      src:
+        "https://use.fontawesome.com/releases/v5.15.4/js/all.js",
+      async: true,
+    },
+  ],
   themeConfig: {
     announcementBar: {
       id: 'support_us',
@@ -234,11 +241,6 @@ const config = {
               to: '/best-practices/',
               label: 'Best Practices',
             },
-            {
-              to: '/demos/',
-              label: 'Demos',
-            },
-
           ],
         },
         {

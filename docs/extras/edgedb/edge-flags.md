@@ -3,8 +3,6 @@ title: EdgeDB & Edge Flags
 sidebar_position: 2
 ---
 
-## Overview
-
 EdgeDB is a low-latency, centralized user data storage system that is accessible across all of our SDKs. With EdgeDB, you can accurately use targeting rules without having to pass all of a user’s data into the SDKs each time. Once targeting data is stored in EdgeDB, it can be easily accessed on any platform without the need for data pipelines.
 
 This guide will explain how to set up and use EdgeDB. It will also discuss some use cases to help you determine where to implement EdgeDB in your project.
