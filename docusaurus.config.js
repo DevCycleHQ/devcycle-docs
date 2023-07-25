@@ -234,11 +234,6 @@ const config = {
               to: '/best-practices/',
               label: 'Best Practices',
             },
-            {
-              to: '/demos/',
-              label: 'Demos',
-            },
-
           ],
         },
         {
