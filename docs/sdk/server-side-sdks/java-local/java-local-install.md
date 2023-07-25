@@ -44,7 +44,7 @@ You can use the SDK in your Maven project by adding the following to your _pom.x
 
 :::info
 
-Refer to the latest version of the SDK on [maven central](https://maven.org/artifact/com.devcycle/android-client-sdk) if you would not prefer Maven or Gradle to pull the latest version automatically by using `+`
+Refer to the latest version of the SDK on [maven central](https://maven.org/artifact/com.devcycle/java-server-sdk) if you would not prefer Maven or Gradle to pull the latest version automatically by using `+`
 
 :::
 
