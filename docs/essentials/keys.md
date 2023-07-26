@@ -3,42 +3,13 @@ title: Keys
 sidebar_position: 4
 ---
 
-This article serves to inform where all of your relevant SDK and API keys are and how to use them. 
-
-## Management API Key
-
-To access the [Management API](/management-api/), first navigate to the Settings page. The settings page can be accessed from clicking on your profile image in the top right corner of the Dashboard. 
-
-![Dropdown on DevCycle dashboard for account settings and org info](/march-2022-account-dropdown.png)
-
-To find your key for the management API, navigate to your Organization specific settings page:
-
-![DevCycle Organization Settings showing Org name and api keys](/api-settings.png)
-
-The Client Secret key can be revealed which will allow for use within the Management API. 
-
-**Note:** Due to the fact that the Management API can read and modify all aspects of your DevCycle projects, DO NOT share this key or deploy any client-side code containing this key.
-
-
-## Mobile, Client, And Server-Side Keys
-
 All Environments within a Project have their own set of key. For more information about Environments, [please read here](/essentials/environments).
 
-To find your keys for use within the various SDKs, navigate navigate to the Settings page. The settings page can be accessed from clicking on your profile image in the top right corner of the Dashboard. 
+## Types of Keys
 
-![Dropdown on DevCycle dashboard for account settings and org info](/march-2022-account-dropdown.png)
+### Management API Key
 
-From here, navigate to the Environments section:
-
-![DevCycle Environment Settings for an Organization, showing the API Keys](/march-2022-env-settings.png)
-
-Each environment has three different keys: 
-
-* Client-side SDK keys
-* Server-side SDK keys
-* Mobile SDK keys
-
-To reveal these keys, click the "Show Keys" button on the top of the page.
+This key is required to interact with the DevCycle Management and Bucketing APIs.
 
 ### Server-Side SDK Keys
 
@@ -57,6 +28,80 @@ All of the DevCycle Mobile SDKs should be initialized with the environment's Mob
 This key is separate from the standard SDK keys due to the differing security requirements of client-side (eg. browser) and mobile use cases. Separation allows one key to be rotated without affecting the other. In the future, it will also be possible to control feature availability specifically for mobile keys.
 
 
+## Managing Your Keys
 
 
+### Accessing From the Dashboard
 
+**Client, Mobile and Server Keys**
+
+To find your keys for use within the various SDKs, navigate navigate to the Settings page. The settings page can be accessed from clicking on your profile image in the top right corner of the Dashboard. 
+
+From here, navigate to the Environments section:
+
+Each environment has three different keys: 
+
+* Client-side SDK keys
+* Server-side SDK keys
+* Mobile SDK keys
+
+To reveal these keys, click the "Show Keys" button on the top of the page.
+
+**Management API Key**
+
+To access the [Management API](/management-api/), first navigate to the Settings page. The settings page can be accessed from clicking on your profile image in the top right corner of the Dashboard. 
+
+To find your key for the management API, navigate to your Organization specific settings page:
+
+The Client Secret key can be revealed which will allow for use within the Management API. 
+
+**Note:** Due to the fact that the Management API can read and modify all aspects of your DevCycle projects, DO NOT share this key or deploy any client-side code containing this key.
+
+### Accessing From the CLI
+
+**Client, Mobile and Server Keys**
+
+
+Once you have installed and authorized the CLI, select your relevant organization and project then run one of the following commands depending on your use case:
+
+To retrieve all keys for a specific environment for a project from the management API.
+
+```bash
+dvc keys get
+```  
+
+You will be prompted to select an existing environment and which SDK key you would like (`client`,`mobile`,`server` or `all`) and should be presented with something which looks like the following (which represents selecting all keys for the development environment for a project):
+
+
+```json
+{
+  "mobile": [
+    {
+      "key": "dvc_mobile_abcdefg12345",
+      "createdAt": "2023-07-26T16:28:16.183Z",
+      "compromised": false,
+      "compromised_url": ""
+    }
+  ],
+  "client": [
+    {
+      "key": "dvc_client_abcdefg12345",
+      "createdAt": "2023-07-26T16:28:16.182Z",
+      "compromised": false,
+      "compromised_url": ""
+    }
+  ],
+  "server": [
+    {
+      "key": "dvc_server_abcdefg12345",
+      "createdAt": "2023-07-26T16:28:16.183Z",
+      "compromised": false,
+      "compromised_url": ""
+    }
+  ]
+}
+```
+
+**Management API Key**
+
+Accessing the Management API key from the CLI is not currently possible.

@@ -1,6 +1,6 @@
 ---
-title: Features
-sidebar_position: 5
+title: Feature Types
+sidebar_position: 1
 ---
 
 Feature Types within the DevCycle dashboard are a way of describing and handling Feature Toggles / Feature Flags in more complex and diverse ways. Typically one would use a Feature Flag tool to do extremely simple toggling of a feature to be on or off. In reality, this simple approach can be very limiting as you become more familiar with the concept of Feature Flags. 
@@ -9,13 +9,9 @@ With this in mind, DevCycle prefers to view Feature Toggles as a _part_ of a Fea
 
 To help with this concept, when creating a Feature in the DevCycle dashboard, you will be able to choose a Type which will pre-fill some options in the Feature and help kick-start your usage of the Feature.
 
-This article outlines the various Feature Types, what they do, and how to think about them. 
-
 For more information on Feature Types and using Toggles, read **[Feature toggles (aka Feature Flags)](https://martinfowler.com/articles/feature-toggles.html) by Pete Hodgson** on the Martin Fowler site. It contains deep information on when to use feature toggles, how to use them, and how to think about them. Much of the DevCycle methodology is based around the concepts in this article. 
 
-## Types within DevCycle
-
-### Release
+## Release
 
 **Description**
 
@@ -49,7 +45,7 @@ For all initial variable types, these are the following Targeting Rule pre-sets:
 - The Development Environment will be enabled immediately.
 - Production Environment will not be enabled and will not have a default rule.
 
-### Ops
+## Ops
 
 **Description**
 
@@ -82,7 +78,7 @@ For all initial variable types, these are the following Targeting Rule pre-sets:
 - Development Environments will be enabled immediately.
 - Production and Staging Environments will not be enabled
 
-### Experiment
+## Experiment
 
 **Description**
 
@@ -118,7 +114,7 @@ For all initial variable types, these are the following Targeting Rule pre-sets:
 - Distribution will be set to 33% / 33% / 33% between Control, Variation A, and Variation B
 - Production and Staging Environments will not be enabled and will not have a default rule. 
 
-### Permission
+## Permission
 
 **Description**
 
@@ -147,50 +143,3 @@ For all initial variable types, these are the following Targeting Rule pre-sets:
 - Development, Staging, and Production Environments will automatically target your organization's Email. Rule will be named "Internal Users"
 - Rules will be set to serve Variation ON.
 - Development and Staging Environments will be enabled immediately.
-
-
-## Features Dashboard
-
-This page is where all of your features can be viewed, edited, and filtered for search. This page will show all features within the current Project. 
-
-![DevCycle Feature Dashboard showing a list of Features and a search](/march-2022-feature-dash.png)
-
-To view another Project's features, use the Project dropdown on the top of the Dashboard.
-
-![DevCycle top bar's Project Dropdown Expanded to show Current Project](/march-2022-project-dropdown.png)
-
-From this page, you can create a Feature Flag by clicking "Create New Feature" or the `+` in the top bar. 
-
-![DevCycle Feature Dashboard with arrows highlighting the create button on the page as well as the persistent button in the top bar](/march-2022-create.png)
-
-To learn more about creating a Feature, start with [Your First Feature](/introduction/quickstart)
-
-The features list has the following columns:
-
-* **Creator** 
-         
-    This will show the icon of the user who created this Feature.
-
-* **Name** 
-          
-    The Feature's name. This can be changed at any time by editing the Feature.
-
-* **Key**
-    
-    This is the feature's Key. Use this key to reference the Feature in the SDKs or APIs.
-
-* **Feature type**
-    
-    The selected type of the Feature. Use this to organize your Features.
-
-* **# Of Variables**
-    
-    This will show a count of how many variables are used within this Feature. To learn more read [Creating Variables and Variations](/essentials/variables)
-
-* **Edit**
-    
-    Click this to edit on the row the Feature. 
-
-Use the search input to search by Name, Key, or Description. The filters can be used to filter by Type or Creator. Each column header can be clicked to sort the column. 
-
-By default, the list is sorted by created date ascending. 

@@ -1,8 +1,19 @@
 ---
-title: EdgeDB & Edge Flags
-sidebar_position: 2
+title: EdgeDB
+sidebar_position: 1
 ---
 
+EdgeDB is a lightning-fast, globally replicated edge storage tool that simplifies the implementation of DevCycle in serverless environments or multiplatform applications. EdgeDB enables a number of different features and applications for DevCycle. In particular EdgeDB powers Edge Flags, Super Segments and Data Residency Controls.
+
+To learn more about EdgeDB check out the documentation for the features powered EdgeDB below.
+
+### Features Enabled by EdgeDB
+
+- [Edge Flags](/extras/edgedb/edge-flags)
+- [Super Segments](/extras/edgedb/super-segments)
+- [Data Residency](/extras/edgedb/data-residency)
+
+# Edge Flags
 EdgeDB is a low-latency, centralized user data storage system that is accessible across all of our SDKs. With EdgeDB, you can accurately use targeting rules without having to pass all of a user’s data into the SDKs each time. Once targeting data is stored in EdgeDB, it can be easily accessed on any platform without the need for data pipelines.
 
 This guide will explain how to set up and use EdgeDB. It will also discuss some use cases to help you determine where to implement EdgeDB in your project.
@@ -120,3 +131,38 @@ In this guide we explored:
 - how to enable EdgeDB for your project
 - how to implement EdgeDB in your code
 - some use cases on how EdgeDB can improve efficiency and privacy within your apps
+
+
+# Super Segments 
+
+Super Segments are collections of users that are targeted by data from any external source. 
+
+This means that users or their data can be “imported” into DevCycle for targeting in experiments or features by making use of EdgeDB. 
+
+## Usage
+
+This data can be imported to DevCycle and EdgeDB in a number of different methods:
+- Via the [EdgeDB API](/best-practices/edgedb-and-edge-flags/edge-db-via-api-simple)
+- Through the [Zapier Integration](/best-practices/edgedb-and-edge-flags/import-from-anywhere)
+
+Once a Super Segment has been created in EdgeDB it can then be accessed via Feature Flags using [Custom Properties](/extras/custom-properties) within a targeting rule.
+
+Make sure to add the Custom Property to any feature, using the same key used when creating the Super Segment via the API or Zapier Integration.
+
+# Data Residency
+
+![data residency header](/sept-12-2022-edgedb-data-residency.png)
+
+With EdgeDB you are in complete control of your data. While the primary purpose of EdgeDB is to make data available across platforms, globally. You can also lock down the locales that data is saved to.
+
+When saving data to EdgeDB you can specify which locale the data should be saved to and DevCycle will do the rest, ensuring the user data is only saved to the edge in the right geography and that it is not replicated anywhere that it shouldn't be.
+
+In this way, if you need controls for Data Residency EdgeDB gives you complete control while still simplifying your feature flag setup.
+
+## Usage
+
+:::info
+
+To get started with Data Residency in EdgeDB please contact DevCycle support at [support@devcycle.com](mailto:support@devcycle.com).
+
+:::

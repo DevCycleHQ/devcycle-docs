@@ -1,6 +1,6 @@
 ---
 title: Quickstart
-sidebar_position: 1
+sidebar_position: 3
 ---
 
 The first thing you need to do to get started with DevCycle is to create an account and organization and add any colleagues to that organization. This page will get you up and running with a Free Account in a couple minutes.
