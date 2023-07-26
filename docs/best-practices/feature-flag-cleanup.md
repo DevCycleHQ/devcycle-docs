@@ -70,7 +70,7 @@ Because Code References list all usages of a variable in your code, you can easi
 
 To use Code References, you must enable [the DevCycle action for Code References](/integrations/github/gh-feature-usage-action) within your repository. After configuration, you can find your Code References when you click “View Info” for a variable in the Variables dashboard.
 
-For more information about Code References, [check out our docs here](/essentials/variables).
+For more information about Code References, [check out our docs here](/essentials/features/variables).
 
 ## Other ways to reduce feature flag tech debt
 

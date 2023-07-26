@@ -179,7 +179,7 @@ devcycleClient.flushEvents(() => {
 
 EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user. 
 
-To get started, enable EdgeDB on your project by following the guide [here](/extras/edgedb/edge-flags)
+To get started, enable EdgeDB on your project by following the guide [here](/extras/edgedb)
 
 Once you have EdgeDB enabled in your project, pass in the `enableEdgeDB` option to turn on EdgeDB mode for the SDK:
 

@@ -103,12 +103,12 @@ Here is some more reading:
 
 [What is EdgeDB? (/home/feature-management/edgedb/what-is-edgedb)
 
-[Use Cases of EdgeDB ](/extras/edgedb/edge-flags#use-cases)
+[Use Cases of EdgeDB ](/extras/edgedb)
 
 ### Enable EdgeDB (NodeJS SDK Version)
 
 First, you need to enable EdgeDB in the DevCycle Dashboard
-[https://docs.devcycle.com/extras/edgedb/edge-flags#setup](/extras/edgedb/edge-flags#setup)
+[https://docs.devcycle.com/extras/edgedb)
 
 With the [DevCycle NodeJs SDK ](/sdk/server-side-sdks/node) we use the `enableCloudBucketing` and `enableEdgeDB` options to enable EdgeDB usage. ([SDK initialization option details: ](/sdk/server-side-sdks/node/node-gettingstarted#initialization-options))
 

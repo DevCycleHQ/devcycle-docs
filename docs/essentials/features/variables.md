@@ -28,7 +28,7 @@ To navigate to this page, use the `Variables` button on DevCycle dashboard's top
 |        |                            |
 |--------|----------------------------|
 | **Variable Name** | The name given to the Variable upon its creation |
-| **Feature** | The name of the Feature that is currently managing a variable. **Note** that Variables can only be managed by a single Feature at a time. If you wish to change what Feature is managing a Variable, first remove that Variable from a feature as outlined in [Creating Variables and Variations](./variables). If the Variable is NOT being managed by a Feature, this column will note the lack of Feature. **Click on a Feature name to navigate directly to the Feature managing this Variable** |
+| **Feature** | The name of the Feature that is currently managing a variable. **Note** that Variables can only be managed by a single Feature at a time. If you wish to change what Feature is managing a Variable, first remove that Variable from a feature as outlined in [Creating Variables and Variations](/essentials/variables). If the Variable is NOT being managed by a Feature, this column will note the lack of Feature. **Click on a Feature name to navigate directly to the Feature managing this Variable** |
 | **Type** | The type of the feature flag. This type can one of: Boolean, JSON, Number, Boolean, or String. |
 | **Created At** | The time this Variable was first created. |
 

@@ -15,7 +15,7 @@ To view the Variables and Variations within a Feature, navigate to the 'Variable
 
 Depending on the Feature type, the default Variations will be pre-set. The most common of which will be the Variations of "Variation OFF" and "Variation ON", with the boolean Variable being set to false and true, respectively.
 
-When a user is "Served" a Variation based on the [Targeting Rules](./targeting), the Variable Values the user receives on their devices or as an API response will be the values for the served Variation.
+When a user is "Served" a Variation based on the [Targeting Rules](/essentials/targeting), the Variable Values the user receives on their devices or as an API response will be the values for the served Variation.
 
 ### From the CLI
 
@@ -87,7 +87,7 @@ Give your new Variation a **name** as well as a **key**, as well as its **values
 
 - The Variable values will be what the Variable's value will be in SDK and API responses if a targeting rule is targeting those specific Variations. 
 
-Once this Variation is created, it will become available as an option within the "Serve" dropdown for [Targeting Rules](./targeting). Users who are served this new Variation will receive the Variable Values associated with this new Variation!
+Once this Variation is created, it will become available as an option within the "Serve" dropdown for [Targeting Rules](/essentials/targeting). Users who are served this new Variation will receive the Variable Values associated with this new Variation!
 
 ### From the CLI
 

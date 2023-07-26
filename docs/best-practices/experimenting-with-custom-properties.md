@@ -68,7 +68,7 @@ For more documentation about the Identify method with different SDKs, read [Iden
 
 Every time you identify a particular user, you must pass the custom data into the SDK. 
 
-DevCycle's EdgeDB feature enables the saving of user data into DevCycle's EdgeDB storage, allowing you to segment by custom properties without having to repeatedly pass data to the SDK. [View our EdgeDB docs to find out how it works](/extras/edgedb/edge-flags).
+DevCycle's EdgeDB feature enables the saving of user data into DevCycle's EdgeDB storage, allowing you to segment by custom properties without having to repeatedly pass data to the SDK. [View our EdgeDB docs to find out how it works](/extras/edgedb).
 :::
 
 ## Common Use Cases for Custom Properties
