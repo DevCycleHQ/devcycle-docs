@@ -9,60 +9,9 @@ Features are the main elements that you want to control or experiment with in yo
 For more information on feature types available through DevCycle check out the [Feature Types](/introduction/core-concepts/feature-types) page in Core Concepts.
 :::
 
+---
+
 ## Managing Features
-
-### From the Dashboard
-The Feature Dashboard is where all of your features can be viewed, edited, and filtered for search. This page will show all features within the current Project. The features list (sorted by created date ascending) has the following columns:
-
-|   Column     | Description                            |
-|--------|----------------------------|
-| Creator | This will show the icon of the user who created this Feature. |
-| Name | The Feature's name. This can be changed at any time by editing the Feature. |
-| Key | This is the feature's Key. Use this key to reference the Feature in the SDKs or APIs. |
-| Feature type | The selected type of the Feature. Use this to organize your Features. |
-| # Of Variables | This will show a count of how many variables are used within this Feature. To learn more read [Creating Variables and Variations](/essentials/variables) |
-| Edit | Click this to edit on the row the Feature. |
-
-Use the search input to search by Name, Key, or Description. The filters can be used to filter by Type or Creator. Each column header can be clicked to sort the column. 
-
-> To view another Project's features, use the Project dropdown on the top of the Dashboard. 
-
-## Creating a New Feature
-
-### From the Dashboard
-
-From this page, you can create a Feature Flag by clicking "Create New Feature" or the `+` in the top bar. 
-
-A screen for deciding your Feature Type will now appear. To read more about the feature types and their uses, read [DevCycle Feature Types](/introduction/core-concepts/feature-types).
-
-After choosing a type, the information modal will appear prompting you to enter the following information:
-
-**Feature Name**
-Enter a descriptive feature name.
-
-**Feature Key**
-This key is how the feature and its variables will be referenced in code. (A key will be automatically suggested based on the entered name.)
-
-**Description**
-Optionally, you may choose to provide a detailed description of the feature.
-
-**Initial Variable Key**
-Initial Variable Key allows you to define an initial variable key that can differ from the new feature key name. As you type in the Feature Name, the feature Key and the Initial Variable Key will mimic whatever input is entered in the Feature Name field formatted in kebab case.
-
-**Initial Variable Type**
-Initial Variable Type allows you to select the type of variable for the initial variable created along with your feature (Boolean, JSON, String, or Number).
-
-#### Creating a New Feature with a Duplicate Initial Variable Key
-
-If a duplicate variable key belonging to an unassociated variable is submitted when creating a new feature, this modal will appear that will allow you to re-associate the variable to your new feature.
-
-If the unassociated variable key submitted is archived, a similar modal will appear with the option to unarchive the variable & re-associate it to the new feature.
-
-If you wish to unarchive & re-associate, click on the toggle and click `Yes, Proceed`. 
-
-The feature will be created along with the newly re-associated variable. The variations and corresponding variable values will be populated depending on the [Feature Type](/essentials/features) selected. 
-
-If a duplicate variable key that belongs to a variable that is associated with an existing feature the dashboard will return the error below. 
 
 ### From the CLI
 
@@ -217,9 +166,142 @@ You should be presented with something which looks like the following:
 ]
 ```
 
+### From the Dashboard
+
+The Feature Dashboard is where all of your features can be viewed, edited, and filtered for search. This page will show all features within the current Project. The features list (sorted by created date ascending) has the following columns:
+
+|   Column     | Description                            |
+|--------|----------------------------|
+| Creator | This will show the icon of the user who created this Feature. |
+| Name | The Feature's name. This can be changed at any time by editing the Feature. |
+| Key | This is the feature's Key. Use this key to reference the Feature in the SDKs or APIs. |
+| Feature type | The selected type of the Feature. Use this to organize your Features. |
+| # Of Variables | This will show a count of how many variables are used within this Feature. To learn more read [Creating Variables and Variations](/essentials/variables) |
+| Edit | Click this to edit on the row the Feature. |
+
+Use the search input to search by Name, Key, or Description. The filters can be used to filter by Type or Creator. Each column header can be clicked to sort the column. 
+
+> To view another Project's features, use the Project dropdown on the top of the Dashboard. 
+
+---
+
+## Creating a New Feature
+
+### From the CLI
+
+Once you have installed and authorized the CLI, select your relevant organization and project then run one the following commands: 
+
+```bash
+dvc features create
+```  
+
+You will be prompted to choose a Name, Key and Description. 
+
+If successful you will receive something which resembles the following (which demonstrates creating a new feature called `Feature C` with a key of `feature-c` and no description):
+
+```json
+{
+  "_id": "q1w2e3r4t5yy",
+  "_project": "w2w2we3r4t5yy7u7i",
+  "source": "cli",
+  "type": "release",
+  "name": "Feature C",
+  "key": "feature-c",
+  "description": "",
+  "_createdBy": "google-oauth2|q1w2e3rt5y6y",
+  "createdAt": "2023-07-27T19:38:51.470Z",
+  "updatedAt": "2023-07-27T19:38:51.499Z",
+  "variations": [
+    {
+      "_id": "6y4r3ee22er4t",
+      "key": "variation-on",
+      "name": "Variation On",
+      "variables": {
+        "feature-c": true
+      }
+    },
+    {
+      "_id": "w2e4t5t6y6y",
+      "key": "variation-off",
+      "name": "Variation Off",
+      "variables": {
+        "feature-c": false
+      }
+    }
+  ],
+  "controlVariation": "variation-on",
+  "variables": [
+    {
+      "_id": "1q2w3er4t5t",
+      "_project": "3er4y6yu7i8i85y",
+      "_feature": "3r4t5y6ui89o9o",
+      "name": "Feature C",
+      "key": "feature-c",
+      "type": "Boolean",
+      "status": "active",
+      "source": "cli",
+      "_createdBy": "google-oauth2|3e4r5t6y7u7i8i",
+      "createdAt": "2023-07-27T19:38:51.480Z",
+      "updatedAt": "2023-07-27T19:38:51.480Z"
+    }
+  ],
+  "tags": [],
+  "readonly": false,
+  "sdkVisibility": {
+    "mobile": true,
+    "client": true,
+    "server": true
+  }
+}
+
+Feature "Feature C" successfully created!
+
+To update the targeting rules, use: 
+
+    dvc targeting update feature-c
+```
+
+### From the Dashboard
+
+From this page, you can create a Feature Flag by clicking "Create New Feature" or the `+` in the top bar. 
+
+A screen for deciding your Feature Type will now appear. To read more about the feature types and their uses, read [DevCycle Feature Types](/introduction/core-concepts/feature-types).
+
+After choosing a type, the information modal will appear prompting you to enter the following information:
+
+**Feature Name**
+Enter a descriptive feature name.
+
+**Feature Key**
+This key is how the feature and its variables will be referenced in code. (A key will be automatically suggested based on the entered name.)
+
+**Description**
+Optionally, you may choose to provide a detailed description of the feature.
+
+**Initial Variable Key**
+Initial Variable Key allows you to define an initial variable key that can differ from the new feature key name. As you type in the Feature Name, the feature Key and the Initial Variable Key will mimic whatever input is entered in the Feature Name field formatted in kebab case.
+
+**Initial Variable Type**
+Initial Variable Type allows you to select the type of variable for the initial variable created along with your feature (Boolean, JSON, String, or Number).
+
+#### Creating a New Feature with a Duplicate Initial Variable Key
+
+If a duplicate variable key belonging to an unassociated variable is submitted when creating a new feature, this modal will appear that will allow you to re-associate the variable to your new feature.
+
+If the unassociated variable key submitted is archived, a similar modal will appear with the option to unarchive the variable & re-associate it to the new feature.
+
+If you wish to unarchive & re-associate, click on the toggle and click `Yes, Proceed`. 
+
+The feature will be created along with the newly re-associated variable. The variations and corresponding variable values will be populated depending on the [Feature Type](/essentials/features) selected. 
+
+If a duplicate variable key that belongs to a variable that is associated with an existing feature the dashboard will return the error below. 
+
+---
+
 ## Updating a Feature
 
 ### From the CLI
+
 Once you have installed and authorized the CLI, select your relevant organization and project then run the following command:
 
 ```bash
@@ -276,6 +358,12 @@ You will be prompted to select a feature you would like to update, and can updat
 }
 ```
 
+### From the Dashboard
+
+Feature settings including name, key, and type can be changed from feature page by selecting `Settings` on the `Manage Feature` navigation sidebar on the left-hand side of the screen.
+
+---
+
 ## Deleting a Feature
 
 ### From the CLI
@@ -290,3 +378,7 @@ You will be prompted to select a feature you would like to delete, and should be
 ```bash
 ✅ Feature successfully deleted
 ```
+
+### From the Dashboard
+
+To delete a feature scroll to the very bottom of the feature page and click the red `Delete Feature Flag` button. You will be prompted to confirm deletion.

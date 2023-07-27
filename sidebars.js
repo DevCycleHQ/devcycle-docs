@@ -10,7 +10,7 @@ module.exports = {
     {
       type: 'doc',
       label: '🚩 Examples',
-      id: 'examples/index', // The internal path
+      id: 'examples', // The internal path
     },
     {
       type: 'category',

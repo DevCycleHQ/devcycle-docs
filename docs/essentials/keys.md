@@ -29,31 +29,6 @@ This key is separate from the standard SDK keys due to the differing security re
 
 ## Managing Keys
 
-### From the Dashboard
-
-**Client, Mobile and Server Keys**
-
-To find your keys for use within the various SDKs, navigate navigate to the Settings page. The settings page can be accessed from clicking on your profile image in the top right corner of the Dashboard. 
-
-From here, navigate to the Environments section:
-
-Each environment has three different keys: 
-
-* Client-side SDK keys
-* Server-side SDK keys
-* Mobile SDK keys
-
-To reveal these keys, click the "Show Keys" button on the top of the page.
-
-**Management API Key**
-
-To access the [Management API](/management-api/), first navigate to the Settings page. The settings page can be accessed from clicking on your profile image in the top right corner of the Dashboard. 
-
-To find your key for the management API, navigate to your Organization specific settings page:
-
-The Client Secret key can be revealed which will allow for use within the Management API. 
-
-**Note:** Due to the fact that the Management API can read and modify all aspects of your DevCycle projects, DO NOT share this key or deploy any client-side code containing this key.
 
 ### From the CLI
 
@@ -100,6 +75,36 @@ You will be prompted to select an existing environment and which SDK key you wou
 }
 ```
 
+
 **Management API Key**
 
+:::caution
 Accessing the Management API key from the CLI is not currently possible.
+:::
+
+### From the Dashboard
+
+**Client, Mobile and Server Keys**
+
+To find your keys for use within the various SDKs, navigate navigate to the Settings page. The settings page can be accessed from clicking on your profile image in the top right corner of the Dashboard. 
+
+From here, navigate to the Environments section:
+
+Each environment has three different keys: 
+
+* Client-side SDK keys
+* Server-side SDK keys
+* Mobile SDK keys
+
+To reveal these keys, click the "Show Keys" button on the top of the page.
+
+**Management API Key**
+
+To access the [Management API](/management-api/), first navigate to the Settings page. The settings page can be accessed from clicking on your profile image in the top right corner of the Dashboard. 
+
+To find your key for the management API, navigate to your Organization specific settings page:
+
+The Client Secret key can be revealed which will allow for use within the Management API. 
+
+**Note:** Due to the fact that the Management API can read and modify all aspects of your DevCycle projects, DO NOT share this key or deploy any client-side code containing this key.
+

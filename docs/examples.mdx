@@ -1,16 +1,14 @@
 ---
-title: DevCycle Demos
+title: DevCycle Example Apps
 sidebar_class_name: hidden
 ---
 import CustomDocCardList from '@site/src/components/CustomDocCardList'
 
 Welcome to the Example Apps page, which showcases example applications using the DevCycle SDKs. The goal of this page is to provide developers with a comprehensive collection of example applications that demonstrate how to utilize DevCycle's SDKs with a variety of programming languages and frameworks.
 
-## Sample Applications
+## 👩‍💻 Client side
 
-### 👩‍💻 Client side
-
-<CustomDocCardList  columnWidth={4}  items={[
+<CustomDocCardList  columnWidth={6}  items={[
   {
     type: 'link',
     href: 'https://github.com/DevCycleHQ/js-sdks/tree/main/examples/js/web-elements-app',
@@ -45,6 +43,137 @@ icon:'app-store-ios'
   },
   {
     type: 'link',
+    href: 'https://github.com/DevCycleHQ/js-sdks/tree/main/examples/react/react-native-app',
+    label: 'React Native',
+    description: 'hidden',
+        iconSet: 'fab',
+icon:'react'
+  },
+  {
+    type: 'link',
+    href: 'https://github.com/DevCycleHQ/flutter-client-sdk/tree/main/example',
+    label: 'Flutter',
+    description: 'hidden',
+        iconSet: 'fa',
+icon:'toggle-on'
+  },
+]} />
+
+## 💻 Server Side
+
+### Local Bucketing 
+([See here for more explanation](/sdk/#difference-between-local-and-cloud-bucketing))
+<CustomDocCardList columnWidth={6} items={[
+  {
+    type: 'link',
+    href: 'https://github.com/DevCycleHQ/js-sdks/tree/main/examples/nodejs-local',
+    label: 'NodeJS',
+    description: 'hidden',
+    iconSet: 'fab',
+    icon:'node'
+  },
+   {
+    type: 'link',
+    href: 'https://github.com/DevCycleHQ/go-server-sdk/tree/main/example/local',
+    label: 'Go',
+    description: 'hidden',
+    iconSet: 'fab',
+icon:'golang'
+  },
+   {
+    type: 'link',
+    href: 'https://github.com/DevCycleHQ/php-server-sdk/tree/main/examples/hello-world',
+    label: 'PHP',
+    description: 'hidden',
+    iconSet: 'fab',
+    icon:'php'
+  },
+    {
+    type: 'link',
+    href: 'https://github.com/DevCycleHQ/python-server-sdk/tree/main/example',
+    label: 'Python',
+    description: 'hidden',
+    iconSet: 'fab',
+    icon:'python'
+  },
+   {
+    type: 'link',
+    href: 'https://github.com/DevCycleHQ/ruby-server-sdk/tree/main/examples/local',
+    label: 'Ruby',
+    description: 'hidden',
+    iconSet: 'fa',
+    icon:'gem'
+  },
+  {
+    type: 'link',
+    href: 'https://github.com/DevCycleHQ/java-server-sdk/tree/main/example-cloud',
+    label: 'Java',
+    description: 'hidden',
+    iconSet: 'fab',
+    icon:'java'
+  },
+  {
+    type: 'link',
+    href: 'https://github.com/DevCycleHQ/dotnet-server-sdk/tree/main/DevCycle.SDK.Server.Local.Example',
+    label: '.NET',
+    description: 'hidden',
+    iconSet: 'fab',
+    icon:'microsoft'
+  },
+]} />
+
+### Cloud Bucketing 
+([See here for more explanation](/sdk/#difference-between-local-and-cloud-bucketing))
+
+<CustomDocCardList columnWidth={6} items={[
+   {
+    type: 'link',
+    href: 'https://github.com/DevCycleHQ/js-sdks/tree/main/examples/nodejs-cloud',
+    label: 'NodeJS',
+    description: 'hidden',
+    iconSet: 'fab',
+    icon:'node'
+  },
+   {
+    type: 'link',
+    href: 'https://github.com/DevCycleHQ/go-server-sdk/tree/main/example/cloud',
+    label: 'Go',
+    description: 'hidden',
+    iconSet: 'fab',
+icon:'golang'
+  },
+ {
+    type: 'link',
+    href: 'https://github.com/DevCycleHQ/ruby-server-sdk/tree/main/examples/cloud',
+    label: 'Ruby',
+    description: 'hidden',
+    iconSet: 'fa',
+    icon:'gem'
+  },
+  {
+    type: 'link',
+    href: 'https://github.com/DevCycleHQ/java-server-sdk/tree/main/example-cloud',
+    label: 'Java',
+    description: 'hidden',
+    iconSet: 'fab',
+    icon:'java'
+  },
+   {
+    type: 'link',
+    href: 'https://github.com/DevCycleHQ/dotnet-server-sdk/tree/main/DevCycle.SDK.Server.Cloud.Example',
+    label: '.NET',
+    description: 'hidden',
+    iconSet: 'fab',
+    icon:'microsoft'
+  },
+]} />
+
+
+## 📱 Mobile
+
+<CustomDocCardList columnWidth={6} items={[
+ {
+    type: 'link',
     href: 'https://github.com/DevCycleHQ/ios-client-sdk/tree/main/Examples/DevCycle-iOS-Example-App-ObjC',
     label: 'iOS (Objective C)',
     description: 'hidden',
@@ -74,122 +203,5 @@ icon:'android'
     description: 'hidden',
         iconSet: 'fab',
 icon:'android'
-  },
-  {
-    type: 'link',
-    href: 'https://github.com/DevCycleHQ/js-sdks/tree/main/examples/react/react-native-app',
-    label: 'React Native',
-    description: 'hidden',
-        iconSet: 'fab',
-icon:'react'
-  },
-  {
-    type: 'link',
-    href: 'https://github.com/DevCycleHQ/flutter-client-sdk/tree/main/example',
-    label: 'Flutter',
-    description: 'hidden',
-        iconSet: 'fa',
-icon:'toggle-on'
-  },
-]} />
-
-### 💻 Server Side
-
-<CustomDocCardList columnWidth={4} items={[
-  {
-    type: 'link',
-    href: 'https://github.com/DevCycleHQ/js-sdks/tree/main/examples/nodejs-local',
-    label: 'NodeJS (Local Bucketing)',
-    description: 'hidden',
-    iconSet: 'fab',
-    icon:'node'
-  },
-   {
-    type: 'link',
-    href: 'https://github.com/DevCycleHQ/js-sdks/tree/main/examples/nodejs-cloud',
-    label: 'NodeJS (Cloud Bucketing)',
-    description: 'hidden',
-    iconSet: 'fab',
-    icon:'node'
-  },
-   {
-    type: 'link',
-    href: 'https://github.com/DevCycleHQ/go-server-sdk/tree/main/example/cloud',
-    label: 'Go (Cloud)',
-    description: 'hidden',
-    iconSet: 'fab',
-icon:'golang'
-  },
-   {
-    type: 'link',
-    href: 'https://github.com/DevCycleHQ/go-server-sdk/tree/main/example/local',
-    label: 'Go (Local)',
-    description: 'hidden',
-    iconSet: 'fab',
-icon:'golang'
-  },
-   {
-    type: 'link',
-    href: 'https://github.com/DevCycleHQ/php-server-sdk/tree/main/examples/hello-world',
-    label: 'PHP',
-    description: 'hidden',
-    iconSet: 'fab',
-    icon:'php'
-  },
-    {
-    type: 'link',
-    href: 'https://github.com/DevCycleHQ/python-server-sdk/tree/main/example',
-    label: 'Python',
-    description: 'hidden',
-    iconSet: 'fab',
-    icon:'python'
-  },
- {
-    type: 'link',
-    href: 'https://github.com/DevCycleHQ/ruby-server-sdk/tree/main/examples/cloud',
-    label: 'Ruby (Cloud)',
-    description: 'hidden',
-    iconSet: 'fa',
-    icon:'gem'
-  },
-   {
-    type: 'link',
-    href: 'https://github.com/DevCycleHQ/ruby-server-sdk/tree/main/examples/local',
-    label: 'Ruby (Local)',
-    description: 'hidden',
-    iconSet: 'fa',
-    icon:'gem'
-  },
-  {
-    type: 'link',
-    href: 'https://github.com/DevCycleHQ/java-server-sdk/tree/main/example-cloud',
-    label: 'Java (Cloud)',
-    description: 'hidden',
-    iconSet: 'fab',
-    icon:'java'
-  },
-  {
-    type: 'link',
-    href: 'https://github.com/DevCycleHQ/java-server-sdk/tree/main/example-cloud',
-    label: 'Java (Local)',
-    description: 'hidden',
-    iconSet: 'fab',
-    icon:'java'
-  },
-   {
-    type: 'link',
-    href: 'https://github.com/DevCycleHQ/dotnet-server-sdk/tree/main/DevCycle.SDK.Server.Cloud.Example',
-    label: '.NET (Cloud)',
-    description: 'hidden',
-    iconSet: 'fab',
-    icon:'microsoft'
-  },
-  {
-    type: 'link',
-    href: 'https://github.com/DevCycleHQ/dotnet-server-sdk/tree/main/DevCycle.SDK.Server.Local.Example',
-    label: '.NET (Local)',
-    description: 'hidden',
-    iconSet: 'fab',
-    icon:'microsoft'
   },
 ]} />

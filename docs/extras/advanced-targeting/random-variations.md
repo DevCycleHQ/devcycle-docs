@@ -3,7 +3,7 @@ title: Random Variations
 sidebar_position: 1
 ---
 
-#### Serving a Random Variation
+## Serving a Random Variation
 
 If there is a desire to serve a Random variation (Experimentation / Random Distribution) to a set of users, this can be done by serving a "Random Distribution" to a target, instead of a single variation. This functionality can be used to send users down various paths or provide different functionality of a single feature, either as an A/B test or multivariate testing.  
 
@@ -19,7 +19,7 @@ If percentages do not add up to 100%, the Targeting rule Cannot be saved.
 
 Users who reach this Targeting Rule and qualify for the Target definition will then be distributed at random among the variations at the specified amounts. 
 
-##### Adding Or Removing Variations when a random distribution has been set:
+### Adding Or Removing Variations when a random distribution has been set:
 
 If a Variation is **added** to a Feature that has an **enabled** Targeting Rule containing a Random Distribution, it will be added to the random distributions with an initial 0% set. 
 

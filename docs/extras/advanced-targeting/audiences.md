@@ -7,7 +7,9 @@ This topic explains how to create and manage Audiences via our API or within the
 
 Audiences allow you to define an audience using filters, and then reuse the audience in user targeting for features.  Audiences are lists of users, defined by “filters” that you can use to manage flag targeting behaviour in bulk. Audiences are useful for managing groups of users, like `internal-users` or `loyalty-tier-gold`. 
 
-### Creating an Audience via API
+## Creating an Audience
+
+### From the API
 
 The first step is to create an audience through the Management API:
 
@@ -83,17 +85,7 @@ Under the `filters` array, you can list an `Audience Match` filter that is used 
 You will see this in the Targeting Rules section of the feature page as a **read-only** field:
 ![Read-only resuable audience in feature dashboard](/march-1-2023-readonly-resuableaudience.png)
 
-### View & Modify Audiences via API
-
-To see all your created Audiences, click the Audiences tab on the navigation bar: 
-![Audiences Tab](/march-1-2023-audiences-tab.png)
-
-This lists all Audiences created through the Management API. At the moment, the audiences can only be modified through the Management API. As such, all the Audiences on this page are **read-only**.
-
-To view more information about the Audience, click the `View Definition` button to see more:
-![Audiences Tab](/march-1-2023-resuableaudience-viewdefinition.png)
-
-### Create & Manage Audiences in the Dashboard
+### From the Dashboard
 
 When Audiences have been enabled for your organization, you will see an Audiences tab at the top of your navigation bar. Here you will be able to view all Audiences that have been created within your project.
 
@@ -120,24 +112,49 @@ In addition to the Audience Info & Definition, in the Feature Usage secion for t
 
 ![Audience Details Page Feature Usage](/july-2023-audience-details-page-feature-usage.png)
 
+## Updating Audiences 
+
+### From the API
+
+To see all your created Audiences, click the Audiences tab on the navigation bar: 
+![Audiences Tab](/march-1-2023-audiences-tab.png)
+
+This lists all Audiences created through the Management API. At the moment, the audiences can only be modified through the Management API. As such, all the Audiences on this page are **read-only**.
+
+To view more information about the Audience, click the `View Definition` button to see more:
+![Audiences Tab](/march-1-2023-resuableaudience-viewdefinition.png)
+
+### From the Dashboard
+
 If you wish to update or edit an active Audience, a warning message will appear that displays all Features that are actively using that Audience. 
 
 ![Audience Editing Active Audience Pop-up](/july-2023-audience-details-page-editing-active-audience.png)
 
 
-### Using an Audience in a Targeting Rule
+## Using an Audience
 
 Once you've created an Audience, you will now be able to use it in a Targeting Rule for one or multiple features. 
 
 To use an Audience in a Targeting Rule: 
+
 1. Navigate to the Users & Targeting section of a feature page
+
 2. Give your Targeting Rule a descriptive Name. 
+
 3. Open the user property dropdown, and select **Audience**
+
 ![Audience Targeting Rule User Property Dropdown](/july-2023-targeting-rule-filter-audience.png)
+
 4. Choose a comparator. 
+
 ![Audience Targeting Rule Comparators](/july-2023-targeting-rule-audience-comparator.png)
+
 5. Choose the Audience(s) that you would like to use in this targeting rule. When multiple Audiences are selected within the same rule, they audiences will act like a a top-level OR, e.g. if the user/target is in `audience-1` or `audience-2`. 
+
 ![Audience Targeting Rule Dropdown](/july-2023-targeting-rule-audience-dropdown.png)
+
 6. Choose a variation to serve. 
+
 7. *(Optional)* Choose a schedule. 
+
 8. Click Save at the top of the page when complete.

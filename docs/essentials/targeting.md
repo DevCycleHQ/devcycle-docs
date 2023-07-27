@@ -78,13 +78,9 @@ Lastly, we want to make sure that other Users in Canada (i.e. those without @dev
 
 The above will then satisfy the requirements of the defined situation.
 
+---
+
 ## Managing a Targeting Rule
-
-### From the Dashboard
-
-Targeting rules can be seen in the individual feature page by selecting the relevant environment under `Users & Targeting` in the **Manage Feature 🚩** menu on the left hand side of the screen.
-
-From here you will be able to enable or disable the specific targetting rule by clicking the `Targeting ON` toggle.
 
 ### From the CLI
 
@@ -144,17 +140,15 @@ If successful you will receive a response which resembles the following (for dis
             └─ Variation On
 ```
 
+### From the Dashboard
+
+Targeting rules can be seen in the individual feature page by selecting the relevant environment under `Users & Targeting` in the **Manage Feature 🚩** menu on the left hand side of the screen.
+
+From here you will be able to enable or disable the specific targetting rule by clicking the `Targeting ON` toggle.
+
 ---
 
 ## Creating a Targeting Rule
-
-### From the Dashboard
-
-On the features dashboard page, select `Users & Targeting` from the left hand menu and choose which [environment](/essentials/environments) it should apply to. If a feature is toggled `ON` for an environment, the rules defined within the environment will be followed.
-
-Once the targeting rule is defined, the next step is to determine what Variation users targeted by this rule should receive. Note: The available variations will be determined by the chosen Feature Type, however, [these can](/essentials/variables) be modified and more variations can be added at any time.
-
-To choose the Variation for this targeted audience, use the "Serve" dropdown and choose the desired variation. When the environment is enabled, and if a user fulfills the targeting rule, they will then be served that variation and its associated variable values.
 
 ### From the CLI
 
@@ -293,19 +287,17 @@ If successful you will receive a response which resembles the following (for ena
             └─ Variation On
 ```
 
+### From the Dashboard
+
+On the features dashboard page, select `Users & Targeting` from the left hand menu and choose which [environment](/essentials/environments) it should apply to. If a feature is toggled `ON` for an environment, the rules defined within the environment will be followed.
+
+Once the targeting rule is defined, the next step is to determine what Variation users targeted by this rule should receive. Note: The available variations will be determined by the chosen Feature Type, however, [these can](/essentials/variables) be modified and more variations can be added at any time.
+
+To choose the Variation for this targeted audience, use the "Serve" dropdown and choose the desired variation. When the environment is enabled, and if a user fulfills the targeting rule, they will then be served that variation and its associated variable values.
+
 ---
 
 ## Updating A Targeting Rule
-
-### From the Dashboard
-
-Targeting Rules can be updated on the dashboard anytime by changing the relevant input for the environment in question and click the `Save` button in the upper right-hand corner of the screen.
-
-**Reordering Targeting Rules**
-
-In these cases, you can very simply reorder any Targeting Rule by clicking the arrows on the side of the rule and moving it up or down. 
-
-Saving this Feature will then cause the next evaluation of a variable for all users to respect the new targeting order (after the config has been updated for client-side SDKs).
 
 ### From the CLI
 
@@ -434,13 +426,19 @@ Other update actions from the CLI include:
 - Reordering a Filter (known as definition in the CLI)
 
 
+### From the Dashboard
+
+Targeting Rules can be updated on the dashboard anytime by changing the relevant input for the environment in question and click the `Save` button in the upper right-hand corner of the screen.
+
+**Reordering Targeting Rules**
+
+In these cases, you can very simply reorder any Targeting Rule by clicking the arrows on the side of the rule and moving it up or down. 
+
+Saving this Feature will then cause the next evaluation of a variable for all users to respect the new targeting order (after the config has been updated for client-side SDKs).
+
 ---
 
 ## Deleting a Targeting Rule
-
-### From the Dashboard
-
-Select the trash can icon on the right-hand side of the relevant environemnt targeting rules to delete the rule and click `Save` to apply the changes.
 
 ### From the CLI
 
@@ -549,3 +547,7 @@ If successful you will receive a response which resembles the following (which r
 
 > A similar process should be applied for removing filters/definitions
 
+
+### From the Dashboard
+
+Select the trash can icon on the right-hand side of the relevant environemnt targeting rules to delete the rule and click `Save` to apply the changes.

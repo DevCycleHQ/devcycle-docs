@@ -5,10 +5,6 @@ sidebar_position: 3
 
 Custom Properties are properties on a user which can be used for [Targeting Users for Features](/essentials/targeting). These properties are different than the out-of-the-box options within DevCycle (such as app version etc) in that they are defined by the user for use within the dashboard. 
 
-This article outlines how to define, use, and manage custom properties within DevCycle and its SDKs. 
-
-## Usage
-
 Custom properties can be one of the following types: 
 
 * Boolean

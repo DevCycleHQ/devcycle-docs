@@ -3,17 +3,19 @@ title: Feature Types
 sidebar_position: 1
 ---
 
-Feature Types within the DevCycle dashboard are a way of describing and handling Feature Toggles / Feature Flags in more complex and diverse ways. Typically one would use a Feature Flag tool to do extremely simple toggling of a feature to be on or off. In reality, this simple approach can be very limiting as you become more familiar with the concept of Feature Flags. 
+Feature Types within the DevCycle dashboard are a way of describing and handling Feature Toggles / Feature Flags in more complex and diverse ways. 
+
+> Typically one would use a Feature Flag tool to do extremely simple toggling of a feature to be on or off. In reality, this simple approach can be very limiting as you become more familiar with the concept of Feature Flags. 
 
 With this in mind, DevCycle prefers to view Feature Toggles as a _part_ of a Feature. A Feature may have one or many toggles, and may have states other than On or Off. A Feature may have something other than a boolean that should be variable across the potential states (or Variations). 
 
 To help with this concept, when creating a Feature in the DevCycle dashboard, you will be able to choose a Type which will pre-fill some options in the Feature and help kick-start your usage of the Feature.
 
+:::info
 For more information on Feature Types and using Toggles, read **[Feature toggles (aka Feature Flags)](https://martinfowler.com/articles/feature-toggles.html) by Pete Hodgson** on the Martin Fowler site. It contains deep information on when to use feature toggles, how to use them, and how to think about them. Much of the DevCycle methodology is based around the concepts in this article. 
+:::
 
 ## Release
-
-**Description**
 
 Use a Release Feature Flag to separate a feature from deployment and allow for a true continuous delivery (development) cycle. Use these flags to allow for in-progress features and code to be merged into your main branch without concerns. A release could be transitory or long-term in nature depending on your plans with it. If the Feature is completed and deemed not a risk after reaching a complete rollout, the toggle can be safely removed from your code to keep things clean. 
 
@@ -47,8 +49,6 @@ For all initial variable types, these are the following Targeting Rule pre-sets:
 
 ## Ops
 
-**Description**
-
 When releasing features with unknown performance implications, use an Ops Feature Flag to ensure the safety of your systems during the deployment of the feature. These types of Features may have short-lived toggles (once safety is confirmed remove it), or may remain in the system long-term as there may be reasons to have an emergency kill switch. 
 
 **Example Uses**
@@ -79,8 +79,6 @@ For all initial variable types, these are the following Targeting Rule pre-sets:
 - Production and Staging Environments will not be enabled
 
 ## Experiment
-
-**Description**
 
 Experiments can be used to send users down various paths or provide different functionality of a single feature, either as an A/B test or multivariate testing. Experimentation is extremely useful for making data-driven decisions by monitoring the impacts of various code paths. These types of Features can change quite often and should be modified to continually optimize the results of the Experiment. The Experiment type could be used for many things such as:
 
@@ -115,8 +113,6 @@ For all initial variable types, these are the following Targeting Rule pre-sets:
 - Production and Staging Environments will not be enabled and will not have a default rule. 
 
 ## Permission
-
-**Description**
 
 A Permission Feature is used to manage different product features that are gated based on specific user's properties. These Features can contain many toggles which define subsets of functionality available to users in this feature. These types of Features in DevCycle can be used for many useful things.
 

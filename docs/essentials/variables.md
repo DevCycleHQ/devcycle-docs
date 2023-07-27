@@ -5,48 +5,9 @@ sidebar_position: 6
 
 Variables are the elements that can change within a Feature. For example, if you have a Feature that controls a new UI element, a Variable could be the color of that element. By default, upon creation of a Feature, a `Boolean Variable`` will be created which has the same name as the Feature's key for easier reference. 
 
+---
+
 ## Managing Variables
-
-### From the Dashboard
-
-To view the Variables and Variations within a Feature, navigate to the 'Variables' section on a Feature page sidebar. This will lead the user to a table containing all of the Variables used by this Feature and all of their values across all Variations:
-
-Each Feature manages its own set of Variables. **By default, upon creation of a Feature, a Boolean Variable will be created which has the same name as the Feature's key for easier reference.** 
-
-Depending on the Feature type, the default Variations will be pre-set. The most common of which will be the Variations of "Variation OFF" and "Variation ON", with the boolean Variable being set to false and true, respectively.
-
-:::info
-For more information on variations please visit the [variations section](/essentials/variations) of the documentation.
-:::
-
-#### Global Variables Dashboard
-
-You can also view variables through the Variables dashboard, a collection of all Variables used within a project on a single list. In more complex or longer running projects, the Variables dashboard is useful to quickly find exactly what Feature is controlling a Variable (if any). 
-
-To navigate to this page, use the `Variables` button on DevCycle dashboard's top bar, which will lead you to the Variables list which will show:
-
-|        |                            |
-|--------|----------------------------|
-| **Variable Name** | The name given to the Variable upon its creation |
-| **Feature** | The name of the Feature that is currently managing a variable. **Note** that Variables can only be managed by a single Feature at a time. If you wish to change what Feature is managing a Variable, first remove that Variable from a feature as outlined in [Creating Variables and Variations](/essentials/variables). If the Variable is NOT being managed by a Feature, this column will note the lack of Feature. **Click on a Feature name to navigate directly to the Feature managing this Variable** |
-| **Type** | The type of the feature flag. This type can one of: Boolean, JSON, Number, Boolean, or String. |
-| **Created At** | The time this Variable was first created. |
-
-
-##### Variable Details
-
-To access variable details, click "View Info" on the Variables list page for your Desired Variable. This page contains two sections:
-
-| Section | Description |
-|---------|-------------|
-| **Variable Info** | This section allows for the modification of the display name of the Variable, as well as the ability to provide a more detailed description of the Variable. |
-| **Code References** | The Code References section is a collection of all of the areas within your codebase this Variable is actually being referenced, with a link out to the exact location within your GitHub codebase.  |
-
-:::info
-
-To use the Code Refs feature, the [DevCycle action for Code References](/integrations/github/gh-feature-usage-action) must be enabled within your repository.
-
-:::
 
 
 ### From the CLI
@@ -120,30 +81,53 @@ You should be presented with something which looks like the following:
 ]
 ```
 
-## Creating a New Variable
-
 ### From the Dashboard
 
-A user can add as many Variables as they desire by simply clicking the "Add Variable" button. 
+To view the Variables and Variations within a Feature, navigate to the 'Variables' section on a Feature page sidebar. This will lead the user to a table containing all of the Variables used by this Feature and all of their values across all Variations:
 
-Give your new Variable a **key**, a **type**, and its **values** for each of the current Variations.
+Each Feature manages its own set of Variables. **By default, upon creation of a Feature, a Boolean Variable will be created which has the same name as the Feature's key for easier reference.** 
 
-The unique Variable **key** is used to reference the Variable in code. Variables cannot be used in multiple existing Features, so their keys must be unique.
+Depending on the Feature type, the default Variations will be pre-set. The most common of which will be the Variations of "Variation OFF" and "Variation ON", with the boolean Variable being set to false and true, respectively.
 
-The Variable **Type** helps enforce consistent usage across the team to avoid type mismatches in different use cases.
-
-Variables may be the following types:
-
-* Boolean
-* String
-* Number
-* JSON
-
-The Variable **Values** for each **Variation** will be what the Variable's value will be in SDK and API responses if a targeting rule is targeting those specific Variations. 
-
-:::caution
-For JSON variables, the only allowable **Values** are JSON objects with key-value pairs. 
+:::info
+For more information on variations please visit the [variations section](/essentials/variations) of the documentation.
 :::
+
+#### Global Variables Dashboard
+
+You can also view variables through the Variables dashboard, a collection of all Variables used within a project on a single list. In more complex or longer running projects, the Variables dashboard is useful to quickly find exactly what Feature is controlling a Variable (if any). 
+
+To navigate to this page, use the `Variables` button on DevCycle dashboard's top bar, which will lead you to the Variables list which will show:
+
+|        |                            |
+|--------|----------------------------|
+| **Variable Name** | The name given to the Variable upon its creation |
+| **Feature** | The name of the Feature that is currently managing a variable. **Note** that Variables can only be managed by a single Feature at a time. If you wish to change what Feature is managing a Variable, first remove that Variable from a feature as outlined in [Creating Variables and Variations](/essentials/variables). If the Variable is NOT being managed by a Feature, this column will note the lack of Feature. **Click on a Feature name to navigate directly to the Feature managing this Variable** |
+| **Type** | The type of the feature flag. This type can one of: Boolean, JSON, Number, Boolean, or String. |
+| **Created At** | The time this Variable was first created. |
+
+
+##### Variable Details
+
+To access variable details, click "View Info" on the Variables list page for your Desired Variable. This page contains two sections:
+
+| Section | Description |
+|---------|-------------|
+| **Variable Info** | This section allows for the modification of the display name of the Variable, as well as the ability to provide a more detailed description of the Variable. |
+| **Code References** | The Code References section is a collection of all of the areas within your codebase this Variable is actually being referenced, with a link out to the exact location within your GitHub codebase.  |
+
+:::info
+
+To use the Code Refs feature, the [DevCycle action for Code References](/integrations/github/gh-feature-usage-action) must be enabled within your repository.
+
+:::
+
+
+
+---
+
+## Creating a New Variable
+
 
 ### From the CLI
 
@@ -173,23 +157,33 @@ If successful you will receive something which resembles the following (which de
 }
 ```
 
-## Updating a Variable
 
 ### From the Dashboard
 
-DevCycle allows users to edit the Variable Type of existing variables. We understand the importance of type-safety in variable management in addition to having flexibility when creating & editing variables. As such, editing unassociated variable versus associated variables differs slightly so you have as much context as possible on the ramifications of changing a variable type & its impact on your code.
+A user can add as many Variables as they desire by simply clicking the "Add Variable" button. 
 
-#### Unassociated Variables
+Give your new Variable a **key**, a **type**, and its **values** for each of the current Variations.
 
-To edit an unassociated Variable, navigate to the Variable Details page of the variable you want to edit and select the new type from the dropdown.
+The unique Variable **key** is used to reference the Variable in code. Variables cannot be used in multiple existing Features, so their keys must be unique.
 
-#### Associated Variables
-If a variable is currently associated with a feature, changes to the Variable Type must be done on the associated feature page. Once on the feature page, click on the edit icon next to the variable key and select a new Variable Type from the dropdown and click Update. 
+The Variable **Type** helps enforce consistent usage across the team to avoid type mismatches in different use cases.
+
+Variables may be the following types:
+
+* Boolean
+* String
+* Number
+* JSON
+
+The Variable **Values** for each **Variation** will be what the Variable's value will be in SDK and API responses if a targeting rule is targeting those specific Variations. 
 
 :::caution
-Be cautious when editing variable types as any code that is evaluating this variable must also be updated to expect the new type. A mismatch in variable types between the dashboard and your code will result in your code always returning the default value. 
+For JSON variables, the only allowable **Values** are JSON objects with key-value pairs. 
 :::
 
+---
+
+## Updating a Variable
 
 ### From the CLI
 Once you have installed and authorized the CLI, select your relevant organization and project then run the following command:
@@ -216,7 +210,30 @@ You will be prompted to select a variable you would like to update, and can upda
 }
 ```
 
+### From the Dashboard
+
+DevCycle allows users to edit the Variable Type of existing variables. We understand the importance of type-safety in variable management in addition to having flexibility when creating & editing variables. As such, editing unassociated variable versus associated variables differs slightly so you have as much context as possible on the ramifications of changing a variable type & its impact on your code.
+
+#### Unassociated Variables
+
+To edit an unassociated Variable, navigate to the Variable Details page of the variable you want to edit and select the new type from the dropdown.
+
+#### Associated Variables
+If a variable is currently associated with a feature, changes to the Variable Type must be done on the associated feature page. Once on the feature page, click on the edit icon next to the variable key and select a new Variable Type from the dropdown and click Update. 
+
+:::caution
+Be cautious when editing variable types as any code that is evaluating this variable must also be updated to expect the new type. A mismatch in variable types between the dashboard and your code will result in your code always returning the default value. 
+:::
+
+---
+
 ## Removing a Variable
+
+### From the CLI
+
+:::caution
+Variable removal is currently unavailable through the CLI.
+:::
 
 ### From the Dashboard
 
@@ -230,12 +247,16 @@ Taking this action will cause all references to the Variable in any code usage t
 To fully delete a Variable you must do so via our [Management API](/management-api/#operation/VariablesController_remove).
 :::
 
-### From the CLI
 
-Variable removal is currently unavailable through the CLI.
-
+---
 
 ## Archiving a Variable
+
+### From the CLI
+
+:::caution
+Variable archiving is currently unavailable through the CLI.
+:::
 
 ### From the Dashboard
 
@@ -249,11 +270,15 @@ When archiving a Variable from the Variable list or details page you will need t
 
 Once archived, Variables can be viewed by toggling the Variable status filter to either All or Archived Variables on the Variable list page. From here Variables can also be unarchived if desired.
 
-### From the CLI
-
-Variable archiving is currently unavailable through the CLI.
+---
 
 ## Re-associating a Variable
+
+### From the CLI
+
+:::caution
+Variable re-association is currently unavailable through the CLI.
+:::
 
 ### From the Dashboard
 
@@ -271,6 +296,4 @@ To use it, click the hyperlinked "**variable**" text, and you'll be directed to 
 If you want to move a variable between features, you must first remove it from the previous feature, making it unassociated.
 :::
 
-### From the CLI
 
-Variable re-association is currently unavailable through the CLI.

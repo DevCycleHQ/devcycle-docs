@@ -5,10 +5,6 @@ sidebar_position: 1
 
 Organizations are the top level of the Account hierarchy within DevCycle. Organizations are where all Projects and Users are managed. Users within an organization will have the same permissions across all projects, and a user may be part of multiple Organizations.
 
-:::info
-Please note that organizational settings cannot currently be viewed or changed through the CLI and require use of the dashboard.
-:::
-
 To view the current Organization (or change Organizations) click on your user avatar on the top right of the DevCycle Dashboard. The active Organization will have a green badge next to it. 
 
 **Discovering Other Organizations**
@@ -17,13 +13,17 @@ To find other organizations that might have been created by people within your C
 
 This will lead you to a list of all of the organizations within your domain's network. From here, you can request to join other organizations, or create new ones.
 
+:::caution
+Please note that organizational settings cannot currently be viewed or changed through the CLI and require use of the dashboard.
+:::
+
 ## Organization Settings
 
 To access the settings for the current Organization, ensure the Organization you wish to modify is selected and click the settings button in the account dropdown. 
 
 In this page there will be a section with your Organization's name. All of the pages in this section are directly related to the Organization. On the Organization settings page there are the following fields and items:
 
-|        |                            |
+|        |                             |
 |--------|----------------------------|
 | **Organization Name** | This is your organization's name which will be used throughout the Dashboard as well as in the API responses. |
 | **Organization ID** | The internal identifier for your organization. Mainly used for billing purposes |
@@ -34,32 +34,22 @@ In this page there will be a section with your Organization's name. All of the p
 
 Members are added to an Organization from the [Organization Settings](#organization-settings) page. Once here, navigate to the "Team" page of the settings. This page will contain a list of all Members within the current Organization. 
 
-### Adding Members
-From here, you can click the "Add Team Member" button to add a new Member to your Organization. This will bring up a window where you can enter the email of the user you wish to invite: 
-
-This will send an email to the Member, allowing them to start the process of creating an account.
+**Adding Members**
+From here, you can click the "Add Team Member" button to add a new Member to your Organization. This will bring up a window where you can enter the email of the user you wish to invite. This will send an email to the Member, allowing them to start the process of creating an account.
 
 When a Member is added and an account is created, the user will begin within the Member role. To learn more about Roles, read [Team Member Roles](#organization-roles).
 
-### Editing Members
+**Editing Members**
 
-To view more detail of a Team Members within your Organization, click the "View Profile" button on the Member's list for the user you wish to view:
+To view more detail of a Team Members within your Organization, click the "View Profile" button on the Member's list for the user you wish to view. This will lead to the User's profile page where you may modify their [Team Member Role](#roles) if you are an Owner of the Organization.
 
-This will lead to the User's profile page where you may modify their [Team Member Role](#roles) if you are an Owner of the Organization.
-
-### Removing Members
+**Removing Members**
 
 To remove a Team Members from your Organization, either allow your SAML provider such as Okta to deactivate the account, or click the "remove" button on the Member's list for the user you wish to remove. This will then remove the user from the Organization entirely.
 
 ## Organization Roles
 
 Roles within DevCycle determine what functionality specific Members in an organization may access. They can be used to ensure that certain users are entirely unable to make modifications to any Production environments.
-
-:::info
-
-At the moment, roles and permissions are for Enterprise and Business Customers only. However, you can reach out to discuss this with us if necessary.
-
-:::
 
 There are three main roles in DevCycle
 
@@ -69,7 +59,14 @@ There are three main roles in DevCycle
 | **Publisher** | A publisher can create and modify all things in the platform except for other members' roles. They can modify items that are in production and can also fully delete features and archive variables even if in production. |
 | **Member** | This role prevents any modification of any item that is enabled in production. This includes modifying targeting rules, variables, variations, or environments in any scenario where it would impact a feature in a Production environment. |
 
-### Assigning Roles
+:::info
+
+At the moment, roles and permissions are for Enterprise and Business Customers only. However, you can reach out to discuss this with us if necessary.
+
+:::
+
+
+**Assigning Roles**
 
 To assign a role to a team member, simply navigate to their profile. If you have the requisite role, you will be able to assign a new role to the member by using the Role dropdown.
 
