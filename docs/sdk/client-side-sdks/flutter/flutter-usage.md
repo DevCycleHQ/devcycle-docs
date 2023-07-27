@@ -16,10 +16,10 @@ the variable's identifier `key` coupled with a default value. The default value 
 `String`, `Boolean`, `Number`, or `JSONObject`:
 
 ```dart
-final boolValue = _dvcClient.variableValue(key: "bool_key", defaultValue: false);
-final strValue = _dvcClient.variableValue(key: "string_key", defaultValue: "default");
-final numValue = _dvcClient.variableValue(key: "num_key", defaultValue: 4);
-final jsonValue = _dvcClient.variableValue(key: "json_key", defaultValue: { "key": "value" });
+final boolValue = _devcycleClient.variableValue(key: "bool_key", defaultValue: false);
+final strValue = _devcycleClient.variableValue(key: "string_key", defaultValue: "default");
+final numValue = _devcycleClient.variableValue(key: "num_key", defaultValue: 4);
+final jsonValue = _devcycleClient.variableValue(key: "json_key", defaultValue: { "key": "value" });
 ```
 
 If you would like to get the full `Variable` object using the `variable()` method it also contains the following params:
@@ -41,7 +41,7 @@ To listen for variable updates, the `onUpdate()` method can be used on a Variabl
 Please note, a strong reference to the variable is needed for `onUpdate` to be triggered.
 
 ```dart
-final variable = await _dvcClient.variable('my-variable', 'Default Value');
+final variable = await _devcycleClient.variable('my-variable', 'Default Value');
 variable?.onUpdate((updatedVariable) {
     // Variable value updated updatedVariable.value
 });
@@ -52,7 +52,7 @@ variable?.onUpdate((updatedVariable) {
 To get all the variables returned in the config:
 
 ```dart
-Map<String, DVCVariable> variables = await _dvcClient.allVariables();
+Map<String, DVCVariable> variables = await _devcycleClient.allVariables();
 ```
 
 If the SDK has not finished initializing, these methods will return an empty object.
@@ -62,7 +62,7 @@ If the SDK has not finished initializing, these methods will return an empty obj
 To get all the Features returned in the config:
 
 ```dart
-Map<String, DVCFeature> features = await _dvcClient.allFeatures();
+Map<String, DVCFeature> features = await _devcycleClient.allFeatures();
 ```
 
 If the SDK has not finished initializing, these methods will return an empty object.
@@ -70,10 +70,10 @@ If the SDK has not finished initializing, these methods will return an empty obj
 ## Identifying User
 
 To identify a different user, or the same user passed into the initialize method with more attributes, 
-build a DVCUser object and pass it into `identifyUser`:
+build a DevCycleUser object and pass it into `identifyUser`:
 
 ```dart
-DVCUser user = DVCUserBuilder()
+DevCycleUser user = DevCycleUserBuilder()
     .userId('my-user1')
     .email('my-email@email.com')
     .country("CA")
@@ -83,13 +83,13 @@ DVCUser user = DVCUserBuilder()
     .privateCustomData({ "customkey2": "customValue2" })
     .build();
 
-_dvcClient.identifyUser(user);
+_devcycleClient.identifyUser(user);
 ```
 
 To wait on Variables that will be returned from the identify call, you can pass in a callback:
 
 ```dart
-_dvcClient.identifyUser(user, (error, variables) => {
+_devcycleClient.identifyUser(user, (error, variables) => {
     // Error or Variables for the Identified User
 });
 ```
@@ -102,13 +102,13 @@ To reset the user into an anonymous user, `resetUser` will reset to the anonymou
 or will create one with an anonymous `user_id`.
 
 ```dart
-_dvcClient.resetUser();
+_devcycleClient.resetUser();
 ```
 
 To wait on the Variables of the anonymous user, you can pass in a callback:
 
 ```dart
-_dvcClient.resetUser((error, variables) => {
+_devcycleClient.resetUser((error, variables) => {
     // Error or Variables for Anonymous User
 });
 ```
@@ -120,7 +120,7 @@ If `error` exists is called the user's configuration will not be updated and pre
 To track events, pass in an object with at least a `type` key:
 
 ```dart
-DVCEvent event = DVCEventBuilder()
+DevCycleEvent event = DevCycleEventBuilder()
     .target('my_target')
     .type('my_event')
     .value(3)
@@ -128,19 +128,19 @@ DVCEvent event = DVCEventBuilder()
     .metaData({ 'key': 'value' })
     .build();
 
-_dvcClient.track(event);
+_devcycleClient.track(event);
 ```
 
 The SDK will flush events every 10s or `flushEventsMS` specified in the options. To manually flush events, call:
 
 ```dart
-_dvcClient.flushEvents();
+_devcycleClient.flushEvents();
 ```
 
 An Error callback can also be passed to this method, that will be triggered if there is a non-recoverable failure when flushing events.
 
 ```dart
-_dvcClient.flushEvents(([error]) => {
+_devcycleClient.flushEvents(([error]) => {
     // Error or null for Flushing Events
 });
 ```
@@ -155,13 +155,13 @@ To get started, contact us at support@devcycle.com to enable EdgeDB for your pro
 Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to turn on EdgeDB mode for the SDK:
 
 ```dart
-DVCUser user = DVCUserBuilder()
+DevCycleUser user = DevCycleUserBuilder()
     .userId('test_user')
     .email('test@example.com')
     .customData({ "amountSpent": 50 })
     .build();
                  
-DVCOptions options = DVCOptionsBuilder()
+DevCycleOptions options = DevCycleOptionsBuilder()
     .enableEdgeDB(true)
     .build();
 ```
