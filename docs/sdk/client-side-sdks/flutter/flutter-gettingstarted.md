@@ -12,7 +12,7 @@ sidebar_custom_props: {icon: rocket}
 ## Initializing the SDK
 
 We recommend initializing the SDK once and pass around the client instance around in your app. 
-Using the builder pattern we can initialize the DevCycle SDK by providing the DVCUser and DevCycle mobile SDK key:
+Using the builder pattern we can initialize the DevCycle SDK by providing the DevCycleUser and DevCycle mobile SDK key:
 
 ```dart
 import 'package:devcycle_flutter_client_sdk/devcycle_flutter_client_sdk.dart';
@@ -29,11 +29,11 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-    static final user = DVCUserBuilder().isAnonymous(true).build();
-    static final options = DVCOptionsBuilder().logLevel(LogLevel.error).build();
+    static final user = DevCycleUserBuilder().isAnonymous(true).build();
+    static final options = DevCycleOptionsBuilder().logLevel(LogLevel.error).build();
 
-    final _dvcClient = DVCClientBuilder()
-        .sdkKey('<DVC_MOBILE_SDK_KEY>')
+    final _devcycleClient = DevCycleClientBuilder()
+        .sdkKey('<DEVCYCLE_MOBILE_SDK_KEY>')
         .user(user)
         .options(options)
         .build();
@@ -49,22 +49,22 @@ class _MyAppState extends State<MyApp> {
 
 The user object may specify a `userId` for a given User. If the `userId` is not specified, the User is considered to be anonymous.
 
-## DVC Client Builder
+## DevCycleClient Builder
 
-The DVCClient can be built using the following methods:
+The DevCycleClient can be built using the following methods:
 
-[DVC ClientBuilder class](https://github.com/DevCycleHQ/flutter-client-sdk/blob/main/lib/devcycle_flutter_client_sdk.dart#L207)
+[DevCycleClientBuilder class](https://github.com/DevCycleHQ/flutter-client-sdk/blob/main/lib/devcycle_flutter_client_sdk.dart#L211)
 
-| Method  | Parameter | Description             |
-|---------|-----------|-------------------------|
-| sdkKey  | String | DevCycle SDK Key        |
-| user    | [DVCUser](https://github.com/DevCycleHQ/flutter-client-sdk/blob/main/lib/dvc_user.dart#L1) | DevCycle user object    |
-| options | [DVCOptions](https://github.com/DevCycleHQ/flutter-client-sdk/blob/main/lib/dvc_options.dart#L1) | DevCycle options object |
+| Method  | Parameter                                                                                                  | Description            |
+|---------|------------------------------------------------------------------------------------------------------------|------------------------|
+| sdkKey  | String                                                                                                     | DevCycle SDK Key       |
+| user    | [DevCycleUser](https://github.com/DevCycleHQ/flutter-client-sdk/blob/main/lib/devcycle_user.dart#L1)       | DevCycleUser object    |
+| options | [DevCycleOptions](https://github.com/DevCycleHQ/flutter-client-sdk/blob/main/lib/devcycle_options.dart#L1) | DevCycleOptions object |
 
-## DVC User Builder
-The DVC user can be built using the following methods:
+## DevCycleUser Builder
+The DevCycleUser can be built using the following methods:
 
-[DVC UserBuilder class](https://github.com/DevCycleHQ/flutter-client-sdk/blob/main/lib/dvc_user.dart#L33)
+[DevCycleUserBuilder class](https://github.com/DevCycleHQ/flutter-client-sdk/blob/main/lib/devcycle_user.dart#L43)
 
 | Method | Parameter | Description |
 |--------|-----------|-------------|
@@ -77,10 +77,10 @@ The DVC user can be built using the following methods:
 | customData | [String: Any] | Key/value map of properties to be used for targeting |
 | privateCustomData | [String: Any] | Key/value map of properties to be used for targeting. Private properties will not be included in event logging. |
 
-## DVC Options Builder
-The SDK exposes various initialization options which can be used by passing a `DVCOptions` object to the `options` method of `DVCClient.builder()`:
+## DevCycleOptions Builder
+The SDK exposes various initialization options which can be used by passing a `DevCycleOptions` object to the `options` method of `DevCycleClient.builder()`:
 
-[DVC OptionsBuilder class](https://github.com/DevCycleHQ/flutter-client-sdk/blob/main/lib/dvc_options.dart#L27)
+[DevCycleOptionsBuilder class](https://github.com/DevCycleHQ/flutter-client-sdk/blob/main/lib/devcycle_options.dart#L58)
 
 | Method | Parameter | Default | Description |
 |--------|-----------|---------|-------------|
@@ -98,9 +98,9 @@ The SDK exposes various initialization options which can be used by passing a `D
 In the initialize call there is an optional `onInitialized` parameter you can use to determine when your features have been loaded:
 
 ```dart
-final _dvcClient = DVCClientBuilder()
-    .sdkKey('<DVC_MOBILE_SDK_KEY>')
-    .user(DVCUserBuilder().build())
+final _devcycleClient = DevCycleClientBuilder()
+    .sdkKey('<DEVCYCLE_MOBILE_SDK_KEY>')
+    .user(DevCycleUserBuilder().build())
     .build()
     .onInitialized((error) {
         print(error)
