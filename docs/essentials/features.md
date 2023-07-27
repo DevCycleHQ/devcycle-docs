@@ -1,9 +1,9 @@
 ---
 title: Features
-sidebar_position: 1
+sidebar_position: 5
 ---
 
-Features are the main elements that you want to control or experiment with in your application. They can be anything from a new UI element to a backend algorithm. When creating a Feature in the DevCycle dashboard, you will be able to choose a Type which will pre-fill some options in the Feature and help kick-start your usage of the Feature. 
+Features are the main elements that you want to control or experiment with in your application. They can be anything from a new UI element to a backend algorithm. When creating a Feature in DevCycle, you will be able to choose a Type which will pre-fill some options in the Feature and help kick-start your usage of the Feature. 
 
 :::info
 For more information on feature types available through DevCycle check out the [Feature Types](/introduction/core-concepts/feature-types) page in Core Concepts.
@@ -20,7 +20,7 @@ The Feature Dashboard is where all of your features can be viewed, edited, and f
 | Name | The Feature's name. This can be changed at any time by editing the Feature. |
 | Key | This is the feature's Key. Use this key to reference the Feature in the SDKs or APIs. |
 | Feature type | The selected type of the Feature. Use this to organize your Features. |
-| # Of Variables | This will show a count of how many variables are used within this Feature. To learn more read [Creating Variables and Variations](/essentials/features/variables) |
+| # Of Variables | This will show a count of how many variables are used within this Feature. To learn more read [Creating Variables and Variations](/essentials/variables) |
 | Edit | Click this to edit on the row the Feature. |
 
 Use the search input to search by Name, Key, or Description. The filters can be used to filter by Type or Creator. Each column header can be clicked to sort the column. 

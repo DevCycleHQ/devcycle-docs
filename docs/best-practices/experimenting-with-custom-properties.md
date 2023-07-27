@@ -39,7 +39,7 @@ The following fields are optional:
 
 Once you’ve created a property, you can find it in the Definition dropdown when you modify the Targeting Rules. The property will be accessible across all features within your project. 
 
-[To learn more about creating Custom Properties, read our docs here](/extras/custom-properties#creating-a-new-property-for-use).
+[To learn more about creating Custom Properties, read our docs here](/extras/advanced-targeting/custom-properties#creating-a-new-property-for-use).
 
 ## Implementing Custom Properties
 

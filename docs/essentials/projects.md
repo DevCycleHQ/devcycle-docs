@@ -5,7 +5,7 @@ sidebar_position: 2
 
 Projects are nested within [organizations](./organizations.md) and contain your Features and Environments (and through them your keys, variables and variations).
 
-## Managing Your Projects
+## Managing Projects
 
 ### From the Dashboard
 

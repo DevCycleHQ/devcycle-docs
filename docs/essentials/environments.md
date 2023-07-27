@@ -9,8 +9,6 @@ For example, a Feature may exist on your Production, Staging, and Development En
 
 Within DevCycle, each Project manages its own set of Environments. Environments may be added or removed from a Project at any time. Your Organization may have as many Projects and Environments as necessary with no limits. 
 
-## Using Environments
-
 Every new project within DevCycle starts with three initial Environments: 
 
 * Development

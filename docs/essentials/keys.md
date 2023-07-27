@@ -7,31 +7,29 @@ All Environments within a Project have their own set of key. For more informatio
 
 ## Types of Keys
 
-### Management API Key
+**Management API Key**
 
 This key is required to interact with the DevCycle Management and Bucketing APIs.
 
-### Server-Side SDK Keys
+**Server-side API Keys**
 
 All of the DevCycle Server-Side SDKs should be initialized with the environment's Server-Side SDK key. This SDK key provides read-only access of the features on your DevCycle environment. This key is used for SDKs which currently make continuous calls to the DevCycle APIs for each SDK interaction per user. It also has access to the full project configuration data, which is used for local bucketing SDKs.
 
 The Server-Side SDK key must be kept secret, as it has access to the full configuration data of your project. Never include this key in a client-side application. Doing so risks exposing it to end-users via mobile app unpacking or browser network inspection.
 
-### Client-Side SDK Keys
+**Client-Side API Keys**
 
 All of the DevCycle Client-Side SDKs (non-mobile) should be initialized with the environment's Client-Side SDK key. This SDK key provides read-only access to the features accessible by a given user on your DevCycle environment. Specifically, it grants access to the DevCycle SDK API, which returns user-customized configurations including feature information which they are permitted to access.
 
-### Mobile SDK Keys
+**Mobile SDK Keys**
 
 All of the DevCycle Mobile SDKs should be initialized with the environment's Mobile SDK key. This SDK key provides read-only access to the features accessible by a given user on your DevCycle environment. Specifically, it grants access to the DevCycle SDK API, which returns user-customized configurations including feature information which they are permitted to access.
 
 This key is separate from the standard SDK keys due to the differing security requirements of client-side (eg. browser) and mobile use cases. Separation allows one key to be rotated without affecting the other. In the future, it will also be possible to control feature availability specifically for mobile keys.
 
+## Managing Keys
 
-## Managing Your Keys
-
-
-### Accessing From the Dashboard
+### From the Dashboard
 
 **Client, Mobile and Server Keys**
 
@@ -57,7 +55,7 @@ The Client Secret key can be revealed which will allow for use within the Manage
 
 **Note:** Due to the fact that the Management API can read and modify all aspects of your DevCycle projects, DO NOT share this key or deploy any client-side code containing this key.
 
-### Accessing From the CLI
+### From the CLI
 
 **Client, Mobile and Server Keys**
 

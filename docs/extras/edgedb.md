@@ -1,6 +1,6 @@
 ---
 title: EdgeDB
-sidebar_position: 1
+sidebar_position: 6
 ---
 
 EdgeDB is a lightning-fast, globally replicated edge storage tool that simplifies the implementation of DevCycle in serverless environments or multiplatform applications. EdgeDB enables a number of different features and applications for DevCycle. In particular EdgeDB powers Edge Flags, Super Segments and Data Residency Controls.
@@ -145,7 +145,7 @@ This data can be imported to DevCycle and EdgeDB in a number of different method
 - Via the [EdgeDB API](/best-practices/edgedb-and-edge-flags/edge-db-via-api-simple)
 - Through the [Zapier Integration](/best-practices/edgedb-and-edge-flags/import-from-anywhere)
 
-Once a Super Segment has been created in EdgeDB it can then be accessed via Feature Flags using [Custom Properties](/extras/custom-properties) within a targeting rule.
+Once a Super Segment has been created in EdgeDB it can then be accessed via Feature Flags using [Custom Properties](/extras/advanced-targeting/custom-properties) within a targeting rule.
 
 Make sure to add the Custom Property to any feature, using the same key used when creating the Super Segment via the API or Zapier Integration.
 

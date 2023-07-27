@@ -96,7 +96,7 @@ Now, any time a new lead enters SalesForce, it will be sent to EdgeDB with their
 Now that we’ve got data in EdgeDB, it can be used for targeting in any feature within DevCycle.
 
 :::info 
-Any data saved to EdgeDB is considered a “Custom Property” within DevCycle and can be targeted by simply adding that same property in the dashboard. To find out more about Custom Properties, [read here.](/extras/custom-properties) 
+Any data saved to EdgeDB is considered a “Custom Property” within DevCycle and can be targeted by simply adding that same property in the dashboard. To find out more about Custom Properties, [read here.](/extras/advanced-targeting/custom-properties) 
 :::
 
 To use the SalesForce data from above, simply create a new custom property in the dashboard (if it does not already exist):

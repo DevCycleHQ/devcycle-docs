@@ -9,11 +9,9 @@ Organizations are the top level of the Account hierarchy within DevCycle. Organi
 Please note that organizational settings cannot currently be viewed or changed through the CLI and require use of the dashboard.
 :::
 
-## Viewing your Organizations
-
 To view the current Organization (or change Organizations) click on your user avatar on the top right of the DevCycle Dashboard. The active Organization will have a green badge next to it. 
 
-### Discovering Other Organizations
+**Discovering Other Organizations**
 
 To find other organizations that might have been created by people within your Company / Domain, you can easily [navigate to the Discovery page](https://app.devcycle.com/organizationDiscovery) by selecting `Find and Create Orgs` from the avatar dropdown.
 
@@ -87,13 +85,13 @@ On this page you'll be presented with three sections.
 2. Payment Method
 3. Cancel Subscription
 
-### 1. Your Plan
+**1. Your Plan**
 
 This section of the Billing & Plan page shows the currently active plan for your Organization. It provides a description of what's available on that plan and what capacity you can expect.
 
 From this section you can also review other plan tiers and upgrade by clicking the "Change Plan" button.
 
-### 2. Payment Method
+**2. Payment Method**
 
 This section allows you to add a credit card if you have not already done so.
 
@@ -105,6 +103,6 @@ If you are currently seeing a notification that you have time remaining in your 
 
 If your card has expired or if you would like to switch your payment method you can also update your payment method here.
 
-### 3. Cancel Subscription
+**3. Cancel Subscription**
 
 If you need to cancel your subscription for any reason just use the "contact sales" button to send us a message and someone from our customer success team will help you.

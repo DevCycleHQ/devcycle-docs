@@ -1,6 +1,6 @@
 ---
 title: Variations
-sidebar_position: 3
+sidebar_position: 7
 ---
 
 Variations are different versions of a Feature. Each Variation can have different values for the Variables associated with the Feature. For example, if you have a Feature that controls a new UI element and a Variable that controls the color of that element, you could have one Variation where the color is blue and another Variation where the color is red.
