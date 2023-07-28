@@ -97,7 +97,7 @@ Now that you have a feature flag created, and have chosen your preferred languag
 
 **1. Install the DevCycle SDK via the relevant dependency manager.** For example, the react SDK is installed via npm: ```npm i @devcycle/react-client-sdk```
 
-**2. Import DevCycle and initialize it.** Depending on which [type of SDK](/sdk/) and which environment you are initializing for, the SDK Key the SDK is initialized with will be different. Read more about [Environments](/essentials/environments) and [keys](/essentails/keys) in the essentials.
+**2. Import DevCycle and initialize it.** Depending on which [type of SDK](/sdk/) and which environment you are initializing for, the SDK Key the SDK is initialized with will be different. Read more about [Environments](/essentials/environments) and [keys](/essentials/keys) in the essentials.
 
 **3. Access your feature flag or variables.** The SDK can return a feature, a specific variation, or a specific variation of a Feature. Read more about variables and variations [here](/essentials/variables).
 
