@@ -27,7 +27,7 @@ This method will fetch a specific variable value by key for a given user. It wil
 value unless an error occurs. In that case it will return a variable value set to whatever was passed in as the `defaultValue` parameter.
 
 ```go
-variableValue, err := client.VariableValue(user, "my-variable-key", "test")
+variableValue, err := devcycleClient.VariableValue(user, "my-variable-key", "test")
 ```
 
 `variableValue` is an `interface{}` - so you'll need to cast it to your proper variable type.
@@ -39,7 +39,7 @@ If the variable value returned does not match the type of the defaultValue param
 This helps to protect your code against unexpected types being returned from the server. 
 To avoid confusion when testing new variables, make sure you're using the correct type for the defaultValue parameter.
 
-To access the full Variable Object use `client.Variable(user, "my-variable-key", "test")` instead. 
+To access the full Variable Object use `devcycleClient.Variable(user, "my-variable-key", "test")` instead. 
 This will return a `Variable` object containing the `key`, `value`, `type`, `defaultValue`, `isDefaulted` fields.
 The same rules apply for the `value` field as above for `VariableValue`.
 
@@ -55,7 +55,7 @@ event := devcycle.Event{
     Target: "somevariable.key",
 }
 
-response, err := client.Track(user, event)
+response, err := devcycleClient.Track(user, event)
 ```
 
 ## Getting All Features
@@ -63,7 +63,7 @@ response, err := client.Track(user, event)
 This method will fetch all features for a given user and return them in a map of `key: feature_object`
 
 ```go
-features, err := client.AllFeatures(user)
+features, err := devcycleClient.AllFeatures(user)
 ```
 
 ## Getting All Variables
@@ -73,7 +73,7 @@ To get values from your Variables, the `value` field inside the variable object 
 This method will fetch all variables for a given user and return them in a map of `key: variable_object`
 
 ```go
-variables, err := client.AllVariables(user)
+variables, err := devcycleClient.AllVariables(user)
 ```
 
 ## Close
@@ -81,7 +81,7 @@ variables, err := client.AllVariables(user)
 You can close the DevCycle client to stop the SDK from polling for configs and flushing events on an interval. Any pending events will be immediately flushed. This method is only usable in local bucketing mode.
 
 ```go
-err := client.Close()
+err := devcycleClient.Close()
 ```
 
 ## Set Client Custom Data
@@ -89,7 +89,7 @@ err := client.Close()
 To assist with segmentation and bucketing you can set a custom data map that will be used for all variable and feature evaluations. User specific custom data will override this client custom data.
 
 ```go
-err = client.SetClientCustomData(map[string]interface{}{
+err = devcycleClient.SetClientCustomData(map[string]interface{}{
     "some-key": "some-value",
 })
 ```
@@ -119,11 +119,11 @@ options := devcycle.Options{
     EnableEdgeDB: true,
 }
 
-client, err := devcycle.NewClient(sdkKey, &options)
+devcycleClient, err := devcycle.NewClient(sdkKey, &options)
 
 user := devcycle.User{UserId: "test-user", Email:"test.user@test.com"}
 
-variable, err := client.Variable(user, "test-key", "test-default")
+variable, err := devcycleClient.Variable(user, "test-key", "test-default")
 ```
 
 Each call to the DevCycle API in this mode will store any user data that was sent in the request in EdgeDB.

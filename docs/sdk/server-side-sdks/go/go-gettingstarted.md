@@ -25,7 +25,7 @@ import (
 )
 
 func main() {
-	sdkKey := os.Getenv("DVC_SERVER_SDK_KEY")
+	sdkKey := os.Getenv("DEVCYCLE_SERVER_SDK_KEY")
 
 	options := devcycle.Options{
 		EnableEdgeDB:                 false,
@@ -37,7 +37,7 @@ func main() {
 		DisableCustomEventLogging:    false,
 	}
 
-	client, err := devcycle.NewClient(sdkKey, &options)
+	devcycleClient, err := devcycle.NewClient(sdkKey, &options)
 	if err != nil {
 		log.Fatalf("Error initializing DevCycle client: %v", err)
 	}
@@ -59,13 +59,13 @@ options := devcycle.Options{
     // other options omitted for this example
 }
 
-client, err := devcycle.NewClient(sdkKey, &options)
+devcycleClient, err := devcycle.NewClient(sdkKey, &options)
 if err != nil {
     // handle client initialization error
 }
 
 // At this point, the client can be safely used, but might not have downloaded configuration yet and will return default values until that completes
-log.Println("client not guaranteed to be initialized yet")
+log.Println("DevCycle client not guaranteed to be initialized yet")
 
 <-onInitializedChannel
 log.Println("Devcycle client initialized")
