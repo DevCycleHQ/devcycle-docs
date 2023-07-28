@@ -37,7 +37,7 @@ key = 'key-test' # str | Variable key
 
 try:
     # Get variable by key for user data
-    variable_value = client.variable_value(user, key, 'default-value')
+    variable_value = devcycle_client.variable_value(user, key, 'default-value')
     print("Variable value is: ", variable_value)
 except Exception as e:
      print(f"Exception when calling DevCycleLocalClient->variable_value: {e}")
@@ -55,7 +55,7 @@ Use the `all_variables()` method to retrieve a dictionary with all the segmented
 ```python
 try:
     # Get all variables for user data
-    variables = client.all_variables(user)
+    variables = devcycle_client.all_variables(user)
     print(variables)
 except Exception as e:
     print(f"Exception when calling DevCycleLocalClient->all_variables: {e}")
@@ -69,7 +69,7 @@ Use the `all_features()` method to retrieve a dictionary with all the segmented 
 ```python
 try:
     # Get all features by key for user data
-    features = client.all_features(user)
+    features = devcycle_client.all_features(user)
     print(features)
 except Exception as e:
     print(f"Exception when calling DevCycleLocalClient->all_features: {e}")
@@ -91,7 +91,7 @@ event = DevCycleEvent(
 
 try:
     # Post events to DevCycle for user
-    api_response = client.track(user, event)
+    api_response = devcycle_client.track(user, event)
     print(api_response)
 except Exception as e:
     print(f"Exception when calling DevCycleLocalClient->track: {e}")        
@@ -104,7 +104,7 @@ To assist with segmentation and bucketing you can set a custom data dictionary t
 ```python
 try:
     # Set client custom data
-    client.set_client_custom_data({
+    devcycle_client.set_client_custom_data({
         "some-key": "some-value"
     })
 except Exception as e:
@@ -131,7 +131,7 @@ from devcycle_python_sdk.models.user import User
 options = DevCycleCloudOptions(enable_edge_db=True)
 
 # create an instance of the DevCycleCloudClient class
-dvc = DevCycleCloudClient('YOUR_DVC_SERVER_SDK_KEY', options)
+devcycle_client = DevCycleCloudClient('DEVCYCLE_SERVER_SDK_KEY', options)
 
 # all functions require user data to be an instance of the User class
 user = User(
