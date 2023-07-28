@@ -9,10 +9,9 @@ Projects are nested within [organizations](./organizations.md) and contain your 
 
 ## Managing Projects
 
-
 ### From the CLI
 
-Once you have installed and authorized the CLI, select your relevant organization and project then run one of the following commands depending on your use case:
+Once you have installed and authorized the CLI, select your relevant organization then run one of the following commands depending on your use case:
 
 To retrieve the keys for all projects in a currently selected organization run.
 
@@ -32,10 +31,9 @@ If the command is successful, you should receving the following response in your
 
 ### From the Dashboard
 
-To view the current Project or change projects, click the Projects dropdown on the top left of the Dashboard. The currently viewed project will have a green badge next to it. 
+To view the current Project or change projects, click the Projects dropdown (immediately to the right of the DevCycle logo) on the top left of the Dashboard. The currently viewed project will have a green badge next to it. 
 
-To manage the Projects within the current Organization, navigate to the "Projects" page in the settings. On this page is a list of all of your Organizations Projects. 
-
+You can also manage the Projects within the current Organization,by navigate to the "Projects" page in the Organization settings. On this page is a list of all of your Organizations Projects. 
 
 ---
 
@@ -82,7 +80,7 @@ If successful you will receive something which resembles the following (which de
 
 ### From the Dashboard
 
-To create a new Project, click the "Create a new Project" button. This will open the create project modal which has the following fields:
+To create a new Project, click the `+ Create a new Project` button in the Projects Dropdown. This will open the create project modal which has the following fields:
 
 |        |                            |
 |--------|----------------------------|
@@ -103,7 +101,7 @@ Updating a project is currently unavailable through the CLI.
 :::
 
 ### From the Dashboard
-To update a Project, click the Edit button on the Project's row on the Project list. This will bring up the editing window, which allows you to modify the Projects Name and Description.
+Navigate to your user settings by clicking on your avatar in the upper right hand corner of the screen or clicking the cog icon (⚙️) in the top navbar. Once on the settings page click the `Edit` button on the Project's row on the Project list. This will bring up the editing window, which allows you to modify the relevant settings.
 
 ---
 

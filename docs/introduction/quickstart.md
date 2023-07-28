@@ -17,23 +17,21 @@ If you don't yet have an account with DevCycle that's not a problem! [Simply mak
 
 We have an always free tier to start and the pricing will scale with usage as you need. You can create a free account right away, and if you're curious about our pricing, [check it out here](https://devcycle.com/pricing)
 
-:::info
-When you first sign up, you will notice that you will be prompted to create an [Organization](/essentials/organizations). An organization is where you'll be able to put all of your projects, and invite all of your team members. If signing up with a non-generic email, you may notice that others with your company email may have signed up and created an organization already. [Read more about organizations here.](/essentials/organizations)
-:::
+
+> When you first sign up, you will notice that you will be prompted to create an [Organization](/essentials/organizations). An organization is where you'll be able to put all of your projects, and invite all of your team members. If signing up with a non-generic email, you may notice that others with your company email may have signed up and created an organization already. [Read more about organizations here.](/essentials/organizations)
+
 
 ---
 
 ## 2. Create a Feature
 
-This quickstart outlines how to create and manage within the DevCycle Dashboard, however, features may also be created via the [DevCycle Management API](/management-api/) or [CLI](/cli).
-
-On the DevCycle Dashboard, the "Feature Management" page can be accessed at any time via the button on the top bar. In this page there is a button to "Create new Feature". Additionally, there is a "+" button in the header bar. Both of these buttons can be used to begin the Feature creation process on the DevCycle Dashboard.
-
 :::info
+This quickstart outlines how to create and manage within the DevCycle Dashboard, however, features may also be created via the [DevCycle Management API](/management-api/) or [CLI](/cli).
+::: 
 
-If you are coming from another Feature Flagging or Feature Management tool, be sure to check out the [DevCycle Feature Importer](/integrations/feature-importer)
+On the DevCycle Dashboard, the "Feature Management" page can be accessed at any time via the `Features` button on the top navbar. Once there you can use a blue `+ Create New Feature` button (or can select the "+" button in the main navbar) to begin the Feature creation process.
 
-:::
+> If you are coming from another Feature Flagging or Feature Management tool, be sure to check out the [DevCycle Feature Importer](/integrations/feature-importer)
 
 To create a Feature:
 
@@ -43,7 +41,7 @@ To create a Feature:
 
     a. Choose your feature type to begin the creation process. To read more about the feature types and their uses, read [DevCycle Feature Types](/essentials/features)
 
-4. After choosing a type, an information modal will appear:
+4. After choosing a type, an information modal will appear where you will be prompted to enter:
 
     **a. Enter a descriptive Feature Name**
 
@@ -60,12 +58,12 @@ To create a Feature:
     **f. Click "create"**
 
 :::info
-You have now created a Feature within your project!
+Congratulations! You have now created a Feature within your project.
 :::
 
-### Targeting Across Environments
+### Targeting Users Across Environments
 
-Within DevCycle, all targeting rules of each feature are specific to Environments. This allows you to provide different rules and access across every stage of the feature's deployment. All of an Environment's targeting can be managed directly within the Feature's page itself.
+Within DevCycle, targeting rules of each feature are specific to Environments. This allows you to provide different rules and access across every stage of the feature's development and deployment. If a feature is wrapped in a DevCycle variable, then it can be managed easily remotely without needing to re-deploy your application, and in one click allows you instantly turn a feature on or off for all users on any of your environments. 
 
 :::info
 
@@ -73,13 +71,9 @@ Within DevCycle, all targeting rules of each feature are specific to Environment
  
 :::
 
-Once it is known how the feature should be managed and who it should target, you can now [turn the feature on](#).
+To manage a Targeting rule, navigate to the Features's page and find the Environment you wish to manage the Feature within in the `Users & Targeting` section of the `Managing Feature` sidebar.
 
-With DevCycle, in one click any feature can instantly be shut off for all users on any of your environments. If a feature is wrapped in a DevCycle variable, then it can be managed easily remotely without needing to re-deploy your application.
-
-To manage a Feature, navigate to the Features's page and find the Environment you wish to manage the Feature within in the `Users & Targeting` section of the `Managing Feature` sidebar.
-
-Each Environment is managed individually and has its own toggle. To turn a Feature on or off, use the Targeting Status toggle. After the change is made, save it to propagate the change across all devices within that environment.
+Each Environment is managed individually and has its own toggle and rules. To turn a Feature on or off, use the Targeting Status toggle. After the change is made, save it to propagate the change across all devices within that environment.
 
 #### Behavior of "off" and "on" features
 
@@ -97,17 +91,19 @@ Currently, when a feature is is in an OFF state on an environment, DevCycle will
 
 ### Setting up a DevCycle SDK
 
-Deeper documentation can be found in the relevant SDK docs. Depending on your use case, DevCycle has various types of SDKs. [Read more about our server-side, mobile, and client-side SDKs here.](/sdk/)
+The easiest way to ensure a proper SDK setup is to first set up a feature flag on the DevCycle dashboard or API as we have just done.
 
-The easiest way to ensure a proper SDK setup is to first [set up a feature flag on the DevCycle dashboard or API].
-
-Once you have chosen your preferred SDK, set up the SDK:
+Now that you have a feature flag created, and have chosen your preferred language/framework, its time to set up the SDK:
 
 **1. Install the DevCycle SDK via the relevant dependency manager.** For example, the react SDK is installed via npm: ```npm i @devcycle/react-client-sdk```
 
-**2. Import DevCycle and initialize it.** Depending on which [type of SDK](/sdk/) and which environment you are initializing for, the SDK Key the SDK is initialized with will be different. Read more about Environments and keys [here](#to-do).
+**2. Import DevCycle and initialize it.** Depending on which [type of SDK](/sdk/) and which environment you are initializing for, the SDK Key the SDK is initialized with will be different. Read more about [Environments](/essentials/environments) and [keys](/essentails/keys) in the essentials.
 
 **3. Access your feature flag or variables.** The SDK can return a feature, a specific variation, or a specific variation of a Feature. Read more about variables and variations [here](/essentials/variables).
+
+:::info
+Deeper documentation can be found in the relevant SDK docs. Depending on your use case, DevCycle has various types of SDKs. [Read more about our server-side, mobile, and client-side SDKs here.](/sdk/)
+:::
 
 **Defaults and Connectivity**
 

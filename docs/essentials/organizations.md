@@ -3,7 +3,7 @@ title: Organizations
 sidebar_position: 1
 ---
 
-Organizations are the top level of the Account hierarchy within DevCycle. Organizations are where all Projects and Users are managed. Users within an organization will have the same permissions across all projects, and a user may be part of multiple Organizations.
+Organizations are the top level of the Account hierarchy within DevCycle, and are where all Users and Projects are managed. Users within an organization will have the same permissions across all projects, and a user may be part of multiple Organizations.
 
 To view the current Organization (or change Organizations) click on your user avatar on the top right of the DevCycle Dashboard. The active Organization will have a green badge next to it. 
 
@@ -19,16 +19,15 @@ Please note that organizational settings cannot currently be viewed or changed t
 
 ## Organization Settings
 
-To access the settings for the current Organization, ensure the Organization you wish to modify is selected and click the settings button in the account dropdown. 
+To access the settings for the current Organization, ensure the Organization you wish to modify is selected and click the settings button in the dropdown presented after you click your avatar. 
 
-In this page there will be a section with your Organization's name. All of the pages in this section are directly related to the Organization. On the Organization settings page there are the following fields and items:
+On the Organization settings page there are the following fields and items:
 
 |        |                             |
 |--------|----------------------------|
 | **Organization Name** | This is your organization's name which will be used throughout the Dashboard as well as in the API responses. |
 | **Organization ID** | The internal identifier for your organization. Mainly used for billing purposes |
 | **Client ID and Client Secret** | Please refer to [API and SDK Keys](/essentials/keys) |
-
 
 ## Organization Members
 

@@ -3,11 +3,11 @@ title: Environments
 sidebar_position: 3
 ---
 
-Environments in DevCycle map to the environments which traditional exist within a system's development lifecycle. Every Feature within DevCycle will exist across every Environment in your DevCycle Project, but each Environment manages Features independently. 
+Environments in DevCycle map to the environments which traditionally exist within a system's development lifecycle. Every Feature within DevCycle will exist across every Environment in your DevCycle Project, but each Environment manages Features independently. 
 
 > For example, a Feature may exist on your Production, Staging, and Development Environment, but may only be _turned on_ for the Development Environment. 
 
-Within DevCycle, each Project manages its own set of Environments. Environments may be added or removed from a Project at any time. Your Organization may have as many Projects and Environments as necessary with no limits. 
+Within DevCycle, each Project manages its own set of Environments. Environments may be added or removed from a Project at any time, and you may have as many environments as necessary with no limits. 
 
 
 **Environment Defaults** 
@@ -20,7 +20,7 @@ Every new project within DevCycle starts with three initial Environments:
 
 Each environment has its own set of SDK keys for Client-Side, Mobile, and Server-Side SDKs. To learn more about these keys and how to use them, read [Access Keys & Tokens](/essentials/keys).
 
-**Every Feature you create will automatically be created on every environment within a project.** Each environment then has its own set of targeting rules. This means that a feature's code can be deployed across every environment, and its access can be managed on an environment level. 
+> **Every Feature you create will automatically be created on every environment within a project.** Each environment then has its own set of targeting rules. This means that a feature's code can be deployed across every environment, and its access can be managed on an environment level. 
 
 You can easily view a Feature's status across all environments by simply going to that Feature's management page, and the Feature's targeting or availability across each environment can be managed directly from that page in the associated targeting section. More details on [turning features on or off can be found here](/essentials/features), and more details on creating rules for your [Feature on each environment can be found here](/essentials/targeting).
 

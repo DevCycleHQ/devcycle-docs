@@ -1,6 +1,6 @@
 ---
 title: Feature Heirarchy
-sidebar_position: 2
+sidebar_position: 1
 ---
 In DevCycle, Features, Variables, and Variations are key components that work together to manage and control different aspects of your application.
 
