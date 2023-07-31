@@ -262,13 +262,9 @@ Environment deletion is currently unavailable through the CLI.
 
 ### From the Dashboard
 
-To delete an Environment, first ensure that you are viewing the correct Project.
+To delete an Environment, first ensure that you are viewing the correct Project. Once you are sure the Project is correct, click the `delete` button on the Environment's list.
 
-Once you are sure the Project is correct, click the `delete` button on the Environment's list:
-
-![Env Delete button pointed out on Environment's list](/march-2022-env-delete.png)
-
-**Ensure that it is safe within your application to delete the environment. Deleting an environment will remove all associated targeting rules. Users will only receive the defaults in code for each feature upon deletion of an Environment.**
+> Ensure that it is safe within your application to delete the environment. Deleting an environment will remove all associated targeting rules. Users will only receive the defaults in code for each feature upon deletion of an Environment.
 
 **If you have accidentally deleted an Environment, please contact support.**
 

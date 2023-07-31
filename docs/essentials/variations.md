@@ -3,7 +3,9 @@ title: Variations
 sidebar_position: 7
 ---
 
-Variations are different versions of a Feature. Each Variation can have different values for the Variables associated with the Feature. For example, if you have a Feature that controls a new UI element and a Variable that controls the color of that element, you could have one Variation where the color is blue and another Variation where the color is red.
+Variations are different versions of a Feature. Each Variation can have different values for the Variables associated with the Feature. 
+
+> For example, if you have a Feature that controls a new UI element and a Variable that controls the color of that element, you could have one Variation where the color is blue and another Variation where the color is red.
 
 When a user is "Served" a Variation based on the Targeting Rules, the Variable Values the user receives on their devices or as an API response will be the values for the served Variation.
 

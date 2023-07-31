@@ -3,3 +3,4 @@ position: 3
 collapsed: true
 customProps:
   icon: cloud
+  description:  How to insert data into DevCycle’s EdgeDB and then use it for targeting.

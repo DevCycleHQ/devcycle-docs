@@ -3,10 +3,10 @@ title: Features
 sidebar_position: 5
 ---
 
-Features are the main elements that you want to control or experiment with in your application. They can be anything from a new UI element to a backend algorithm. When creating a Feature in DevCycle, you will be able to choose a Type which will pre-fill some options in the Feature and help kick-start your usage of the Feature. 
+> Features are the main elements that you want to control or experiment with in your application. They can be anything from a new UI element to a backend algorithm. 
 
 :::info
-For more information on feature types available through DevCycle check out the [Feature Types](/introduction/core-concepts/feature-types) page in Core Concepts.
+When creating a Feature in DevCycle, you will be able to choose a [Feature Type](/introduction/core-concepts/feature-types) which will pre-fill some options in the Feature and help kick-start your usage of the Feature. 
 :::
 
 ---
@@ -183,7 +183,9 @@ Use the search input to search by Name, Key, or Description. The filters can be 
 
 > To view another Project's features, use the Project dropdown on the top of the Dashboard. 
 
+
 ---
+
 
 ## Creating a New Feature
 

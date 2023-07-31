@@ -17,6 +17,8 @@ This will lead you to a list of all of the organizations within your domain's ne
 Please note that organizational settings cannot currently be viewed or changed through the CLI and require use of the dashboard.
 :::
 
+---
+
 ## Organization Settings
 
 To access the settings for the current Organization, ensure the Organization you wish to modify is selected and click the settings button in the dropdown presented after you click your avatar. 
@@ -28,6 +30,8 @@ On the Organization settings page there are the following fields and items:
 | **Organization Name** | This is your organization's name which will be used throughout the Dashboard as well as in the API responses. |
 | **Organization ID** | The internal identifier for your organization. Mainly used for billing purposes |
 | **Client ID and Client Secret** | Please refer to [API and SDK Keys](/essentials/keys) |
+
+---
 
 ## Organization Members
 
@@ -45,6 +49,8 @@ To view more detail of a Team Members within your Organization, click the "View 
 **Removing Members**
 
 To remove a Team Members from your Organization, either allow your SAML provider such as Okta to deactivate the account, or click the "remove" button on the Member's list for the user you wish to remove. This will then remove the user from the Organization entirely.
+
+---
 
 ## Organization Roles
 
@@ -70,6 +76,8 @@ At the moment, roles and permissions are for Enterprise and Business Customers o
 To assign a role to a team member, simply navigate to their profile. If you have the requisite role, you will be able to assign a new role to the member by using the Role dropdown.
 
 After you have selected a role, click "save" and the team member's permissions will be automatically updated.
+
+---
 
 ## Organization Billing
 

@@ -3,7 +3,9 @@ title: Keys
 sidebar_position: 4
 ---
 
-All Environments within a Project have their own set of key. For more information about Environments, [please read here](/essentials/environments).
+> All Environments within a Project have their own set of key. For more information about Environments, [please read here](/essentials/environments).
+
+---
 
 ## Types of Keys
 
@@ -27,8 +29,9 @@ All of the DevCycle Mobile SDKs should be initialized with the environment's Mob
 
 This key is separate from the standard SDK keys due to the differing security requirements of client-side (eg. browser) and mobile use cases. Separation allows one key to be rotated without affecting the other. In the future, it will also be possible to control feature availability specifically for mobile keys.
 
-## Managing Keys
+---
 
+## Managing Keys
 
 ### From the CLI
 

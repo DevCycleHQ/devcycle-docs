@@ -3,7 +3,11 @@ title: Variables
 sidebar_position: 6
 ---
 
-Variables are the elements that can change within a Feature. For example, if you have a Feature that controls a new UI element, a Variable could be the color of that element. By default, upon creation of a Feature, a `Boolean Variable`` will be created which has the same name as the Feature's key for easier reference. 
+Variables are the elements that can change within a Feature. 
+
+> For example, if you have a Feature that controls a new UI element, a Variable could be the color of that element. 
+
+By default, upon creation of a Feature, a `Boolean Variable`` will be created which has the same name as the Feature's key for easier reference. 
 
 ---
 
