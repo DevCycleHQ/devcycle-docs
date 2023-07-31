@@ -149,3 +149,5 @@ The SDK exposes various initialization options which can be set by passing a `De
 | disableConfigCache     | boolean | Disable the use of cached configs                                                                              |
 | disableRealtimeUpdates | boolean | Disable Realtime Updates                                                                                       |
 | deferInitialization    | boolean | Defer initialization (fetching configuration from DevCycle) until user is identified with `identifyUser` call  |
+| disableAutomaticEventLogging | boolean | Disables logging of sdk generated events (e.g. variableEvaluated, variableDefaulted) to DevCycle. |
+| disableCustomEventLogging | boolean | Disables logging of custom events, from `track()` method, and user data to DevCycle. |
