@@ -63,7 +63,7 @@ If the value is not ready, it will return the default value used in the creation
 
 The `onUpdate` param on a `Variable` Object accepts a handler function that will be called whenever a variable value has changed.
 This can occur as a result of a project configuration change or calls to `identifyUser()` or `resetUser()`. 
-To learn more, visit our [Realtime Updates](/sdk/features/realtime-updates) page.
+To learn more, visit our [Realtime Updates](/sdk/features#realtime-updates) page.
 
 There can only be one onUpdate function registered at a time. Subsequent calls to this method will overwrite the previous handler:
 

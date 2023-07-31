@@ -48,7 +48,7 @@ const config = {
       {
         name: "cli",
         sourceBaseUrl: `https://raw.githubusercontent.com/DevCycleHQ/cli/${DVC_CLI_VERSION}`,
-        outDir: "docs/tools-and-integrations/cli",
+        outDir: "docs/cli",
         documents: [
           'README.md',
           'docs/alias.md',
@@ -155,6 +155,13 @@ const config = {
       : 'http://localhost:3000',
   baseUrl: '/',
   favicon: 'devcycle_favicon.ico',
+  scripts: [
+    {
+      src:
+        "https://use.fontawesome.com/releases/v5.15.4/js/all.js",
+      async: true,
+    },
+  ],
   themeConfig: {
     announcementBar: {
       id: 'support_us',
@@ -200,13 +207,6 @@ const config = {
       },
       items: [
         {
-          position: 'left',
-          label: 'Home',
-          docId: 'home/index',
-          collapse: 'false',
-          type: 'doc',
-        },
-        {
           type: 'doc',
           docId: 'sdk/index',
           position: 'left',
@@ -229,14 +229,14 @@ const config = {
           ],
         },
         {
+          label: 'CLI',
+          to: '/cli/',
+        },
+        {
           type: 'dropdown',
           label: 'Resources',
           position: 'left',
           items: [
-            {
-              to: '/tools-and-integrations/',
-              label: 'Tools & Integrations',
-            },
             {
               to: '/best-practices/',
               label: 'Best Practices',

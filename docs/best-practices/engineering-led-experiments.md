@@ -8,18 +8,16 @@ sidebar_custom_props: {icon: flag}
 ---
 # Engineering-Led Experiments
 
-## Overview
-
 While experimentation is often associated with marketing and revenue, experimentation is also a valuable process for engineers. There are several experiments engineers can conduct to mitigate risk and optimize their software. In DevCycle, experiments are conducted by creating two or more variations of a feature and comparing their performance using Metrics. Developers can use Metrics to assess the health of their features and improve technical performance. This guide discusses how to conduct engineering-led experiments with Metrics.
 
 ### Prerequisites
 
 To complete this guide, you may want to review the following topics:
 
-- [Creating and Managing Variations](/home/feature-management/features-and-variables/variables-and-variations#creating-and-using-variations-in-a-feature)
-- [Random Distribution Targeting](/home/feature-management/features-and-variables/targeting-users#serving-a-random-variation-experimentation--random-distribution)
-- [Feature Experimentation](/home/feature-management/features-and-variables/metrics-and-analysis/feature-experimentation)
-- [Creating a Metric](/home/feature-management/features-and-variables/metrics-and-analysis/creating-and-managing-metrics) and [Metric Types](/home/feature-management/features-and-variables/metrics-and-analysis/creating-and-managing-metrics#types)
+- [Creating and Managing Variations](/essentials/variables)
+- [Random Distribution Targeting](/essentials/targeting)
+- [Feature Experimentation](/extras/metrics/feature-experimentation)
+- [Creating a Metric](/extras/metrics/creating-and-managing-metrics) and [Metric Types](/extras/metrics/creating-and-managing-metrics#types)
 
 ## Metrics in DevCycle
 
@@ -27,7 +25,7 @@ Metrics are how DevCycle measures data based on the custom events you choose to 
 
 When you create a metric, it is not tied to a specific feature; they can be defined once and applied to as many features as desired. For instance, we could use the same error metric to determine the error rate of other features.  
 
-To learn how to create a metric, read [Creating and Managing Metrics](/home/feature-management/features-and-variables/metrics-and-analysis/creating-and-managing-metrics#creating-a-metric).
+To learn how to create a metric, read [Creating and Managing Metrics](/extras/metrics/creating-and-managing-metrics#creating-a-metric).
 
 :::info
 Metrics are available to all customers on any plan. However, Metrics rely on custom events that incur extra costs. These costs will be added to your existing plan. To learn more, read about our pricing, or contact us at support@devcycle.com.
@@ -55,7 +53,7 @@ The `type` field in the object must correspond to the Event Type you defined whe
 :::
 ![Use the Event Type, not the Type](/august-2022-event-type-not-metric-type.png)
 
-If your Metric was a [numerical Type](/home/feature-management/features-and-variables/metrics-and-analysis/creating-and-managing-metrics#types) (such as Sum Per User, Total Average, etc.) you may want to provide a value within your `event`. Some numerical data you may want to track are latency, load time, number of API calls, etc. Adding a numerical value to your object in JavaScript would look something like this: 
+If your Metric was a [numerical Type](/extras/metrics/creating-and-managing-metrics#types) (such as Sum Per User, Total Average, etc.) you may want to provide a value within your `event`. Some numerical data you may want to track are latency, load time, number of API calls, etc. Adding a numerical value to your object in JavaScript would look something like this: 
 
 ```jsx
 const event = {
@@ -65,9 +63,9 @@ const event = {
 dvcClient.track(event)
 ```
 
-You can include other data within the `event` object such as date, target, and metadata. For more information about tracking custom events with our other SDKs, refer to [Tracking Custom Events](/sdk/features/track).
+You can include other data within the `event` object such as date, target, and metadata. For more information about tracking custom events with our other SDKs, refer to [Tracking Custom Events](/sdk/features).
 
-Once you have set up the SDK to send custom events, you can [apply your Metric to a feature](/home/feature-management/features-and-variables/metrics-and-analysis/creating-and-managing-metrics#attaching-metrics-to-features). 
+Once you have set up the SDK to send custom events, you can [apply your Metric to a feature](/extras/metrics/creating-and-managing-metrics#attaching-metrics-to-features). 
 
 ## Suggested Metrics
 
@@ -118,7 +116,7 @@ Some of the simplest and most precise experiments are basic A/B tests comparing 
 
 For more complex features you may compare more variations with several combinations of variable values. You would then randomly distribute the variations according to the number of variations you are including in the experiment. 
 
-For more information about comparing multiple variations in an experiment, refer to [Feature Experimentation](/home/feature-management/features-and-variables/metrics-and-analysis/feature-experimentation#comparing-multiple-variations).
+For more information about comparing multiple variations in an experiment, refer to [Feature Experimentation](/extras/metrics/feature-experimentation#comparing-multiple-variations).
 
 ### Choosing Metrics
 

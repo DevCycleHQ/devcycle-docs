@@ -3,3 +3,4 @@ position: 1
 collapsed: true
 customProps:
   icon: server
+  description: How to use feature flags in serverless environments.
