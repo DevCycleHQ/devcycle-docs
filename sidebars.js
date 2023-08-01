@@ -26,12 +26,6 @@ module.exports = {
       collapsible: true,
       collapsed: true,
     },
- 
-    {
-      type: 'doc',
-      label: '🪢 Integrations',
-      id: 'integrations/index', // The internal path
-    },
     {
       type: 'doc',
       label: '📍 Roadmap',

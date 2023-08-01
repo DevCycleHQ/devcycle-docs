@@ -229,6 +229,13 @@ const config = {
           ],
         },
         {
+          type: 'doc',
+          docId: 'integrations/index',
+          position: 'left',
+          collapse: 'false',
+          label: 'Integrations',
+        },
+        {
           label: 'CLI',
           to: '/cli/',
         },
