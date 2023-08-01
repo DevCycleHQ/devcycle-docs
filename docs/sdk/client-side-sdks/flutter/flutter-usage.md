@@ -35,7 +35,7 @@ If the value is not ready, it will return the default value passed in the creati
 ## Variable Updates
 
 Variable values update whenever `identifyUser()` or `resetUser()` are called, 
-or when the project configuration changes (to learn more, visit our [Realtime Updates](/sdk/features/realtime-updates) page).
+or when the project configuration changes (to learn more, visit our [Realtime Updates](/sdk/features#realtime-updates) page).
 
 To listen for variable updates, the `onUpdate()` method can be used on a Variable Object. 
 Please note, a strong reference to the variable is needed for `onUpdate` to be triggered.
@@ -148,7 +148,7 @@ _devcycleClient.flushEvents(([error]) => {
 ## EdgeDB
 
 EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user. 
-Read more about [EdgeDB](/home/feature-management/edgedb/what-is-edgedb).
+Read more about [EdgeDB](/extras/edgedb).
 
 To get started, contact us at support@devcycle.com to enable EdgeDB for your project.
 

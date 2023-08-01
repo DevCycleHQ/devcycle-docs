@@ -7,8 +7,6 @@ sidebar_custom_props: {icon: broom}
 
 ---
 
-## Overview
-
 This article outlines practices to help minimize technical debt from feature flags. DevCycle’s code insights are a valuable tool in determining when to clean up your unused feature flags.
 
 ## What is technical debt?
@@ -70,9 +68,9 @@ Because Code References list all usages of a variable in your code, you can easi
 
 ![code references example](/march-2022-code-refs.png)
 
-To use Code References, you must enable [the DevCycle action for Code References](/tools-and-integrations/Github/gh-feature-usage-action) within your repository. After configuration, you can find your Code References when you click “View Info” for a variable in the Variables dashboard.
+To use Code References, you must enable [the DevCycle action for Code References](/integrations/github/gh-feature-usage-action) within your repository. After configuration, you can find your Code References when you click “View Info” for a variable in the Variables dashboard.
 
-For more information about Code References, [check out our docs here](/home/feature-management/organizing-your-flags-and-variables/variable-dashboard#code-references).
+For more information about Code References, [check out our docs here](/essentials/variables).
 
 ## Other ways to reduce feature flag tech debt
 

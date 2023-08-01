@@ -38,7 +38,7 @@ function CardLayout({ href, icon, iconSet, title, description }) {
 
       {description && description != 'hidden' && (
         <p
-          className={clsx('text--truncate', styles.cardDescription)}
+          className={clsx(styles.cardDescription)}
           title={description}
         >
           {description}
