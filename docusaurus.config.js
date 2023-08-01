@@ -6,7 +6,7 @@ const remarkYoutube = require('gridsome-plugin-remark-youtube')
  * Pinned version of the CLI to use for docs
  * When bumping the version, add any new commands to the documents array
  */
-const DVC_CLI_VERSION = 'v5.0.0' // auto updated by dvc cli release workflow
+const DVC_CLI_VERSION = 'v5.0.2' // auto updated by dvc cli release workflow
 
 /**
  * @type {Partial<import('@docusaurus/types').DocusaurusConfig>}
@@ -62,7 +62,7 @@ const config = {
           'docs/keys.md',
           'docs/login.md',
           'docs/logout.md',
-          'docs/org.md',
+          'docs/organizations.md',
           'docs/projects.md',
           'docs/repo.md',
           'docs/status.md',
