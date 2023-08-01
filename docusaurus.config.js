@@ -62,7 +62,7 @@ const config = {
           'docs/keys.md',
           'docs/login.md',
           'docs/logout.md',
-          'docs/org.md',
+          'docs/organizations.md',
           'docs/projects.md',
           'docs/repo.md',
           'docs/status.md',
