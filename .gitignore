@@ -27,6 +27,7 @@ packages/docusaurus-*/lib-next/
 # Auto-generated files
 docs/tools-and-integrations/cli/docs/*.md
 docs/tools-and-integrations/cli/*.md
+docs/cli/
 
 website/netlifyDeployPreview/*
 !website/netlifyDeployPreview/index.html

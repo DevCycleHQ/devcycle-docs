@@ -22,7 +22,10 @@ use DevCycle\Model\DevCycleOptions;
 use DevCycle\Model\DevCycleUser;
 
 // Configure API key authorization: bearerAuth
-$config = DevCycleConfiguration::getDefaultConfiguration()->setApiKey("Authorization", getenv("DEVCYCLE_SERVER_SDK_KEY"));
+$config = DevCycleConfiguration::getDefaultConfiguration()->setApiKey(
+    "Authorization", 
+    getenv("DEVCYCLE_SERVER_SDK_KEY")
+);
 
 $devcycleClient = new DevCycleClient(
     $config,

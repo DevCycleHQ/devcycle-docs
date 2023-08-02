@@ -19,9 +19,7 @@ See the User model in the [PHP user model doc](https://github.com/DevCycleHQ/php
 ```php
 use DevCycle\Model\DevCycleUser;
 
-$user_data = new DevCycleUser(array(
-    "user_id"=>"my-user"
-)); 
+$user_data = new DevCycleUser(array("user_id"=>"my-user")); 
 ```
 
 ## Get and use Variable by key
@@ -71,9 +69,7 @@ See [getFeatures](/bucketing-api/#operation/getFeatures) on the Bucketing API fo
 ```php
 use DevCycle\Model\DevCycleEvent;
 
-$event_data = new DevCycleEvent(array(
-  "type"=>"my-event"
-));
+$event_data = new DevCycleEvent(array("type"=>"my-event"));
 
 try {
     $result = $devcycleClient->track($user_data, $event_data);
@@ -96,7 +92,10 @@ use DevCycle\DevCycleConfiguration;
 use DevCycle\DevCycleOptions;
 use DevCycle\Api\DevCycleClient;
 
-$config = DevCycleConfiguration::getDefaultConfiguration()->setApiKey('Authorization', getenv("DEVCYCLE_SERVER_SDK_KEY"));
+$config = DevCycleConfiguration::getDefaultConfiguration()->setApiKey(
+    "Authorization",
+     getenv("DEVCYCLE_SERVER_SDK_KEY")
+);
 $options = new DevCycleOptions(true);
 $devcycleClient = new DevCycleClient(
     $config,
