@@ -22,12 +22,11 @@ until the first config is fetched and set successfully or an unrecoverable error
 require 'devcycle-ruby-server-sdk'
 
 # Setup authorization
-options = DevCycle::Options.new(enable_cloud_bucketing: false, event_flush_interval_ms: 1000, config_polling_interval_ms: 1000)
-devcycle_client = DevCycle::Client.new(ENV['DEVCYCLE_SERVER_SDK_KEY'], options, true)
-user = DevCycle::User.new({ user_id: 'user_id_example' }) # UserData | 
+devcycle_client = DevCycle::Client.new(ENV['DEVCYCLE_SERVER_SDK_KEY'], DevCycle::Options.new, true)
+user = DevCycle::User.new({ user_id: 'user_id_example' })
 
 begin
-  #Get all features for user data
+  # Get all features for user data
   result = devcycle_client.all_features(user)
   p result
 rescue DevCycle::ApiError => e
@@ -42,8 +41,7 @@ end
 require 'devcycle-ruby-server-sdk'
 
 # Setup authorization
-options = DevCycle::Options.new(enable_cloud_bucketing: false, event_flush_interval_ms: 1000, config_polling_interval_ms: 1000)
-devcycle_client = DevCycle::Client.new(ENV['DEVCYCLE_SERVER_SDK_KEY'], options, true)
+devcycle_client = DevCycle::Client.new(ENV['DEVCYCLE_SERVER_SDK_KEY'], DevCycle::Options.new, true)
 
 user = DevCycle::User.new({ user_id: 'user_id_example' })
 ```
@@ -57,8 +55,11 @@ The SDK can be initialized in an initializer file:
 **Step 2:** Add the following code to the `devcycle.rb` file:
 
 ```ruby
-options = DevCycle::Options.new(enable_cloud_bucketing: false, event_flush_interval_ms: 1000, config_polling_interval_ms: 4000)
-Rails.configuration.devcycle_client = DevCycle::Client.new(ENV['DEVCYCLE_SERVER_SDK_KEY'], options, true)
+Rails.configuration.devcycle_client = DevCycle::Client.new(
+  ENV['DEVCYCLE_SERVER_SDK_KEY'], 
+  DevCycle::Options.new, 
+  true
+)
 ```
 
 ## Initializing the SDK in a Rails App Using Unicorn
@@ -67,8 +68,11 @@ When using Unicorn with the `preload_app` configuration set to `true`, the SDK n
 
 ```ruby
 after_fork do |server, worker|
-  options = DevCycle::Options.new(enable_cloud_bucketing: false, event_flush_interval_ms: 1000, config_polling_interval_ms: 400)
-  Rails.configuration.devcycle_client = DevCycle::Client.new(ENV['DEVCYCLE_SERVER_SDK_KEY'], options, true)
+  Rails.configuration.devcycle_client = DevCycle::Client.new(
+    ENV['DEVCYCLE_SERVER_SDK_KEY'], 
+    DevCycle::Options.new, 
+    true
+  )
 end
 ```
 
@@ -78,6 +82,9 @@ When using Puma with the `preload_app` configuration set to `true`, the SDK need
 
 ```ruby
 on_worker_boot do
-  options = DevCycle::Options.new(enable_cloud_bucketing: false, event_flush_interval_ms: 1000, config_polling_interval_ms: 4000)
-  Rails.configuration.devcycle_client = DevCycle::Client.new(ENV['DEVCYCLE_SERVER_SDK_KEY'], options, true)
+  Rails.configuration.devcycle_client = DevCycle::Client.new(
+    ENV['DEVCYCLE_SERVER_SDK_KEY'], 
+    DevCycle::Options.new, 
+    true
+  )
 end
