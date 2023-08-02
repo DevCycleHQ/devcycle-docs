@@ -17,9 +17,9 @@ See the User model in the [PHP user model doc](https://github.com/DevCycleHQ/php
 
 
 ```php
-$user_data = new \DevCycle\Model\UserData(array(
-    "user_id"=>"my-user"
-)); // \DevCycle\Model\UserData
+use DevCycle\Model\DevCycleUser;
+
+$user_data = new DevCycleUser(array("user_id"=>"my-user")); 
 ```
 
 ## Get and use Variable by key
@@ -31,10 +31,10 @@ to be fetched from DevCycle's CDN.
 
 ```php
 try {
-    $result = $apiInstance->variableValue($user_data, "my-key", "default");
+    $result = $devcycleClient->variableValue($user_data, "my-key", "default");
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DVCClient->variableValue: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DevCycleClient->variableValue: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -46,10 +46,10 @@ you can use `variable()` instead of `variableValue()`.
 ## Get all Variables
 ```php
 try {
-    $result = $apiInstance->allVariables($user_data);
+    $result = $devcycleClient->allVariables($user_data);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DVCClient->allVariables: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DevCycleClient->allVariables: ', $e->getMessage(), PHP_EOL;
 }
 ```
 See [getVariables](/bucketing-api/#operation/getVariables) on the Bucketing API for the variable response format.
@@ -57,25 +57,25 @@ See [getVariables](/bucketing-api/#operation/getVariables) on the Bucketing API 
 ## Getting all Features
 ```php
 try {
-    $result = $apiInstance->allFeatures($user_data);
+    $result = $devcycleClient->allFeatures($user_data);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DVCClient->allFeatures: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DevCycleClient->allFeatures: ', $e->getMessage(), PHP_EOL;
 }
 ```
 See [getFeatures](/bucketing-api/#operation/getFeatures) on the Bucketing API for the feature response format.
 
 ## Track Event
 ```php
-$event_data = new \DevCycle\Model\Event(array(
-  "type"=>"my-event"
-));
+use DevCycle\Model\DevCycleEvent;
+
+$event_data = new DevCycleEvent(array("type"=>"my-event"));
 
 try {
-    $result = $apiInstance->track($user_data, $event_data);
+    $result = $devcycleClient->track($user_data, $event_data);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DVCClient->track: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DevCycleClient->track: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -88,9 +88,16 @@ To get started, contact us at support@devcycle.com to enable EdgeDB for your pro
 Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to turn on EdgeDB mode for the SDK:
 
 ```php
-$config = DevCycle\Configuration::getDefaultConfiguration()->setApiKey('Authorization', '<DVC_SERVER_SDK_KEY>');
-$options = new DevCycle\DVCOptions(true);
-$apiInstance = new DevCycle\Api\DVCClient(
+use DevCycle\DevCycleConfiguration;
+use DevCycle\DevCycleOptions;
+use DevCycle\Api\DevCycleClient;
+
+$config = DevCycleConfiguration::getDefaultConfiguration()->setApiKey(
+    "Authorization",
+     getenv("DEVCYCLE_SERVER_SDK_KEY")
+);
+$options = new DevCycleOptions(true);
+$devcycleClient = new DevCycleClient(
     $config,
     dvcOptions:$options
 );
@@ -100,15 +107,15 @@ $apiInstance = new DevCycle\Api\DVCClient(
 
 Each method in the [Usage](#Usage) section has a corresponding asynchronous method:
 ```php
-    $result = $apiInstance->allVariables($user_data);
-    $apiInstance->allVariablesAsync($user_data)->then(function($result) {
-      print_r($result);
-    });
+$result = $devcycleClient->allVariables($user_data);
+$devcycleClient->allVariablesAsync($user_data)->then(function($result) {
+  print_r($result);
+});
 ```
 
 ## Models
 
-### UserData
+### User
 
 User data is provided to most SDK requests to identify the user / context of the feature evaluation
 
