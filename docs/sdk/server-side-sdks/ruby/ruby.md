@@ -7,7 +7,7 @@ import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 
 # DevCycle Ruby Server SDK
 
-Welcome to the the DevCycle Ruby SDK, initially generated via the [DevCycle Bucketing API](/bucketing-api/#tag/devcycle), it now supports Local Bucketing as well.
+Welcome to the DevCycle Ruby SDK, supporting cloud and local bucketing.
 
 <CustomDocCardList items={useCurrentSidebarCategory().items} columnWidth={4} />
 
