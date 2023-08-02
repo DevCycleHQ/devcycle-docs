@@ -128,7 +128,7 @@ The `withDevCycleProvider` function accepts a Provider Config object:
 
 | Property | Type | Description            |
 |------------|------|------------------------|
-| sdkKey | string | SDK key                |
+| sdkKey | String | SDK key                |
 | user | [DevCycleUser](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L55) | DevCycleUser object    |
 | options | [DevCycleOptions](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L44) | DevCycleOptions object |
 
@@ -138,16 +138,18 @@ The SDK exposes various initialization options which can be set by passing a `De
 
 [DevCycleOptions Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L44)
 
-| DevCycle Option             | Type | Description                                                                                                    |
-|------------------------|------|----------------------------------------------------------------------------------------------------------------|
-| eventFlushIntervalMS   | number | Controls the interval between flushing events to the DevCycle servers in milliseconds, defaults to 10 seconds. |
-| enableEdgeDB           | boolean | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle.                                     |
-| logger                 | [DevCycleLogger](https://github.com/DevCycleHQ/js-sdks/blob/main/lib/shared/types/src/logger.ts#L2) | Logger override to replace default logger                                                                      |
+| DevCycle Option             | Type                                                                                                          | Description                                                                                                    |
+|------------------------|---------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
+| enableEdgeDB           | Boolean                                                                                                       | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle.                                     |
+| logger                 | [DevCycleLogger](https://github.com/DevCycleHQ/js-sdks/blob/main/lib/shared/types/src/logger.ts#L2)           | Logger override to replace default logger                                                                      |
 | logLevel               | [DevCycleDefaultLogLevel](https://github.com/DevCycleHQ/js-sdks/blob/main/lib/shared/types/src/logger.ts#L12) | Set log level of the default logger. Options are: `debug`, `info`, `warn`, `error`. Defaults to `info`.        |
-| apiProxyURL            | string | Allows the SDK to communicate with a proxy of DevCycle bucketing API / client SDK API.                              |
-| configCacheTTL         | number | The maximum allowed age of a cached config in milliseconds, defaults to 7 days                                 |
-| disableConfigCache     | boolean | Disable the use of cached configs                                                                              |
-| disableRealtimeUpdates | boolean | Disable Realtime Updates                                                                                       |
-| deferInitialization    | boolean | Defer initialization (fetching configuration from DevCycle) until user is identified with `identifyUser` call  |
-| disableAutomaticEventLogging | boolean | Disables logging of sdk generated events (e.g. variableEvaluated, variableDefaulted) to DevCycle. |
-| disableCustomEventLogging | boolean | Disables logging of custom events, from `track()` method, and user data to DevCycle. |
+| eventFlushIntervalMS   | Number                                                                                                        | Controls the interval between flushing events to the DevCycle servers in milliseconds, defaults to 10 seconds. |
+| flushEventQueueSize  | Number                                                                                                        | Controls the maximum size the event queue can grow to until a flush is forced. Defaults to `100`.              |
+| maxEventQueueSize  | Number                                                                                                        | Controls the maximum size the event queue can grow to until events are dropped. Defaults to `1000`.            |
+| apiProxyURL            | String                                                                                                        | Allows the SDK to communicate with a proxy of DevCycle bucketing API / client SDK API.                              |
+| configCacheTTL         | Number                                                                                                        | The maximum allowed age of a cached config in milliseconds, defaults to 7 days                                 |
+| disableConfigCache     | Boolean                                                                                                       | Disable the use of cached configs                                                                              |
+| disableRealtimeUpdates | Boolean                                                                                                       | Disable Realtime Updates                                                                                       |
+| deferInitialization    | Boolean                                                                                                       | Defer initialization (fetching configuration from DevCycle) until user is identified with `identifyUser` call  |
+| disableAutomaticEventLogging | Boolean                                                                                                       | Disables logging of sdk generated events (e.g. variableEvaluated, variableDefaulted) to DevCycle. |
+| disableCustomEventLogging | Boolean                                                                                                       | Disables logging of custom events, from `track()` method, and user data to DevCycle. |
