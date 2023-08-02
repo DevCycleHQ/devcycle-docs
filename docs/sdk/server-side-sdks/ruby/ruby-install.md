@@ -10,7 +10,7 @@ sidebar_custom_props: {icon: screwdriver-wrench}
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/ruby-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/ruby-server-sdk)
 
 
-Install the gem
+Install the gem:
 
 ```ruby 
 gem install devcycle-ruby-server-sdk

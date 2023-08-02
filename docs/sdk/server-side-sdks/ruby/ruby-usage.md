@@ -14,16 +14,16 @@ sidebar_custom_props: {icon: toggle-on}
 The full user data must be passed into every method. The only required field is `user_id`.
 The rest are optional and are used by the system for user segmentation into variables and features.
 
-See the User model in the [Ruby user model doc](https://github.com/DevCycleHQ/ruby-server-sdk/blob/main/lib/devcycle-ruby-server-sdk/models/user_data.rb) 
+See the User model in the [Ruby user model doc](https://github.com/DevCycleHQ/ruby-server-sdk/blob/main/lib/devcycle-ruby-server-sdk/models/user.rb) 
 for all accepted fields including custom fields.
 
 ```ruby
-user_data = DevCycle::UserData.new({user_id: 'user_id_example'}) # UserData | 
+user = DevCycle::User.new({ user_id: 'user_id_example' })
 ```
 
 ## Get and use Variable by key
 
-To get values from your Variables, `dvc_client.variable_value()` is used to fetch variable values using the user data,
+To get values from your Variables, `devcycle_client.variable_value()` is used to fetch variable values using the user data,
 variable `key`, coupled with a default value for the variable. The default variable will be used in cases where
 the user is not segmented into a feature using that variable, or the project configuration is unavailable
 to be fetched from DevCycle's CDN.
@@ -31,16 +31,16 @@ to be fetched from DevCycle's CDN.
 ```ruby
 begin
   # Get value of given variable by key, using default value if segmentation is not passed or variable does not exit
-  result = dvc_client.variable_value("variable-key", user_data, true)
+  result = devcycle_client.variable_value("variable-key", user, true)
   p "Received value for 'variable-key': #{result}"
 rescue
-  puts "Exception when calling DVCClient->variable_value"
+  puts "Exception when calling DevCycle::Client->variable_value"
 end
 ```
 
 The default value can be of type string, boolean, number, or object.
 
-If you would like to get the full Variable you can use `dvc_client.variable()` instead. This contains fields such as: 
+If you would like to get the full Variable you can use `devcycle_client.variable()` instead. This contains fields such as: 
 `key`, `value`, `type`, `defaultValue`, `isDefaulted`.
 
 ## Getting all Features
@@ -50,10 +50,10 @@ You can fetch all segmented features for a user:
 ```ruby
 begin
   # Get all features for user data
-  result = dvc_client.all_features(user_data)
+  result = devcycle_client.all_features(user)
   p result
 rescue
-  puts "Exception when calling DVCClient->all_features"
+  puts "Exception when calling DevCycle::Client->all_features"
 end
 ```
 
@@ -64,10 +64,10 @@ To grab all the segmented variables for a user:
 ```ruby
 begin
   # Get all variables for user data
-  result = dvc_client.all_variables(user_data)
+  result = devcycle_client.all_variables(user)
   p result
 rescue
-  puts "Exception when calling DVCClient->all_variables"
+  puts "Exception when calling DevCycle::Client->all_variables"
 end
 ```
 
@@ -89,10 +89,10 @@ event_data = DevCycle::Event.new({
 
 begin
   # Post events for given user data
-  result = dvc_client.track(user_data, event_data)
+  result = devcycle_client.track(user, event_data)
   p result
 rescue => e
-  puts "Exception when calling DVCClient->track: #{e}"
+  puts "Exception when calling DevCycle::Client->track: #{e}"
 end
 ```
 
@@ -100,7 +100,7 @@ end
 To provide a custom logger, override the `logger` property of the SDK configuration.
 
 ```ruby
-options = DevCycle::DVCOptions.new(logger: @yourCustomLogger)
+options = DevCycle::Options.new(logger: @yourCustomLogger)
 ```
 
 ## Set Client Custom Data
@@ -111,9 +111,9 @@ To assist with segmentation and bucketing you can set a custom data hash that wi
 begin
   # Set client custom data
   custom_data = {"some-key" : "some-value"}
-  dvc_client.set_client_custom_data(custom_data)
+  devcycle_client.set_client_custom_data(custom_data)
 rescue => e
-  puts "Exception when calling DVCClient->set_client_custom_data: #{e}"
+  puts "Exception when calling DevCycle::Client->set_client_custom_data: #{e}"
 end
 ```
 
@@ -135,10 +135,10 @@ Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to
 require 'devcycle-ruby-server-sdk'
 
 # Setup authorization
-options = DevCycle::DVCOptions.new(enable_edge_db: true, enable_cloud_bucketing: true)
+options = DevCycle::Options.new(enable_edge_db: true, enable_cloud_bucketing: true)
 
-dvc_client = DevCycle::DVCClient.new("dvc_server_token_hash", options, true)
-user_data = DevCycle::UserData.new({
+devcycle_client = DevCycle::Client.new("dvc_server_token_hash", options, true)
+user = DevCycle::User.new({
    user_id: 'test_user',
    email: 'example@example.ca',
    country: 'CA'
