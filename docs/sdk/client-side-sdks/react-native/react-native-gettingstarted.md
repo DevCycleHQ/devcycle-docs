@@ -59,7 +59,7 @@ The `withDevCycleProvider` function accepts a Provider Config object:
 
 | Property | Type | Description            |
 |------------|------|------------------------|
-| sdkKey | string | SDK key                |
+| sdkKey | String | SDK key                |
 | user | [DevCycleUser](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L55) | DevCycleUser object    |
 | options | [DevCycleOptions](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L44) | DevCycleOptions object |
 

@@ -30,12 +30,12 @@ const devcycleClient = initializeDevCycle("<DEVCYCLE_CLIENT_SDK_KEY>", user, dvc
 | Property          | Type    | Description                                                                                                     |
 | ----------------- | ------- | --------------------------------------------------------------------------------------------------------------- |
 | isAnonymous       | Boolean | Boolean to indicate if the user is anonymous                                                                    |
-| user_id           | string  | Unique user ID                                                                                                  |
-| email             | string  | User's email                                                                                                    |
-| name              | string  | User's name                                                                                                     |
-| language          | string  | User's language                                                                                                 |
-| country           | string  | User's country                                                                                                  |
-| appVersion        | string  | App version                                                                                                     |
+| user_id           | String  | Unique user ID                                                                                                  |
+| email             | String  | User's email                                                                                                    |
+| name              | String  | User's name                                                                                                     |
+| language          | String  | User's language                                                                                                 |
+| country           | String  | User's country                                                                                                  |
+| appVersion        | String  | App version                                                                                                     |
 | appBuild          | Number  | App build                                                                                                       |
 | customData        | DVCJSON | Key/value map of properties to be used for targeting                                                            |
 | privateCustomData | DVCJSON | Key/value map of properties to be used for targeting. Private properties will not be included in event logging. |
