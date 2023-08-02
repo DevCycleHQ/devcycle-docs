@@ -4,7 +4,24 @@
     { "source": "/docs/:path*/", "destination": "/:path*", "statusCode": 301 },
     { "source": "/docs/:path*", "destination": "/:path*", "statusCode": 301 },
     { "source": "/best-practices/sample-apps/getting-started-guide", "destination": "/home/demos/react", "statusCode": 301 },
-    { "source": "/best-practices/sample-apps/realtime-demo", "destination": "/home/demos/realtime", "statusCode": 301 }
+    { "source": "/best-practices/sample-apps/realtime-demo", "destination": "/home/demos/realtime", "statusCode": 301 },
+    { "source": "/home", "destination": "/", "statusCode": 301 },
+    { "source": "/(.*)/getting-started/(.*)", "destination": "/introduction/quickstart", "statusCode": 301 },
+    { "source": "/home/feature-management/features-and-variables/targeting-users", "destination": "/essentials/targeting", "statusCode": 301 },
+    { "source": "/home/feature-management/features-and-variables/variables-and-variations", "destination": "/essentials/variables", "statusCode": 301 },
+    { "source": "/home/feature-management/features-and-variables/custom-properties", "destination": "/extras/advanced-targeting/custom-properties", "statusCode": 301 },
+    { "source": "/home/feature-management/features-and-variables/sdk-visibility", "destination": "/extras/sdk-visibility", "statusCode": 301 },
+    { "source": "/home/feature-management/features-and-variables/metrics-and-analysis/:path*", "destination": "/extras/metrics/:path*", "statusCode": 301 },
+    { "source": "/home/feature-management/organizing-your-flags-and-variables/feature-dashboard", "destination": "/essentials/features", "statusCode": 301 },
+    { "source": "/home/feature-management/organizing-your-flags-and-variables/environments", "destination": "/essentials/environments", "statusCode": 301 },
+    { "source": "/home/feature-management/organizing-your-flags-and-variables/api-and-sdk-keys", "destination": "/essentials/keys", "statusCode": 301 },
+    { "source": "/home/feature-management/organizing-your-flags-and-variables/variable-dashboard", "destination": "/essentials/variables", "statusCode": 301 },
+    { "source": "/home/feature-management/organizing-your-flags-and-variables/organizations-projects", "destination": "/essentials/organizations", "statusCode": 301 },
+    { "source": "/home/your-organization/(.*)", "destination": "/essentials/organizations", "statusCode": 301 },
+    { "source": "/home/demos/(.*)", "destination": "/examples", "statusCode": 301 },
+    { "source": "/home/feature-management/edgedb/(.*)", "destination": "/extras/edgedb", "statusCode": 301 },
+    { "source": "/home/feature-management/feature-opt-in/(.*)", "destination": "/extras/advanced-targeting/feature-opt-in", "statusCode": 301 },
+    { "source": "/(.*)/tools-and-integrations/(.*)", "destination": "/$1/integrations/$2", "statusCode": 301 }
   ],
   "rewrites": [
     { "source": "/.well-known/ai-plugin.json", "destination": "/.well-known/ai-plugin.json" }
