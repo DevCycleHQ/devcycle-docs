@@ -22,7 +22,7 @@
     { "source": "/home/demos/:path*", "destination": "/examples", "statusCode": 301 },
     { "source": "/home/feature-management/edgedb/:path*", "destination": "/extras/edgedb", "statusCode": 301 },
     { "source": "/home/feature-management/feature-opt-in/:path*", "destination": "/extras/advanced-targeting/feature-opt-in", "statusCode": 301 },
-    { "source": "/tools-and-integrations/:path*", "destination": "/integrations/:path*", "statusCode": 301 }
+    { "source": "/tools-and-integrations/:path*", "destination": "/integrations/:path*", "statusCode": 301 },
     { "source": "/tools-and-integrations/", "destination": "/integrations", "statusCode": 301 }
   ],
   "rewrites": [
