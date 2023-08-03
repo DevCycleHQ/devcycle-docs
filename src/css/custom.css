@@ -207,3 +207,69 @@ html[data-theme="dark"] .DocSearch {
       display:none
   }
 }
+
+/* Section icons. */
+
+
+.section-title > div >a::before {
+  background-size: 24px;
+  background-repeat: no-repeat;
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 8px; /* adjust this value to control the padding between the image and the link */
+  filter: invert(23%) sepia(73%) saturate(3810%) hue-rotate(224deg) brightness(86%) contrast(96%); /* https://codepen.io/sosuke/pen/Pjoqqp */
+}
+
+.section-title > a::before {
+  background-size: 24px;
+  background-repeat: no-repeat;
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 8px; /* adjust this value to control the padding between the image and the link */
+  filter: invert(23%) sepia(73%) saturate(3810%) hue-rotate(224deg) brightness(86%) contrast(96%); /* https://codepen.io/sosuke/pen/Pjoqqp */
+}
+
+.section-title.introduction > div >a::before {
+  background-image: url(../../static/sidebar/introduction.svg);
+}
+
+.section-title.examples >a::before {
+  background-image: url(../../static/sidebar/examples.svg);
+}
+
+.section-title.roadmap >a::before {
+  background-image: url(../../static/sidebar/roadmap.svg);
+}
+
+.section-title.sdk-features >a::before {
+  background-image: url(../../static/sidebar/sdk-features.svg);
+}
+
+
+.section-title.release-notes >a::before {
+  background-image: url(../../static/sidebar/release-notes.svg);
+}
+
+.section-title.essentials > div >a::before {
+  background-image: url(../../static/sidebar/essentials.svg);
+}
+
+.section-title.extras > div >a::before {
+  background-image: url(../../static/sidebar/extras.svg);
+}
+
+.section-title.client > div >a::before {
+  background-image: url(../../static/sidebar/client.svg);
+}
+
+.section-title.server > div >a::before {
+  background-image: url(../../static/sidebar/server.svg);
+}
+
+.section-title.best-practices > div >a::before{
+  background-image: url(../../static/sidebar/best-practices.svg);
+}
