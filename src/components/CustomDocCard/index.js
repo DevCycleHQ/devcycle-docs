@@ -2,10 +2,12 @@ import React from 'react'
 import clsx from 'clsx'
 import Link from '@docusaurus/Link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' // Import the FontAwesomeIcon component.
+import "@fortawesome/fontawesome-svg-core/styles.css"
 import { library } from '@fortawesome/fontawesome-svg-core' // Import the library component.
 import { fab } from '@fortawesome/free-brands-svg-icons' // Import all brands icons.
 import { fas } from '@fortawesome/free-solid-svg-icons' // Import all solid icons.'
 import { faDataDogIcon } from '../CustomIcons/datadog'
+
 library.add(fab, fas, faDataDogIcon) // Add all icons to the library so you can use them without importing them individually.
 import {
   findFirstCategoryLink,
