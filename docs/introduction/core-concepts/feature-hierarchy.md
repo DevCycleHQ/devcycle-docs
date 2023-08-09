@@ -2,7 +2,7 @@
 title: Feature Hierarchy
 sidebar_position: 1
 ---
-In a traditional feature flagging platform, there is only type of entity to worry about: a `feature flag`! In these 
+In a traditional feature flagging platform, there is only one type of entity to worry about: a `feature flag`! In these 
 platforms, a `feature flag` contains the targeting rules and possible values for its respective key, all rolled into one.
 
 DevCycle does things differently. Rather than restricting you to one `feature flag` per set of targeting rules, we allow
@@ -20,6 +20,8 @@ It also contains the targeting rules that decide who should receive what value. 
 You can think of a `Feature` as a set of related `Variables` that are all part of a new product feature, or should be 
 grouped together for organization purposes. A concrete example of this is a `Feature` like "Website Redesign" which
 can contain many `Variables` controlling different aspects of the design, like "headerText", "headerColor", "buttonColor", etc.
+At DevCycle, we often have `Features` that contain both back-end and front-end `Variables`, so that all parts of a new `Feature`
+can be turned on or off at the same time.
 
 The approach of composing multiple `Variables` together into a `Feature` and setting the possible values
 using `Variations` has some advantages:
@@ -28,6 +30,8 @@ using `Variations` has some advantages:
 - Combinations of `Variables` that must be set together, or only have certain permutations of valid values, can be controlled
 together
 - You can easily experiment with different `Variations` of several variables. 
+- Various components of both the back-end and front-end can be controlled together without having to use the same `Variable`
+across each code base.
 - You can re-use a `Variable` in the future even after a feature has been released or an experiment concluded.
 
 For more detail on each of these concepts, see below.
