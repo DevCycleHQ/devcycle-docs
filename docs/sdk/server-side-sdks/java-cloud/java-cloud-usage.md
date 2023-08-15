@@ -10,13 +10,13 @@ sidebar_custom_props: {icon: toggle-on}
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/java-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/java-server-sdk)
 
 
-## User Object
+## DevCycleUser Object
 The user object is required for all methods. The only required field in the user object is userId
 
-See the User class in [Java User model doc](https://github.com/DevCycleHQ/java-server-sdk/blob/main/docs/User.md) for all accepted fields.
+See the DevCycleUser class in [Java DevCycleUser model doc](https://github.com/DevCycleHQ/java-server-sdk/blob/main/docs/DevCycleUser.md) for all accepted fields.
 
 ```java
-User user = User.builder()
+DevCycleUser user = DevCycleUser.builder()
     .userId("a_user_id")
     .build();
 ```
@@ -62,14 +62,14 @@ Map<String, Feature> features = client.allFeatures(user);
 To POST custom event for a user, pass in the user and event object.
 
 ```java
-Event event = Event.builder()
+DevCycleEvent event = DevCycleEvent.builder()
         .date(Instant.now().toEpochMilli())
         .target("test target")
         .type("test event")
         .value(new BigDecimal(600))
         .build();
 
-DVCResponse response = client.track(user, event);
+DevCycleResponse response = client.track(user, event);
 ```
 
 ## EdgeDB
@@ -82,33 +82,33 @@ To get started, contact us at support@devcycle.com to enable EdgeDB for your pro
 Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to turn on EdgeDB mode for the SDK:
 
 ```java
-import com.devcycle.sdk.server.cloud.api.DVCCloudClient;
-import com.devcycle.sdk.server.cloud.model.DVCCloudOptions;
+import com.devcycle.sdk.server.cloud.api.DevCycleCloudClient;
+import com.devcycle.sdk.server.cloud.model.DevCycleCloudOptions;
 
-import com.devcycle.sdk.server.common.model.User;
+import com.devcycle.sdk.server.common.model.DevCycleUser;
 import com.devcycle.sdk.server.common.model.Variable;
 
-User user = User.builder()
+DevCycleUser user = DevCycleUser.builder()
                 .userId("test_user")
                 .country("US")
                 .email("example@example.com")
                 .build();
 
-User onlyUserId = User.builder()
+DevCycleUser onlyUserId = DevCycleUser.builder()
                 .userId("test_user");
                 
-DVCCloudOptions dvcCloudOptions = DVCCloudOptions.builder()
+DevCycleCloudOptions devcycleOptions = DevCycleCloudOptions.builder()
                 .enableEdgeDB(true)
                 .build();
 
-private DVCCloudClient dvcCloudClient;
+private DevCycleCloudClient devcycleClient;
 
 public MyClass() {
-    dvcCloudClient = new DVCCloudClient("<DVC_SERVER_SDK_KEY>", dvcCloudOptions);
+    devcycleClient = new DevCycleCloudClient("<DEVCYCLE_SERVER_SDK_KEY>", devcycleOptions);
 
-    Boolean testBoolean = dvcCloud.variableValue(user, "test-boolean-variable", false);
+    Boolean testBoolean = devcycleClient.variableValue(user, "test-boolean-variable", false);
 
-    String onlyCountry = dvcCloud.variableValue(onlyUserId, "test-string-country-variable", "Not Available");
+    String onlyCountry = devcycleClient.variableValue(onlyUserId, "test-string-country-variable", "Not Available");
 }
 ```
 
@@ -121,10 +121,12 @@ from the EdgeDB storage when segmenting to experiments and features.
 
 ## Override Logging
 
-The SDK logs to stdout by default and does not require any specific logging package. To integrate with your own logging system, such as Java Logging or SLF4J, you can create a wrapper that implements the IDVCLogger interface. Then you can set the logger into the Java Server SDK setting the Custom Logger property in the options object used to initialize the client.
+The SDK logs to stdout by default and does not require any specific logging package. 
+To integrate with your own logging system, such as Java Logging or SLF4J, you can create a wrapper that implements the IDevCycleLogger interface. 
+Then you can set the logger into the Java Server SDK setting the Custom Logger property in the options object used to initialize the client.
 
 ```java
-IDVCLogger loggingWrapper = new IDVCLogger() {
+IDevCycleLogger loggingWrapper = new IDevCycleLogger() {
     @Override
     public void debug(String message) {
         // Your logging implementation here
@@ -151,6 +153,6 @@ IDVCLogger loggingWrapper = new IDVCLogger() {
     }
 };
 
-// Set the logger in the options before creating the DVCLocalClient
-DVCCloudOptions options = DVCCloudOptions.builder().customLogger(loggingWrapper).build();
+// Set the logger in the options before creating the DevCycleCloudClient
+DevCycleCloudOptions options = DevCycleCloudOptions.builder().customLogger(loggingWrapper).build();
 ```

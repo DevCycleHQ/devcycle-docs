@@ -7,7 +7,7 @@ import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 
 # DevCycle .NET / C# SDK
 
-Welcome to the DevCycle .NET Server SDK, which requests the bucketing config from DevCycle servers on DVCLocalClient initialization.
+Welcome to the DevCycle .NET Server SDK, which requests the bucketing config from DevCycle servers on DevCycleLocalClient initialization.
 Periodic calls are made to the config CDN to retrieve the latest config, but no userdata is used outside of the application.
 
 All calls to the client will then perform local bucketing to determine if a user receives a specific variation.

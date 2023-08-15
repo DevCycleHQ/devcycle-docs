@@ -52,7 +52,7 @@ Rather than using postman, you could simply use a cURL request to do all of this
 
 ```powershell
 curl --location --request PATCH 'https://sdk-api.devcycle.com/v1/edgedb/example_user' \
---header 'Authorization: <DVC_SERVER_SDK_KEY>' \
+--header 'Authorization: <DEVCYCLE_SERVER_SDK_KEY>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "user_id": "example_user",

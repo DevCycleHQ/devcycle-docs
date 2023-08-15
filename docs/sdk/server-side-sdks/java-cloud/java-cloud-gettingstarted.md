@@ -13,38 +13,37 @@ sidebar_custom_props: {icon: rocket}
 To use the DevCycle Java SDK, initialize a client object. 
 
 ```java
-import com.devcycle.sdk.server.cloud.api.DVCCloudClient;
+import com.devcycle.sdk.server.cloud.api.DevCycleCloudClient;
 
 public class MyClass {
     
-    private DVCCloudClient client;
+    private DevCycleCloudClient client;
     
     public MyClass() {
-        client = new DVCCloudClient("<DVC_SERVER_SDK_KEY>");
+        client = new DevCycleCloudClient("<DEVCYCLE_SERVER_SDK_KEY>");
     }
 }
 ```
 
 ## Initialization Options
 
-| DVC Option | Description |
-| --- | ----------- |
-| enableEdgeDB | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle. <br />NOTE: This is only available with Cloud Bucketing. |
+| DevCycleCloudOptions | Description |
+|----------------------| ----------- |
+| enableEdgeDB         | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle. <br />NOTE: This is only available with Cloud Bucketing. |
 
 ```java
-import com.devcycle.sdk.server.cloud.api.DVCCloudClient;
-import com.devcycle.sdk.server.cloud.model.DVCCloudOptions;
+import com.devcycle.sdk.server.cloud.api.DevCycleCloudClient;
+import com.devcycle.sdk.server.cloud.model.DevCycleCloudOptions;
 
 public class MyClass {
-    
-    private DVCCloudClient client;
+    private DevCycleCloudClient client;
 
     public MyClass() {
-        DVCCloudOptions options = DVCLocalOptions.builder()
+        DevCycleCloudOptions options = DevCycleCloudOptions.builder()
             .enableEdgeDB(false)
             .build();
         
-        client = new DVCCloudClient("<DVC_SERVER_SDK_KEY>", options);
+        client = new DevCycleCloudClient("<DEVCYCLE_SERVER_SDK_KEY>", options);
     }
 }
 ```

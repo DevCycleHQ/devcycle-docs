@@ -10,13 +10,13 @@ sidebar_custom_props: {icon: toggle-on}
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/java-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/java-server-sdk)
 
 
-## User Object
+## DevCycleUser Object
 The user object is required for all methods. The only required field in the user object is userId.
 
-See the User class in [Java User model doc](https://github.com/DevCycleHQ/java-server-sdk/blob/main/docs/User.md) for all accepted fields.
+See the DevCycleUser class in [Java DevCycleUser model doc](https://github.com/DevCycleHQ/java-server-sdk/blob/main/docs/DevCycleUser.md) for all accepted fields.
 
 ```java
-User user = User.builder()
+DevCycleUser user = DevCycleUser.builder()
         .userId("a_user_id")
         .country("US")
         .build();
@@ -65,7 +65,7 @@ Map<String, Feature> features = client.allFeatures(user);
 To POST custom event for a user, pass in the user and event object.
 
 ```java
-Event event = Event.builder()
+DevCycleEvent event = DevCycleEvent.builder()
         .date(Instant.now().toEpochMilli())
         .target("test target")
         .type("test event")
@@ -90,10 +90,10 @@ client.setClientCustomData(customData);
 
 ## Override Logging
 
-The SDK logs to stdout by default and does not require any specific logging package. To integrate with your own logging system, such as Java Logging or SLF4J, you can create a wrapper that implements the IDVCLogger interface. Then you can set the logger into the Java Server SDK setting the Custom Logger property in the options object used to initialize the client.
+The SDK logs to stdout by default and does not require any specific logging package. To integrate with your own logging system, such as Java Logging or SLF4J, you can create a wrapper that implements the IDevCycleLogger interface. Then you can set the logger into the Java Server SDK setting the Custom Logger property in the options object used to initialize the client.
 
 ```java
-IDVCLogger loggingWrapper = new IDVCLogger() {
+IDevCycleLogger loggingWrapper = new IDevCycleLogger() {
     @Override
     public void debug(String message) {
         // Your logging implementation here
@@ -120,8 +120,8 @@ IDVCLogger loggingWrapper = new IDVCLogger() {
     }
 };
 
-// Set the logger in the options before creating the DVCLocalClient
-DVCLocalOptions options = DVCLocalOptions.builder().customLogger(loggingWrapper).build();
+// Set the logger in the options before creating the DevCycleLocalClient
+DevCycleLocalOptions options = DevCycleLocalOptions.builder().customLogger(loggingWrapper).build();
 ```
 
 ## EdgeDB
