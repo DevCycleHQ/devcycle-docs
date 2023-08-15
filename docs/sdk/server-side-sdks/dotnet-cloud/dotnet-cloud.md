@@ -9,7 +9,7 @@ import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 
 Welcome to the DevCycle .NET Server SDK, which interfaces with the [DevCycle Bucketing API](/bucketing-api/#tag/devcycle).
 
-All requests, including user data are sent to DevCycle servers to ensure the User is bucketed correctly and will receive the correct variation.
+All requests, including user data are sent to DevCycle servers to ensure the DevCycleUser is bucketed correctly and will receive the correct variation.
 
 <CustomDocCardList items={useCurrentSidebarCategory().items} columnWidth={4} />
 

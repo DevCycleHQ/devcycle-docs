@@ -12,16 +12,16 @@ sidebar_custom_props: {icon: screwdriver-wrench}
 ## Requirements
 
 ### Frameworks supported
-- .NET Core >=1.0
-- .NET Framework >=4.6
-- Mono/Xamarin >=vNext
-- UWP >=10.0
+- `.NET Core >= 1.0`
+- `.NET Framework >= 4.6`
+- `Mono/Xamarin >= vNext`
+- `UWP >= 10.0`
 
 ### Dependencies
-- FubarCoder.RestSharp.Portable.Core >=4.0.8
-- FubarCoder.RestSharp.Portable.HttpClient >=4.0.8
-- JsonSubTypes >=1.8.0
-- Newtonsoft.Json >=13.0.1
+- `FubarCoder.RestSharp.Portable.Core >= 4.0.8`
+- `FubarCoder.RestSharp.Portable.HttpClient >= 4.0.8`
+- `JsonSubTypes >= 1.8.0`
+- `Newtonsoft.Json >= 13.0.1`
 
 ## Installation
 Download the SDK from Nuget - https://www.nuget.org/packages/DevCycle.SDK.Server.Cloud/

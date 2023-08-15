@@ -18,16 +18,12 @@ using System;
 using System.Diagnostics;
 using DevCycle.SDK.Server.Cloud.Api;
 
-
-namespace Example
-{
-    public class Example
-    {
-        public void main()
-        {
+namespace Example {
+    public class Example {
+        public void main() {
             // using ensures REST Client resources are correctly disposed once no longer required.
-            using DVCCloudClient client = new DVCCloudClientBuilder()
-                .SetSDKKey("<DVC_SERVER_SDK_KEY>")
+            using DevCycleCloudClient client = new DevCycleCloudClientBuilder()
+                .SetSDKKey("<DEVCYCLE_SERVER_SDK_KEY>")
                 .Build();
         }
     }

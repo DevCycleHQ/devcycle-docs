@@ -18,22 +18,20 @@ using System;
 using System.Diagnostics;
 using DevCycle.SDK.Server.Local.Api;
 
-namespace Example
-{
-    public class Example
-    {
-        static Main(string[] args)
-        {
-            DVCLocalClientBuilder clientBuilder = new DVCLocalClientBuilder();
-            using DVCLocalClient client = clientBuilder.SetSDKKey("<DVC_SERVER_SDK_KEY>").Build();
+namespace Example {
+    public class Example {
+        static Main(string[] args) {
+            using DevCycleLocalClient client = new DevCycleLocalClientBuilder()
+                                                .SetSDKKey("<DEVCYCLE_SERVER_SDK_KEY>")
+                                                .Build();
         }
     }
 }
 ```
 
-## Intialization With Callback
+## Initialization With Callback
 
-You can also setup a callback to be notified when the client is fully initialized and use `DVCLocalOptions` to further configure the client.
+You can also setup a callback to be notified when the client is fully initialized and use `DevCycleLocalOptions` to further configure the client.
 
 ```csharp
 using System;
@@ -45,12 +43,12 @@ using Microsoft.Extensions.Logging;
 
 namespace Example {
     public class Example {
-        private static DVCLocalClient client;
+        private static DevCycleLocalClient client;
         
         static async Task Main(string[] args) {
-            DVCLocalClientBuilder clientBuilder = new DVCLocalClientBuilder();
-            client = clientBuilder.SetSDKKey("<DVC_SERVER_SDK_KEY>")
-                .SetOptions(new DVCLocalOptions(configPollingIntervalMs: 60000, eventFlushIntervalMs: 60000))
+            client = new DevCycleLocalClientBuilder()
+                .SetSDKKey("<DEVCYCLE_SERVER_SDK_KEY>")
+                .SetOptions(new DevCycleLocalOptions(configPollingIntervalMs: 60000, eventFlushIntervalMs: 60000))
                 .SetInitializedSubscriber((o, e) => {
                     if (e.Success) {
                         ClientInitialized();

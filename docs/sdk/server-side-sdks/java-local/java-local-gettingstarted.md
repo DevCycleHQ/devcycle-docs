@@ -13,21 +13,21 @@ sidebar_custom_props: {icon: rocket}
 To use the DevCycle Java SDK, initialize a client object. 
 
 ```java
-import com.devcycle.sdk.server.local.api.DVCLocalClient;
+import com.devcycle.sdk.server.local.api.DevCycleLocalClient;
 
 public class MyClass {
     
-    private DVCLocalClient client;
+    private DevCycleLocalClient client;
     
     public MyClass() {
-        client = new DVCLocalClient("<DVC_SERVER_SDK_KEY>");
+        client = new DevCycleLocalClient("<DEVCYCLE_SERVER_SDK_KEY>");
     }
 }
 ```
 
 ## Initialization Options
 
-| DVC Option | Description |
+| DevCycleLocalOptions | Description |
 | --- | ----------- |
 | configPollingIntervalMs | Controls the polling interval in milliseconds to fetch new environment config changes, defaults to 10 seconds, minimum value is 1 second. |
 | configRequestTimeoutMs | Controls the request timeout to fetch new environment config changes, defaults to 5 seconds, must be less than the configPollingIntervalMS value, minimum value is 1 second. |
@@ -40,28 +40,28 @@ public class MyClass {
 | disableCustomEventLogging | Disables logging of any Custom Events to DevCycle. |
 
 ```java
-import com.devcycle.sdk.server.local.api.DVCLocalClient;
-import com.devcycle.sdk.server.local.model.DVCLocalOptions;
+import com.devcycle.sdk.server.local.api.DevCycleLocalClient;
+import com.devcycle.sdk.server.local.model.DevCycleLocalOptions;
 
 public class MyClass {
     
-    private DVCLocalClient client;
+    private DevCycleLocalClient client;
     
     public MyClass() {
-        DVCLocalOptions options = DVCLocalOptions.builder()
-        .configPollingIntervalMs(60000)
-        .configRequestTimeoutMs(30000)
-        .eventFlushIntervalMS(10000)
-        .flushEventQueueSize(1000)
-        .maxEventQueueSize(2000)
-        .eventRequestChunkSize(100)
-        .configCdnBaseUrl("https://my-custom.config.com/")
-        .eventsApiBaseUrl("https://my-custom.events.com/")
-        .disableAutomaticEventLogging(false)
-        .disableCustomEventLogging(false)
-        .build();
+        DevCycleLocalOptions options = DevCycleLocalOptions.builder()
+            .configPollingIntervalMs(60000)
+            .configRequestTimeoutMs(30000)
+            .eventFlushIntervalMS(10000)
+            .flushEventQueueSize(1000)
+            .maxEventQueueSize(2000)
+            .eventRequestChunkSize(100)
+            .configCdnBaseUrl("https://my-custom.config.com/")
+            .eventsApiBaseUrl("https://my-custom.events.com/")
+            .disableAutomaticEventLogging(false)
+            .disableCustomEventLogging(false)
+            .build();
     
-        client = new DVCLocalClient("<DVC_SERVER_SDK_KEY>", options);
+        client = new DevCycleLocalClient("<DEVCYCLE_SERVER_SDK_KEY>", options);
     }
 }
 ```

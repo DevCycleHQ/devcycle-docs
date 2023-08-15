@@ -9,13 +9,13 @@ sidebar_custom_props: {icon: toggle-on}
 [![Nuget](https://badgen.net/nuget/v/DevCycle.SDK.Server.Cloud)](https://www.nuget.org/packages/DevCycle.SDK.Server.Cloud/)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/dotnet-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/dotnet-server-sdk)
 
-## User Object
+## DevCycleUser Object
 The user object is required for all methods. The only required field in the user object is userId
 
-See the User class in [.NET User model doc](https://github.com/DevCycleHQ/dotnet-server-sdk/blob/main/docs/User.md) for all accepted fields.
+See the DevCycleUser class in [.NET DevCycleUser model doc](https://github.com/DevCycleHQ/dotnet-server-sdk/blob/main/docs/User.md) for all accepted fields.
 
 ```csharp
-User user = new User("a_user_id");
+DevCycleUser user = new DevCycleUser("a_user_id");
 ```
 
 ## Get and use Variable by key
@@ -54,12 +54,9 @@ Dictionary<string, Feature> result = await client.AllFeaturesAsync(user);
 To POST custom event for a user, pass in the user and event object.
 
 ```csharp
-DateTimeOffset now = DateTimeOffset.UtcNow;
-long unixTimeMilliseconds = now.ToUnixTimeMilliseconds();
+var event = new DevCycleEvent("test event", "test target");
 
-var event = new Event("test event", "test target", unixTimeMilliseconds, 600, new Dictionary<string, object>(){{"key", "value"}});
-
-DVCResponse result = await client.TrackAsync(user, event);
+DevCycleResponse result = await client.TrackAsync(user, event);
 ```
 
 ## EdgeDB
@@ -72,12 +69,12 @@ To get started, contact us at support@devcycle.com to enable EdgeDB for your pro
 Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to turn on EdgeDB mode for the SDK:
 
 ```csharp
-DVCCloudOptions options = new DVCCloudOptions(true);
-DVCCloudClient api = new DVCCloudClientBuilder()
-                            .SetSDKKey("<DVC_SERVER_SDK_KEY>")
-                            .SetOptions(options)
-                            .Build();
-var user = new User("test_user", "example@example.com");
+DevCycleCloudOptions options = new DevCycleCloudOptions(true);
+DevCycleCloudClient devcycleClient = new DevCycleCloudClientBuilder()
+                                        .SetSDKKey("<DEVCYCLE_SERVER_SDK_KEY>")
+                                        .SetOptions(options)
+                                        .Build();
+var user = new DevCycleUser("test_user", "example@example.com");
 ```
 
 This will send a request to our EdgeDB API to save the custom data under the user `test_user`.

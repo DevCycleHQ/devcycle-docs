@@ -9,13 +9,13 @@ sidebar_custom_props: {icon: toggle-on}
 [![Nuget](https://badgen.net/nuget/v/DevCycle.SDK.Server.Local)](https://www.nuget.org/packages/DevCycle.SDK.Server.Local/)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/dotnet-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/dotnet-server-sdk)
 
-## User Object
+## DevCycleUser Object
 The user object is required for all methods. The only required field in the user object is userId
 
-See the User class in [.NET User model doc](https://github.com/DevCycleHQ/dotnet-server-sdk/blob/main/docs/User.md) for all accepted fields.
+See the DevCycleUser class in [.NET DevCycleUser model doc](https://github.com/DevCycleHQ/dotnet-server-sdk/blob/main/docs/User.md) for all accepted fields.
 
 ```csharp
-User user = new User("a_user_id");
+DevCycleUser user = new DevCycleUser("a_user_id");
 ```
 
 ## Get and use Variable by key
@@ -51,10 +51,7 @@ To POST custom event for a user, pass in the user and event object.
 Calling Track will queue the event, which will be sent in batches to the DevCycle servers.
 
 ```csharp
-DateTimeOffset now = DateTimeOffset.UtcNow;
-long unixTimeMilliseconds = now.ToUnixTimeMilliseconds();
-
-var @event = new Event("test event", "test target", unixTimeMilliseconds, 600);
+var @event = new DevCycleEvent("test event", "test target");
 
 client.Track(user, @event);
 ```
@@ -77,7 +74,7 @@ client.FlushEvents();
 
 ## Set Client Custom Data
 
-To assist with segmentation and bucketing you can set a custom data dictionary that will be used for all variable and feature evaluations. User specific custom data will override client custom data.
+To assist with segmentation and bucketing you can set a custom data dictionary that will be used for all variable and feature evaluations. DevCycleUser specific custom data will override client custom data.
 
 ```csharp
 Dictionary<string, object> customData = new Dictionary<string, object>();
