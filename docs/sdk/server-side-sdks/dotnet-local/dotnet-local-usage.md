@@ -74,7 +74,8 @@ client.FlushEvents();
 
 ## Set Client Custom Data
 
-To assist with segmentation and bucketing you can set a custom data dictionary that will be used for all variable and feature evaluations. DevCycleUser specific custom data will override client custom data.
+To assist with segmentation and bucketing you can set a custom data dictionary that will be used for all variable and feature evaluations. 
+User specific custom data will override client custom data.
 
 ```csharp
 Dictionary<string, object> customData = new Dictionary<string, object>();
