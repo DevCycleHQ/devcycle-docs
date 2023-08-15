@@ -39,7 +39,7 @@ public class MyClass {
     private DevCycleCloudClient client;
 
     public MyClass() {
-        DevCycleCloudOptions options = DevCycleLocalOptions.builder()
+        DevCycleCloudOptions options = DevCycleCloudOptions.builder()
             .enableEdgeDB(false)
             .build();
         
