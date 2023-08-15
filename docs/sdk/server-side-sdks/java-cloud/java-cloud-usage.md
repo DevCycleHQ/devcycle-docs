@@ -13,7 +13,7 @@ sidebar_custom_props: {icon: toggle-on}
 ## DevCycleUser Object
 The user object is required for all methods. The only required field in the user object is userId
 
-See the DevCycleUser class in [Java DevCycleUser model doc](https://github.com/DevCycleHQ/java-server-sdk/blob/main/docs/User.md) for all accepted fields.
+See the DevCycleUser class in [Java DevCycleUser model doc](https://github.com/DevCycleHQ/java-server-sdk/blob/main/docs/DevCycleUser.md) for all accepted fields.
 
 ```java
 DevCycleUser user = DevCycleUser.builder()
