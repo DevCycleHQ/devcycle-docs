@@ -92,7 +92,7 @@ For getting the server-side SDK key from DevCycle, you can read this section ([h
 10.  Refresh your function's page
 11.  You should now see the following result in the page:
     
-    ![Screen Shot 2022-09-13 at 12.08.55 PM.png](/Screen_Shot_2022-09-13_at_12.08.55_PM.png)
+     ![Screen Shot 2022-09-13 at 12.08.55 PM.png](/Screen_Shot_2022-09-13_at_12.08.55_PM.png)
     
 
 ## Serverless with EdgeDB
