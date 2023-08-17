@@ -1,5 +1,5 @@
 !(function () {
-  var e = (window.rudderanalytics = window.rudderanalytics || [])
+  var e = (globalThis.rudderanalytics = globalThis.rudderanalytics || [])
   ;(e.methods = [
     'load',
     'page',
@@ -52,6 +52,6 @@
             : url,
         ])
       }
-      window.rudderanalytics.page()
+      globalThis.rudderanalytics.page()
     })
 })()
