@@ -66,10 +66,11 @@ To set the feature flags, make sure you have a DevCycle account [https://devcycl
     
 3. Add the environment variable `SERVER_KEY` under “Runtime environment variables” ([Related Google Doc](https://cloud.google.com/functions/docs/configuring/env-var) 
 For getting the server-side SDK key from DevCycle, you can read this section ([https://docs.devcycle.com/essentials/keys](/essentials/keys))
-    
-    ![Screen Shot 2022-09-13 at 11.51.57 AM.png](/Screen_Shot_2022-09-13_at_11.51.57_AM.png)
+	
+	 ![Screen Shot 2022-09-13 at 11.51.57 AM.png](/Screen_Shot_2022-09-13_at_11.51.57_AM.png)
     
 4. Click “Next” and enter the ([contents of the `index.js` from the example repo](https://github.com/DevCycleHQ/google-cloud-functions-example/blob/main/index.js)) into the Console
+
     ![Screen Shot 2022-09-13 at 11.47.59 AM.png](/Screen_Shot_2022-09-13_at_11.47.59_AM.png)
     
 5. Add the DevCycle SDK to `package.json`
@@ -91,8 +92,8 @@ For getting the server-side SDK key from DevCycle, you can read this section ([h
     
 10.  Refresh your function's page
 11.  You should now see the following result in the page:
-    
-     ![Screen Shot 2022-09-13 at 12.08.55 PM.png](/Screen_Shot_2022-09-13_at_12.08.55_PM.png)
+
+	 ![Screen Shot 2022-09-13 at 12.08.55 PM.png](/Screen_Shot_2022-09-13_at_12.08.55_PM.png)
     
 
 ## Serverless with EdgeDB
