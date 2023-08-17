@@ -13,8 +13,8 @@ const DVC_CLI_VERSION = 'v5.3.1' // auto updated by dvc cli release workflow
  */
 const config = {
   clientModules: [
-    require.resolve('./src/modules/mixpanelClientModule.js'),
-    require.resolve('./src/modules/rudderstackTrackingModule.js'),
+    require.resolve('./src/modules/analyticsModule.js'),
+    require.resolve('./src/modules/rudderstackClientModule.js'),
   ],
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
