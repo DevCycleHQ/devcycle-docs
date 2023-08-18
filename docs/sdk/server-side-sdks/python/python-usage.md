@@ -150,3 +150,16 @@ In the example, Email and Country are associated to the user `test`. In your nex
 EdgeDB is currently not available when using Local Bucketing.
 
 :::
+
+## Local Bucketing Proxy
+
+To further enable various deployment configurations - we provide a background process that can be used to proxy requests to the DevCycle API. This is useful when you have a more unique deployment style,
+or the SDK is not able to make requests to the DevCycle API directly. The installation and setup process for the proxy can be found here: https://github.com/DevCycleHQ/local-bucketing-proxy#readme.
+
+To configure the Python Server SDK to use this proxy as the source of the config, and events endpoints - the following changes need to be made to the `DevCycleOptions` object.
+
+```python
+    options = DevCycleLocalOptions(config_cdn_uri = "http://localhost:8080/", events_api_uri = "http://localhost:8080/")
+```
+
+Replace the `http://localhost:8080/` with the location of the proxy in your infrastructure.
