@@ -12,7 +12,10 @@ const DVC_CLI_VERSION = 'v5.4.1' // auto updated by dvc cli release workflow
  * @type {Partial<import('@docusaurus/types').DocusaurusConfig>}
  */
 const config = {
-  clientModules: [require.resolve('./src/modules/mixpanelClientModule.js')],
+  clientModules: [
+    require.resolve('./src/modules/analyticsModule.js'),
+    require.resolve('./src/modules/rudderstackClientModule.js'),
+  ],
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
   plugins: [
@@ -44,11 +47,11 @@ const config = {
       },
     ],
     [
-      "docusaurus-plugin-remote-content",
+      'docusaurus-plugin-remote-content',
       {
-        name: "cli",
+        name: 'cli',
         sourceBaseUrl: `https://raw.githubusercontent.com/DevCycleHQ/cli/${DVC_CLI_VERSION}`,
-        outDir: "docs/cli",
+        outDir: 'docs/cli',
         documents: [
           'README.md',
           'docs/alias.md',
@@ -80,7 +83,7 @@ const config = {
             }
           }
           return undefined
-        }
+        },
       },
     ],
   ],
@@ -157,15 +160,15 @@ const config = {
   favicon: 'devcycle_favicon.ico',
   scripts: [
     {
-      src:
-        "https://use.fontawesome.com/releases/v5.15.4/js/all.js",
+      src: 'https://use.fontawesome.com/releases/v5.15.4/js/all.js',
       async: true,
     },
   ],
   themeConfig: {
     announcementBar: {
       id: 'support_us',
-      content:'Ready to start feature flagging? Sign-up for a free <a target="_blank" rel="noopener noreferrer" href="https://devcycle.com">DevCycle account</a> today 🏳️',
+      content:
+        'Ready to start feature flagging? Sign-up for a free <a target="_blank" rel="noopener noreferrer" href="https://devcycle.com">DevCycle account</a> today 🏳️',
       backgroundColor: 'rgb(17 24 39)',
       textColor: '#FFFFFF',
       isCloseable: false,
@@ -279,7 +282,6 @@ const config = {
               target: '_blank',
               rel: null,
             },
-
           ],
         },
         {
