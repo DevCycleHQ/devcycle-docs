@@ -20,7 +20,7 @@ Each schema type requires  a **Brief Description**. For example, when defining a
 You also must set an **Example Value**. The example value will be used as the initial value for each variation when adding this variable to a feature.
 
 :::caution
-When adding a Variable Schema to an associated Variable or editing an existing Variable Schema for an associated Variable, please ensure that the new or updated Schema **does not** make the associated Feature's values invalid. 
+You will be unable to define or edit a Schema that makes the associated Feature’s values invalid.
 :::
 
 An **Enum** schema will allow you to input allowable values for a string or number variable. 
