@@ -53,7 +53,7 @@ The  [README in the example repo has more details regarding the Lambda Setup.](h
 [(You can get your Server KE the server-side SDK key from the DevCycle dashboard)](/essentials/keys)
 
 ```jsx
-const dvcClient = await DVC.initialize('<DEVCYCLE_SERVER_SDK_KEY>').onClientInitialized()
+const devcycleClient = await DVC.initialize('<DEVCYCLE_SERVER_SDK_KEY>').onClientInitialized()
 ```
 
 1. Create a new bucket for deployment artifacts by executing `1-create-bucket.sh`

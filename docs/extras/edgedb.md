@@ -48,7 +48,7 @@ const user = {
 const options = {
 	enableEdgeDB: true
 }
-const dvcClient = initialize('ENV_KEY', user, options)
+const devcycleClient = initialize('ENV_KEY', user, options)
 ```
 
 Once the data is sent to EdgeDB, you no longer need to specify it the next time the user logs in, even if it is from a different platform. Simply identify the user by `user_id`; in this case, it’s `'demo_user'`. The targeting rules will then use the data stored on EdgeDB for `'demo_user'`.
@@ -57,7 +57,7 @@ Once the data is sent to EdgeDB, you no longer need to specify it the next time 
 const user = {
 	user_id: 'demo_user'
 }
-dvcClient.identifyUser(user)
+devcycleClient.identifyUser(user)
 ```
 
 In the example above, `'demo_user'` will still receive the features based on their premium Pricing Plan because the data stored in EdgeDB was used for targeting.
@@ -105,7 +105,7 @@ For specific documentation on how to use Edge Flags with each SDK
 :::info
 **Data stored in EdgeDB is only used for user segmenting (targeting rules), so EdgeDB won’t return data to the SDK.**
 
-In the second block of code, if we tried to access `dvcClient.user.customData.pricingPlan`, it will be undefined. This does not mean the data is not in EdgeDB; it is simply because EdgeDB data is not returned to the SDK itself. However, the data will still be used for the targeting rules that were configured in the dashboard.
+In the second block of code, if we tried to access `devcycleClient.user.customData.pricingPlan`, it will be undefined. This does not mean the data is not in EdgeDB; it is simply because EdgeDB data is not returned to the SDK itself. However, the data will still be used for the targeting rules that were configured in the dashboard.
 
 **Keep user data on the server; feature flag on the client.**
 :::

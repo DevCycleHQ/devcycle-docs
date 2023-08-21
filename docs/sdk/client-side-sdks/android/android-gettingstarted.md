@@ -15,7 +15,7 @@ sidebar_custom_props: {icon: rocket}
 We recommend initializing the SDK once in `onCreate` of your `Application` class or `MainActivity` to receive features as soon as possible, and to pass around the client instance around in your app.
 
 Using the builder pattern we can initialize the DevCycle SDK by providing the `applicationContext`, 
-DVCUser, and DevCycle mobile SDK key:
+DevCycleUser, and DevCycle mobile SDK key:
 
 ### *Kotlin example:*
 
@@ -27,14 +27,14 @@ override fun onCreate(savedInstanceState: Bundle?) {
     // NOTE: It is not recommended to hardcode SDK keys into your application.
     // Consider storing keys securely and reading from secure storage.
 
-    val dvcClient: DVCClient = DVCClient.builder()
+    val devcycleClient: DevCycleClient = DevCycleClient.builder()
         .withContext(applicationContext)
         .withUser(
-            DVCUser.builder()
+            DevCycleUser.builder()
                 .withUserId("test_user")
                 .build()
         )
-        .withSDKKey("<DVC_MOBILE_SDK_KEY>")
+        .withSDKKey("<DEVCYCLE_MOBILE_SDK_KEY>")
         .build()
     
     ...
@@ -52,39 +52,39 @@ protected void onCreate(Bundle savedInstanceState) {
     // NOTE: It is not recommended to hardcode SDK keys into your application.
     // Consider storing keys securely and reading from secure storage.
 
-    DVCClient dvcClient = DVCClient.builder()
+    DevCycleClient devcycleClient = DevCycleClient.builder()
         .withContext(getApplicationContext())
         .withUser(
-            DVCUser.builder()
+            DevCycleUser.builder()
                 .withUserId("test_user")
                 .build()
             )
-        .withSDKKey("<DVC_MOBILE_SDK_KEY>")
+        .withSDKKey("<DEVCYCLE_MOBILE_SDK_KEY>")
         .build();
     
     ...
 }
 ```
 
-## DVC Client Builder
+## DevCycleClientBuilder
 
-The DVCClient can be built using the following methods:
+The DevCycleClient can be built using the following methods:
 
-[DVCClientBuilder class](https://github.com/DevCycleHQ/android-client-sdk/blob/main/android-client-sdk/src/main/java/com/devcycle/sdk/android/api/DVCClient.kt#L459)
+[DevCycleClientBuilder class](https://github.com/DevCycleHQ/android-client-sdk/blob/main/android-client-sdk/src/main/java/com/devcycle/sdk/android/api/DevCycleClient.kt#L545)
 
 | Method       | Parameter | Description                                                      |
 |--------------|-----------|------------------------------------------------------------------|
 | withContext  | Context | App context                                                      |
 | withSDKKey   | String | DevCycle SDK Key                                                 |
-| withUser     | [DVCUser](https://github.com/DevCycleHQ/android-client-sdk/blob/main/android-client-sdk/src/main/java/com/devcycle/sdk/android/model/DVCUser.kt#L6) | DevCycle user object                                             |
-| withOptions  | [DVCOptions](https://github.com/DevCycleHQ/android-client-sdk/blob/main/android-client-sdk/src/main/java/com/devcycle/sdk/android/api/DVCOptions.kt#L3) | DevCycle options object                                          |
+| withUser     | [DevCycleUser](https://github.com/DevCycleHQ/android-client-sdk/blob/main/android-client-sdk/src/main/java/com/devcycle/sdk/android/model/DevCycleUser.kt#L6) | DevCycle user object                                             |
+| withOptions  | [DevCycleOptions](https://github.com/DevCycleHQ/android-client-sdk/blob/main/android-client-sdk/src/main/java/com/devcycle/sdk/android/api/DevCycleOptions.kt#L3) | DevCycle options object                                          |
 | withLogger   | Timber.Tree | Logger override to replace default logger                        |
 | withLogLevel | [LogLevel](https://github.com/DevCycleHQ/android-client-sdk/blob/main/android-client-sdk/src/main/java/com/devcycle/sdk/android/util/LogLevel.kt#L5) | Set log level of the default logger. Defaults to `LogLevel.ERROR` |
 
-## DVC User Builder
-The DVC user can be built using the following methods:
+## DevCycleUserBuilder
+A DevCycleUser can be built using the following methods:
 
-[DVCUser Builder class](https://github.com/DevCycleHQ/android-client-sdk/blob/main/android-client-sdk/src/main/java/com/devcycle/sdk/android/model/DVCUser.kt#L15)
+[DevCycleUser Builder class](https://github.com/DevCycleHQ/android-client-sdk/blob/main/android-client-sdk/src/main/java/com/devcycle/sdk/android/model/DevCycleUser.kt#L15)
 
 | Method | Parameter | Description |
 |--------|-----------|-------------|
@@ -96,10 +96,10 @@ The DVC user can be built using the following methods:
 | withCustomData | Map<String, Any> | Key/value map of properties to be used for targeting |
 | withPrivateCustomData | Map<String, Any> | Key/value map of properties to be used for targeting. Private properties will not be included in event logging. |
 
-## DVC Options Builder
-The SDK exposes various initialization options which can be used by passing a `DVCOptions` object to the `withOptions` method of `DVCClient.builder()`:
+## DevCycleOptions Builder
+The SDK exposes various initialization options which can be used by passing a `DevCycleOptions` object to the `withOptions` method of `DevCycleClient.builder()`:
 
-[DVCOptions builder class](https://github.com/DevCycleHQ/android-client-sdk/blob/main/android-client-sdk/src/main/java/com/devcycle/sdk/android/api/DVCOptions.kt#L11)
+[DevCycleOptions builder class](https://github.com/DevCycleHQ/android-client-sdk/blob/main/android-client-sdk/src/main/java/com/devcycle/sdk/android/api/DevCycleOptions.kt#L11)
 
 | Method | Parameter | Default | Description |
 |--------|-----------|---------|-------------|
@@ -118,7 +118,7 @@ You can attach a callback on the client to determine when your features have bee
 ### Kotlin
 
 ```kotlin
-dvcClient.onInitialized(object : DVCCallback<String> {
+devcycleClient.onInitialized(object : DevCycleCallback<String> {
     override fun onSuccess(result: String) {
         // successfully initialized
     }
@@ -132,7 +132,7 @@ dvcClient.onInitialized(object : DVCCallback<String> {
 ### Java
 
 ```java
-dvcClient.onInitialized(new DVCCallback<String>() {
+devcycleClient.onInitialized(new DevCycleCallback<String>() {
     @Override
     public void onSuccess(String result) {
         // user configuration loaded successfully from DevCycle

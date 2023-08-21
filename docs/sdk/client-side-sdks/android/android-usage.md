@@ -18,18 +18,18 @@ the variable's identifier `key` coupled with a default value. The default value 
 ### *Kotlin example:*
 
 ```kotlin
-var strValue: String = dvcClient.variableValue("str_key", "default")
-var boolValue: Boolean = dvcClient.variableValue("bool_key", false)
-var numValue: Number = dvcClient.variableValue("num_key", 0)
-var jsonValue: JSONObject = dvcClient.variableValue("json_key", JSONObject("{ \"key\": \"value\" }"))
+var strValue: String = devcycleClient.variableValue("str_key", "default")
+var boolValue: Boolean = devcycleClient.variableValue("bool_key", false)
+var numValue: Number = devcycleClient.variableValue("num_key", 0)
+var jsonValue: JSONObject = devcycleClient.variableValue("json_key", JSONObject("{ \"key\": \"value\" }"))
 ```
 
 ### *Java example:*
 ```java
-String strValue = dvcClient.variableValue("str_key", "default");
-Boolean boolValue = dvcClient.variableValue("bool_key", false);
-Number numValue = dvcClient.variableValue("num_key", 0);
-JSONObject jsonValue = dvcClient.variableValue("json_key", new JSONObject().put("key", "value"));
+String strValue = devcycleClient.variableValue("str_key", "default");
+Boolean boolValue = devcycleClient.variableValue("bool_key", false);
+Number numValue = devcycleClient.variableValue("num_key", 0);
+JSONObject jsonValue = devcycleClient.variableValue("json_key", new JSONObject().put("key", "value"));
 ```
 
 If you would like to get the full `Variable` object using the `variable()` method it also contains the following params: 
@@ -51,7 +51,7 @@ To listen for updates, a callback can be registered using the `onUpdate()` metho
 ### *Kotlin example:*
 
 ```kotlin
-var variable: Variable<String> = dvcClient.variable("str_key", "default")
+var variable: Variable<String> = devcycleClient.variable("str_key", "default")
 variable.onUpdate {
     // grab the variable value using it.value
 }
@@ -60,7 +60,7 @@ variable.onUpdate {
 ### *Java example:*
 
 ```java
-Variable<String> variable = dvcClient.variable("str_key", "default");
+Variable<String> variable = devcycleClient.variable("str_key", "default");
 variable.onUpdate((result) -> {
     // use the new value result.getValue()
     return Unit.INSTANCE;
@@ -74,13 +74,13 @@ To get all the Variables returned in the config:
 ### *Kotlin example:*
 
 ```kotlin
-var variables: Map<String, BaseConfigVariable>? = dvcClient.allVariables()
+var variables: Map<String, BaseConfigVariable>? = devcycleClient.allVariables()
 ```
 
 ### *Java example:*
 
 ```java
-Map<String, BaseConfigVariable> variables = dvcClient.allVariables();
+Map<String, BaseConfigVariable> variables = devcycleClient.allVariables();
 ```
 
 If the SDK has not finished initializing, these methods will return an empty Map.
@@ -92,51 +92,51 @@ To grab all the Features returned in the config:
 ### *Kotlin example:*
 
 ```kotlin
-var features: Map<String, Feature>? = dvcClient.allFeatures()
+var features: Map<String, Feature>? = devcycleClient.allFeatures()
 ```
 
 ### *Java example:*
 
 ```java
-Map<String, Feature<Object>> variables = dvcClient.allFeatures();
+Map<String, Feature<Object>> variables = devcycleClient.allFeatures();
 ```
 
 If the SDK has not finished initializing, these methods will return an empty Map.
 
 ## Identifying User
 
-To identify a different user, or the same user passed into the initialize method with more attributes, build a DVCUser object and pass it into `identifyUser`:
+To identify a different user, or the same user passed into the initialize method with more attributes, build a DevCycleUser object and pass it into `identifyUser`:
 
 Note: If you do not have a user ID, you can use any string at all.
 
 ### *Kotlin example:*
 
 ```kotlin
-var user = DVCUser.builder()
+var user = DevCycleUser.builder()
                 .withUserId("test_user")
                 .withEmail("test_user@devcycle.com")
                 .withCustomData(mapOf("custom_key" to "value"))
                 .build()
-dvcClient.identifyUser(user)
+devcycleClient.identifyUser(user)
 ```
 
 ### *Java example:*
 
 ```java
-DVCUser user = DVCUser.builder()
+DevCycleUser user = DevCycleUser.builder()
                     .withUserId("test_user")
                     .withEmail("test_user@devcycle.com")
                     .withCustomData(Collections.singletonMap("custom_key", "value"))
                     .build();
-dvcClient.identifyUser(user);
+devcycleClient.identifyUser(user);
 ```
 
-To wait on Variables that will be returned from the identify call, you can pass in a DVCCallback:
+To wait on Variables that will be returned from the identify call, you can pass in a DevCycleCallback:
 
 ### *Kotlin example:*
 
 ```kotlin
-dvcClient.identifyUser(user, object: DVCCallback<Map<String, BaseConfigVariable>> {
+devcycleClient.identifyUser(user, object: DevCycleCallback<Map<String, BaseConfigVariable>> {
     override fun onSuccess(result: Map<String, BaseConfigVariable>) {
         // new user configuration loaded successfully from DevCycle
     }
@@ -150,7 +150,7 @@ dvcClient.identifyUser(user, object: DVCCallback<Map<String, BaseConfigVariable>
 ### *Java example:*
 
 ```java
-dvcClient.identifyUser(user, new DVCCallback<Map<String, BaseConfigVariable>>() {
+devcycleClient.identifyUser(user, new DevCycleCallback<Map<String, BaseConfigVariable>>() {
     @Override
     public void onSuccess(Map<String, BaseConfigVariable> result) {
         // new user configuration loaded successfully from DevCycle
@@ -170,15 +170,15 @@ If `onError` is called the user's configuration will not be updated and previous
 Calling `resetUser` will create a new user with an anonymous `user_id` and then identify as that user.
 
 ```kotlin
-dvcClient.resetUser()
+devcycleClient.resetUser()
 ```
 
 ### *Kotlin example:*
 
-To wait on the Features of the anonymous user, you can pass in a DVCCallback:
+To wait on the Features of the anonymous user, you can pass in a DevCycleCallback:
 
 ```kotlin
-dvcClient.resetUser(object : DVCCallback<Map<String, BaseConfigVariable>> {
+devcycleClient.resetUser(object : DevCycleCallback<Map<String, BaseConfigVariable>> {
     override fun onSuccess(result: Map<String, BaseConfigVariable>) {
         // anonymous user configuration loaded successfully from DevCycle
     }
@@ -192,7 +192,7 @@ dvcClient.resetUser(object : DVCCallback<Map<String, BaseConfigVariable>> {
 ### *Java example:*
 
 ```java
-dvcClient.resetUser(new DVCCallback<Map<String, BaseConfigVariable>>() {
+devcycleClient.resetUser(new DevCycleCallback<Map<String, BaseConfigVariable>>() {
     @Override
     public void onSuccess(Map<String, BaseConfigVariable> result) {
         // anonymous user configuration loaded successfully from DevCycle
@@ -215,25 +215,25 @@ To send events to DevCycle for metrics purposes, build an event object and then 
 ### *Kotlin example:*
 
 ```kotlin
-var event = DVCEvent.builder()
+var event = DevCycleEvent.builder()
                 .withType("custom_event_type") //Only Required
                 .withTarget("custom_event_target")
                 .withValue(BigDecimal(10.0))
                 .withMetaData(mapOf("custom_key" to "value"))
                 .build()
-dvcClient.track(event)
+devcycleClient.track(event)
 ```
 
 ### *Java example:*
 
 ```java
-DVCEvent event = DVCEvent.builder()
+DevCycleEvent event = DevCycleEvent.builder()
         .withType("custom_event_type") //Only Required Field
         .withTarget("custom_event_target")
         .withValue(BigDecimal.valueOf(10.00))
         .withMetaData(Collections.singletonMap("test", "value"))
         .build();
-dvcClient.track(event);
+devcycleClient.track(event);
 ```
 
 The SDK will flush events every 10s or `flushEventsMS` specified in the options. 
@@ -243,7 +243,7 @@ The SDK will flush events every 10s or `flushEventsMS` specified in the options.
 To manually flush events, call:
 
 ```kotlin
-dvcClient.flushEvents()
+devcycleClient.flushEvents()
 ```
 
 A callback can be passed to this method to be notified when the method has completed:
@@ -251,7 +251,7 @@ A callback can be passed to this method to be notified when the method has compl
 ### *Kotlin example:*
 
 ```kotlin
-dvcClient.flushEvents(object: DVCCallback<String> {
+devcycleClient.flushEvents(object: DevCycleCallback<String> {
     override fun onSuccess(result: String) {
         // The queue was successfully flushed
     }
@@ -265,7 +265,7 @@ dvcClient.flushEvents(object: DVCCallback<String> {
 ### *Java example:*
 
 ```java
-dvcClient.flushEvents(new DVCCallback<String>() {
+devcycleClient.flushEvents(new DevCycleCallback<String>() {
     @Override
     public void onSuccess(String result) {
         // The queue was successfully flushed
@@ -288,24 +288,24 @@ Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to
 
 ### *Kotlin example:*
 ```kotlin
-var user: DVCUser = DVCUser.builder()
+var user: DevCycleUser = DevCycleUser.builder()
                     .withUserId("test_user")
                     .withCustomData(mapOf("amountSpent" to 12.23))
                     .build()
                  
-let options: DVCOptions = DVCOptions.builder()
+let options: DevCycleOptions = DevCycleOptions.builder()
                             .enableEdgeDB(true)
                             .build()
 ```
 
 ### *Java example:*
 ```java
-DVCUser user = DVCUser.builder()
+DevCycleUser user = DevCycleUser.builder()
                 .withUserId("test_user")
                 .withCustomData(Collections.singletonMap("amountSpent", 12.23))
                 .build();
 
-DVCOptions options = DVCOptions.builder()
+DevCycleOptions options = DevCycleOptions.builder()
                 .enableEdgeDB(true)
                 .build();
 ```

@@ -20,18 +20,18 @@ the variable's identifier `key` coupled with a default value. The default value 
 
 ### Swift
 ```swift
-let boolValue = dvcClient.variableValue(key: "bool_key", defaultValue: false)
-let strValue = dvcClient.variableValue(key: "string_key", defaultValue: "default")
-let numValue = dvcClient.variableValue(key: "num_key", defaultValue: 4)
-let jsonValue = dvcClient.variableValue(key: "json_key", defaultValue: [:])
+let boolValue = devcycleClient.variableValue(key: "bool_key", defaultValue: false)
+let strValue = devcycleClient.variableValue(key: "string_key", defaultValue: "default")
+let numValue = devcycleClient.variableValue(key: "num_key", defaultValue: 4)
+let jsonValue = devcycleClient.variableValue(key: "json_key", defaultValue: [:])
 ```
 
 ### Objective-C
 ```objc
-Bool boolValue = [self.dvcClient boolVariableValueWithKey:@"bool_key" defaultValue:false];
-NSString *strValue = [self.dvcClient stringVariableValueWithKey:@"string_key" defaultValue:@"default"];
-NSNumber *numValue = [self.dvcClient numberVariableValueWithKey:@"num_key" defaultValue:@4];
-NSObject *jsonValue = [self.dvcClient jsonVariableValueWithKey:@"json_key" defaultValue:@{}];
+Bool boolValue = [self.devcycleClient boolVariableValueWithKey:@"bool_key" defaultValue:false];
+NSString *strValue = [self.devcycleClient stringVariableValueWithKey:@"string_key" defaultValue:@"default"];
+NSNumber *numValue = [self.devcycleClient numberVariableValueWithKey:@"num_key" defaultValue:@4];
+NSObject *jsonValue = [self.devcycleClient jsonVariableValueWithKey:@"json_key" defaultValue:@{}];
 ```
 
 If you would like to get the full `Variable` object using the `variable()` method it also contains the following params:
@@ -54,7 +54,7 @@ variable is needed for `onUpdate` to be triggered.
 
 ### Swift
 ```swift
-let boolVariable = dvcClient.variable(key: "bool_key", defaultValue: false)
+let boolVariable = devcycleClient.variable(key: "bool_key", defaultValue: false)
                         .onUpdate { value in
     // Variable value updated
 }
@@ -62,7 +62,7 @@ let boolVariable = dvcClient.variable(key: "bool_key", defaultValue: false)
 
 ### Objective-C
 ```objc
-DVCVariable *boolVar = [[self.dvcClient boolVariableWithKey:@"bool_key" defaultValue:true]
+DVCVariable *boolVar = [[self.devcycleClient boolVariableWithKey:@"bool_key" defaultValue:true]
                         onUpdateWithHandler:^(id _Nonnull value) {
     // Variable value updated
 }];
@@ -77,13 +77,13 @@ To get all the Features returned in the config:
 **Swift**
 
 ```swift
-let features: [String: Feature] = dvcClient.allFeatures()
+let features: [String: Feature] = devcycleClient.allFeatures()
 ```
 
 **Objective C**
 
 ```objc
-NSDictionary *allFeatures = [self.dvcClient allFeatures];
+NSDictionary *allFeatures = [self.devcycleClient allFeatures];
 ```
 
 If the SDK has not finished initializing, these methods will return an empty object.
@@ -95,13 +95,13 @@ To get all the variables returned in the config:
 **Swift**
 
 ```swift
-let variables: [String: Variable] = dvcClient.allVariables()
+let variables: [String: Variable] = devcycleClient.allVariables()
 ```
 
 **Objective-C**
 
 ```objc
-NSDictionary *allVariables = [self.dvcClient allVariables];
+NSDictionary *allVariables = [self.devcycleClient allVariables];
 ```
 
 If the SDK has not finished initializing, these methods will return an empty object.
@@ -109,12 +109,12 @@ If the SDK has not finished initializing, these methods will return an empty obj
 ## Identifying User
 
 To identify a different user, or the same user passed into the initialize method with more attributes, 
-build a DVCUser object and pass it into `identifyUser`:
+build a DevCycleUser object and pass it into `identifyUser`:
 
 ### Swift
 ```swift
 do {
-    let user = try DVCUser.builder()
+    let user = try DevCycleUser.builder()
                         .userId("my-user1")
                         .email("my-email@email.com")
                         .country("CA")
@@ -123,15 +123,15 @@ do {
                         .customData([ "customkey": "customValue" ])
                         .privateCustomData([ "customkey2": "customValue2" ])
                         .build()
-    try dvcClient.identifyUser(user: user)
+    try devcycleClient.identifyUser(user: user)
 } catch {
-    print("Error building new DVCUser: \(error)")
+    print("Error building new DevCycleUser: \(error)")
 }
 ```
 
 ### Objective-C
 ```objc
-DVCUser *user = [DVCUser initializeWithUserId:@"my-user1"];
+DevCycleUser *user = [DevCycleUser initializeWithUserId:@"my-user1"];
 user.email = @"my-email@email.com";
 user.appBuild = @1005;
 user.appVersion = @"1.1.1";
@@ -141,18 +141,18 @@ user.language = @"EN";
 user.customData = @{@"customKey": @"customValue"};
 user.privateCustomData = @{@"customkey2": @"customValue2"};
 
-[self.dvcClient identifyUser:user callback:^(NSError *error, NSDictionary<NSString *,id> *variables) {
+[self.devcycleClient identifyUser:user callback:^(NSError *error, NSDictionary<NSString *,id> *variables) {
     if (error) {
-        return NSLog(@"Error calling DVCClient identifyUser:callback: %@", error);
+        return NSLog(@"Error calling DevCycleClient identifyUser:callback: %@", error);
     }
 }];
 ```
 
-To wait on Variables that will be returned from the identify call, you can pass in a DVCCallback:
+To wait on Variables that will be returned from the identify call, you can pass in a DevCycleCallback:
 
 ### Swift
 ```swift
-try dvcClient.identifyUser(user: user) { error, variables in
+try devcycleClient.identifyUser(user: user) { error, variables in
     if (error != nil) {
         // error identifying user
     } else {
@@ -163,7 +163,7 @@ try dvcClient.identifyUser(user: user) { error, variables in
 
 ### Objective-C
 ```objc
-[self.dvcClient identifyUser:user callback:^(NSError *error, NSDictionary<NSString *,id> *variables) {
+[self.devcycleClient identifyUser:user callback:^(NSError *error, NSDictionary<NSString *,id> *variables) {
     if (error) {
         // error identifying user
     } else {
@@ -181,26 +181,26 @@ or will create one with an anonymous `user_id`.
 
 ### Swift
 ```swift
-try dvcClient.resetUser()
+try devcycleClient.resetUser()
 ```
 
 ### Objective-C
 ```objc
-[self.dvcClient resetUser:nil];
+[self.devcycleClient resetUser:nil];
 ```
 
-To wait on the Features of the anonymous user, you can pass in a DVCCallback:
+To wait on the Features of the anonymous user, you can pass in a DevCycleCallback:
 
 ### Swift
 ```swift
-try dvcClient.resetUser { error, variables in
+try devcycleClient.resetUser { error, variables in
     // anonymous user
 }
 ```
 
 ### Objective-C
 ```objc
-[self.dvcClient resetUser:^(NSError *error, NSDictionary<NSString *,id> *variables) {
+[self.devcycleClient resetUser:^(NSError *error, NSDictionary<NSString *,id> *variables) {
     if (error) {
         // Error resetting user, existing user used
     } else {
@@ -218,23 +218,23 @@ To track events, pass in an object with at least a `type` key:
 
 ### Swift
 ```swift
-let event = try DVCEvent.builder()
+let event = try DevCycleEvent.builder()
                         .type("my_event")
                         .target("my_target")
                         .value(3)
                         .metaData([ "key": "value" ])
                         .clientDate(Date())
                         .build()
-dvcClient.track(event)
+devcycleClient.track(event)
 ```
 
 ### Objective-C
 ```objc
 NSError *err = nil;
-DVCEvent *event = [DVCEvent initializeWithType:@"my-event"];
-[self.dvcClient track:event err:&err];
+DevCycleEvent *event = [DevCycleEvent initializeWithType:@"my-event"];
+[self.devcycleClient track:event err:&err];
 if (err) {
-    NSLog(@"Error calling DVCClient track:err: %@", err);
+    NSLog(@"Error calling DevCycleClient track:err: %@", err);
 }
 ```
 
@@ -242,12 +242,12 @@ The SDK will flush events every 10s or `flushEventsMS` specified in the options.
 
 ### Swift
 ```swift
-dvcClient.flushEvents()
+devcycleClient.flushEvents()
 ```
 
 ### Objective-C
 ```objc
-[self.dvcClient flushEvents];
+[self.devcycleClient flushEvents];
 ```
 
 ## EdgeDB
@@ -260,24 +260,24 @@ Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to
 
 ### Swift
 ```swift
-let user = try? DVCUser.builder()
+let user = try? DevCycleUser.builder()
                        .userId("test-user")
                        .customData([ "amountSpent": 50 ])
                        .build()
                  
-let options = DVCOptions.builder()
+let options = DevCycleOptions.builder()
                         .enableEdgeDB(true)
                         .build()
 ```
 
 ### Objective-C
 ```objc
-DVCUser *user = [DVCUser initializeWithUserId:@"test-user"];
+DevCycleUser *user = [DevCycleUser initializeWithUserId:@"test-user"];
 user.customData = @{
     @"amountSpent": @50,
 };
 
-DVCOptions *options = [[DVCOptions alloc] init];
+DevCycleOptions *options = [[DevCycleOptions alloc] init];
 options.enableEdgeDB = @true;
 ```
 
