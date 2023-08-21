@@ -73,7 +73,7 @@ For Objective-C we use a standard callback pattern to initialize the DevCycle SD
 
 The DevCycleClient can be built using the following methods:
 
-[DevCycleClientBuilder class](https://github.com/DevCycleHQ/ios-client-sdk/blob/4c69260ce89fd7c38245f48b99aa973e08ba05ca/DevCycle/DevCycleClient.swift#L371)
+[DevCycleClientBuilder class](https://github.com/DevCycleHQ/ios-client-sdk/blob/main/DevCycle/DevCycleClient.swift#L371)
 
 | Method  | Parameter | Description             |
 |---------|-----------|-------------------------|
