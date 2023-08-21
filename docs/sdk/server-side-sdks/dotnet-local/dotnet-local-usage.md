@@ -90,10 +90,4 @@ client.SetClientCustomData(customData);
 To further enable various deployment configurations - we provide a background process that can be used to proxy requests to the DevCycle API. This is useful when you have a more unique deployment style,
 or the SDK is not able to make requests to the DevCycle API directly. The installation and setup process for the proxy can be found here: https://github.com/DevCycleHQ/local-bucketing-proxy#readme.
 
-To configure the DotNet Server SDK to use this proxy as the source of the config, and events endpoints - the following changes need to be made to the `DevCycleLocalOptions` object.
-
-```csharp
-    var options = new DevCycleLocalOptions{ CdnUri = "http://localhost:8080/", EventsApiUri = "http://localhost:8080/"}
-```
-
-Replace the `http://localhost:8080/` with the location of the proxy in your infrastructure.
+See the [Local Bucketing Proxy](/sdk/local-bucketing-proxy/) section for more information.
