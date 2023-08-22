@@ -4,24 +4,26 @@ title: Usage
 
 ## Running the Proxy
 
-The proxy only requires a single
-The proxy can be started by just executing the binary:
+For a quick setup and test environment, the proxy only requires a single environment variable to be set; `DVC_LB_PROXY_SDK_KEY`. 
+This key is used to authenticate to the CDN and Events API, as well 
+You can alternatively pass in a full configured file instead of the environment variables via the `-c` flag.
+
+Once the environment variable has been set - start the proxy binary.
 
 ```bash
-
-$ devcycle-local-bucketing-proxy
-
-HTTP server started on port 8080
+devcycle-local-bucketing-proxy
 ```
 
-At this point the proxy is live and ready to accept requests from any SDK that is supported.
+At this point the proxy is live and ready to accept requests from any SDK that is supported. The default configuration 
+is to start a TCP server on `localhost:8080`.
 
 # SDK Configuration
 
 Not all SDK's are configured the same way. Please see the SDK documentation for specific configuration instructions.
-Certain SDK's are not recommended, or supported to be used with the proxy; specifically all Mobile and Client SDK's are not supported.
-The default configuration of the proxy will start run at `localhost:8080` and the SDKs would be configured as follows:
-The below configurations are verified to work with the proxy:
+Currently only Server SDK's are supported. The default configuration of the proxy will start run at `localhost:8080` 
+in HTTP TCP mode. 
+
+Sample configurations for each SDK verified to work with the proxy are below.
 
 ## PHP SDK Configuration
 
