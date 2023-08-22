@@ -19,7 +19,7 @@ At this point the proxy is live and ready to accept requests from any SDK that i
 # SDK Configuration
 
 Not all SDK's are configured the same way. Please see the SDK documentation for specific configuration instructions.
-Certain SDK's are not recommended, or supported to be used with the proxy; specifically all Mobile SDK's are not supported.
+Certain SDK's are not recommended, or supported to be used with the proxy; specifically all Mobile and Client SDK's are not supported.
 The default configuration of the proxy will start run at `localhost:8080` and the SDKs would be configured as follows:
 The below configurations are verified to work with the proxy:
 
