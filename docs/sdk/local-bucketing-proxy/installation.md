@@ -75,4 +75,5 @@ to `/usr/bin/devcycle-local-bucketing-proxy`.
 You will need to configure a separate supervisor/orchestrator such as `systemd` or `upstart` if no you need to create a
 long-lived process.
 
-We recommend keeping the logging output of the proxy available as it streams 
+We recommend keeping the logging output of the proxy available as it streams to `stdout` and `stderr` by default.
+to enable debug logging, set the `GIN_MODE` environment variable to `debug`.
