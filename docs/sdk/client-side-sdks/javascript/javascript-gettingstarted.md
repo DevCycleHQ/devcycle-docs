@@ -44,7 +44,7 @@ const devcycleClient = initializeDevCycle("<DEVCYCLE_CLIENT_SDK_KEY>", user, dvc
 
 The SDK exposes various initialization options which can be set on the `initialization()` method:
 
-[DVCOptions Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L44)
+[DevCycleOptions Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L44)
 
 | DevCycle Option        | Type                                                                                                     | Description                                                                                                    |
 | ---------------------- |----------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|

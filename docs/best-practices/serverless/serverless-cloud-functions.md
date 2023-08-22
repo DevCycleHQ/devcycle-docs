@@ -112,7 +112,7 @@ First, you need to enable EdgeDB in the DevCycle Dashboard
 With the [DevCycle NodeJs SDK ](/sdk/server-side-sdks/node) we use the `enableCloudBucketing` and `enableEdgeDB` options to enable EdgeDB usage. ([SDK initialization option details: ](/sdk/server-side-sdks/node/node-gettingstarted#initialization-options))
 
 ```jsx
-const dvcClient = DVC.initialize(serverKey, {
+const devcycleClient = DVC.initialize(serverKey, {
         enableCloudBucketing: true,
         enableEdgeDB: true
     });
@@ -128,9 +128,9 @@ const userWithAllData = {
 	  email: "vip@email.ca"
 };
 
-const { value: hasCampaign } = await dvcClient.variable(userWithAllData, "campaign-switch", false);
-const { value: campaignData } = await dvcClient.variable({ user_id: "testuser_1234333" }, "campaign-details", {});
-const { value: proposedCampaignTitle } = await dvcClient.variable({ user_id: "testuser_1234333" }, "dec-campaign-proposed-name", "");
+const { value: hasCampaign } = await devcycleClient.variable(userWithAllData, "campaign-switch", false);
+const { value: campaignData } = await devcycleClient.variable({ user_id: "testuser_1234333" }, "campaign-details", {});
+const { value: proposedCampaignTitle } = await devcycleClient.variable({ user_id: "testuser_1234333" }, "dec-campaign-proposed-name", "");
 ```
 
 With the`VIP` variation set in `dec-campaign-proposed-name`, we can head to the `dec-campaign-proposed-name` Feature in the dashboard and test EdgeDB:
@@ -144,7 +144,7 @@ With the`VIP` variation set in `dec-campaign-proposed-name`, we can head to the 
 5. Go back to the google cloud function URL and refresh, you should see the “title” change to “VIP” which means we don’t need to pass in email in the below variable request and get the data `email` from EdgeDB!
 
 ```jsx
-const { value: proposedCampaignTitle } = await dvcClient.variable({ user_id: "testuser_1234333" }, "dec-campaign-proposed-name", "");
+const { value: proposedCampaignTitle } = await devcycleClient.variable({ user_id: "testuser_1234333" }, "dec-campaign-proposed-name", "");
 ```
 
 
