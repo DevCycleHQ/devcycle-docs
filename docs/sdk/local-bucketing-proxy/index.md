@@ -7,6 +7,9 @@ title: Overview
 
 Deployment scenarios exists where either the deployed SDK cannot reach out to the DevCycle Config CDN or Events API, or
 the Bucketing API in the case of a Cloud SDK.
+The proxy was created to solve the problem of certain languages not supporting the concepts needed to maintain an efficient
+local bucketing environment for the DevCycle SDK's (PHP). This has since expanded to support a larger set of functionality
+to enable more deployment scenarios.
 
 The DevCycle Local Bucketing Proxy is a standalone process that can be run alongside your application or on a separate
 host in your environment.
