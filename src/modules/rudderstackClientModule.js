@@ -40,20 +40,6 @@
       e.loadJS(),
       e.load('2U4ReRYBAsyeoBkDlIW9P4CitLU', 'https://analytics.devcycle.com', {
         configUrl: 'https://analytics.devcycle.com',
-      }),
-      e.ready(() => {
-        var open = XMLHttpRequest.prototype.open
-        XMLHttpRequest.prototype.open = function () {
-          var method = arguments[0]
-          var url = arguments[1]
-          open.apply(this, [
-            method,
-            url === 'https://analytics.devcycle.com/v1/track'
-              ? 'https://analytics.devcycle.com/v1/t'
-              : url,
-          ])
-        }
-        globalThis.rudderanalytics.page()
       })
   }
 })()
