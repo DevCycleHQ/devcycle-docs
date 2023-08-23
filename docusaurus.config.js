@@ -157,7 +157,7 @@ const config = {
       ? 'https://' + process.env.VERCEL_URL
       : 'http://localhost:3000',
   baseUrl: '/',
-  favicon: 'devcycle_favicon.ico',
+  favicon: 'devcycle_favicon.svg',
   scripts: [
     {
       src: 'https://use.fontawesome.com/releases/v5.15.4/js/all.js',
