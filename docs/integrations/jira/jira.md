@@ -5,12 +5,18 @@ title: DevCycle Feature Flag Management for Jira
 import CustomDocCardList from '@site/src/components/CustomDocCardList'
 import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 
-**[Jira Marketplace Listing](https://marketplace.atlassian.com/apps/1227643/devcycle-feature-flag-management-for-jira)**
-
 ### Setup
 
-<CustomDocCardList columnWidth={8} items={[
+<CustomDocCardList columnWidth={6} items={[
   {
+    type: 'link',
+    href: 'https://marketplace.atlassian.com/apps/1227643/devcycle-feature-flag-management-for-jira',
+    label: 'Jira Marketplace Listing',
+    description: 'Install DevCycle Feature Flag Management for Jira',
+    iconSet: 'fab',
+    icon:'jira'
+  },
+   {
     type: 'link',
     href: '/integrations/Jira/jira-integration',
     label: 'Jira Integration Setup',
