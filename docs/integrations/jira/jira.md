@@ -18,7 +18,7 @@ import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
   },
    {
     type: 'link',
-    href: '/integrations/Jira/jira-integration',
+    href: '/integrations/jira/jira-setup',
     label: 'Jira Integration Setup',
     description: 'Setup DevCycle Feature Flag Management for Jira',
     iconSet: 'fab',
