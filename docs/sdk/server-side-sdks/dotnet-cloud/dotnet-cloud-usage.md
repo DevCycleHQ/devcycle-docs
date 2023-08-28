@@ -87,4 +87,4 @@ you may omit any of the data you've sent already as it will be pulled from the E
 To further enable various deployment configurations - we provide a background process that can be used to proxy requests to the DevCycle API. This is useful when you have a more unique deployment style,
 or the SDK is not able to make requests to the DevCycle API directly. The installation and setup process for the proxy can be found here: https://github.com/DevCycleHQ/local-bucketing-proxy#readme.
 
-See the [Local Bucketing Proxy](/sdk/local-bucketing-proxy/) section for more information.
+See the [Local Bucketing Proxy](../../sdk-proxy/index.md) section for more information.

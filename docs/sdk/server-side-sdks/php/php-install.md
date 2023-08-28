@@ -48,7 +48,7 @@ or on a separate host in your environment. This proxy mimics the Cloud Bucketing
 variable evaluations due to the reduction of network latency and config caching; 
 all powered by DevCycle's high performance Go Server SDK.
 
-See [Local Bucketing Proxy](/sdk/local-bucketing-proxy/) for more information.
+See the [Local Bucketing Proxy](../../sdk-proxy/index.md) section for more information.
 
 
 
