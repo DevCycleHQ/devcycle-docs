@@ -41,7 +41,7 @@ Alternatively - it can be configured via environment variables. The following en
 
 ### Environment Variables
 
-`DVC_LB_PROXY_SDK_KEY` is the only required environment variable if not using a configuration file 
+`DVC_LB_PROXY_SDK_KEY` is the only required environment variable if not using a configuration file
 
 | KEY                                                    | TYPE          | DEFAULT | DESCRIPTION                                                                     |
 |--------------------------------------------------------|---------------|---------|---------------------------------------------------------------------------------|
@@ -51,12 +51,12 @@ Alternatively - it can be configured via environment variables. The following en
 | DVC_LB_PROXY_UNIX_SOCKET_ENABLED                       | True or False | false   | Whether to enable the Unix socket. Defaults to false.                           |
 | DVC_LB_PROXY_HTTP_ENABLED                              | True or False | true    | Whether to enable the HTTP server. Defaults to true.                            |
 | DVC_LB_PROXY_SDK_KEY                                   | String        |         | The Server SDK key to use for this instance.                                    |
-| DVC_LB_PROXY_PLATFORMDATA_SDKTYPE                      | String        |         |                                                                                 |
-| DVC_LB_PROXY_PLATFORMDATA_SDKVERSION                   | String        |         |                                                                                 |
-| DVC_LB_PROXY_PLATFORMDATA_PLATFORMVERSION              | String        |         |                                                                                 |
-| DVC_LB_PROXY_PLATFORMDATA_DEVICEMODEL                  | String        |         |                                                                                 |
-| DVC_LB_PROXY_PLATFORMDATA_PLATFORM                     | String        |         |                                                                                 |
-| DVC_LB_PROXY_PLATFORMDATA_HOSTNAME                     | String        |         |                                                                                 |
+| DVC_LB_PROXY_PLATFORMDATA_SDKTYPE                      | String        |         | Internal variable, setting a value other than default is not recommended.       |
+| DVC_LB_PROXY_PLATFORMDATA_SDKVERSION                   | String        |         | Internal variable, setting a value other than default is not recommended.       |
+| DVC_LB_PROXY_PLATFORMDATA_PLATFORMVERSION              | String        |         | Internal variable, setting a value other than default is not recommended.       |
+| DVC_LB_PROXY_PLATFORMDATA_DEVICEMODEL                  | String        |         | Internal variable, setting a value other than default is not recommended.       |
+| DVC_LB_PROXY_PLATFORMDATA_PLATFORM                     | String        |         | Internal variable, setting a value other than default is not recommended.       |
+| DVC_LB_PROXY_PLATFORMDATA_HOSTNAME                     | String        |         | Internal variable, setting a value other than default is not recommended.       |
 | DVC_LB_PROXY_SDKCONFIG_EVENT_FLUSH_INTERVAL_MS         | Duration      |         | The interval at which events are flushed to the events api in milliseconds.     |
 | DVC_LB_PROXY_SDKCONFIG_CONFIG_POLLING_INTERVAL_MS      | Duration      |         | The interval at which the SDK polls the config CDN for updates in milliseconds. |
 | DVC_LB_PROXY_SDKCONFIG_REQUEST_TIMEOUT                 | Duration      |         | The timeout for requests to the config CDN and events API in milliseconds.      |
