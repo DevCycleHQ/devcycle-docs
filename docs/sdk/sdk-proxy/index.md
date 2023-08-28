@@ -7,8 +7,10 @@ title: Overview
 
 Deployment scenarios exists where either the deployed SDK cannot reach out to the DevCycle Config CDN or Events API, or
 the Bucketing API in the case of a Cloud SDK.
-The proxy was created to solve the problem of certain languages not supporting the concepts needed to maintain an efficient
-local bucketing environment for the DevCycle SDKs (PHP). This has since expanded to support a larger set of functionality
+The proxy was created to solve the problem of certain languages not supporting the concepts needed to maintain an
+efficient
+local bucketing environment for the DevCycle SDKs (PHP). This has since expanded to support a larger set of
+functionality
 to enable more deployment scenarios.
 
 The DevCycle SDK Proxy is a standalone process that can be run alongside your application or on a separate
@@ -28,7 +30,6 @@ sockets for PHP deployments.
 | Sidecar deployment                   | Yes           | Yes                    |
 | Multiple concurrent proxies          | Yes           | Yes                    |
 
-
 ## Architecture
 
 Below is an example of the connections that are made by a server SDK in various configurations to help better understand
@@ -36,21 +37,19 @@ the deployment options and hw
 
 ### Without SDK Proxy
 
-Each instance of a local bucketing SDK will connect to the DevCycle Config CDN; as well as the DevCycle Events API to 
-submit events. While Cloud bucketing server SDKs will connect to the Bucketing API which then handles the config 
+Each instance of a local bucketing SDK will connect to the DevCycle Config CDN; as well as the DevCycle Events API to
+submit events. While Cloud bucketing server SDKs will connect to the Bucketing API which then handles the config
 retrieval and event submission for variable evaluations.
-
-
-![Server SDK Topology](/server-sdk-topology.svg)
 
 ### With SDK Proxy
 
-With the sdk proxy in between - the proxy will handle the config retrieval and caching that 
+With the sdk proxy in between - the proxy will handle the config retrieval and caching that
 config using the underlying Go SDK's cache.
 
 The SDKs would be configured to submit events to the proxy, as well as retrieve configs from the proxy.
-In the case of a cloud bucketing SDK - the proxy will emulate the endpoints for variable and feature evaluation, using 
+In the case of a cloud bucketing SDK - the proxy will emulate the endpoints for variable and feature evaluation, using
 the underlying Go SDK's bucketing engine.
 
-
-![Server SDK Topology](/sdk-proxy-topology.svg)
+| Server SDK                                       | SDK Proxy                                      |
+|--------------------------------------------------|------------------------------------------------|
+| ![Server SDK Topology](/server-sdk-topology.svg) | ![SDK Proxy Topology](/sdk-proxy-topology.svg) |
