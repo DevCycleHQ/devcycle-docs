@@ -166,7 +166,7 @@ The current Server-Side SDKs are:
 
 <!--tabs-->
 
-### Local bucketing SDKs
+### Local Bucketing SDKs
 
 Local bucketing does all of the calculations locally using extremely performant Web Assembly code. The project's
 environment configuration is downloaded upon initialization of the SDK, and all future SDK calls will calculate values
@@ -174,7 +174,7 @@ locally within the SDK. This approach will guarantee responses from the SDK in 1
 at a configurable polling interval.
 
 
-### Cloud bucketing SDKs
+### Cloud Bucketing SDKs
 
 The logic which determines what a user gets is calculated in the cloud, using workers at the edge which are available
 globally. Every function within the SDK will reach out to these edge workers and respond with the response with
@@ -182,8 +182,9 @@ extremely low latency. The Cloud Bucketing SDKs will cause a large number of out
 reach out to the DevCycle edge servers. However, the cloud bucketing SDKs are useful in cases in which a much older
 version of the given language is being used, as Local Bucketing generally only supports newer versions of languages.
 
-## Local Bucketing Proxy
+## SDK Proxy
 
 Designed for cases where the language design doesn't support a long lived background process to contain the Local
 Bucketing engine and configuration data; the Local Bucketing Proxy was made to emulate the Cloud Bucketing API's
-and allow and SDK to have greater performance; close to that of the local bucketing SDKs.
+and allow and SDK to have greater performance; close to that of the local bucketing SDKs. For more information see
+[SDK Proxy](./sdk-proxy/index.md).

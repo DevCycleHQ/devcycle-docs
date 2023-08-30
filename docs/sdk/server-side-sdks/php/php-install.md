@@ -38,7 +38,7 @@ Download the files and include `autoload.php`:
 require_once('/path/to/DevCycle/vendor/autoload.php');
 ```
 
-## Local Bucketing Proxy
+## SDK Proxy
 
 Due to complexities with the PHP application lifecycle and state management, 
 local bucketing functionality requires a different approach compared to the other server SDKS.
@@ -48,7 +48,7 @@ or on a separate host in your environment. This proxy mimics the Cloud Bucketing
 variable evaluations due to the reduction of network latency and config caching; 
 all powered by DevCycle's high performance Go Server SDK.
 
-See the [Local Bucketing Proxy](../../sdk-proxy/index.md) section for more information.
+See the [SDK Proxy](../../sdk-proxy/index.md) section for more information.
 
 
 
