@@ -569,4 +569,4 @@ If successful you will receive a response which resembles the following (which r
 
 ### From the Dashboard
 
-Select the trash can icon on the right-hand side of the relevant environemnt targeting rules to delete the rule and click `Save` to apply the changes.
+Select the trash can icon on the right-hand side of the relevant environment targeting rules to delete the rule and click `Save` to apply the changes.
