@@ -5,7 +5,7 @@ sidebar_position: 8
 
 Targeting rules can be used to grant features to specific user groups, incrementally roll out features for monitoring, or create and test different feature configurations by using [multiple variables](/essentials/variables).
 
-:::tip Already understand the targetting essentials?
+:::tip Already understand the targeting essentials?
 Be sure to check out our advanced targeting documentation which covers topics like:
 - [Audiences](/extras/advanced-targeting/audiences)
 - [Custom Properties](/extras/advanced-targeting/custom-properties)
