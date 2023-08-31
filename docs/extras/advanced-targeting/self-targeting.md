@@ -9,7 +9,7 @@ Self-Targeting is a new DevCycle QA & debugging feature that allows you to easil
 
 On each feature, you will see a Self-Targeting section within the Users & Targeting tab. This section will show you at-a-glance if you have any active self-targeting overrides for feature, and how many other team-members within the current project have self-targeting overrides set as well. 
 
-Within the slide-out, you can setup your DevCycle Identity, select Self-Targeting overrides, and see the other Team Members that are currently self-targeting for that feature, including the variation and environment they have active overrides in. 
+Within the slide-out, you can setup your DevCycle Identity, select Self-Targeting overrides, and see the other team members that are currently self-targeting for that feature, including the variation and environment they have active overrides in. 
 
 ## DevCycle Identity
 
