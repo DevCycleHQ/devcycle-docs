@@ -161,7 +161,7 @@ From here you will be able to enable or disable the specific targetting rule by 
 
 :::tip
 
-Looking to use DevCycle to help you QA a new feature? Be sure to check out [Simple Self-Targetting](/extras/advanced-targeting/self-targeting).
+Looking to use DevCycle to help you QA a new feature? Be sure to check out [Self-Targeting](/extras/advanced-targeting/self-targeting).
 
 :::
 
