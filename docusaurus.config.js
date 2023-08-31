@@ -259,6 +259,10 @@ const config = {
           position: 'left',
           items: [
             {
+              label: 'Calendar',
+              to: '/community/calendar',
+            },
+            {
               href: 'https://www.meetup.com/devcycle/',
               label: 'MeetUps',
               target: '_blank',
@@ -273,12 +277,6 @@ const config = {
             {
               href: 'https://discord.gg/pKK4fJgGxG',
               label: 'Discord',
-              target: '_blank',
-              rel: null,
-            },
-            {
-              href: 'https://www.twitter.com/devcyclehq',
-              label: 'Twitter',
               target: '_blank',
               rel: null,
             },
