@@ -1,5 +1,5 @@
 ---
-title: Simple Self-Targeting
+title: Self-Targeting
 sidebar_position: 2
 ---
 
