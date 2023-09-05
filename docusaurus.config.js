@@ -8,6 +8,18 @@ const remarkYoutube = require('gridsome-plugin-remark-youtube')
  */
 const DVC_CLI_VERSION = 'v5.5.0' // auto updated by dvc cli release workflow
 
+const VSCODE_EXTENSION_VERSION = 'v0.5.0'
+
+const removeDocsSections = (content, sectionNames, headerIdentifier = "##") => {
+  let result = content
+  for (const sectionName of sectionNames) {
+    const regex = new RegExp(`${headerIdentifier} ${sectionName}[\\s\\S]*?(?=## |#$|$)`, 'g');
+
+    result = result.replace(regex, '')
+  }
+  return result
+}
+
 /**
  * @type {Partial<import('@docusaurus/types').DocusaurusConfig>}
  */
@@ -80,6 +92,27 @@ const config = {
             return {
               // reduce headers to use with table of contents
               content: content.replace(/#\s/g, '## '),
+            }
+          }
+          return undefined
+        },
+      },
+    ],
+    [
+      'docusaurus-plugin-remote-content',
+      {
+        name: 'vscode-extension',
+        sourceBaseUrl: `https://raw.githubusercontent.com/DevCycleHQ/vscode-extension/${VSCODE_EXTENSION_VERSION}`,
+        outDir: 'docs/integrations/vscode-extension',
+        documents: [
+          'README.md',
+        ],
+        performCleanup: true,
+        modifyContent: (filename, content) => {
+          if (filename.includes('README')) {
+            const noTitle = content.replace(/# [\s\S]*?##/, '# DevCycle VSCode Extension \n##')
+            return {
+              content: removeDocsSections(noTitle, ['About DevCycle', 'Documentation', 'Sign Up for DevCycle', 'Contributing'])
             }
           }
           return undefined
