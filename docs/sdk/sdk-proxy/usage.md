@@ -19,9 +19,9 @@ is to start a TCP server on `localhost:8080`.
 
 # SDK Configuration
 
-Not all SDK's are configured the same way. Please see the SDK documentation for specific configuration instructions.
-Currently only Server SDK's are supported. The default configuration of the proxy will start run at `localhost:8080` 
-in HTTP TCP mode. 
+Currently only Server SDKs are supported. The default configuration of the proxy will start run at `localhost:8080` 
+in HTTP TCP mode.
+Not all SDKs are configured the same way. Please see the SDK documentation for specific configuration instructions.
 
 Sample configurations for each SDK verified to work with the proxy are below.
 

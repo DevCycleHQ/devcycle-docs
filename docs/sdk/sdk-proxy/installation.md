@@ -76,4 +76,4 @@ You will need to configure a separate supervisor/orchestrator such as `systemd` 
 long-lived process.
 
 We recommend keeping the logging output of the proxy available as it streams to `stdout` and `stderr` by default.
-to enable debug logging, set the `GIN_MODE` environment variable to `debug`.
+To enable debug http logging, set the `GIN_MODE` environment variable to `debug`.
