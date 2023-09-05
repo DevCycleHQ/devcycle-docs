@@ -7,8 +7,9 @@ import { library } from '@fortawesome/fontawesome-svg-core' // Import the librar
 import { fab } from '@fortawesome/free-brands-svg-icons' // Import all brands icons.
 import { fas } from '@fortawesome/free-solid-svg-icons' // Import all solid icons.'
 import { faDataDogIcon } from '../CustomIcons/datadog'
+import { vscodeIcon } from '../CustomIcons/vscode'
 
-library.add(fab, fas, faDataDogIcon) // Add all icons to the library so you can use them without importing them individually.
+library.add(fab, fas, faDataDogIcon, vscodeIcon) // Add all icons to the library so you can use them without importing them individually.
 import {
   findFirstCategoryLink,
   useDocById,
