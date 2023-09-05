@@ -1,6 +1,8 @@
 {
   "name": "devcycle-docs",
   "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
   "description": "DevCycle Developer Docs",
   "scripts": {
     "pull:env": "vercel env pull .env",
