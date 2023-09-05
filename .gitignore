@@ -28,6 +28,7 @@ packages/docusaurus-*/lib-next/
 docs/tools-and-integrations/cli/docs/*.md
 docs/tools-and-integrations/cli/*.md
 docs/cli/
+docs/integrations/vscode-extension/
 
 website/netlifyDeployPreview/*
 !website/netlifyDeployPreview/index.html
