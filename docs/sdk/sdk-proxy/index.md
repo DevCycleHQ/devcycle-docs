@@ -15,7 +15,7 @@ to enable more deployment scenarios.
 
 The DevCycle SDK Proxy is a standalone process that can be run alongside your application or on a separate
 host in your environment.
-This proxy is wrapped around the Go native bucketing sdk to provide the fastest evaluation times possible for high scale
+This proxy is wrapped around the Go Native Bucketing SDK to provide the fastest evaluation times possible for high scale
 environments.
 
 ## How It Works
