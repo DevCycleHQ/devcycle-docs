@@ -8,7 +8,7 @@ const remarkYoutube = require('gridsome-plugin-remark-youtube')
  */
 const DVC_CLI_VERSION = 'v5.6.0' // auto updated by dvc cli release workflow
 
-const VSCODE_EXTENSION_VERSION = 'v0.5.0'
+const VSCODE_EXTENSION_VERSION = '1.0.0' // auto updated by extension release workflow
 
 const removeDocsSections = (content, sectionNames, headerIdentifier = "##") => {
   let result = content
