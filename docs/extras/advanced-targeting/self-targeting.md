@@ -51,13 +51,19 @@ You can setup & update your DVC Identity within the Self-Targeting slide-out its
 
 #### Get
 
-To retrieve your currently active Overrides for a project, run the following command:
+To retrieve all active Overrides for a project, run the following command:
+
+```bash
+dvc overrides list
+```
+
+To retrieve the Overrides for a specific feature and environment, run the following command::
 
 ```bash
 dvc overrides get
 ```
 
-You will be prompted to select a feature and environment for which to get Overrides. In the event you wish to get all Overrides for the project, you may pass the `--all` flag on the command.
+You will be prompted to select a feature and environment if they are not passed as flags to the command.
 
 #### Manage
 
