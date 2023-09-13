@@ -5,6 +5,6 @@ export function onRouteDidUpdate({ location, previousLocation }) {
     location.pathname !== previousLocation?.pathname &&
     typeof window !== 'undefined'
   ) {
-    globalThis.rudderanalytics.page();
+    window.rudderanalytics.page()
   }
 }
