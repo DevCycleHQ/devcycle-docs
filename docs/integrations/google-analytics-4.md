@@ -13,7 +13,9 @@ This guide enables you to integrate DevCycle feature flags with Google Analytics
 
 ### GTM Elements: Tags, Variables, and Triggers
 
-- Tags execute specified functionality, such as sending data to GA4 or initializing DevCycle. For more details, consult [Google's official documentation](https://support.google.com/tagmanager/answer/6102821).
+Below is a description of Google Tag Manager's tags, variables, and triggers. For more in-depth understanding, consult   [Google's official documentation](https://support.google.com/tagmanager/answer/6102821).
+
+- Tags execute specified functionality, such as sending data to GA4 or initializing DevCycle. 
 - Variables serve as placeholders for predefined values, which in this guide store the feature and variation data.
 - Triggers are conditions that, when met, execute actions defined in Tags.
 
@@ -24,50 +26,48 @@ This guide enables you to integrate DevCycle feature flags with Google Analytics
 1. Navigate to your GTM workspace and access the "Tags" section.
 2. Create a new tag and name it "DevCycle Initialization & Feature Flag Configuration Values."
 3. Choose "Custom HTML" for "Tag Configuration."
-4. Insert a script to push a custom event named `set_user_properties` (or any name of your choosing) to the dataLayer with the parameters: `featureName: {{featureName}}` and `variation: {{variation}}`.
+4. Insert a script to push a custom event named `set_user_properties` (or any name of your choosing) to the dataLayer with the parameters: `featureName: {{featureName}}` and `variation: {{variation}}`. This script can be found below. 
+
+```js
+<script>
+    let user = { isAnonymous: true };
+    let dvcOptions = { logLevel: "debug" };
+    let devcycleClient = DevCycle.initializeDevCycle(
+        "<SDK_KEY>",  // Replace with your specific DevCycle SDK Key
+        user,
+        dvcOptions
+    );
+
+    devcycleClient.onClientInitialized().then(function () {
+        let features = devcycleClient.allFeatures();
+        pushData(features);
+    });
+    function pushData(featuresConfig) {
+        let arr = [];
+
+        // JSON to Array
+        for (let i in featuresConfig) {
+            arr.push([i, featuresConfig[i]]);
+        }
+
+        // Push to dataLayer
+        for (let j = 0; j < arr.length; j++) {
+            let featureName = arr[j][0].replaceAll("-", "_");
+            let currentVariation = arr[j][1][
+                "variationName"
+            ].replaceAll("-", "_");
+            window.dataLayer.push({
+                event: "set_user_properties", // Can be any event name you want
+                featureName: featureName,
+                variationName: currentVariation,
+            });
+        }
+    }
+</script>
+```
 5. For “Triggering,” select the “Window Loaded” option as the firing trigger.
 
 ![Tag Configuration](/sept-13-2023-ga4-4.png)
-
-- Code Snippet
-
-    ```jsx
-    <script>
-                let user = { isAnonymous: true };
-                let dvcOptions = { logLevel: "debug" };
-                let devcycleClient = DevCycle.initializeDevCycle(
-                    "<SDK_KEY>",  // Replace with your specific DevCycle SDK Key
-                    user,
-                    dvcOptions
-                );
-
-                devcycleClient.onClientInitialized().then(function () {
-                    let features = devcycleClient.allFeatures();
-                    pushData(features);
-                });
-                function pushData(featuresConfig) {
-                    let arr = [];
-
-                    // JSON to Array
-                    for (let i in featuresConfig) {
-                        arr.push([i, featuresConfig[i]]);
-                    }
-
-                    // Push to dataLayer
-                    for (let j = 0; j < arr.length; j++) {
-                        let featureName = arr[j][0].replaceAll("-", "_");
-                        let currentVariation = arr[j][1][
-                            "variationName"
-                        ].replaceAll("-", "_");
-                        window.dataLayer.push({
-                            event: "set_user_properties",
-                            featureName: featureName,
-                            variationName: currentVariation,
-                        });
-                    }
-                }
-            </script>
-    ```
 
 ### Step 2: Configure GTM Variables
 
@@ -88,30 +88,39 @@ This guide enables you to integrate DevCycle feature flags with Google Analytics
 2. Name it "GA4_Custom_User_Properties."
 3. Select "GA4 Event" for "Tag Configuration."
 4. In "Configuration Tag," choose your existing GA4 Configuration Tag.
-5. Input `'set_user_properties'` for "Event Name."
+5. Input `'set_user_properties'` for "Event Name" (or the event name you chose).
 
 ![Tag Configuration](/sept-13-2023-ga4-3.png)
 
 ### Step 4: Define Trigger for Custom Event Tag
 
-1. While in the tag setup, go to "Triggering."
-2. Create a new trigger and set its type to "Custom Event."
-3. Name the event `'set_user_properties'`.
+1. While in the tag setup, go to "Triggering".
+2. Create a new trigger and set its type to "Custom Event".
+3. Name the event `'set_user_properties'` (Or the event name you chose). 
 
 ### Step 5: Publish Changes
 
-1. After configuring the tag and trigger, click "Submit."
+1. After configuring the tag and trigger, click "Submit".
    - Note: Review and test changes before publishing to ensure functionality.
+
+#### How to Validate in Preview Mode Before Publishing
+Before hitting "Submit," it's crucial to validate that your configurations are working as intended. Use GTM’s Preview mode for this.
+
+1. Click on "Preview" at the top right of the GTM interface.
+2. This will open a new browser tab, where you'll navigate to your website.
+3. Perform actions that should trigger the tag you've configured. 
+4. Check the GTM Preview pane that appears at the bottom of your website. It should show the tags that are fired upon your actions.
+5. Specifically, confirm that your DevCycle feature and variation data is correctly passed to GA4 tags.
 
 ## Google Analytics 4 Configuration
 
 ### Reporting in GA4
 
-1. Navigate to "Reports" > "Library" > "New Report."
-2. Choose the metric for analysis under "Event Metric."
+1. Navigate to "Reports" > "Library" > "New Report".
+2. Choose the metric for analysis under "Event Metric".
 3. Select the feature property under "Dimension," e.g., **`DVC_featureNameA`**.
    - If the dimension doesn't exist:
-      1. Go to "Admin" > "Custom definitions" > "Create custom dimension."
+      1. Go to "Admin" > "Custom definitions" > "Create custom dimension".
       2. Set the scope to `Event` and name the event parameter according to your feature.
 
 <details>
