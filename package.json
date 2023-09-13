@@ -29,7 +29,6 @@
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@heroicons/react": "^1.0.5",
-    "@rudderstack/rudder-sdk-node": "^2.0.3",
     "@tailwindcss/aspect-ratio": "^0.3.0",
     "@vercel/analytics": "^1.0.1",
     "clsx": "^1.1.1",

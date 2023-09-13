@@ -26,6 +26,7 @@ const removeDocsSections = (content, sectionNames, headerIdentifier = "##") => {
 const config = {
   clientModules: [
     require.resolve('./src/modules/analyticsModule.js'),
+    require.resolve('./src/modules/rudderstackClientModule.js'),
   ],
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
