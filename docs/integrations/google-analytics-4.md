@@ -27,7 +27,7 @@ This guide enables you to integrate DevCycle feature flags with Google Analytics
 4. Insert a script to push a custom event named `set_user_properties` (or any name of your choosing) to the dataLayer with the parameters: `featureName: {{featureName}}` and `variation: {{variation}}`.
 5. For “Triggering,” select the “Window Loaded” option as the firing trigger.
 
-![Tag Configuration](/sept-2023=ga4-4.png)
+![Tag Configuration](/sept-13-2023-ga4-4.png)
 
 - Code Snippet
 
@@ -77,7 +77,10 @@ This guide enables you to integrate DevCycle feature flags with Google Analytics
 4. Enter “featureName” for "Data Layer Variable Name."
 5. Repeat to create another variable and name it “variation.”
 
-![Tag Configuration](/sept-2023=ga4-2.png)
+![Tag Configuration](/sept-13-2023-ga4-1.png)
+
+
+![Tag Configuration](/sept-13-2023-ga4-2.png)
 
 ### Step 3: Create Tag to Send Custom Event to GA4
 
@@ -87,7 +90,7 @@ This guide enables you to integrate DevCycle feature flags with Google Analytics
 4. In "Configuration Tag," choose your existing GA4 Configuration Tag.
 5. Input `'set_user_properties'` for "Event Name."
 
-![Tag Configuration](/sept-2023=ga4-3.png)
+![Tag Configuration](/sept-13-2023-ga4-3.png)
 
 ### Step 4: Define Trigger for Custom Event Tag
 
