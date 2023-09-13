@@ -6,7 +6,19 @@ const remarkYoutube = require('gridsome-plugin-remark-youtube')
  * Pinned version of the CLI to use for docs
  * When bumping the version, add any new commands to the documents array
  */
-const DVC_CLI_VERSION = 'v5.4.3' // auto updated by dvc cli release workflow
+const DVC_CLI_VERSION = 'v5.9.0' // auto updated by dvc cli release workflow
+
+const VSCODE_EXTENSION_VERSION = 'v1.1.0' // auto updated by extension release workflow
+
+const removeDocsSections = (content, sectionNames, headerIdentifier = "##") => {
+  let result = content
+  for (const sectionName of sectionNames) {
+    const regex = new RegExp(`${headerIdentifier} ${sectionName}[\\s\\S]*?(?=## |#$|$)`, 'g');
+
+    result = result.replace(regex, '')
+  }
+  return result
+}
 
 /**
  * @type {Partial<import('@docusaurus/types').DocusaurusConfig>}
@@ -61,10 +73,12 @@ const config = {
           'docs/features.md',
           'docs/generate.md',
           'docs/help.md',
+          'docs/identity.md',
           'docs/keys.md',
           'docs/login.md',
           'docs/logout.md',
           'docs/organizations.md',
+          'docs/overrides.md',
           'docs/projects.md',
           'docs/repo.md',
           'docs/status.md',
@@ -79,6 +93,27 @@ const config = {
             return {
               // reduce headers to use with table of contents
               content: content.replace(/#\s/g, '## '),
+            }
+          }
+          return undefined
+        },
+      },
+    ],
+    [
+      'docusaurus-plugin-remote-content',
+      {
+        name: 'vscode-extension',
+        sourceBaseUrl: `https://raw.githubusercontent.com/DevCycleHQ/vscode-extension/${VSCODE_EXTENSION_VERSION}`,
+        outDir: 'docs/integrations/vscode-extension',
+        documents: [
+          'README.md',
+        ],
+        performCleanup: true,
+        modifyContent: (filename, content) => {
+          if (filename.includes('README')) {
+            const noTitle = content.replace(/# [\s\S]*?##/, '# DevCycle VSCode Extension \n##')
+            return {
+              content: removeDocsSections(noTitle, ['About DevCycle', 'Documentation', 'Sign Up for DevCycle', 'Contributing'])
             }
           }
           return undefined
@@ -156,7 +191,7 @@ const config = {
       ? 'https://' + process.env.VERCEL_URL
       : 'http://localhost:3000',
   baseUrl: '/',
-  favicon: 'devcycle_favicon.ico',
+  favicon: 'devcycle_favicon.svg',
   scripts: [
     {
       src: 'https://use.fontawesome.com/releases/v5.15.4/js/all.js',
@@ -258,6 +293,10 @@ const config = {
           position: 'left',
           items: [
             {
+              label: 'Calendar',
+              to: '/community/calendar',
+            },
+            {
               href: 'https://www.meetup.com/devcycle/',
               label: 'MeetUps',
               target: '_blank',
@@ -272,12 +311,6 @@ const config = {
             {
               href: 'https://discord.gg/pKK4fJgGxG',
               label: 'Discord',
-              target: '_blank',
-              rel: null,
-            },
-            {
-              href: 'https://www.twitter.com/devcyclehq',
-              label: 'Twitter',
               target: '_blank',
               rel: null,
             },

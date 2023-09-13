@@ -5,6 +5,15 @@ sidebar_position: 8
 
 Targeting rules can be used to grant features to specific user groups, incrementally roll out features for monitoring, or create and test different feature configurations by using [multiple variables](/essentials/variables).
 
+:::tip Already understand the targeting essentials?
+Be sure to check out our advanced targeting documentation which covers topics like:
+- [Audiences](/extras/advanced-targeting/audiences)
+- [Custom Properties](/extras/advanced-targeting/custom-properties)
+- [Random Variations](/extras/advanced-targeting/random-variations)
+- [Rollouts](/extras/advanced-targeting/rollouts)
+- [Self-Targeting](/extras/advanced-targeting/self-targeting)
+:::
+
 Each targeting rule has four parts that must be set, and one optional item, as seen here:
 
 1. **The current targeting status.**
@@ -149,6 +158,12 @@ From here you will be able to enable or disable the specific targetting rule by 
 ---
 
 ## Creating a Targeting Rule
+
+:::tip
+
+Looking to use DevCycle to help you QA a new feature? Be sure to check out [Self-Targeting](/extras/advanced-targeting/self-targeting).
+
+:::
 
 ### From the CLI
 
@@ -554,4 +569,4 @@ If successful you will receive a response which resembles the following (which r
 
 ### From the Dashboard
 
-Select the trash can icon on the right-hand side of the relevant environemnt targeting rules to delete the rule and click `Save` to apply the changes.
+Select the trash can icon on the right-hand side of the relevant environment targeting rules to delete the rule and click `Save` to apply the changes.

@@ -9,6 +9,10 @@ Variables are the elements that can change within a Feature.
 
 By default, upon creation of a Feature, a `Boolean Variable`` will be created which has the same name as the Feature's key for easier reference. 
 
+:::tip Already understand the variable essentials?
+Be sure to check out our advanced variable documentation which covers topics like:
+- [Variable Schemas](/extras/advanced-variables/variable-schemas)
+:::
 ---
 
 ## Managing Variables

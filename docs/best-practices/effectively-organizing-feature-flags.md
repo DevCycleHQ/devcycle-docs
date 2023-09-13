@@ -64,7 +64,7 @@ Another way to keep your workspace organized is to utilize DevCycle for Jira. De
 
 To combat the juggling of siloed information, DevCycle for Jira links tickets directly to your features. This allows you to view your feature’s status within Jira. 
 
-To start connecting Jira Ticket IDs to DevCycle features, you must install the app from the [Jira Marketplace Listing](https://marketplace.atlassian.com/apps/1227643/devcycle-feature-flag-management-for-jira). We recommend reading [DevCycle Feature Flag Management for Jira](/integrations/Jira/jira-integration) for a setup guide.
+To start connecting Jira Ticket IDs to DevCycle features, you must install the app from the [Jira Marketplace Listing](https://marketplace.atlassian.com/apps/1227643/devcycle-feature-flag-management-for-jira). We recommend reading [DevCycle Feature Flag Management for Jira](/integrations/jira/jira-setup) for a setup guide.
 
 Once you have configured a Jira project with a DevCycle project, you can connect a feature to a Jira Issue from the feature’s settings. Simply enter the IDs of the ticket(s) you’d like to associate with the feature.
 
