@@ -172,7 +172,20 @@ const config = {
           content: '# Bitbucket: Feature Flag Change Insights on Pull Request \n' + content
         })
       },
-    ]
+    ],
+    [
+      'docusaurus-plugin-remote-content',
+      {
+        name: 'gitlab.feature-usage-action',
+        sourceBaseUrl: 'https://gitlab.com/devcycle/devcycle-usages-ci-cd/-/raw/main/',
+        outDir: 'docs/integrations/gitlab/feature-usage-action',
+        documents: ['README.md'],
+        performCleanup: true,
+        modifyContent: (filename, content) => ({
+          content: '# GitLab: Feature Flag Code Usages \n' + content
+        })
+      }
+    ],
   ],
 
   presets: [
