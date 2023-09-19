@@ -121,6 +121,58 @@ const config = {
         },
       },
     ],
+    [
+      'docusaurus-plugin-remote-content',
+      {
+        name: 'github.feature-usage-action',
+        sourceBaseUrl: 'https://raw.githubusercontent.com/DevCycleHQ/feature-flag-code-usage-action/main/',
+        outDir: 'docs/integrations/github/feature-usage-action',
+        documents: ['README.md'],
+        performCleanup: true,
+        modifyContent: (filename, content) => ({
+          content: '# GitHub: Feature Flag Code Usages \n' + content
+        })
+      },
+    ],
+    [
+      'docusaurus-plugin-remote-content',
+      {
+        name: 'github.pr-insights-action',
+        sourceBaseUrl: 'https://raw.githubusercontent.com/DevCycleHQ/feature-flag-pr-insights-action/main/',
+        outDir: 'docs/integrations/github/pr-insights-action',
+        documents: ['README.md'],
+        performCleanup: true,
+        modifyContent: (filename, content) => ({
+          content: '# GitHub: Feature Flag Change Insights on Pull Request \n' + content
+        })
+      },
+    ],
+    [
+      'docusaurus-plugin-remote-content',
+      {
+        name: 'bitbucket.feature-usage-action',
+        sourceBaseUrl: 'https://bitbucket.org/devcyclehq/devcycle-code-refs-pipe/raw/main/',
+        outDir: 'docs/integrations/bitbucket/feature-usage-action',
+        documents: ['README.md'],
+        performCleanup: true,
+        modifyContent: (filename, content) => ({
+          content: '# Bitbucket: Feature Flag Code Usages \n' + content
+        })
+      },
+    ],
+    [
+      'docusaurus-plugin-remote-content',
+      {
+        name: 'bitbucket.pr-insights-action',
+        sourceBaseUrl: 'https://bitbucket.org/devcyclehq/devcycle-pr-insights-pipe/raw/main/',
+        outDir: 'docs/integrations/bitbucket/pr-insights-action',
+        documents: ['README.md'],
+        performCleanup: true,
+        modifyContent: (filename, content) => ({
+          content: '# Bitbucket: Feature Flag Change Insights on Pull Request \n' + content
+        })
+      },
+    ]
   ],
 
   presets: [
