@@ -1,20 +1,124 @@
 ---
-title: VSCODE-TEST
+title: DataDog
 sidebar_position: 3
 ---
 
-TESTING BIG GIF LOADING ON VERCEL
+DevCycle's clientside Javascript SDKs - including JS and React, can now be easily integrated with [DataDog RUM Feature Flag Tracking](https://docs.datadoghq.com/real_user_monitoring/feature_flag_tracking) - enabling the enrichment of your RUM data with DevCycle's variable data.
 
-Context: VScode repo shouldnt need to host big ol images.
+![DataDog RUM Feature Flag Tracking screen shot](/datadog-rum-screenshot.png)
 
-Plan is to host on docusaurus in static file and load them statically from other repo for docs. 
+### Table of Contents
+- [Configuration](#configuration)
+  - [JavaScript](#javascript)
+  - [React](#react)
+- [Coming Soon](#coming-soon)
+  
+### Configuration
+Tracking variable evaluations with DataDog RUM is very simple, requiring only two steps.
 
-testing if my gifs are too big.  
+1. Enable the experimental feature in your `datadogRum.init` configuration
 
-![Test 1](/sept-2023-vscode-possible-values.gif)
+```jsx
+datadogRum.init({
+    ...
+    enableExperimentalFeatures: ["feature_flags"],
+    ...
+});
+```
 
-![Test 2](/sept-2023-vscode-code-usages.gif)
+2. Call `datadogRum.addFeatureFlagEvaluation(key, value)` whenever a variable is evaluated. Since the JavaScript and React SDKs [emit an event](https://docs.devcycle.com/sdk/client-side-sdks/javascript/javascript-usage#subscribing-to-sdk-events) on every variable evaluation, this code should run within the subscription callback.
 
-![Test 3](/sept-2023-vscode-keys.gif)
+See below for more specific examples:
 
-![Test 4](/sept-2023-vscode-active-environments.gif)
+#### JavaScript
+
+To track all variable evaluations:
+
+```jsx
+const user = { user_id: "my_user" };
+const dvcOptions = { logLevel: "debug" };
+const devcycleClient = initialize("<DVC_CLIENT_SDK_KEY>", user, dvcOptions); 
+...
+devcycleClient.subscribe(
+    "variableEvaluted:*",
+    (key, variable) => {
+        datadogRum.addFeatureFlagEvaluation(key, variable.value);
+    }
+)
+```
+
+To track a specific variable evaluation (in this case a variable whose key is `my-variable-key`):
+
+```jsx
+const user = { user_id: "my_user" };
+const dvcOptions = { logLevel: "debug" };
+const devcycleClient = initialize("<DVC_CLIENT_SDK_KEY>", user, dvcOptions); 
+...
+devcycleClient.subscribe(
+    "variableEvaluted:my-variable-key",
+    (key, variable) => {
+        datadogRum.addFeatureFlagEvaluation(key, variable.value);
+    }
+)
+```
+
+#### React
+
+We recommend encapsulating your RUM code within a React hook, so consider the following example:
+
+```jsx
+import { datadogRum } from '@datadog/browser-rum'
+import { DVCVariableValue, useDVCClient } from '@devcycle/react-client-sdk'
+import { DVCVariable } from '@devcycle/js-client-sdk'
+
+let didInit = false
+
+export const useDatadogRum = () => {
+  const devcycleClient = useDVCClient()
+  if (!didInit) {
+    didInit = true
+    datadogRum.init({
+      ...
+    })
+    datadogRum.startSessionReplayRecording()
+    devcycleClient.subscribe(
+      'variableEvaluated:*',
+      (key, variable) => {
+        datadogRum.addFeatureFlagEvaluation(key, variable.value)
+      },
+    )
+  }
+}
+
+export default useDatadogRum
+```
+
+Then simply call the hook from your root component:
+
+```jsx
+export const App = () => {
+  useDatadogRum()
+  ...
+  return (
+    ...
+  )
+}
+```
+
+### Coming Soon
+
+DevCycle plans to release similar updates for both iOS and Android.
+
+<details>
+  <summary>
+ <b><i className="fas fa-arrows-alt"></i> Contributing to DevCycle or creating a new Integration:</b>
+  </summary>
+  <div>     
+    <p>
+    If you would like to contribute to an existing integration or tool, all of DevCycle's tools and integrations  are <a href="https://github.com/devcycleHQ">open source on the DevCycle github repository.</a>
+</p>
+<p>
+ Further, if you'd like to create a new tool or integration, a great starting point is <a href="/management-api/">DevCycle's Management API</a> which allows you to modify and interact with features and more within a devcycle project, as well as the <a href="/bucketing-api/">DevCycle Bucketing API</a>  which is used to give users features and variables (as used within the DevCycle SDKs!)
+  </p>
+  </div>
+</details>
