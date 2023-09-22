@@ -130,7 +130,10 @@ const config = {
         documents: ['README.md'],
         performCleanup: true,
         modifyContent: (filename, content) => ({
-          content: '# GitHub: Feature Flag Code Usages \n' + content
+          content:
+            '# GitHub: Feature Flag Code Usages \n' +
+            'Get the integration on the [GitHub Marketplace](https://github.com/marketplace/actions/devcycle-feature-flag-code-usages)\n' +
+            content
         })
       },
     ],
@@ -143,7 +146,10 @@ const config = {
         documents: ['README.md'],
         performCleanup: true,
         modifyContent: (filename, content) => ({
-          content: '# GitHub: Feature Flag Change Insights on Pull Request \n' + content
+          content:
+            '# GitHub: Feature Flag Change Insights on Pull Request \n' +
+            'Get the integration on the [GitHub Marketplace](https://github.com/marketplace/actions/devcycle-feature-flag-insights-for-pull-requests)\n' +
+            content
         })
       },
     ],
@@ -156,7 +162,10 @@ const config = {
         documents: ['README.md'],
         performCleanup: true,
         modifyContent: (filename, content) => ({
-          content: '# Bitbucket: Feature Flag Code Usages \n' + content
+          content:
+            '# Bitbucket: Feature Flag Code Usages\n' +
+            'Get the integration on the [Bitbucket Marketplace](https://bitbucket.org/product/features/pipelines/integrations?&p=devcyclehq/devcycle-code-refs-pipe)\n' + 
+            content
         })
       },
     ],
@@ -169,7 +178,10 @@ const config = {
         documents: ['README.md'],
         performCleanup: true,
         modifyContent: (filename, content) => ({
-          content: '# Bitbucket: Feature Flag Change Insights on Pull Request \n' + content
+          content:
+            '# Bitbucket: Feature Flag Change Insights on Pull Request\n' +
+            'Get the integration on the [Bitbucket Marketplace](https://bitbucket.org/product/features/pipelines/integrations?&p=devcyclehq/devcycle-pr-insights-pipe)\n' +
+            content
         })
       },
     ],
@@ -182,7 +194,10 @@ const config = {
         documents: ['README.md'],
         performCleanup: true,
         modifyContent: (filename, content) => ({
-          content: '# GitLab: Feature Flag Code Usages \n' + content
+          content:
+            '# GitLab: Feature Flag Code Usages \n' +
+            'Get the integration here: https://gitlab.com/devcycle/devcycle-usages-ci-cd\n' +
+            content
         })
       }
     ],
@@ -195,7 +210,10 @@ const config = {
         documents: ['README.md'],
         performCleanup: true,
         modifyContent: (filename, content) => ({
-          content: '# GitLab: Feature Flag Change Insights on Merge Request \n' + content
+          content:
+            '# GitLab: Feature Flag Change Insights on Merge Request\n' +
+            'Get the integration here: https://gitlab.com/devcycle/devcycle-pr-insights-ci-cd\n' +
+            content
         })
       }
     ]
