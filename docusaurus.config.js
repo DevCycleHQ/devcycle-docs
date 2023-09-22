@@ -186,6 +186,19 @@ const config = {
         })
       }
     ],
+    [
+      'docusaurus-plugin-remote-content',
+      {
+        name: 'gitlab.pr-insights-action',
+        sourceBaseUrl: 'https://gitlab.com/devcycle/devcycle-pr-insights-ci-cd/-/raw/main/',
+        outDir: 'docs/integrations/gitlab/pr-insights-action',
+        documents: ['README.md'],
+        performCleanup: true,
+        modifyContent: (filename, content) => ({
+          content: '# GitLab: Feature Flag Change Insights on Merge Request \n' + content
+        })
+      }
+    ]
   ],
 
   presets: [
