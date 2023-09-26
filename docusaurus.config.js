@@ -6,7 +6,7 @@ const remarkYoutube = require('gridsome-plugin-remark-youtube')
  * Pinned version of the CLI to use for docs
  * When bumping the version, add any new commands to the documents array
  */
-const DVC_CLI_VERSION = 'v5.10.1' // auto updated by dvc cli release workflow
+const DVC_CLI_VERSION = 'v5.10.2' // auto updated by dvc cli release workflow
 
 const VSCODE_EXTENSION_VERSION = 'v1.2.0' // auto updated by extension release workflow
 
