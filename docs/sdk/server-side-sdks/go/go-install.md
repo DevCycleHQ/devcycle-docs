@@ -12,9 +12,3 @@ sidebar_custom_props: {icon: screwdriver-wrench}
 go get "github.com/devcyclehq/go-server-sdk/v2"
 ```
 
-:::note
-
-The DevCycle Go Server SDK requires [cgo](https://pkg.go.dev/cmd/cgo) to be enabled in your build in order to function. 
-
-:::
-
