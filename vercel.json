@@ -6,6 +6,7 @@
     { "source": "/best-practices/sample-apps/getting-started-guide", "destination": "/home/demos/react", "statusCode": 301 },
     { "source": "/best-practices/sample-apps/realtime-demo", "destination": "/home/demos/realtime", "statusCode": 301 },
     { "source": "/home", "destination": "/", "statusCode": 301 },
+    { "source": "/home/", "destination": "/", "statusCode": 301 },
     { "source": "/tools-and-integrations/cli", "destination": "/cli", "statusCode": 301 },
     { "source": "/:path*/getting-started/:path*", "destination": "/introduction/quickstart", "statusCode": 301 },
     { "source": "/home/feature-management/features-and-variables/targeting-users", "destination": "/essentials/targeting", "statusCode": 301 },
