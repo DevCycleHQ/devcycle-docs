@@ -20,7 +20,7 @@ from devcycle_python_sdk.models.user import DevCycleUser
 options = DevCycleLocalOptions()
 
 # create an instance of the DevCycleCloudClient class
-client = DevCycleLocalClient('DEVCYCLE_SERVER_SDK_KEY', options)
+devcycle_client = DevCycleLocalClient('DEVCYCLE_SERVER_SDK_KEY', options)
 
 # all client functions require user data to be an instance of the DevCycleUser class
 user = DevCycleUser(
