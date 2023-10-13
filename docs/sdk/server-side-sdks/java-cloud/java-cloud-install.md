@@ -13,10 +13,9 @@ sidebar_custom_props: {icon: screwdriver-wrench}
 
 ## Requirements
 
-This version of the DevCycle SDK works with Java 8 and above.
+This version of the DevCycle SDK works with Java 11 and above.
 
-Using the Java SDK library requires [Maven](https://maven.apache.org/) or [Gradle](https://gradle.org/) >= 5.6.4 to be installed.
-
+Using the Java SDK library requires [Maven](https://maven.apache.org/) or [Gradle](https://gradle.org/) >= 7.6+ to be installed.
 
 <!--tabs-->
 

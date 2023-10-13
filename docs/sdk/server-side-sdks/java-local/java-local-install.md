@@ -11,19 +11,28 @@ sidebar_custom_props: { icon: screwdriver-wrench }
 
 ## Requirements
 
-This version of the DevCycle SDK works with Java 8 and above.
+This version of the DevCycle SDK works with Java 11 and above.
 
-Using the Java SDK library requires [Maven](https://maven.apache.org/) or [Gradle](https://gradle.org/) >= 5.6.4 to be installed.
+Using the Java SDK library requires [Maven](https://maven.apache.org/) or [Gradle](https://gradle.org/) >= 7.6+ to be installed.
 
 :::info
 
-An x86_64 JDK is required for Local Bucketing with the DevCycle Java SDK. Currently Supported Platforms are:
+An x86_64 or aarch64 JDK is required for Local Bucketing with the DevCycle Java SDK.
+
+Currently Supported Platforms are:
 
 | OS          | Arch   |
 | ----------- | ------ |
 | Linux (ELF) | x86_64 |
 | Mac OS      | x86_64 |
+| Mac OS      | aarch64 |
 | Windows     | x86_64 |
+
+In addition, the environment must support GLIBC v2.16 or higher. You can use the following command to check your GLIBC version:
+```bash
+ldd --version
+```
+
 
 :::
 
