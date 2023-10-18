@@ -126,7 +126,7 @@ To access variable details, click "View Info" on the Variables list page for you
 
 :::info
 
-To use the Code Refs feature, the [DevCycle action for Code References](/integrations/github/gh-feature-usage-action) must be enabled within your repository.
+To use the Code Refs feature, the [DevCycle action for Code References](/integrations/github/feature-usage-action) must be enabled within your repository.
 
 :::
 

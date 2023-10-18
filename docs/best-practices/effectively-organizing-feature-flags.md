@@ -90,7 +90,7 @@ Backlog grooming sessions are a great opportunity to discuss the need of a featu
 
 ## Using Code References to Track Variable Usage
 
-Code References are another helpful tool to foster an organized workflow. DevCycle uses a [GitHub action](/integrations/github/gh-feature-usage-action) to locate each variable’s reference in your code. All the references to a specific variable are collected in one place on the Variable Dashboard, as seen in the example below:
+Code References are another helpful tool to foster an organized workflow. DevCycle uses a [GitHub action](/integrations/github/feature-usage-action) to locate each variable’s reference in your code. All the references to a specific variable are collected in one place on the Variable Dashboard, as seen in the example below:
 
 ![march-2022-code-refs](/march-2022-code-refs.png)
 
@@ -98,7 +98,7 @@ Each Code Reference also includes a link to the exact location of the referenced
 
 For more information about tracking variable usage and when to clean up flags, read [Technical Debt - Cleaning up your unused flags](/best-practices/feature-flag-cleanup).
 
-To use Code References, you must create a new Actions workflow in your GitHub repository in the .github/workflows directory. Follow our documentation [Action: Feature Flag Code Usages](/integrations/github/gh-feature-usage-action) for steps to using the GitHub action. Once it is configured, you can find your Code References in the Variable Dashboard by clicking “View Info” on the desired variable.
+To use Code References, you must create a new Actions workflow in your GitHub repository in the .github/workflows directory. Follow our documentation [Action: Feature Flag Code Usages](/integrations/github/feature-usage-action) for steps to using the GitHub action. Once it is configured, you can find your Code References in the Variable Dashboard by clicking “View Info” on the desired variable.
 
 ## Summary
 
