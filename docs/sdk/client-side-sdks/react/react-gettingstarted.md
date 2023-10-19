@@ -14,7 +14,7 @@ There are two ways to initialize the SDK:
   your application will be ready to use the SDK.
 * Blocking: This allows you to delay the rendering of your application until the request to initialize the SDK is completed.
 
-To use these providers, you must get the SDK Key from the DevCycle Dashboard.
+To use the provider, you must get the SDK Key from the DevCycle Dashboard.
 You can optionally pass in a user object to the provider to initialize the SDK.
 If you do not pass in a user to the provider, it will create an anonymous user and initialize the SDK with it.
 You can then call the `identifyUser` method on the client once the user has been authenticated.
@@ -30,23 +30,24 @@ See [Identifying Users & Setting Properties](/sdk/features#identify) for more de
 ## Non-Blocking
 
 The withDevCycleProvider higher-order component (HOC) initializes the React SDK and wraps your root component. This provider may cause your app
-to flicker when it is first rendered, as it is waiting for the SDK to initialize.
+to flicker when it is first rendered, as all DevCycle variables will return their default values until the SDK is initialized.
 
 ```js
 import { withDevCycleProvider } from '@devcycle/react-client-sdk'
-```
-```js
+function App() {
+    return <TheRestofYourApp/>
+}
 export default withDevCycleProvider({ sdkKey: '<DEVCYCLE_CLIENT_SDK_KEY>' })(App)
 ```
 
 ## Blocking
 
-The `useIsDevCycleInitialized` hook allows you to block rendering of your application until SDK initialization is complete. This ensures your app does not flicker due to value changes and enables you to control what you want displayed when initialization isn't finished yet.
+The `useIsDevCycleInitialized` hook allows you to block rendering of your application until SDK initialization is complete. 
+This ensures your app does not flicker due to value changes and enables you to control what you want displayed when initialization isn't finished yet.
 
 ```js
 import { useIsDevCycleInitialized, withDevCycleProvider } from '@devcycle/react-client-sdk'
-```
-```js
+
 function App() {
     const dvcReady = useIsDevCycleInitialized()
     
@@ -55,30 +56,6 @@ function App() {
 }
     
 export default withDevCycleProvider({ sdkKey: '<DEVCYCLE_CLIENT_SDK_KEY>' })(App)
-```
-
-:::caution
-
-The `asyncWithDVCProvider` function has been deprecated as of version 1.3.0
-
-:::
-
-The `asyncWithDVCProvider` function is similar to the `withDevCycleProvider` function, but allows you to block rendering of your application
-until SDK initialization is complete. This ensures your app does not flicker due to value changes.
-
-```js
-import { asyncWithDVCProvider } from '@devcycle/react-client-sdk'
-```
-```js
-(async () => {
-    const DevCycleProvider = await asyncWithDVCProvider({ sdkKey: '<DEVCYCLE_CLIENT_SDK_KEY>' })
-
-    ReactDOM.render(
-        <DevCycleProvider>
-            <App />
-        </DevCycleProvider>
-    )
-})();
 ```
 
 ## Deferred Initialization
