@@ -37,9 +37,9 @@ To track all variable evaluations, initialize the DevCycle client with your SDK 
 ```javascript
 const user = { user_id: "my_user" };
 const dvcOptions = { logLevel: "debug" };
-const dvcClient = initialize("<DVC_CLIENT_SDK_KEY>", user, dvcOptions); 
+const devcycleClient = initialize("<DVC_CLIENT_SDK_KEY>", user, dvcOptions); 
 ...
-dvcClient.subscribe(
+devcycleClient.subscribe(
   "variableEvaluted:*",
   (key: string, variable: DVCVariable<DVCVariableValue>) => {
     datadogRum.addFeatureFlagEvaluation(key, variable.value);
@@ -49,7 +49,7 @@ dvcClient.subscribe(
 To track a specific variable evaluation, subscribe to the variableEvaluated:my-variable-key event:
 
 ```javascript
-dvcClient.subscribe(
+devcycleClient.subscribe(
   "variableEvaluted:my-variable-key",
   (key: string, variable: DVCVariable<DVCVariableValue>) => {
     datadogRum.addFeatureFlagEvaluation(key, variable.value);
@@ -69,7 +69,7 @@ import { useEffect } from 'react'
 let didInit = false
 
 export const useDatadogRum = () => {
-  const dvcClient = useDVCClient()
+  const devcycleClient = useDVCClient()
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_ENABLE_Datadog_RUM === '1' && !didInit) {
       didInit = true
@@ -77,14 +77,14 @@ export const useDatadogRum = () => {
         ...
       })
       datadogRum.startSessionReplayRecording()
-      dvcClient.subscribe(
+      devcycleClient.subscribe(
         'variableEvaluated:*',
         (key: string, variable: DVCVariable<DVCVariableValue>) => {
           datadogRum.addFeatureFlagEvaluation(key, variable.value)
         },
       )
     }
-  }, [dvcClient])
+  }, [devcycleClient])
   }
   
 export default useDatadogRum;

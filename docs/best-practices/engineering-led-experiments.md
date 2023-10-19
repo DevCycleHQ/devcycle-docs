@@ -43,7 +43,7 @@ const event = {
 		'Line': line_number
 	}
 }
-dvcClient.track(event)
+devcycleClient.track(event)
 ```
 
 As shown in the code above, we created the `event` object and passed it into the `track` function. This sends the event information to DevCycle to calculate the metric.
@@ -60,7 +60,7 @@ const event = {
 	type: 'page_load_time',
 	value: 4000
 }
-dvcClient.track(event)
+devcycleClient.track(event)
 ```
 
 You can include other data within the `event` object such as date, target, and metadata. For more information about tracking custom events with our other SDKs, refer to [Tracking Custom Events](/sdk/features).

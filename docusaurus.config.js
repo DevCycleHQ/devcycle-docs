@@ -6,13 +6,28 @@ const remarkYoutube = require('gridsome-plugin-remark-youtube')
  * Pinned version of the CLI to use for docs
  * When bumping the version, add any new commands to the documents array
  */
-const DVC_CLI_VERSION = 'v5.4.1' // auto updated by dvc cli release workflow
+const DVC_CLI_VERSION = 'v5.12.0' // auto updated by dvc cli release workflow
+
+const VSCODE_EXTENSION_VERSION = 'v1.4.0' // auto updated by extension release workflow
+
+const removeDocsSections = (content, sectionNames, headerIdentifier = "##") => {
+  let result = content
+  for (const sectionName of sectionNames) {
+    const regex = new RegExp(`${headerIdentifier} ${sectionName}[\\s\\S]*?(?=## |#$|$)`, 'g');
+
+    result = result.replace(regex, '')
+  }
+  return result
+}
 
 /**
  * @type {Partial<import('@docusaurus/types').DocusaurusConfig>}
  */
 const config = {
-  clientModules: [require.resolve('./src/modules/mixpanelClientModule.js')],
+  clientModules: [
+    require.resolve('./src/modules/analyticsModule.js'),
+    require.resolve('./src/modules/rudderstackClientModule.js'),
+  ],
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
   plugins: [
@@ -44,11 +59,11 @@ const config = {
       },
     ],
     [
-      "docusaurus-plugin-remote-content",
+      'docusaurus-plugin-remote-content',
       {
-        name: "cli",
+        name: 'cli',
         sourceBaseUrl: `https://raw.githubusercontent.com/DevCycleHQ/cli/${DVC_CLI_VERSION}`,
-        outDir: "docs/cli",
+        outDir: 'docs/cli',
         documents: [
           'README.md',
           'docs/alias.md',
@@ -59,10 +74,12 @@ const config = {
           'docs/features.md',
           'docs/generate.md',
           'docs/help.md',
+          'docs/identity.md',
           'docs/keys.md',
           'docs/login.md',
           'docs/logout.md',
           'docs/organizations.md',
+          'docs/overrides.md',
           'docs/projects.md',
           'docs/repo.md',
           'docs/status.md',
@@ -80,9 +97,126 @@ const config = {
             }
           }
           return undefined
-        }
+        },
       },
     ],
+    [
+      'docusaurus-plugin-remote-content',
+      {
+        name: 'vscode-extension',
+        sourceBaseUrl: `https://raw.githubusercontent.com/DevCycleHQ/vscode-extension/${VSCODE_EXTENSION_VERSION}`,
+        outDir: 'docs/integrations/vscode-extension',
+        documents: [
+          'README.md',
+        ],
+        performCleanup: true,
+        modifyContent: (filename, content) => {
+          if (filename.includes('README')) {
+            const noTitle = content.replace(/# [\s\S]*?##/, '# DevCycle VSCode Extension \n##')
+            return {
+              content: removeDocsSections(noTitle, ['About DevCycle', 'Documentation', 'Sign Up for DevCycle', 'Contributing'])
+            }
+          }
+          return undefined
+        },
+      },
+    ],
+    [
+      'docusaurus-plugin-remote-content',
+      {
+        name: 'github.feature-usage-action',
+        sourceBaseUrl: 'https://raw.githubusercontent.com/DevCycleHQ/feature-flag-code-usage-action/main/',
+        outDir: 'docs/integrations/github/feature-usage-action',
+        documents: ['README.md'],
+        performCleanup: true,
+        modifyContent: (filename, content) => ({
+          content:
+            '# GitHub: Feature Flag Code Usages \n' +
+            'Get the integration on the [GitHub Marketplace](https://github.com/marketplace/actions/devcycle-feature-flag-code-usages)\n' +
+            content
+        })
+      },
+    ],
+    [
+      'docusaurus-plugin-remote-content',
+      {
+        name: 'github.pr-insights-action',
+        sourceBaseUrl: 'https://raw.githubusercontent.com/DevCycleHQ/feature-flag-pr-insights-action/main/',
+        outDir: 'docs/integrations/github/pr-insights-action',
+        documents: ['README.md'],
+        performCleanup: true,
+        modifyContent: (filename, content) => ({
+          content:
+            '# GitHub: Feature Flag Change Insights on Pull Request \n' +
+            'Get the integration on the [GitHub Marketplace](https://github.com/marketplace/actions/devcycle-feature-flag-insights-for-pull-requests)\n' +
+            content
+        })
+      },
+    ],
+    [
+      'docusaurus-plugin-remote-content',
+      {
+        name: 'bitbucket.feature-usage-action',
+        sourceBaseUrl: 'https://bitbucket.org/devcyclehq/devcycle-code-refs-pipe/raw/main/',
+        outDir: 'docs/integrations/bitbucket/feature-usage-action',
+        documents: ['README.md'],
+        performCleanup: true,
+        modifyContent: (filename, content) => ({
+          content:
+            '# Bitbucket: Feature Flag Code Usages\n' +
+            'Get the integration on the [Bitbucket Marketplace](https://bitbucket.org/product/features/pipelines/integrations?&p=devcyclehq/devcycle-code-refs-pipe)\n' + 
+            content
+        })
+      },
+    ],
+    [
+      'docusaurus-plugin-remote-content',
+      {
+        name: 'bitbucket.pr-insights-action',
+        sourceBaseUrl: 'https://bitbucket.org/devcyclehq/devcycle-pr-insights-pipe/raw/main/',
+        outDir: 'docs/integrations/bitbucket/pr-insights-action',
+        documents: ['README.md'],
+        performCleanup: true,
+        modifyContent: (filename, content) => ({
+          content:
+            '# Bitbucket: Feature Flag Change Insights on Pull Request\n' +
+            'Get the integration on the [Bitbucket Marketplace](https://bitbucket.org/product/features/pipelines/integrations?&p=devcyclehq/devcycle-pr-insights-pipe)\n' +
+            content
+        })
+      },
+    ],
+    [
+      'docusaurus-plugin-remote-content',
+      {
+        name: 'gitlab.feature-usage-action',
+        sourceBaseUrl: 'https://gitlab.com/devcycle/devcycle-usages-ci-cd/-/raw/main/',
+        outDir: 'docs/integrations/gitlab/feature-usage-action',
+        documents: ['README.md'],
+        performCleanup: true,
+        modifyContent: (filename, content) => ({
+          content:
+            '# GitLab: Feature Flag Code Usages \n' +
+            'Get the integration here: https://gitlab.com/devcycle/devcycle-usages-ci-cd\n' +
+            content
+        })
+      }
+    ],
+    [
+      'docusaurus-plugin-remote-content',
+      {
+        name: 'gitlab.pr-insights-action',
+        sourceBaseUrl: 'https://gitlab.com/devcycle/devcycle-pr-insights-ci-cd/-/raw/main/',
+        outDir: 'docs/integrations/gitlab/pr-insights-action',
+        documents: ['README.md'],
+        performCleanup: true,
+        modifyContent: (filename, content) => ({
+          content:
+            '# GitLab: Feature Flag Change Insights on Merge Request\n' +
+            'Get the integration here: https://gitlab.com/devcycle/devcycle-pr-insights-ci-cd\n' +
+            content
+        })
+      }
+    ]
   ],
 
   presets: [
@@ -154,18 +288,18 @@ const config = {
       ? 'https://' + process.env.VERCEL_URL
       : 'http://localhost:3000',
   baseUrl: '/',
-  favicon: 'devcycle_favicon.ico',
+  favicon: 'devcycle_favicon.svg',
   scripts: [
     {
-      src:
-        "https://use.fontawesome.com/releases/v5.15.4/js/all.js",
+      src: 'https://use.fontawesome.com/releases/v5.15.4/js/all.js',
       async: true,
     },
   ],
   themeConfig: {
     announcementBar: {
       id: 'support_us',
-      content:'Ready to start feature flagging? Sign-up for a free <a target="_blank" rel="noopener noreferrer" href="https://devcycle.com">DevCycle account</a> today 🏳️',
+      content:
+        'Ready to start feature flagging? Sign-up for a free <a target="_blank" rel="noopener noreferrer" href="https://devcycle.com">DevCycle account</a> today 🏳️',
       backgroundColor: 'rgb(17 24 39)',
       textColor: '#FFFFFF',
       isCloseable: false,
@@ -256,6 +390,10 @@ const config = {
           position: 'left',
           items: [
             {
+              label: 'Calendar',
+              to: '/community/calendar',
+            },
+            {
               href: 'https://www.meetup.com/devcycle/',
               label: 'MeetUps',
               target: '_blank',
@@ -273,13 +411,6 @@ const config = {
               target: '_blank',
               rel: null,
             },
-            {
-              href: 'https://www.twitter.com/devcyclehq',
-              label: 'Twitter',
-              target: '_blank',
-              rel: null,
-            },
-
           ],
         },
         {

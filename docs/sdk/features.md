@@ -217,7 +217,7 @@ Once you have completed the above setup to create a CNAME, proceed in modifying 
 Add the `alias_host` start option and your CNAME domains
 
 ```javascript
-const dvcClient = initialize('<DVC_CLIENT_SDK_KEY>', user, {
+const devcycleClient = initialize('<DVC_CLIENT_SDK_KEY>', user, {
     alias_host: {
         api_host: 'https://api-alias.your-domain.com'
     }

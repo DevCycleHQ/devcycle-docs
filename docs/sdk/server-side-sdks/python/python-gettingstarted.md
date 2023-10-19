@@ -19,8 +19,8 @@ from devcycle_python_sdk.models.user import DevCycleUser
 # Create an options object to do custom configurations, or use the defaults
 options = DevCycleLocalOptions()
 
-# create an instance of the DevCycleCloudClient class
-client = DevCycleLocalClient('DEVCYCLE_SERVER_SDK_KEY', options)
+# create an instance of the DevCycleLocalClient class
+devcycle_client = DevCycleLocalClient('DEVCYCLE_SERVER_SDK_KEY', options)
 
 # all client functions require user data to be an instance of the DevCycleUser class
 user = DevCycleUser(

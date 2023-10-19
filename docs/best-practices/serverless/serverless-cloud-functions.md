@@ -66,7 +66,6 @@ To set the feature flags, make sure you have a DevCycle account [https://devcycl
     
 3. Add the environment variable `SERVER_KEY` under “Runtime environment variables” ([Related Google Doc](https://cloud.google.com/functions/docs/configuring/env-var) 
 For getting the server-side SDK key from DevCycle, you can read this section ([https://docs.devcycle.com/essentials/keys](/essentials/keys))
-    
     ![Screen Shot 2022-09-13 at 11.51.57 AM.png](/Screen_Shot_2022-09-13_at_11.51.57_AM.png)
     
 4. Click “Next” and enter the ([contents of the `index.js` from the example repo](https://github.com/DevCycleHQ/google-cloud-functions-example/blob/main/index.js)) into the Console
@@ -113,7 +112,7 @@ First, you need to enable EdgeDB in the DevCycle Dashboard
 With the [DevCycle NodeJs SDK ](/sdk/server-side-sdks/node) we use the `enableCloudBucketing` and `enableEdgeDB` options to enable EdgeDB usage. ([SDK initialization option details: ](/sdk/server-side-sdks/node/node-gettingstarted#initialization-options))
 
 ```jsx
-const dvcClient = DVC.initialize(serverKey, {
+const devcycleClient = DVC.initialize(serverKey, {
         enableCloudBucketing: true,
         enableEdgeDB: true
     });
@@ -129,9 +128,9 @@ const userWithAllData = {
 	  email: "vip@email.ca"
 };
 
-const { value: hasCampaign } = await dvcClient.variable(userWithAllData, "campaign-switch", false);
-const { value: campaignData } = await dvcClient.variable({ user_id: "testuser_1234333" }, "campaign-details", {});
-const { value: proposedCampaignTitle } = await dvcClient.variable({ user_id: "testuser_1234333" }, "dec-campaign-proposed-name", "");
+const { value: hasCampaign } = await devcycleClient.variable(userWithAllData, "campaign-switch", false);
+const { value: campaignData } = await devcycleClient.variable({ user_id: "testuser_1234333" }, "campaign-details", {});
+const { value: proposedCampaignTitle } = await devcycleClient.variable({ user_id: "testuser_1234333" }, "dec-campaign-proposed-name", "");
 ```
 
 With the`VIP` variation set in `dec-campaign-proposed-name`, we can head to the `dec-campaign-proposed-name` Feature in the dashboard and test EdgeDB:
@@ -145,7 +144,7 @@ With the`VIP` variation set in `dec-campaign-proposed-name`, we can head to the 
 5. Go back to the google cloud function URL and refresh, you should see the “title” change to “VIP” which means we don’t need to pass in email in the below variable request and get the data `email` from EdgeDB!
 
 ```jsx
-const { value: proposedCampaignTitle } = await dvcClient.variable({ user_id: "testuser_1234333" }, "dec-campaign-proposed-name", "");
+const { value: proposedCampaignTitle } = await devcycleClient.variable({ user_id: "testuser_1234333" }, "dec-campaign-proposed-name", "");
 ```
 
 

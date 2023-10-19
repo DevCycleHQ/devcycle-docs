@@ -81,3 +81,10 @@ This will send a request to our EdgeDB API to save the custom data under the use
 
 In the example, email is associated to the user `test_user`. In your next identify call for the same `userId`, 
 you may omit any of the data you've sent already as it will be pulled from the EdgeDB storage when segmenting to experiments and features.
+
+## SDK Proxy
+
+To further enable various deployment configurations - we provide a background process that can be used to proxy requests to the DevCycle API. This is useful when you have a more unique deployment style,
+or the SDK is not able to make requests to the DevCycle API directly. The installation and setup process for the proxy can be found here: https://github.com/DevCycleHQ/sdk-proxy#readme.
+
+See the [SDK Proxy](../../sdk-proxy/index.md) section for more information.

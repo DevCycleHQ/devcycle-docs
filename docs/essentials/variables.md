@@ -9,6 +9,10 @@ Variables are the elements that can change within a Feature.
 
 By default, upon creation of a Feature, a `Boolean Variable`` will be created which has the same name as the Feature's key for easier reference. 
 
+:::tip Already understand the variable essentials?
+Be sure to check out our advanced variable documentation which covers topics like:
+- [Variable Schemas](/extras/advanced-variables/variable-schemas)
+:::
 ---
 
 ## Managing Variables
@@ -122,7 +126,7 @@ To access variable details, click "View Info" on the Variables list page for you
 
 :::info
 
-To use the Code Refs feature, the [DevCycle action for Code References](/integrations/github/gh-feature-usage-action) must be enabled within your repository.
+To use the Code Refs feature, the [DevCycle action for Code References](/integrations/github/feature-usage-action) must be enabled within your repository.
 
 :::
 
