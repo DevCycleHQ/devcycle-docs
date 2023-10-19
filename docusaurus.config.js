@@ -6,9 +6,9 @@ const remarkYoutube = require('gridsome-plugin-remark-youtube')
  * Pinned version of the CLI to use for docs
  * When bumping the version, add any new commands to the documents array
  */
-const DVC_CLI_VERSION = 'v5.10.1' // auto updated by dvc cli release workflow
+const DVC_CLI_VERSION = 'v5.12.0' // auto updated by dvc cli release workflow
 
-const VSCODE_EXTENSION_VERSION = 'v1.1.2' // auto updated by extension release workflow
+const VSCODE_EXTENSION_VERSION = 'v1.4.0' // auto updated by extension release workflow
 
 const removeDocsSections = (content, sectionNames, headerIdentifier = "##") => {
   let result = content
@@ -130,7 +130,10 @@ const config = {
         documents: ['README.md'],
         performCleanup: true,
         modifyContent: (filename, content) => ({
-          content: '# GitHub: Feature Flag Code Usages \n' + content
+          content:
+            '# GitHub: Feature Flag Code Usages \n' +
+            'Get the integration on the [GitHub Marketplace](https://github.com/marketplace/actions/devcycle-feature-flag-code-usages)\n' +
+            content
         })
       },
     ],
@@ -143,7 +146,10 @@ const config = {
         documents: ['README.md'],
         performCleanup: true,
         modifyContent: (filename, content) => ({
-          content: '# GitHub: Feature Flag Change Insights on Pull Request \n' + content
+          content:
+            '# GitHub: Feature Flag Change Insights on Pull Request \n' +
+            'Get the integration on the [GitHub Marketplace](https://github.com/marketplace/actions/devcycle-feature-flag-insights-for-pull-requests)\n' +
+            content
         })
       },
     ],
@@ -156,7 +162,10 @@ const config = {
         documents: ['README.md'],
         performCleanup: true,
         modifyContent: (filename, content) => ({
-          content: '# Bitbucket: Feature Flag Code Usages \n' + content
+          content:
+            '# Bitbucket: Feature Flag Code Usages\n' +
+            'Get the integration on the [Bitbucket Marketplace](https://bitbucket.org/product/features/pipelines/integrations?&p=devcyclehq/devcycle-code-refs-pipe)\n' + 
+            content
         })
       },
     ],
@@ -169,7 +178,10 @@ const config = {
         documents: ['README.md'],
         performCleanup: true,
         modifyContent: (filename, content) => ({
-          content: '# Bitbucket: Feature Flag Change Insights on Pull Request \n' + content
+          content:
+            '# Bitbucket: Feature Flag Change Insights on Pull Request\n' +
+            'Get the integration on the [Bitbucket Marketplace](https://bitbucket.org/product/features/pipelines/integrations?&p=devcyclehq/devcycle-pr-insights-pipe)\n' +
+            content
         })
       },
     ],
@@ -182,10 +194,29 @@ const config = {
         documents: ['README.md'],
         performCleanup: true,
         modifyContent: (filename, content) => ({
-          content: '# GitLab: Feature Flag Code Usages \n' + content
+          content:
+            '# GitLab: Feature Flag Code Usages \n' +
+            'Get the integration here: https://gitlab.com/devcycle/devcycle-usages-ci-cd\n' +
+            content
         })
       }
     ],
+    [
+      'docusaurus-plugin-remote-content',
+      {
+        name: 'gitlab.pr-insights-action',
+        sourceBaseUrl: 'https://gitlab.com/devcycle/devcycle-pr-insights-ci-cd/-/raw/main/',
+        outDir: 'docs/integrations/gitlab/pr-insights-action',
+        documents: ['README.md'],
+        performCleanup: true,
+        modifyContent: (filename, content) => ({
+          content:
+            '# GitLab: Feature Flag Change Insights on Merge Request\n' +
+            'Get the integration here: https://gitlab.com/devcycle/devcycle-pr-insights-ci-cd\n' +
+            content
+        })
+      }
+    ]
   ],
 
   presets: [
