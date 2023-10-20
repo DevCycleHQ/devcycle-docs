@@ -10,7 +10,7 @@ jobs:
       - name: Set deployment URL
         run: "echo VERCEL_DEPLOYMENT_URL=devcycle-docs.vercel.app >> $GITHUB_ENV"
 
-      - uses: UnlyEd/github-action-await-vercel@v1.2.14
+      - uses: UnlyEd/github-action-await-vercel@v1.2.43
         name: Waits for Vercel deployment to finish
         id: await-vercel
         env:
