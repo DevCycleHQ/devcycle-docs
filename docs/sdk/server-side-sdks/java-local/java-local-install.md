@@ -24,6 +24,7 @@ Currently Supported Platforms are:
 | OS          | Arch   |
 | ----------- | ------ |
 | Linux (ELF) | x86_64 |
+| Linux (ELF) | aarch64 |
 | Mac OS      | x86_64 |
 | Mac OS      | aarch64 |
 | Windows     | x86_64 |
