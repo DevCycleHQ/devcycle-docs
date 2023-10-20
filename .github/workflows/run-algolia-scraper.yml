@@ -23,7 +23,7 @@ jobs:
         run: "echo The deployment at ${{ fromJson(steps.await-vercel.outputs.deploymentDetails).url }} is ${{ fromJson(steps.await-vercel.outputs.deploymentDetails).readyState }}"
 
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Get the content of algolia.json as config
         id: algolia_config
