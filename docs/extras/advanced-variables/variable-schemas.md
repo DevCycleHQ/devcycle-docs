@@ -7,7 +7,7 @@ Variable Schemas is a new DevCycle feature that lets you define allowable values
 
 ## Defining a Variable Schema
 
-To define a Variable Schema for a variable, navigate to the Schema section of the Variable Details page to select and define a schema for that particular variable. The variable must be unassociated in order to select and define a schema. 
+To define a Variable Schema for a variable, navigate to the Schema section of the Variable Details page to select and define a schema for that particular variable. Variable Schemas can be added to both associated or unassociated variables. 
 
 There are three different types of schemas that you can define for your variable: 
 
@@ -18,6 +18,10 @@ There are three different types of schemas that you can define for your variable
 Each schema type requires  a **Brief Description**. For example, when defining an Enum schema for a String variable that's meant for a greeting message on a sign up page, a sample description could be “Greeting options for sign-up page.” 
 
 You also must set an **Example Value**. The example value will be used as the initial value for each variation when adding this variable to a feature.
+
+:::caution
+You will be unable to define or edit a Schema that makes the associated Feature’s values invalid.
+:::
 
 An **Enum** schema will allow you to input allowable values for a string or number variable. 
 
@@ -57,3 +61,4 @@ You can also click on the word *"here”* to open a side panel which displays th
 When adding a new variation for a variable with a schema, you can click on the variable name (e.g. *inline-search* in this example) to open a side panel which displays the schema definition along with other details about the variable. 
 
 ![Add New Variable JSON Schema Selected](/june-2023-add-new-variation-with-schema.png)
+
