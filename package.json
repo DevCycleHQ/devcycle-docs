@@ -38,10 +38,10 @@
     "mixpanel-browser": "^2.45.0",
     "postcss-import": "^15.1.0",
     "postcss-preset-env": "^9.2.0",
-    "prism": "^1.0.0",
+    "prism": "^4.1.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "redocusaurus": "^1.4.0",
+    "redocusaurus": "^1.6.2",
     "remark-docusaurus-tabs": "^0.2.0",
     "tailwindcss": "^3.0.0",
     "vercel": "^32.3.0"
