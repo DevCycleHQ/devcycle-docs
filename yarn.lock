@@ -5104,10 +5104,10 @@ docusaurus-plugin-remote-content@^3.1.0:
     pretty-ms "^7.0.1"
     rimraf "^3.0.2"
 
-docusaurus-theme-redoc@1.6.0:
-  version "1.6.0"
-  resolved "https://registry.npmjs.org/docusaurus-theme-redoc/-/docusaurus-theme-redoc-1.6.0.tgz"
-  integrity sha512-YSZruPqVWxR7NFE7P0YwYzlFxaXVuntm7MPxxZg+KJmXG8Oc88x9lR2VhcnKp8VkJY3rM7YNVz+Sp+x9UyUTHw==
+docusaurus-theme-redoc@1.6.4:
+  version "1.6.4"
+  resolved "https://registry.yarnpkg.com/docusaurus-theme-redoc/-/docusaurus-theme-redoc-1.6.4.tgz#29736f5590c0b04f3538087ab6e17d3d06d7e099"
+  integrity sha512-dEKh/HYWGqGG2Qoy2CgXon28Z32Z/LdNzZvreAQqeYtiXb7Ey9gZFwSstpU4jEcoUa347NCYseLPn8bkxlemCw==
   dependencies:
     "@redocly/openapi-core" "1.0.0-beta.123"
     clsx "^1.2.1"
@@ -10103,13 +10103,13 @@ redoc@2.0.0:
     swagger2openapi "^7.0.6"
     url-template "^2.0.8"
 
-redocusaurus@1.6.0:
-  version "1.6.0"
-  resolved "https://registry.npmjs.org/redocusaurus/-/redocusaurus-1.6.0.tgz"
-  integrity sha512-+gfMLzSX/uBi34+/Ng3ufpmSmy/BuUoR9whXIjhAfm/0uQSpmQQOR3zJrbSNGywoRK6RDkZZQKb5yytwrEh4bw==
+redocusaurus@1.6.4:
+  version "1.6.4"
+  resolved "https://registry.yarnpkg.com/redocusaurus/-/redocusaurus-1.6.4.tgz#0aaa49cf68056a958b4fac5f93259c85b4ae0f75"
+  integrity sha512-0o7bDrs5eLOiMR7BLjdZ6nYEQBNvle/MrUJsvfaKShkZHvbelAJPmH7muoiL+JWcxGCiI8vuh9EKTDDqqRkE9A==
   dependencies:
     docusaurus-plugin-redoc "1.6.0"
-    docusaurus-theme-redoc "1.6.0"
+    docusaurus-theme-redoc "1.6.4"
 
 reflect-metadata@^0.1.13:
   version "0.1.13"
