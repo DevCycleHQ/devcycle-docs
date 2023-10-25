@@ -23,7 +23,7 @@ Status changes are not automatic and are maintained by the user.
 
 ### In Progress
 
-When a Feature is created, it starts in this status. While a Feature is "In Progress," you can modify everything, have as many variations as possible, and have complex targeting rules.
+When a Feature is created, it starts in this status. While a Feature is "In Progress," you can modify everything, have as many variations as you'd like, and have complex targeting rules.
 
 ### Completed
 
@@ -40,7 +40,7 @@ The "Archived" status is designed to clean up the dashboard and the codebase by 
 When a Feature is marked as "Completed," the following changes are implemented:
 
 - Status changes to "Complete."
-- A 'Release Variation' must be chosen which will be served to all users.
+- A 'Release Variation' must be chosen which will be served to all users for every environment.
 - Past environment statuses are preserved.
 - Variables section will display only one single variation.
 - Variable values can still be modified, and environments can be toggled on and off.
