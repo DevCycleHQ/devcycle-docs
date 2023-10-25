@@ -5,7 +5,7 @@ sidebar_position: 9
 
 # Status and Lifecycle Management in DevCycle
 
-In DevCycle, Features are associated with **Statuses** to indicate their current position in the Development LifeCycle. The statuses are a succinct way to understand a Feature's state, and each status has its own unique properties.
+In DevCycle, Features have **Statuses** which indicate their current position in the Development LifeCycle. The statuses are a succinct way to understand a Feature's state, and each status has its own unique properties.
 
 ## Statuses
 
