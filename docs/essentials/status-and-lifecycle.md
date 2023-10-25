@@ -52,7 +52,7 @@ Upon completing a Feature, you will see cleanup checklists for each Variable. Yo
 
 - **Keep**: Marks the Variable as permanent, which will make sure DevCycle does not guide you toward archiving or removing the Variable from your code, and the Variable will always serve the chosen value. 
 
-- **Mark for Cleanup**: Provides a checklist to help you know when it's safe to remove the Variable from the Feature or archive the variable. If Code References are enabled, this will help inform where to remove this Variable from your code. 
+- **Mark for Cleanup**: Provides a checklist to help you know when it's safe to remove the Variable from the Feature or archive the variable. If the variahle is still seen in code, or if evaluations are still seen in production, removing this Variable from the Feature could result in the Variable serving default values to users. If Code References are enabled, this will also help inform where to remove this Variable from your code. 
 
 #### Reverting to In Progress
 
