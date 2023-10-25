@@ -50,26 +50,26 @@ The  [README in the example repo has more details regarding the Lambda Setup.](h
 1. Clone the [devcycle-lambda-example](https://github.com/DevCycleHQ/devcycle-lambda-example) repo
 2. In this example, we are using a ***server* key.** Copy your server key as the `<DEVCYCLE_SERVER_SDK_KEY>`
  in the `DVC.initialize` call. 
-[(You can get your Server KE the server-side SDK key from the DevCycle dashboard)](/essentials/keys)
+[(You can get your Server SDK key from the DevCycle dashboard)](/essentials/keys)
 
 ```jsx
 const devcycleClient = await DVC.initialize('<DEVCYCLE_SERVER_SDK_KEY>').onClientInitialized()
 ```
 
-1. Create a new bucket for deployment artifacts by executing `1-create-bucket.sh`
+3. Create a new bucket for deployment artifacts by executing `1-create-bucket.sh`
 
 ```jsx
 devcycle-lambda-example$ ./1-create-bucket.sh
 make_bucket: devcycle-lambda-example-940d87e83ef56f53
 ```
 
-1. Build a Lambda layer that contains the function's runtime dependencies by executing `2-build-layer.sh`. (Packaging dependencies in a layer reduces the size of the deployment package that you upload when you modify your code.)
+4. Build a Lambda layer that contains the function's runtime dependencies by executing `2-build-layer.sh`. (Packaging dependencies in a layer reduces the size of the deployment package that you upload when you modify your code.)
 
 ```jsx
 devcycle-lambda-example$ ./2-build-layer.sh
 ```
 
-1. Deploy this application by executing `3-deploy.sh`
+5. Deploy this application by executing `3-deploy.sh`
 
 ```jsx
 devcycle-lambda-example$ ./3-deploy.sh
@@ -82,7 +82,7 @@ Waiting for stack create/update to complete
 Successfully created/updated stack - devcycle-lambda-example
 ```
 
-1. To invoke the function, execute `4-invoke.sh`
+6. To invoke the function, execute `4-invoke.sh`
 
 ```jsx
 devcycle-lambda-example$ ./4-invoke.sh
@@ -106,13 +106,13 @@ devcycle-lambda-example$ ./4-invoke.sh
 }]
 ```
 
-1. The output should show two events: 
+7. The output should show two events: 
     
     The first event is for the user with `user_id: test_1`. This event should have its type changed to `my-new-event`, as the user_id matches the targeting rule, resulting in the variation being ON. 
     
     Let the script invoke the function a few times and then press `CRTL+C`to exit.
     
-2. To delete the application, you can run `5-cleanup.sh`. The cleanup script deletes the application stack, which includes the function and execution role, and local build artifacts. You can choose to delete the bucket and function logs as well.
+8. To delete the application, you can run `5-cleanup.sh`. The cleanup script deletes the application stack, which includes the function and execution role, and local build artifacts. You can choose to delete the bucket and function logs as well.
 
 ```jsx
 devcycle-lambda-example$ ./5-cleanup.sh
