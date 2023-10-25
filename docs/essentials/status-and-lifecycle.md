@@ -31,7 +31,7 @@ One could consider a Feature "Completed" once it has been tested, approved, and 
 
 ### Archived
 
-The "Archived" status is designed to clean up the dashboard and the codebase by essentially putting the Feature into a read-only mode and hiding it from the standard dashboard views. It can still be retrieved from archived status and reverted to In Progress.
+The "Archived" status is designed to clean up the dashboard and the codebase by essentially putting the Feature into a read-only mode and hiding it from the standard dashboard views. It can still be reverted from the Archived status to In Progress, allowing for future use.
 
 ## LifeCycle and Changing Status
 
