@@ -17,7 +17,9 @@ Features in DevCycle can exist in one of three Statuses to indicate their curren
 
 Each status comes with its unique properties, affecting how a Feature behaves, can be interacted with, or is displayed in the dashboard.
 
-**Status changes are not automatic and are maintained by the user.**
+Status changes are not automatic and are maintained by the user.
+
+**Detailed Status Breakdown**
 
 ### In Progress
 
@@ -31,7 +33,7 @@ One could consider Feature "Completed" once it has been tested, approved, and is
 
 The "Archived" status is designed to clean up the dashboard and the codebase by essentially putting the Feature into a read-only mode and hiding it from the standard dashboard views. It can still be retrieved from archived status and reverted to In Progress.
 
-## LifeCycle
+## LifeCycle and Changing Status
 
 ### Completing a Feature
 
@@ -43,7 +45,7 @@ When a Feature is marked as "Completed," the following changes are implemented:
 - Variables section will display only one single variation.
 - Variable values can still be modified, and environments can be toggled on and off.
 
-#### Cleanup Steps/Checklists for Variables
+### Cleanup Steps/Checklists for Variables
 
 Upon completing a Feature, you will see cleanup steps/checklists for each Variable. You can choose to "Keep" or "Cleanup" a Variable.
 
@@ -51,7 +53,7 @@ Upon completing a Feature, you will see cleanup steps/checklists for each Variab
   
 - **Cleanup**: Provides a checklist to help you know when it's safe to remove the Variable from the Feature.
 
-### Reverting to In Progress
+#### Reverting to In Progress
 
 The "Completed" status is reversible by clicking "Revert to In Progress."
 
@@ -67,7 +69,7 @@ When a Feature is archived:
 - Status changes to "Archived."
 - All environments for the Feature are turned off.
 
-#### Warning and User Interactions
+#### Variable Warnings
 
 If Variables are seen in the code or evaluations are still incoming, a warning will be displayed in the archive modal. You can opt to archive Variables along with the Feature.
 
