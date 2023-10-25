@@ -27,7 +27,7 @@ When a Feature is created, it starts in this status. While a Feature is "In Prog
 
 ### Completed
 
-One could consider a Feature "Completed" once it has been tested, approved, and is ready for release or has been fully released. When the user changes to the Complete status the Feature enters a semi-readonly state, limiting some editability. All users will be served a single variation. 
+One could consider a Feature "Completed" once it has been tested, approved, and is ready for release or has been fully released. When the user changes to the Complete status the Feature enters a semi-readonly state, limiting some editability such as adding new targeting rules and variations. All users will be served a single variation. 
 
 ### Archived
 
