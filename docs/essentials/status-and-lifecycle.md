@@ -51,7 +51,7 @@ Upon completing a Feature, you will see cleanup steps/checklists for each Variab
 
 - **Keep**: Marks the Variable as permanent, which implies that DevCycle will manage the value of this Variable until otherwise specified.
   
-- **Cleanup**: Provides a checklist to help you know when it's safe to remove the Variable from the Feature.
+- **Mark for Cleanup**: Provides a checklist to help you know when it's safe to remove the Variable from the Feature.
 
 #### Reverting to In Progress
 
@@ -68,10 +68,11 @@ When a Feature is archived:
 - The Feature is put into a read-only mode.
 - Status changes to "Archived."
 - All environments for the Feature are turned off.
+- You may opt to archive Variables along with the Feature.
 
 #### Variable Warnings
 
-If Variables are seen in the code or evaluations are still incoming, a warning will be displayed in the archive modal. You can opt to archive Variables along with the Feature.
+If Variables are seen in the code or evaluations are still incoming, a warning will be displayed in the archive modal. 
 
 #### Restoring a Feature
 
