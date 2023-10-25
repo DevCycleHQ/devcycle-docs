@@ -4,11 +4,20 @@ displayed_sidebar: home
 hide_table_of_contents: true
 hide_title: false
 ---
+
 import CustomDocCardList from '@site/src/components/CustomDocCardList'
 
 # Welcome to DevCycle
 
-<img className="image-float-right" src="code-sample-hero.png" alt="Your image description" width="200"/>
+:::tip
+
+The DevCycle DevRel team hosts weekly Open Office Hours every Thursday at 12PM Pacific Time / 3PM Eastern Time. No need to register, just drop by to troubleshoot issues with the implementing your feature flags, to talk tech, or just to say hi 👋 [See you there!](https://bit.ly/devcycle-discord)
+
+:::
+
+<div className="grid-container">
+  <div>
+    
 
 
 
@@ -16,46 +25,49 @@ DevCycle is a feature flag platform built for teams of any size, helping you eas
 
 **[Follow our Quickstart](/introduction/quickstart) to learn how everything works, or [install an SDK](sdk) for your favorite language to start adding feature flags to a new or existing project.**
 
+<CustomDocCardList
+  items={[
+    {
+      type: 'link',
+      href: '/introduction/quickstart',
+      label: 'Quickstart',
+      description:
+        'Step-by-step guide to adding features to a new or existing project.',
+      iconSet: 'fa',
+      icon: 'flag',
+    },
+    {
+      type: 'link',
+      href: '/sdk',
+      description:
+        'Our client and server-side SDKs are in all the most popular languages.',
+      label: 'SDKs',
+      iconSet: 'fa',
+      icon: 'code',
+    },
+    {
+      type: 'link',
+      href: '/integrations',
+      description:
+        'See how your favorite tools already integrate into the platform.',
+      label: 'Integrations',
+      iconSet: 'fa',
+      icon: 'handshake',
+    },
+    {
+      type: 'link',
+      href: '/cli',
+      description:
+        'Add flags to your project without ever leaving the terminal.',
+      label: 'CLI',
+      iconSet: 'fa',
+      icon: 'terminal',
+    },
+  ]}
+/>
 
-
-<CustomDocCardList items={[
-  {
-    type: 'link',
-    href: '/introduction/quickstart',
-    label: 'Quickstart',
-    description: 'Step-by-step guide to adding features to a new or existing project.',
-    iconSet: 'fa',
-icon:'flag'
-  },
-  {
-    type: 'link',
-    href: '/sdk',
-    description: 'Our client and server-side SDKs are in all the most popular languages.',
-    label: 'SDKs',
-        iconSet: 'fa',
-icon:'code'
-  },
-   {
-    type: 'link',
-    href: '/integrations',
-    description: 'See how your favorite tools already integrate into the platform.',
-    label: 'Integrations',
-        iconSet: 'fa',
-icon:'handshake'
-  },
-   {
-    type: 'link',
-    href: '/cli',
-    description: 'Add flags to your project without ever leaving the terminal.',
-    label: 'CLI',
-        iconSet: 'fa',
-icon:'terminal'
-  },
-]} />
-
-<div class="clear-float"></div>
-
-
-
-
-
+  </div>
+  <div className="image-container">
+    <img src="code-sample-hero.png" alt="Your image description"/>
+  </div>
+</div>
