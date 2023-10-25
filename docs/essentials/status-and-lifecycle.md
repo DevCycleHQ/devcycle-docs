@@ -41,8 +41,9 @@ When a Feature is marked as "Completed," the following changes are implemented:
 
 - Status changes to "Complete."
 - A 'Release Variation' must be chosen which will be served to all users for every environment.
+- Additional targeting rules cannot be added when a feature is Complete and must be reverted to In Progress to do so.
 - Past environment statuses are preserved.
-- Variables section will display only one single variation.
+- Variables section will display only one single variation, you may not add more variations.
 - Variable values can still be modified, and environments can be toggled on and off.
 
 ### Cleanup Steps/Checklists for Variables
