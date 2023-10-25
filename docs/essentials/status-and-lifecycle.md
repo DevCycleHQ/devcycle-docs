@@ -27,11 +27,11 @@ When a Feature is created, it starts in this status. While a Feature is "In Prog
 
 ### Completed
 
-One could consider a Feature "Completed" once it has been tested, approved, and is ready for release or has been fully released. When the user changes to the Complete status the Feature enters a semi-readonly state, limiting some editability such as adding new targeting rules and variations. All users will be served a single variation. 
+One could consider a Feature "Complete" once it has been tested, approved, and is ready for release or has been fully released. When the user changes to the Complete status the Feature enters a semi-readonly state, limiting some editability such as adding new targeting rules and variations. All users will be served a single variation. 
 
 ### Archived
 
-The "Archived" status is designed to clean up the dashboard and the codebase by essentially putting the Feature into a read-only mode and hiding it from the standard dashboard views. It can still be reverted from the Archived status to In Progress, allowing for future use.
+The Archived status is designed to clean up the dashboard and the codebase by essentially putting the Feature into a read-only mode and hiding it from the standard dashboard views. It can still be reverted from the Archived status to In Progress, allowing for future use.
 
 ## LifeCycle and Changing Status
 
@@ -40,19 +40,19 @@ The "Archived" status is designed to clean up the dashboard and the codebase by 
 When a Feature is marked as "Completed," the following changes are implemented:
 
 - Status changes to "Complete."
-- A 'Release Variation' must be chosen which will be served to all users for every environment.
+- A "Release Variation" must be chosen which will be served to all users for every environment.
 - Additional targeting rules cannot be added when a feature is Complete and must be reverted to In Progress to do so.
-- Past environment statuses are preserved.
-- Variables section will display only one single variation, you may not add more variations.
+- Previously set environment statuses are preserved, but all previously Targeting Rules will be removed.
+- The Variables section will display only one single variation, you may not add more variations.
 - Variable values can still be modified, and environments can be toggled on and off.
 
 ### Cleanup Steps/Checklists for Variables
 
-Upon completing a Feature, you will see cleanup steps/checklists for each Variable. You can choose to "Keep" or "Cleanup" a Variable.
+Upon completing a Feature, you will see cleanup checklists for each Variable. You can choose to keep or cleanup a Variable.
 
-- **Keep**: Marks the Variable as permanent, which implies that DevCycle will manage the value of this Variable until otherwise specified.
-  
-- **Mark for Cleanup**: Provides a checklist to help you know when it's safe to remove the Variable from the Feature.
+- **Keep**: Marks the Variable as permanent, which will make sure DevCycle does not guide you toward archiving or removing the Variable from your code, and the Variable will always serve the chosen value. 
+
+- **Mark for Cleanup**: Provides a checklist to help you know when it's safe to remove the Variable from the Feature or archive the variable. If Code References are enabled, this will help inform where to remove this Variable from your code. 
 
 #### Reverting to In Progress
 
