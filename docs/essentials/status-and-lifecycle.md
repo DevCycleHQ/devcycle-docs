@@ -13,7 +13,7 @@ Features in DevCycle can exist in one of three Statuses to indicate their curren
 
 - **In Progress**
 - **Completed**
-- **Archived**
+- **Coming Soon: Archived**
 
 Each status comes with its unique properties, affecting how a Feature behaves, can be interacted with, or is displayed in the dashboard.
 
@@ -59,23 +59,3 @@ The "Completed" status is reversible by clicking "Revert to In Progress."
 
 - Previous variations return, but any new changes made during the "Completed" state remain.
 - Past targeting rules will not be restored.
-
-### Archiving a Feature
-
-When a Feature is archived:
-
-- All Variables are detached.
-- The Feature is put into a read-only mode.
-- Status changes to "Archived."
-- All environments for the Feature are turned off.
-- You may opt to archive Variables along with the Feature.
-
-#### Variable Warnings
-
-If Variables are seen in the code or evaluations are still incoming, a warning will be displayed in the archive modal. 
-
-#### Restoring a Feature
-
-You have the option to restore an archived Feature. You'll be asked if you want to reassociate past Variables when moving back to "In Progress."
-
-By understanding and utilizing these statuses and lifecycle functionalities, teams can maintain a clean, organized codebase and dashboard, making Feature management in DevCycle efficient and effective.
