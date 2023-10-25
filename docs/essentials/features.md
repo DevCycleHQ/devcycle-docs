@@ -173,6 +173,7 @@ The Feature Dashboard is where all of your features can be viewed, edited, and f
 |   Column     | Description                            |
 |--------|----------------------------|
 | Creator | This will show the icon of the user who created this Feature. |
+| Status | The Feature's Current [Status](/essentials/status-and-lifecycle). This indicates the Feature's current position in the Development [LifeCycle](/essentials/status-and-lifecycle). |
 | Name | The Feature's name. This can be changed at any time by editing the Feature. |
 | Key | This is the feature's Key. Use this key to reference the Feature in the SDKs or APIs. |
 | Feature type | The selected type of the Feature. Use this to organize your Features. |
