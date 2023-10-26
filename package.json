@@ -31,7 +31,7 @@
     "@heroicons/react": "^2.0.18",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@vercel/analytics": "^1.0.1",
-    "clsx": "^1.1.1",
+    "clsx": "^2.0.0",
     "docusaurus-plugin-remote-content": "^3.1.0",
     "dotenv": "^16.1.4",
     "gridsome-plugin-remark-youtube": "^1.0.1",
