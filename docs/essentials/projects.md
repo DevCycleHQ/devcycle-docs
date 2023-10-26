@@ -13,7 +13,7 @@ sidebar_position: 2
 
 To view the current Project or change projects, click the Projects dropdown (immediately to the right of the DevCycle logo) on the top left of the Dashboard. The currently viewed project will have a green badge next to it. 
 
-You can also manage the Projects within the current Organization,by navigate to the "Projects" page in the Organization settings. On this page is a list of all of your Organizations Projects. 
+You can also manage the Projects within the current Organization by navigating to the "Projects" page in the Organization settings. On this page is a list of all of your Organizations Projects. 
 
 ### From the CLI
 
