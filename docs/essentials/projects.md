@@ -9,6 +9,12 @@ sidebar_position: 2
 
 ## Managing Projects
 
+### From the Dashboard
+
+To view the current Project or change projects, click the Projects dropdown (immediately to the right of the DevCycle logo) on the top left of the Dashboard. The currently viewed project will have a green badge next to it. 
+
+You can also manage the Projects within the current Organization by navigating to the "Projects" page in the Organization settings. On this page is a list of all of your Organizations Projects. 
+
 ### From the CLI
 
 Once you have installed and authorized the CLI, select your relevant organization then run one of the following commands depending on your use case:
@@ -29,15 +35,25 @@ If the command is successful, you should receving the following response in your
 
 ```
 
-### From the Dashboard
-
-To view the current Project or change projects, click the Projects dropdown (immediately to the right of the DevCycle logo) on the top left of the Dashboard. The currently viewed project will have a green badge next to it. 
-
-You can also manage the Projects within the current Organization,by navigate to the "Projects" page in the Organization settings. On this page is a list of all of your Organizations Projects. 
-
 ---
 
 ## Creating a New Project
+
+### From the Dashboard
+
+To create a new Project, click the `+ Create a new Project` button in the Projects Dropdown. 
+
+![Screenshot of creating project from dashboard](/essentials/projects/create.png)
+
+This will open the create project modal which has the following fields:
+
+|        |                            |
+|--------|----------------------------|
+| **Name** | This is the Project's name which will be visible throughout the DevCycle dashboard. This may be changed at a later time. |
+| **Key** | This is the Project's unique key which is used to reference the project in the [Management API](/management-api/). |
+| **Description** | A descriptive text about the project. Can be changed at a later time. |
+
+Once created, the Project will be created and will have three [Environments](/essentials/environments): Development, Staging, and Production. This project will immediately be ready for use and Features can now be created within it. 
 
 
 ### From the CLI
@@ -77,22 +93,12 @@ If successful you will receive something which resembles the following (which de
 }
 ```
 
-
-### From the Dashboard
-
-To create a new Project, click the `+ Create a new Project` button in the Projects Dropdown. This will open the create project modal which has the following fields:
-
-|        |                            |
-|--------|----------------------------|
-| **Name** | This is the Project's name which will be visible throughout the DevCycle dashboard. This may be changed at a later time. |
-| **Key** | This is the Project's unique key which is used to reference the project in the [Management API](/management-api/). |
-| **Description** | A descriptive text about the project. Can be changed at a later time. |
-
-Once created, the Project will be created and will have three [Environments](/essentials/environments): Development, Staging, and Production. This project will immediately be ready for use and Features can now be created within it. 
-
 ---
 
 ## Updating a Project
+
+### From the Dashboard
+Navigate to your user settings by clicking on your avatar in the upper right hand corner of the screen or clicking the cog icon (⚙️) in the top navbar. Once on the settings page click the `Edit` button on the Project's row on the Project list. This will bring up the editing window, which allows you to modify the relevant settings.
 
 ### From the CLI
 
@@ -100,20 +106,17 @@ Once created, the Project will be created and will have three [Environments](/es
 Updating a project is currently unavailable through the CLI.
 :::
 
-### From the Dashboard
-Navigate to your user settings by clicking on your avatar in the upper right hand corner of the screen or clicking the cog icon (⚙️) in the top navbar. Once on the settings page click the `Edit` button on the Project's row on the Project list. This will bring up the editing window, which allows you to modify the relevant settings.
-
 ---
 
 ## Deleting a Project
+
+### From the Dashboard
+
+Navigate to your user settings by clicking on your avatar in the upper right hand corner of the screen or clicking the cog icon (⚙️) in the top navbar. Once on the settings page, select `Projects` from the left hand menu and click the `Delete` button beside the relevant project.
 
 ### From the CLI
 
 :::caution
 Project deletion is currently unavailable through the CLI.
 :::
-
-### From the Dashboard
-
-Navigate to your user settings by clicking on your avatar in the upper right hand corner of the screen or clicking the cog icon (⚙️) in the top navbar. Once on the settings page, select `Projects` from the left hand menu and click the `Delete` button beside the relevant project.
 

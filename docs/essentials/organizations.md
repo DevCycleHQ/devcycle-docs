@@ -5,7 +5,7 @@ sidebar_position: 1
 
 Organizations are the top level of the Account hierarchy within DevCycle, and are where all Users and Projects are managed. Users within an organization will have the same permissions across all projects, and a user may be part of multiple Organizations.
 
-To view the current Organization (or change Organizations) click on your user avatar on the top right of the DevCycle Dashboard. The active Organization will have a green badge next to it. 
+To view the current Organization (or change Organizations) click on your user avatar on the top right of the DevCycle Dashboard. The active Organization will have a green badge next to it.
 
 **Discovering Other Organizations**
 
@@ -21,21 +21,21 @@ Please note that organizational settings cannot currently be viewed or changed t
 
 ## Organization Settings
 
-To access the settings for the current Organization, ensure the Organization you wish to modify is selected and click the settings button in the dropdown presented after you click your avatar. 
+To access the settings for the current Organization, ensure the Organization you wish to modify is selected and click the settings button in the dropdown presented after you click your avatar.
 
 On the Organization settings page there are the following fields and items:
 
-|        |                             |
-|--------|----------------------------|
-| **Organization Name** | This is your organization's name which will be used throughout the Dashboard as well as in the API responses. |
-| **Organization ID** | The internal identifier for your organization. Mainly used for billing purposes |
-| **Client ID and Client Secret** | Please refer to [API and SDK Keys](/essentials/keys) |
+|                                 |                                                                                                               |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| **Organization Name**           | This is your organization's name which will be used throughout the Dashboard as well as in the API responses. |
+| **Organization ID**             | The internal identifier for your organization. Mainly used for billing purposes                               |
+| **Client ID and Client Secret** | Please refer to [API and SDK Keys](/essentials/keys)                                                          |
 
 ---
 
 ## Organization Members
 
-Members are added to an Organization from the [Organization Settings](#organization-settings) page. Once here, navigate to the "Team" page of the settings. This page will contain a list of all Members within the current Organization. 
+Members are added to an Organization from the [Organization Settings](#organization-settings) page. Once here, navigate to the "Team" page of the settings. This page will contain a list of all Members within the current Organization.
 
 **Adding Members**
 From here, you can click the "Add Team Member" button to add a new Member to your Organization. This will bring up a window where you can enter the email of the user you wish to invite. This will send an email to the Member, allowing them to start the process of creating an account.
@@ -56,19 +56,24 @@ To remove a Team Members from your Organization, either allow your SAML provider
 
 Roles within DevCycle determine what functionality specific Members in an organization may access. They can be used to ensure that certain users are entirely unable to make modifications to any Production environments.
 
-There are three main roles in DevCycle
+There are three main roles in DevCycle:
 
-|        |                            |
-|--------|----------------------------|
-| **Owner** | This is the default role given to all users on the platform when not on an Enterprise or Business plan. All owners of an organization will be able to create/modify all items. |
-| **Publisher** | A publisher can create and modify all things in the platform except for other members' roles. They can modify items that are in production and can also fully delete features and archive variables even if in production. |
-| **Member** | This role prevents any modification of any item that is enabled in production. This includes modifying targeting rules, variables, variations, or environments in any scenario where it would impact a feature in a Production environment. |
+| Role          | Description                                                                                                                                                                                                                                 |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Owner**     | This is the default role given to all users on the platform when not on an Enterprise or Business plan. All owners of an organization will be able to create/modify all items.                                                              |
+| **Publisher** | A publisher can create and modify all things in the platform except for other members' roles. They can modify items that are in production and can also fully delete features and archive variables even if in production.                  |
+| **Member**    | This role prevents any modification of any item that is enabled in production. This includes modifying targeting rules, variables, variations, or environments in any scenario where it would impact a feature in a Production environment. |
 
-:::info
+The table below displays the built-in roles and their associated permissions:
 
-At the moment, roles and permissions are for Enterprise and Business Customers only. However, you can reach out to discuss this with us if necessary.
+| Permission                    | Owner | Publisher | Member | Granular Owner<sup>1</sup> |
+| ----------------------------- | :---: | :-------: | :----: | :------------------------: |
+| Add Team Members              |  ✅   |    ✅     |   ✅   |             ✅             |
+| Edit Team Member Roles        |  ✅   |           |        |             ✅             |
+| Modify Features in Production |  ✅   |    ✅     |        |                            |
 
-:::
+> _<sup>1</sup> Granular (by environment) Roles & Permissions are for Business/Enterprise Customers only. Contact our team for details._
+
 
 
 **Assigning Roles**

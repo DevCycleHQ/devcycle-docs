@@ -291,3 +291,23 @@ html[data-theme="dark"] .DocSearch {
       .deskContent {display:none;}
       .phoneContent {display:block;}
   }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 500px; /* 1fr takes the remaining space, 200px for the image */
+    align-items: start;
+    gap: 40px; /* adjust as needed */
+  }
+  
+  .image-container img {
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Media query for screens smaller than 768px */
+  @media (max-width: 1000px) {
+    .grid-container {
+      grid-template-columns: 1fr; /* Stack items on top of each other on small screens */
+    }
+  }
+  
