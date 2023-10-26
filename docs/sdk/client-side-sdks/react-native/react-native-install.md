@@ -87,17 +87,17 @@ import React from 'react'
 import 'react-native-get-random-values'
 import DeviceInfo from 'react-native-device-info'
 import '@react-native-async-storage/async-storage'
-import { withDVCProvider } from '@devcycle/react-native-client-sdk'
+import { withDevCycleProvider } from '@devcycle/react-native-client-sdk'
 
 global.DeviceInfo = DeviceInfo
 ```
 
 ## Wrap Application in HOC
-Wrap your application component tree in either the `withDVCProvider` or `asyncWithDVCProvider` higher-order component (HOC), as explained in the [Getting Started](#getting-started) section.
+Wrap your application component tree in either the `withDevCycleProvider` or `asyncWithDVCProvider` higher-order component (HOC), as explained in the [Getting Started](#getting-started) section.
 
 
 ```jsx
-export default withDVCProvider({ sdkKey: '<DEVCYCLE_CLIENT_SDK_KEY>' })(App)
+export default withDevCycleProvider({ sdkKey: '<DEVCYCLE_CLIENT_SDK_KEY>' })(App)
 ```
 
 ## Example
@@ -109,7 +109,7 @@ import { View, Text } from 'react-native'
 import 'react-native-get-random-values'
 import DeviceInfo from 'react-native-device-info'
 import '@react-native-async-storage/async-storage'
-import { withDVCProvider } from '@devcycle/react-native-client-sdk'
+import { withDevCycleProvider } from '@devcycle/react-native-client-sdk'
 
 global.DeviceInfo = DeviceInfo
 function App() {
@@ -126,5 +126,5 @@ function App() {
   )
 }
 
-export default withDVCProvider({ sdkKey: '<DEVCYCLE_CLIENT_SDK_KEY>' })(App)
+export default withDevCycleProvider({ sdkKey: '<DEVCYCLE_CLIENT_SDK_KEY>' })(App)
 ```
