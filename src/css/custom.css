@@ -294,9 +294,9 @@ html[data-theme="dark"] .DocSearch {
 
   .grid-container {
     display: grid;
-    grid-template-columns: 1fr 500px; /* 1fr takes the remaining space, 200px for the image */
+    grid-template-columns: 1fr 400px; /* 1fr takes the remaining space, 200px for the image */
     align-items: start;
-    gap: 40px; /* adjust as needed */
+    gap: 30px; /* adjust as needed */
   }
   
   .image-container img {
