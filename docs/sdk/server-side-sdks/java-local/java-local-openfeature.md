@@ -41,7 +41,7 @@ public class OpenFeatureExample {
         Client openFeatureClient = api.getClient();
         
         // Retrieve a boolean flag from the OpenFeature client
-        Boolean variableValue = openFeatureClient.getBooleanValue("boolean-flag", false, new ImmutableContext("user-1234"));
+        Boolean variableValue = openFeatureClient.getBooleanValue("boolean-flag", false, new MutableContext("user-1234"));
     }
 }
 ```
@@ -58,29 +58,26 @@ The provider will automatically translate known `DevCycleUser` properties from t
 
 For example all these properties will be set on the `DevCycleUser`:
 ```java
-Map<String, Value> attributes = new LinkedHashMap<>();
-attributes.put("email", new Value("email@devcycle.com"));
-attributes.put("name", new Value("name"));
-attributes.put("country", new Value("CA"));
-attributes.put("language", new Value("en"));
-attributes.put("appVersion", new Value("1.0.11"));
-attributes.put("appBuild", new Value(1000));
+MutableContext context = new MutableContext("test-1234");
+context.add("email", "email@devcycle.com");
+context.add("name", "name");
+context.add("country", "CA");
+context.add("language", "en");
+context.add("appVersion", "1.0.11");
+context.add("appBuild", 1000);
 
 Map<String,Object> customData = new LinkedHashMap<>();
 customData.put("custom", "value");
-attributes.put("customData", new Value(Structure.mapToStructure(customData)));
+context.add("customData", Structure.mapToStructure(customData));
 
 Map<String,Object> privateCustomData = new LinkedHashMap<>();
 privateCustomData.put("private", "data");
-attributes.put("privateCustomData", new Value(Structure.mapToStructure(privateCustomData)));
-
-EvaluationContext context = new ImmutableContext("test-1234", attributes);
+context.add("privateCustomData", Structure.mapToStructure(privateCustomData));
 ```
 
-Context properties that are not known `DevCycleUser` properties will be automatically
-added to the `customData` property of the `DevCycleUser`. 
+Context properties that are not known `DevCycleUser` properties will be automatically added to the `customData` property of the `DevCycleUser`. 
 
-DevCycle allows the following data types for `customData` and `privateCustomData` values: **boolean**, **integer**, **double**, **float**, and **String**. Other data types will be ignored 
+DevCycle allows the following data types for custom data values: **boolean**, **integer**, **double**, **float**, and **String**. Other data types will be ignored.
 
 ### JSON Flag Limitations
 
@@ -93,9 +90,11 @@ openFeatureClient.getObjectValue("json-flag", new Value(new ArrayList<String>(Ar
 openFeatureClient.getObjectValue("json-flag", new Value(610));
 openFeatureClient.getObjectValue("json-flag", new Value(false));
 openFeatureClient.getObjectValue("json-flag", new Value("string"));
+openFeatureClient.getObjectValue("json-flag", new Value());
 ```
 
 However, these are not valid types for the DevCycle SDK, the DevCycle SDK only supports JSON Objects (as `Map<String,Object>`):
+
 ```java
 
 Map<String,Object> defaultJsonData = new LinkedHashMap<>();
