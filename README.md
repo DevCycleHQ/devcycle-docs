@@ -31,4 +31,4 @@ Any changes made to the local code will automatically compile and update the loc
 * Make your changes locally on a new branch.
 * Push your branch.
 * Make pull request.
-* Ask for a reveiew from the DevCycle team.
+* Ask for a review from the DevCycle team.
