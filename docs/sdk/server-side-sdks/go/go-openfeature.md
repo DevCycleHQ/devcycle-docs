@@ -63,7 +63,7 @@ func main() {
 
 ### Required TargetingKey
 
-For DevCycle SDK to work we require either a `targetingKey` or `user_id` to be set on the OpenFeature context.
+For the DevCycle SDK to work we require either a `targetingKey` or `user_id` to be set on the OpenFeature context.
 This is used to identify the user as the `user_id` for a `devcycle.User` in DevCycle.
 
 ### Context properties to User
