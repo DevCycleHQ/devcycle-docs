@@ -11,9 +11,7 @@ sidebar_custom_props: {icon: rocket}
 [![Nuget Local](https://badgen.net/nuget/v/DevCycle.SDK.Server.Cloud)](https://www.nuget.org/packages/DevCycle.SDK.Server.Local/)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/dotnet-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/dotnet-server-sdk)
 
-# Cloud Bucketing
-
-## Initializing SDK
+## Cloud Bucketing - Initializing SDK
 
 To start, initialize a client using the SDK key.
 
@@ -34,9 +32,7 @@ namespace Example {
 }
 ```
 
-# Local Bucketing
-
-## Initializing SDK 
+## Local Bucketing - Initializing SDK 
 
 To start, initialize a client using the SDK key. 
 
@@ -56,7 +52,7 @@ namespace Example {
 }
 ```
 
-## Initialization With Callback
+### Initialization With Callback
 
 You can also setup a callback to be notified when the client is fully initialized and use `DevCycleLocalOptions` to further configure the client.
 

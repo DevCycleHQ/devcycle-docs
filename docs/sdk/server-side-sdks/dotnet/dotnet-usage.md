@@ -39,7 +39,7 @@ If you would like to get the full Variable object you can use `Variable()` inste
 
 To get values from your Variables, the `Value` field inside the variable object can be accessed.
 
-This method will fetch all variables for a given user and return as `Dictionary<string, Feature>;`
+This method will fetch all variables for a given user and return as `Dictionary<string, ReadOnlyVariable<object>>;`
 
 ```csharp
 Dictionary<string, ReadOnlyVariable<object>> result = await client.AllVariables(user);
@@ -53,7 +53,10 @@ Dictionary<string, Feature> result = await client.AllFeatures(user);
 ```
 
 ## Track Event
-To POST custom event for a user, pass in the user and event object.
+To track a custom event for a user, pass in the user and event object.
+
+In the Local Bucketing SDK - this queues the event to be batched out later, while in the Cloud Bucketing SDK, this is sent
+right away.
 
 ```csharp
 var event = new DevCycleEvent("test event", "test target");
