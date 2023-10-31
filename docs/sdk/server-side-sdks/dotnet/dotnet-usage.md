@@ -1,12 +1,14 @@
 ---
-title: .NET / C# Cloud SDK Usage
+title: .NET / C# SDK Usage
 sidebar_label: Usage
 sidebar_position: 3
 description: Using the SDK
 sidebar_custom_props: {icon: toggle-on}
 ---
 
-[![Nuget](https://badgen.net/nuget/v/DevCycle.SDK.Server.Cloud)](https://www.nuget.org/packages/DevCycle.SDK.Server.Cloud/)
+
+[![Nuget Cloud](https://badgen.net/nuget/v/DevCycle.SDK.Server.Cloud)](https://www.nuget.org/packages/DevCycle.SDK.Server.Cloud/)
+[![Nuget Local](https://badgen.net/nuget/v/DevCycle.SDK.Server.Cloud)](https://www.nuget.org/packages/DevCycle.SDK.Server.Local/)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/dotnet-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/dotnet-server-sdk)
 
 ## DevCycleUser Object
@@ -15,7 +17,7 @@ The user object is required for all methods. The only required field in the user
 See the DevCycleUser class in [.NET DevCycleUser model doc](https://github.com/DevCycleHQ/dotnet-server-sdk/blob/main/docs/User.md) for all accepted fields.
 
 ```csharp
-DevCycleUser user = new DevCycleUser("a_user_id");
+DevCycleUser user = new DevCycleUser("a_unique_id");
 ```
 
 ## Get and use Variable by key
@@ -25,43 +27,46 @@ value from the server unless an error occurs or the server has no response.
 In that case it will return a variable value with the value set to whatever was passed in as the `defaultValue` parameter.
 
 ```csharp
-bool result = await client.VariableValueAsync(user, "YOUR_KEY", true);
+bool result = await client.VariableValue(user, "your-variable-key", true);
 ```
 
 The default value can be of type `String`, `Boolean`, `Number`, or `Object`.
 
-If you would like to get the full Variable object you can use `VariableAsync()` instead. This contains fields such as:
-`key`, `value`, `type`, `defaultValue`, `isDefaulted`.
+If you would like to get the full Variable object you can use `Variable()` instead. This contains properties such as:
+`Key`, `Value`, `Type`, `DefaultValue`, `IsDefaulted`.
 
 ## Getting All Variables
 
-To get values from your Variables, the `value` field inside the variable object can be accessed.
+To get values from your Variables, the `Value` field inside the variable object can be accessed.
 
-This method will fetch all variables for a given user and return as DictionaryString, Feature;
+This method will fetch all variables for a given user and return as `Dictionary<string, ReadOnlyVariable<object>>;`
 
 ```csharp
-Dictionary<string, IVariable> result = await client.AllVariablesAsync(user);
+Dictionary<string, ReadOnlyVariable<object>> result = await client.AllVariables(user);
 ```
 
 ## Getting All Features
 This method will fetch all features for a given user and return them as Dictionary<String, Feature>
 
 ```csharp
-Dictionary<string, Feature> result = await client.AllFeaturesAsync(user);
+Dictionary<string, Feature> result = await client.AllFeatures(user);
 ```
 
 ## Track Event
-To POST custom event for a user, pass in the user and event object.
+To track a custom event for a user, pass in the user and event object.
+
+In the Local Bucketing SDK - this queues the event to be batched out later, while in the Cloud Bucketing SDK, this is sent
+right away.
 
 ```csharp
 var event = new DevCycleEvent("test event", "test target");
 
-DevCycleResponse result = await client.TrackAsync(user, event);
+DevCycleResponse result = await client.Track(user, event);
 ```
 
-## EdgeDB
+## EdgeDB - Cloud Only
 
-EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user. 
+EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user.
 Read more about [EdgeDB](/extras/edgedb).
 
 To get started, contact us at support@devcycle.com to enable EdgeDB for your project.
@@ -74,12 +79,12 @@ DevCycleCloudClient devcycleClient = new DevCycleCloudClientBuilder()
                                         .SetSDKKey("<DEVCYCLE_SERVER_SDK_KEY>")
                                         .SetOptions(options)
                                         .Build();
-var user = new DevCycleUser("test_user", "example@example.com");
+var edgeDBUser = new DevCycleUser("test_user") { Email = "example@example.com" };
 ```
 
-This will send a request to our EdgeDB API to save the custom data under the user `test_user`.
+This will send a request to our EdgeDB API to save the custom data (in this case, email) under the user `test_user`.
 
-In the example, email is associated to the user `test_user`. In your next identify call for the same `userId`, 
+In the example, email is associated to the user `test_user`. In your next identify call for the same `userId`,
 you may omit any of the data you've sent already as it will be pulled from the EdgeDB storage when segmenting to experiments and features.
 
 ## SDK Proxy

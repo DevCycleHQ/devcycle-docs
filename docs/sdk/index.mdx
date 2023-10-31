@@ -145,17 +145,9 @@ The current Server-Side SDKs are:
     },
     {
         type: 'link',
-        href: '/sdk/server-side-sdks/dotnet-cloud',
+        href: '/sdk/server-side-sdks/dotnet',
         label: '.NET SDK',
-        description: 'Cloud Bucketing',
-        iconSet: 'fab',
-        icon: 'microsoft'
-    },
-    {
-        type: 'link',
-        href: '/sdk/server-side-sdks/dotnet-local',
-        label: '.NET SDK',
-        description: 'Local Bucketing',
+        description: 'Local and Cloud Bucketing',
         iconSet: 'fab',
         icon: 'microsoft'
     },
@@ -168,7 +160,7 @@ The current Server-Side SDKs are:
 
 ### Local Bucketing SDKs
 
-Local bucketing does all of the calculations locally using extremely performant Web Assembly code. The project's
+Local Bucketing does all calculations locally using extremely performant WebAssembly code. The project's
 environment configuration is downloaded upon initialization of the SDK, and all future SDK calls will calculate values
 locally within the SDK. This approach will guarantee responses from the SDK in 1-10ms. The configuration will be updated
 at a configurable polling interval.
