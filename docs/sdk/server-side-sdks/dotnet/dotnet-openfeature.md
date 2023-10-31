@@ -28,24 +28,24 @@ OpenFeature.Api.Instance.SetProvider(devCycleClient.GetOpenFeatureProvider());
 FeatureClient oFeatureClient = OpenFeature.Api.Instance.GetClient();
 // The evaluation context is an example of a fully populated DevCycleUser. The only required value is a bucketing key of `user_id` or `targetingKey`
 EvaluationContext ctx = EvaluationContext.Builder()
-                .Set("user_id", "test")
-                .Set("customData",
-                    new Structure(new Dictionary<string, Value> { { "customkey", new Value("customValue") } }))
-                .Set("privateCustomData",
-                    new Structure(new Dictionary<string, Value>
-                        { { "privateCustomKey", new Value("privateCustomValue") } }))
-                .Set("email", "email@email.com")
-                .Set("name", "Name Name")
-                .Set("language", "EN")
-                .Set("country", "CA")
-                .Set("appVersion", "0.0.1")
-                .Set("appBuild", 1)
-                // Any additional properties are added as values to CustomData
-                .Set("nonSetValueBubbledCustomData", true)
-                .Set("nonSetValueBubbledCustomData2", "true")
-                .Set("nonSetValueBubbledCustomData3", 1)
-                .Set("nonSetValueBubbledCustomData4", new Value((object)null))
-                .Build();
+    .Set("user_id", "test")
+    .Set("customData",
+        new Structure(new Dictionary<string, Value> { { "customkey", new Value("customValue") } }))
+    .Set("privateCustomData",
+        new Structure(new Dictionary<string, Value>
+            { { "privateCustomKey", new Value("privateCustomValue") } }))
+    .Set("email", "email@email.com")
+    .Set("name", "Name Name")
+    .Set("language", "EN")
+    .Set("country", "CA")
+    .Set("appVersion", "0.0.1")
+    .Set("appBuild", 1)
+    // Any additional properties are added as values to CustomData
+    .Set("nonSetValueBubbledCustomData", true)
+    .Set("nonSetValueBubbledCustomData2", "true")
+    .Set("nonSetValueBubbledCustomData3", 1)
+    .Set("nonSetValueBubbledCustomData4", new Value((object)null))
+    .Build();            
              
 var variableResult = await oFeatureClient.GetStringDetails(readOnlyVariable.Key, "default", ctx);
 ```
