@@ -1123,9 +1123,10 @@
   version "2.1.5"
   resolved "https://registry.npmjs.org/@csstools/media-query-list-parser/-/media-query-list-parser-2.1.5.tgz"
 
-"@csstools/postcss-cascade-layers@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.npmjs.org/@csstools/postcss-cascade-layers/-/postcss-cascade-layers-4.0.0.tgz"
+"@csstools/postcss-cascade-layers@^4.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@csstools/postcss-cascade-layers/-/postcss-cascade-layers-4.0.1.tgz#43d12cb0ffe9ab461bc41143dc554c6e1cb633e6"
+  integrity sha512-UYFuFL9GgVnftg9v7tBvVEBRLaBeAD66euD+yYy5fYCUld9ZIWTJNCE30hm6STMEdt6FL5xzeVw1lAZ1tpvUEg==
   dependencies:
     "@csstools/selector-specificity" "^3.0.0"
     postcss-selector-parser "^6.0.13"
@@ -1208,6 +1209,16 @@
 "@csstools/postcss-logical-float-and-clear@^2.0.0":
   version "2.0.0"
   resolved "https://registry.npmjs.org/@csstools/postcss-logical-float-and-clear/-/postcss-logical-float-and-clear-2.0.0.tgz"
+
+"@csstools/postcss-logical-overflow@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@csstools/postcss-logical-overflow/-/postcss-logical-overflow-1.0.0.tgz#dbc18226f6cc6a83981184564ed9229a860f6033"
+  integrity sha512-cIrZ8f7bGGvr+W53nEuMspcwaeaI2YTmz6LZ4yiAO5z14/PQgOOv+Pn+qjvPOPoadeY2BmpaoTzZKvdAQuM17w==
+
+"@csstools/postcss-logical-overscroll-behavior@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@csstools/postcss-logical-overscroll-behavior/-/postcss-logical-overscroll-behavior-1.0.0.tgz#93f60a71f75dab89b471166e6c3d44c8ef1b76b8"
+  integrity sha512-e89S2LWjnxf0SB2wNUAbqDyFb/Fow/tlOe1XqOLbNx4rf3LrQokM9qldVx7sarnddml3ORE5LDUmlKpPOOeJTA==
 
 "@csstools/postcss-logical-resize@^2.0.0":
   version "2.0.0"
@@ -3772,9 +3783,10 @@ css-what@^6.0.1, css-what@^6.1.0:
   version "6.1.0"
   resolved "https://registry.npmjs.org/css-what/-/css-what-6.1.0.tgz"
 
-cssdb@^7.8.0:
-  version "7.8.0"
-  resolved "https://registry.npmjs.org/cssdb/-/cssdb-7.8.0.tgz"
+cssdb@^7.9.0:
+  version "7.9.0"
+  resolved "https://registry.yarnpkg.com/cssdb/-/cssdb-7.9.0.tgz#d42d8269ff3d3e1c366280ab1f9f6207057b262c"
+  integrity sha512-WPMT9seTQq6fPAa1yN4zjgZZeoTriSN2LqW9C+otjar12DQIWA4LuSfFrvFJiKp4oD0xIk1vumDLw8K9ur4NBw==
 
 cssesc@^3.0.0:
   version "3.0.0"
@@ -6865,11 +6877,12 @@ postcss-place@^9.0.0:
   dependencies:
     postcss-value-parser "^4.2.0"
 
-postcss-preset-env@^9.2.0:
-  version "9.2.0"
-  resolved "https://registry.npmjs.org/postcss-preset-env/-/postcss-preset-env-9.2.0.tgz"
+postcss-preset-env@^9.3.0:
+  version "9.3.0"
+  resolved "https://registry.yarnpkg.com/postcss-preset-env/-/postcss-preset-env-9.3.0.tgz#58f296087cf3dc18cb75af11954c6c5822220327"
+  integrity sha512-ycw6doPrqV6QxDCtgiyGDef61bEfiSc59HGM4gOw/wxQxmKnhuEery61oOC/5ViENz/ycpRsuhTexs1kUBTvVw==
   dependencies:
-    "@csstools/postcss-cascade-layers" "^4.0.0"
+    "@csstools/postcss-cascade-layers" "^4.0.1"
     "@csstools/postcss-color-function" "^3.0.7"
     "@csstools/postcss-color-mix-function" "^2.0.7"
     "@csstools/postcss-exponential-functions" "^1.0.1"
@@ -6881,6 +6894,8 @@ postcss-preset-env@^9.2.0:
     "@csstools/postcss-initial" "^1.0.0"
     "@csstools/postcss-is-pseudo-class" "^4.0.3"
     "@csstools/postcss-logical-float-and-clear" "^2.0.0"
+    "@csstools/postcss-logical-overflow" "^1.0.0"
+    "@csstools/postcss-logical-overscroll-behavior" "^1.0.0"
     "@csstools/postcss-logical-resize" "^2.0.0"
     "@csstools/postcss-logical-viewport-units" "^2.0.3"
     "@csstools/postcss-media-minmax" "^1.1.0"
@@ -6900,7 +6915,7 @@ postcss-preset-env@^9.2.0:
     css-blank-pseudo "^6.0.0"
     css-has-pseudo "^6.0.0"
     css-prefers-color-scheme "^9.0.0"
-    cssdb "^7.8.0"
+    cssdb "^7.9.0"
     postcss-attribute-case-insensitive "^6.0.2"
     postcss-clamp "^4.1.0"
     postcss-color-functional-notation "^6.0.2"

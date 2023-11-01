@@ -37,7 +37,7 @@
     "gridsome-plugin-remark-youtube": "^1.0.1",
     "mixpanel-browser": "^2.45.0",
     "postcss-import": "^15.1.0",
-    "postcss-preset-env": "^9.2.0",
+    "postcss-preset-env": "^9.3.0",
     "prism": "^4.1.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
