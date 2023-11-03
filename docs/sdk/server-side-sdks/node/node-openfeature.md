@@ -25,6 +25,8 @@ Install the OpenFeature JS SDK and DevCycle Provider:
 npm install --save @devcycle/openfeature-nodejs-provider @devcycle/nodejs-server-sdk @openfeature/js-sdk
 ```
 
+### Getting Started
+
 Initialize the DevCycle SDK and set the DevCycleProvider as the provider for OpenFeature:
 
 ```typescript

@@ -24,6 +24,8 @@ Install the OpenFeature Go SDK and DevCycle Provider:
 go get "github.com/devcyclehq/go-server-sdk/v2"
 ```
 
+### Getting Started
+
 Initialize the DevCycle SDK and set the DevCycleProvider as the provider for OpenFeature:
 
 ```go
@@ -64,7 +66,7 @@ func main() {
 ### Required TargetingKey
 
 For the DevCycle SDK to work we require either a `targetingKey` or `user_id` to be set on the OpenFeature context.
-This is used to identify the user as the `user_id` for a `devcycle.User` in DevCycle.
+This is used to identify the user as the `UserId` for a `devcycle.User` in DevCycle.
 
 ### Context properties to User
 
