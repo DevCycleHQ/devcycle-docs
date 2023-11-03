@@ -18,6 +18,8 @@ DevCycle provides a C# implementation of the [OpenFeature](https://openfeature.d
 
 The OpenFeature Provider is included in the DevCycle SDK for .NET / C# natively. It's included for both Cloud and Local Bucketing.
 
+### Getting Started
+
 Initialize the DevCycle SDK and set the DevCycleProvider as the provider for OpenFeature:
 
 ```csharp

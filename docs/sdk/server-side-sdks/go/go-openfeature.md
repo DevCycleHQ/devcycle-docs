@@ -24,6 +24,8 @@ Install the OpenFeature Go SDK and DevCycle Provider:
 go get "github.com/devcyclehq/go-server-sdk/v2"
 ```
 
+### Getting Started
+
 Initialize the DevCycle SDK and set the DevCycleProvider as the provider for OpenFeature:
 
 ```go
