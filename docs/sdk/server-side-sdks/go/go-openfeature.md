@@ -35,8 +35,10 @@ import (
 	"log"
 	"os"
 	"time"
+	"context"
 
 	devcycle "github.com/devcyclehq/go-server-sdk/v2"
+	"github.com/open-feature/go-sdk/pkg/openfeature"
 )
 
 func main() {
@@ -60,6 +62,11 @@ func main() {
 		log.Fatalf("Failed to set DevCycle provider: %v", err)
 	}
 	client := openfeature.NewClient("devcycle")
+
+	evalCtx := openfeature.NewEvaluationContext("user_id", map[string]interface{}{})
+	booleanVar, err := client.BooleanValue(context.Background(), "boolean-flag", false, evalCtx)
+
+	log.Printf("The boolean variable value is: %v", booleanVar)
 }
 ```
 
