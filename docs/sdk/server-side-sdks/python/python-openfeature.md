@@ -48,9 +48,9 @@ api.set_provider(devcycle_client.get_openfeature_provider())
 open_feature_client = api.get_client()
 ```
 
-### Required TargetingKey
+### Required Targeting Key
 
-For the DevCycle SDK to work we require either a `targetingKey` or `user_id` to be set on the OpenFeature context.
+For the DevCycle SDK to work we require either a `targeting_key` or `user_id` to be set on the OpenFeature context.
 This is used to identify the user as the `user_id` for a `DevCycleUser` in DevCycle.
 
 ### Context properties to DevCycleUser
