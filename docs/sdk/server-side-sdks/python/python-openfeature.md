@@ -25,15 +25,12 @@ $ pip install devcycle-python-server-sdk
 ```
 (you may need to run `pip` with root permission: `sudo pip install devcycle-python-server-sdk`)
 
-Then import the package:
-```python
-import devcycle_python_sdk
-```
-
 Initialize the DevCycle SDK and set the DevCycleProvider as the provider for OpenFeature:
 ```python
 from devcycle_python_sdk import DevCycleLocalClient, DevCycleLocalOptions
 from devcycle_python_sdk.models.user import DevCycleUser
+from openfeature import api
+from openfeature.evaluation_context import EvaluationContext
 
 # Create an options object to do custom configurations, or use the defaults
 options = DevCycleLocalOptions()
