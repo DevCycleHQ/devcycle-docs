@@ -3365,10 +3365,6 @@ chalk@^5.0.1, chalk@^5.2.0:
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-5.3.0.tgz#67c20a7ebef70e7f3970a01f90fa210cb6860385"
   integrity sha512-dLitG79d+GV1Nb/VYcCDFivJeK1hiukt9QjRNVOsUtTy1rR1YJsmpGGTZ3qJos+uw7WmWF4wUwBd9jxjocFC2w==
 
-change-emitter@^0.1.2:
-  version "0.1.6"
-  resolved "https://registry.npmjs.org/change-emitter/-/change-emitter-0.1.6.tgz"
-
 char-regex@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/char-regex/-/char-regex-1.0.2.tgz#d744358226217f981ed58f479b1d6bcc29545dcf"
@@ -3730,10 +3726,6 @@ core-js-compat@^3.31.0, core-js-compat@^3.32.2:
 core-js-pure@^3.30.2:
   version "3.33.1"
   resolved "https://registry.npmjs.org/core-js-pure/-/core-js-pure-3.33.1.tgz"
-
-core-js@^1.0.0:
-  version "1.2.7"
-  resolved "https://registry.npmjs.org/core-js/-/core-js-1.2.7.tgz"
 
 core-js@^3.31.1:
   version "3.33.2"
@@ -4296,12 +4288,6 @@ encodeurl@~1.0.2:
   version "1.0.2"
   resolved "https://registry.npmjs.org/encodeurl/-/encodeurl-1.0.2.tgz"
 
-encoding@^0.1.11:
-  version "0.1.13"
-  resolved "https://registry.npmjs.org/encoding/-/encoding-0.1.13.tgz"
-  dependencies:
-    iconv-lite "^0.6.2"
-
 end-of-stream@^1.1.0:
   version "1.4.4"
   resolved "https://registry.npmjs.org/end-of-stream/-/end-of-stream-1.4.4.tgz"
@@ -4723,18 +4709,6 @@ fbemitter@^3.0.0:
 fbjs-css-vars@^1.0.0:
   version "1.0.2"
   resolved "https://registry.npmjs.org/fbjs-css-vars/-/fbjs-css-vars-1.0.2.tgz"
-
-fbjs@^0.8.1:
-  version "0.8.18"
-  resolved "https://registry.npmjs.org/fbjs/-/fbjs-0.8.18.tgz"
-  dependencies:
-    core-js "^1.0.0"
-    isomorphic-fetch "^2.1.1"
-    loose-envify "^1.0.0"
-    object-assign "^4.1.0"
-    promise "^7.1.1"
-    setimmediate "^1.0.5"
-    ua-parser-js "^0.7.30"
 
 fbjs@^3.0.0, fbjs@^3.0.1:
   version "3.0.5"
@@ -5333,10 +5307,6 @@ history@^4.9.0:
     tiny-warning "^1.0.0"
     value-equal "^1.0.1"
 
-hoist-non-react-statics@^1.0.0:
-  version "1.2.0"
-  resolved "https://registry.npmjs.org/hoist-non-react-statics/-/hoist-non-react-statics-1.2.0.tgz"
-
 hoist-non-react-statics@^3.1.0:
   version "3.3.2"
   resolved "https://registry.npmjs.org/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz"
@@ -5516,12 +5486,6 @@ iconv-lite@0.4.24:
   resolved "https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.4.24.tgz"
   dependencies:
     safer-buffer ">= 2.1.2 < 3"
-
-iconv-lite@^0.6.2:
-  version "0.6.3"
-  resolved "https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.6.3.tgz"
-  dependencies:
-    safer-buffer ">= 2.1.2 < 3.0.0"
 
 icss-utils@^5.0.0, icss-utils@^5.1.0:
   version "5.1.0"
@@ -5753,10 +5717,6 @@ is-root@^2.1.0:
   version "2.1.0"
   resolved "https://registry.npmjs.org/is-root/-/is-root-2.1.0.tgz"
 
-is-stream@^1.0.1:
-  version "1.1.0"
-  resolved "https://registry.npmjs.org/is-stream/-/is-stream-1.1.0.tgz"
-
 is-stream@^2.0.0:
   version "2.0.1"
   resolved "https://registry.npmjs.org/is-stream/-/is-stream-2.0.1.tgz"
@@ -5791,13 +5751,6 @@ isexe@^2.0.0:
 isobject@^3.0.1:
   version "3.0.1"
   resolved "https://registry.npmjs.org/isobject/-/isobject-3.0.1.tgz"
-
-isomorphic-fetch@^2.1.1:
-  version "2.2.1"
-  resolved "https://registry.npmjs.org/isomorphic-fetch/-/isomorphic-fetch-2.2.1.tgz"
-  dependencies:
-    node-fetch "^1.0.1"
-    whatwg-fetch ">=0.10.0"
 
 jest-util@^29.7.0:
   version "29.7.0"
@@ -7004,13 +6957,6 @@ node-fetch@2.6.9:
   dependencies:
     whatwg-url "^5.0.0"
 
-node-fetch@^1.0.1:
-  version "1.7.3"
-  resolved "https://registry.npmjs.org/node-fetch/-/node-fetch-1.7.3.tgz"
-  dependencies:
-    encoding "^0.1.11"
-    is-stream "^1.0.1"
-
 node-fetch@^2.6.1, node-fetch@^2.6.12, node-fetch@^2.6.7:
   version "2.7.0"
   resolved "https://registry.npmjs.org/node-fetch/-/node-fetch-2.7.0.tgz"
@@ -8003,23 +7949,6 @@ prism-react-renderer@^2.1.0:
     "@types/prismjs" "^1.26.0"
     clsx "^1.2.1"
 
-prism-react@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.npmjs.org/prism-react/-/prism-react-1.0.2.tgz"
-  dependencies:
-    recompose "^0.22.0"
-
-prism-redux@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.npmjs.org/prism-redux/-/prism-redux-1.0.2.tgz"
-
-prism@^4.1.2:
-  version "4.1.2"
-  resolved "https://registry.npmjs.org/prism/-/prism-4.1.2.tgz"
-  dependencies:
-    prism-react "^1.0.2"
-    prism-redux "^1.0.2"
-
 prismjs@^1.27.0, prismjs@^1.29.0:
   version "1.29.0"
   resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.29.0.tgz#f113555a8fa9b57c35e637bba27509dcf802dd12"
@@ -8352,15 +8281,6 @@ rechoir@^0.6.2:
   dependencies:
     resolve "^1.1.6"
 
-recompose@^0.22.0:
-  version "0.22.0"
-  resolved "https://registry.npmjs.org/recompose/-/recompose-0.22.0.tgz"
-  dependencies:
-    change-emitter "^0.1.2"
-    fbjs "^0.8.1"
-    hoist-non-react-statics "^1.0.0"
-    symbol-observable "^1.0.4"
-
 recursive-readdir@^2.2.2:
   version "2.2.3"
   resolved "https://registry.npmjs.org/recursive-readdir/-/recursive-readdir-2.2.3.tgz"
@@ -8664,7 +8584,7 @@ safe-buffer@5.2.1, safe-buffer@>=5.1.0, safe-buffer@^5.1.0, safe-buffer@^5.1.2, 
   version "5.2.1"
   resolved "https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.2.1.tgz"
 
-"safer-buffer@>= 2.1.2 < 3", "safer-buffer@>= 2.1.2 < 3.0.0":
+"safer-buffer@>= 2.1.2 < 3":
   version "2.1.2"
   resolved "https://registry.npmjs.org/safer-buffer/-/safer-buffer-2.1.2.tgz"
 
@@ -9246,10 +9166,6 @@ swagger2openapi@^7.0.6:
     yaml "^1.10.0"
     yargs "^17.0.1"
 
-symbol-observable@^1.0.4:
-  version "1.2.0"
-  resolved "https://registry.npmjs.org/symbol-observable/-/symbol-observable-1.2.0.tgz"
-
 tailwindcss@^3.3.5:
   version "3.3.5"
   resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.3.5.tgz#22a59e2fbe0ecb6660809d9cc5f3976b077be3b8"
@@ -9485,10 +9401,6 @@ typescript@~5.2.2:
   version "5.2.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.2.2.tgz#5ebb5e5a5b75f085f22bc3f8460fba308310fa78"
   integrity sha512-mI4WrpHsbCIcwT9cF4FZvr80QUeKvsUsUvKDoR+X/7XHQH98xYD8YHZg7ANtz2GtZt/CBq2QJ0thkGJMHfqc1w==
-
-ua-parser-js@^0.7.30:
-  version "0.7.36"
-  resolved "https://registry.npmjs.org/ua-parser-js/-/ua-parser-js-0.7.36.tgz"
 
 ua-parser-js@^1.0.35:
   version "1.0.36"
@@ -10013,10 +9925,6 @@ websocket-driver@>=0.5.1, websocket-driver@^0.7.4:
 websocket-extensions@>=0.1.1:
   version "0.1.4"
   resolved "https://registry.npmjs.org/websocket-extensions/-/websocket-extensions-0.1.4.tgz"
-
-whatwg-fetch@>=0.10.0:
-  version "3.6.19"
-  resolved "https://registry.npmjs.org/whatwg-fetch/-/whatwg-fetch-3.6.19.tgz"
 
 whatwg-url@^5.0.0:
   version "5.0.0"
