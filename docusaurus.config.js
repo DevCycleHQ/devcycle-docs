@@ -89,12 +89,6 @@ const config = {
     },
     path.resolve(__dirname, 'plugins', 'custom-gtm'),
     path.resolve(__dirname, 'plugins', 'custom-beamer'),
-    // [
-    //   '@devcycle/docusaurus-plugin',
-    //   {
-    //     sdkKey: process.env.DEVCYCLE_CLIENT_SDK_KEY || 'dvc_client_sdk_key',
-    //   },
-    // ],
     [
       'docusaurus-plugin-remote-content',
       {

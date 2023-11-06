@@ -19,7 +19,6 @@
     "dev": "docusaurus start"
   },
   "dependencies": {
-    "@agentofuser/remark-oembed": "^1.0.4",
     "@docusaurus/core": "3.0.0",
     "@docusaurus/plugin-content-docs": "^3.0.0",
     "@docusaurus/preset-classic": "^3.0.0",
@@ -43,7 +42,6 @@
     "react-dom": "^18.2.0",
     "redocusaurus": "^2.0.0",
     "remark-docusaurus-tabs": "^0.2.0",
-    "remark-oembed": "^1.2.2",
     "tailwindcss": "^3.3.5",
     "vercel": "^32.5.0"
   },
