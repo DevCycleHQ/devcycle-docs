@@ -346,7 +346,6 @@ const config = {
       additionalLanguages: [
         'ruby',
         'go',
-        'php',
         'swift',
         'kotlin',
         'java',
