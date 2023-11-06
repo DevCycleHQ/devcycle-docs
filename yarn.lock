@@ -1614,7 +1614,7 @@
     tslib "^2.6.0"
     utility-types "^3.10.0"
 
-"@docusaurus/theme-common@3.0.0":
+"@docusaurus/theme-common@3.0.0", "@docusaurus/theme-common@^3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@docusaurus/theme-common/-/theme-common-3.0.0.tgz#6dc8c39a7458dd39f95a2fa6eb1c6aaf32b7e103"
   integrity sha512-PahRpCLRK5owCMEqcNtUeTMOkTUCzrJlKA+HLu7f+8osYOni617YurXvHASCsSTxurjXaLz/RqZMnASnqATxIA==
