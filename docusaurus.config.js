@@ -1,15 +1,6 @@
 require('dotenv').config()
 const path = require('path')
 import remarkEmbedder from '@remark-embedder/core'
-import oembedTransformer from '@remark-embedder/transformer-oembed'
-import {Config} from '@remark-embedder/transformer-oembed'
-
-const oembedConfig = ({url, provider}) => {
-  return {
-      params: { width: '100%', align: 'auto' },
-  }
-}
-
 const YouTubeTransformer = {
   name: 'YouTubeTransformer',
   shouldTransform(url) {
