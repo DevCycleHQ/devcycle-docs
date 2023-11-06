@@ -34,7 +34,6 @@ Then run `composer install`
 Download the files and include `autoload.php`:
 
 ```php
-<?php
 require_once('/path/to/DevCycle/vendor/autoload.php');
 ```
 

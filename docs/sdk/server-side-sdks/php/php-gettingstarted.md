@@ -13,7 +13,6 @@ Please follow the [installation procedure](/sdk/server-side-sdks/php/php-install
 ## Initializing SDK 
 
 ```php
-<?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
 use DevCycle\DevCycleConfiguration;

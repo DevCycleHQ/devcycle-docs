@@ -355,6 +355,8 @@ const config = {
         'yaml',
         'csharp',
         'dart',
+        // Leave php disabled until this issue is fixed upstream: https://github.com/PrismJS/prism/issues/2769
+        //'php'
       ],
     },
     algolia: {
