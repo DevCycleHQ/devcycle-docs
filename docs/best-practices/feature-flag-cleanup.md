@@ -4,7 +4,6 @@ sidebar_label: Flag Cleanup
 description: Practices to help minimize technical debt from feature flags
 sidebar_position: 6
 sidebar_custom_props: {icon: broom}
-
 ---
 
 This article outlines practices to help minimize technical debt from feature flags. DevCycle’s code insights are a valuable tool in determining when to clean up your unused feature flags.
@@ -38,13 +37,13 @@ Our CLI provides the functionality of removing all instances of a feature flag a
 The `dvc cleanup` command scans your code for all instances of a DevCycle Variable through the provided key, all references are changed to the value provided removing all `useVariable` or `useVariableValue` calls along with simplifying any `if` statement and blocks with the desired value. 
 
 ### DevCycle CLI cleanup command Demo Video
-`youtube: https://youtu.be/yIGkjdQ_Yd0`
+https://youtu.be/yIGkjdQ_Yd0
 
 ## Using Code Insights for feature flag cleanup
 
 Our platform provides tools to facilitate feature flag cleanup. Feature Flag Reach and Code References on DevCycle can help you decide when to remove feature flags.
 ### Code Insights Demo Video
-`youtube: https://youtu.be/0yhmQ-3OZX8`
+https://youtu.be/0yhmQ-3OZX8
 
 ### Feature Flag Reach
 

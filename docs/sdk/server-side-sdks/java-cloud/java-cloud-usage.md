@@ -51,7 +51,7 @@ Map<String, Variable> variables = client.allVariables(user);
 ```
 
 ## Getting All Features
-This method will fetch all features for a given user and return them as Map<String, Feature>
+This method will fetch all features for a given user and return them as `Map<String, Feature>`
 
 ```java
 Map<String, Feature> features = client.allFeatures(user);

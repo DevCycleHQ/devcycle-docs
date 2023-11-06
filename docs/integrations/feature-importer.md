@@ -59,7 +59,7 @@ By default the config is read from `config.json` in the project root, this can b
 - **overwriteDuplicates**: *boolean*
   - If true, when the importer encounters a duplicate resource it will be overwritten. By default, duplicates will be skipped.
   - Equivalent env var: `OVERWRITE_DUPLICATES`
-- **operationMap**: *Map<string, string>*
+- **operationMap**: *`Map<string, string>`*
   - A map of LD operations to map to DevCycle operations
   - DevCycle operations: `=`, `!=`, `>`, `<`, `>=`, `<=`, `contain`, `!contain`, `exist`, `!exist`
   - Equivalent env var: OPERATION_MAP

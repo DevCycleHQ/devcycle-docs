@@ -1,7 +1,44 @@
 require('dotenv').config()
 const path = require('path')
-const remarkYoutube = require('gridsome-plugin-remark-youtube')
+import remarkEmbedder from '@remark-embedder/core'
+const YouTubeTransformer = {
+  name: 'YouTubeTransformer',
+  shouldTransform(url) {
+    const ytEndpoints = [{
+      "schemes": [
+        "https://*.youtube.com/watch*",
+        "https://*.youtube.com/v/*",
+        "https://youtu.be/*",
+        "https://*.youtube.com/playlist?list=*",
+        "https://youtube.com/playlist?list=*",
+        "https://*.youtube.com/shorts*"
+      ],
+      "url": "https://www.youtube.com/oembed",
+      "discovery": true
+    }]
 
+    for (const endpoint of ytEndpoints) {
+      if (
+          endpoint.schemes?.some(scheme =>
+              new RegExp(scheme.replace(/\*/g, '(.*)')).test(url),
+          )
+      ) {
+        return true
+      }
+    }
+    return false
+  },
+  // default config function returns what it's given
+  getHTML(url, options = {}) {
+    function getVideoID(userInput) {
+      var res = userInput.match(/^.*(?:(?:youtu.be\/)|(?:v\/)|(?:\/u\/\w\/)|(?:embed\/)|(?:watch\?))\??v?=?([^#\&\?]*).*/);
+      if (res) return res[1];
+      return false;
+    }
+    const videoID = getVideoID(url)
+    return `<div style="width: ${options.width || '100%'}; margin: 0 ${options.align || '0'};"><div style="position: relative; padding-bottom: 56.25%; padding-top: 25px; height: 0;"><iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/${videoID}"></iframe></div></div>`;
+  },
+}
 /**
  * Pinned version of the CLI to use for docs
  * When bumping the version, add any new commands to the documents array
@@ -52,12 +89,6 @@ const config = {
     },
     path.resolve(__dirname, 'plugins', 'custom-gtm'),
     path.resolve(__dirname, 'plugins', 'custom-beamer'),
-    [
-      '@devcycle/docusaurus-plugin',
-      {
-        sdkKey: process.env.DEVCYCLE_CLIENT_SDK_KEY || 'dvc_client_sdk_key',
-      },
-    ],
     [
       'docusaurus-plugin-remote-content',
       {
@@ -164,7 +195,7 @@ const config = {
         modifyContent: (filename, content) => ({
           content:
             '# Bitbucket: Feature Flag Code Usages\n' +
-            'Get the integration on the [Bitbucket Marketplace](https://bitbucket.org/product/features/pipelines/integrations?&p=devcyclehq/devcycle-code-refs-pipe)\n' + 
+            'Get the integration on the [Bitbucket Marketplace](https://bitbucket.org/product/features/pipelines/integrations?&p=devcyclehq/devcycle-code-refs-pipe)\n' +
             content
         })
       },
@@ -232,7 +263,7 @@ const config = {
           editCurrentVersion: true,
           sidebarPath: require.resolve('./sidebars.js'),
           remarkPlugins: [
-            [remarkYoutube, { width: '100%', align: 'auto' }],
+            [remarkEmbedder, {transformers: [[YouTubeTransformer]]}],
             require('remark-docusaurus-tabs'),
           ],
           rehypePlugins: [],
@@ -315,7 +346,6 @@ const config = {
       additionalLanguages: [
         'ruby',
         'go',
-        'php',
         'swift',
         'kotlin',
         'java',
@@ -325,6 +355,9 @@ const config = {
         'yaml',
         'csharp',
         'dart',
+        'python',
+        // Leave php disabled until this issue is fixed upstream: https://github.com/PrismJS/prism/issues/2769
+        //'php'
       ],
     },
     algolia: {

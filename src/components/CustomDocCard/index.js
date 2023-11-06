@@ -11,11 +11,9 @@ import { vscodeIcon } from '../CustomIcons/vscode'
 
 library.add(fab, fas, faDataDogIcon, vscodeIcon) // Add all icons to the library so you can use them without importing them individually.
 import {
-  findFirstCategoryLink,
+  findFirstSidebarItemLink,
   useDocById,
 } from '@docusaurus/theme-common/internal'
-import isInternalUrl from '@docusaurus/isInternalUrl'
-import { translate } from '@docusaurus/Translate'
 import styles from './styles.module.css'
 
 function CardContainer({ href, children }) {
@@ -51,7 +49,7 @@ function CardLayout({ href, icon, iconSet, title, description }) {
   )
 }
 function CardCategory({ item }) {
-  const href = findFirstCategoryLink(item)
+  const href = findFirstSidebarItemLink(item)
 
   if (!href) {
     return null

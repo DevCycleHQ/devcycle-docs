@@ -7,7 +7,7 @@ The first thing you need to do to get started with DevCycle is to create an acco
 
 If you already have an account feel free to skip ahead to shipping [Create a Feature](#2-create-a-feature) with DevCycle.
 
-`youtube:https://www.youtube.com/watch?v=bZD-pyKGwR4`
+https://www.youtube.com/watch?v=bZD-pyKGwR4
 
 ---
 

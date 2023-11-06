@@ -46,7 +46,7 @@ Dictionary<string, ReadOnlyVariable<object>> result = await client.AllVariables(
 ```
 
 ## Getting All Features
-This method will fetch all features for a given user and return them as Dictionary<String, Feature>
+This method will fetch all features for a given user and return them as `Dictionary<String, Feature>`
 
 ```csharp
 Dictionary<string, Feature> result = await client.AllFeatures(user);
