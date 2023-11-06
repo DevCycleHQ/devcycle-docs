@@ -93,8 +93,8 @@ A DevCycleUser can be built using the following methods:
 | withEmail | String | User's email |
 | withName | String | User's name |
 | withCountry | String | User's country |
-| withCustomData | Map<String, Any> | Key/value map of properties to be used for targeting |
-| withPrivateCustomData | Map<String, Any> | Key/value map of properties to be used for targeting. Private properties will not be included in event logging. |
+| withCustomData | `Map<String, Any>` | Key/value map of properties to be used for targeting |
+| withPrivateCustomData | `Map<String, Any>` | Key/value map of properties to be used for targeting. Private properties will not be included in event logging. |
 
 ## DevCycleOptions Builder
 The SDK exposes various initialization options which can be used by passing a `DevCycleOptions` object to the `withOptions` method of `DevCycleClient.builder()`:
