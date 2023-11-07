@@ -66,8 +66,6 @@ Install the SDK dependencies, run the following command
     yarn add @react-native-async-storage/async-storage react-native-get-random-values react-native-device-info
   ```
 
-<!--/tabs-->
-
 ## Import SDK Dependencies
 1.  Import the `@react-native-async-storage/async-storage` package somewhere in your code (e.g. in the `App.jsx` file). (see example below)
 2.  Import the `react-native-get-random-values` package somewhere in your code (e.g. in the `App.jsx` file). (see example below)
