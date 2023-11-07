@@ -17,8 +17,6 @@ This version of the DevCycle SDK works with Java 11 and above.
 
 Using the Java SDK library requires [Maven](https://maven.apache.org/) or [Gradle](https://gradle.org/) >= 7.6+ to be installed.
 
-<!--tabs-->
-
 ### Maven
 
  You can use the SDK in your Maven project by adding the following to your *pom.xml*:

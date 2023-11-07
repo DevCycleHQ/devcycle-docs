@@ -14,8 +14,6 @@ To get started, install the React Native SDK. If working with React native Expo,
 ## Installation
 The command to install the React Native SDK is:
 
-<!--tabs-->
-
 ### npm
 
   ```bash
@@ -31,8 +29,6 @@ The command to install the React Native SDK is:
 ## Installation for React Native Expo
 The command to install the React Native Expo SDK is:
 
-<!--tabs-->
-
 ### npm
 
   ```bash
@@ -44,8 +40,6 @@ The command to install the React Native Expo SDK is:
   ```bash
     yarn add @devcycle/react-native-expo-client-sdk
   ```
-
-<!--/tabs-->
 
 ## Install Pods
 Add the following packages that are required for React Native functionality as dependencies of your project:
@@ -59,8 +53,6 @@ The [react-native-device-info](https://www.npmjs.com/package/react-native-device
 
 ## Install SDK Dependencies
 Install the SDK dependencies, run the following command
-
-<!--tabs-->
 
 ### npm
 
