@@ -22,8 +22,6 @@ This version of the DevCycle Client SDK supports the following platforms:
 
 ## Installation
 
-<!--tabs-->
-
 ### CocoaPods
 
   The SDK can be installed into your iOS project by adding the following to your cocoapod spec:

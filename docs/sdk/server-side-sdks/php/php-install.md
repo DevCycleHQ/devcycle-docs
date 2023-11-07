@@ -13,8 +13,6 @@ sidebar_custom_props: {icon: screwdriver-wrench}
 Requires PHP 7.3 and later.
 
 
-<!--tabs-->
-
 ### Composer Installation
 
   To install the bindings via [Composer](https://getcomposer.org/), add the following to `composer.json`:

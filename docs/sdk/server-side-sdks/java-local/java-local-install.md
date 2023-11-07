@@ -37,8 +37,6 @@ ldd --version
 
 :::
 
-<!--tabs-->
-
 ### Maven
 
 You can use the SDK in your Maven project by adding the following to your _pom.xml_:

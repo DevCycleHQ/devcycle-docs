@@ -30,8 +30,6 @@ For additional help, please contact DevCycle support at [support@devcycle.com](m
 
 To install the SDK, run the following command:
 
-<!--tabs-->
-
 ### npm
 ```bash
     npm install --save @devcycle/react-client-sdk
@@ -41,9 +39,6 @@ To install the SDK, run the following command:
   ```bash
     yarn add @devcycle/react-client-sdk
   ```
-
-<!--/tabs-->
-
 
 ### Using With Create-React-App
 
