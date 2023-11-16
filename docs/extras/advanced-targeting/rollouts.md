@@ -75,3 +75,9 @@ No targets below this one would impact this user in any way.
 Additionally, if there is a *rollout* and a variation is being rolled out to a set of users, 
 and the user qualifies for a target but still has *not received the rollout,* 
 the user will *still* not receive a later target.
+
+:::info
+
+For modifications  to or additions of a gradual roll-out, entries in the [Audit Log](/extras/audit-log) will be marked as `Stage 1` and labelled as a `Linear` roll-out. 
+
+:::
