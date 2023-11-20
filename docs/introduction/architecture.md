@@ -66,18 +66,22 @@ we have built a native implementation, for example, in our [GO SDK](https://gith
 
 ![Architecture Docs Diagrams - Local Server SDK.svg](/architecture-docs-diagrams-local-server-sdk.svg)
 
+**Note: Server SDKs currently do not support Server-Sent Events for updates to the config.**
+
 1. On initialization, the Server SDK retrieves the configuration data from the CDN, and stores it locally.
 
 2. On each `variableValue()` / `variable()` call, bucketing and segmentation library combines user data, device data, 
 and the configuration data locally to bucket users into features and variations to determine variable values.
 
-3. Configuration updates are received via a server-sent event (SSE) connection or polling against the CDN.
+3. Configuration updates are received via polling against the CDN.
 
 4. Event data is aggregated and sent to the Events API on an interval.
 
 ## Cloud Bucketing Server SDK Architecture
 
 ![Architecture Docs Diagrams - Cloud Server SDK.svg](/architecture-docs-diagrams-cloud-server-sdk.svg)
+
+**Note: Server SDKs currently do not support Server-Sent Events for updates to the config.**
 
 1. On each `variableValue()` / `variable()` call, the Cloud Bucketing Server SDKs fetch data from the 
 [Bucketing API](/bucketing-api/) served by Cloudflare Workers at the edge.
