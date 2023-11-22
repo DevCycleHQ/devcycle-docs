@@ -1,63 +1,68 @@
 ---
-title: Node.js OpenFeature Provider
+title: Javascript OpenFeature Web Provider
 sidebar_label: OpenFeature
-sidebar_position: 4
-description: How to implement the OpenFeature Provider
-sidebar_custom_props: {icon: toggle-off}
+sidebar_position: 5
+description: How to implement the OpenFeature Web Provider
+sidebar_custom_props: { icon: toggle-off }
 ---
 
-# OpenFeature Provider
+# OpenFeature Web Provider
 
-OpenFeature is an open standard that provides a vendor-agnostic, community-driven API for feature flagging that works with DevCycle.
+[OpenFeature](https://openfeature.dev/) is an open standard that provides a vendor-agnostic, community-driven API for feature flagging that works with DevCycle.
 
-DevCycle provides a NodeJS implementation of the [OpenFeature](https://openfeature.dev/) Provider interface, if you prefer to use the OpenFeature API.
+DevCycle provides a Javascript implementation of the OpenFeature Web Provider interface, if you prefer to use the OpenFeature APIs to interface with DevCycle.
 
-[![Npm package version](https://badgen.net/npm/v/@devcycle/openfeature-nodejs-provider)](https://www.npmjs.com/package/@devcycle/openfeature-nodejs-provider)
-[![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/js-sdks/tree/main/examples/openfeature-nodejs)
+**Note: The OpenFeature Web SDK is still in beta, and is subject to change.**
+
+[![Npm package version](https://badgen.net/npm/v/@devcycle/openfeature-web-provider)](https://www.npmjs.com/package/@devcycle/openfeature-web-provider)
+[![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/js-sdks/tree/main/examples/openfeature-web)
 
 ## Usage
 
 ### Installation
 
-Install the OpenFeature JS SDK, DevCycle NodeJS Server SDK, and DevCycle NodeJS Provider:
+Install the OpenFeature Web SDK and DevCycle Web Provider:
 
 ```bash
-npm install --save @devcycle/openfeature-nodejs-provider @devcycle/nodejs-server-sdk @openfeature/js-sdk
+npm install --save @devcycle/openfeature-web-provider @openfeature/web-sdk
 ```
 
 ### Getting Started
 
-Initialize the DevCycle SDK and set the DevCycleProvider as the provider for OpenFeature:
+Initialize the DevCycleProvider and set it as the provider for OpenFeature, 
+which will initialize the DevCycle JS Client SDK internally:
 
 ```typescript
-import { OpenFeature, Client } from '@openfeature/js-sdk'
-import { DevCycleProvider } from '@devcycle/openfeature-nodejs-provider'
-import { initializeDevCycle } from '@devcycle/nodejs-server-sdk'
+import DevCycleProvider from '@devcycle/openfeature-web-provider'
+import { OpenFeature } from '@openfeature/web-sdk'
 
-... 
+...
 
-// Initialize the DevCycle SDK
-const devcycleClient = await initializeDevCycle(DEVCYCLE_SERVER_SDK_KEY).onClientInitialized()
-// Set the initialzed DevCycle client as the provider for OpenFeature
-OpenFeature.setProvider(new DevCycleProvider(devcycleClient))
+const user = { user_id: 'user_id' }
+
+// Initialize the DevCycle Provider
+const devcycleProvider = new DevCycleProvider(DEVCYCLE_CLIENT_SDK_KEY)
+// Set the context before the provider is set to ensure the DevCycle SDK is initialized with a user context.
+await OpenFeature.setContext(user)
+// Set the DevCycleProvider for OpenFeature
+await OpenFeature.setProviderAndWait(devcycleProvider)
 // Get the OpenFeature client
-openFeatureClient = OpenFeature.getClient()
-// Set the context for the OpenFeature client, you can use 'targetingKey' or 'user_id'
-openFeatureClient.setContext({ targetingKey: 'node_sdk_test' })
-
+const openFeatureClient = OpenFeature.getClient()
 
 // Retrieve a boolean flag from the OpenFeature client
-const boolFlag = await openFeatureClient.getBooleanValue('boolean-flag', false)
+const boolFlag = openFeatureClient.getBooleanValue('boolean-flag', false)
 ```
 
 ### Passing DevCycleOptions to the DevCycleProvider
 
-Ensure that you pass any custom DevCycleOptions set on the `DevCycleClient` instance to the DevCycleProvider constructor
+Ensure that you pass any custom DevCycleOptions to the DevCycleProvider constructor
 
 ```typescript
+const user = { user_id: 'user_id' }
+
 const options = { logger: dvcDefaultLogger({ level: 'debug' }) }
-const devcycleClient = await initializeDevCycle(DEVCYCLE_SERVER_SDK_KEY, options).onClientInitialized()
-OpenFeature.setProvider(new DevCycleProvider(devcycleClient, options))
+const devcycleProvider = new DevCycleProvider(DEVCYCLE_CLIENT_SDK_KEY, options)
+await OpenFeature.setProviderAndWait(devcycleProvider)
 ```
 
 ### Required TargetingKey
