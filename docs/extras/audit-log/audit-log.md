@@ -3,6 +3,8 @@ title: Audit Log
 sidebar_position: 1
 ---
 
+## Overview
+
 The Audit Log tracks all modifications made to a Feature. DevCycle captures the DevCycle user who made the change, a time stamp, and what was modified on each Feature save. 
 
 The Audit Log is located at the bottom of the Feature form in the Data & Results section. 
@@ -36,3 +38,10 @@ Please note that [Self-Targeting](/extras/advanced-targeting/self-targeting) act
 When a Feature is created, you will see multiple modification cards populate in the Audit Log. The first modification card in the Audit Log will outline the initial Feature configuration (initial variable, variations, status, settings, etc.). Then, depending on the [Feature Type](/introduction/core-concepts/feature-types) selected when creating a new Feature, the following cards will highlight the each Environment's Targeting status, along with the templated Targeting Rules (if they exist). See an example below of an Experiment Feature Type. 
 
 ![Audit Log Experiment Feature Type](/nov2023-audit-log-experiment-feature-type.png)
+
+### Audit Log Feature Requests
+
+
+:::tip Do you want to see Project-Level or Point-in-Time Audit Logs? 
+Our team is always looking to better understand the needs and use cases of our customers including the criticality of certain feature requests. If there is a partifucular functionality your team needs for audit logging (or anything!) please send us an email at <mailto:product-feedback@devcycle.com>. 
+:::
