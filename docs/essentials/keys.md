@@ -3,7 +3,7 @@ title: Keys
 sidebar_position: 4
 ---
 
-> All Environments within a Project have their own set of key. For more information about Environments, [please read here](/essentials/environments).
+> All Environments within a Project have their own set of keys. For more information about Environments, [please read here](/essentials/environments).
 
 ---
 
@@ -13,15 +13,15 @@ sidebar_position: 4
 
 This key is required to interact with the DevCycle Management and Bucketing APIs.
 
-**Server-side API Keys**
+**Server-side SDK Keys**
 
-All of the DevCycle Server-Side SDKs should be initialized with the environment's Server-Side SDK key. This SDK key provides read-only access of the features on your DevCycle environment. This key is used for SDKs which currently make continuous calls to the DevCycle APIs for each SDK interaction per user. It also has access to the full project configuration data, which is used for local bucketing SDKs.
+All of the DevCycle Server-side SDKs should be initialized with the environment's Server-side SDK key. This SDK key provides read-only access of the features on your DevCycle environment. This key is used for SDKs which currently make continuous calls to the DevCycle APIs for each SDK interaction per user. It also has access to the full project configuration data, which is used for local bucketing SDKs.
 
-The Server-Side SDK key must be kept secret, as it has access to the full configuration data of your project. Never include this key in a client-side application. Doing so risks exposing it to end-users via mobile app unpacking or browser network inspection.
+The Server-side SDK key must be kept secret, as it has access to the full configuration data of your project. Never include this key in a client-side application. Doing so risks exposing it to end-users via mobile app unpacking or browser network inspection.
 
-**Client-Side API Keys**
+**Client-side SDK Keys**
 
-All of the DevCycle Client-Side SDKs (non-mobile) should be initialized with the environment's Client-Side SDK key. This SDK key provides read-only access to the features accessible by a given user on your DevCycle environment. Specifically, it grants access to the DevCycle SDK API, which returns user-customized configurations including feature information which they are permitted to access.
+All of the DevCycle Client-side SDKs (non-mobile) should be initialized with the environment's Client-side SDK key. This SDK key provides read-only access to the features accessible by a given user on your DevCycle environment. Specifically, it grants access to the DevCycle SDK API, which returns user-customized configurations including feature information which they are permitted to access.
 
 **Mobile SDK Keys**
 
@@ -40,7 +40,7 @@ This key is separate from the standard SDK keys due to the differing security re
 
 Once you have installed and authorized the CLI, select your relevant organization and project then run one of the following commands depending on your use case:
 
-To retrieve all keys for a specific environment for a project from the management API.
+To retrieve all keys for a specific environment for a project from the Management API.
 
 ```bash
 dvc keys get
