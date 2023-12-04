@@ -95,7 +95,12 @@ To view the Variables and Variations within a Feature, navigate to the 'Variable
 
 Each Feature manages its own set of Variables. **By default, upon creation of a Feature, a Boolean Variable will be created which has the same name as the Feature's key for easier reference.** 
 
-On the Feature page, there are indicators for each Variable that informs you if a Variable has been seen in code (if [Code References](/integrations/github/featuer-usage-action) have been enabled), and if evaluations have been seen. These indicators are helpful when setting up features to confirm proper setup, and aid in Variable cleanup once a Feature has completed it's [lifecycle](/essentials/status-and-lifecycle).
+On the Feature page, there are indicators for each Variable that inform you of the following:
+
+- if a Variable has been seen in code (if [Code References](/integrations/github/feature-usage-action) have been enabled)
+- if evaluations have been seen 
+
+These indicators are helpful when setting up features. They help to confirm proper setup, and aid in Variable cleanup once a Feature has completed it's [lifecycle](/essentials/status-and-lifecycle).
 
 Hover over the indicator for more detail about a Variable's code references & evaluation information. 
 
