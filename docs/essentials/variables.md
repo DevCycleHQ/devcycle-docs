@@ -102,7 +102,7 @@ On the Feature page, there are indicators for each Variable that inform you of t
 
 These indicators are helpful when setting up features. They help to confirm proper setup, and aid in Variable cleanup once a Feature has completed it's [lifecycle](/essentials/status-and-lifecycle).
 
-Hover over the indicator for more detail about a Variable's code references & evaluation information. 
+Hover over these indicators for more detail about a Variable's code references & evaluation information. 
 
 ![Variable Status Indicator](/nov-2023-var-status-found-eval-rec.png)
 
