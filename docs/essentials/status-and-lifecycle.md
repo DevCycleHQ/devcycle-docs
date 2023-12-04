@@ -59,5 +59,5 @@ Upon completing a Feature, you will see cleanup checklists for each Variable. Yo
 
 The "Completed" status is reversible by clicking "Revert to In Progress."
 
-- Previous Variations return, but any new changes to Variables made while in the "Complete" status remain.
+- Previous Feature variations will be available again, but any new changes to Variables made while in the "Complete" status remain.
 - Past targeting rules will not be restored.
