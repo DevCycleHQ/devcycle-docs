@@ -95,7 +95,18 @@ To view the Variables and Variations within a Feature, navigate to the 'Variable
 
 Each Feature manages its own set of Variables. **By default, upon creation of a Feature, a Boolean Variable will be created which has the same name as the Feature's key for easier reference.** 
 
-Depending on the Feature type, the default Variations will be pre-set. The most common of which will be the Variations of "Variation OFF" and "Variation ON", with the boolean Variable being set to false and true, respectively.
+On the Feature page, there are indicators for each Variable that inform you of the following:
+
+- if a Variable has been seen in code (if [Code References](/integrations/github/feature-usage-action) have been enabled)
+- if evaluations have been seen 
+
+These indicators are helpful when setting up features. They help to confirm proper setup, and aid in Variable cleanup once a Feature has completed it's [lifecycle](/essentials/status-and-lifecycle).
+
+Hover over these indicators for more detail about a Variable's code references & evaluation information. 
+
+![Variable Status Indicator](/nov-2023-var-status-found-eval-rec.png)
+
+Depending on the Feature type, the default Variations will be pre-set. For example, the most common feature type is a Release Flag, and it will have two variations - "Variation OFF" and "Variation ON", with the boolean Variable being set to false and true, respectively.
 
 :::info
 For more information on variations please visit the [variations section](/essentials/variations) of the documentation.
