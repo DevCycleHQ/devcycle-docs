@@ -106,7 +106,7 @@ Hover over these indicators for more detail about a Variable's code references &
 
 ![Variable Status Indicator](/nov-2023-var-status-found-eval-rec.png)
 
-Depending on the Feature type, the default Variations will be pre-set. The most common of which will be the Variations of "Variation OFF" and "Variation ON", with the boolean Variable being set to false and true, respectively.
+Depending on the Feature type, the default Variations will be pre-set. For example, the most common feature type is a Release Flag, and it will have two variations - "Variation OFF" and "Variation ON", with the boolean Variable being set to false and true, respectively.
 
 :::info
 For more information on variations please visit the [variations section](/essentials/variations) of the documentation.
