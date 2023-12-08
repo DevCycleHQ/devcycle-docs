@@ -3,8 +3,9 @@ title: PHP Server SDK Usage
 sidebar_label: Usage
 sidebar_position: 3
 description: Using the SDK
-sidebar_custom_props: {icon: toggle-on}
+sidebar_custom_props: { icon: material-symbols:toggle-on }
 ---
+
 [![Packagist](https://badgen.net/packagist/v/devcycle/php-server-sdk/latest)](https://packagist.org/packages/devcycle/php-server-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/php-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/php-server-sdk)
 
@@ -15,11 +16,10 @@ The rest are optional and are used by the system for user segmentation into vari
 
 See the User model in the [PHP user model doc](https://github.com/DevCycleHQ/php-server-sdk/blob/main/lib/Model/UserData.php) for all accepted fields including custom fields.
 
-
 ```php
 use DevCycle\Model\DevCycleUser;
 
-$user_data = new DevCycleUser(array("user_id"=>"my-user")); 
+$user_data = new DevCycleUser(array("user_id"=>"my-user"));
 ```
 
 ## Get and use Variable by key
@@ -44,6 +44,7 @@ If you would like to get the full Variable object defined by [getVariableByKey](
 you can use `variable()` instead of `variableValue()`.
 
 ## Get all Variables
+
 ```php
 try {
     $result = $devcycleClient->allVariables($user_data);
@@ -52,9 +53,11 @@ try {
     echo 'Exception when calling DevCycleClient->allVariables: ', $e->getMessage(), PHP_EOL;
 }
 ```
+
 See [getVariables](/bucketing-api/#operation/getVariables) on the Bucketing API for the variable response format.
 
 ## Getting all Features
+
 ```php
 try {
     $result = $devcycleClient->allFeatures($user_data);
@@ -63,9 +66,11 @@ try {
     echo 'Exception when calling DevCycleClient->allFeatures: ', $e->getMessage(), PHP_EOL;
 }
 ```
+
 See [getFeatures](/bucketing-api/#operation/getFeatures) on the Bucketing API for the feature response format.
 
 ## Track Event
+
 ```php
 use DevCycle\Model\DevCycleEvent;
 
@@ -106,6 +111,7 @@ $devcycleClient = new DevCycleClient(
 ## Async Methods
 
 Each method in the [Usage](#Usage) section has a corresponding asynchronous method:
+
 ```php
 $result = $devcycleClient->allVariables($user_data);
 $devcycleClient->allVariablesAsync($user_data)->then(function($result) {
@@ -119,60 +125,59 @@ $devcycleClient->allVariablesAsync($user_data)->then(function($result) {
 
 User data is provided to most SDK requests to identify the user / context of the feature evaluation
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **user_id** | **String** | Unique id to identify the user |  |
-| **email** | **String** | User&#39;s email used to identify the user on the dashboard / target audiences | [optional] |
-| **name** | **String** | User&#39;s name used to identify the user on the dashboard / target audiences | [optional] |
-| **language** | **String** | User&#39;s language in ISO 639-1 format | [optional] |
-| **country** | **String** | User&#39;s country in ISO 3166 alpha-2 format | [optional] |
-| **app_version** | **String** | App Version of the running application | [optional] |
-| **app_build** | **String** | App Build number of the running application | [optional] |
-| **custom_data** | **Object** | User&#39;s custom data to target the user with, data will be logged to DevCycle for use in dashboard. | [optional] |
+| Name                    | Type       | Description                                                                                                          | Notes      |
+| ----------------------- | ---------- | -------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **user_id**             | **String** | Unique id to identify the user                                                                                       |            |
+| **email**               | **String** | User&#39;s email used to identify the user on the dashboard / target audiences                                       | [optional] |
+| **name**                | **String** | User&#39;s name used to identify the user on the dashboard / target audiences                                        | [optional] |
+| **language**            | **String** | User&#39;s language in ISO 639-1 format                                                                              | [optional] |
+| **country**             | **String** | User&#39;s country in ISO 3166 alpha-2 format                                                                        | [optional] |
+| **app_version**         | **String** | App Version of the running application                                                                               | [optional] |
+| **app_build**           | **String** | App Build number of the running application                                                                          | [optional] |
+| **custom_data**         | **Object** | User&#39;s custom data to target the user with, data will be logged to DevCycle for use in dashboard.                | [optional] |
 | **private_custom_data** | **Object** | User&#39;s custom data to target the user with, data will not be logged to DevCycle only used for feature bucketing. | [optional] |
-| **created_date** | **Float** | Date the user was created, Unix epoch timestamp format | [optional] |
-| **last_seen_date** | **Float** | Date the user was created, Unix epoch timestamp format | [optional] |
-| **platform** | **String** | Platform the Client SDK is running on | [optional] |
-| **platform_version** | **String** | Version of the platform the Client SDK is running on | [optional] |
-| **device_model** | **String** | User&#39;s device model | [optional] |
-| **sdk_type** | **String** | DevCycle SDK type | [optional] |
-| **sdk_version** | **String** | DevCycle SDK Version | [optional] |
+| **created_date**        | **Float**  | Date the user was created, Unix epoch timestamp format                                                               | [optional] |
+| **last_seen_date**      | **Float**  | Date the user was created, Unix epoch timestamp format                                                               | [optional] |
+| **platform**            | **String** | Platform the Client SDK is running on                                                                                | [optional] |
+| **platform_version**    | **String** | Version of the platform the Client SDK is running on                                                                 | [optional] |
+| **device_model**        | **String** | User&#39;s device model                                                                                              | [optional] |
+| **sdk_type**            | **String** | DevCycle SDK type                                                                                                    | [optional] |
+| **sdk_version**         | **String** | DevCycle SDK Version                                                                                                 | [optional] |
 
 ### Event
 
 Event data is provided to `track` calls to log events to DevCycle
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **type** | **String** | Custom event type |  |
-| **target** | **String** | Custom event target / subject of event. Contextual to event type | [optional] |
-| **date** | **Float** | Unix epoch time the event occurred according to client | [optional] |
-| **value** | **Float** | Value for numerical events. Contextual to event type | [optional] |
-| **meta_data** | **Object** | Extra JSON metadata for event. Contextual to event type | [optional] |
+| Name          | Type       | Description                                                      | Notes      |
+| ------------- | ---------- | ---------------------------------------------------------------- | ---------- |
+| **type**      | **String** | Custom event type                                                |            |
+| **target**    | **String** | Custom event target / subject of event. Contextual to event type | [optional] |
+| **date**      | **Float**  | Unix epoch time the event occurred according to client           | [optional] |
+| **value**     | **Float**  | Value for numerical events. Contextual to event type             | [optional] |
+| **meta_data** | **Object** | Extra JSON metadata for event. Contextual to event type          | [optional] |
 
 ### Variable
 
 Variable objects are returned by the SDK when calling `variable` or `allVariables`.
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **_id** | **String** | unique database id |  |
-| **key** | **String** | Unique key by Project, can be used in the SDK / API to reference by &#39;key&#39; rather than _id. |  |
-| **type** | **String** | Variable type |  |
-| **value** | **Object** | Variable value can be a string, number, boolean, or JSON |  |
+| Name      | Type       | Description                                                                                         | Notes |
+| --------- | ---------- | --------------------------------------------------------------------------------------------------- | ----- |
+| **\_id**  | **String** | unique database id                                                                                  |       |
+| **key**   | **String** | Unique key by Project, can be used in the SDK / API to reference by &#39;key&#39; rather than \_id. |       |
+| **type**  | **String** | Variable type                                                                                       |       |
+| **value** | **Object** | Variable value can be a string, number, boolean, or JSON                                            |       |
 
 ### Feature
 
 Feature objects are returned by the SDK when calling `allFeatures`
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **_id** | **String** | unique database id |  |
-| **key** | **String** | Unique key by Project, can be used in the SDK / API to reference by &#39;key&#39; rather than _id. |  |
-| **type** | **String** | Feature type |  |
-| **_variation** | **String** | Bucketed feature variation |  |
-| **eval_reason** | **String** | Evaluation reasoning | [optional] |
-
+| Name            | Type       | Description                                                                                         | Notes      |
+| --------------- | ---------- | --------------------------------------------------------------------------------------------------- | ---------- |
+| **\_id**        | **String** | unique database id                                                                                  |            |
+| **key**         | **String** | Unique key by Project, can be used in the SDK / API to reference by &#39;key&#39; rather than \_id. |            |
+| **type**        | **String** | Feature type                                                                                        |            |
+| **\_variation** | **String** | Bucketed feature variation                                                                          |            |
+| **eval_reason** | **String** | Evaluation reasoning                                                                                | [optional] |
 
 ## Tests
 

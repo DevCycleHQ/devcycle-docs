@@ -3,12 +3,11 @@ title: Ruby Server SDK Getting Started
 sidebar_label: Getting Started
 sidebar_position: 2
 description: Initializing the SDK
-sidebar_custom_props: {icon: rocket}
+sidebar_custom_props: { icon: material-symbols:rocket }
 ---
 
 [![RubyGems](https://badgen.net/rubygems/v/devcycle-ruby-server-sdk/latest)](https://rubygems.org/gems/devcycle-ruby-server-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/ruby-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/ruby-server-sdk)
-
 
 Please follow the [installation](/sdk/server-side-sdks/ruby/ruby-install) procedure and then run the following code:
 
@@ -36,6 +35,7 @@ end
 ```
 
 ## Configure SDK
+
 ```ruby
 # Load the gem
 require 'devcycle-ruby-server-sdk'
@@ -56,8 +56,8 @@ The SDK can be initialized in an initializer file:
 
 ```ruby
 Rails.configuration.devcycle_client = DevCycle::Client.new(
-  ENV['DEVCYCLE_SERVER_SDK_KEY'], 
-  DevCycle::Options.new, 
+  ENV['DEVCYCLE_SERVER_SDK_KEY'],
+  DevCycle::Options.new,
   true
 )
 ```
@@ -69,8 +69,8 @@ When using Unicorn with the `preload_app` configuration set to `true`, the SDK n
 ```ruby
 after_fork do |server, worker|
   Rails.configuration.devcycle_client = DevCycle::Client.new(
-    ENV['DEVCYCLE_SERVER_SDK_KEY'], 
-    DevCycle::Options.new, 
+    ENV['DEVCYCLE_SERVER_SDK_KEY'],
+    DevCycle::Options.new,
     true
   )
 end
@@ -83,8 +83,9 @@ When using Puma with the `preload_app` configuration set to `true`, the SDK need
 ```ruby
 on_worker_boot do
   Rails.configuration.devcycle_client = DevCycle::Client.new(
-    ENV['DEVCYCLE_SERVER_SDK_KEY'], 
-    DevCycle::Options.new, 
+    ENV['DEVCYCLE_SERVER_SDK_KEY'],
+    DevCycle::Options.new,
     true
   )
 end
+```

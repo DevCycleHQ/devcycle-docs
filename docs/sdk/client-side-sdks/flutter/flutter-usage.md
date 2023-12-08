@@ -3,7 +3,7 @@ title: Flutter SDK Usage
 sidebar_label: Usage
 sidebar_position: 3
 description: Using the SDK
-sidebar_custom_props: {icon: toggle-on}
+sidebar_custom_props: { icon: material-symbols:toggle-on }
 ---
 
 [![Pub](https://img.shields.io/pub/v/devcycle_flutter_client_sdk)](https://img.shields.io/pub/v/devcycle_flutter_client_sdk)
@@ -11,8 +11,8 @@ sidebar_custom_props: {icon: toggle-on}
 
 ## Using Variable Values
 
-To get values from your Variables, the `variableValue()` method is used to fetch variable values using 
-the variable's identifier `key` coupled with a default value. The default value can be of type 
+To get values from your Variables, the `variableValue()` method is used to fetch variable values using
+the variable's identifier `key` coupled with a default value. The default value can be of type
 `String`, `Boolean`, `Number`, or `JSONObject`:
 
 ```dart
@@ -23,6 +23,7 @@ final jsonValue = _devcycleClient.variableValue(key: "json_key", defaultValue: {
 ```
 
 If you would like to get the full `Variable` object using the `variable()` method it also contains the following params:
+
 - `key`: the key identifier for the Variable
 - `type`: the type of the Variable, one of: `String` / `Boolean` / `Number` / `JSON`
 - `value`: the Variable's value
@@ -34,10 +35,10 @@ If the value is not ready, it will return the default value passed in the creati
 
 ## Variable Updates
 
-Variable values update whenever `identifyUser()` or `resetUser()` are called, 
+Variable values update whenever `identifyUser()` or `resetUser()` are called,
 or when the project configuration changes (to learn more, visit our [Realtime Updates](/sdk/features#realtime-updates) page).
 
-To listen for variable updates, the `onUpdate()` method can be used on a Variable Object. 
+To listen for variable updates, the `onUpdate()` method can be used on a Variable Object.
 Please note, a strong reference to the variable is needed for `onUpdate` to be triggered.
 
 ```dart
@@ -69,7 +70,7 @@ If the SDK has not finished initializing, these methods will return an empty obj
 
 ## Identifying User
 
-To identify a different user, or the same user passed into the initialize method with more attributes, 
+To identify a different user, or the same user passed into the initialize method with more attributes,
 build a DevCycleUser object and pass it into `identifyUser`:
 
 ```dart
@@ -98,7 +99,7 @@ If `error` exists the called the user's configuration will not be updated and pr
 
 ## Reset User
 
-To reset the user into an anonymous user, `resetUser` will reset to the anonymous user created before 
+To reset the user into an anonymous user, `resetUser` will reset to the anonymous user created before
 or will create one with an anonymous `user_id`.
 
 ```dart
@@ -147,7 +148,7 @@ _devcycleClient.flushEvents(([error]) => {
 
 ## EdgeDB
 
-EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user. 
+EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user.
 Read more about [EdgeDB](/extras/edgedb).
 
 To get started, contact us at support@devcycle.com to enable EdgeDB for your project.
@@ -160,7 +161,7 @@ DevCycleUser user = DevCycleUserBuilder()
     .email('test@example.com')
     .customData({ "amountSpent": 50 })
     .build();
-                 
+
 DevCycleOptions options = DevCycleOptionsBuilder()
     .enableEdgeDB(true)
     .build();
@@ -168,5 +169,5 @@ DevCycleOptions options = DevCycleOptionsBuilder()
 
 This will send a request to our EdgeDB API to save the custom data under the user `test-user`.
 
-In the example, `amountSpent` is associated to the user `test-user`. In your next identify call for the same `userId`, 
+In the example, `amountSpent` is associated to the user `test-user`. In your next identify call for the same `userId`,
 you may omit any of the data you've sent already as it will be pulled from the EdgeDB storage when segmenting to experiments and features.

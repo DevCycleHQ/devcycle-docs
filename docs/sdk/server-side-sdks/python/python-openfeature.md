@@ -3,7 +3,7 @@ title: Python OpenFeature Provider
 sidebar_label: OpenFeature
 sidebar_position: 4
 description: How to implement the OpenFeature Provider
-sidebar_custom_props: {icon: toggle-off}
+sidebar_custom_props: { icon: material-symbols:toggle-off }
 ---
 
 # OpenFeature Provider
@@ -23,11 +23,13 @@ Install the OpenFeature Python SDK and DevCycle Provider:
 ```shell-session
 $ pip install devcycle-python-server-sdk
 ```
+
 (you may need to run `pip` with root permission: `sudo pip install devcycle-python-server-sdk`)
 
 ### Getting Started
 
 Initialize the DevCycle SDK and set the DevCycleProvider as the provider for OpenFeature:
+
 ```python
 from devcycle_python_sdk import DevCycleLocalClient, DevCycleLocalOptions
 from devcycle_python_sdk.models.user import DevCycleUser
@@ -58,6 +60,7 @@ The provider will automatically translate known `DevCycleUser` properties from t
 [DevCycleUser Python Interface](https://github.com/DevCycleHQ/python-server-sdk/blob/main/devcycle_python_sdk/models/user.py)
 
 For example all these properties will be set on the `DevCycleUser`:
+
 ```python
 # Pass context when querying values from the OpenFeature client
 context = EvaluationContext(
@@ -86,6 +89,7 @@ added to the `CustomData` property of the `DevCycleUser`.
 DevCycle only supports flat JSON Object properties used in the Context. Non-flat properties will be ignored.
 
 For example `obj` will be ignored:
+
 ```python
 context = EvaluationContext(
         targeting_key="test-1234",
@@ -106,6 +110,7 @@ openfeature.NewEvaluationContext(
 The OpenFeature spec for JSON flags allows for any type of valid JSON value to be set as the flag value.
 
 For example the following are all valid default value types to use with OpenFeature:
+
 ```python
 # Invalid JSON values for the DevCycle SDK, will return defaults
 open_feature_client.get_object_value("json-flag", ["list"], context)
@@ -116,6 +121,7 @@ open_feature_client.get_object_value("json-flag", None, context)
 ```
 
 However, these are not valid types for the DevCycle SDK, the DevCycle SDK only supports JSON Objects:
+
 ```python
 # Valid JSON Object as the default value, will be evaluated by the DevCycle SDK
 open_feature_client.get_object_value("json-flag", {"default": "value"}, context)

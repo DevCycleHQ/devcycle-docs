@@ -3,7 +3,7 @@ title: Cleaning Up Unused Flags
 sidebar_label: Flag Cleanup
 description: Practices to help minimize technical debt from feature flags
 sidebar_position: 6
-sidebar_custom_props: {icon: broom}
+sidebar_custom_props: { icon: material-symbols:cleaning-services }
 ---
 
 This article outlines practices to help minimize technical debt from feature flags. DevCycle’s code insights are a valuable tool in determining when to clean up your unused feature flags.
@@ -16,7 +16,7 @@ One source of technical debt is poor maintenance of your feature flags.
 
 ## Risks of technical debt
 
-Allowing tech debt to accumulate makes it significantly more difficult to maintain a system and its code. Scrolling through hundreds of unused flags or variables in your dashboard is inconvenient and cumbersome. This affects the efficiency of your dev team. 
+Allowing tech debt to accumulate makes it significantly more difficult to maintain a system and its code. Scrolling through hundreds of unused flags or variables in your dashboard is inconvenient and cumbersome. This affects the efficiency of your dev team.
 
 One risk of tech debt is the increase in code complexity, making the system harder to maintain and test. For instance, if a release flag has been completely rolled out and serves “Variation On” for all users, the code for “Variation Off” will never get called. If you keep a dead code path for a long time, chances are that developers will forget why it existed. Developers might avoid removing it later for fear of breaking the system. Failing to remove feature flags and their variables at the appropriate time causes cluttered code.
 
@@ -32,17 +32,20 @@ You should also remove a flag or its variables if they are inactive or not in us
 
 Currently only supported in JavaScript, Node and React SDKs.
 
-Our CLI provides the functionality of removing all instances of a feature flag automatically. 
+Our CLI provides the functionality of removing all instances of a feature flag automatically.
 
-The `dvc cleanup` command scans your code for all instances of a DevCycle Variable through the provided key, all references are changed to the value provided removing all `useVariable` or `useVariableValue` calls along with simplifying any `if` statement and blocks with the desired value. 
+The `dvc cleanup` command scans your code for all instances of a DevCycle Variable through the provided key, all references are changed to the value provided removing all `useVariable` or `useVariableValue` calls along with simplifying any `if` statement and blocks with the desired value.
 
 ### DevCycle CLI cleanup command Demo Video
+
 https://youtu.be/yIGkjdQ_Yd0
 
 ## Using Code Insights for feature flag cleanup
 
 Our platform provides tools to facilitate feature flag cleanup. Feature Flag Reach and Code References on DevCycle can help you decide when to remove feature flags.
+
 ### Code Insights Demo Video
+
 https://youtu.be/0yhmQ-3OZX8
 
 ### Feature Flag Reach
@@ -53,7 +56,7 @@ DevCycle’s Feature Flag Reach is a helpful tool for determining when a release
 
 Each variation is displayed as a line with a distinct color. If only one colored line is active over some time, it may be an indication that other code paths are never used. For example, if all users are receiving “Variation On,” the line for “Variation Off” will remain at zero. If this is so, it may be time to consider if that particular feature can become permanent for all users.
 
-There are two ways to find the Feature Flag Reach section. The first way is via your Feature Management page. On the very right of each feature is an “Insights” button which will navigate you to the feature’s reach section. 
+There are two ways to find the Feature Flag Reach section. The first way is via your Feature Management page. On the very right of each feature is an “Insights” button which will navigate you to the feature’s reach section.
 
 The second way is from a feature’s dashboard. On the navigation to the left, click “Reach” under ”Data & Results”.
 
@@ -61,7 +64,7 @@ The second way is from a feature’s dashboard. On the navigation to the left, c
 
 ### Code References
 
-Another way to ensure if a flag is truly ready for removal is by leveraging Code References. DevCycle’s Code References let you know where you are using a variable in your code. Our platform uses GitHub actions to automatically scan and collect all the places in your source code that reference particular DevCycle variables. That way, you know whether or not a variable is being used in your code. If it is not, you may consider deleting that variable. 
+Another way to ensure if a flag is truly ready for removal is by leveraging Code References. DevCycle’s Code References let you know where you are using a variable in your code. Our platform uses GitHub actions to automatically scan and collect all the places in your source code that reference particular DevCycle variables. That way, you know whether or not a variable is being used in your code. If it is not, you may consider deleting that variable.
 
 Because Code References list all usages of a variable in your code, you can easily determine where to need to go once you’re ready to delete a feature flag and its variables. Code References include a link to the exact location in your GitHub codebase, making it much easier to find your variables or retire your flags.
 

@@ -3,7 +3,7 @@ title: React Native SDK Installation
 sidebar_label: Installation
 sidebar_position: 1
 description: Installing the SDK
-sidebar_custom_props: {icon: screwdriver-wrench}
+sidebar_custom_props: { icon: material-symbols:install-desktop }
 ---
 
 [![Npm package version](https://badgen.net/npm/v/@devcycle/react-native-client-sdk)](https://www.npmjs.com/package/@devcycle/react-native-client-sdk)
@@ -11,38 +11,43 @@ sidebar_custom_props: {icon: screwdriver-wrench}
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)
 
 To get started, install the React Native SDK. If working with React native Expo, install the React Native Expo SDK.
+
 ## Installation
+
 The command to install the React Native SDK is:
 
 ### npm
 
-  ```bash
-    npm install --save @devcycle/react-native-client-sdk 
-  ```
+```bash
+  npm install --save @devcycle/react-native-client-sdk
+```
 
 ### yarn
 
-  ```bash
-    yarn add @devcycle/react-native-client-sdk 
-  ```
+```bash
+  yarn add @devcycle/react-native-client-sdk
+```
 
 ## Installation for React Native Expo
+
 The command to install the React Native Expo SDK is:
 
 ### npm
 
-  ```bash
-    npm install --save @devcycle/react-native-expo-client-sdk
-  ```
+```bash
+  npm install --save @devcycle/react-native-expo-client-sdk
+```
 
 ### yarn
 
-  ```bash
-    yarn add @devcycle/react-native-expo-client-sdk
-  ```
+```bash
+  yarn add @devcycle/react-native-expo-client-sdk
+```
 
 ## Install Pods
+
 Add the following packages that are required for React Native functionality as dependencies of your project:
+
 ```shell
 npx pod-install
 ```
@@ -52,26 +57,29 @@ The [react-native-get-random-values](https://www.npmjs.com/package/react-native-
 The [react-native-device-info](https://www.npmjs.com/package/react-native-device-info) package provides information about the current device running the SDK, which is required to correctly apply targeting rules.
 
 ## Install SDK Dependencies
+
 Install the SDK dependencies, run the following command
 
 ### npm
 
-  ```bash
-    npm install --save @react-native-async-storage/async-storage react-native-get-random-values react-native-device-info
-  ```
+```bash
+  npm install --save @react-native-async-storage/async-storage react-native-get-random-values react-native-device-info
+```
 
 ### yarn
 
-  ```bash
-    yarn add @react-native-async-storage/async-storage react-native-get-random-values react-native-device-info
-  ```
+```bash
+  yarn add @react-native-async-storage/async-storage react-native-get-random-values react-native-device-info
+```
 
 ## Import SDK Dependencies
+
 1.  Import the `@react-native-async-storage/async-storage` package somewhere in your code (e.g. in the `App.jsx` file). (see example below)
 2.  Import the `react-native-get-random-values` package somewhere in your code (e.g. in the `App.jsx` file). (see example below)
 3.  Import the `react-native-device-info` package and set `global.DeviceInfo = DeviceInfo`. (see example below)
 
 Example of the above steps:
+
 ```javascript
 import React from 'react'
 import 'react-native-get-random-values'
@@ -83,15 +91,19 @@ global.DeviceInfo = DeviceInfo
 ```
 
 ## Wrap Application in HOC
+
 Wrap your application component tree in either the `withDevCycleProvider` or `asyncWithDVCProvider` higher-order component (HOC), as explained in the [Getting Started](#getting-started) section.
 
-
 ```jsx
-export default withDevCycleProvider({ sdkKey: '<DEVCYCLE_CLIENT_SDK_KEY>' })(App)
+export default withDevCycleProvider({ sdkKey: '<DEVCYCLE_CLIENT_SDK_KEY>' })(
+  App,
+)
 ```
 
 ## Example
+
 A complete working example of an `App.jsx` file is below:
+
 ```jsx
 import React from 'react'
 import { View, Text } from 'react-native'
@@ -116,5 +128,7 @@ function App() {
   )
 }
 
-export default withDevCycleProvider({ sdkKey: '<DEVCYCLE_CLIENT_SDK_KEY>' })(App)
+export default withDevCycleProvider({ sdkKey: '<DEVCYCLE_CLIENT_SDK_KEY>' })(
+  App,
+)
 ```

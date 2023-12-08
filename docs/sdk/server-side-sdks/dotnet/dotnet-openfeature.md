@@ -3,7 +3,7 @@ title: .NET / C# OpenFeature Provider
 sidebar_label: OpenFeature
 sidebar_position: 4
 description: How to implement the OpenFeature Provider
-sidebar_custom_props: {icon: toggle-off}
+sidebar_custom_props: { icon: material-symbols:toggle-off }
 ---
 
 # OpenFeature Provider
@@ -47,8 +47,8 @@ EvaluationContext ctx = EvaluationContext.Builder()
     .Set("nonSetValueBubbledCustomData2", "true")
     .Set("nonSetValueBubbledCustomData3", 1)
     .Set("nonSetValueBubbledCustomData4", new Value((object)null))
-    .Build();            
-             
+    .Build();
+
 var variableResult = await oFeatureClient.GetStringDetails(readOnlyVariable.Key, "default", ctx);
 ```
 
@@ -62,6 +62,7 @@ This is used to identify the user as the `user_id` for a `DevCycleUser` in DevCy
 The provider will automatically translate known `DevCycleUser` properties from the OpenFeature context to the `DevCycleUser` object.
 
 For example all these properties will be set on the `DevCycleUser`:
+
 ```csharp
 EvaluationContext ctx = EvaluationContext.Builder()
     .Set("user_id", "test")
@@ -92,6 +93,7 @@ added to the `CustomData` property of the `DevCycleUser`.
 DevCycle only supports flat JSON Object properties used in the Context. Non-flat properties will throw an exception.
 
 For example `obj` will be ignored:
+
 ```csharp
 EvaluationContext ctx = EvaluationContext.Builder()
     .Set("user_id", "test")
@@ -104,6 +106,7 @@ EvaluationContext ctx = EvaluationContext.Builder()
 The OpenFeature spec for JSON flags allows for any type of valid JSON value to be set as the flag value.
 
 For example the following are all valid default value types to use with OpenFeature:
+
 ```csharp
 // Invalid JSON values for the DevCycle SDK, will return defaults
 openFeatureClient.GetObjectValue("json-flag", new Value(false));
@@ -114,6 +117,7 @@ openFeatureClient.GetObjectValue("json-flag", new Value((object)null));
 ```
 
 However, these are not valid types for the DevCycle SDK, the DevCycle SDK only supports JSON Objects via Structures:
+
 ```csharp
 // Valid JSON Object as the default value, will be evaluated by the DevCycle SDK
 openFeatureClient.GetObjectValue("json-flag", new Value(new Structure(new Dictionary<string, Value> {{"key", new Value("value")}})));

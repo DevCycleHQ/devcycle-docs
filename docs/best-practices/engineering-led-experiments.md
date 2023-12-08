@@ -3,9 +3,9 @@ title: Engineering-Led Experiments
 sidebar_label: Experimentation
 sidebar_position: 9
 description: Experiments engineers can conduct to mitigate risk and optimize their software
-sidebar_custom_props: {icon: flag}
-
+sidebar_custom_props: { icon: material-symbols:experiment }
 ---
+
 # Engineering-Led Experiments
 
 While experimentation is often associated with marketing and revenue, experimentation is also a valuable process for engineers. There are several experiments engineers can conduct to mitigate risk and optimize their software. In DevCycle, experiments are conducted by creating two or more variations of a feature and comparing their performance using Metrics. Developers can use Metrics to assess the health of their features and improve technical performance. This guide discusses how to conduct engineering-led experiments with Metrics.
@@ -23,7 +23,7 @@ To complete this guide, you may want to review the following topics:
 
 Metrics are how DevCycle measures data based on the custom events you choose to track. For example, you may conduct an experiment to determine what features cause the most errors. In this case, you would create a metric to track error rates.
 
-When you create a metric, it is not tied to a specific feature; they can be defined once and applied to as many features as desired. For instance, we could use the same error metric to determine the error rate of other features.  
+When you create a metric, it is not tied to a specific feature; they can be defined once and applied to as many features as desired. For instance, we could use the same error metric to determine the error rate of other features.
 
 To learn how to create a metric, read [Creating and Managing Metrics](/extras/metrics/creating-and-managing-metrics#creating-a-metric).
 
@@ -53,19 +53,19 @@ The `type` field in the object must correspond to the Event Type you defined whe
 :::
 ![Use the Event Type, not the Type](/august-2022-event-type-not-metric-type.png)
 
-If your Metric was a [numerical Type](/extras/metrics/creating-and-managing-metrics#types) (such as Sum Per User, Total Average, etc.) you may want to provide a value within your `event`. Some numerical data you may want to track are latency, load time, number of API calls, etc. Adding a numerical value to your object in JavaScript would look something like this: 
+If your Metric was a [numerical Type](/extras/metrics/creating-and-managing-metrics#types) (such as Sum Per User, Total Average, etc.) you may want to provide a value within your `event`. Some numerical data you may want to track are latency, load time, number of API calls, etc. Adding a numerical value to your object in JavaScript would look something like this:
 
 ```jsx
 const event = {
-	type: 'page_load_time',
-	value: 4000
+  type: 'page_load_time',
+  value: 4000,
 }
 devcycleClient.track(event)
 ```
 
 You can include other data within the `event` object such as date, target, and metadata. For more information about tracking custom events with our other SDKs, refer to [Tracking Custom Events](/sdk/features).
 
-Once you have set up the SDK to send custom events, you can [apply your Metric to a feature](/extras/metrics/creating-and-managing-metrics#attaching-metrics-to-features). 
+Once you have set up the SDK to send custom events, you can [apply your Metric to a feature](/extras/metrics/creating-and-managing-metrics#attaching-metrics-to-features).
 
 ## Suggested Metrics
 
@@ -82,15 +82,15 @@ Metrics are a valuable tool for measuring the technical performance of your syst
 
 ## Conducting Experiments
 
-On their own, Metrics are already a valuable tool for monitoring app health. Experimentation takes Metric data a step further. Using Metrics for experimentation enables you to be proactive about risk mitigation and technical optimization before fully releasing features. 
+On their own, Metrics are already a valuable tool for monitoring app health. Experimentation takes Metric data a step further. Using Metrics for experimentation enables you to be proactive about risk mitigation and technical optimization before fully releasing features.
 
 ### Create a Roadmap
 
-Creating a roadmap will aid in the management of your experiments. Make sure you record the experiment’s purpose, hypothesis, features and variations involved, metrics, and the length of the experiment. 
+Creating a roadmap will aid in the management of your experiments. Make sure you record the experiment’s purpose, hypothesis, features and variations involved, metrics, and the length of the experiment.
 
 ### Generating a Hypothesis
 
-A well-planned experiment is an effective experiment. Before building your experiment, define what you would like to achieve. Formulate a brief yet specific explanation of what you’re trying to prove and why. Provide context by referring to prior bugs, user feedback, or anything else that prompted you to conduct the experiment. 
+A well-planned experiment is an effective experiment. Before building your experiment, define what you would like to achieve. Formulate a brief yet specific explanation of what you’re trying to prove and why. Provide context by referring to prior bugs, user feedback, or anything else that prompted you to conduct the experiment.
 
 For instance, you can use an experiment to answer questions like the following examples:
 
@@ -112,25 +112,25 @@ Be sure that your hypothesis is precise and measurable for effective interpretat
 
 ### Setting Up Variations
 
-Some of the simplest and most precise experiments are basic A/B tests comparing two variations, one control variant and one treatment variation. For example, to answer the second example hypothesis above, we would have one variation with the `use-caching` variable off, and another variation with `use-caching` on. We would then randomly distribute the two variations in a 50/50 split between the variations. 
+Some of the simplest and most precise experiments are basic A/B tests comparing two variations, one control variant and one treatment variation. For example, to answer the second example hypothesis above, we would have one variation with the `use-caching` variable off, and another variation with `use-caching` on. We would then randomly distribute the two variations in a 50/50 split between the variations.
 
-For more complex features you may compare more variations with several combinations of variable values. You would then randomly distribute the variations according to the number of variations you are including in the experiment. 
+For more complex features you may compare more variations with several combinations of variable values. You would then randomly distribute the variations according to the number of variations you are including in the experiment.
 
 For more information about comparing multiple variations in an experiment, refer to [Feature Experimentation](/extras/metrics/feature-experimentation#comparing-multiple-variations).
 
 ### Choosing Metrics
 
-After creating the necessary variations, select the appropriate metrics for your experiment. It is best to choose metrics that directly result from the changes you are making so your data is not influenced by other factors. 
+After creating the necessary variations, select the appropriate metrics for your experiment. It is best to choose metrics that directly result from the changes you are making so your data is not influenced by other factors.
 
-For example, if we expect sorting search results to significantly affect page load time, we would create a Metric to track page load time and attach it to our feature. 
+For example, if we expect sorting search results to significantly affect page load time, we would create a Metric to track page load time and attach it to our feature.
 
 ### Length of the Experiment
 
-The required length of your experiment varies depending on the overall traffic, the observed conversion rate, and the size of the difference in conversion or values between variations. A typical experiment generally requires a minimum of 1-2 weeks to achieve valid statistical significance with a valid cross-section of your user base. 
+The required length of your experiment varies depending on the overall traffic, the observed conversion rate, and the size of the difference in conversion or values between variations. A typical experiment generally requires a minimum of 1-2 weeks to achieve valid statistical significance with a valid cross-section of your user base.
 
 ### Determine the Winner
 
-Once the planned time has passed, you can review the graphs created by the Metrics and determine which Variation performed best. When you created Metrics, you define whether a decrease or an increase in values means improvement. Metrics uses this input to clearly show whether the results were positive or negative. 
+Once the planned time has passed, you can review the graphs created by the Metrics and determine which Variation performed best. When you created Metrics, you define whether a decrease or an increase in values means improvement. Metrics uses this input to clearly show whether the results were positive or negative.
 
 ![Feature Experiment Image](/feature-experiment-full.png)
 

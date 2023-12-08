@@ -3,9 +3,8 @@ title: .NET / C# SDK Getting Started
 sidebar_label: Getting Started
 sidebar_position: 2
 description: Initializing the SDK
-sidebar_custom_props: {icon: rocket}
+sidebar_custom_props: { icon: material-symbols:rocket }
 ---
-
 
 [![Nuget Cloud](https://badgen.net/nuget/v/DevCycle.SDK.Server.Cloud)](https://www.nuget.org/packages/DevCycle.SDK.Server.Cloud/)
 [![Nuget Local](https://badgen.net/nuget/v/DevCycle.SDK.Server.Cloud)](https://www.nuget.org/packages/DevCycle.SDK.Server.Local/)
@@ -32,9 +31,9 @@ namespace Example {
 }
 ```
 
-## Local Bucketing - Initializing SDK 
+## Local Bucketing - Initializing SDK
 
-To start, initialize a client using the SDK key. 
+To start, initialize a client using the SDK key.
 
 ```csharp
 using System;
@@ -67,7 +66,7 @@ using Microsoft.Extensions.Logging;
 namespace Example {
     public class Example {
         private static DevCycleLocalClient client;
-        
+
         static async Task Main(string[] args) {
             client = new DevCycleLocalClientBuilder()
                 .SetSDKKey("<DEVCYCLE_SERVER_SDK_KEY>")
@@ -94,3 +93,4 @@ namespace Example {
         }
     }
 }
+```
