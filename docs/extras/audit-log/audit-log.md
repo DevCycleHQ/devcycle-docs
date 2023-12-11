@@ -13,7 +13,13 @@ You can filter modfications by environment, DevCycle user, and for a particular 
 
 ![Audit Log](/nov2023-audit-log-summary.png)
 
-The title of each modification card, highlights the change that was made to the Feature upon clicking save. If multiple changes were made on a Feature save and/or there were modifications made to more than one Environment, the card will show the total number modifications made. 
+:::info
+
+The Audit Log started to track Feature modifications on November 18, 2023.  All  modifications made before that date will not appear in the Audit Log.
+
+:::
+
+The title of each modification card highlights the change that was made to the Feature upon clicking save. If multiple changes were made on a Feature save and/or there were modifications made to more than one Environment, the card will show the total number modifications made. 
 
 Click the `View Details` button on each card for more information about each modification. 
 
