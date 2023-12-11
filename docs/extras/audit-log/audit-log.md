@@ -15,7 +15,7 @@ You can filter modfications by environment, DevCycle user, and for a particular 
 
 :::info
 
-The Audit Log feature was released in early December 2023. No Audit Log modifications were tracked before this date.
+The Audit Log started to track Feature modifications on November 18, 2023.  All  modifications made before that date will not appear in the Audit Log.
 
 :::
 
