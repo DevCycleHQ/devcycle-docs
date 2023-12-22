@@ -114,7 +114,7 @@ If you wish to render your page without waiting for the DevCycle configuration t
   use a `Suspense` boundary to send a fallback while the config is being retrieved. The component will then stream to
   the client once the config is retrieved.
 
-Note: The DevCycle initialization process is normally very fast (<50ms).
+Note: The DevCycle initialization process is normally very fast (less than 50ms).
 Only use this option if your application is very performance sensitive.
 
 ## Usage (Pages Router)
