@@ -3,7 +3,7 @@ title: Go OpenFeature Provider
 sidebar_label: OpenFeature
 sidebar_position: 4
 description: How to implement the OpenFeature Provider
-sidebar_custom_props: {icon: toggle-off}
+sidebar_custom_props: { icon: material-symbols:toggle-off }
 ---
 
 # OpenFeature Provider
@@ -81,6 +81,7 @@ The provider will automatically translate known `devcycle.User` properties from 
 [User Go Interface](https://github.com/DevCycleHQ/go-server-sdk/blob/main/api/model_user_data.go)
 
 For example all these properties will be set on the `User`:
+
 ```go
 // Pass evalCtx when querying values from the OpenFeature client
 evalCtx := openfeature.NewEvaluationContext(
@@ -109,6 +110,7 @@ added to the `CustomData` property of the `User`.
 DevCycle only supports flat JSON Object properties used in the Context. Non-flat properties will be ignored.
 
 For example `obj` will be ignored:
+
 ```go
 openfeature.NewEvaluationContext(
     "user_id",
@@ -123,6 +125,7 @@ openfeature.NewEvaluationContext(
 The OpenFeature spec for JSON flags allows for any type of valid JSON value to be set as the flag value.
 
 For example the following are all valid default value types to use with OpenFeature:
+
 ```go
 // Invalid JSON values for the DevCycle SDK, will return defaults
 client.ObjectValue(ctx, "json-flag", []string{"slice"}, evalCtx)
@@ -133,6 +136,7 @@ client.ObjectValue(ctx, "json-flag", nil, evalCtx)
 ```
 
 However, these are not valid types for the DevCycle SDK, the DevCycle SDK only supports JSON Objects:
+
 ```go
 // Valid JSON Object as the default value, will be evaluated by the DevCycle SDK
 client.ObjectValue(ctx, "json-flag", map[string]{"default": "value"}, evalCtx)

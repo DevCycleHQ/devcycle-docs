@@ -3,15 +3,15 @@ title: .NET / C# SDK Usage
 sidebar_label: Usage
 sidebar_position: 3
 description: Using the SDK
-sidebar_custom_props: {icon: toggle-on}
+sidebar_custom_props: { icon: material-symbols:toggle-on }
 ---
-
 
 [![Nuget Cloud](https://badgen.net/nuget/v/DevCycle.SDK.Server.Cloud)](https://www.nuget.org/packages/DevCycle.SDK.Server.Cloud/)
 [![Nuget Local](https://badgen.net/nuget/v/DevCycle.SDK.Server.Cloud)](https://www.nuget.org/packages/DevCycle.SDK.Server.Local/)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/dotnet-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/dotnet-server-sdk)
 
 ## DevCycleUser Object
+
 The user object is required for all methods. The only required field in the user object is userId
 
 See the DevCycleUser class in [.NET DevCycleUser model doc](https://github.com/DevCycleHQ/dotnet-server-sdk/blob/main/docs/User.md) for all accepted fields.
@@ -46,6 +46,7 @@ Dictionary<string, ReadOnlyVariable<object>> result = await client.AllVariables(
 ```
 
 ## Getting All Features
+
 This method will fetch all features for a given user and return them as `Dictionary<String, Feature>`
 
 ```csharp
@@ -53,6 +54,7 @@ Dictionary<string, Feature> result = await client.AllFeatures(user);
 ```
 
 ## Track Event
+
 To track a custom event for a user, pass in the user and event object.
 
 In the Local Bucketing SDK - this queues the event to be batched out later, while in the Cloud Bucketing SDK, this is sent

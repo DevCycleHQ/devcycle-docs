@@ -3,7 +3,7 @@ title: Continuous Integration & Continuous Deployment
 sidebar_label: CI/CD
 sidebar_position: 7
 description: Feature flag guidelines that optimize continuous integration and deployment
-sidebar_custom_props: {icon: infinity}
+sidebar_custom_props: { icon: carbon:continuous-deployment }
 ---
 
 # Adopting Feature Flags for CI/CD
@@ -43,17 +43,16 @@ Sometimes adding a feature flag results in a failed integration test. This could
 Consider the `Use Server Storage` example we described earlier. Let’s say we have updated our Targeting Rules to enable `Use Server Storage` for internal users with an email domain of `@devcycle.com`. The `Use Server Storage` feature has been implemented in a React app as follows:
 
 ```jsx
-const useServerStorage = useVariable('use-server-storage', false);
+const useServerStorage = useVariable('use-server-storage', false)
 
 if (useServerStorage) {
-	retrieveDataFromServer() // function for using server storage
-}
-else {
-	retrieveDataFromLocal() // function for using local storage
+  retrieveDataFromServer() // function for using server storage
+} else {
+  retrieveDataFromLocal() // function for using local storage
 }
 ```
 
-Now consider a test that expects to find `retrieveDataFromServer()` to have been called once. If the test does not receive the email domain `@devcycle.com` to send to the SDK, it will result in the fallback value of `false`, meaning that `retrieveDataFromServer()` would not be called, failing the test. 
+Now consider a test that expects to find `retrieveDataFromServer()` to have been called once. If the test does not receive the email domain `@devcycle.com` to send to the SDK, it will result in the fallback value of `false`, meaning that `retrieveDataFromServer()` would not be called, failing the test.
 
 To fix the test, make sure to identify a user with the proper email, such as `test@devcycle.com`. Similarly, if you have a feature that uses custom properties for targeting, make sure to pass in the corresponding properties when you identify the user. Providing user data within the tests ensures that the SDK receives the correct feature and variable information based on the targeting rules, even when the tests are run automatically through CircleCI.
 

@@ -2,5 +2,5 @@ label: 'Serverless Flagging'
 position: 1
 collapsed: true
 customProps:
-  icon: server
+  icon: file-icons:serverless
   description: How to use feature flags in serverless environments.

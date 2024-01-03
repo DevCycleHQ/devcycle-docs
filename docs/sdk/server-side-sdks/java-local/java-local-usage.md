@@ -3,14 +3,14 @@ title: Java Local Server SDK Usage
 sidebar_label: Usage
 sidebar_position: 3
 description: Using the SDK
-sidebar_custom_props: {icon: toggle-on}
+sidebar_custom_props: { icon: material-symbols:toggle-on }
 ---
 
 [![Maven](https://badgen.net/maven/v/maven-central/com.devcycle/java-server-sdk)](https://search.maven.org/artifact/com.devcycle/java-server-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/java-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/java-server-sdk)
 
-
 ## DevCycleUser Object
+
 The user object is required for all methods. The only required field in the user object is userId.
 
 See the DevCycleUser class in [Java DevCycleUser model doc](https://github.com/DevCycleHQ/java-server-sdk/blob/main/docs/DevCycleUser.md) for all accepted fields.
@@ -43,7 +43,8 @@ If you would like to get the full Variable Object you can use `variable()` inste
 `key`, `value`, `type`, `defaultValue`, `isDefaulted`.
 
 ## Getting All Variables
-This method will fetch all variables for a given user and returned as Map&lt;String, Feature&gt;. 
+
+This method will fetch all variables for a given user and returned as Map&lt;String, Feature&gt;.
 If the project configuration is unavailable, this will return an empty map.
 
 To get values from your Variables, the `value` field inside the variable object can be accessed.
@@ -53,7 +54,8 @@ Map<String, Variable> variables = client.allVariables(user);
 ```
 
 ## Getting All Features
-This method will fetch all features for a given user and return them as Map&lt;String, Feature&gt;. 
+
+This method will fetch all features for a given user and return them as Map&lt;String, Feature&gt;.
 If the project configuration is unavailable, this will return an empty map.
 
 ```java
@@ -131,4 +133,3 @@ DevCycleLocalOptions options = DevCycleLocalOptions.builder().customLogger(loggi
 EdgeDB is currently not available when using Local Bucketing.
 
 :::
-

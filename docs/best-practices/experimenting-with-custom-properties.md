@@ -3,13 +3,12 @@ title: Using Custom Properties
 sidebar_label: Custom Properties
 description: How to target users for Experimentation or Permissions
 sidebar_position: 3
-sidebar_custom_props: {icon: flask-vial}
-
+sidebar_custom_props: { icon: material-symbols:experiment }
 ---
 
 Custom Properties are useful way to Target users for Experimentation or Permissions. To complete this guide, we recommend an understanding of User Targeting in DevCycle, found on our docs [Targeting Users for Features](/essentials/targeting).
 
-DevCycle provides several properties that can be used to target users for a feature. You can target users by their User ID, Email, Country, Platform, etc. However, it may sometimes be helpful to identify users by attributes that are not predefined in DevCycle. 
+DevCycle provides several properties that can be used to target users for a feature. You can target users by their User ID, Email, Country, Platform, etc. However, it may sometimes be helpful to identify users by attributes that are not predefined in DevCycle.
 
 Let’s say you would like to enable a new feature for only the beta users of your product. It may be cumbersome to indicate each User’s ID or Email in your targeting rule definition. This is where Custom Properties come into play.
 
@@ -29,15 +28,15 @@ A modal will open allowing you to create a new property. We will create a boolea
 
 The Property Key and Property Type are mandatory fields.
 
-- The **Property Key** must match what is sent by the SDK or API. 
+- The **Property Key** must match what is sent by the SDK or API.
 - The **Property Type** must match the type sent by the SDK. The available types are boolean, number, and string.
 
 The following fields are optional:
 
-- The **Display Name** only changes the property’s display name in the DevCycle UI. This is useful for properties with long or auto-generated names. However, the *Property Key* will be used to match the SDK or API when bucketing users.
+- The **Display Name** only changes the property’s display name in the DevCycle UI. This is useful for properties with long or auto-generated names. However, the _Property Key_ will be used to match the SDK or API when bucketing users.
 - The **DevCycle Key** is auto-generated based on the **Property Key**. You can use the DevCycle Key to reference the Property in the [DevCycle Management API](/management-api/#tag/Custom-Properties).
 
-Once you’ve created a property, you can find it in the Definition dropdown when you modify the Targeting Rules. The property will be accessible across all features within your project. 
+Once you’ve created a property, you can find it in the Definition dropdown when you modify the Targeting Rules. The property will be accessible across all features within your project.
 
 [To learn more about creating Custom Properties, read our docs here](/extras/advanced-targeting/custom-properties#creating-a-new-property-for-use).
 
@@ -52,12 +51,13 @@ const user = {
   user_id: 'user1',
   name: 'user 1 name',
   customData: {
-    'isBetaUser': true
-  }
+    isBetaUser: true,
+  },
 }
 const client = useDVCClient()
 client.identifyUser(user)
 ```
+
 Notice that we added the Custom Property Key, `isBetaUser`, and its custom value, `true`, within the `customData` field of our user object. Remember that the Custom Property Key must be the exact same as it is displayed on the dashboard. As a result, it is a good practice to use quotation marks when indicating the key in your code, especially if the Property Key has spaces or hyphens.
 
 To reference our user’s features and variables, we use the [Identify](/sdk/features) method from the DevCycle SDKs. A call to the Identify function will return the list of relevant Features and Variables for the user. After we define our user’s `customData`, we call the `identifyUser` method on the client object, obtained from [using the `useDVCClient` hook](/sdk/client-side-sdks/react-native/react-native-usage#usedvcclient). That way, we can reference the user’s features and variable values based on the targeting of their custom property.
@@ -66,7 +66,7 @@ For more documentation about the Identify method with different SDKs, read [Iden
 
 :::info
 
-Every time you identify a particular user, you must pass the custom data into the SDK. 
+Every time you identify a particular user, you must pass the custom data into the SDK.
 
 DevCycle's EdgeDB feature enables the saving of user data into DevCycle's EdgeDB storage, allowing you to segment by custom properties without having to repeatedly pass data to the SDK. [View our EdgeDB docs to find out how it works](/extras/edgedb).
 :::

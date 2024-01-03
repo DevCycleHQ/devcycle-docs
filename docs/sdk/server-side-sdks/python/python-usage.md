@@ -3,18 +3,18 @@ title: Python Server SDK Usage
 sidebar_label: Usage
 sidebar_position: 3
 description: Using the SDK
-sidebar_custom_props: {icon: toggle-on}
+sidebar_custom_props: { icon: material-symbols:toggle-on }
 ---
+
 [![PyPI](https://badgen.net/pypi/v/devcycle-python-server-sdk)](https://pypi.org/project/devcycle-python-server-sdk/)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/python-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/python-server-sdk)
-
 
 ## DevCycleUser Object
 
 The full user data must be passed into every method. The only required field is `user_id`.
 The rest are optional and are used by the system for user segmentation into variables and features.
 
-See the DevCycleUser model in the [Python user model doc](https://github.com/DevCycleHQ/python-server-sdk/blob/main/devcycle_python_sdk/models/user.py) 
+See the DevCycleUser model in the [Python user model doc](https://github.com/DevCycleHQ/python-server-sdk/blob/main/devcycle_python_sdk/models/user.py)
 for all accepted fields including custom fields.
 
 ```python
@@ -60,6 +60,7 @@ try:
 except Exception as e:
     print(f"Exception when calling DevCycleLocalClient->all_variables: {e}")
 ```
+
 See [getVariables](/bucketing-api/#operation/getVariables) on the Bucketing API for the variable response format.
 
 ## Getting All Features
@@ -74,6 +75,7 @@ try:
 except Exception as e:
     print(f"Exception when calling DevCycleLocalClient->all_features: {e}")
 ```
+
 See [getFeatures](/bucketing-api/#operation/getFeatures) on the Bucketing API for the feature response format.
 
 ## Track Event
@@ -94,7 +96,7 @@ try:
     api_response = devcycle_client.track(user, event)
     print(api_response)
 except Exception as e:
-    print(f"Exception when calling DevCycleLocalClient->track: {e}")        
+    print(f"Exception when calling DevCycleLocalClient->track: {e}")
 ```
 
 ## Set Client Custom Data

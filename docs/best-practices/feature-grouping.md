@@ -3,7 +3,7 @@ title: Feature Flag Grouping
 sidebar_label: Flag Grouping
 sidebar_position: 4
 description: Manage large amounts of feature flags with DevCycle
-sidebar_custom_props: {icon: people-group}
+sidebar_custom_props: { icon: icon-park-solid:group }
 ---
 
 This guide describes how to manage large amounts of feature flags with DevCycle. DevCycle’s Feature Grouping can act as a “master switch” for multiple flags in a group. Here you will learn the difference between Features and Variables in DevCycle and how they play into feature flag organization.
@@ -26,13 +26,13 @@ For instance, let’s return to our example about DevCycle’s Metrics feature. 
 
 ![Variables for Metrics Feature](/july-2022-metrics-example-variables.png)
 
-We now have two flags within our “Metrics and Experimentation” feature. 
+We now have two flags within our “Metrics and Experimentation” feature.
 
 ### Disabling Individual Variables
 
 Let’s say we need to disable just the API for our feature. There are a few methods we can do this:
 
-**The first method is to change the individual value of our `show-metrics-api` variable.** Under “Variation On” we can set `show-metrics-api` to `false` for Variation On. That way, the API will be disabled for everyone receiving Variation On. 
+**The first method is to change the individual value of our `show-metrics-api` variable.** Under “Variation On” we can set `show-metrics-api` to `false` for Variation On. That way, the API will be disabled for everyone receiving Variation On.
 
 We should also rename our variation. Since our `show-metrics-api` flag is no longer enabled, having it under “Variation On” would be misleading.
 
@@ -62,7 +62,7 @@ To disable a feature for everyone in an environment, simply toggle the Targeting
 
 ![toggling the targeting switch](/july-2022-targeting-toggle.gif)
 
-Changing which variation “All Users” receive is like toggling the entire feature without affecting the experience of the QA Users. 
+Changing which variation “All Users” receive is like toggling the entire feature without affecting the experience of the QA Users.
 
 **Method 2: Disabling a feature for a target group**
 
@@ -70,13 +70,11 @@ Targeting Rules also allow you to disable the entire feature for only a specific
 
 ![Variation off for external users](/july-2022-metrics-targeting-variation-off.png)
 
-
 :::info
 
 **Targeting Users:**
 
 [Read here to learn more about how to Target Users](/essentials/targeting).
-
 
 :::
 

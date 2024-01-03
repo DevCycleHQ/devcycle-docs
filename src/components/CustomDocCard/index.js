@@ -1,15 +1,8 @@
 import React from 'react'
 import clsx from 'clsx'
 import Link from '@docusaurus/Link'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' // Import the FontAwesomeIcon component.
-import "@fortawesome/fontawesome-svg-core/styles.css"
-import { library } from '@fortawesome/fontawesome-svg-core' // Import the library component.
-import { fab } from '@fortawesome/free-brands-svg-icons' // Import all brands icons.
-import { fas } from '@fortawesome/free-solid-svg-icons' // Import all solid icons.'
-import { faDataDogIcon } from '../CustomIcons/datadog'
-import { vscodeIcon } from '../CustomIcons/vscode'
+import { Icon } from '@iconify-icon/react'
 
-library.add(fab, fas, faDataDogIcon, vscodeIcon) // Add all icons to the library so you can use them without importing them individually.
 import {
   findFirstSidebarItemLink,
   useDocById,
@@ -26,22 +19,16 @@ function CardContainer({ href, children }) {
     </Link>
   )
 }
-function CardLayout({ href, icon, iconSet, title, description }) {
+function CardLayout({ href, icon, title, description }) {
   return (
     <CardContainer href={href}>
       <h2 className={clsx('text--truncate', styles.cardTitle)} title={title}>
-        <FontAwesomeIcon
-          icon={iconSet ? [iconSet, icon] : icon}
-          className="mr-2"
-        />
+        <Icon icon={icon} height="24" className="mr-2" />
         <span className="ml-2">{title}</span>
       </h2>
 
       {description && description != 'hidden' && (
-        <p
-          className={clsx(styles.cardDescription)}
-          title={description}
-        >
+        <p className={clsx(styles.cardDescription)} title={description}>
           {description}
         </p>
       )}
@@ -73,7 +60,6 @@ function CardLink({ item }) {
       href={item.href}
       title={item.label}
       icon={item?.customProps?.icon ? item.customProps.icon : item.icon}
-      iconSet={item.iconSet}
       description={doc?.description ?? item.description}
     />
   )
