@@ -2,8 +2,8 @@
 title: React SDK Typescript Usage
 sidebar_label: Typescript
 sidebar_position: 4
-description: Using the SDK
-sidebar_custom_props: { icon: material-symbols:install-desktop }
+description: SDK features for Typescript users
+sidebar_custom_props: {icon: cib:typescript}
 ---
 
 [![Npm package version](https://badgen.net/npm/v/@devcycle/react-client-sdk)](https://www.npmjs.com/package/@devcycle/react-client-sdk)
