@@ -83,10 +83,12 @@ to retrieve variable values will return their default values.
 import {
   useIsDevCycleInitialized,
   withDevCycleProvider,
+  useDevCycleClient,
 } from '@devcycle/react-client-sdk'
 
 let identified = false
 function App() {
+  const devcycleClient = useDevCycleClient()
   // e.g. a React Query style hook that retrieves user data
   const { data: user, isFetched } = useUserFromMyUserStorage()
   if (user && !identified) {
