@@ -22,7 +22,7 @@ DevCycle provides a NodeJS implementation of the [OpenFeature](https://openfeatu
 Install the OpenFeature JS SDK, DevCycle NodeJS Server SDK, and DevCycle NodeJS Provider:
 
 ```bash
-npm install --save @devcycle/openfeature-nodejs-provider @devcycle/nodejs-server-sdk @openfeature/js-sdk
+npm install --save @devcycle/openfeature-nodejs-provider @devcycle/nodejs-server-sdk @openfeature/server-sdk
 ```
 
 ### Getting Started
@@ -30,7 +30,7 @@ npm install --save @devcycle/openfeature-nodejs-provider @devcycle/nodejs-server
 Initialize the DevCycle SDK and set the DevCycleProvider as the provider for OpenFeature:
 
 ```typescript
-import { OpenFeature, Client } from '@openfeature/js-sdk'
+import { OpenFeature, Client } from '@openfeature/server-sdk'
 import { DevCycleProvider } from '@devcycle/openfeature-nodejs-provider'
 import { initializeDevCycle } from '@devcycle/nodejs-server-sdk'
 
