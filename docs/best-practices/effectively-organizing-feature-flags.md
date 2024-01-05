@@ -3,7 +3,7 @@ title: Keeping Track of Feature Flags
 sidebar_label: Organization
 sidebar_position: 5
 description: Tips for keeping your Feature Flag workspace organized in DevCycle
-sidebar_custom_props: {icon: box-archive}
+sidebar_custom_props: { icon: material-symbols:archive }
 ---
 
 This guide provides tips for keeping your Feature Flag workspace organized in DevCycle. The article covers general methods for organizing Feature Flags, such as creating specific names and detailed descriptions. It also provides insight on how to maximize DevCycle’s tools like Variables, Jira linking, and Code References to manage large amounts of feature flags.
@@ -17,7 +17,7 @@ In DevCycle, Features have two types of identifiers:
 - **Name** — the display name on the Feature Management Dashboard
 - **Key** — used to reference the Feature in code (DevCycle automatically suggests keys based on the entered name)
 
-You specify these identifiers whenever you create a Feature. 
+You specify these identifiers whenever you create a Feature.
 
 ### Naming Conventions
 
@@ -50,9 +50,9 @@ As developers get in the groove of developing with Feature Flags, more and more 
 
 Fortunately, DevCycle has a solution: a distinction between features and flags. DevCycle sees flags as *parts* of a feature. While they may work independently, they are not stand-alone in that they toggle different aspects of the same feature and must be grouped accordingly. This distinction allows for Feature Flag Grouping using Variables. In DevCycle, Variables are like flags associated with a general Feature. They have values that can be toggled like a flag. In this way, you can see Features as flag groupings and Variables as the flags themselves. Developers can then create Variables that are grouped into Features.
 
-Let’s return to our Premium Users button example. Before we create a flag, we must consider what overarching Feature our flag will be a part of. For instance, we can create a Feature named `Premium Users Navigation`. All the flags pertaining to Premium Users from the Navigation will fall under this feature. Within `Premium Users Navigation`, you can add a boolean variable with the key `enable-premium-users-button` to toggle the button’s visibility. 
+Let’s return to our Premium Users button example. Before we create a flag, we must consider what overarching Feature our flag will be a part of. For instance, we can create a Feature named `Premium Users Navigation`. All the flags pertaining to Premium Users from the Navigation will fall under this feature. Within `Premium Users Navigation`, you can add a boolean variable with the key `enable-premium-users-button` to toggle the button’s visibility.
 
-It is important to note that while our variable key was specific to the button, we created a **general name for the feature it was housed in**—we named our feature `Premium Users Navigation` rather than `Premium Users Navigation Button`. Having a slightly more general name leaves room for other variables related to this feature. So if we would like to create a new page for premium users, a flag to gate this page would also fit within the `Premium Users Navigation` feature. 
+It is important to note that while our variable key was specific to the button, we created a **general name for the feature it was housed in**—we named our feature `Premium Users Navigation` rather than `Premium Users Navigation Button`. Having a slightly more general name leaves room for other variables related to this feature. So if we would like to create a new page for premium users, a flag to gate this page would also fit within the `Premium Users Navigation` feature.
 
 Allowing a feature to have multiple variables eliminates the technical debt of having several uncategorized flags. When you want to create a new flag, ask yourself whether it would be appropriate to create a new feature or add a variable to an existing feature instead. Organizing by feature allows you and other developers to locate variables effortlessly based on their associated features.
 
@@ -62,7 +62,7 @@ To explore Feature Grouping in greater detail, check out our best practice guide
 
 Another way to keep your workspace organized is to utilize DevCycle for Jira. Development teams often use several different tools to track workflow. When tools for project management, code repositories, and feature management are all isolated from one another, it can be cumbersome to distinguish a feature’s exact status in the development lifecycle.
 
-To combat the juggling of siloed information, DevCycle for Jira links tickets directly to your features. This allows you to view your feature’s status within Jira. 
+To combat the juggling of siloed information, DevCycle for Jira links tickets directly to your features. This allows you to view your feature’s status within Jira.
 
 To start connecting Jira Ticket IDs to DevCycle features, you must install the app from the [Jira Marketplace Listing](https://marketplace.atlassian.com/apps/1227643/devcycle-feature-flag-management-for-jira). We recommend reading [DevCycle Feature Flag Management for Jira](/integrations/jira/jira-setup) for a setup guide.
 
@@ -70,11 +70,11 @@ Once you have configured a Jira project with a DevCycle project, you can connect
 
 ![jira settings](/feb-2022-jira-settings.png)
 
-Simply enter the IDs of the ticket(s) you’d like to associate with the feature. 
+Simply enter the IDs of the ticket(s) you’d like to associate with the feature.
 
 ![image](/feb-2022-jira-ids-entered.png)
 
-Once it is saved, you will be able to view your feature’s status from Jira at any time. In Jira, navigate to the ticket you have connected and view the “Releases” section. 
+Once it is saved, you will be able to view your feature’s status from Jira at any time. In Jira, navigate to the ticket you have connected and view the “Releases” section.
 
 ![jira sidebar](/feb-2022-within-jira.png)
 
@@ -82,7 +82,7 @@ Clicking this will display all the feature status information across all environ
 
 ![jira sidebar](/feb-2022-jira-example.png)
 
-A common use for DevCycle’s Jira linking is to connect a feature in DevCycle to a Jira epic. This allows each team, whether dev or product, to easily determine the status of an epic. Product managers and developers alike will no longer have to dig through features in DevCycle; feature statuses can all be monitored directly in Jira. 
+A common use for DevCycle’s Jira linking is to connect a feature in DevCycle to a Jira epic. This allows each team, whether dev or product, to easily determine the status of an epic. Product managers and developers alike will no longer have to dig through features in DevCycle; feature statuses can all be monitored directly in Jira.
 
 Another helpful way to view Jira linking is to consider feature variables responsible for a story within your epic. Making variable-story relationships can help you create appropriate variables for your features and define their purposes better.
 
@@ -94,7 +94,7 @@ Code References are another helpful tool to foster an organized workflow. DevCyc
 
 ![march-2022-code-refs](/march-2022-code-refs.png)
 
-Each Code Reference also includes a link to the exact location of the referenced variable in your codebase, making it much easier to track variables. You can use code references to determine whether or not variables are being used in your code, or if they have fulfilled their lifecycle and are ready for removal. As a result, Code References are especially useful for cleaning up your code. 
+Each Code Reference also includes a link to the exact location of the referenced variable in your codebase, making it much easier to track variables. You can use code references to determine whether or not variables are being used in your code, or if they have fulfilled their lifecycle and are ready for removal. As a result, Code References are especially useful for cleaning up your code.
 
 For more information about tracking variable usage and when to clean up flags, read [Technical Debt - Cleaning up your unused flags](/best-practices/feature-flag-cleanup).
 
@@ -102,7 +102,7 @@ To use Code References, you must create a new Actions workflow in your GitHub re
 
 ## Summary
 
-In this guide, we explained how to organize your workflow by 
+In this guide, we explained how to organize your workflow by
 
 - properly naming and describing the behaviour of your feature flags
 - creating multiple variables within a feature for flag grouping

@@ -2,12 +2,12 @@
 title: Javascript SDK Typescript Usage
 sidebar_label: Typescript
 sidebar_position: 4
-description: Using the SDK
-sidebar_custom_props: {icon: screwdriver-wrench}
+description: SDK features for Typescript users
+sidebar_custom_props: {icon: cib:typescript}
 ---
+
 [![Npm package version](https://badgen.net/npm/v/@devcycle/js-client-sdk)](https://www.npmjs.com/package/@devcycle/js-client-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)
-
 
 # Typescript Usage
 
@@ -43,23 +43,28 @@ to the `initializeDevCycle` function:
 
 ```typescript
 type VariableTypes = {
-    "my-variable": string
+  'my-variable': string
 }
 
-const user = { user_id: "my_user" };
-const dvcOptions = { logLevel: "debug" };
-const devcycleClient = initializeDevCycle<VariableTypes>("<DEVCYCLE_CLIENT_SDK_KEY>", user, dvcOptions); 
+const user = { user_id: 'my_user' }
+const dvcOptions = { logLevel: 'debug' }
+const devcycleClient = initializeDevCycle<VariableTypes>(
+  '<DEVCYCLE_CLIENT_SDK_KEY>',
+  user,
+  dvcOptions,
+)
 ```
 
-The keys of `VariableTypes` must match the keys of the variables defined in DevCycle, and the values must match the 
+The keys of `VariableTypes` must match the keys of the variables defined in DevCycle, and the values must match the
 expected type of the variable.
 
 You can write this definition manually, but it's recommended to generate it automatically as part of your build process
-by using the CLI. 
+by using the CLI.
 
 ### CLI
+
 To generate the type definitions with the CLI, you can use the `generate types` command like so:
-    
+
 ```shell
 dvc generate types
 ```
@@ -71,9 +76,7 @@ for further instructions on setting up the CLI.
 
 This command will generate a file called `dvcVariableTypes.ts` in the configured output directory.
 You can then import the generated types from this file, and pass them to the generic arg of the `initializeDevCycle` call as
-described above. 
+described above.
 
-Consider configuring this command to run as part of your build process to keep your type definitions up to date with 
+Consider configuring this command to run as part of your build process to keep your type definitions up to date with
 the latest configuration from DevCycle.
-
-

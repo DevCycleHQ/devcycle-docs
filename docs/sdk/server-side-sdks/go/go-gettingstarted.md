@@ -3,12 +3,12 @@ title: Go Server SDK Getting Started
 sidebar_label: Getting Started
 sidebar_position: 2
 description: Initializing the SDK
-sidebar_custom_props: {icon: rocket}
+sidebar_custom_props: { icon: material-symbols:rocket }
 ---
 
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/go-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/go-server-sdk)
 
-## Initializing SDK 
+## Initializing SDK
 
 When initializing the Go SDK, you can choose to use `Cloud` or `Local` bucketing. The default mode is `Local`.
 To use `Cloud` bucketing, set the `devcycle.Options` setting `EnableCloudBucketing` to true.
@@ -70,4 +70,3 @@ log.Println("DevCycle client not guaranteed to be initialized yet")
 <-onInitializedChannel
 log.Println("Devcycle client initialized")
 ```
-

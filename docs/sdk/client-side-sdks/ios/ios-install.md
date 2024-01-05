@@ -3,7 +3,7 @@ title: iOS SDK Installation
 sidebar_label: Installation
 sidebar_position: 1
 description: Installing the SDK
-sidebar_custom_props: {icon: screwdriver-wrench}
+sidebar_custom_props: { icon: material-symbols:install-desktop }
 ---
 
 [![CocoaPods compatible](https://img.shields.io/cocoapods/v/DevCycle.svg)](https://cocoapods.org/pods/DevCycle)
@@ -11,10 +11,10 @@ sidebar_custom_props: {icon: screwdriver-wrench}
 [![SwiftPM compatible](https://img.shields.io/badge/SwiftPM-compatible-4BC51D.svg?style=flat)](https://swift.org/package-manager/)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/ios-client-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/ios-client-sdk)
 
-
 ## Requirements
 
-This version of the DevCycle Client SDK supports the following platforms: 
+This version of the DevCycle Client SDK supports the following platforms:
+
 - **iOS 12.0+**
 - **macOS 10.13+**
 - **tvOS 12.0+**
@@ -24,22 +24,23 @@ This version of the DevCycle Client SDK supports the following platforms:
 
 ### CocoaPods
 
-  The SDK can be installed into your iOS project by adding the following to your cocoapod spec:
+The SDK can be installed into your iOS project by adding the following to your cocoapod spec:
 
 ```swift
 pod 'DevCycle'
 ```
+
 Then, run `pod install`.
 
 ### Carthage
 
 :::caution
 
-Carthage support for MacOS development with the DevCycle iOS SDK is currently not supported. Please contact us for more info. 
+Carthage support for MacOS development with the DevCycle iOS SDK is currently not supported. Please contact us for more info.
 
 :::
 
-Include the following in your `Cartfile` to integrate DevCycle as a dependency to your project: 
+Include the following in your `Cartfile` to integrate DevCycle as a dependency to your project:
 
 ```swift
 github "DevCycleHQ/ios-client-sdk"

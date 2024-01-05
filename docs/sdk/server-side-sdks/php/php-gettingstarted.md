@@ -3,14 +3,15 @@ title: PHP Server SDK Getting Started
 sidebar_label: Getting Started
 sidebar_position: 2
 description: Initializing the SDK
-sidebar_custom_props: {icon: rocket}
+sidebar_custom_props: { icon: material-symbols:rocket }
 ---
+
 [![Packagist](https://badgen.net/packagist/v/devcycle/php-server-sdk/latest)](https://packagist.org/packages/devcycle/php-server-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/php-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/php-server-sdk)
 
 Please follow the [installation procedure](/sdk/server-side-sdks/php/php-install) and then run the following:
 
-## Initializing SDK 
+## Initializing SDK
 
 ```php
 require_once(__DIR__ . '/vendor/autoload.php');
@@ -22,7 +23,7 @@ use DevCycle\Model\DevCycleUser;
 
 // Configure API key authorization: bearerAuth
 $config = DevCycleConfiguration::getDefaultConfiguration()->setApiKey(
-    "Authorization", 
+    "Authorization",
     getenv("DEVCYCLE_SERVER_SDK_KEY")
 );
 

@@ -3,11 +3,11 @@ title: Javascript SDK Installation
 sidebar_label: Installation
 sidebar_position: 1
 description: Installing the SDK
-sidebar_custom_props: {icon: screwdriver-wrench}
+sidebar_custom_props: { icon: material-symbols:install-desktop }
 ---
+
 [![Npm package version](https://badgen.net/npm/v/@devcycle/js-client-sdk)](https://www.npmjs.com/package/@devcycle/js-client-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)
-
 
 ## NPM Module
 
@@ -22,7 +22,7 @@ npm install --save @devcycle/js-client-sdk
 To use the JS SDK in your project, import the `initializeDevCycle` function:
 
 ```js
-import { initializeDevCycle } from "@devcycle/js-client-sdk";
+import { initializeDevCycle } from '@devcycle/js-client-sdk'
 ```
 
 ## Using the CDN

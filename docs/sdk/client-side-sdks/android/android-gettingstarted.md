@@ -3,27 +3,26 @@ title: Android SDK Getting Started
 description: Initializing the SDK
 sidebar_label: Getting Started
 sidebar_position: 2
-sidebar_custom_props: {icon: rocket}
+sidebar_custom_props: { icon: material-symbols:rocket }
 ---
 
 [![Maven](https://badgen.net/maven/v/maven-central/com.devcycle/android-client-sdk)](https://search.maven.org/artifact/com.devcycle/android-client-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/android-client-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/android-client-sdk)
 
-
 ## Initializing the SDK
 
 We recommend initializing the SDK once in `onCreate` of your `Application` class or `MainActivity` to receive features as soon as possible, and to pass around the client instance around in your app.
 
-Using the builder pattern we can initialize the DevCycle SDK by providing the `applicationContext`, 
+Using the builder pattern we can initialize the DevCycle SDK by providing the `applicationContext`,
 DevCycleUser, and DevCycle mobile SDK key:
 
-### *Kotlin example:*
+### _Kotlin example:_
 
 ```kotlin
 override fun onCreate(savedInstanceState: Bundle?) {
 
     ...
-    
+
     // NOTE: It is not recommended to hardcode SDK keys into your application.
     // Consider storing keys securely and reading from secure storage.
 
@@ -36,19 +35,19 @@ override fun onCreate(savedInstanceState: Bundle?) {
         )
         .withSDKKey("<DEVCYCLE_MOBILE_SDK_KEY>")
         .build()
-    
+
     ...
 }
 ```
 
-### *Java example:*
+### _Java example:_
 
 ```java
 @Override
 protected void onCreate(Bundle savedInstanceState) {
 
     ...
-    
+
     // NOTE: It is not recommended to hardcode SDK keys into your application.
     // Consider storing keys securely and reading from secure storage.
 
@@ -61,7 +60,7 @@ protected void onCreate(Bundle savedInstanceState) {
             )
         .withSDKKey("<DEVCYCLE_MOBILE_SDK_KEY>")
         .build();
-    
+
     ...
 }
 ```
@@ -72,44 +71,46 @@ The DevCycleClient can be built using the following methods:
 
 [DevCycleClientBuilder class](https://github.com/DevCycleHQ/android-client-sdk/blob/main/android-client-sdk/src/main/java/com/devcycle/sdk/android/api/DevCycleClient.kt#L545)
 
-| Method       | Parameter | Description                                                      |
-|--------------|-----------|------------------------------------------------------------------|
-| withContext  | Context | App context                                                      |
-| withSDKKey   | String | DevCycle SDK Key                                                 |
-| withUser     | [DevCycleUser](https://github.com/DevCycleHQ/android-client-sdk/blob/main/android-client-sdk/src/main/java/com/devcycle/sdk/android/model/DevCycleUser.kt#L6) | DevCycle user object                                             |
-| withOptions  | [DevCycleOptions](https://github.com/DevCycleHQ/android-client-sdk/blob/main/android-client-sdk/src/main/java/com/devcycle/sdk/android/api/DevCycleOptions.kt#L3) | DevCycle options object                                          |
-| withLogger   | Timber.Tree | Logger override to replace default logger                        |
-| withLogLevel | [LogLevel](https://github.com/DevCycleHQ/android-client-sdk/blob/main/android-client-sdk/src/main/java/com/devcycle/sdk/android/util/LogLevel.kt#L5) | Set log level of the default logger. Defaults to `LogLevel.ERROR` |
+| Method       | Parameter                                                                                                                                                         | Description                                                       |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| withContext  | Context                                                                                                                                                           | App context                                                       |
+| withSDKKey   | String                                                                                                                                                            | DevCycle SDK Key                                                  |
+| withUser     | [DevCycleUser](https://github.com/DevCycleHQ/android-client-sdk/blob/main/android-client-sdk/src/main/java/com/devcycle/sdk/android/model/DevCycleUser.kt#L6)     | DevCycle user object                                              |
+| withOptions  | [DevCycleOptions](https://github.com/DevCycleHQ/android-client-sdk/blob/main/android-client-sdk/src/main/java/com/devcycle/sdk/android/api/DevCycleOptions.kt#L3) | DevCycle options object                                           |
+| withLogger   | Timber.Tree                                                                                                                                                       | Logger override to replace default logger                         |
+| withLogLevel | [LogLevel](https://github.com/DevCycleHQ/android-client-sdk/blob/main/android-client-sdk/src/main/java/com/devcycle/sdk/android/util/LogLevel.kt#L5)              | Set log level of the default logger. Defaults to `LogLevel.ERROR` |
 
 ## DevCycleUserBuilder
+
 A DevCycleUser can be built using the following methods:
 
 [DevCycleUser Builder class](https://github.com/DevCycleHQ/android-client-sdk/blob/main/android-client-sdk/src/main/java/com/devcycle/sdk/android/model/DevCycleUser.kt#L15)
 
-| Method | Parameter | Description |
-|--------|-----------|-------------|
-| withUserId | String | Unique user ID |
-| withIsAnonymous | Boolean | Boolean to indicate if the user is anonymous |
-| withEmail | String | User's email |
-| withName | String | User's name |
-| withCountry | String | User's country |
-| withCustomData | `Map<String, Any>` | Key/value map of properties to be used for targeting |
+| Method                | Parameter          | Description                                                                                                     |
+| --------------------- | ------------------ | --------------------------------------------------------------------------------------------------------------- |
+| withUserId            | String             | Unique user ID                                                                                                  |
+| withIsAnonymous       | Boolean            | Boolean to indicate if the user is anonymous                                                                    |
+| withEmail             | String             | User's email                                                                                                    |
+| withName              | String             | User's name                                                                                                     |
+| withCountry           | String             | User's country                                                                                                  |
+| withCustomData        | `Map<String, Any>` | Key/value map of properties to be used for targeting                                                            |
 | withPrivateCustomData | `Map<String, Any>` | Key/value map of properties to be used for targeting. Private properties will not be included in event logging. |
 
 ## DevCycleOptions Builder
+
 The SDK exposes various initialization options which can be used by passing a `DevCycleOptions` object to the `withOptions` method of `DevCycleClient.builder()`:
 
 [DevCycleOptions builder class](https://github.com/DevCycleHQ/android-client-sdk/blob/main/android-client-sdk/src/main/java/com/devcycle/sdk/android/api/DevCycleOptions.kt#L11)
 
-| Method | Parameter | Default | Description |
-|--------|-----------|---------|-------------|
-| flushEventsIntervalMs | Long | 10000 | Controls the interval between flushing events to the DevCycle servers in milliseconds, defaults to 10 seconds. |
-| disableCustomEventLogging | Boolean | false | Disables logging of custom events generated by calling `.track()` method to DevCycle. |  
-| disableAutomaticEventLogging | Boolean | false | Disables logging of SDK generated events (e.g. variableEvaluated, variableDefaulted) to DevCycle. |  
-| enableEdgeDB | Boolean | false | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle. |
-| configCacheTTL | Long | 604800000 | The maximum allowed age of a cached config in milliseconds, defaults to 7 days |
-| disableConfigCache | Boolean | false | Disable the use of cached configs |
-| disableRealtimeUpdates | Boolean | false | Disable Realtime Updates |
+| Method                       | Parameter | Default   | Description                                                                                                    |
+| ---------------------------- | --------- | --------- | -------------------------------------------------------------------------------------------------------------- |
+| flushEventsIntervalMs        | Long      | 10000     | Controls the interval between flushing events to the DevCycle servers in milliseconds, defaults to 10 seconds. |
+| disableCustomEventLogging    | Boolean   | false     | Disables logging of custom events generated by calling `.track()` method to DevCycle.                          |
+| disableAutomaticEventLogging | Boolean   | false     | Disables logging of SDK generated events (e.g. variableEvaluated, variableDefaulted) to DevCycle.              |
+| enableEdgeDB                 | Boolean   | false     | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle.                                     |
+| configCacheTTL               | Long      | 604800000 | The maximum allowed age of a cached config in milliseconds, defaults to 7 days                                 |
+| disableConfigCache           | Boolean   | false     | Disable the use of cached configs                                                                              |
+| disableRealtimeUpdates       | Boolean   | false     | Disable Realtime Updates                                                                                       |
 
 ## Notifying when DevCycle features are available
 
@@ -124,7 +125,7 @@ devcycleClient.onInitialized(object : DevCycleCallback<String> {
     }
 
     override fun onError(t: Throwable) {
-        // there was an error 
+        // there was an error
     }
 })
 ```

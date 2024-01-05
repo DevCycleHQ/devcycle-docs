@@ -3,7 +3,7 @@ title: Node.js SDK Usage
 sidebar_label: Usage
 sidebar_position: 3
 description: Using the SDK
-sidebar_custom_props: {icon: toggle-on}
+sidebar_custom_props: { icon: material-symbols:toggle-on }
 ---
 
 [![Npm package version](https://badgen.net/npm/v/@devcycle/nodejs-server-sdk)](https://www.npmjs.com/package/@devcycle/nodejs-server-sdk)
@@ -11,33 +11,33 @@ sidebar_custom_props: {icon: toggle-on}
 
 ## User Object
 
-The full user data must be passed into every method. The only required field is the `user_id`. 
+The full user data must be passed into every method. The only required field is the `user_id`.
 The rest are optional and are used by the system for user segmentation into variables and features.
 
 [DevCycleUser Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/nodejs/src/models/user.ts#L16)
 
 ```javascript
 const user = {
-    user_id: 'user1@devcycle.com',
-    name: 'user 1 name',
-    customData: {
-        customKey: 'customValue'
-    }
+  user_id: 'user1@devcycle.com',
+  name: 'user 1 name',
+  customData: {
+    customKey: 'customValue',
+  },
 }
 const variable = devcycleClient.variable(user, 'test-feature', false)
 ```
 
 ## Get and Use Variable by Key
 
-To get values from your Variables, `devcycleClient.variableValue()` is used to fetch variable values using the user data, 
+To get values from your Variables, `devcycleClient.variableValue()` is used to fetch variable values using the user data,
 variable `key`, coupled with a default value for the variable. The default variable will be used in cases where
-the user is not segmented into a feature using that variable, or the project configuration is unavailable 
-to be fetched from DevCycle's CDN. 
+the user is not segmented into a feature using that variable, or the project configuration is unavailable
+to be fetched from DevCycle's CDN.
 
 ```javascript
 const value = devcycleClient.variableValue(user, '<YOUR_VARIABLE_KEY>', false)
 if (value) {
-    // Feature Flag on
+  // Feature Flag on
 }
 ```
 
@@ -54,6 +54,7 @@ To grab all the segmented variables for a user:
 ```javascript
 const variables = devcycleClient.allVariables(user)
 ```
+
 See [getVariables](/bucketing-api/#operation/getVariables) on the Bucketing API for the variable response format.
 
 ## Getting All Features
@@ -65,6 +66,7 @@ You can fetch all segmented features for a user:
 ```javascript
 const features = devcycleClient.allFeatures(user)
 ```
+
 See [getFeatures](/bucketing-api/#operation/getFeatures) on the Bucketing API for the feature response format.
 
 ## Tracking User Events
@@ -77,20 +79,21 @@ Calling Track will queue the event, which will be sent in batches to the DevCycl
 
 ```typescript
 const event: DevCycleEvent = {
-    type: 'customType',
-    target: 'new_subscription',
-    value: 100.1,
-    date: Date.now()
+  type: 'customType',
+  target: 'new_subscription',
+  value: 100.1,
+  date: Date.now(),
 }
 devcycleClient.track(user, event)
 ```
 
 ## Flush Events
 
-If you would like to force a flush of events in the event queue, you can call `flushEvents()`. 
+If you would like to force a flush of events in the event queue, you can call `flushEvents()`.
 Events will automatically be flushed according to the `eventFlushIntervalMS` option.
 
 ## EdgeDB
+
 :::info
 
 EdgeDB is only available with Cloud Bucketing and does not have any impact on Local Bucketing.
@@ -106,15 +109,18 @@ Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to
 ```javascript
 const DevCycle = require('@devcycle/nodejs-server-sdk')
 
-const devcycleClient = DevCycle.initializeDevCycle('<DEVCYCLE_SDK_SERVER_KEY>', {
-  enableCloudBucketing: true,
-  enableEdgeDB: true
-})
+const devcycleClient = DevCycle.initializeDevCycle(
+  '<DEVCYCLE_SDK_SERVER_KEY>',
+  {
+    enableCloudBucketing: true,
+    enableEdgeDB: true,
+  },
+)
 
 const user = {
   user_id: 'test_user',
   email: 'example@example.ca',
-  country: 'CA'
+  country: 'CA',
 }
 
 const variable = await devcycleClient.variable(user, 'test-feature', false)
@@ -126,5 +132,5 @@ In the example, Email and Country are associated to the user `test_user`. In you
 
 ## Close Client
 
-If you need to close the DevCycleClient object to stop all open connections and timers, call `devcycleClient.close()`. 
+If you need to close the DevCycleClient object to stop all open connections and timers, call `devcycleClient.close()`.
 This can be useful for cleaning DevCycleClient objects during unit testing.

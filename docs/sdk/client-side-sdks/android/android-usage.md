@@ -3,7 +3,7 @@ title: Android SDK Usage
 sidebar_label: Usage
 sidebar_position: 3
 description: Using the SDK
-sidebar_custom_props: {icon: toggle-on}
+sidebar_custom_props: { icon: material-symbols:toggle-on }
 ---
 
 [![Maven](https://badgen.net/maven/v/maven-central/com.devcycle/android-client-sdk)](https://search.maven.org/artifact/com.devcycle/android-client-sdk)
@@ -11,11 +11,11 @@ sidebar_custom_props: {icon: toggle-on}
 
 ## Using Variable Values
 
-To get values from your Features, the `variableValue()` method is used to fetch variable values using 
-the variable's identifier `key` coupled with a default value. The default value can be of type 
+To get values from your Features, the `variableValue()` method is used to fetch variable values using
+the variable's identifier `key` coupled with a default value. The default value can be of type
 `String`, `Boolean`, `Number`, or `JSONObject`:
 
-### *Kotlin example:*
+### _Kotlin example:_
 
 ```kotlin
 var strValue: String = devcycleClient.variableValue("str_key", "default")
@@ -24,7 +24,8 @@ var numValue: Number = devcycleClient.variableValue("num_key", 0)
 var jsonValue: JSONObject = devcycleClient.variableValue("json_key", JSONObject("{ \"key\": \"value\" }"))
 ```
 
-### *Java example:*
+### _Java example:_
+
 ```java
 String strValue = devcycleClient.variableValue("str_key", "default");
 Boolean boolValue = devcycleClient.variableValue("bool_key", false);
@@ -32,7 +33,8 @@ Number numValue = devcycleClient.variableValue("num_key", 0);
 JSONObject jsonValue = devcycleClient.variableValue("json_key", new JSONObject().put("key", "value"));
 ```
 
-If you would like to get the full `Variable` object using the `variable()` method it also contains the following params: 
+If you would like to get the full `Variable` object using the `variable()` method it also contains the following params:
+
 - `key`: the key identifier for the Variable
 - `type`: the type of the Variable, one of: `String` / `Boolean` / `Number` / `JSON`
 - `value`: the Variable's value
@@ -44,11 +46,11 @@ If the value is not ready, it will return the default value passed in the creati
 
 ## Variable Updates
 
-Variable values update whenever `identifyUser()` or `resetUser()` are called, 
+Variable values update whenever `identifyUser()` or `resetUser()` are called,
 or when the project configuration changes (to learn more, visit our [Realtime Updates](/sdk/features#realtime-updates) page).
 To listen for updates, a callback can be registered using the `onUpdate()` method:
 
-### *Kotlin example:*
+### _Kotlin example:_
 
 ```kotlin
 var variable: Variable<String> = devcycleClient.variable("str_key", "default")
@@ -57,7 +59,7 @@ variable.onUpdate {
 }
 ```
 
-### *Java example:*
+### _Java example:_
 
 ```java
 Variable<String> variable = devcycleClient.variable("str_key", "default");
@@ -71,13 +73,13 @@ variable.onUpdate((result) -> {
 
 To get all the Variables returned in the config:
 
-### *Kotlin example:*
+### _Kotlin example:_
 
 ```kotlin
 var variables: Map<String, BaseConfigVariable>? = devcycleClient.allVariables()
 ```
 
-### *Java example:*
+### _Java example:_
 
 ```java
 Map<String, BaseConfigVariable> variables = devcycleClient.allVariables();
@@ -89,13 +91,13 @@ If the SDK has not finished initializing, these methods will return an empty Map
 
 To grab all the Features returned in the config:
 
-### *Kotlin example:*
+### _Kotlin example:_
 
 ```kotlin
 var features: Map<String, Feature>? = devcycleClient.allFeatures()
 ```
 
-### *Java example:*
+### _Java example:_
 
 ```java
 Map<String, Feature<Object>> variables = devcycleClient.allFeatures();
@@ -109,7 +111,7 @@ To identify a different user, or the same user passed into the initialize method
 
 Note: If you do not have a user ID, you can use any string at all.
 
-### *Kotlin example:*
+### _Kotlin example:_
 
 ```kotlin
 var user = DevCycleUser.builder()
@@ -120,7 +122,7 @@ var user = DevCycleUser.builder()
 devcycleClient.identifyUser(user)
 ```
 
-### *Java example:*
+### _Java example:_
 
 ```java
 DevCycleUser user = DevCycleUser.builder()
@@ -133,7 +135,7 @@ devcycleClient.identifyUser(user);
 
 To wait on Variables that will be returned from the identify call, you can pass in a DevCycleCallback:
 
-### *Kotlin example:*
+### _Kotlin example:_
 
 ```kotlin
 devcycleClient.identifyUser(user, object: DevCycleCallback<Map<String, BaseConfigVariable>> {
@@ -147,7 +149,7 @@ devcycleClient.identifyUser(user, object: DevCycleCallback<Map<String, BaseConfi
 })
 ```
 
-### *Java example:*
+### _Java example:_
 
 ```java
 devcycleClient.identifyUser(user, new DevCycleCallback<Map<String, BaseConfigVariable>>() {
@@ -173,7 +175,7 @@ Calling `resetUser` will create a new user with an anonymous `user_id` and then 
 devcycleClient.resetUser()
 ```
 
-### *Kotlin example:*
+### _Kotlin example:_
 
 To wait on the Features of the anonymous user, you can pass in a DevCycleCallback:
 
@@ -189,7 +191,7 @@ devcycleClient.resetUser(object : DevCycleCallback<Map<String, BaseConfigVariabl
 })
 ```
 
-### *Java example:*
+### _Java example:_
 
 ```java
 devcycleClient.resetUser(new DevCycleCallback<Map<String, BaseConfigVariable>>() {
@@ -205,14 +207,13 @@ devcycleClient.resetUser(new DevCycleCallback<Map<String, BaseConfigVariable>>()
 });
 ```
 
-
 If `onError` is called the user's configuration will not be updated and the previous user's data will persist.
 
 ## Tracking Events
 
 To send events to DevCycle for metrics purposes, build an event object and then call "track". Note that these events will be periodically queued to be flushed to the DevCycle servers.
 
-### *Kotlin example:*
+### _Kotlin example:_
 
 ```kotlin
 var event = DevCycleEvent.builder()
@@ -224,7 +225,7 @@ var event = DevCycleEvent.builder()
 devcycleClient.track(event)
 ```
 
-### *Java example:*
+### _Java example:_
 
 ```java
 DevCycleEvent event = DevCycleEvent.builder()
@@ -236,7 +237,7 @@ DevCycleEvent event = DevCycleEvent.builder()
 devcycleClient.track(event);
 ```
 
-The SDK will flush events every 10s or `flushEventsMS` specified in the options. 
+The SDK will flush events every 10s or `flushEventsMS` specified in the options.
 
 **Manually Flushing Events**
 
@@ -248,7 +249,7 @@ devcycleClient.flushEvents()
 
 A callback can be passed to this method to be notified when the method has completed:
 
-### *Kotlin example:*
+### _Kotlin example:_
 
 ```kotlin
 devcycleClient.flushEvents(object: DevCycleCallback<String> {
@@ -262,7 +263,7 @@ devcycleClient.flushEvents(object: DevCycleCallback<String> {
 })
 ```
 
-### *Java example:*
+### _Java example:_
 
 ```java
 devcycleClient.flushEvents(new DevCycleCallback<String>() {
@@ -286,19 +287,21 @@ To get started, contact us at support@devcycle.com to enable EdgeDB for your pro
 
 Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to turn on EdgeDB mode for the SDK:
 
-### *Kotlin example:*
+### _Kotlin example:_
+
 ```kotlin
 var user: DevCycleUser = DevCycleUser.builder()
                     .withUserId("test_user")
                     .withCustomData(mapOf("amountSpent" to 12.23))
                     .build()
-                 
+
 let options: DevCycleOptions = DevCycleOptions.builder()
                             .enableEdgeDB(true)
                             .build()
 ```
 
-### *Java example:*
+### _Java example:_
+
 ```java
 DevCycleUser user = DevCycleUser.builder()
                 .withUserId("test_user")
