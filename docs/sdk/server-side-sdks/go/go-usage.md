@@ -3,14 +3,14 @@ title: Go Server SDK Usage
 sidebar_label: Usage
 sidebar_position: 3
 description: Using the SDK
-sidebar_custom_props: {icon: toggle-on}
+sidebar_custom_props: { icon: material-symbols:toggle-on }
 ---
 
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/go-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/go-server-sdk)
 
 ## User Object
 
-The user object is required for all methods. This is the basis of how segmentation and bucketing decisions are made. 
+The user object is required for all methods. This is the basis of how segmentation and bucketing decisions are made.
 The only required field in the user object is UserId
 
 See the UserData class in `model_user_data.go` for all accepted fields.
@@ -35,11 +35,11 @@ When using `JSON` as the variable type, you'll have to have JSON to unmarshal it
 
 eg. `variableValue.(string)` for the above example
 
-If the variable value returned does not match the type of the defaultValue parameter, the `defaultValue` will be returned instead. 
-This helps to protect your code against unexpected types being returned from the server. 
+If the variable value returned does not match the type of the defaultValue parameter, the `defaultValue` will be returned instead.
+This helps to protect your code against unexpected types being returned from the server.
 To avoid confusion when testing new variables, make sure you're using the correct type for the defaultValue parameter.
 
-To access the full Variable Object use `devcycleClient.Variable(user, "my-variable-key", "test")` instead. 
+To access the full Variable Object use `devcycleClient.Variable(user, "my-variable-key", "test")` instead.
 This will return a `Variable` object containing the `key`, `value`, `type`, `defaultValue`, `isDefaulted` fields.
 The same rules apply for the `value` field as above for `VariableValue`.
 
@@ -98,7 +98,6 @@ err = devcycleClient.SetClientCustomData(map[string]interface{}{
 Client Custom Data is only available for the Local Bucketing SDK
 :::
 
-
 ## EdgeDB
 
 EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time
@@ -106,7 +105,7 @@ you identify a user. Read more about [EdgeDB](/extras/edgedb).
 
 To get started, contact us at support@devcycle.com to enable EdgeDB for your project.
 
-Note: This feature is only available in cloud mode. 
+Note: This feature is only available in cloud mode.
 
 Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to turn on EdgeDB mode for the SDK:
 
@@ -133,5 +132,3 @@ making bucketing decisions.
 In this example, the `Variable` call would make an API request and send along the user data specified by the call.
 That data would be used in combination with EdgeDB data to make correct bucketing decisions before returning the
 variable's value.
-
-

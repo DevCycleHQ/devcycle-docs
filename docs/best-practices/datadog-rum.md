@@ -3,7 +3,7 @@ title: Observability
 sidebar_label: Observability
 sidebar_position: 10
 description: Observability Best Practices Using DevCycle with Datadog's RUM Feature Flag Tracking
-sidebar_custom_props: {icon: microscope}
+sidebar_custom_props: { icon: simple-icons:datadog }
 ---
 
 # Observability Best Practices Using DevCycle with Datadog's RUM Feature Flag Tracking
@@ -32,12 +32,12 @@ Next, call DatadogRum.addFeatureFlagEvaluation(key, value) whenever a variable i
 
 ### 2. JavaScript Integration
 
-To track all variable evaluations, initialize the DevCycle client with your SDK key and user information. Then, subscribe to the variableEvaluated:* event and use the DatadogRum.addFeatureFlagEvaluation(key, variable.value) function within the callback:
+To track all variable evaluations, initialize the DevCycle client with your SDK key and user information. Then, subscribe to the variableEvaluated:\* event and use the DatadogRum.addFeatureFlagEvaluation(key, variable.value) function within the callback:
 
 ```javascript
 const user = { user_id: "my_user" };
 const dvcOptions = { logLevel: "debug" };
-const devcycleClient = initialize("<DVC_CLIENT_SDK_KEY>", user, dvcOptions); 
+const devcycleClient = initialize("<DVC_CLIENT_SDK_KEY>", user, dvcOptions);
 ...
 devcycleClient.subscribe(
   "variableEvaluted:*",
@@ -46,18 +46,20 @@ devcycleClient.subscribe(
   }
 )
 ```
+
 To track a specific variable evaluation, subscribe to the variableEvaluated:my-variable-key event:
 
 ```javascript
 devcycleClient.subscribe(
-  "variableEvaluted:my-variable-key",
+  'variableEvaluted:my-variable-key',
   (key: string, variable: DVCVariable<DVCVariableValue>) => {
-    datadogRum.addFeatureFlagEvaluation(key, variable.value);
-  }
+    datadogRum.addFeatureFlagEvaluation(key, variable.value)
+  },
 )
 ```
 
 ### 3. React Integration
+
 For React, we recommend encapsulating your RUM code within a React hook. Consider the following example:
 
 ```javascript
@@ -86,7 +88,7 @@ export const useDatadogRum = () => {
     }
   }, [devcycleClient])
   }
-  
+
 export default useDatadogRum;
 ```
 

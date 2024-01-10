@@ -2,5 +2,5 @@ label: 'Security'
 position: 2
 collapsed: true
 customProps:
-  icon: lock
-  description:  Learn how you can detect and remove compromised keys and secure your feature flags.
+  icon: material-symbols:security
+  description: Learn how you can detect and remove compromised keys and secure your feature flags.

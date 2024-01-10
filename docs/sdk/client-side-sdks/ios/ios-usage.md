@@ -3,14 +3,13 @@ title: iOS SDK Usage
 sidebar_label: Usage
 sidebar_position: 3
 description: Using the SDK
-sidebar_custom_props: {icon: toggle-on}
+sidebar_custom_props: { icon: material-symbols:toggle-on }
 ---
 
 [![CocoaPods compatible](https://img.shields.io/cocoapods/v/DevCycle)](https://cocoapods.org/pods/DevCycle)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![SwiftPM compatible](https://img.shields.io/badge/SwiftPM-compatible-4BC51D.svg?style=flat)](https://swift.org/package-manager/)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/ios-client-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/ios-client-sdk)
-
 
 ## Using Variable Values
 
@@ -19,6 +18,7 @@ the variable's identifier `key` coupled with a default value. The default value 
 `String`, `Boolean`, `Number`, or `JSONObject`:
 
 ### Swift
+
 ```swift
 let boolValue = devcycleClient.variableValue(key: "bool_key", defaultValue: false)
 let strValue = devcycleClient.variableValue(key: "string_key", defaultValue: "default")
@@ -27,6 +27,7 @@ let jsonValue = devcycleClient.variableValue(key: "json_key", defaultValue: [:])
 ```
 
 ### Objective-C
+
 ```objc
 Bool boolValue = [self.devcycleClient boolVariableValueWithKey:@"bool_key" defaultValue:false];
 NSString *strValue = [self.devcycleClient stringVariableValueWithKey:@"string_key" defaultValue:@"default"];
@@ -35,6 +36,7 @@ NSObject *jsonValue = [self.devcycleClient jsonVariableValueWithKey:@"json_key" 
 ```
 
 If you would like to get the full `Variable` object using the `variable()` method it also contains the following params:
+
 - `key`: the key identifier for the Variable
 - `type`: the type of the Variable, one of: `String` / `Boolean` / `Number` / `JSON`
 - `value`: the Variable's value
@@ -46,13 +48,14 @@ If the value is not ready, it will return the default value passed in the creati
 
 ## Variable Updates
 
-Variable values update whenever `identifyUser()` or `resetUser()` are called, or when the 
+Variable values update whenever `identifyUser()` or `resetUser()` are called, or when the
 project configuration changes (to learn more, visit our [Realtime Updates](/sdk/features#realtime-updates) page).
 
-To listen for variable updates, the `onUpdate()` method can be used. Please note, a strong reference to the 
+To listen for variable updates, the `onUpdate()` method can be used. Please note, a strong reference to the
 variable is needed for `onUpdate` to be triggered.
 
 ### Swift
+
 ```swift
 let boolVariable = devcycleClient.variable(key: "bool_key", defaultValue: false)
                         .onUpdate { value in
@@ -61,6 +64,7 @@ let boolVariable = devcycleClient.variable(key: "bool_key", defaultValue: false)
 ```
 
 ### Objective-C
+
 ```objc
 DVCVariable *boolVar = [[self.devcycleClient boolVariableWithKey:@"bool_key" defaultValue:true]
                         onUpdateWithHandler:^(id _Nonnull value) {
@@ -108,10 +112,11 @@ If the SDK has not finished initializing, these methods will return an empty obj
 
 ## Identifying User
 
-To identify a different user, or the same user passed into the initialize method with more attributes, 
+To identify a different user, or the same user passed into the initialize method with more attributes,
 build a DevCycleUser object and pass it into `identifyUser`:
 
 ### Swift
+
 ```swift
 do {
     let user = try DevCycleUser.builder()
@@ -130,6 +135,7 @@ do {
 ```
 
 ### Objective-C
+
 ```objc
 DevCycleUser *user = [DevCycleUser initializeWithUserId:@"my-user1"];
 user.email = @"my-email@email.com";
@@ -151,23 +157,25 @@ user.privateCustomData = @{@"customkey2": @"customValue2"};
 To wait on Variables that will be returned from the identify call, you can pass in a DevCycleCallback:
 
 ### Swift
+
 ```swift
 try devcycleClient.identifyUser(user: user) { error, variables in
     if (error != nil) {
         // error identifying user
     } else {
-        // use variables 
+        // use variables
     }
 }
 ```
 
 ### Objective-C
+
 ```objc
 [self.devcycleClient identifyUser:user callback:^(NSError *error, NSDictionary<NSString *,id> *variables) {
     if (error) {
         // error identifying user
     } else {
-        // use variables 
+        // use variables
     }
 }];
 ```
@@ -176,15 +184,17 @@ If `error` exists the called the user's configuration will not be updated and pr
 
 ## Reset User
 
-To reset the user into an anonymous user, `resetUser` will reset to the anonymous user created before 
+To reset the user into an anonymous user, `resetUser` will reset to the anonymous user created before
 or will create one with an anonymous `user_id`.
 
 ### Swift
+
 ```swift
 try devcycleClient.resetUser()
 ```
 
 ### Objective-C
+
 ```objc
 [self.devcycleClient resetUser:nil];
 ```
@@ -192,6 +202,7 @@ try devcycleClient.resetUser()
 To wait on the Features of the anonymous user, you can pass in a DevCycleCallback:
 
 ### Swift
+
 ```swift
 try devcycleClient.resetUser { error, variables in
     // anonymous user
@@ -199,6 +210,7 @@ try devcycleClient.resetUser { error, variables in
 ```
 
 ### Objective-C
+
 ```objc
 [self.devcycleClient resetUser:^(NSError *error, NSDictionary<NSString *,id> *variables) {
     if (error) {
@@ -209,7 +221,6 @@ try devcycleClient.resetUser { error, variables in
 }];
 ```
 
-
 If `error` exists is called the user's configuration will not be updated and previous user's data will persist.
 
 ## Tracking Events
@@ -217,6 +228,7 @@ If `error` exists is called the user's configuration will not be updated and pre
 To track events, pass in an object with at least a `type` key:
 
 ### Swift
+
 ```swift
 let event = try DevCycleEvent.builder()
                         .type("my_event")
@@ -229,6 +241,7 @@ devcycleClient.track(event)
 ```
 
 ### Objective-C
+
 ```objc
 NSError *err = nil;
 DevCycleEvent *event = [DevCycleEvent initializeWithType:@"my-event"];
@@ -241,11 +254,13 @@ if (err) {
 The SDK will flush events every 10s or `flushEventsMS` specified in the options. To manually flush events, call:
 
 ### Swift
+
 ```swift
 devcycleClient.flushEvents()
 ```
 
 ### Objective-C
+
 ```objc
 [self.devcycleClient flushEvents];
 ```
@@ -259,18 +274,20 @@ To get started, contact us at support@devcycle.com to enable EdgeDB for your pro
 Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to turn on EdgeDB mode for the SDK:
 
 ### Swift
+
 ```swift
 let user = try? DevCycleUser.builder()
                        .userId("test-user")
                        .customData([ "amountSpent": 50 ])
                        .build()
-                 
+
 let options = DevCycleOptions.builder()
                         .enableEdgeDB(true)
                         .build()
 ```
 
 ### Objective-C
+
 ```objc
 DevCycleUser *user = [DevCycleUser initializeWithUserId:@"test-user"];
 user.customData = @{

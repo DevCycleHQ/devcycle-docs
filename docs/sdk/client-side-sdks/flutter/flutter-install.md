@@ -3,7 +3,7 @@ title: Flutter SDK Installation
 sidebar_label: Installation
 sidebar_position: 1
 description: Installing the SDK
-sidebar_custom_props: {icon: screwdriver-wrench}
+sidebar_custom_props: { icon: material-symbols:install-desktop }
 ---
 
 [![Pub](https://img.shields.io/pub/v/devcycle_flutter_client_sdk)](https://img.shields.io/pub/v/devcycle_flutter_client_sdk)
@@ -28,4 +28,5 @@ The SDK can be installed into your Flutter project by adding the following to yo
 ```dart
 devcycle_flutter_client_sdk: ^1.1.0
 ```
+
 Then, run `flutter pub get`.

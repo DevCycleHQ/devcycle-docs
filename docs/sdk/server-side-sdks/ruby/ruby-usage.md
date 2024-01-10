@@ -3,7 +3,7 @@ title: Ruby Server SDK Usage
 sidebar_label: Usage
 sidebar_position: 3
 description: Using the SDK
-sidebar_custom_props: {icon: toggle-on}
+sidebar_custom_props: { icon: simple-icons:ruby }
 ---
 
 [![RubyGems](https://badgen.net/rubygems/v/devcycle-ruby-server-sdk/latest)](https://rubygems.org/gems/devcycle-ruby-server-sdk)
@@ -14,7 +14,7 @@ sidebar_custom_props: {icon: toggle-on}
 The full user data must be passed into every method. The only required field is `user_id`.
 The rest are optional and are used by the system for user segmentation into variables and features.
 
-See the User model in the [Ruby user model doc](https://github.com/DevCycleHQ/ruby-server-sdk/blob/main/lib/devcycle-ruby-server-sdk/models/user.rb) 
+See the User model in the [Ruby user model doc](https://github.com/DevCycleHQ/ruby-server-sdk/blob/main/lib/devcycle-ruby-server-sdk/models/user.rb)
 for all accepted fields including custom fields.
 
 ```ruby
@@ -40,7 +40,7 @@ end
 
 The default value can be of type string, boolean, number, or object.
 
-If you would like to get the full Variable you can use `devcycle_client.variable()` instead. This contains fields such as: 
+If you would like to get the full Variable you can use `devcycle_client.variable()` instead. This contains fields such as:
 `key`, `value`, `type`, `defaultValue`, `isDefaulted`.
 
 ## Getting all Features
@@ -97,6 +97,7 @@ end
 ```
 
 ## Override Logger
+
 To provide a custom logger, override the `logger` property of the SDK configuration.
 
 ```ruby
@@ -123,7 +124,7 @@ Client Custom Data is only available for the Local Bucketing SDK
 
 ## EdgeDB
 
-EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user. 
+EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user.
 Read more about [EdgeDB](/extras/edgedb).
 
 To get started, contact us at support@devcycle.com to enable EdgeDB for your project.

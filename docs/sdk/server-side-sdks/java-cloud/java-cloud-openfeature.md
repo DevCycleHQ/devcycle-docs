@@ -3,7 +3,7 @@ title: Java Cloud OpenFeature Provider
 sidebar_label: OpenFeature
 sidebar_position: 4
 description: How to implement the OpenFeature Provider
-sidebar_custom_props: {icon: toggle-off}
+sidebar_custom_props: { icon: material-symbols:toggle-off }
 ---
 
 # OpenFeature Provider
@@ -14,7 +14,6 @@ DevCycle provides a Java implementation of the [OpenFeature](https://openfeature
 
 [![Maven](https://badgen.net/maven/v/maven-central/com.devcycle/java-server-sdk)](https://search.maven.org/artifact/com.devcycle/java-server-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/java-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/java-server-sdk)
-
 
 ## Usage
 
@@ -32,14 +31,14 @@ public class OpenFeatureExample {
         // Initialize DevCycle Client
         DevCycleCloudOptions options = DevCycleCloudOptions.builder().build();
         DevCycleCloudClient devCycleClient = new DevCycleCloudClient("DEVCYCLE_SERVER_SDK_KEY", options);
-        
+
         // Set the provider into the OpenFeature API
         OpenFeatureAPI api = OpenFeatureAPI.getInstance();
         api.setProvider(devCycleClient.getOpenFeatureProvider());
-                
+
         // Get the OpenFeature client
         Client openFeatureClient = api.getClient();
-        
+
         // Retrieve a boolean flag from the OpenFeature client
         Boolean variableValue = openFeatureClient.getBooleanValue("boolean-flag", false, new MutableContext("user-1234"));
     }
@@ -57,6 +56,7 @@ The provider will automatically translate known `DevCycleUser` properties from t
 [DevCycleUser Java Interface](https://github.com/DevCycleHQ/java-server-sdk/blob/main/src/main/java/com/devcycle/sdk/server/common/model/DevCycleUser.java)
 
 For example all these properties will be set on the `DevCycleUser`:
+
 ```java
 MutableContext context = new MutableContext("test-1234");
 context.add("email", "email@devcycle.com");
@@ -84,6 +84,7 @@ DevCycle allows the following data types for custom data values: **boolean**, **
 The OpenFeature spec for JSON flags allows for any type of valid JSON value to be set as the flag value.
 
 For example the following are all valid default value types to use with OpenFeature:
+
 ```java
 // Invalid JSON values for the DevCycle SDK, will return defaults
 openFeatureClient.getObjectValue("json-flag", new Value(new ArrayList<String>(Arrays.asList("value1", "value2"))));
