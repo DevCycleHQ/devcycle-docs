@@ -3,16 +3,16 @@ title: Variable Defaults
 sidebar_position: 2
 ---
 
-Variable defaults are the values you provide in code which tell DevCycle SDKs what value to assign to variable in
+Variable defaults are the values you provide in code which tell DevCycle SDKs what value to assign to a Variable in
 cases where a different value is not available. 
 
-It's worth understanding which scenarios a variable will be defaulted in, as this can differ from other Feature Flagging
+It's worth understanding which scenarios a Variable will be defaulted in, as this can differ from other Feature Flagging
 platforms.
 
 ## When is the default value used?
 
 ### Configuration Not Available
-If the SDK has not yet received a configuration from DevCycle, it will return the default value for a variable 
+If the SDK has not yet received a configuration from DevCycle, it will return the default value for a Variable 
 as defined in code. 
 
 SDKs will attempt to retrieve the configuration until an error is received or a timeout is reached. In these cases,
