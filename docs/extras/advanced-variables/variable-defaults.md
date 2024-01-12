@@ -56,3 +56,6 @@ what users should receive unless otherwise specified by a Feature. We believe th
 where applications are more likely to behave as expected in the very unlikely chance that DevCycle _is_ unreachable,
 and also make it easier for developers to reason about the behaviour of an application without having to refer to the DevCycle
 dashboard to determine the "baseline" value.
+
+It is always still possible to define your own "fallback" value in the DevCycle platform by adding a final Targeting Rule to a Feature that targets
+"All Users" and serves your intended "fallback" variation.
