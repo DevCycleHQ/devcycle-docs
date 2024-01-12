@@ -37,9 +37,9 @@ If a variable is first read from the cache and has a listener for [realtime upda
 
 This section explains how to use retrieve the Variables of a Feature as well as use their values. For information on setting up a Feature for use, read [Variables and Variations](/essentials/variables) and [Targeting Users](/essentials/targeting)
 
-Every SDK provides a method to retrieve a variable's value. It expects to receive the unique key of the variable, and a default value to serve in case no other value is available.
+Every SDK provides a method to retrieve a Variable's value. It expects to receive the unique key of the Variable, and a default value to serve in case no other value is available.
 
-A typical variable method would look something like this:
+A typical Variable method would look something like this:
 ```typescript
 const myVariableValue = devcycleClient.variableValue('my-variable-key', 'default-value')
 ```
