@@ -57,6 +57,15 @@ const variables = devcycleClient.allVariables(user)
 
 See [getVariables](/bucketing-api/#operation/getVariables) on the Bucketing API for the variable response format.
 
+:::info
+
+This method is intended to be used for debugging and analytics purposes, *not* as a method for retrieving the value of Variables to change code behaviour.
+For that purpose, we strongly recommend using the individual variable access method described in [Get and use Variable by key](#get-and-use-variable-by-key)
+Using this method instead will result in no evaluation events being tracked for individual variables, and will not allow the use
+of other DevCycle features such as [Code Usage detection](/integrations/github/feature-usage-action)
+
+:::
+
 ## Getting All Features
 
 You can fetch all segmented features for a user:

@@ -136,6 +136,15 @@ If the SDK has not finished initializing, these methods will return an empty obj
 
 See [getVariables](https://docs.devcycle.com/bucketing-api/#operation/getVariables) and [getFeatures](https://docs.devcycle.com/bucketing-api/#operation/getFeatures) on the Bucketing API for the response formats.
 
+:::info
+
+This method is intended to be used for debugging and analytics purposes, *not* as a method for retrieving the value of Variables to change code behaviour.
+For that purpose, we strongly recommend using the individual variable access method described in [Getting a Variable](#getting-a-variable)
+Using this method instead will result in no evaluation events being tracked for individual variables, and will not allow the use
+of other DevCycle features such as [Code Usage detection](/integrations/github/feature-usage-action)
+
+:::
+
 :::note
 
 The DevCycle React SDK is built upon the JavaScript SDK. For further details, view [the JavaScript SDK documentation](/sdk/client-side-sdks/javascript)
