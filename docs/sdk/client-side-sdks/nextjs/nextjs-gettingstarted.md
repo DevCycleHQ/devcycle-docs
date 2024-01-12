@@ -11,26 +11,56 @@ sidebar_custom_props: {icon: rocket}
 
 
 ## Usage (App Router)
-### Wrap your app in the DevCycleServersideProvider
-In a server component (as early as possible in the tree):
+### Create the DevCycle context and export it
+To use DevCycle on the server, you must create a context that can be shared across your server components.
+
+In a shared file somewhere (for example, app/devcycle.ts):
+```typescript
+import { setupDevCycle } from '@devcycle/nextjs-sdk/server'
+
+const getUserIdentity = async () => {
+    // pseudocode function representing some call you might make to 
+    // your code to determine the current user
+    // You can use Next APIs such as `headers()` and `cookies()` here
+    const myUser = await determineUserIdentity(cookies())
+    return {
+        user_id: myUser.id
+    }
+}
+
+const { getVariableValue, getClientContext } = setupDevCycle(
+    // SDK Key. This will be public and sent to the client, so you MUST use the client SDK key.
+    process.env.NEXT_PUBLIC_DEVCYCLE_CLIENT_SDK_KEY ?? '',
+    // pass your method for getting the user identity
+    getUserIdentity,
+    // pass any options you want to use for the DevCycle SDK
+    {
+        enableStreaming: false,
+    },
+)
+
+export { getVariableValue, getClientContext }
+```
+Provide the context function to the DevCycleClientsideProvider as high as possible in your component tree.
+
 ```typescript jsx
+import { DevCycleClientsideProvider } from '@devcycle/nextjs-sdk'
+// import the getClientContext method from your shared DevCycle file
+import { getClientContext } from './devcycle'
+
 export default async function RootLayout({
- children,
+    children,
 }: {
     children: React.ReactNode
 }) {
-    // pseudocode function for determining user identity based on request data.
-    // replace with your own function for determining your user's identity
-    const userIdentity = await determineUserIdentity()
     return (
         <html lang="en">
             <body>
-                <DevCycleServersideProvider
-                    sdkKey={process.env.NEXT_PUBLIC_DEVCYCLE_CLIENT_SDK_KEY ?? ''}
-                    user={{ user_id: userIdentity.id }}
+                <DevCycleClientsideProvider
+                    context={await getClientContext()}
                 >
                     {children}
-                </DevCycleServersideProvider>
+                </DevCycleClientsideProvider>
             </body>
         </html>
     )
@@ -39,16 +69,18 @@ export default async function RootLayout({
 Note: You _must_ use the client SDK key of your project, not the server SDK key. The key is used across the server and
 the client and will be sent to the clientside to bootstrap the client SDK.
 
-The DevCycleServersideProvider will:
-- fetch your project's configuration from DevCycle
-- render a client component provider that provides a clientside DevCycle SDK
+The setupDevCycle method will:
+- provide a getVariableValue method that encapsulates your configured SDK key, user getter and options
+- fetch your project's configuration from DevCycle when needed
+- return a context to be passed to the client component provider that provides a clientside DevCycle SDK, and bootstraps
+  it with the server's user and DevCycle configuration data.
 
 It will also await the retrieval of the DevCycle configuration, thus blocking further rendering until the flag states
 have been retrieved and rendering can take place with the correct values.
 
 ### Get a variable value (server component)
 ```typescript jsx
-import { getVariableValue } from '@devcycle/nextjs-sdk/server'
+import { getVariableValue } from './devcycle'
 import * as React from 'react'
 
 export const MyServerComponent = async function () {
@@ -63,6 +95,9 @@ export const MyServerComponent = async function () {
     )
 }
 ```
+
+Note: it is recommended to use a module alias to access your DevCycle shared file from your server components.
+https://nextjs.org/docs/app/building-your-application/configuring/absolute-imports-and-module-aliases
 
 ### Get a variable value (client component)
 ```typescript jsx
@@ -114,7 +149,7 @@ If you wish to render your page without waiting for the DevCycle configuration t
   use a `Suspense` boundary to send a fallback while the config is being retrieved. The component will then stream to
   the client once the config is retrieved.
 
-Note: The DevCycle initialization process is normally very fast (less than 50ms).
+Note: The DevCycle initialization process is normally very fast (<50ms).
 Only use this option if your application is very performance sensitive.
 
 ## Usage (Pages Router)
@@ -209,21 +244,10 @@ However, it omits features that rely on the dynamic request information to work.
 - automatic determination of the platform version based on the user agent of the request. Targeting by
   this property in the DevCycle platform will be unavailable.
 
-## Provider Config
-
-The `withDevCycleProvider` function accepts a Provider Config object:
-
-[DevCycle ProviderConfig Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/react/src/types.ts#L3)
-
-| Property | Type | Description            |
-|------------|------|------------------------|
-| sdkKey | String | SDK key                |
-| user | [DevCycleUser](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L55) | DevCycleUser object    |
-| options | [DevCycleOptions](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L44) | DevCycleOptions object |
 
 ## Initialization Options
 
-The SDK exposes various initialization options which can be set by passing a `DevCycleOptions` object in the Provider Config:
+The SDK exposes various initialization options which can be set by passing a `DevCycleOptions` object in the setupDevCycle method:
 
 [DevCycleOptions Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L44)
 
@@ -236,10 +260,7 @@ The SDK exposes various initialization options which can be set by passing a `De
 | flushEventQueueSize          | Number                                                                                                        | Controls the maximum size the event queue can grow to until a flush is forced. Defaults to `100`.              |
 | maxEventQueueSize            | Number                                                                                                        | Controls the maximum size the event queue can grow to until events are dropped. Defaults to `1000`.            |
 | apiProxyURL                  | String                                                                                                        | Allows the SDK to communicate with a proxy of DevCycle bucketing API / client SDK API.                         |
-| configCacheTTL               | Number                                                                                                        | The maximum allowed age of a cached config in milliseconds, defaults to 7 days                                 |
-| disableConfigCache           | Boolean                                                                                                       | Disable the use of cached configs                                                                              |
 | disableRealtimeUpdates       | Boolean                                                                                                       | Disable Realtime Updates                                                                                       |
-| deferInitialization          | Boolean                                                                                                       | Defer initialization (fetching configuration from DevCycle) until user is identified with `identifyUser` call  |
 | disableAutomaticEventLogging | Boolean                                                                                                       | Disables logging of sdk generated events (e.g. variableEvaluated, variableDefaulted) to DevCycle.              |
 | disableCustomEventLogging    | Boolean                                                                                                       | Disables logging of custom events, from `track()` method, and user data to DevCycle.                           |
 | enableStreaming              | Boolean                                                                                                       | Enable the SDK's streaming mode for non-blocking variable value retrieval with Suspense (advanced).            |
