@@ -18,7 +18,7 @@ as defined in code.
 SDKs will attempt to retrieve the configuration until an error is received or a timeout is reached. In these cases,
 the configuration will not be obtained and default values will be used for the duration of the SDK instance's lifetime.
 
-## Type Mismatches
+### Type Mismatches
 In many SDKs, the type of the default value (Boolean, String etc.) determines the "expected" type of the Variable.
 On the DevCycle platform, a Variable is configured to have a specific type, and a Feature controls the values of that
 given type to assign to the Variable.
@@ -31,10 +31,10 @@ For example, if a Variable is being evaluated in code and the Boolean value `fal
 the SDK will understand that that Variable should always be a Boolean. If the DevCycle configuration serves a String 
 value instead, the SDK will ignore it and use the default value of `false` instead.
 
-## Variable Does Not Exist
+### Variable Does Not Exist
 In cases where the Variable does not exist in the DevCycle platform, the SDK will use the default value provided in code.
 
-## User Does Not Qualify for Targeting, or Feature is Turned Off
+### User Does Not Qualify for Targeting, or Feature is Turned Off
 In DevCycle, the values of Variables are controlled by Features. Those Features contain Targeting Rules that determine who
 is eligible to receive the Feature, and what Variation they should be served. In cases where a user qualifies for a Feature,
 the DevCycle configuration will include the Variable values they should be served.
