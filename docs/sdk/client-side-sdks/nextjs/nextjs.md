@@ -27,4 +27,4 @@ The SDK is available as a package on npm. It is also open source and can be view
 ## Limitations
 - Minimum Next.js version: 14.0.5
 - Minimum React version: 18.2
-- variable evaluations are only tracked in client components in App Router.
+- variable evaluations and custom events are only tracked in client components in App Router.
