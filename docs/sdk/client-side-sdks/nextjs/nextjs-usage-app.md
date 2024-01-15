@@ -111,7 +111,6 @@ export const MyServerComponent = async function () {
 Note: it is recommended to use a module alias to access your DevCycle shared file from your server components.
 https://nextjs.org/docs/app/building-your-application/configuring/absolute-imports-and-module-aliases
 
-### Get a Variable Value
 #### Client Component
 
 ```typescript jsx
