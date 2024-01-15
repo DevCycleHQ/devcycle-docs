@@ -12,7 +12,9 @@ sidebar_custom_props: {icon: rocket}
 
 ## Usage (App Router)
 ### Create the DevCycle context and export it
-To use DevCycle on the server, you must create a context that can be shared across your server components.
+To use DevCycle on the server, you must create a context that can be shared across your server components. The context
+will hold the user data and configuration for the current request, and ensures subsequent calls to retrieve variables
+are scoped to that data.
 
 In a shared file somewhere (for example, `app/devcycle.ts`):
 ```typescript
