@@ -3,7 +3,7 @@ title: React SDK Installation
 sidebar_label: Installation
 sidebar_position: 1
 description: Installing the SDK
-sidebar_custom_props: {icon: screwdriver-wrench}
+sidebar_custom_props: { icon: material-symbols:install-desktop }
 ---
 
 [![Npm package version](https://badgen.net/npm/v/@devcycle/react-client-sdk)](https://www.npmjs.com/package/@devcycle/react-client-sdk)

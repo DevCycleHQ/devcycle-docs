@@ -3,7 +3,7 @@ title: NextJS SDK Getting Started (App Router)
 sidebar_label: Getting Started (App Router)
 sidebar_position: 2
 description: Initializing the SDK
-sidebar_custom_props: {icon: rocket}
+sidebar_custom_props: { icon: material-symbols:rocket }
 ---
 
 [![Npm package version](https://badgen.net/npm/v/@devcycle/nextjs-sdk)](https://www.npmjs.com/package/@devcycle/nextjs-sdk)
