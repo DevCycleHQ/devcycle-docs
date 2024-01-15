@@ -1,6 +1,6 @@
 ---
-title: NextJS SDK Getting Started (App Router)
-sidebar_label: Getting Started (App Router)
+title: NextJS SDK Usage (App Router)
+sidebar_label: Usage (App Router)
 sidebar_position: 2
 description: Initializing the SDK
 sidebar_custom_props: { icon: material-symbols:rocket }
@@ -11,7 +11,7 @@ sidebar_custom_props: { icon: material-symbols:rocket }
 
 
 ## Usage (App Router)
-### Create the DevCycle context and export it
+### Create the DevCycle Context and Export It
 To use DevCycle on the server, you must create a context that can be shared across your server components. The context
 will hold the user data and configuration for the current request, and ensures subsequent calls to retrieve variables
 are scoped to that data.
@@ -80,7 +80,7 @@ The setupDevCycle method will:
 It will also await the retrieval of the DevCycle configuration, thus blocking further rendering until the flag states
 have been retrieved and rendering can take place with the correct values.
 
-### Get a variable value 
+### Get a Variable Value 
 #### Server Component
 ```typescript jsx
 import { getVariableValue } from './devcycle'
@@ -95,7 +95,7 @@ export const MyServerComponent = async function () {
 Note: it is recommended to use a module alias to access your DevCycle shared file from your server components.
 https://nextjs.org/docs/app/building-your-application/configuring/absolute-imports-and-module-aliases
 
-### Get a variable value
+### Get a Variable Value
 #### Client Component
 
 ```typescript jsx
@@ -109,7 +109,7 @@ export const MyClientComponent = function () {
 }
 ```
 
-### Tracking an event
+### Tracking an Event
 #### Client Component
 
 ```typescript jsx
