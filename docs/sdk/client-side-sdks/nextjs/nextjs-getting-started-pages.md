@@ -51,7 +51,7 @@ This helper will retrieve the DevCycle configuration and pass it to the rest of 
 It will bootstrap the DevCycle on the client browser with the same configuration used by the server, allowing
 for faster page rendering and matching hydration of client-rendered and server-rendered content.
 
-From this point, usage becomes the same as the Devcycle React SDK. Refer to the
+From this point, usage becomes the same as the DevCycle React SDK. Refer to the
 [documentation](https://docs.devcycle.com/sdk/client-side-sdks/react/react-usage) for that SDK.
 
 The same hooks used in that SDK are re-exported from this SDK.
