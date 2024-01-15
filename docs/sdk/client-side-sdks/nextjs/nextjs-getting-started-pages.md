@@ -1,158 +1,13 @@
 ---
-title: NextJS SDK Getting Started
-sidebar_label: Getting Started
-sidebar_position: 2
+title: NextJS SDK Getting Started (Pages Router)
+sidebar_label: Getting Started (Pages Router)
+sidebar_position: 3
 description: Initializing the SDK
 sidebar_custom_props: {icon: rocket}
 ---
 
 [![Npm package version](https://badgen.net/npm/v/@devcycle/nextjs-sdk)](https://www.npmjs.com/package/@devcycle/nextjs-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)
-
-
-## Usage (App Router)
-### Create the DevCycle context and export it
-To use DevCycle on the server, you must create a context that can be shared across your server components. The context
-will hold the user data and configuration for the current request, and ensures subsequent calls to retrieve variables
-are scoped to that data.
-
-In a shared file somewhere (for example, `app/devcycle.ts`):
-```typescript
-import { setupDevCycle } from '@devcycle/nextjs-sdk/server'
-
-const getUserIdentity = async () => {
-    // pseudocode function representing some call you might make to 
-    // your code to determine the current user
-    // You can use Next APIs such as `headers()` and `cookies()` here
-    const myUser = await determineUserIdentity(cookies())
-    return {
-        user_id: myUser.id
-    }
-}
-
-const { getVariableValue, getClientContext } = setupDevCycle(
-    // SDK Key. This will be public and sent to the client, so you MUST use the client SDK key.
-    process.env.NEXT_PUBLIC_DEVCYCLE_CLIENT_SDK_KEY ?? '',
-    // pass your method for getting the user identity
-    getUserIdentity,
-    // pass any options you want to use for the DevCycle SDK
-    {
-        enableStreaming: false,
-    },
-)
-
-export { getVariableValue, getClientContext }
-```
-Provide the context function to the DevCycleClientsideProvider as high as possible in your component tree.
-
-```typescript jsx
-import { DevCycleClientsideProvider } from '@devcycle/nextjs-sdk'
-// import the getClientContext method from your shared DevCycle file
-import { getClientContext } from './devcycle'
-
-export default async function RootLayout({
-    children,
-}: {
-    children: React.ReactNode
-}) {
-    return (
-        <html lang="en">
-            <body>
-                <DevCycleClientsideProvider
-                    context={await getClientContext()}
-                >
-                    {children}
-                </DevCycleClientsideProvider>
-            </body>
-        </html>
-    )
-}
-```
-Note: You _must_ use the client SDK key of your project, not the server SDK key. The key is used across the server and
-the client and will be sent to the clientside to bootstrap the client SDK.
-
-The setupDevCycle method will:
-- provide a getVariableValue method that encapsulates your configured SDK key, user getter and options
-- fetch your project's configuration from DevCycle when needed
-- return a context to be passed to the client component provider that provides a clientside DevCycle SDK, and bootstraps
-  it with the server's user and DevCycle configuration data.
-
-It will also await the retrieval of the DevCycle configuration, thus blocking further rendering until the flag states
-have been retrieved and rendering can take place with the correct values.
-
-### Get a variable value (server component)
-```typescript jsx
-import { getVariableValue } from './devcycle'
-import * as React from 'react'
-
-export const MyServerComponent = async function () {
-    const myVariable = await getVariableValue('myVariable', false)
-    return (
-        <>
-            <b>Server Variable</b>
-            <span>
-                {JSON.stringify(myVariable)}
-            </span>
-        </>
-    )
-}
-```
-
-Note: it is recommended to use a module alias to access your DevCycle shared file from your server components.
-https://nextjs.org/docs/app/building-your-application/configuring/absolute-imports-and-module-aliases
-
-### Get a variable value (client component)
-```typescript jsx
-'use client'
-import { useVariableValue } from '@devcycle/nextjs-sdk'
-import * as React from 'react'
-
-export const MyClientComponent = function () {
-    const myVariable = useVariableValue('myVariable', false)
-    return (
-        <>
-            <b>Client Variable</b>
-            <span>
-                {JSON.stringify(myVariable)}
-            </span>
-        </>
-    )
-}
-```
-
-### Tracking an event (client component)
-
-```typescript jsx
-'use client'
-import * as React from 'react'
-import { useTrack } from '@devcycle/nextjs-sdk'
-
-export default MyComponent = function () {
-    const trackEvent = useTrack()
-    return (
-        <button onClick={() => trackEvent('myEvent')}>
-            Track Event
-        </button>
-    )
-}
-```
-
-### Tracking an event (server component)
-Currently, tracking events in server components is not supported. Please trigger any event tracking
-from client components.
-
-## Advanced
-### Non-Blocking Initialization
-If you wish to render your page without waiting for the DevCycle configuration to be retrieved, you can use the
-`enableStreaming` option. Doing so enables the following behaviour:
-- the DevCycleServersideProvider will not block rendering of the rest of the server component tree
-- any calls to `getVariableValue` in server components or `useVariableValue` in client components
-  will still block on the config being retrieved. To unblock rendering on these calls,
-  use a `Suspense` boundary to send a fallback while the config is being retrieved. The component will then stream to
-  the client once the config is retrieved.
-
-Note: The DevCycle initialization process is normally very fast (less than 50ms, less than 1ms when cached).
-Only use this option if your application is very performance sensitive.
 
 ## Usage (Pages Router)
 ### Wrap your app in the DevCycle Higher-Order Component
@@ -255,7 +110,6 @@ The SDK exposes various initialization options which can be set by passing a `De
 
 | DevCycle Option              | Type                                                                                                          | Description                                                                                                    |
 |------------------------------|---------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
-| enableEdgeDB                 | Boolean                                                                                                       | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle.                                     |
 | logger                       | [DevCycleLogger](https://github.com/DevCycleHQ/js-sdks/blob/main/lib/shared/types/src/logger.ts#L2)           | Logger override to replace default logger                                                                      |
 | logLevel                     | [DevCycleDefaultLogLevel](https://github.com/DevCycleHQ/js-sdks/blob/main/lib/shared/types/src/logger.ts#L12) | Set log level of the default logger. Options are: `debug`, `info`, `warn`, `error`. Defaults to `info`.        |
 | eventFlushIntervalMS         | Number                                                                                                        | Controls the interval between flushing events to the DevCycle servers in milliseconds, defaults to 10 seconds. |
@@ -265,4 +119,3 @@ The SDK exposes various initialization options which can be set by passing a `De
 | disableRealtimeUpdates       | Boolean                                                                                                       | Disable Realtime Updates                                                                                       |
 | disableAutomaticEventLogging | Boolean                                                                                                       | Disables logging of sdk generated events (e.g. variableEvaluated, variableDefaulted) to DevCycle.              |
 | disableCustomEventLogging    | Boolean                                                                                                       | Disables logging of custom events, from `track()` method, and user data to DevCycle.                           |
-| enableStreaming              | Boolean                                                                                                       | Enable the SDK's streaming mode for non-blocking variable value retrieval with Suspense (advanced).            |
