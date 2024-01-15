@@ -160,7 +160,7 @@ export const MyServerComponent = async function () {
 
 #### Client Component
 ```typescript jsx
-import { useAllVariables } from './devcycle'
+import { useAllVariables } from '@devcycle/nextjs-sdk'
 import * as React from 'react'
 
 export const MyClientComponent = function () {
@@ -183,7 +183,7 @@ export const MyServerComponent = async function () {
 
 #### Client Component
 ```typescript jsx
-import { useAllFeatures } from './devcycle'
+import { useAllFeatures } from '@devcycle/nextjs-sdk'
 import * as React from 'react'
 
 export const MyClientComponent = function () {
