@@ -16,6 +16,7 @@ To create a webhook:
 
 1. Navigate to the Integrations page.
 2. Navigate to the "Webhooks" section and click `+ New Webhook`. The "Create a Webhook" modal appears.
+3. Give the webhook a human-readable Name.
 4. (Optional) Give the webhook a description. 
 5. Enter a Payload URL.
 6. Click `Create Webhook`. From there, you will be taken to the Webhook details page. 
