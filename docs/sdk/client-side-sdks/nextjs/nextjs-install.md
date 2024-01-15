@@ -20,10 +20,10 @@ To install the SDK, run the following command:
 
 ### npm
 ```bash
-    npm install @devcycle/nextjs-sdk
-  ```
+npm install @devcycle/nextjs-sdk
+```
 
 ### yarn
-  ```bash
-    yarn add @devcycle/nextjs-sdk
-  ```
+```bash
+yarn add @devcycle/nextjs-sdk
+```
