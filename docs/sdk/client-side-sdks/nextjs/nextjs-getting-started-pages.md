@@ -48,7 +48,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 ```
 
 This helper will retrieve the DevCycle configuration and pass it to the rest of the component tree.
-It will bootstrap the DevCycle on the client browser with the same configuration used by the server, allowing
+It will bootstrap DevCycle on the client browser with the same configuration used by the server, allowing
 for faster page rendering and matching hydration of client-rendered and server-rendered content.
 
 From this point, usage becomes the same as the DevCycle React SDK. Refer to the
