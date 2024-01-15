@@ -72,7 +72,7 @@ Note: You _must_ use the client SDK key of your project, not the server SDK key.
 the client and will be sent to the clientside to bootstrap the client SDK.
 
 The setupDevCycle method will:
-- provide a getVariableValue method that encapsulates your configured SDK key, user getter and options
+- provide a `getVariableValue` method that encapsulates your configured SDK key, user getter and options
 - fetch your project's configuration from DevCycle when needed
 - return a context to be passed to the client component provider that provides a clientside DevCycle SDK, and bootstraps
   it with the server's user and DevCycle configuration data.
@@ -80,28 +80,24 @@ The setupDevCycle method will:
 It will also await the retrieval of the DevCycle configuration, thus blocking further rendering until the flag states
 have been retrieved and rendering can take place with the correct values.
 
-### Get a variable value (server component)
+### Get a variable value 
+#### Server Component
 ```typescript jsx
 import { getVariableValue } from './devcycle'
 import * as React from 'react'
 
 export const MyServerComponent = async function () {
     const myVariable = await getVariableValue('myVariable', false)
-    return (
-        <>
-            <b>Server Variable</b>
-            <span>
-                {JSON.stringify(myVariable)}
-            </span>
-        </>
-    )
+    return myVariable ? <NewComponent/> : <OldComponent/>
 }
 ```
 
 Note: it is recommended to use a module alias to access your DevCycle shared file from your server components.
 https://nextjs.org/docs/app/building-your-application/configuring/absolute-imports-and-module-aliases
 
-### Get a variable value (client component)
+### Get a variable value
+#### Client Component
+
 ```typescript jsx
 'use client'
 import { useVariableValue } from '@devcycle/nextjs-sdk'
@@ -109,18 +105,12 @@ import * as React from 'react'
 
 export const MyClientComponent = function () {
     const myVariable = useVariableValue('myVariable', false)
-    return (
-        <>
-            <b>Client Variable</b>
-            <span>
-                {JSON.stringify(myVariable)}
-            </span>
-        </>
-    )
+    return myVariable ? <NewComponent/> : <OldComponent/>
 }
 ```
 
-### Tracking an event (client component)
+### Tracking an event
+#### Client Component
 
 ```typescript jsx
 'use client'
@@ -136,19 +126,64 @@ export default MyComponent = function () {
     )
 }
 ```
+#### Server Component
+Currently, tracking events in server components is not supported due to limitations in NextJS.
+Please trigger any event tracking from client components.
 
-### Tracking an event (server component)
-Currently, tracking events in server components is not supported. Please trigger any event tracking
-from client components.
+### Getting all Variables
+#### Server Component
+```typescript jsx
+import { getAllVariables } from './devcycle'
+import * as React from 'react'
+
+export const MyServerComponent = async function () {
+    const allVariables = await getAllVariables()
+    return <div>JSON.stringify(allVariables)</div>
+}
+```
+
+#### Client Component
+```typescript jsx
+import { useAllVariables } from './devcycle'
+import * as React from 'react'
+
+export const MyClientComponent = function () {
+    const allVariables = useAllVariables()
+    return <div>JSON.stringify(allVariables)</div>
+}
+```
+
+### Getting all Features
+#### Server Component
+```typescript jsx
+import { getAllFeatures } from './devcycle'
+import * as React from 'react'
+
+export const MyServerComponent = async function () {
+    const allFeatures = await getAllFeatures()
+    return <div>JSON.stringify(allFeatures)</div>
+}
+```
+
+#### Client Component
+```typescript jsx
+import { useAllFeatures } from './devcycle'
+import * as React from 'react'
+
+export const MyClientComponent = function () {
+    const allFeatures = useAllFeatures()
+    return <div>JSON.stringify(allFeatures)</div>
+}
+```
 
 ### Advanced
 #### Non-Blocking Initialization
 If you wish to render your page without waiting for the DevCycle configuration to be retrieved, you can use the
 `enableStreaming` option. Doing so enables the following behaviour:
-- the DevCycleServersideProvider will not block rendering of the rest of the server component tree
+- the `DevCycleClientsideProvider` will not block rendering of the rest of the server component tree and will trigger the
+nearest `Suspense` boundary while the config is being retrieved.
 - any calls to `getVariableValue` in server components or `useVariableValue` in client components
-  will still block on the config being retrieved. To unblock rendering on these calls,
-  use a `Suspense` boundary to send a fallback while the config is being retrieved. The component will then stream to
+  will trigger the nearest `Suspense` boundary while the config being retrieved. The component will then stream to
   the client once the config is retrieved.
 
 Note: The DevCycle initialization process is normally very fast (less than 50ms, less than 1ms when cached).

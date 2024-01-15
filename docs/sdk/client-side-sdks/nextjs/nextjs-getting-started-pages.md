@@ -11,7 +11,7 @@ sidebar_custom_props: {icon: rocket}
 
 ## Usage (Pages Router)
 ### Wrap your app in the DevCycle Higher-Order Component
-In your `_app.tsx` file, wrap the App component in the DevCycle HOC:
+In your `_app.tsx` file, wrap the App component in the DevCycle Higher-Order Component:
 ```typescript jsx
 // _app.tsx
 import React from 'react'
