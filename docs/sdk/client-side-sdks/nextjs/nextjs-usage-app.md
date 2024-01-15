@@ -80,6 +80,12 @@ The setupDevCycle method will:
 It will also await the retrieval of the DevCycle configuration, thus blocking further rendering until the flag states
 have been retrieved and rendering can take place with the correct values.
 
+:::caution
+Due to a bug in Next.js, realtime updates functionality is only available in Next.js 14.0.5 and above. If using a version
+below that, you _must_ disable realtime updates to prevent clientside errors. To do so, pass the option `disableRealtimeUpdates: true`
+in your initialization function:
+:::
+
 ### Get a Variable Value 
 #### Server Component
 ```typescript jsx
