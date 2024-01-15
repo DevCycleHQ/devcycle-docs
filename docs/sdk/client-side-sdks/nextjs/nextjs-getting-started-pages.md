@@ -63,14 +63,7 @@ import * as React from 'react'
 
 export const MyComponent = () => {
     const myVariable = useVariableValue('myVariable', false)
-    return (
-        <>
-            <b>Variable</b>
-            <span>
-                {JSON.stringify(myVariable)}
-            </span>
-        </>
-    )
+    return myVariable ? <NewComponent/> : <OldComponent/>
 }
 ```
 
