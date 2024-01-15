@@ -3,7 +3,7 @@ title: NextJS SDK Usage (Pages Router)
 sidebar_label: Usage (Pages Router)
 sidebar_position: 3
 description: Initializing the SDK
-sidebar_custom_props: { icon: material-symbols:rocket }
+sidebar_custom_props: { icon: material-symbols:toggle-on }
 ---
 
 [![Npm package version](https://badgen.net/npm/v/@devcycle/nextjs-sdk)](https://www.npmjs.com/package/@devcycle/nextjs-sdk)

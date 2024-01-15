@@ -3,7 +3,7 @@ title: NextJS SDK Usage (App Router)
 sidebar_label: Usage (App Router)
 sidebar_position: 2
 description: Initializing the SDK
-sidebar_custom_props: { icon: material-symbols:rocket }
+sidebar_custom_props: { icon: material-symbols:toggle-on }
 ---
 
 [![Npm package version](https://badgen.net/npm/v/@devcycle/nextjs-sdk)](https://www.npmjs.com/package/@devcycle/nextjs-sdk)
