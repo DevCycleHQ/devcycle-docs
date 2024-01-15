@@ -14,7 +14,7 @@ sidebar_custom_props: {icon: rocket}
 ### Create the DevCycle context and export it
 To use DevCycle on the server, you must create a context that can be shared across your server components.
 
-In a shared file somewhere (for example, app/devcycle.ts):
+In a shared file somewhere (for example, `app/devcycle.ts`):
 ```typescript
 import { setupDevCycle } from '@devcycle/nextjs-sdk/server'
 
