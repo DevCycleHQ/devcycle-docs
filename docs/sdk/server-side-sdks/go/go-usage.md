@@ -76,7 +76,7 @@ This method will fetch all variables for a given user and return them in a map o
 variables, err := devcycleClient.AllVariables(user)
 ```
 
-:::info
+:::caution
 
 This method is intended to be used for debugging and analytics purposes, *not* as a method for retrieving the value of Variables to change code behaviour.
 For that purpose, we strongly recommend using the individual variable access method described in [Get and use Variable by key](#get-and-use-variable-by-key)

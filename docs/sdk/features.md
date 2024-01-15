@@ -71,14 +71,15 @@ The response is the following general format, with slight changes depending on t
     "_id": "123456",
     "key": "your-cool-feature",
     "type": "release",
-    "_variation":"333345"
+    "_variation": "333345"
   },
   "another-feature": {
     "_id": "123456",
     "key": "another-feature",
     "type": "ops",
-    "_variation":"444123"
-  },...
+    "_variation": "444123"
+  }
+}
 ```
 
 Only Features that the User has satisfied [targeting rules](/essentials/targeting) for will be returned by this function. The feature must also be **enabled** for that environment.
@@ -102,12 +103,13 @@ The response is the following general format, with slight changes depending on t
     "key": "some-string-variable",
     "type": "String",
     "value": "this is a string variable value"
-  },
+  }
+}
 ```
 
 Only Variables in Features that the user has satisfied [targeting rules](/essentials/targeting) for will be part of the response in this method. The Feature must also be **enabled** for the environment this SDK is being called on.
 
-:::info
+:::caution
 
 This method is intended to be used for debugging and analytics purposes, *not* as a method for retrieving the value of Variables to change code behaviour. 
 For that purpose, we strongly recommend using the individual variable access method described in [Evaluating Features & Using Variables](#evaluating-features--using-variables)
@@ -131,7 +133,7 @@ The user data object that you should use across SDKs should look something like 
     "user_id": "user1@devcycle.com",
     "name": "user 1 name",
     "customData": {
-        "customKey": "customValue"?
+        "customKey": "customValue"
     },
     "privateCustomData": {
         "privateKey": "privateValue"

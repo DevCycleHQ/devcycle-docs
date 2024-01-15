@@ -87,7 +87,7 @@ Map<String, BaseConfigVariable> variables = devcycleClient.allVariables();
 
 If the SDK has not finished initializing, these methods will return an empty Map.
 
-:::info
+:::caution
 
 This method is intended to be used for debugging and analytics purposes, *not* as a method for retrieving the value of Variables to change code behaviour.
 For that purpose, we strongly recommend using the individual variable access method described in [Using Variable Values](#using-variable-values)
