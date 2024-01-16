@@ -59,7 +59,7 @@ export default async function RootLayout({
         <html lang="en">
             <body>
                 <DevCycleClientsideProvider
-                    context={await getClientContext()}
+                    context={getClientContext()}
                 >
                     {children}
                 </DevCycleClientsideProvider>
@@ -82,8 +82,18 @@ have been retrieved and rendering can take place with the correct values.
 
 :::caution
 Due to a bug in Next.js, realtime updates functionality is only available in Next.js 14.0.5 and above. If using a version
-below that, you _must_ disable realtime updates to prevent clientside errors. To do so, pass the option `disableRealtimeUpdates: true`
-in your initialization function:
+below that, you _must_ disable realtime updates to prevent clientside errors. To do so, pass the option in your
+initialization function:
+```typescript
+const { getVariableValue, getClientContext } = setupDevCycle(
+    process.env.NEXT_PUBLIC_DEVCYCLE_CLIENT_SDK_KEY ?? '',
+    getUserIdentity,
+    {
+        // pass this option to disable realtime updates when using Next.js below 14.0.5
+        disableRealtimeUpdates: true,
+    },
+)
+````
 :::
 
 ### Get a Variable Value 
