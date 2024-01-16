@@ -114,8 +114,6 @@ In addition to the Audience Info & Definition, in the Feature Usage secion for t
 
 ## Updating Audiences 
 
-### From the API
-
 To see all your created Audiences, click the Audiences tab on the navigation bar: 
 ![Audiences Tab](/march-1-2023-audiences-tab.png)
 
@@ -123,8 +121,6 @@ This lists all Audiences created through the Management API. At the moment, the 
 
 To view more information about the Audience, click the `View Definition` button to see more:
 ![Audiences Tab](/march-1-2023-resuableaudience-viewdefinition.png)
-
-### From the Dashboard
 
 If you wish to update or edit an active Audience, a warning message will appear that displays all Features that are actively using that Audience. 
 
