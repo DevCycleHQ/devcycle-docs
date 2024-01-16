@@ -19,7 +19,7 @@ The Audit Log feature was released in early December 2023. No Audit Log modifica
 
 :::
 
-The title of each modification card, highlights the change that was made to the Feature upon clicking save. If multiple changes were made on a Feature save and/or there were modifications made to more than one Environment, the card will show the total number modifications made.
+The title of each modification card highlights the change that was made to the Feature upon clicking save. If multiple changes were made on a Feature save and/or there were modifications made to more than one Environment, the card will show the total number modifications made.
 
 Click the `View Details` button on each card for more information about each modification.
 
