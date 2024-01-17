@@ -22,7 +22,7 @@ function CardContainer({ href, children }) {
 function CardLayout({ href, icon, title, description }) {
   return (
     <CardContainer href={href}>
-      <h2 className={clsx('text--truncate flex', styles.cardTitle)} title={title}>
+      <h2 className={clsx('flex', styles.cardTitle)} title={title}>
         <Icon icon={icon} height="24" className="mr-2" />
         <span className="ml-2">{title}</span>
       </h2>
