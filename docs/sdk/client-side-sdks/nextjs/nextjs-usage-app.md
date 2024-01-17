@@ -1,5 +1,5 @@
 ---
-title: NextJS SDK Usage - App Router 
+title: Next.js SDK Usage - App Router 
 sidebar_label: Usage - App Router
 sidebar_position: 2
 description: Initializing the SDK
@@ -138,7 +138,7 @@ export default MyComponent = function () {
 }
 ```
 #### Server Component
-Currently, tracking events in server components is not supported due to limitations in NextJS.
+Currently, tracking events in server components is not supported due to limitations in Next.js.
 Please trigger any event tracking from client components.
 
 ### Getting all Variables
