@@ -76,6 +76,15 @@ This method will fetch all variables for a given user and return them in a map o
 variables, err := devcycleClient.AllVariables(user)
 ```
 
+:::caution
+
+This method is intended to be used for debugging and analytics purposes, *not* as a method for retrieving the value of Variables to change code behaviour.
+For that purpose, we strongly recommend using the individual variable access method described in [Get and use Variable by key](#get-and-use-variable-by-key)
+Using this method instead will result in no evaluation events being tracked for individual variables, and will not allow the use
+of other DevCycle features such as [Code Usage detection](/integrations/github/feature-usage-action)
+
+:::
+
 ## Close
 
 You can close the DevCycle client to stop the SDK from polling for configs and flushing events on an interval. Any pending events will be immediately flushed. This method is only usable in local bucketing mode.
