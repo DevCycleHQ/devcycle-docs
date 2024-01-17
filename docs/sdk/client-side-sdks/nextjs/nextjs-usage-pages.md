@@ -1,5 +1,5 @@
 ---
-title: NextJS SDK Usage - Pages Router
+title: Next.js SDK Usage - Pages Router
 sidebar_label: Usage - Pages Router
 sidebar_position: 3
 description: Initializing the SDK
