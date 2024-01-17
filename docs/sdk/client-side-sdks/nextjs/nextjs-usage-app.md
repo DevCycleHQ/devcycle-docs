@@ -1,6 +1,6 @@
 ---
-title: NextJS SDK Usage (App Router)
-sidebar_label: Usage (App Router)
+title: NextJS SDK Usage - App Router 
+sidebar_label: Usage - App Router
 sidebar_position: 2
 description: Initializing the SDK
 sidebar_custom_props: { icon: material-symbols:toggle-on }
@@ -10,7 +10,7 @@ sidebar_custom_props: { icon: material-symbols:toggle-on }
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/js-sdks/tree/main/sdk/nextjs)
 
 
-## Usage (App Router)
+## Usage
 ### Create the DevCycle Context and Export It
 To use DevCycle on the server, you must create a context that can be shared across your server components. The context
 will hold the user data and configuration for the current request, and ensures subsequent calls to retrieve variables

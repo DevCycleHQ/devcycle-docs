@@ -1,5 +1,5 @@
 ---
-title: React SDK Installation
+title: Next.js SDK Installation
 sidebar_label: Installation
 sidebar_position: 1
 description: Installing the SDK

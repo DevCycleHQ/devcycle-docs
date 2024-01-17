@@ -1,6 +1,6 @@
 ---
-title: NextJS SDK Usage (Pages Router)
-sidebar_label: Usage (Pages Router)
+title: NextJS SDK Usage - Pages Router
+sidebar_label: Usage - Pages Router
 sidebar_position: 3
 description: Initializing the SDK
 sidebar_custom_props: { icon: material-symbols:toggle-on }
@@ -10,7 +10,7 @@ sidebar_custom_props: { icon: material-symbols:toggle-on }
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/js-sdks/tree/main/sdk/nextjs)
 
 
-## Usage (Pages Router)
+## Usage
 ### Wrap your App in the DevCycle Higher-Order Component
 In your `_app.tsx` file, wrap the App component in the DevCycle Higher-Order Component:
 ```typescript jsx
