@@ -1,6 +1,6 @@
 ---
-title: NextJS SDK Usage (App Router)
-sidebar_label: Usage (App Router)
+title: Next.js SDK Usage - App Router 
+sidebar_label: Usage - App Router
 sidebar_position: 2
 description: Initializing the SDK
 sidebar_custom_props: { icon: material-symbols:toggle-on }
@@ -10,7 +10,7 @@ sidebar_custom_props: { icon: material-symbols:toggle-on }
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/js-sdks/tree/main/sdk/nextjs)
 
 
-## Usage (App Router)
+## Usage
 ### Create the DevCycle Context and Export It
 To use DevCycle on the server, you must create a context that can be shared across your server components. The context
 will hold the user data and configuration for the current request, and ensures subsequent calls to retrieve variables
@@ -30,18 +30,14 @@ const getUserIdentity = async () => {
     }
 }
 
-const { getVariableValue, getClientContext } = setupDevCycle(
+export const { getVariableValue, getClientContext } = setupDevCycle(
     // SDK Key. This will be public and sent to the client, so you MUST use the client SDK key.
     process.env.NEXT_PUBLIC_DEVCYCLE_CLIENT_SDK_KEY ?? '',
     // pass your method for getting the user identity
     getUserIdentity,
     // pass any options you want to use for the DevCycle SDK
-    {
-        enableStreaming: false,
-    },
+    {},
 )
-
-export { getVariableValue, getClientContext }
 ```
 Provide the context function to the DevCycleClientsideProvider as high as possible in your component tree.
 
@@ -142,7 +138,7 @@ export default MyComponent = function () {
 }
 ```
 #### Server Component
-Currently, tracking events in server components is not supported due to limitations in NextJS.
+Currently, tracking events in server components is not supported due to limitations in Next.js.
 Please trigger any event tracking from client components.
 
 ### Getting all Variables
@@ -190,6 +186,26 @@ export const MyClientComponent = function () {
     return <div>JSON.stringify(allFeatures)</div>
 }
 ```
+## Static Rendering
+The SDK also supports static rendering. To accomplish this, we provide an initialization option which disables
+features that read from dynamic request data (specifically the User Agent header).
+Pass the `staticMode` option to the setup function:
+```typescript
+export const { getVariableValue, getClientContext } = setupDevCycle(
+    process.env.NEXT_PUBLIC_DEVCYCLE_CLIENT_SDK_KEY ?? '',
+    getUserIdentity,
+    {
+        staticMode: true,
+    },
+)
+```
+When your page is rendered, the DevCycle configuration that is available at that time as well as the user data
+provided during the build will be used to provide the values for DevCycle variables. Realtime configuration updates that
+are received while someone is viewing a statically-rendered page will still trigger a re-render of the page with the
+new configuration data.
+
+If you wish to rebuild your static pages when a DevCycle configuration changes, consider setting up a [DevCycle Webhook](/extras/webhooks) to
+trigger your build process.
 
 ### Advanced
 #### Non-Blocking Initialization
@@ -210,8 +226,10 @@ The SDK exposes various initialization options which can be set by passing a `De
 
 [DevCycleOptions Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L44)
 
-| DevCycle Option              | Type                                                                                                          | Description                                                                                                    |
-|------------------------------|---------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
+| DevCycle Option | Type                                                                                                          | Description                                                                                         |
+|-----------------|---------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
+| staticMode      | Boolean                                                                                                       | Disable dynamic request features to allow the SDK to be used on statically rendered pages.          |
+| enableStreaming | Boolean                                                                                                       | Enable the SDK's streaming mode for non-blocking variable value retrieval with Suspense (advanced). |
 | logger                       | [DevCycleLogger](https://github.com/DevCycleHQ/js-sdks/blob/main/lib/shared/types/src/logger.ts#L2)           | Logger override to replace default logger                                                                      |
 | logLevel                     | [DevCycleDefaultLogLevel](https://github.com/DevCycleHQ/js-sdks/blob/main/lib/shared/types/src/logger.ts#L12) | Set log level of the default logger. Options are: `debug`, `info`, `warn`, `error`. Defaults to `info`.        |
 | eventFlushIntervalMS         | Number                                                                                                        | Controls the interval between flushing events to the DevCycle servers in milliseconds, defaults to 10 seconds. |
@@ -221,4 +239,3 @@ The SDK exposes various initialization options which can be set by passing a `De
 | disableRealtimeUpdates       | Boolean                                                                                                       | Disable Realtime Updates                                                                                       |
 | disableAutomaticEventLogging | Boolean                                                                                                       | Disables logging of sdk generated events (e.g. variableEvaluated, variableDefaulted) to DevCycle.              |
 | disableCustomEventLogging    | Boolean                                                                                                       | Disables logging of custom events, from `track()` method, and user data to DevCycle.                           |
-| enableStreaming              | Boolean                                                                                                       | Enable the SDK's streaming mode for non-blocking variable value retrieval with Suspense (advanced).            |

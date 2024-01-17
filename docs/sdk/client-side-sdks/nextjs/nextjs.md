@@ -1,13 +1,13 @@
 ---
-title: NextJS SDK
+title: Next.js SDK
 ---
 
 import CustomDocCardList from '@site/src/components/CustomDocCardList'
 import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 
-# DevCycle NextJS SDK
+# DevCycle Next.js SDK
 
-The DevCycle NextJS SDK lets you easily integrate your NextJS web applications with DevCycle.
+The DevCycle Next.js SDK lets you easily integrate your Next.js web applications with DevCycle.
 
 <CustomDocCardList items={useCurrentSidebarCategory().items} columnWidth={4} />
 

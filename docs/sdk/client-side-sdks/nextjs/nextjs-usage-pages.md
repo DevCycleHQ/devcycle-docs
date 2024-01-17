@@ -1,6 +1,6 @@
 ---
-title: NextJS SDK Usage (Pages Router)
-sidebar_label: Usage (Pages Router)
+title: Next.js SDK Usage - Pages Router
+sidebar_label: Usage - Pages Router
 sidebar_position: 3
 description: Initializing the SDK
 sidebar_custom_props: { icon: material-symbols:toggle-on }
@@ -10,7 +10,7 @@ sidebar_custom_props: { icon: material-symbols:toggle-on }
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/js-sdks/tree/main/sdk/nextjs)
 
 
-## Usage (Pages Router)
+## Usage
 ### Wrap your App in the DevCycle Higher-Order Component
 In your `_app.tsx` file, wrap the App component in the DevCycle Higher-Order Component:
 ```typescript jsx
@@ -30,6 +30,7 @@ In each page in your App where you are using DevCycle, hook up the server-side h
 configuration on the server and allow for server-side rendering using the same user data as the client:
 ```typescript jsx
 import { GetServerSideProps } from 'next'
+import { getServerSideDevCycle } from '@devcycle/nextjs-sdk/pages'
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
     // get the user identity serverside. Replace with your own function for determining your user's identity
