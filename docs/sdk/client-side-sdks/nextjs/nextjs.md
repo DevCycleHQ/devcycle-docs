@@ -7,7 +7,7 @@ import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 
 # DevCycle Next.js SDK
 
-The DevCycle Next.js SDK lets you easily integrate your Next.js web applications with DevCycle.
+The DevCycle Next.js SDK lets you easily integrate your Next.js applications with DevCycle.
 
 <CustomDocCardList items={useCurrentSidebarCategory().items} columnWidth={4} />
 
@@ -20,9 +20,9 @@ The SDK is available as a package on npm. It is also open source and can be view
 ## Features
 - full support for App Router and server components
 - keep server and client rendered content in sync with the same variable values
-- keep user data for targeting rule evaluation private on the server
 - realtime updates to variable values for both server and client components
-- support for non-blocking variable state retrieval and streaming
+- support for Suspense streaming rendering with non-blocking variable state retrieval
+- support for static page rendering
 
 ## Limitations
 - Minimum Next.js version: 14.0.5
