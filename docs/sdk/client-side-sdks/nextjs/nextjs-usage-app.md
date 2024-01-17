@@ -189,7 +189,7 @@ export const MyClientComponent = function () {
 ## Static Rendering
 The SDK also supports static rendering. To accomplish this, we provide an initialization option which disables
 features that read from dynamic request data (specifically the User Agent header).
-Pass the "staticMode" option to the setup function:
+Pass the `staticMode` option to the setup function:
 ```typescript
 export const { getVariableValue, getClientContext } = setupDevCycle(
     process.env.NEXT_PUBLIC_DEVCYCLE_CLIENT_SDK_KEY ?? '',
