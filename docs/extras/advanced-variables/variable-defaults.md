@@ -42,7 +42,7 @@ the DevCycle configuration will include the Variable values they should be serve
 However, if a user does not qualify for a Feature, the Variables it contains will not be given any values in the configuration.
 Instead, the SDK will continue to serve the default value as defined in code. 
 
-The same is true if a Feature is turned "off" in an environment. The DevCycle platform treats that Feature as essentially
+The same is true if a Feature has targeting turned "off" in an environment. The DevCycle platform treats that Feature as essentially
 having no effect on the configuration.
 
 This behaviour differs from other Feature Flagging platforms, where you often need to define a "fallback" value that 
