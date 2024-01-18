@@ -25,6 +25,7 @@ The SDK is available as a package on npm. It is also open source and can be view
 - support for static page rendering
 
 ## Limitations
-- Minimum Next.js version: 14.0.5
+- Minimum Next.js version: 14.0.0
+  - Realtime updates functionality is only available in Next.js 14.0.5 and above due to a bug in Next.js. See [usage](/sdk/client-side-sdks/nextjs/nextjs-usage-app#create-the-devcycle-context-and-export-it) for details
 - Minimum React version: 18.2
 - variable evaluations and custom events are only tracked in client components in App Router.
