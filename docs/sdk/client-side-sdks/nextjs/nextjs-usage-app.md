@@ -131,7 +131,7 @@ import { useTrack } from '@devcycle/nextjs-sdk'
 export default MyComponent = function () {
     const trackEvent = useTrack()
     return (
-        <button onClick={() => trackEvent('myEvent')}>
+        <button onClick={() => trackEvent({type: 'myEvent'})}>
             Track Event
         </button>
     )
@@ -230,8 +230,6 @@ The SDK exposes various initialization options which can be set by passing a `De
 |-----------------|---------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
 | staticMode      | Boolean                                                                                                       | Disable dynamic request features to allow the SDK to be used on statically rendered pages.          |
 | enableStreaming | Boolean                                                                                                       | Enable the SDK's streaming mode for non-blocking variable value retrieval with Suspense (advanced). |
-| logger                       | [DevCycleLogger](https://github.com/DevCycleHQ/js-sdks/blob/main/lib/shared/types/src/logger.ts#L2)           | Logger override to replace default logger                                                                      |
-| logLevel                     | [DevCycleDefaultLogLevel](https://github.com/DevCycleHQ/js-sdks/blob/main/lib/shared/types/src/logger.ts#L12) | Set log level of the default logger. Options are: `debug`, `info`, `warn`, `error`. Defaults to `info`.        |
 | eventFlushIntervalMS         | Number                                                                                                        | Controls the interval between flushing events to the DevCycle servers in milliseconds, defaults to 10 seconds. |
 | flushEventQueueSize          | Number                                                                                                        | Controls the maximum size the event queue can grow to until a flush is forced. Defaults to `100`.              |
 | maxEventQueueSize            | Number                                                                                                        | Controls the maximum size the event queue can grow to until events are dropped. Defaults to `1000`.            |
