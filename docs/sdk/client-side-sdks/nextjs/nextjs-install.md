@@ -11,8 +11,7 @@ sidebar_custom_props: { icon: material-symbols:install-desktop }
 
 ## Requirements
 
-- Minimum Next.js version: 14.0.0
-  - For App Router realtime updates functionality, 14.1 is required. See [usage](/sdk/client-side-sdks/nextjs/nextjs-usage-app) for more information.
+- Minimum Next.js version: 14.1
 - Minimum React version: 18.2
 
 ## Installation
