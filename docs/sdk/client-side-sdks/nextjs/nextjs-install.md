@@ -33,6 +33,7 @@ If using Typescript with App Router, make sure to use a version which allows for
 The following minimum package versions are required:
 - Typescript: 5.1.3
 - @types/react: 18.2.8
+
 For more details, see the [Next.js documentation](https://nextjs.org/docs/app/building-your-application/configuring/typescript#async-server-component-typescript-error)
 
 You should also set the following setting in tsconfig:
