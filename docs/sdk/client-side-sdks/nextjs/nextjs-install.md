@@ -36,7 +36,7 @@ The following minimum package versions are required:
 
 For more details, see the [Next.js documentation](https://nextjs.org/docs/app/building-your-application/configuring/typescript#async-server-component-typescript-error)
 
-You should also set the following setting in tsconfig:
+You should also set the following setting in tsconfig.json:
 ```json
 {
     "compilerOptions": {
