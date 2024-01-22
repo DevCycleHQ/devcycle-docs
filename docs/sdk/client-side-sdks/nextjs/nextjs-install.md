@@ -46,5 +46,5 @@ You should also set the following setting in `tsconfig.json`:
 }
 ```
 
-this setting is the current default for new Next.js projects, and ensures that Typescript understands imports the
+This setting is the current default for new Next.js projects, and ensures that Typescript understands imports the
 same way that the Webpack bundler does.
