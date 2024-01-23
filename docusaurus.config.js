@@ -433,7 +433,7 @@ const config = {
               rel: null,
             },
             {
-              href: 'https://www.devcycle.com/blog',
+              href: 'https://blog.devcycle.com',
               label: 'Blog',
               target: '_blank',
               rel: null,
@@ -509,7 +509,7 @@ const config = {
           items: [
             {
               label: 'Blog',
-              href: 'https://devcycle.com/company/developer-blog',
+              href: 'https://blog.devcycle.com',
             },
             //   {
             //     label: 'Status',

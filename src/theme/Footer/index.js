@@ -4,7 +4,7 @@ const navigation = {
   main: [
     { name: 'DevCycle', href: 'https://devcycle.com' },
     { name: 'Dashboard', href: 'https://app.devcycle.com' },
-    { name: 'Blog', href: 'https://devcycle.com/blog' },
+    { name: 'Blog', href: 'https://blog.devcycle.com' },
   ],
   social: [
     {
