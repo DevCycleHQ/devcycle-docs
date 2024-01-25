@@ -254,7 +254,7 @@ export const ClientComponent = () => {
 ```
 
 Now if the user is receiving a value of `true` for the variable `specialFeature`, the component's code will be 
-sent to the client. Otherwise, it will not exist in the client-code code.
+sent to the client. Otherwise, it will not exist in the client-side code.
 
 There are some restrictions to this approach that you should be aware of:
 - It can only be called in a client component file
