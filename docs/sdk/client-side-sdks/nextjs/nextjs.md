@@ -23,6 +23,7 @@ The SDK is available as a package on npm. It is also open source and can be view
 - realtime updates to variable values for both server and client components
 - support for Suspense streaming rendering with non-blocking variable state retrieval
 - support for static page rendering
+- exclude component code from client bundle when feature is disabled
 
 ## Limitations
 - Minimum Next.js version: 14.1
