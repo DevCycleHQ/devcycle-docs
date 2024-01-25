@@ -220,6 +220,49 @@ nearest `Suspense` boundary while the config is being retrieved.
 Note: The DevCycle initialization process is normally very fast (less than 50ms, less than 1ms when cached).
 Only use this option if your application is very performance sensitive.
 
+#### Conditional Deferred Rendering (renderIfEnabled)
+When a user makes a request for your application, they are sent the client bundle containing source code for the whole
+client-side application. This includes the features that they will never see because they did not qualify for the
+variable that enables it. A more efficient approach would be to never send the implementation code for those features
+at all. Doing so is especially beneficial if the feature is large. It also prevents details of unreleased or sensitive features
+from being revealed to users that aren't supposed to see them.
+
+To help with this problem, the SDK contains a small wrapper called `renderIfEnabled` which takes advantage of 
+Next.js's [dynamic imports and lazy loading](https://nextjs.org/docs/app/building-your-application/optimizing/lazy-loading).
+
+To use it:
+```typescript jsx
+'use client'
+import {
+    renderIfEnabled,
+} from '@devcycle/nextjs-sdk'
+
+const SpecialFeatureComponent = renderIfEnabled(
+    // variable key to evaluate
+    'specialFeature',
+    // import function similar to what you would pass to a Next.js `dynamic` call (see their docs)
+    () => import('./SpecialFeatureComponent'),
+)
+
+export const ClientComponent = () => {
+    return (
+        <div>
+            <SpecialFeatureComponent />
+        </div>
+    )
+}
+```
+
+Now if the user is receiving a value of `true` for the variable `specialFeature`, the component's code will be 
+sent to the client. Otherwise, it will not exist in the client-code code.
+
+There are some restrictions to this approach that you should be aware of:
+- It can only be called in a client component file
+- The dynamic import is "lazy loaded", meaning that it will not be included in the initial client bundle, and instead
+loaded afterwards by another request from the browser. The server will still render the initial content and send it,
+but the component will not be interactive until the client-side code is loaded. See the [Next.js lazy loading docs](https://nextjs.org/docs/app/building-your-application/optimizing/lazy-loading)
+for more details.
+
 ## Initialization Options
 
 The SDK exposes various initialization options which can be set by passing a `DevCycleOptions` object in the setupDevCycle method:
