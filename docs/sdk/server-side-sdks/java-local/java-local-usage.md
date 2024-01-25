@@ -16,6 +16,8 @@ The user object is required for all methods. The only required field in the user
 See the DevCycleUser class in [Java DevCycleUser model doc](https://github.com/DevCycleHQ/java-server-sdk/blob/main/docs/DevCycleUser.md) for all accepted fields.
 
 ```java
+import com.devcycle.sdk.server.common.model.DevCycleUser;
+
 DevCycleUser user = DevCycleUser.builder()
         .userId("a_user_id")
         .country("US")
@@ -43,14 +45,15 @@ If you would like to get the full Variable Object you can use `variable()` inste
 `key`, `value`, `type`, `defaultValue`, `isDefaulted`.
 
 ## Getting All Variables
-
-This method will fetch all variables for a given user and returned as Map&lt;String, Feature&gt;.
+This method will fetch all variables for a given user and return as Map&lt;String, Variable&gt;. 
 If the project configuration is unavailable, this will return an empty map.
 
 To get values from your Variables, the `value` field inside the variable object can be accessed.
 
 ```java
-Map<String, Variable> variables = client.allVariables(user);
+import com.devcycle.sdk.server.common.model.BaseVariable;
+
+Map<String, BaseVariable> variables = client.allVariables(user);
 ```
 :::caution
 
