@@ -20,7 +20,7 @@ directly from the SDK using the `getOpenFeatureProvider()` method.
 Install the OpenFeature Server SDK and DevCycle NodeJS Server SDK:
 
 ```bash
-npm install --save @devcycle/nodejs-server-sdk @openfeature/server-sdk
+npm install --save @openfeature/server-sdk @devcycle/nodejs-server-sdk
 ```
 
 ### Getting Started
