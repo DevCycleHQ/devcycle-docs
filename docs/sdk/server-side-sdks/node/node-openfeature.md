@@ -36,9 +36,9 @@ const { DEVCYCLE_SERVER_SDK_KEY } = process.env
 
 // Initialize the DevCycle SDK
 const devcycleClient = initializeDevCycle(DEVCYCLE_SERVER_SDK_KEY)
-// Set the initialzed DevCycle client as the provider for OpenFeature
-OpenFeature.setProvider(devcycleClient.getOpenFeatureProvider())
-// Get the OpenFeature client
+// Set the provider for OpenFeature from the DevCycleClient
+await OpenFeature.setProviderAndWait(devcycleClient.getOpenFeatureProvider())
+// Create the OpenFeature client
 openFeatureClient = OpenFeature.getClient()
 // Set the context for the OpenFeature client, you can use 'targetingKey' or 'user_id'
 openFeatureClient.setContext({ targetingKey: 'node_sdk_test' })
@@ -58,7 +58,7 @@ const devcycleClient = initializeDevCycle(
   DEVCYCLE_SERVER_SDK_KEY,
   options,
 )
-OpenFeature.setProvider(devcycleClient.getOpenFeatureProvider())
+await OpenFeature.setProviderAndWait(devcycleClient.getOpenFeatureProvider())
 ```
 
 ### Required TargetingKey
