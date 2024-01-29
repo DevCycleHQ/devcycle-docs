@@ -129,6 +129,15 @@ The client object can be obtained from the [useDevCycleClient](#useDevCycleClien
 
 If the SDK has not finished initializing, these methods will return an empty object.
 
+:::caution
+
+This method is intended to be used for debugging and analytics purposes, *not* as a method for retrieving the value of Variables to change code behaviour.
+For that purpose, we strongly recommend using the individual variable access method described in [Getting a Variable](#getting-a-variable)
+Using this method instead will result in no evaluation events being tracked for individual variables, and will not allow the use
+of other DevCycle features such as [Code Usage detection](/integrations/github/feature-usage-action)
+
+:::
+
 ## Track Events
 
 Events can be tracked by calling the `track` method provided by the client object, which you can access with the

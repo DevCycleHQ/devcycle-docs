@@ -7,9 +7,9 @@ DevCycle strives to ensure that all our APIs and SDKs have identical functionali
 
 **Universal**
 * [Initialization](#initialization)
+* [Evaluating Features & Using Variables](#evaluating-features--using-variables)
 * [Getting All Features](#getting-all-features)
 * [Getting All Variables](#getting-all-variables)
-* [Evaluating Features & Using Variables](#evaluating-features-&-using-variables)
 * [Identifying Users / Setting Properties](#Identifying-a-User-or-Setting-Properties)
 * [Tracking Events](#tracking-custom-events)
 
@@ -33,6 +33,30 @@ Additionally, if the SDK is interacted with before any initialization (such as a
 
 If a variable is first read from the cache and has a listener for [realtime updates](#realtime-updates), if a new value is retrieved after initialization, the `onUpdate` function will be triggered.
 
+## Evaluating Features & Using Variables
+
+This section explains how to use retrieve the Variables of a Feature as well as use their values. For information on setting up a Feature for use, read [Variables and Variations](/essentials/variables) and [Targeting Users](/essentials/targeting)
+
+Every SDK provides a method to retrieve a Variable's value. It expects to receive the unique key of the Variable, and a default value to serve in case no other value is available.
+
+A typical Variable method would look something like this:
+```typescript
+const myVariableValue = devcycleClient.variableValue('my-variable-key', 'default-value')
+```
+
+Each call to this method is tracked as an "evaluation" event. These events will be shown in the DevCycle dashboard and are used to power the analytics graphs
+that allow you to see the effects of your Variables being used.
+
+The default value will be returned in the following scenarios:
+- The SDK has not yet finished initializing and obtaining a configuration from DevCycle
+- There was an error reaching the DevCycle servers and the configuration could not be obtained
+- The variable does not exist in DevCycle
+- The default value's type does not align with the type of the variable being served from DevCycle. For example, a Boolean default value
+    will be used if the DevCycle configuration is trying to set this variable to a String value. This preserves type safety and prevents the remote
+    configuration from breaking your application at runtime.
+- The SDK has finished initializing, but the user has not been targeted for a Feature that controls this Variable
+
+For more information on how the default value is used, see [Variable Defaults](/extras/advanced-variables/variable-defaults).
 
 
 ## Getting All Features
@@ -47,20 +71,18 @@ The response is the following general format, with slight changes depending on t
     "_id": "123456",
     "key": "your-cool-feature",
     "type": "release",
-    "_variation":"333345"
+    "_variation": "333345"
   },
   "another-feature": {
     "_id": "123456",
     "key": "another-feature",
     "type": "ops",
-    "_variation":"444123"
-  },...
+    "_variation": "444123"
+  }
+}
 ```
 
-Only Features that the User has been successfully targeted for. [Targeting rules](/essentials/targeting) must be **enabled** for that environment.  
-
-Features that within the Project that have rules disabled OR the user is not Targeted for will not appear in the response of this function. 
-
+Only Features that the User has satisfied [targeting rules](/essentials/targeting) for will be returned by this function. The feature must also be **enabled** for that environment.
 
 ## Getting all Variables
 
@@ -81,20 +103,20 @@ The response is the following general format, with slight changes depending on t
     "key": "some-string-variable",
     "type": "String",
     "value": "this is a string variable value"
-  },
+  }
+}
 ```
 
-Only Variables in Features that the user has been successfully targeted for will be part of the response to this SDK. [Targeting rules](/essentials/targeting) must be **enabled** for the environment this SDK is being called on.  
+Only Variables in Features that the user has satisfied [targeting rules](/essentials/targeting) for will be part of the response in this method. The Feature must also be **enabled** for the environment this SDK is being called on.
 
-Features within the Project that have rules disabled OR the user is not Targeted for will not have their variables appear in the response of this function. 
+:::caution
 
+This method is intended to be used for debugging and analytics purposes, *not* as a method for retrieving the value of Variables to change code behaviour. 
+For that purpose, we strongly recommend using the individual variable access method described in [Evaluating Features & Using Variables](#evaluating-features--using-variables)
+Using this method instead will result in no evaluation events being tracked for individual variables, and will not allow the use
+of other DevCycle features such as [Code Usage detection](/integrations/github/feature-usage-action)
 
-
-## Evaluating Features & Using Variables
-
-This article explains how to use retrieve the Variables of a Feature as well as use their values. For information on setting up a Feature for use, read [Variables and Variations](/essentials/variables) and [Targeting Users](/essentials/targeting)
-
-If there is an error reaching DevCycle, if the requested variable does not exist, OR if the user has not been Targeted for the requested feature, the SDKs will return the default value provided to the SDK in code. In that case, the variable returned from the function will not contain the `_id` or `type` fields.
+:::
 
 ## Identifying a User or Setting Properties
 
@@ -111,7 +133,7 @@ The user data object that you should use across SDKs should look something like 
     "user_id": "user1@devcycle.com",
     "name": "user 1 name",
     "customData": {
-        "customKey": "customValue"?
+        "customKey": "customValue"
     },
     "privateCustomData": {
         "privateKey": "privateValue"
