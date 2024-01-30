@@ -25,12 +25,10 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 
 Then run `composer install`
 
-### Manual Installation
-
-Download the files and include `autoload.php`:
+Once the composer install is complete, a `vendor` folder should be generated at the root of your project. Include this at the start of your app index file:
 
 ```php
-require_once('/path/to/DevCycle/vendor/autoload.php');
+require_once(__DIR__ . '/vendor/autoload.php');
 ```
 
 ## SDK Proxy
