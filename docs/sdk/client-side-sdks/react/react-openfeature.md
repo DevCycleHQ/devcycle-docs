@@ -21,10 +21,10 @@ DevCycle provides a Javascript implementation of the OpenFeature Web Provider in
 
 ### Installation
 
-Install the OpenFeature Web SDK and DevCycle Web Provider:
+Install the OpenFeature React SDK and DevCycle Web Provider:
 
 ```bash
-npm install --save @devcycle/openfeature-web-provider @openfeature/react-sdk
+npm install --save @openfeature/react-sdk @devcycle/openfeature-web-provider 
 ```
 
 ### Getting Started
