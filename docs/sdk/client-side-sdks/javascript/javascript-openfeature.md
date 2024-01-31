@@ -23,8 +23,16 @@ DevCycle provides a Javascript implementation of the OpenFeature Web Provider in
 
 Install the OpenFeature Web SDK and DevCycle Web Provider:
 
+#### NPM
 ```bash
-npm install --save @devcycle/openfeature-web-provider @openfeature/web-sdk
+npm install --save @devcycle/openfeature-web-provider
+```
+
+#### Yarn
+If using `yarn` you will need to install peer-dependencies:
+
+```bash
+yarn add @openfeature/web-sdk @openfeature/core @devcycle/openfeature-web-provider
 ```
 
 ### Getting Started

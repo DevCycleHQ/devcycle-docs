@@ -11,6 +11,14 @@ sidebar_custom_props: { icon: material-symbols:install-desktop }
 
 Our library can be found on npm and installed by the following:
 
+#### NPM
 ```
 npm install --save @devcycle/nodejs-server-sdk
+```
+
+#### Yarn
+If using `yarn` you will need to install peer-dependencies:
+
+```bash
+yarn add @openfeature/server-sdk @openfeature/core @devcycle/nodejs-server-sdk
 ```

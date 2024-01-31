@@ -23,8 +23,16 @@ DevCycle provides a Javascript implementation of the OpenFeature Web Provider in
 
 Install the OpenFeature React SDK and DevCycle Web Provider:
 
+#### NPM
 ```bash
 npm install --save @openfeature/react-sdk @devcycle/openfeature-web-provider 
+```
+
+#### Yarn
+If using `yarn` you will need to install further peer-dependencies:
+
+```bash
+yarn add @openfeature/react-sdk @openfeature/web-sdk @openfeature/core @devcycle/openfeature-web-provider
 ```
 
 ### Getting Started
