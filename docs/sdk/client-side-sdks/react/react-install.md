@@ -32,13 +32,13 @@ To install the SDK, run the following command:
 ### npm
 
 ```bash
-    npm install --save @devcycle/react-client-sdk
+npm install --save @devcycle/react-client-sdk
 ```
 
 ### yarn
 
 ```bash
-  yarn add @devcycle/react-client-sdk
+yarn add @devcycle/react-client-sdk
 ```
 
 ### Using With Create-React-App
