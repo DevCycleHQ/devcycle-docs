@@ -60,7 +60,9 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using DevCycle.SDK.Server.Local.Api;
-using DevCycle.SDK.Server.Common;
+using DevCycle.SDK.Server.Common.API;
+using DevCycle.SDK.Server.Common.Model;
+using DevCycle.SDK.Server.Common.Model.Local;
 using Microsoft.Extensions.Logging;
 
 namespace Example {
@@ -75,7 +77,7 @@ namespace Example {
                     if (e.Success) {
                         ClientInitialized();
                     } else {
-                        Console.WriteLine($"DevCycle Client did not initialize. Error: {e.Error}");
+                        Console.WriteLine($"Client did not initialize. Errors: {e.Errors}");
                     }
                 })
                 .SetLogger(LoggerFactory.Create(builder => builder.AddConsole()))
