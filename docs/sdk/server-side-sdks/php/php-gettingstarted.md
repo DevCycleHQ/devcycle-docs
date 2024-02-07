@@ -16,23 +16,14 @@ Please follow the [installation procedure](/sdk/server-side-sdks/php/php-install
 ```php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-use DevCycle\DevCycleConfiguration;
 use DevCycle\Api\DevCycleClient;
 use DevCycle\Model\DevCycleOptions;
 use DevCycle\Model\DevCycleUser;
 
-// Configure API key authorization: bearerAuth
-$config = DevCycleConfiguration::getDefaultConfiguration()->setApiKey(
-    "Authorization",
-    getenv("DEVCYCLE_SERVER_SDK_KEY")
-);
-
-$devcycleClient = new DevCycleClient(
-    $config,
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-);
+$options = new DevCycleOptions();
+$devCycleClient = new DevCycleClient(
+    sdkKey: getenv("DEVCYCLE_SERVER_SDK_KEY"),
+    dvcOptions: $options);
 $user_data = new DevCycleUser(array(
   "user_id"=>"my-user"
 ));
