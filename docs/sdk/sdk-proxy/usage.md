@@ -44,7 +44,7 @@ use DevCycle\Model\DevCycleOptions;
 
 $options = new DevCycleOptions(
     enableEdgeDB: false, 
-    bucketingApiHostname: "hostname for sdk proxy here",
+    bucketingApiHostname: "http:/localhost",
     unixSocketPath: "/path/to/unix/socket"
 );
 ```
