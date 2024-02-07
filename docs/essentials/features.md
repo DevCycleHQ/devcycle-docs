@@ -367,7 +367,30 @@ Feature settings including name, key, and type can be changed from feature page 
 
 ---
 
+## Archving a Feature
+
+Archiving is the terminal state for Features that have reached the end of their lifecycle, were never implemented in code, or have become entirely obsolete. See [Status & Lifecyle](/essentials/status-and-lifecycle) for more information on how to manage Feature Lifecycles in DevCycle. 
+
+Upon Archive, the Feature is put into a read-only mode, and its Audit Logs are accessible and available for teams to review. All [Variables](/essentials/variables) will be archived along with the Feature *but* can be re-used and associated to other Features. All Variables in this Feature will begin to serve Default values in code.
+
+This action cannot be undone.
+
+### From the CLI
+
+*Coming Soon*
+
+### From the Dashboard
+
+To archive a Feature, either navigate to the Status section OR scroll to the very bottom of the feature page and click the `Archive` button.  You will be prompted to confirm archival of the Feature.
+
+---
+
 ## Deleting a Feature
+
+We recommended that Feature deletion only be used for mistakes, as deletion permanently removes the Feature, its Variables and its Audit Log from DevCycle. 
+
+This action cannot be undone.
+
 
 ### From the CLI
 To delete a feature for your selected project run:
@@ -384,4 +407,5 @@ You will be prompted to select a feature you would like to delete, and should be
 
 ### From the Dashboard
 
-To delete a feature scroll to the very bottom of the feature page and click the red `Delete Feature Flag` button. You will be prompted to confirm deletion.
+To delete a feature scroll to the very bottom of the feature page and click the red `Delete` button. You will be prompted to confirm deletion.
+
