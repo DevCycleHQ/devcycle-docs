@@ -29,22 +29,24 @@ Sample configurations for each SDK verified to work with the proxy are below.
 
 ### HTTP Socket Configuration
 ```php
-use DevCycle\DevCycleConfiguration;
+use DevCycle\Model\DevCycleOptions;
 
-$config = DevCycleConfiguration::getDefaultConfiguration()
-    ->setApiKey("Authorization", getenv("DEVCYCLE_SERVER_SDK_KEY"))
-    ->setHost("http://localhost:8080");
+$options = new DevCycleOptions(
+    enableEdgeDB: false, 
+    bucketingApiHostname = "hostname for sdk proxy here"
+);
 ```
 
 ### Unix Socket Configuration
 
 ```php
-use DevCycle\DevCycleConfiguration;
+use DevCycle\Model\DevCycleOptions;
 
-$config = DevCycleConfiguration::getDefaultConfiguration()
-    ->setApiKey("Authorization", getenv("DEVCYCLE_SERVER_SDK_KEY"))
-    ->setHost("http:/v1")
-    ->setUDSPath("/path/to/socket/file.sock");
+$options = new DevCycleOptions(
+    enableEdgeDB: false, 
+    bucketingApiHostname: "http:/localhost",
+    unixSocketPath: "/path/to/unix/socket"
+);
 ```
 
 
