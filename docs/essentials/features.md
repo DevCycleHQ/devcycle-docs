@@ -367,7 +367,7 @@ Feature settings including name, key, and type can be changed from feature page 
 
 ---
 
-## Archving a Feature
+## Archiving a Feature
 
 Archiving is the terminal state for Features that have reached the end of their lifecycle, were never implemented in code, or have become entirely obsolete. See [Status & Lifecyle](/essentials/status-and-lifecycle) for more information on how to manage Feature Lifecycles in DevCycle. 
 
