@@ -207,8 +207,8 @@ new configuration data.
 If you wish to rebuild your static pages when a DevCycle configuration changes, consider setting up a [DevCycle Webhook](/extras/webhooks) to
 trigger your build process.
 
-### Advanced
-#### Non-Blocking Initialization
+## Advanced
+### Non-Blocking Initialization
 If you wish to render your page without waiting for the DevCycle configuration to be retrieved, you can use the
 `enableStreaming` option. Doing so enables the following behaviour:
 - the `DevCycleClientsideProvider` will not block rendering of the rest of the server component tree and will trigger the
@@ -220,7 +220,7 @@ nearest `Suspense` boundary while the config is being retrieved.
 Note: The DevCycle initialization process is normally very fast (less than 50ms, less than 1ms when cached).
 Only use this option if your application is very performance sensitive.
 
-#### Conditional Deferred Rendering (renderIfEnabled)
+### Conditional Deferred Rendering (renderIfEnabled)
 When a user makes a request for your application, they are sent the client bundle containing source code for the whole
 client-side application. This includes the features that they will never see because they did not qualify for the
 variable that enables it. A more efficient approach would be to never send the implementation code for those features
