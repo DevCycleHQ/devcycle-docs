@@ -17,15 +17,14 @@ directly from the SDK using the `getOpenFeatureProvider()` method.
 
 ### Installation
 
-Install the OpenFeature Server SDK and DevCycle NodeJS Server SDK:
+Install the DevCycle NodeJS Server SDK and the OpenFeature Server SDK peer dependencies:
 
 #### NPM
 ```bash
-npm install --save @devcycle/nodejs-server-sdk
+npm install --save @devcycle/nodejs-server-sdk @openfeature/core @devcycle/nodejs-server-sdk
 ```
 
 #### Yarn
-If using `yarn` you will need to install peer-dependencies:
 
 ```bash
 yarn add @openfeature/server-sdk @openfeature/core @devcycle/nodejs-server-sdk
