@@ -21,13 +21,13 @@ Install the DevCycle NodeJS Server SDK and the OpenFeature Server SDK peer depen
 
 #### NPM
 ```bash
-npm install --save @devcycle/nodejs-server-sdk @openfeature/core @devcycle/nodejs-server-sdk
+npm install --save @devcycle/nodejs-server-sdk @openfeature/server-sdk @openfeature/core
 ```
 
 #### Yarn
 
 ```bash
-yarn add @openfeature/server-sdk @openfeature/core @devcycle/nodejs-server-sdk
+yarn add @devcycle/nodejs-server-sdk @openfeature/server-sdk @openfeature/core
 ```
 
 ### Getting Started
