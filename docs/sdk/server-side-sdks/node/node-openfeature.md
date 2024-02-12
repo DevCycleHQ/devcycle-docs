@@ -21,13 +21,13 @@ Install the DevCycle NodeJS Server SDK and the OpenFeature Server SDK peer depen
 
 #### NPM
 ```bash
-npm install --save @devcycle/nodejs-server-sdk @openfeature/core @devcycle/nodejs-server-sdk
+npm install --save @devcycle/nodejs-server-sdk @openfeature/server-sdk @openfeature/core
 ```
 
 #### Yarn
 
 ```bash
-yarn add @openfeature/server-sdk @openfeature/core @devcycle/nodejs-server-sdk
+yarn add @devcycle/nodejs-server-sdk @openfeature/server-sdk @openfeature/core
 ```
 
 ### Getting Started
@@ -44,7 +44,7 @@ const { DEVCYCLE_SERVER_SDK_KEY } = process.env
 // Initialize the DevCycle SDK
 const devcycleClient = initializeDevCycle(DEVCYCLE_SERVER_SDK_KEY)
 // Set the provider for OpenFeature from the DevCycleClient
-await OpenFeature.setProviderAndWait(devcycleClient.getOpenFeatureProvider())
+await OpenFeature.setProviderAndWait(await devcycleClient.getOpenFeatureProvider())
 // Create the OpenFeature client
 openFeatureClient = OpenFeature.getClient()
 // Set the context for the OpenFeature client, you can use 'targetingKey' or 'user_id'
@@ -65,7 +65,7 @@ const devcycleClient = initializeDevCycle(
   DEVCYCLE_SERVER_SDK_KEY,
   options,
 )
-await OpenFeature.setProviderAndWait(devcycleClient.getOpenFeatureProvider())
+await OpenFeature.setProviderAndWait(await devcycleClient.getOpenFeatureProvider())
 ```
 
 ### Required TargetingKey
