@@ -102,19 +102,15 @@ To get started, contact us at support@devcycle.com to enable EdgeDB for your pro
 Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to turn on EdgeDB mode for the SDK:
 
 ```php
-use DevCycle\DevCycleConfiguration;
-use DevCycle\DevCycleOptions;
-use DevCycle\Api\DevCycleClient;
 
-$config = DevCycleConfiguration::getDefaultConfiguration()->setApiKey(
-    "Authorization",
-     getenv("DEVCYCLE_SERVER_SDK_KEY")
-);
+use DevCycle\Api\DevCycleClient;
+use DevCycle\Model\DevCycleOptions;
+use DevCycle\Model\DevCycleUser;
+
 $options = new DevCycleOptions(true);
-$devcycleClient = new DevCycleClient(
-    $config,
-    dvcOptions:$options
-);
+$devCycleClient = new DevCycleClient(
+    sdkKey: getenv("DEVCYCLE_SERVER_SDK_KEY"),
+    dvcOptions: $options);
 ```
 
 ## Async Methods

@@ -17,8 +17,7 @@ npm install --save @devcycle/nodejs-server-sdk
 ```
 
 #### Yarn
-If using `yarn` you will need to install peer-dependencies:
 
 ```bash
-yarn add @openfeature/server-sdk @openfeature/core @devcycle/nodejs-server-sdk
+yarn add @openfeature/server-sdk
 ```

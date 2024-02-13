@@ -17,18 +17,17 @@ directly from the SDK using the `getOpenFeatureProvider()` method.
 
 ### Installation
 
-Install the OpenFeature Server SDK and DevCycle NodeJS Server SDK:
+Install the DevCycle NodeJS Server SDK and the OpenFeature Server SDK peer dependencies:
 
 #### NPM
 ```bash
-npm install --save @devcycle/nodejs-server-sdk
+npm install --save @devcycle/nodejs-server-sdk @openfeature/server-sdk @openfeature/core
 ```
 
 #### Yarn
-If using `yarn` you will need to install peer-dependencies:
 
 ```bash
-yarn add @openfeature/server-sdk @openfeature/core @devcycle/nodejs-server-sdk
+yarn add @devcycle/nodejs-server-sdk @openfeature/server-sdk @openfeature/core
 ```
 
 ### Getting Started
@@ -45,7 +44,7 @@ const { DEVCYCLE_SERVER_SDK_KEY } = process.env
 // Initialize the DevCycle SDK
 const devcycleClient = initializeDevCycle(DEVCYCLE_SERVER_SDK_KEY)
 // Set the provider for OpenFeature from the DevCycleClient
-await OpenFeature.setProviderAndWait(devcycleClient.getOpenFeatureProvider())
+await OpenFeature.setProviderAndWait(await devcycleClient.getOpenFeatureProvider())
 // Create the OpenFeature client
 openFeatureClient = OpenFeature.getClient()
 // Set the context for the OpenFeature client, you can use 'targetingKey' or 'user_id'
@@ -66,7 +65,7 @@ const devcycleClient = initializeDevCycle(
   DEVCYCLE_SERVER_SDK_KEY,
   options,
 )
-await OpenFeature.setProviderAndWait(devcycleClient.getOpenFeatureProvider())
+await OpenFeature.setProviderAndWait(await devcycleClient.getOpenFeatureProvider())
 ```
 
 ### Required TargetingKey
