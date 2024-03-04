@@ -1,6 +1,6 @@
 ---
 title: Engineering-Led Experiments
-sidebar_label: Experimentation
+sidebar_label: Engineering-Led Experimentation
 sidebar_position: 9
 description: Experiments engineers can conduct to mitigate risk and optimize their software
 sidebar_custom_props: { icon: material-symbols:experiment }
