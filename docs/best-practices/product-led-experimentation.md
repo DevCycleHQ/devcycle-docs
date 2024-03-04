@@ -22,9 +22,9 @@ To complete this guide, you may want to review the following topics:
 - [Feature Experimentation](/extras/metrics/feature-experimentation)
 - [Creating a Metric](/extras/metrics/creating-and-managing-metrics) and [Metric Types](/extras/metrics/creating-and-managing-metrics#types)
 
-# Conducting Experiments: A Collaborative Approach 
+## Conducting Experiments: A Collaborative Approach 
 
-In DevCycle, you can run an experiment on anything that your team has created a Feature around. This makes it simple to validate a feature quickly, iterate quickly, and at scale.  
+In DevCycle, you can run an experiment on anything that your team has wrapped a Variable around. This makes it simple to validate a feature quickly, and iterate at scale.  
 
 ## 1. Define the Experiment Structure 
 
@@ -34,11 +34,11 @@ Product managers often spearhead the creation of an experiment brief or structur
 
 - **Hypothesis**: A hypothesis should be specific, measurable, and iterative. The simplest and most effective template for hypotheses is: "By doing [X] to [Y], we expect [Z]." 
 - **Description:** Provide a high-level description of the experiment, make sure to note the location of the experiment and any relevant context.
-- **Target Audience:** Depending on your experiment, you may want to target all users or an audience defined by a[custom property](/best-practices/experimenting-with-custom-properties#what-are-custom-properties)
+- **Target Audience:** Depending on your experiment, you may want to target all users or an audience defined by a [custom property](/best-practices/experimenting-with-custom-properties#what-are-custom-properties)
     - For example, you may want to run your experiment only on users in Canada or only those that have a certain subscription tier.
 - **Variations:** Decide how many variations you wish to test and what those variations are.
     - For example, will you be testing a red checkout button versus a blue checkout button, or will you be testing a red versus a blue versus a green checkout button?
-- **Metrics:**  Determine which metrics to include in your experiment, they should be well-defined and be a direct result of the changes you are making.  
+- **Metrics:**  Determine which metrics to include in your experiment, they should be well-defined and be directly or indirectly impacted by the changes you are making.
 
 This framework provides engineers with clear guidance on what needs to be built.  Experiment briefs should be documented in detail and communicated to engineering teams through tickets or issues in project management tools like JIRA or Linear.
 
@@ -48,7 +48,7 @@ Engineers translate experiment structures into code and are often responsible fo
 
 ### Creating the Feature, Variables, & Variations:
 
-Depending on the complexity of the experiment or Feature, the engineers responsible may want to create multiple Variables. For example, engineers may want a separate flag or Variable that controls the backend logic and a separate Variable(s) that control the frontend elements. See [Feature Hierarchy](/introduction/core-concepts/feature-hierarchy) for more information.  
+Depending on the complexity of the experiment or Feature, the engineers responsible may want to create multiple Variables. For example, engineers may want a separate flag or Variable that controls the backend logic and a separate Variable(s) that control the frontend elements. See [Feature Hierarchy](/introduction/core-concepts/feature-hierarchy) for more information on how Features and Variables relate to each other. 
 
 ![Variable Table](/mar-2024-example-variable-table.png) 
 
@@ -60,9 +60,9 @@ In the example above, the two Variations are the "Base Variation" and "Spin Vari
 
 ### Events & Metrics Setup
 
-After creating the necessary variations, select the appropriate metrics for your experiment. It is best to choose metrics that directly result from the changes you are making so your data is not influenced by other factors.
+After creating the necessary Variations, select the appropriate Metrics for your experiment. It is best to choose Metrics that directly result from the changes you are making so your data is not influenced by other factors.
 
-For example, if we expect sorting search results to affect page load time significantly, we would create a Metric to track page load time and attach it to our feature.
+For example, if we expect sorting search results to affect page load time significantly, we would create a Metric to track page load time and attach it to our Feature.
 
 To calculate [Metrics](/extras/metrics/creating-and-managing-metrics), DevCycle uses custom events sent via the API or SDKs. Your team may already be passing events to DevCycle, but if not your engineering team may have to implement 
 [custom event tracking](/best-practices/engineering-led-experiments#calculating-metrics-by-tracking-events) to capture all of the data you wish to use in your experiment. 
@@ -79,11 +79,11 @@ To [apply your Metric to a Feature](/extras/metrics/creating-and-managing-metric
 
 ![Attach a Metric](/mar-2024-attach-metric.gif)
 
-If your team wishes to conduct experiment analysis outside of DevCycle, you can export experiment data to an external destination, e.g. [Google Analytics](/integrations/google-analytics-4) or [Snowflake](/integrations/snowflake) . If you want to send data elsewhere, you can also leverage the ["Get All Features"](//sdk/features#getting-all-features) function in an SDK, which will return a map of all of the features that the user is currently in based on the information the SDK or API has received. 
+If your team wishes to conduct experiment analysis outside of DevCycle, you can export experiment data to an external destination, e.g. [Google Analytics](/integrations/google-analytics-4) or [Snowflake](/integrations/snowflake) . If you want to send data elsewhere, you can also leverage the ["Get All Features"](//sdk/features#getting-all-features) function in an SDK, which will return a map of all of the Features that the user is currently in based on the information the SDK or API has received. 
 
 ### QA & Testing
 
-Product managers can still actively participate during the development process, conducting QA checks in each environment. DevCycle's [Self-Targeting feature](/extras/advanced-targeting/self-targeting), allows product managers to serve themselves different variations of features safely without altering targeting rules in each environment.
+Product managers can still actively participate during the development process, conducting QA checks in each environment. DevCycle's [Self-Targeting feature](/extras/advanced-targeting/self-targeting), allows product managers to serve themselves different Variations of Features safely without altering targeting rules in each environment.
 
 Alternatively, you can turn on the Feature/experiment in pre-prod or prod environments & **only** target internal users so your team can test the end experience for users. 
 
