@@ -1,0 +1,132 @@
+---
+title: Private Features
+sidebar_position: 1
+---
+
+Feature flags are often used to hide upcoming features before release. Normally, not showing the feature on a UI
+is enough to conceal it from users. However, in some cases it may be important to ensure that no trace of the feature
+can be found in the code which is shipped to users. This is particularly important on the web, where all the source
+code for the page can be easily seen by end-users. Even when the code is obfuscated, any strings containing text from
+the new feature will still be present in the bundle. From that, intrepid users can often infer the nature of a
+feature they can't access, which may lead to sensitive or strategic information being leaked.
+
+To prevent this, DevCycle supports a feature allowing you to obfuscate all the Variable keys used in your code in Web
+platforms (React, Next, Javascript etc.) to keep their names private. Next.js users can also take advantage of our SDK's
+[Conditional Deferred Rendering](docs/sdk/client-side-sdks/nextjs/nextjs-usage-app#conditional-deferred-rendering-renderifenabled) feature, which will strip out any source code for features the user isn't eligible for,
+reducing bundle size while also keeping the feature's details private.
+
+To use this feature, follow the setup guide below:
+
+## Requirements
+This feature is only available for web platforms. It is not available for mobile or server-side SDKs.
+The following SDKs support obfuscation:
+- Javascript
+- React
+- Next.js
+
+Using the feature requires use of the [DevCycle CLI](https://docs.devcycle.com/cli/). Follow the setup guide in the 
+CLI documentation to install it and initialize in your repository.
+
+## Setup
+In order to use obfuscation, it first must be enabled for your project. To do this, navigate to the project settings
+in the DevCycle dashboard and change "Obfuscation" to enabled.
+
+There is a corresponding setting to "require" obfuscation. If starting a DevCycle project from scratch, it is recommended
+to require obfuscation. This setting will prevent web client SDKs from making unobfuscated requests to the DevCycle API,
+ensuring that feature details remain private. If you are adding obfuscation to an existing project, you may want to
+leave this setting off until you have updated your code to use obfuscated keys.
+
+Now that the setting is enabled, the next step is to pass the `enableObfuscation` setting to your DevCycle SDK 
+initialization. This process will vary by SDK, but here is an example for React:
+```jsx
+import { withDevCycleProvider } from '@devcycle/react-client-sdk'
+function App() {
+    return <TheRestofYourApp />
+}
+export default withDevCycleProvider({ 
+    sdkKey: '<DEVCYCLE_CLIENT_SDK_KEY>', 
+    // add this setting
+    options: { enableObfuscation: true } 
+})(
+    App,
+)
+```
+
+With obfuscation enabled, the next step is to use the [DevCycle CLI](https://docs.devcycle.com/cli/) to generate a
+set of constants which correspond to your project's variable keys.
+
+To do so, run the following command:
+```bash
+dvc generate types --obfuscate
+```
+
+If using React or Next.js, add the `--react` flag:
+```bash
+dvc generate types --obfuscate --react
+```
+
+The result will be a generated file containing type definitions and constants for all your project's variables,
+with the keys obfuscated. The obfuscation process is done automatically using a key stored in your project's data, which
+is only known to the DevCycle Management API and the DevCycle CLI.
+
+An example of the generated file output you might expect when also using the `--react` flag is shown below.:
+```typescript
+// devcycleTypes.ts
+
+/*
+key: my-first-variable
+created by: Sally Smith
+created on: 2024-03-01
+*/
+export const MY_FIRST_VARIABLE = 'dvc_obfs_3499747d616cfb0ac00bda26273e3577d5508f1ecaf2f1f07a2546' as ObfuscatedKey<'my-first-variable'>
+export const useMyFirstVariable = (defaultValue: number) => useVariableValue(MY_FIRST_VARIABLE, defaultValue)
+
+/*
+key: my-second-variable
+created by: Joe Shmo
+created on: 2024-03-01
+*/
+export const MY_SECOND_VARIABLE = 'dvc_obfs_359f6c73757fe30a9950ce39333c2329915a900893b3fbf164' as ObfuscatedKey<'my-second-variable'>
+export const useMySecondVariable = (defaultValue: string) => useVariableValue(MY_SECOND_VARIABLE, defaultValue)
+```
+
+Now, in each place where a DevCycle variable is evaluated, you can use the generated constants in place of direct strings.
+The constants have been automatically assigned to the obfuscated keys, so there will be no plain strings containing
+your variable keys in code.
+
+For example:
+
+Before:
+```jsx
+import { useVariableValue } from '@devcycle/react-client-sdk'
+function MyComponent() {
+    const myFirstVariable = useVariableValue('my-first-variable', false)
+    const mySecondVariable = useVariableValue('my-second-variable', false)
+    return <div>{myFirstVariable} {mySecondVariable}</div>
+}
+```
+
+After:
+```jsx
+import { MY_FIRST_VARIABLE, MY_SECOND_VARIABLE, useVariableValue } from './devcycle'
+function MyComponent() {
+    const myFirstVariable = useVariableValue(MY_FIRST_VARIABLE, false)
+    const mySecondVariable = useMySecondVariable(MY_SECOND_VARIABLE, false)
+    return <div>{myFirstVariable} {mySecondVariable}</div>
+}
+```
+
+As long as your production build process is set up to uglify your production code, any trace of the original 
+DevCycle variable names will disappear. That's it!
+
+## Conditional Deferred Rendering
+
+Next.js users can take this a step further by also withholding any application source code that won't be used when
+a user is ineligible for a feature. This can improve page load performance while also hiding implementation details
+of features from users who shouldn't see them.
+
+To use this feature, follow the documentation for [Conditional Deferred Rendering](docs/sdk/client-side-sdks/nextjs/nextjs-usage-app#conditional-deferred-rendering).
+
+When passing the variable key to be evaluated, make sure to pass the obfuscated constant generated by the CLI.
+
+
