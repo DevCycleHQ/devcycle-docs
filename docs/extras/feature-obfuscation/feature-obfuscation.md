@@ -1,5 +1,5 @@
 ---
-title: Private Features
+title: Feature Obfuscation
 sidebar_position: 1
 ---
 
