@@ -11,7 +11,7 @@ the new feature will still be present in the bundle. From that, intrepid users c
 feature they can't access, which may lead to sensitive or strategic information being leaked.
 
 To prevent this, DevCycle supports a feature allowing you to obfuscate all the Variable keys used in your code in Web
-platforms (React, Next, Javascript etc.) to keep their names private. Next.js users can also take advantage of our SDK's
+platforms (React, Next.js, Javascript etc.) to keep their names private. Next.js users can also take advantage of our SDK's
 [Conditional Deferred Rendering](/sdk/client-side-sdks/nextjs/nextjs-usage-app#conditional-deferred-rendering-renderifenabled) feature, which will strip out any source code for features the user isn't eligible for,
 reducing bundle size while also keeping the feature's details private.
 
@@ -79,7 +79,7 @@ created by: Sally Smith
 created on: 2024-03-01
 */
 export const MY_FIRST_VARIABLE = 'dvc_obfs_3499747d616cfb0ac00bda26273e3577d5508f1ecaf2f1f07a2546' as ObfuscatedKey<'my-first-variable'>
-export const useMyFirstVariable = (defaultValue: number) => useVariableValue(MY_FIRST_VARIABLE, defaultValue)
+export const useMyFirstVariable = (defaultValue: boolean) => useVariableValue(MY_FIRST_VARIABLE, defaultValue)
 
 /*
 key: my-second-variable
@@ -87,14 +87,16 @@ created by: Joe Shmo
 created on: 2024-03-01
 */
 export const MY_SECOND_VARIABLE = 'dvc_obfs_359f6c73757fe30a9950ce39333c2329915a900893b3fbf164' as ObfuscatedKey<'my-second-variable'>
-export const useMySecondVariable = (defaultValue: string) => useVariableValue(MY_SECOND_VARIABLE, defaultValue)
+export const useMySecondVariable = (defaultValue: boolean) => useVariableValue(MY_SECOND_VARIABLE, defaultValue)
 ```
+
+The names of the constants will be automatically determined based on each variable's key. If two variable keys resolve
+to the same constant name, the CLI will append a number to the end of the constant name to avoid conflicts. The original
+variable key will be preserved in the comment above the constant, so you can identify one constant from another.
 
 Now, in each place where a DevCycle variable is evaluated, you can use the generated constants in place of direct strings.
 The constants have been automatically assigned to the obfuscated keys, so there will be no plain strings containing
-your variable keys in code.
-
-For example:
+your variable keys in code. For example:
 
 Before:
 ```jsx
@@ -111,7 +113,7 @@ After:
 import { MY_FIRST_VARIABLE, MY_SECOND_VARIABLE, useVariableValue } from './devcycle'
 function MyComponent() {
     const myFirstVariable = useVariableValue(MY_FIRST_VARIABLE, false)
-    const mySecondVariable = useMySecondVariable(MY_SECOND_VARIABLE, false)
+    const mySecondVariable = useVariableValue(MY_SECOND_VARIABLE, false)
     return <div>{myFirstVariable} {mySecondVariable}</div>
 }
 ```
