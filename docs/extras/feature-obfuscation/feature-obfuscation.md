@@ -90,6 +90,14 @@ export const MY_SECOND_VARIABLE = 'dvc_obfs_359f6c73757fe30a9950ce39333c2329915a
 export const useMySecondVariable = (defaultValue: boolean) => useVariableValue(MY_SECOND_VARIABLE, defaultValue)
 ```
 
+:::info
+The generated file also includes Typescript definitions of each variable, which allows you to make your DevCycle usage
+type-safe by enforcing the correct datatype for each variable. When using an 
+[enum schema](https://devcycle-docs-git-obfuscation-devcyclehq.vercel.app/extras/advanced-variables/variable-schemas), 
+the types will also enforce that one of the allowed values is used. For more information, see the documentation for 
+[Typescript with the Javascript SDK](/sdk/client-side-sdks/javascript/javascript-typescript)
+:::
+
 The names of the constants will be automatically determined based on each variable's key. If two variable keys resolve
 to the same constant name, the CLI will append a number to the end of the constant name to avoid conflicts. The original
 variable key will be preserved in the comment above the constant, so you can identify one constant from another.
