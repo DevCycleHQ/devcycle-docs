@@ -5,7 +5,7 @@ sidebar_position: 1
 
 Feature flags are often used to hide upcoming features before release. Normally, not showing the feature on a UI
 is enough to conceal it from users. However, in some cases it may be important to ensure that no trace of the feature
-can be found in the code which is shipped to users. This is particularly important on the web, where all the source
+can be found in the code that is shipped to users. This is particularly important on the web, where all the source
 code for the page can be easily seen by end-users. Even when the code is obfuscated, any strings containing text from
 the new feature will still be present in the bundle. From that, intrepid users can often infer the nature of a
 feature they can't access, which may lead to sensitive or strategic information being leaked.
@@ -31,8 +31,8 @@ CLI documentation to install it and initialize in your repository.
 In order to use obfuscation, it first must be enabled for your project. To do this, navigate to the project settings
 in the DevCycle dashboard and change "Obfuscation" to enabled.
 
-There is a corresponding setting to "require" obfuscation. If starting a DevCycle project from scratch, it is recommended
-to require obfuscation. This setting will prevent web client SDKs from making unobfuscated requests to the DevCycle API,
+There is a corresponding setting to "require" obfuscation. It is recommended to require obfuscation when creating a 
+new DevCycle project. This setting will prevent web client SDKs from making unobfuscated requests to the DevCycle API,
 ensuring that feature details remain private. If you are adding obfuscation to an existing project, you may want to
 leave this setting off until you have updated your code to use obfuscated keys.
 
@@ -52,7 +52,7 @@ export default withDevCycleProvider({
 )
 ```
 
-With obfuscation enabled, the next step is to use the [DevCycle CLI](https://docs.devcycle.com/cli/) to generate a
+With obfuscation enabled, you can use the [DevCycle CLI](https://docs.devcycle.com/cli/) to generate a
 set of constants which correspond to your project's variable keys.
 
 To do so, run the following command:
