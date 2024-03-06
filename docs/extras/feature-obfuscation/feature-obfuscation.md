@@ -24,6 +24,9 @@ The following SDKs support obfuscation:
 - React
 - Next.js
 
+The unobfuscated data will still be available via the mobile and server SDK tokens. If you have a need for obfuscation
+on mobile, let us know in the [community discord](https://discord.gg/pKK4fJgGxG)
+
 Using the feature requires use of the [DevCycle CLI](https://docs.devcycle.com/cli/). Follow the setup guide in the 
 CLI documentation to install it and initialize in your repository.
 
@@ -128,6 +131,19 @@ function MyComponent() {
 
 As long as your production build process is set up to uglify your production code, any trace of the original 
 DevCycle variable names will disappear. That's it!
+
+## Development Workflow and CI
+When using obfuscation, it is necessary to ensure that the generated constants are kept up to date with your project's
+set of possible variable keys. There are different ways to accomplish this depending on your specific workflow, but in
+general we recommend committing the generated `devcycleTypes` file to source control and regenerating the file when
+a new variable is added to DevCycle. To accomplish this more automatically, you can run the generator as part of a 
+command which builds and runs your code in a local environment. This will ensure that each time you run the local 
+code, the file is updated with the latest variables.
+
+### Archiving Variables
+When you archive a variable in DevCycle, it will no longer appear in the generated output from the CLI. Make sure
+that variables are no longer used in your code before archiving. 
+
 
 ## Conditional Deferred Rendering
 
