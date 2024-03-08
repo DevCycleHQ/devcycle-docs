@@ -83,7 +83,7 @@ For an experiment feature:
 5. Once it can be verified that the Variables are no longer used in any running code, the Feature on DevCycle can be
    archived
 
-## How DevCycle helps identify flags that should be removed
+## Identifying flags that should be removed
 Luckily, DevCycle includes these four feature types as a first-class concept in our platform. Every time you create a 
 new Feature, you are asked to choose which of these four types it falls under. You can then filter your features by those
 types on the dashboard to keep track of active releases, experiments etc.
@@ -97,14 +97,14 @@ see [Feature Status & Lifecycle](/essentials/status-and-lifecycle)
 The next step is to remove the feature's variables from your code, and eventually archive the feature in DevCycle
 so that it no longer appears in the list of active features.
 
-## How DevCycle helps you safely remove flags
+## Safely Removing Flags
 Once flags that should be removed are identified, the next step is to clean them out of the code. DevCycle provides
 many helpful tools to assist with this.
 
-### Code Insights
-DevCycle's Code Insights feature allows our system to analyze your source code and automatically identify places
+### Code Usages
+DevCycle's Code Usages feature allows our system to analyze your source code and automatically identify places
 where a given variable is being used. 
-The Code Insights feature can be used locally with our CLI, or as part of an integration with various source control
+The Code Usages feature can be used locally with our CLI, or as part of an integration with various source control
 systems such as Github and Bitbucket.
 
 #### Locally
@@ -151,7 +151,7 @@ the variable's value will be logically simplified, eliminating dead code paths.
 
 https://youtu.be/yIGkjdQ_Yd0
 
-## How DevCycle helps you track and organize removed flags
+## Track and Organize Removed Flags
 
 When a Variable is done its journey in DevCycle, the final step is to archive it. Doing so will hide the variable
 from most views in the dashboard, and indicates that the Variable is no longer used in your project.
