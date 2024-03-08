@@ -31,7 +31,7 @@ to be fetched from DevCycle's CDN.
 ```ruby
 begin
   # Get value of given variable by key, using default value if segmentation is not passed or variable does not exit
-  result = devcycle_client.variable_value("variable-key", user, true)
+  result = devcycle_client.variable_value(user, "variable-key", true)
   p "Received value for 'variable-key': #{result}"
 rescue
   puts "Exception when calling DevCycle::Client->variable_value"
