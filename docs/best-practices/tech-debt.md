@@ -171,7 +171,7 @@ removed.
 
 ![Completed Feature Variable Cleanup](/code-usages/completed-cleanup.png)
 
-When the dashboard indicates a dashboard is no longer used, you can now proceed to "archive" the variable, completing
+When the dashboard indicates a variable is no longer used, you can now proceed to "archive" the variable, completing
 its journey in DevCycle.
 
 ## Other ways to reduce feature flag tech debt
