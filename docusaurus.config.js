@@ -407,15 +407,8 @@ const config = {
           to: '/cli/',
         },
         {
-          type: 'dropdown',
-          label: 'Resources',
-          position: 'left',
-          items: [
-            {
-              to: '/best-practices/',
-              label: 'Best Practices',
-            },
-          ],
+          label: 'Best Practices',
+          to: '/best-practices/',
         },
         {
           type: 'dropdown',
