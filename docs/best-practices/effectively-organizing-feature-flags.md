@@ -96,7 +96,7 @@ Code References are another helpful tool to foster an organized workflow. DevCyc
 
 Each Code Reference also includes a link to the exact location of the referenced variable in your codebase, making it much easier to track variables. You can use code references to determine whether or not variables are being used in your code, or if they have fulfilled their lifecycle and are ready for removal. As a result, Code References are especially useful for cleaning up your code.
 
-For more information about tracking variable usage and when to clean up flags, read [Technical Debt - Cleaning up your unused flags](/best-practices/feature-flag-cleanup).
+For more information about tracking variable usage and when to clean up flags, read [Technical Debt - Cleaning up your unused flags](/best-practices/tech-debt).
 
 To use Code References, you must create a new Actions workflow in your GitHub repository in the .github/workflows directory. Follow our documentation [Action: Feature Flag Code Usages](/integrations/github/feature-usage-action) for steps to using the GitHub action. Once it is configured, you can find your Code References in the Variable Dashboard by clicking “View Info” on the desired variable.
 
