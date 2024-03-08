@@ -6,14 +6,15 @@ sidebar_position: 6
 sidebar_custom_props: { icon: material-symbols:cleaning-services }
 ---
 
-This article outlines practices to help minimize technical debt from feature flags. DevCycle’s code insights are a
-valuable tool in determining when to clean up your unused feature flags.
+Feature flags are a powerful tool for controlling the release of new features, running experiments, and practicing
+trunk-based development. However it's no secret that they come with trade-offs. A feature flag that is left in code
+long after it has served its purpose can become a source of technical debt. This article will discuss the risks of
+accumulating technical debt from feature flags, and how DevCycle can help you identify and remove flags that are no
+longer needed.
 
 ## Risks of technical debt
 
 Allowing tech debt to accumulate makes it significantly more difficult to maintain a system and its code.
-Scrolling through hundreds of unused flags or variables in your dashboard is inconvenient and cumbersome.
-This affects the efficiency of your dev team.
 
 One risk of tech debt is the increase in code complexity, making the system harder to maintain and test.
 For instance, if a release flag has been completely rolled out and serves “Variation On” for all users, the code for
@@ -27,6 +28,8 @@ current UI as its default while you’re still working on the new UI. Once you h
 out to all users, the flag no longer serves its purpose. Keeping the flag increases the chances of falling back to the
 old UI if the flag is accidentally turned off or if a system fails to integrate the SDK.
 
+It's therefore important to stay on top of your feature flags and remove them when they are no longer needed.
+
 ## When to remove a flag
 
 The decision to remove a flag depends on what “type” of flag it is. DevCycle believes strongly in the philosophy
@@ -34,19 +37,23 @@ described in the article **[Feature toggles (aka Feature Flags)](https://martinf
 To summarize, there are four types of flags with varying expectations of their "lifespan" and when they should be removed:
 
 **Release**
+
 A flag which controls the release of a new feature. When the feature is fully released, the flag should be removed once
 the team is confident that the feature is stable and does not need to be turned off.
 
 **Experiment**
+
 A flag which controls an A/B test between multiple possible variations. Once the results of the experiment have 
 reached statistical significance and a winning variation can be determined, the flag should be replaced with the value
 of that winner.
 
 **Ops**
+
 These flags are used to control operation aspects of the system. They are expected to be long-lived and remain in code,
 and can be used for things such as turning off optional and non-essential features in the event of high load.
 
 **Permission**
+
 These flags are used to control access to a feature based on user permissions. They are expected to be long-lived and
 remain in code, and can be used for things such as turning off features for users who do not have the correct permissions
 to access them. 
