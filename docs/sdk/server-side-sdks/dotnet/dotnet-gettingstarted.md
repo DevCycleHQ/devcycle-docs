@@ -25,7 +25,9 @@ namespace Example {
             // using ensures REST Client resources are correctly disposed once no longer required.
             using DevCycleCloudClient client = new DevCycleCloudClientBuilder()
                 .SetSDKKey("<DEVCYCLE_SERVER_SDK_KEY>")
+                .SetLogger(LoggerFactory.Create(builder => builder.AddConsole()))
                 .Build();
+
         }
     }
 }
@@ -44,8 +46,9 @@ namespace Example {
     public class Example {
         static Main(string[] args) {
             using DevCycleLocalClient client = new DevCycleLocalClientBuilder()
-                                                .SetSDKKey("<DEVCYCLE_SERVER_SDK_KEY>")
-                                                .Build();
+                .SetSDKKey("<DEVCYCLE_SERVER_SDK_KEY>")
+                .SetLogger(LoggerFactory.Create(builder => builder.AddConsole()))
+                .Build();
         }
     }
 }
