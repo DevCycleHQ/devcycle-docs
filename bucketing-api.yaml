@@ -13,7 +13,7 @@ tags:
   - name: EdgeDB
   - name: Bucketing API
   - name: Feature Opt-in
-  - name: OpenFeature Remote Evaluation API
+  - name: OpenFeature Remote Evaluation API (OFREP)
     description:
       "See the OpenFeature documentation for more information: https://github.com/open-feature/protocol"
 
@@ -250,13 +250,14 @@ paths:
         500:
           $ref: '#/components/responses/InternalServerError'
 
-  # OpenFeature Remote Evaluation API
   /ofrep/v1/evaluate/flags/{key}:
     post:
       tags:
         - OpenFeature Remote Evaluation API
+      summary:
+        OFREP Single Flag Evaluation Request
       description:
-        Single flag evaluation request, return a single flag for a user context.
+        Return a single flag for a user context
       parameters:
         - name: key
           in: path
@@ -312,8 +313,10 @@ paths:
     post:
       tags:
         - OpenFeature Remote Evaluation API
+      summary:
+        OFREP Bulk Evaluation Request
       description:
-        bulk evaluation request, return all flag values for a user context.
+        Return all flag values for a user context.
       parameters:
         - in: header
           name: If-None-Match
