@@ -14,6 +14,8 @@ tags:
   - name: Bucketing API
   - name: Feature Opt-in
   - name: OpenFeature Remote Evaluation API
+    description:
+      "See the OpenFeature documentation for more information: https://github.com/open-feature/protocol"
 
 paths:
   /v1/variables/{key}:
@@ -254,7 +256,7 @@ paths:
       tags:
         - OpenFeature Remote Evaluation API
       description:
-        OpenFeature Remote Evaluation API - single flag evaluation request
+        Single flag evaluation request, return a single flag for a user context.
       parameters:
         - name: key
           in: path
@@ -311,7 +313,7 @@ paths:
       tags:
         - OpenFeature Remote Evaluation API
       description:
-        OpenFeature Remote Evaluation API - bulk evaluation request
+        bulk evaluation request, return all flag values for a user context.
       parameters:
         - in: header
           name: If-None-Match
