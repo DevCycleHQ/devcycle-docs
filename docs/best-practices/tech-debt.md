@@ -91,7 +91,8 @@ types on the dashboard to keep track of active releases, experiments etc.
 DevCycle also includes the ability to mark a feature as "completed", which is a half-way step between being done with
 a feature and fully removing it from your code. Completion allows you to serve a single variation of the feature to all
 users and prevent further changes to its configuration. In this state, DevCycle will ensure your code continues to 
-receive the correct final state of the feature, like the "released" state of a Release-type feature. 
+receive the correct final state of the feature, like the "released" state of a Release-type feature. For more information,
+see [Feature Status & Lifecycle](/essentials/status-and-lifecycle)
 
 The next step is to remove the feature's variables from your code, and eventually archive the feature in DevCycle
 so that it no longer appears in the list of active features.
