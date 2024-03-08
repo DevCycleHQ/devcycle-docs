@@ -58,8 +58,8 @@ These flags are used to control access to a feature based on user permissions. T
 remain in code, and can be used for things such as turning off features for users who do not have the correct permissions
 to access them. 
 
-As you can see, release and experiment flags are expected to be short-lived and removed when no longer needed, whereas
-experiment and permission toggles are expected to be long-lived and remain in code.
+As you can see, Release and Experiment flags are expected to be short-lived and removed when no longer needed, whereas
+Ops and Permission flags are expected to be long-lived and remain in code.
 
 ## Lifecycle of a feature
 Features that are not expected to stay in code forever (ie. Release and Experiment features) generally go through a
