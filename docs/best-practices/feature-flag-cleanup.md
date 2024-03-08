@@ -1,30 +1,47 @@
 ---
-title: Cleaning Up Unused Flags
-sidebar_label: Flag Cleanup
+title: Managing Tech Debt by Cleaning Up Unused Flags
+sidebar_label: Managing Tech Debt
 description: Practices to help minimize technical debt from feature flags
 sidebar_position: 6
 sidebar_custom_props: { icon: material-symbols:cleaning-services }
 ---
 
-This article outlines practices to help minimize technical debt from feature flags. DevCycle’s code insights are a valuable tool in determining when to clean up your unused feature flags.
+This article outlines practices to help minimize technical debt from feature flags. DevCycle’s code insights are a 
+valuable tool in determining when to clean up your unused feature flags.
 
 ## What is technical debt?
 
-Technical debt describes the future actions required to correct the repercussions of previous short-term decisions. In other words, tech debt is what we get for sloppy code-keeping. Short-term decisions are often shortcuts in software development to hasten the delivery of a feature or project. Unfortunately, it also comes with the expense of extra rework later.
+Technical debt describes the future actions required to correct the repercussions of previous short-term decisions. 
+In other words, tech debt is what we get for sloppy code-keeping. Short-term decisions are often shortcuts in software 
+development to hasten the delivery of a feature or project. Unfortunately, it also comes with the expense of extra 
+rework later.
 
 One source of technical debt is poor maintenance of your feature flags.
 
 ## Risks of technical debt
 
-Allowing tech debt to accumulate makes it significantly more difficult to maintain a system and its code. Scrolling through hundreds of unused flags or variables in your dashboard is inconvenient and cumbersome. This affects the efficiency of your dev team.
+Allowing tech debt to accumulate makes it significantly more difficult to maintain a system and its code.
+Scrolling through hundreds of unused flags or variables in your dashboard is inconvenient and cumbersome. 
+This affects the efficiency of your dev team.
 
-One risk of tech debt is the increase in code complexity, making the system harder to maintain and test. For instance, if a release flag has been completely rolled out and serves “Variation On” for all users, the code for “Variation Off” will never get called. If you keep a dead code path for a long time, chances are that developers will forget why it existed. Developers might avoid removing it later for fear of breaking the system. Failing to remove feature flags and their variables at the appropriate time causes cluttered code.
+One risk of tech debt is the increase in code complexity, making the system harder to maintain and test.
+For instance, if a release flag has been completely rolled out and serves “Variation On” for all users, the code for 
+“Variation Off” will never get called. If you keep a dead code path for a long time, chances are that developers will 
+forget why it existed. Developers might avoid removing it later for fear of breaking the system. 
+Failing to remove feature flags and their variables at the appropriate time causes cluttered code.
 
-Another risk of technical debt with feature flags is an unintended fallback to an undesirable value. For example, if you’d like to redesign your user interface (UI), it would be typical to create a flag and have the current UI as its default while you’re still working on the new UI. Once you have completed the new UI and rolled it out to all users, the flag no longer serves its purpose. Keeping the flag increases the chances of falling back to the old UI if the flag is accidentally turned off or if a system fails to integrate the SDK.
+Another risk of technical debt with feature flags is an unintended fallback to an undesirable value. 
+For example, if you’d like to redesign your user interface (UI), it would be typical to create a flag and have the 
+current UI as its default while you’re still working on the new UI. Once you have completed the new UI and rolled it 
+out to all users, the flag no longer serves its purpose. Keeping the flag increases the chances of falling back to the 
+old UI if the flag is accidentally turned off or if a system fails to integrate the SDK.
 
 ## When to remove a flag
 
-Practicing healthy feature flag hygiene is a good way to mitigate technical debt. It is wise to consider removing a feature flag after the full release of a feature. Once you are satisfied with your feature and are ready for it to remain permanent, it may be safe to remove your flag and [its references from your code](#code-references).
+Practicing healthy feature flag hygiene is a good way to mitigate technical debt. 
+It is wise to consider removing a feature flag after the full release of a feature.
+Once you are satisfied with your feature and are ready for it to remain permanent, 
+it may be safe to remove your flag and [its references from your code](#code-references).
 
 You should also remove a flag or its variables if they are inactive or not in use. Perhaps the feature was never shipped, or it was shipped with a different flag or variable. Either way, removing it will clear the clutter in your dashboard and your code.
 
