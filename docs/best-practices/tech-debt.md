@@ -125,7 +125,7 @@ will allow you to see usages directly in your editor, and jump to the location i
 If you have the Code Insights integration set up with your source control system, you can view the same information
 directly in the DevCycle dashboard. 
 
-![Usages in Dashboard](/code-usages/usages-in-dashboard.png)
+![Usages in Dashboard](/code-usages/usage-in-dashboard.png)
 
 To set up the integration, follow the instructions for your source control provider in the [Integrations section](/integrations#code-analysis).
 
