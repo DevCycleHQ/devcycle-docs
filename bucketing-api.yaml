@@ -253,7 +253,7 @@ paths:
   /ofrep/v1/evaluate/flags/{key}:
     post:
       tags:
-        - OpenFeature Remote Evaluation API
+        - OpenFeature Remote Evaluation API (OFREP)
       summary:
         OFREP Single Flag Evaluation Request
       description:
@@ -312,7 +312,7 @@ paths:
   /ofrep/v1/evaluate/flags:
     post:
       tags:
-        - OpenFeature Remote Evaluation API
+        - OpenFeature Remote Evaluation API (OFREP)
       summary:
         OFREP Bulk Evaluation Request
       description:
