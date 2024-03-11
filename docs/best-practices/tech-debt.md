@@ -16,13 +16,13 @@ longer needed.
 
 Allowing tech debt to accumulate makes it significantly more difficult to maintain a system and its code.
 
-One risk of tech debt is the increase in code complexity, making the system harder to maintain and test.
+One risk of tech debt is the **increase in code complexity**, making the system harder to maintain and test.
 For instance, if a release flag has been completely rolled out and serves “Variation On” for all users, the code for
 “Variation Off” will never get called. If you keep a dead code path for a long time, chances are that developers will
 forget why it existed. Developers might avoid removing it later for fear of breaking the system.
 Failing to remove feature flags and their variables at the appropriate time causes cluttered code.
 
-Another risk of technical debt with feature flags is an unintended fallback to an undesirable value.
+Another risk of technical debt with feature flags is an **unintended fallback to an undesirable value**.
 For example, if you’d like to redesign your application UI, it would be typical to create a flag and have the
 current UI as its default while you’re still working on the new UI. Once you have completed the new UI and rolled it
 out to all users, the flag no longer serves its purpose. Keeping the flag increases the chances of falling back to the
@@ -67,7 +67,7 @@ similar set of lifecycle steps.
 
 For a release feature:
 1. Feature Variables are added to code and the Feature is set up in DevCycle
-2. Feature is enabled for various subsets of users throughout development
+2. Feature is enabled for particular groups of users throughout development
 3. Feature is enabled for all users when it is complete
 4. Feature is considered "complete" once it is fully released and stable, and the ability to turn it off is no longer
 necessary
@@ -104,8 +104,8 @@ many helpful tools to assist with this.
 ### Code Usages
 DevCycle's Code Usages feature allows our system to analyze your source code and automatically identify places
 where a given variable is being used. 
-The Code Usages feature can be used locally with our CLI, or as part of an integration with various source control
-systems such as Github and Bitbucket.
+The Code Usages feature can be used locally with our CLI, or as part of an [integration with various source control
+systems such as Github and Bitbucket](/integrations#code-analysis).
 
 #### Locally
 To use it locally, make sure you have the CLI [installed and configured](https://docs.devcycle.com/cli/#setup)
@@ -130,7 +130,7 @@ You can also view usages information locally using the [VSCode Extension](/integ
 will allow you to see usages directly in your editor, and jump to the location in source code.
 
 #### Source Control Integration
-If you have the Code Insights integration set up with your source control system, you can view the same information
+If you have the [Code Insights](/integrations#code-analysis) integration set up with your source control system, you can view the same information
 directly in the DevCycle dashboard. 
 
 ![Usages in Dashboard](/code-usages/usage-in-dashboard.png)
@@ -181,9 +181,10 @@ variable. This makes it easier to determine what flags are still in use. Obscure
 make it difficult to determine its importance and use. It would be incredibly burdensome to have to examine the code 
 to understand its original purpose.
 
-**Utilize the description section**. Some helpful information you might include in a feature’s description is its 
+**Use descriptions and tags**. Some helpful information you might include in a feature’s description is its 
 purpose and its variables' roles. Since you are unable to change variable keys (which is how they are identified), 
-the description is a useful place to store more variable context when necessary.
+the description is a useful place to store more variable context when necessary. Tagging can also be used to quickly
+identify and search for features that belong to a particular category.
 
 **Schedule flag reviews.** Scheduling monthly or quarterly flag reviews helps your team identify which flags should be
 retired. These reviews can even coincide with sprints that tackle other technical debt. One way to implement flag
@@ -208,6 +209,10 @@ modified to remove the variable
 ## Summary
 
 DevCycle provides many tools for taming your flags throughout your projects. 
+
 They help you determine whether flags are being used, where your variables are being referenced, and whether or not it 
 is safe to remove a flag from your code. Clean up your feature flags regularly to improve the quality of your code and 
 the efficiency of your team.
+
+Our vision is to build a feature flagging platform where managing and cleaning up flags isn't an afterthought, 
+but a core part of the experience that is deeply integrated in your workflow.
