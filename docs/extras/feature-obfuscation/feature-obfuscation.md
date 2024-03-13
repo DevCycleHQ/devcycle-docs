@@ -5,8 +5,8 @@ sidebar_position: 1
 
 Feature flags are often used to hide upcoming features before release. Normally, not showing the feature on a UI
 is enough to conceal it from users. However, in some cases it may be important to ensure that no trace of the feature
-can be found in the code that is shipped to users. This is particularly important on the web, where all the source
-code for the page can be easily seen by end-users. Even when the code is obfuscated, any strings containing text from
+can be found in the code that is shipped to users. This is particularly important on the web, where end-users can easily
+see all the source code for the page. Even when the code is obfuscated, any strings containing text from
 the new feature will still be present in the bundle. From that, intrepid users can often infer the nature of a
 feature they can't access, which may lead to sensitive or strategic information being leaked.
 
