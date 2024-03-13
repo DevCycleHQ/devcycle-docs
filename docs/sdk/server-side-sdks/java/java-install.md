@@ -1,5 +1,5 @@
 ---
-title: Java Local Server SDK Installation
+title: Java Server SDK Installation
 sidebar_label: Installation
 sidebar_position: 1
 description: Installing the SDK

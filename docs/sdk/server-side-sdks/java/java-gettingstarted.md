@@ -1,5 +1,5 @@
 ---
-title: Java Local Server SDK Getting Started
+title: Java Server SDK Getting Started
 sidebar_label: Getting Started
 sidebar_position: 2
 description: Initializing the SDK

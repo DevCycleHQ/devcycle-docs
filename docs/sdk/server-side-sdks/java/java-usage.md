@@ -1,5 +1,5 @@
 ---
-title: Java Local Server SDK Usage
+title: Java Server SDK Usage
 sidebar_label: Usage
 sidebar_position: 3
 description: Using the SDK
