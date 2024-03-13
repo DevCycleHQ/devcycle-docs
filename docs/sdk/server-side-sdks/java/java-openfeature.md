@@ -45,6 +45,8 @@ public class OpenFeatureExample {
 }
 ```
 
+**NOTE: use `DevCycleCloudClient` \ `DevCycleCloudOptions` for Cloud Bucketing mode.**
+
 ### Required Targeting Key
 
 For DevCycle SDK to work we require either a `targeting key` or `user_id` attribute to be set on the OpenFeature context.
