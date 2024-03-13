@@ -12,6 +12,8 @@ and Local Bucketing - which performs bucketing locally.
 
 ## Differences between Cloud and Local Bucketing
 
+We recommend using the Local Bucketing mode by default, as it performs fast local evaluations of your feature flags.
+If you need access to [EdgeDB](https://docs.devcycle.com/extras/edgedb) you will need to use the Cloud Bucketing mode of the SDK. 
 See [Here](/sdk/#difference-between-local-and-cloud-bucketing) for more information. 
 
 <CustomDocCardList items={useCurrentSidebarCategory().items} columnWidth={4} />
