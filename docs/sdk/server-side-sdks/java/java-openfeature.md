@@ -1,5 +1,5 @@
 ---
-title: Java Local OpenFeature Provider
+title: Java OpenFeature Provider
 sidebar_label: OpenFeature
 sidebar_position: 4
 description: How to implement the OpenFeature Provider
@@ -17,7 +17,7 @@ DevCycle provides a Java implementation of the [OpenFeature](https://openfeature
 
 ## Usage
 
-The Provider implementation is built into the Java SDK. See the [Java Local Server SDK Installation](https://docs.devcycle.com/sdk/server-side-sdks/java-local/java-local-install) documentation for more information on how to install and the SDK in your project.
+The Provider implementation is built into the Java SDK. See the [Java Server SDK Installation](https://docs.devcycle.com/sdk/server-side-sdks/java/java-local-install) documentation for more information on how to install and the SDK in your project.
 
 Start by creating and configuring the `DevCycleLocalClient`. Once the DevCycle client is configured, call the `getOpenFeatureProvider()` function to obtain the OpenFeature provider and set it into the OpenFeature API.
 
@@ -44,6 +44,8 @@ public class OpenFeatureExample {
     }
 }
 ```
+
+**NOTE: use `DevCycleCloudClient` \ `DevCycleCloudOptions` for Cloud Bucketing mode.**
 
 ### Required Targeting Key
 

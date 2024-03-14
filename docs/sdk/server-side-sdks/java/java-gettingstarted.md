@@ -1,5 +1,5 @@
 ---
-title: Java Local Server SDK Getting Started
+title: Java Server SDK Getting Started
 sidebar_label: Getting Started
 sidebar_position: 2
 description: Initializing the SDK
@@ -24,10 +24,13 @@ public class MyClass {
 }
 ```
 
+**NOTE: use `DevCycleCloudClient` for Cloud Bucketing mode.**
+
 ## Initialization Options
 
 | DevCycleLocalOptions         | Description                                                                                                                                                                  |
-| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|------------------------------| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| enableEdgeDB                 | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle. <br />NOTE: This is only available with Cloud Bucketing. |
 | configPollingIntervalMs      | Controls the polling interval in milliseconds to fetch new environment config changes, defaults to 10 seconds, minimum value is 1 second.                                    |
 | configRequestTimeoutMs       | Controls the request timeout to fetch new environment config changes, defaults to 5 seconds, must be less than the configPollingIntervalMS value, minimum value is 1 second. |
 | eventFlushIntervalMS         | Controls the interval between flushing events to the DevCycle servers, defaults to 30 seconds.                                                                               |
@@ -64,3 +67,5 @@ public class MyClass {
     }
 }
 ```
+
+**NOTE: use `DevCycleCloudOptions` \ `DevCycleCloudClient` for Cloud Bucketing mode.**

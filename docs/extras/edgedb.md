@@ -95,7 +95,7 @@ For specific documentation on how to use Edge Flags with each SDK
 
 #### Server SDKs
 - [Go SDK](/sdk/server-side-sdks/go/go-usage#edgedb)
-- [Java SDK](/sdk/server-side-sdks/java-cloud/java-cloud-usage#edgedb)
+- [Java SDK](/sdk/server-side-sdks/java/java-usage#edgedb)
 - [Node.js SDK](/sdk/server-side-sdks/node/node-usage#edgedb)
 - [PHP SDK](/sdk/server-side-sdks/php/php-usage#edgedb)
 - [Python SDK](/sdk/server-side-sdks/python/python-usage#edgedb)

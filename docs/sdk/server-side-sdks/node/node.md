@@ -7,13 +7,10 @@ import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 
 # DevCycle NodeJS Server SDK
 
-The NodeJS Server SDK for DevCycle.
+There are two modes for the SDK, Cloud bucketing (using the [Bucketing API](https://docs.devcycle.com/bucketing-api/)) and Local Bucketing.
 
-This SDK uses local bucketing to perform all user segmentation and bucketing locally in the SDK, 
-providing immediate responses to variable and feature requests for a user. 
-
-The SDK will download the latest version of your DevCycle environments configuration from a CDN on initialization,
-and will periodically poll the CDN for configuration changes.
+We recommend using the Local Bucketing mode by default, as it performs fast local evaluations of your feature flags.
+If you need access to [EdgeDB](https://docs.devcycle.com/extras/edgedb) you will need to use the Cloud Bucketing mode of the SDK.
 
 <CustomDocCardList items={useCurrentSidebarCategory().items} columnWidth={4} />
 

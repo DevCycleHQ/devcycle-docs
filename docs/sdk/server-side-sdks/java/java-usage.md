@@ -1,5 +1,5 @@
 ---
-title: Java Cloud Server SDK Usage
+title: Java Server SDK Usage
 sidebar_label: Usage
 sidebar_position: 3
 description: Using the SDK
@@ -11,25 +11,27 @@ sidebar_custom_props: { icon: material-symbols:toggle-on }
 
 ## DevCycleUser Object
 
-The user object is required for all methods. The only required field in the user object is userId
+The user object is required for all methods. The only required field in the user object is userId.
 
 See the DevCycleUser class in [Java DevCycleUser model doc](https://github.com/DevCycleHQ/java-server-sdk/blob/main/docs/DevCycleUser.md) for all accepted fields.
 
 ```java
+import com.devcycle.sdk.server.common.model.DevCycleUser;
+
 DevCycleUser user = DevCycleUser.builder()
-    .userId("a_user_id")
-    .build();
+        .userId("a_user_id")
+        .country("US")
+        .build();
 ```
 
-## Get and Use Variable By Key
+## Get and use Variable by key
 
-This method will fetch a specific variable value by key for a given user. It will return the variable
-value from the server unless an error occurs or the server has no response.
-In that case it will return a variable value with the value set to whatever was passed in as the `defaultValue` parameter.
+This method will fetch a specific variable value by key for a given user. The default value will be used in cases where
+the user is not segmented into a feature using that variable, or the project configuration is unavailable
+to be fetched from DevCycle's CDN.
 
 ```java
-Boolean variableValue = client.variableValue(user, "turn_on_super_cool_feature", true);
-
+Boolean variableValue = client.variableValue(user, "super_cool_feature", true);
 if (variableValue.booleanValue()) {
     // New Feature code here
 } else {
@@ -43,13 +45,15 @@ If you would like to get the full Variable Object you can use `variable()` inste
 `key`, `value`, `type`, `defaultValue`, `isDefaulted`.
 
 ## Getting All Variables
-
-This method will fetch all variables for a given user and returned as Map&lt;String, Feature&gt;
+This method will fetch all variables for a given user and return as Map&lt;String, Variable&gt;. 
+If the project configuration is unavailable, this will return an empty map.
 
 To get values from your Variables, the `value` field inside the variable object can be accessed.
 
 ```java
-Map<String, Variable> variables = client.allVariables(user);
+import com.devcycle.sdk.server.common.model.BaseVariable;
+
+Map<String, BaseVariable> variables = client.allVariables(user);
 ```
 :::caution
 
@@ -61,7 +65,8 @@ of other DevCycle features such as [Code Usage detection](/integrations/github/f
 :::
 ## Getting All Features
 
-This method will fetch all features for a given user and return them as `Map<String, Feature>`
+This method will fetch all features for a given user and return them as Map&lt;String, Feature&gt;.
+If the project configuration is unavailable, this will return an empty map.
 
 ```java
 Map<String, Feature> features = client.allFeatures(user);
@@ -79,10 +84,61 @@ DevCycleEvent event = DevCycleEvent.builder()
         .value(new BigDecimal(600))
         .build();
 
-DevCycleResponse response = client.track(user, event);
+client.track(user, event);
+```
+
+## Set Client Custom Data
+
+To assist with segmentation and bucketing you can set a custom data map that will be used for all variable and feature evaluations. User specific custom data will override client custom data.
+
+```java
+// create a map of custom data
+Map<String,Object> customData = new HashMap();
+customData.put("some-key", "some-value");
+
+// set the map into the DevCycle client
+client.setClientCustomData(customData);
+```
+
+## Override Logging
+
+The SDK logs to stdout by default and does not require any specific logging package. To integrate with your own logging system, such as Java Logging or SLF4J, you can create a wrapper that implements the IDevCycleLogger interface. Then you can set the logger into the Java Server SDK setting the Custom Logger property in the options object used to initialize the client.
+
+```java
+IDevCycleLogger loggingWrapper = new IDevCycleLogger() {
+    @Override
+    public void debug(String message) {
+        // Your logging implementation here
+    }
+
+    @Override
+    public void info(String message) {
+        // Your logging implementation here
+    }
+
+    @Override
+    public void warning(String message) {
+        // Your logging implementation here
+    }
+
+    @Override
+    public void error(String message) {
+        // Your logging implementation here
+    }
+
+    @Override
+    public void error(String message, Throwable throwable) {
+        // Your logging implementation here
+    }
+};
+
+// Set the logger in the options before creating the DevCycleLocalClient
+DevCycleLocalOptions options = DevCycleLocalOptions.builder().customLogger(loggingWrapper).build();
 ```
 
 ## EdgeDB
+
+**NOTE: EdgeDB is only available with Cloud Bucketing.**
 
 EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user.
 Read more about [EdgeDB](/extras/edgedb).
@@ -127,41 +183,3 @@ This will send a request to our EdgeDB API to save the custom data under the use
 In the example, Email and Country are associated to the user `test_user`.
 In your next identify call for the same `userId`, you may omit any of the data you've sent already as it will be pulled
 from the EdgeDB storage when segmenting to experiments and features.
-
-## Override Logging
-
-The SDK logs to stdout by default and does not require any specific logging package.
-To integrate with your own logging system, such as Java Logging or SLF4J, you can create a wrapper that implements the IDevCycleLogger interface.
-Then you can set the logger into the Java Server SDK setting the Custom Logger property in the options object used to initialize the client.
-
-```java
-IDevCycleLogger loggingWrapper = new IDevCycleLogger() {
-    @Override
-    public void debug(String message) {
-        // Your logging implementation here
-    }
-
-    @Override
-    public void info(String message) {
-        // Your logging implementation here
-    }
-
-    @Override
-    public void warning(String message) {
-        // Your logging implementation here
-    }
-
-    @Override
-    public void error(String message) {
-        // Your logging implementation here
-    }
-
-    @Override
-    public void error(String message, Throwable throwable) {
-        // Your logging implementation here
-    }
-};
-
-// Set the logger in the options before creating the DevCycleCloudClient
-DevCycleCloudOptions options = DevCycleCloudOptions.builder().customLogger(loggingWrapper).build();
-```
