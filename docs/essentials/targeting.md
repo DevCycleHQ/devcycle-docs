@@ -3,7 +3,8 @@ title: Targeting
 sidebar_position: 8
 ---
 
-Targeting rules can be used to grant features to specific user groups, incrementally roll out features for monitoring, or create and test different feature configurations by using [multiple variables](/essentials/variables).
+Targeting rules can be used to grant features to specific user groups, 
+incrementally roll out features for monitoring, or create and test different feature configurations.
 
 :::tip Already understand the targeting essentials?
 Be sure to check out our advanced targeting documentation which covers topics like:
@@ -13,6 +14,47 @@ Be sure to check out our advanced targeting documentation which covers topics li
 - [Rollouts](/extras/advanced-targeting/rollouts)
 - [Self-Targeting](/extras/advanced-targeting/self-targeting)
 :::
+
+## Targeting Properties
+
+Targeting works by evaluating rules you configure against the properties of a user you've identified in a DevCycle
+SDK. The properties available on a user are a combination of ones that are automatically tracked by the SDK, ones
+that you set yourself in the SDK but are built in to the platform, and custom properties that you define to extend
+the built-in Targeting properties.
+
+Below is a summary of the properties built in to the platform, and how to specify them in the SDK:
+
+| Property Name    | Purpose                                                                                | How to Set               |
+|------------------|----------------------------------------------------------------------------------------|--------------------------|
+| User ID          | Unique identifier for this user. Also used for distribution and rollout randomization. | Set "user_id" property   |
+| User Email       | Email associated to this user                                                          | Set "email" property     |
+| App Version      | Version of the application currently in use.                                           | Automatically set by SDK |
+| Platform         | Platform type (eg. Android, Web, C# etc.)                                              | Automatically set by SDK |
+| Platform Version | Platform version specific to the current platform (eg. Android OS versio)              | Automatically set by SDK |
+| Device Model     | Device model specific to the current device (eg. iPhone 12)                            | Automatically set by SDK |
+| Country          | Country the user is located in. Must be a valid 2 letter [ISO-3166 country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)      | Set "country" property   |
+
+In addition to these built-in properties, you can specify any other property that suits your needs using the
+[Custom Properties](/extras/advanced-targeting/custom-properties) feature. 
+
+Here is an example of a user object being passed to an SDK with these properties set:
+```typescript
+const user = {
+    user_id: 'user1',
+    email: 'user@example.com',
+    country: 'CA',
+    customData: {
+        isBetaUser: true,
+        subscriptionPlan: 'premium',
+    }
+}
+
+devcycleClient.identifyUser(user)
+```
+
+With properties defined and being sent from an SDK, you can now use them to create targeting rules in the DevCycle dashboard.
+
+## Defining a Targeting Rule
 
 Each targeting rule has four parts that must be set, and one optional item, as seen here:
 
@@ -89,7 +131,7 @@ The above will then satisfy the requirements of the defined situation.
 
 ---
 
-## Managing a Targeting Rule
+# Managing a Targeting Rule
 
 ### From the CLI
 
@@ -108,7 +150,7 @@ If successful you will receive a response which resembles the following (which s
       └─ enabled
 ```
 
-To enable a targetting rule for a feature, you will follow a similar process to above but using the command 
+To enable a targeting rule for a feature, you will follow a similar process to above but using the command 
 
 ```bash
 dvc targeting enable 
@@ -129,7 +171,7 @@ If successful you will receive a response which resembles the following (for ena
 ```
 
 
-To enable a targetting rule for a feature, you will follow a similar process to above but using the command 
+To enable a targeting rule for a feature, you will follow a similar process to above but using the command 
 
 ```bash
 dvc targeting disable 
@@ -153,7 +195,7 @@ If successful you will receive a response which resembles the following (for dis
 
 Targeting rules can be seen in the individual feature page by selecting the relevant environment under `Users & Targeting` in the **Manage Feature 🚩** menu on the left hand side of the screen.
 
-From here you will be able to enable or disable the specific targetting rule by clicking the `Targeting ON` toggle.
+From here you will be able to enable or disable the specific targeting rule by clicking the `Targeting ON` toggle.
 
 ---
 
@@ -286,7 +328,7 @@ Once you have chosen your relevant definition select `Continue` (twice) when pro
             └─ New Variation
 ```
 
-To enable a targetting rule for a feature, you will follow a similar process to above but using the command 
+To enable a targeting rule for a feature, you will follow a similar process to above but using the command 
 
 ```bash
 dvc targeting enable 
@@ -328,7 +370,7 @@ dvc targeting update
 
 You will be prompted to select a feature, environment and you should ensure that `targets` are selected when asked which fields you are updating.
 
-From here select `Edit Targeting Rule`, chose the relevant targetting rule you would like to update.
+From here select `Edit Targeting Rule`, chose the relevant targeting rule you would like to update.
 
 You will then be prompted to change the Name and Variation to Serve (click enter if you would like to keep these the same).
 
