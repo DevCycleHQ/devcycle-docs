@@ -34,7 +34,7 @@ Product managers often spearhead the creation of an experiment brief or structur
 
 - **Hypothesis**: A hypothesis should be specific, measurable, and iterative. The simplest and most effective template for hypotheses is: "By doing [X] to [Y], we expect [Z]." 
 - **Description:** Provide a high-level description of the experiment, make sure to note the location of the experiment and any relevant context.
-- **Target Audience:** Depending on your experiment, you may want to target all users or an audience defined by a [custom property](/best-practices/experimenting-with-custom-properties#what-are-custom-properties)
+- **Target Audience:** Depending on your experiment, you may want to target all users or an audience defined by a [custom property](/extras/advanced-targeting/custom-properties)
     - For example, you may want to run your experiment only on users in Canada or only those that have a certain subscription tier.
 - **Variations:** Decide how many variations you wish to test and what those variations are.
     - For example, will you be testing a red checkout button versus a blue checkout button, or will you be testing a red versus a blue versus a green checkout button?
