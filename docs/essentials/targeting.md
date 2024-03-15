@@ -131,7 +131,7 @@ The above will then satisfy the requirements of the defined situation.
 
 ---
 
-# Managing a Targeting Rule
+## Managing a Targeting Rule
 
 ### From the CLI
 
