@@ -3,29 +3,32 @@ title: Features and Functionality
 sidebar_position: 1
 ---
 
-DevCycle strives to ensure that all our APIs and SDKs have identical functionality (except language or platform-specific nuances). Below is a list of all the current functionality that DevCycle supports across the SDKs. 
+DevCycle strives to ensure that all our APIs and SDKs have identical functionality (except language or platform-specific nuances). Below is a list of all the current functionality that DevCycle supports across the SDKs.
 
 **Universal**
-* [Initialization](#initialization)
-* [Evaluating Features & Using Variables](#evaluating-features--using-variables)
-* [Getting All Features](#getting-all-features)
-* [Getting All Variables](#getting-all-variables)
-* [Identifying Users / Setting Properties](#Identifying-a-User-or-Setting-Properties)
-* [Tracking Events](#tracking-custom-events)
+
+- [Initialization](#initialization)
+- [Evaluating Features & Using Variables](#evaluating-features--using-variables)
+- [Getting All Features](#getting-all-features)
+- [Getting All Variables](#getting-all-variables)
+- [Identifying Users / Setting Properties](#Identifying-a-User-or-Setting-Properties)
+- [Tracking Events](#tracking-custom-events)
 
 **Limited**
-* [Custom Domains](#custom-domains)
-* [Realtime Updates](#realtime-updates)
-* [Reset User](#reset-user)
+
+- [Custom Domains](#custom-domains)
+- [Realtime Updates](#realtime-updates)
+- [Reset User](#reset-user)
 
 ## Initialization
-This section will cover how to initialize each SDK as well as explain their starting options. 
+
+This section will cover how to initialize each SDK as well as explain their starting options.
 
 #### Client-Side SDKs
 
 ##### Caching of Configurations
 
-When initialized, each client-side SDK will cache the retrieved configuration for the user. 
+When initialized, each client-side SDK will cache the retrieved configuration for the user.
 
 This cache will be used in scenarios where on subsequent initializations a new configuration is not available. This may be due to a lack of internet connection or a lack of connection to DevCycle.
 
@@ -40,28 +43,32 @@ This section explains how to use retrieve the Variables of a Feature as well as 
 Every SDK provides a method to retrieve a Variable's value. It expects to receive the unique key of the Variable, and a default value to serve in case no other value is available.
 
 A typical Variable method would look something like this:
+
 ```typescript
-const myVariableValue = devcycleClient.variableValue('my-variable-key', 'default-value')
+const myVariableValue = devcycleClient.variableValue(
+  'my-variable-key',
+  'default-value',
+)
 ```
 
 Each call to this method is tracked as an "evaluation" event. These events will be shown in the DevCycle dashboard and are used to power the analytics graphs
 that allow you to see the effects of your Variables being used.
 
 The default value will be returned in the following scenarios:
+
 - The SDK has not yet finished initializing and obtaining a configuration from DevCycle
 - There was an error reaching the DevCycle servers and the configuration could not be obtained
 - The variable does not exist in DevCycle
 - The default value's type does not align with the type of the variable being served from DevCycle. For example, a Boolean default value
-    will be used if the DevCycle configuration is trying to set this variable to a String value. This preserves type safety and prevents the remote
-    configuration from breaking your application at runtime.
+  will be used if the DevCycle configuration is trying to set this variable to a String value. This preserves type safety and prevents the remote
+  configuration from breaking your application at runtime.
 - The SDK has finished initializing, but the user has not been targeted for a Feature that controls this Variable
 
 For more information on how the default value is used, see [Variable Defaults](/extras/advanced-variables/variable-defaults).
 
-
 ## Getting All Features
 
-The "Get All Features" function in an SDK will return a map of all of the features that the user is currently in based on the information the SDK or API has received. 
+The "Get All Features" function in an SDK will return a map of all of the features that the user is currently in based on the information the SDK or API has received.
 
 The response is the following general format, with slight changes depending on the specifics of the SDK:
 
@@ -86,7 +93,7 @@ Only Features that the User has satisfied [targeting rules](/essentials/targetin
 
 ## Getting all Variables
 
-The "Get All Variables" function in an SDK will return a map of all of the Variables that the user has received from the DevCycle server based on the information the SDK or API has received. 
+The "Get All Variables" function in an SDK will return a map of all of the Variables that the user has received from the DevCycle server based on the information the SDK or API has received.
 
 The response is the following general format, with slight changes depending on the specifics of the SDK:
 
@@ -111,7 +118,7 @@ Only Variables in Features that the user has satisfied [targeting rules](/essent
 
 :::caution
 
-This method is intended to be used for debugging and analytics purposes, *not* as a method for retrieving the value of Variables to change code behaviour. 
+This method is intended to be used for debugging and analytics purposes, _not_ as a method for retrieving the value of Variables to change code behaviour.
 For that purpose, we strongly recommend using the individual variable access method described in [Evaluating Features & Using Variables](#evaluating-features--using-variables)
 Using this method instead will result in no evaluation events being tracked for individual variables, and will not allow the use
 of other DevCycle features such as [Code Usage detection](/integrations/github/feature-usage-action)
@@ -124,20 +131,20 @@ The Client-Side SDKs and Server-Side SDKs function slightly differently. This do
 
 The documentation will also cover the differences between regular data and private data.
 
-Regardless of the SDK type or the type of custom data you are looking to use, the general format of user data remains largely the same. 
+Regardless of the SDK type or the type of custom data you are looking to use, the general format of user data remains largely the same.
 
 The user data object that you should use across SDKs should look something like this:
 
 ```json
 {
-    "user_id": "user1@devcycle.com",
-    "name": "user 1 name",
-    "customData": {
-        "customKey": "customValue"
-    },
-    "privateCustomData": {
-        "privateKey": "privateValue"
-    }
+  "user_id": "user1@devcycle.com",
+  "name": "user 1 name",
+  "customData": {
+    "customKey": "customValue"
+  },
+  "privateCustomData": {
+    "privateKey": "privateValue"
+  }
 }
 ```
 
@@ -145,13 +152,13 @@ The user data object that you should use across SDKs should look something like 
 
 :::info
 
-If a user id is not supplied, client-side SDKs will automatically generate a user id and assign it to the current user. This id will be cached and used between app opens / website visits until a user id is supplied or [reset](#reset-user) is called. This will ensure you will not experience a rise in MAUs if the main experience of your application is in a logged-out or anonymous state. 
+If a user id is not supplied, client-side SDKs will automatically generate a user id and assign it to the current user. This id will be cached and used between app opens / website visits until a user id is supplied or [reset](#reset-user) is called. This will ensure you will not experience a rise in MAUs if the main experience of your application is in a logged-out or anonymous state.
 
 :::
 
 :::tip
 
-In some cases, you may be releasing a feature broadly and not to users, specifically. In these cases, you can use any string as the "user_id". A user is not expressly required, just an identifier. 
+In some cases, you may be releasing a feature broadly and not to users, specifically. In these cases, you can use any string as the "user_id". A user is not expressly required, just an identifier.
 
 :::
 
@@ -159,10 +166,9 @@ In some cases, you may be releasing a feature broadly and not to users, specific
 
 When setting custom properties you have a choice between keeping that data completely private or allowing for the data to be logged back to DevCycle's events database. Both options allow for the same targeting capabilities, but you should use Private Custom Data if you are looking to avoid having user data saved to any external system.
 
-With Private Custom Data, data is just used solely for evaluating decisions with DevCycle's Edge Workers, it is then discarded and no record is saved anywhere. 
+With Private Custom Data, data is just used solely for evaluating decisions with DevCycle's Edge Workers, it is then discarded and no record is saved anywhere.
 
-With regular Custom Data, the data used for evaluation purposes is logged back to DevCycle's events database where it can be used for debugging purposes or providing guidance on evaluation reasons. 
-
+With regular Custom Data, the data used for evaluation purposes is logged back to DevCycle's events database where it can be used for debugging purposes or providing guidance on evaluation reasons.
 
 :::info
 
@@ -174,7 +180,7 @@ With regular Custom Data, the data used for evaluation purposes is logged back t
 
 The Identify function is what is used on the Client-Side SDKs to set User IDs as well as custom properties. These SDKs are built to work in a single-user context on the device. The DevCycle Client-Side SDKs contain local storage of the current user's information for re-use with each function call. Using the Identify function will add to this storage.
 
-Any call to the Identify function will return the list of relevant Features and Variables for the User. 
+Any call to the Identify function will return the list of relevant Features and Variables for the User.
 
 If your application handles multiple users at once, simply call the Identify function with their new user object and DevCycle will retrieve that user's set of Features and Variables.
 
@@ -186,15 +192,11 @@ Unlike the Client-Side SDKs, Server-Side SDKs work in a multi-user context. Beca
 
 As well, unlike the Client-Side SDKs, because Server-Side SDKs poll for project configuration updates, updating the User object that you have set will not explicitly grab new feature configurations. The User object once set can be used to get feature, variation and variable information for a given user or entity.
 
-
-
 ## Tracking Custom Events
 
-This article serves to explain how to use the SDKs to send up custom events to DevCycle. 
+This article serves to explain how to use the SDKs to send up custom events to DevCycle.
 
 The Track function in the DevCycle SDKs allows you to send up custom events which can later be used for your own data analysis on enabled Features, and metrics on A/B tests and experiments within the DevCycle dashboard.
-
-
 
 ## Custom Domains
 
@@ -209,60 +211,61 @@ Custom Domains is an enterprise feature and requires manual setup on both your e
 :::
 
 #### Custom Certificate
+
 If you'd like to have a custom certificate for the endpoint to be used, please contact your account representative. This requires additional steps that change the flow of this process.
 
 ##### Setup Steps
 
 1. **Identifying a Hostname**
+
 - The first step involves **identifying** a hostname to use as the CNAME for DevCycle's endpoint. Provide this to DevCycle upon requesting to enable this feature. The hostname should look something like this `https://api-alias.your-domain.com`.
-    - If there is more than one service in use, each one will need a unique CNAME. This is also true for using DevCycle on multiple domains. Each domain needs its own CNAME.
+  - If there is more than one service in use, each one will need a unique CNAME. This is also true for using DevCycle on multiple domains. Each domain needs its own CNAME.
 
 2. **DNS Validation**
-Once the setup is complete, two DNS records will be provided by DevCycle and you will need to add those records to your DNS provider (TXT validation records). 
+   Once the setup is complete, two DNS records will be provided by DevCycle and you will need to add those records to your DNS provider (TXT validation records).
+
 - The first DNS record will be a TXT verification record to ensure that you own the domain that you are asking DevCycle to use as a custom hostname.
 - The second DNS record will be a TXT verification record to ensure that you have permission to create an SSL certificate for said domain. This record will conflict with any existing A/AAAA or CNAME records on the hostname and require them to be removed before adding the verification record.
 
-Once these records have been added, please let DevCycle know. 
+Once these records have been added, please let DevCycle know.
 
 3. **Additional Setup Step**
-Once validation is complete and DevCycle has confirmed the records are set properly, there may be an extra step involved here with DevCycle depending on your SDK configuration. DevCycle will let you know if this is needed.
+   Once validation is complete and DevCycle has confirmed the records are set properly, there may be an extra step involved here with DevCycle depending on your SDK configuration. DevCycle will let you know if this is needed.
 
 4. **Creating a CNAME**
-Once all steps are complete, DevCycle will send the details for the DNS CNAME. Once added, the service will be immediately available at the given hostname.
+   Once all steps are complete, DevCycle will send the details for the DNS CNAME. Once added, the service will be immediately available at the given hostname.
 
 #### SDK Implementation
 
-Once you have completed the above setup to create a CNAME, proceed in modifying your existing JS SDK initialization to include the `alias_host` start option. 
+Once you have completed the above setup to create a CNAME, proceed in modifying your existing JS SDK initialization to include the `apiProxyURL` option as per the [JS SDK Initialization Options](https://docs.devcycle.com/sdk/client-side-sdks/javascript/javascript-gettingstarted#initialization-options).
 
 **JS SDK Initialization Update**
 
-Add the `alias_host` start option and your CNAME domains
+Add the `apiProxyURL` option and your CNAME domains
 
 ```javascript
-const devcycleClient = initialize('<DVC_CLIENT_SDK_KEY>', user, {
-    alias_host: {
-        api_host: 'https://api-alias.your-domain.com'
-    }
-});
+const devcycleClient = initializeDevCycle('<DVC_CLIENT_SDK_KEY>', user, {
+  apiProxyURL: 'https://api-alias.your-domain.com',
+})
 ```
 
 After completing the steps above, users should be able to freely maneuver around AdBlockers and prevent them from blocking requests to our API servers and our SDK.
 
 If you have any questions regarding this process, please reach out to our [support](mailto:support@devcycle.com) team.
 
-
 ## Reset User
+
 This article serves to explain how to use the SDKs to quickly reset the user context on Client-Side SDKs.
 
 #### Identifying a User or Setting Properties
 
 Currently, the Identify function is only available on Client-Side SDKs. These SDKs are built to work in a single-user context on the device. The DevCycle Client-Side SDKs contain local storage of the current user's information for re-use with each function call. Using the Identify function will add to this storage. Using this function will completely reset the current user in context.
 
-
 ## Realtime Updates
+
 This article serves to explain how the SDKs handle realtime updates triggered by changes to your features from the DevCycle dashboard.
 
-DevCycle leverages Server-Sent Events (SSE) to notify the SDKs that their config has changed and that they should fetch a new config. When a change 
+DevCycle leverages Server-Sent Events (SSE) to notify the SDKs that their config has changed and that they should fetch a new config. When a change
 to a feature (targeting rules, variable values, etc.) has been saved, our servers send an SSE to anyone subscribed to that project and trigger the SDK to request a new config from DevCycle.
 
 #### Client-Side SDK
