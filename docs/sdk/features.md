@@ -237,16 +237,29 @@ Once these records have been added, please let DevCycle know.
 
 #### SDK Implementation
 
-Once you have completed the above setup to create a CNAME, proceed in modifying your existing JS SDK initialization to include the `apiProxyURL` option as per the [JS SDK Initialization Options](https://docs.devcycle.com/sdk/client-side-sdks/javascript/javascript-gettingstarted#initialization-options).
+Once you have completed the above setup to create a CNAME, proceed in modifying your existing SDK initialization to include the `apiProxyURL` initialization option.
 
 **JS SDK Initialization Update**
 
-Add the `apiProxyURL` option and your CNAME domains
+Add the `apiProxyURL` option and your CNAME domains as per the [JS SDK Initialization Options](https://docs.devcycle.com/sdk/client-side-sdks/javascript/javascript-gettingstarted#initialization-options).
 
 ```javascript
 const devcycleClient = initializeDevCycle('<DVC_CLIENT_SDK_KEY>', user, {
   apiProxyURL: 'https://api-alias.your-domain.com',
 })
+```
+
+**iOS SDK Initialization Update**
+
+Add the `apiProxyURL` option and your CNAME domains as per the [iOS SDK DevCycle Options Builder](https://docs.devcycle.com/sdk/client-side-sdks/ios/ios-gettingstarted#devcycleoptions-builder).
+
+```swift
+let options = DevCycleOptions.builder().apiProxyURL("https://api-alias.your-domain.com").build()
+let client =  try? DevCycleClient.builder()
+            .sdkKey("<DEVCYCLE_SDK_KEY>")
+            .user(user!)
+            .options(options)
+            .build(onInitialized: nil)
 ```
 
 After completing the steps above, users should be able to freely maneuver around AdBlockers and prevent them from blocking requests to our API servers and our SDK.
