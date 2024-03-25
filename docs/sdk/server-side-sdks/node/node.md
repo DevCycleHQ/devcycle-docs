@@ -14,7 +14,7 @@ If you need access to [EdgeDB](https://docs.devcycle.com/extras/edgedb) you will
 
 <CustomDocCardList items={useCurrentSidebarCategory().items} columnWidth={4} />
 
-The SDK is available as a package on NPM, will a full Typescript interface. 
+The SDK is available as a package on NPM, with a full Typescript interface. 
 It is also open source and can be viewed on the [DevCycle GitHub](https://github.com/DevCycleHQ/js-sdks/tree/main/sdk/nodejs).
 
 [![Npm package version](https://badgen.net/npm/v/@devcycle/nodejs-server-sdk)](https://www.npmjs.com/package/@devcycle/nodejs-server-sdk)
