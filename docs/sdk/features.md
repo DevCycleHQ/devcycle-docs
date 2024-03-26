@@ -127,7 +127,8 @@ of other DevCycle features such as [Code Usage detection](/integrations/github/f
 
 ## Identifying a User or Setting Properties
 
-The Client-Side SDKs and Server-Side SDKs function slightly differently. This documentation will cover all of the information needed to set user data and custom properties on both types of SDKs.
+The Client-Side SDKs and Server-Side SDKs function slightly differently. 
+This documentation will cover all of the information needed to set user data and custom properties on both types of SDKs.
 
 The documentation will also cover the differences between regular data and private data.
 
