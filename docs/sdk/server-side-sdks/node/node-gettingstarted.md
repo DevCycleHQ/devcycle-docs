@@ -37,7 +37,7 @@ const devcycleClient = await initializeDevCycle(
 
 The SDK exposes various initialization options which can be set on the `initialization()` method:
 
-[DevCycleOptions Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L43)
+[DevCycleOptions Typescript Schema](https://github.com/search?q=repo%3ADevCycleHQ%2Fjs-sdks+export+interface+DevCycleOptions+language%3ATypeScript+path%3A*types.ts&type=code)
 
 ```javascript
 const devcycleClient = await DevCycle.initializeDevCycle(

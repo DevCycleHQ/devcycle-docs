@@ -50,7 +50,7 @@ const devcycleClient = initializeDevCycle(
 
 ## DevCycleUser Object
 
-[DevCycleUser Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts)
+[DevCycleUser Typescript Schema](https://github.com/search?q=repo%3ADevCycleHQ%2Fjs-sdks+export+interface+DevCycleUser+language%3ATypeScript+path%3A*types.ts&type=code)
 
 | Property          | Type    | Description                                                                                                     |
 | ----------------- | ------- | --------------------------------------------------------------------------------------------------------------- |
@@ -69,7 +69,7 @@ const devcycleClient = initializeDevCycle(
 
 The SDK exposes various initialization options which can be set on the `initialization()` method:
 
-[DevCycleOptions Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L44)
+[DevCycleOptions Typescript Schema](https://github.com/search?q=repo%3ADevCycleHQ%2Fjs-sdks+export+interface+DevCycleOptions+language%3ATypeScript+path%3A*types.ts&type=code)
 
 | DevCycle Option              | Type                                                                                                     | Description                                                                                                    |
 | ---------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |

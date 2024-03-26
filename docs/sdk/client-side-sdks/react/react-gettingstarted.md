@@ -114,7 +114,7 @@ export default withDevCycleProvider({
 
 The `withDevCycleProvider` function accepts a Provider Config object:
 
-[DevCycle ProviderConfig Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/react/src/types.ts#L3)
+[DevCycle ProviderConfig Typescript Schema](https://github.com/search?q=repo%3ADevCycleHQ%2Fjs-sdks+export+type+ProviderConfig+language%3ATypeScript+path%3A*types.ts&type=code)
 
 | Property | Type                                                                                       | Description            |
 | -------- | ------------------------------------------------------------------------------------------ | ---------------------- |
@@ -126,7 +126,7 @@ The `withDevCycleProvider` function accepts a Provider Config object:
 
 The SDK exposes various initialization options which can be set by passing a `DevCycleOptions` object in the Provider Config:
 
-[DevCycleOptions Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L44)
+[DevCycleOptions Typescript Schema](https://github.com/search?q=repo%3ADevCycleHQ%2Fjs-sdks+export+interface+DevCycleOptions+language%3ATypeScript+path%3A*types.ts&type=code)
 
 | DevCycle Option              | Type                                                                                                          | Description                                                                                                    |
 | ---------------------------- | ------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |

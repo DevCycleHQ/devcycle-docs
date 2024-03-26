@@ -41,7 +41,7 @@ To use the [decorators](/sdk/server-side-sdks/nestjs/nestjs-usage#decorators) pr
 The `userFactory` is a function which accepts the current `ExecutionContext` as a parameter and returns a DevCycle User object.
 The user factory will be evaluated as a global interceptor, and the resulting user will be used when evaluating variables with the `@VariableValue` and `@RequireVariableValue` decorators.
 
-[DevCycleUser Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L130)
+[DevCycleUser Typescript Schema](https://github.com/search?q=repo%3ADevCycleHQ%2Fjs-sdks+export+interface+DevCycleUser+language%3ATypeScript+path%3A*types.ts&type=code)
 
 ```typescript
 import { DevCycleModule } from '@devcycle/nestjs-server-sdk'
