@@ -19,5 +19,5 @@ npm install --save @devcycle/nodejs-server-sdk
 #### Yarn
 
 ```bash
-yarn add @openfeature/server-sdk
+yarn add @devcycle/nodejs-server-sdk
 ```

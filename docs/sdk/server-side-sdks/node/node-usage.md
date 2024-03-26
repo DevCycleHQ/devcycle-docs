@@ -14,7 +14,7 @@ sidebar_custom_props: { icon: material-symbols:toggle-on }
 The full user data must be passed into every method. The only required field is the `user_id`.
 The rest are optional and are used by the system for user segmentation into variables and features.
 
-[DevCycleUser Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L130)
+[DevCycleUser Typescript Schema](https://github.com/search?q=repo%3ADevCycleHQ%2Fjs-sdks+export+interface+DevCycleUser+language%3ATypeScript+path%3A*types.ts&type=code)
 
 ```javascript
 const user = {
@@ -43,7 +43,7 @@ if (value) {
 
 The default value can be of type string, boolean, number, or object.
 
-If you would like to get the full Variable object defined by [DVCVariable Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L192)
+If you would like to get the full Variable object defined by [DVCVariable Typescript Schema](https://github.com/search?q=repo%3ADevCycleHQ%2Fjs-sdks+export+interface+DVCVariable%3C+language%3ATypeScript+path%3A*types.ts&type=code)
 you can use `devcycleClient.variable()` instead. This contains fields such as:
 `key`, `value`, `type`, `defaultValue`, `isDefaulted`.
 
@@ -70,7 +70,7 @@ of other DevCycle features such as [Code Usage detection](/integrations/github/f
 
 You can fetch all segmented features for a user:
 
-[DVCFeature Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L29)
+[DVCFeature Typescript Schema](https://github.com/search?q=repo%3ADevCycleHQ%2Fjs-sdks+%22export+type+DVCFeature%22+language%3ATypeScript+path%3A*types.ts&type=code)
 
 ```javascript
 const features = devcycleClient.allFeatures(user)
@@ -84,7 +84,7 @@ Track a custom event for a user, pass in the user and event object.
 
 Calling Track will queue the event, which will be sent in batches to the DevCycle servers.
 
-[DevCycleEvent Typescript Schema](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L229)
+[DevCycleEvent Typescript Schema](https://github.com/search?q=repo%3ADevCycleHQ%2Fjs-sdks+export+interface+DevCycleEvent+language%3ATypeScript+path%3A*types.ts&type=code)
 
 ```typescript
 const event: DevCycleEvent = {
