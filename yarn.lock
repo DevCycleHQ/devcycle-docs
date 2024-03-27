@@ -2477,21 +2477,12 @@
     "@types/history" "^4.7.11"
     "@types/react" "*"
 
-"@types/react@*":
-  version "17.0.69"
-  resolved "https://registry.npmjs.org/@types/react/-/react-17.0.69.tgz"
+"@types/react@*", "@types/react@^18.2.72":
+  version "18.2.72"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.2.72.tgz#3341a6d0746d1c7d8510810319323850c04bd6ed"
+  integrity sha512-/e7GWxGzXQF7OJAua7UAYqYi/4VpXEfbGtmYQcAQwP3SjjjAXfybTf/JK5S+SaetB/ChXl8Y2g1hCsj7jDXxcg==
   dependencies:
     "@types/prop-types" "*"
-    "@types/scheduler" "*"
-    csstype "^3.0.2"
-
-"@types/react@^18.2.29":
-  version "18.2.36"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.2.36.tgz#bc68ffb4408e5d0c419b0760b2eaeec70aeeedb3"
-  integrity sha512-o9XFsHYLLZ4+sb9CWUYwHqFVoG61SesydF353vFMMsQziiyRu8np4n2OYMUSDZ8XuImxDr9c5tR7gidlH29Vnw==
-  dependencies:
-    "@types/prop-types" "*"
-    "@types/scheduler" "*"
     csstype "^3.0.2"
 
 "@types/retry@0.12.0":
@@ -2503,10 +2494,6 @@
   resolved "https://registry.npmjs.org/@types/sax/-/sax-1.2.6.tgz"
   dependencies:
     "@types/node" "*"
-
-"@types/scheduler@*":
-  version "0.16.5"
-  resolved "https://registry.npmjs.org/@types/scheduler/-/scheduler-0.16.5.tgz"
 
 "@types/send@*":
   version "0.17.3"
