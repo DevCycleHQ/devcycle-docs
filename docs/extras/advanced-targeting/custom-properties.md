@@ -82,7 +82,7 @@ There are two additional fields when creating a Custom Property at the bottom of
 
 This field is only for _changing the property's name in the DevCycle UI_. 
 This can be useful when handling properties with extremely long or auto-generated names. 
-The property _key_ is what will be used for all matching while bucketing users.
+The property _key_ is what will be used for matching while bucketing users.
 
 **DevCycle Key**
 
