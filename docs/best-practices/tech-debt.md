@@ -49,7 +49,7 @@ of that winner.
 
 **Ops**
 
-These flags are used to control operation aspects of the system. They are expected to be long-lived and remain in code,
+These flags are used to control operational aspects of the system. They are expected to be long-lived and remain in code,
 and can be used for things such as turning off optional and non-essential features in the event of high load.
 
 **Permission**
@@ -67,34 +67,34 @@ similar set of lifecycle steps.
 
 For a release feature:
 1. Feature Variables are added to code and the Feature is set up in DevCycle
-2. Feature is enabled for particular groups of users throughout development
-3. Feature is enabled for all users when it is complete
-4. Feature is considered "complete" once it is fully released and stable, and the ability to turn it off is no longer
+2. The Feature is enabled for particular groups of users throughout development
+3. The Feature is enabled for all users when it is complete
+4. The Feature is considered "complete" once it is fully released and stable, and the ability to turn it off is no longer
 necessary
-5. Feature's Variables are removed from code
+5. The Feature's Variables are removed from code
 6. Once it can be verified that the Variables are no longer used in any running code, the Feature on DevCycle can be 
 archived
 
 For an experiment feature:
 1. Feature Variables are added to code and the Feature is set up in DevCycle
-2. Feature is enabled for a subset of users that are part of the experiment
-3. Feature is considered "complete" once it has reached statistical significance, and the winning variation can be determined.
-4. Feature's Variables are removed from code and replaced with the winning variation's values
+2. The Feature is enabled for a subset of users that are part of the experiment
+3. The Feature is considered "complete" once it has reached statistical significance, and the winning variation can be determined
+4. The Feature's Variables are removed from code and replaced with the winning variation's values
 5. Once it can be verified that the Variables are no longer used in any running code, the Feature on DevCycle can be
    archived
 
 ## Identifying Flags that should be Removed
-Luckily, DevCycle includes these four feature types as a first-class concept in our platform. Every time you create a 
+Luckily, DevCycle includes these four Feature Types as a first-class concept in our platform. Every time you create a 
 new Feature, you are asked to choose which of these four types it falls under. You can then filter your Features by those
 types on the dashboard to keep track of active releases, experiments etc.
 
-DevCycle also includes the ability to mark a feature as "completed", which is a half-way step between being done with
-a feature and fully removing it from your code. Completion allows you to serve a single variation of the feature to all
+DevCycle also includes the ability to mark a Feature as "completed", which is a half-way step between being done with
+a Feature and fully removing it from your code. Completion allows you to serve a single Variation of the Feature to all
 users and prevent further changes to its configuration. In this state, DevCycle will ensure your code continues to 
-receive the correct final state of the feature, like the "released" state of a Release-type feature. For more information,
+receive the correct final state of the Feature, like the "released" state of a Release-type Feature. For more information,
 see [Feature Status & Lifecycle](/essentials/status-and-lifecycle)
 
-The next step is to remove the Feature's Variables from your code, and eventually archive the feature in DevCycle
+The next step is to remove the Feature's Variables from your code, and eventually archive the Feature in DevCycle
 so that it no longer appears in the list of active Features.
 
 ## Safely Removing Flags
@@ -123,7 +123,7 @@ This will output a list like the following:
 	- src/components/layouts/DashboardLayout/DashboardComponents.tsx:L173
 ```
 
-Look for the variable you're trying to remove to identify all the places where its usage was detected.
+Look for the Variable you're trying to remove to identify all the places where its usage was detected.
 
 #### VSCode Extension
 You can also view usages information locally using the [VSCode Extension](/integrations/vscode-extension). Setting it up
