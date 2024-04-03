@@ -373,6 +373,13 @@ const config = {
         srcDark: 'devcycle-docs-white.svg',
       },
       items: [
+          {
+              type: 'doc',
+              docId: 'index',
+              position: 'left',
+              collapse: 'false',
+              label: 'Home',
+          },
         {
           type: 'doc',
           docId: 'sdk/index',
