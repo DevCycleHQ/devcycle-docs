@@ -65,7 +65,7 @@ Ops and Permission flags are expected to be long-lived and remain in code.
 Features that are not expected to stay in code forever (ie. Release and Experiment Features) generally go through a
 similar set of lifecycle steps.
 
-For a release feature:
+For a release Feature:
 1. Feature Variables are added to code and the Feature is set up in DevCycle
 2. The Feature is enabled for particular groups of users throughout development
 3. The Feature is enabled for all users when it is complete
@@ -75,7 +75,7 @@ necessary
 6. Once it can be verified that the Variables are no longer used in any running code, the Feature on DevCycle can be 
 archived
 
-For an experiment feature:
+For an experiment Feature:
 1. Feature Variables are added to code and the Feature is set up in DevCycle
 2. The Feature is enabled for a subset of users that are part of the experiment
 3. The Feature is considered "complete" once it has reached statistical significance, and the winning variation can be determined
@@ -103,13 +103,13 @@ many helpful tools to assist with this.
 
 ### Code Usages
 DevCycle's Code Usages feature allows our system to analyze your source code and automatically identify places
-where a given variable is being used. 
+where a given Variable is being used. 
 The Code Usages feature can be used locally with our CLI, or as part of an [integration with various source control
 systems such as Github and Bitbucket](/integrations#code-analysis).
 
 #### Locally
 To use it locally, make sure you have the CLI [installed and configured](https://docs.devcycle.com/cli/#setup)
-You can then run the following command to list places in your code where a DevCycle variable is used:
+You can then run the following command to list places in your code where a DevCycle Variable is used:
 ```bash
 dvc usages 
 ```
@@ -145,7 +145,7 @@ Our CLI provides the functionality of removing all instances of a feature flag a
 
 The `dvc cleanup` command scans your code for all instances of a DevCycle Variable through the provided key.
 All evaluations are changed directly to the value provided, and any logic such as `if` statements that were checking
-the variable's value will be logically simplified, eliminating dead code paths.
+the Variable's value will be logically simplified, eliminating dead code paths.
 
 #### Demo Video
 
@@ -153,16 +153,16 @@ https://youtu.be/yIGkjdQ_Yd0
 
 ## Track and Organize Removed Flags
 
-When a Variable is done its journey in DevCycle, the final step is to archive it. Doing so will hide the variable
+When a Variable is done its journey in DevCycle, the final step is to archive it. Doing so will hide the Variable
 from most views in the dashboard, and indicates that the Variable is no longer used in your project.
 
 ### Feature Flag Usage Detection
-The DevCycle dashboard can tell you when a variable is no longer used by your application and is safe to archive in the platform.
+The DevCycle dashboard can tell you when a Variable is no longer used by your application and is safe to archive in the platform.
 It does this by combining two sources of information:
 - usages in code, detected by the Code Insights tooling described above
 - evaluation events automatically collected by the SDK
 
-These pieces of information will give you a clear picture of whether a variable is still referenced in your code, and 
+These pieces of information will give you a clear picture of whether a Variable is still referenced in your code, and 
 whether it is still being evaluated in your application.
 
 When you mark a Feature as "complete" in DevCycle, the dashboard will show you a list of all the Variables used by that
@@ -171,7 +171,7 @@ removed.
 
 ![Completed Feature Variable Cleanup](/code-usages/completed-cleanup.png)
 
-When the dashboard indicates a variable is no longer used, you can now proceed to "archive" the variable, completing
+When the dashboard indicates a Variable is no longer used, you can now proceed to "archive" the Variable, completing
 its journey in DevCycle.
 
 ## Other Ways to Reduce Feature Flag Tech Debt
@@ -182,8 +182,8 @@ make it difficult to determine its importance and use. It would be incredibly bu
 to understand its original purpose.
 
 **Use descriptions and tags**. Some helpful information you might include in a Feature’s description is its 
-purpose and its Variables' roles. Since you are unable to change variable keys (which is how they are identified), 
-the description is a useful place to store more variable context when necessary. Tagging can also be used to quickly
+purpose and its Variables' roles. Since you are unable to change Variable keys (which is how they are identified), 
+the description is a useful place to store more Variable context when necessary. Tagging can also be used to quickly
 identify and search for Features that belong to a particular category.
 
 **Schedule flag reviews.** Scheduling monthly or quarterly flag reviews helps your team identify which flags should be
@@ -196,15 +196,17 @@ CI builds with a so-called 'time bomb' when a flag that is known to be obsolete 
 This can be accomplished through a combination of the CLI's `usages` command and calls to the DevCycle API to get a
 list of the Variables that are present in "completed" Features. 
 
+For more organizational tips, see [Keeping Track of Feature Flags](/best-practices/effectively-organizing-feature-flags)
+
 ## Putting it all Together
 With the full set of integrations described here all set up, an end-to-end flow of keeping on top of your unused
 flags emerges:
-1. When a feature is complete, mark it as such in DevCycle
-2. View the list of Variables in the completed feature to see which ones are still in use
+1. When a Feature is complete, mark it as such in DevCycle
+2. View the list of Variables in the completed Feature to see which ones are still in use
 3. Use the Code Usages detection via the CLI, VSCode extension, or dashboard to identify places in code that need to be
-modified to remove the variable
-4. Remove the variable from code, or if using Javascript, use the `dvc cleanup` command to do it automatically
-5. If the dashboard reports that the variable is no longer used, archive it in DevCycle.
+modified to remove the Variable
+4. Remove the Variable from code, or if using Javascript, use the `dvc cleanup` command to do it automatically
+5. If the dashboard reports that the Variable is no longer used, archive it in DevCycle.
 
 ## Summary
 
