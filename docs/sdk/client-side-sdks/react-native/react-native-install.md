@@ -110,7 +110,7 @@ A complete working example of an `App.jsx` file is below:
 
 ```jsx
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text } from "docs/sdk/client-side-sdks/react-native/react-native.mdx";
 
 import "react-native-get-random-values";
 import DeviceInfo from "react-native-device-info";
@@ -118,6 +118,7 @@ import "@react-native-async-storage/async-storage";
 import { withDevCycleProvider } from "@devcycle/react-native-client-sdk";
 
 global.DeviceInfo = DeviceInfo;
+
 function App() {
   return (
     <View

@@ -2,16 +2,32 @@
 title: DevCycle Feature Flag Management for Jira
 ---
 
-import CustomDocCardList from '@site/src/components/CustomDocCardList' import {useCurrentSidebarCategory} from
-'@docusaurus/theme-common';
+import CustomDocCardList from "@site/src/components/CustomDocCardList";
+import { useCurrentSidebarCategory } from "@docusaurus/theme-common";
 
 ### Setup
 
-<CustomDocCardList columnWidth={6} items={[ { type: 'link', href:
-'https://marketplace.atlassian.com/apps/1227643/devcycle-feature-flag-management-for-jira', label: 'Jira Marketplace
-Listing', description: 'Install DevCycle Feature Flag Management for Jira', iconSet: 'fab', icon:'jira' }, { type:
-'link', href: '/integrations/jira/jira-setup', label: 'Jira Integration Setup', description: 'Setup DevCycle Feature
-Flag Management for Jira', iconSet: 'fab', icon:'jira' }]} />
+<CustomDocCardList
+  columnWidth={6}
+  items={[
+    {
+      type: "link",
+      href: "https://marketplace.atlassian.com/apps/1227643/devcycle-feature-flag-management-for-jira",
+      label: "Jira Marketplace Listing",
+      description: "Install DevCycle Feature Flag Management for Jira",
+      iconSet: "fab",
+      icon: "jira",
+    },
+    {
+      type: "link",
+      href: "/integrations/jira/jira-setup",
+      label: "Jira Integration Setup",
+      description: "Setup DevCycle Feature Flag Management for Jira",
+      iconSet: "fab",
+      icon: "jira",
+    },
+  ]}
+/>
 
 DevCycle for Jira streamlines your workflow by enabling the linking of Jira tickets directly to features within
 DevCycle, making the feature status easily viewable within Jira.
@@ -51,14 +67,20 @@ that each DevCycle project can only be connected to a single Jira project.
 
 <details>
   <summary>
- <b><i className="fas fa-arrows-alt"></i> Contributing to DevCycle or creating a new Integration:</b>
+    <b>
+      <i className="fas fa-arrows-alt"></i> Contributing to DevCycle or creating a new Integration:
+    </b>
   </summary>
-  <div>     
+  <div>
     <p>
-    If you would like to contribute to an existing integration or tool, all of DevCycle's tools and integrations  are <a href="https://github.com/devcycleHQ">open source on the DevCycle github repository.</a>
-</p>
-<p>
- Further, if you'd like to create a new tool or integration, a great starting point is <a href="/management-api/">DevCycle's Management API</a> which allows you to modify and interact with features and more within a devcycle project, as well as the <a href="/bucketing-api/">DevCycle Bucketing API</a>  which is used to give users features and variables (as used within the DevCycle SDKs!)
-  </p>
+      If you would like to contribute to an existing integration or tool, all of DevCycle's tools and integrations are{" "}
+      <a href="https://github.com/devcycleHQ">open source on the DevCycle github repository.</a>
+    </p>
+    <p>
+      Further, if you'd like to create a new tool or integration, a great starting point is{" "}
+      <a href="/management-api/">DevCycle's Management API</a> which allows you to modify and interact with features and
+      more within a devcycle project, as well as the <a href="/bucketing-api/">DevCycle Bucketing API</a> which is used
+      to give users features and variables (as used within the DevCycle SDKs!)
+    </p>
   </div>
 </details>
