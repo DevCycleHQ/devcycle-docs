@@ -3,7 +3,9 @@ title: Features and Functionality
 sidebar_position: 1
 ---
 
-DevCycle strives to ensure that all our APIs and SDKs have identical functionality (except language or platform-specific nuances). Below is a list of all the current functionality that DevCycle supports across the SDKs.
+DevCycle strives to ensure that all our APIs and SDKs have identical functionality 
+(except language- or platform-specific nuances). Below is a list of all the current 
+functionality that DevCycle supports across the SDKs.
 
 **Universal**
 
@@ -24,23 +26,65 @@ DevCycle strives to ensure that all our APIs and SDKs have identical functionali
 
 This section will cover how to initialize each SDK as well as explain their starting options.
 
-#### Client-Side SDKs
+### Client-Side SDKs
 
-##### Caching of Configurations
+For most client-side SDKs, the only required parameters to initialize the SDK are the SDK Key and the current user.
+The SDK key is unique to each project and environment and can be found in the DevCycle dashboard.
+The current user is determined by you, and should contain any details about the user that you require for your targeting
+logic.
+
+A typical initialization call looks like this
+```typescript
+const devcycleClient = initializeDevCycle('<DVC_CLIENT_SDK_KEY>', user)
+```
+
+SDKs also offer a way to wait for initialization to finish, meaning that the DevCycle configuration has been obtained
+and the SDK is ready to return the correct variable values for the given user.
+
+Here is a Javascript example:
+```typescript
+// wait for client to initialize
+await devcycleClient.onClientInitialized()
+```
+
+#### Caching of Configurations
 
 When initialized, each client-side SDK will cache the retrieved configuration for the user.
 
-This cache will be used in scenarios where on subsequent initializations a new configuration is not available. This may be due to a lack of internet connection or a lack of connection to DevCycle.
+This cache will be used in scenarios where on subsequent initializations a new configuration is not available. 
+This may be due to a lack of internet connection or a lack of connection to DevCycle.
 
-Additionally, if the SDK is interacted with before any initialization (such as attempting to read a variable far early on in an application before initialization), the cached value will be read.
+Additionally, if the SDK is interacted with before any initialization (such as attempting to read a variable far 
+early on in an application before initialization), the cached value will be read.
 
-If a variable is first read from the cache and has a listener for [realtime updates](#realtime-updates), if a new value is retrieved after initialization, the `onUpdate` function will be triggered.
+If a variable is first read from the cache and has a listener for [realtime updates](#realtime-updates), if a 
+new value is retrieved after initialization, the `onUpdate` function will be triggered.
+
+### Server-Side SDKs
+For most server-side SDKs, the only required parameter to initialize the SDK is the SDK Key.
+The SDK key is unique to each project and environment and can be found in the DevCycle dashboard.
+
+A typical initialization call looks like this
+```typescript
+const devcycleClient = initializeDevCycle('<DVC_SERVER_SDK_KEY>')
+```
+
+SDKs also offer a way to wait for initialization to finish, meaning that the DevCycle configuration has been obtained
+and the SDK is ready to return the correct variable values for the given user.
+
+Here is a Javascript example:
+```typescript
+// wait for client to initialize
+await devcycleClient.onClientInitialized()
+```
 
 ## Evaluating Features & Using Variables
 
-This section explains how to use retrieve the Variables of a Feature as well as use their values. For information on setting up a Feature for use, read [Variables and Variations](/essentials/variables) and [Targeting Users](/essentials/targeting)
+This section explains how to use retrieve the Variables of a Feature as well as use their values. For information 
+on setting up a Feature for use, read [Variables and Variations](/essentials/variables) and [Targeting Users](/essentials/targeting)
 
-Every SDK provides a method to retrieve a Variable's value. It expects to receive the unique key of the Variable, and a default value to serve in case no other value is available.
+Every SDK provides a method to retrieve a Variable's value. It expects to receive the unique key of the Variable, 
+and a default value to serve in case no other value is available.
 
 A typical Variable method would look something like this:
 
@@ -51,7 +95,8 @@ const myVariableValue = devcycleClient.variableValue(
 )
 ```
 
-Each call to this method is tracked as an "evaluation" event. These events will be shown in the DevCycle dashboard and are used to power the analytics graphs
+Each call to this method is tracked as an "evaluation" event. These events will be shown in the DevCycle dashboard and 
+are used to power the analytics graphs
 that allow you to see the effects of your Variables being used.
 
 The default value will be returned in the following scenarios:
@@ -68,7 +113,8 @@ For more information on how the default value is used, see [Variable Defaults](/
 
 ## Getting All Features
 
-The "Get All Features" function in an SDK will return a map of all of the features that the user is currently in based on the information the SDK or API has received.
+The "Get All Features" function in an SDK will return a map of all of the features that the user is currently in 
+based on the information the SDK or API has received.
 
 The response is the following general format, with slight changes depending on the specifics of the SDK:
 
