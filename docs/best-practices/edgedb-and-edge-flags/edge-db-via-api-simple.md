@@ -5,9 +5,10 @@ sidebar_position: 2
 
 # Super Segments and Edge Flags Simple API Approach
 
-Super segments are collections of users that are targeted by data from any external source. 
+Super segments are collections of users that are targeted by data from any external source.
 
-This means that users and their data can be “imported” into DevCycle for targeting in experiments or features by making use of EdgeDB. 
+This means that users and their data can be “imported” into DevCycle for targeting in experiments or features by making
+use of EdgeDB.
 
 This guide will outline how to insert data into DevCycle’s EdgeDB and then use it for targeting.
 
@@ -17,13 +18,14 @@ To demonstrate this most simply with no SDK installations necessary, we will use
 
 First, enable EdgeDB in your project’s settings.
 
-![Project Settings]Now, let's save some data to EdgeDB. 
+![Project Settings]Now, let's save some data to EdgeDB.
 
 To do this, we’ll be following the EdgeDB docs from the [Bucketing API](/bucketing-api/#tag/EdgeDB).
 
 In this case, we will update a user simply called “example_user”
 
-We will also supply some custom data. Let's use the example of the concept of a cohort of special users you’d like to create. So we can pass that data as custom data:
+We will also supply some custom data. Let's use the example of the concept of a cohort of special users you’d like to
+create. So we can pass that data as custom data:
 
 ![Custom Data Sending](/sept-6-2022-edge-flags-api-2.png)
 
@@ -38,7 +40,7 @@ To test it yourself, here is the data:
 }
 ```
 
-Next, we need to supply the auth. Switch to the authorization tab and change the type to API Key. 
+Next, we need to supply the auth. Switch to the authorization tab and change the type to API Key.
 
 For the “Value”, supply the server SDK key found in your [environments & keys tab.](/essentials/keys)
 
@@ -70,9 +72,8 @@ After it runs you should receive the following message:
 
 Now that we’ve got data in EdgeDB, it can be used for targeting in any feature within DevCycle.
 
-:::info 
-Any data saved to EdgeDB is considered a “Custom Property” within DevCycle and can be targeted by simply adding that same property in the dashboard. To find out more about Custom Properties, [read here](/sdk/features) 
-:::
+:::info Any data saved to EdgeDB is considered a “Custom Property” within DevCycle and can be targeted by simply adding
+that same property in the dashboard. To find out more about Custom Properties, [read here](/sdk/features) :::
 
 To use the postman data from above, simply create a new custom property in the dashboard (if it does not already exist):
 
@@ -86,11 +87,14 @@ And then we want to target the “special” users as we set up above.
 
 ![Targeting Rule Setup](/sept-6-2022-edge-flags-api-8.png)
 
-Enable this feature for your environment, and save it, and now we can test for this user’s features using the [get variables feature in the Bucketing API](/bucketing-api/#operation/getVariables)
+Enable this feature for your environment, and save it, and now we can test for this user’s features using the
+[get variables feature in the Bucketing API](/bucketing-api/#operation/getVariables)
 
 One thing to note is that there must be an `enableEdgeDB=true` flag
 
-**With the usage of EdgeDB, the user ID should have the custom data of `“cohort_id:”special user”` so we should only need to supply the user_id to the API and the user should receive the feature specified, as EdgeDB has the requisite info.**
+**With the usage of EdgeDB, the user ID should have the custom data of `“cohort_id:”special user”` so we should only
+need to supply the user_id to the API and the user should receive the feature specified, as EdgeDB has the requisite
+info.**
 
 So we set it up like so:
 
@@ -109,6 +113,7 @@ curl --location --request POST 'https://bucketing-api.devcycle.com/v1/variables/
 --data-raw '{"user_id":"example_user"}'
 ```
 
-After running it: Voila! We receive the special feature which requires custom properties to target, without sending it in the request! It is successfully getting the data from EdgeDB:
+After running it: Voila! We receive the special feature which requires custom properties to target, without sending it
+in the request! It is successfully getting the data from EdgeDB:
 
 ![Success Feature Flag check!](/sept-6-2022-edge-flags-api-11.png)

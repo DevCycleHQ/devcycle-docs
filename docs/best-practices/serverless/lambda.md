@@ -5,55 +5,57 @@ sidebar_position: 2
 
 ## AWS Lambda with DevCycle Feature Flags
 
-DevCycle is purpose-built to work at edge, and just because you're building in serverless environments does not mean you need to stop using feature flags!
+DevCycle is purpose-built to work at edge, and just because you're building in serverless environments does not mean you
+need to stop using feature flags!
 
-If you're a team on AWS and utilizing AWS Lambda, this document will outline exactly how you can get started with Feature Flags without any difficulty.
+If you're a team on AWS and utilizing AWS Lambda, this document will outline exactly how you can get started with
+Feature Flags without any difficulty.
 
 ### Example Project for AWS Lambda & DevCycle
 
-To get you up and started, we've put together an example repository to be used to follow along with in this guide 
+To get you up and started, we've put together an example repository to be used to follow along with in this guide
 
 [https://github.com/DevCycleHQ/devcycle-lambda-example](https://github.com/DevCycleHQ/devcycle-lambda-example)
 
 ### Setting Up Feature Flags for the Example
 
 1. Create a new feature on the DevCycle Dashboard
-    
-    ![Screen Shot 2022-09-13 at 11.05.15 AM.png](/Screen_Shot_2022-09-13_at_11.05.15_AM.png)
-    
+
+   ![Screen Shot 2022-09-13 at 11.05.15 AM.png](/Screen_Shot_2022-09-13_at_11.05.15_AM.png)
+
 2. Choose a Release type, and as per our example code we’ll name this feature `event-type`
-    
-    ![Screen Shot 2022-09-13 at 4.30.46 PM.png](/Screen_Shot_2022-09-13_at_4.30.46_PM.png)
-    
-3. By default, features will all have a boolean flag. Remove the default boolean flag by clicking the edit button next to it and “Delete” in the popped up modal
-    
-    ![Screen Shot 2022-09-13 at 4.33.22 PM.png](/Screen_Shot_2022-09-13_at_4.33.22_PM.png)
-    
-    ![Screen Shot 2022-09-13 at 4.33.49 PM.png](/Screen_Shot_2022-09-13_at_4.33.49_PM.png)
-    
+
+   ![Screen Shot 2022-09-13 at 4.30.46 PM.png](/Screen_Shot_2022-09-13_at_4.30.46_PM.png)
+
+3. By default, features will all have a boolean flag. Remove the default boolean flag by clicking the edit button next
+   to it and “Delete” in the popped up modal
+
+   ![Screen Shot 2022-09-13 at 4.33.22 PM.png](/Screen_Shot_2022-09-13_at_4.33.22_PM.png)
+
+   ![Screen Shot 2022-09-13 at 4.33.49 PM.png](/Screen_Shot_2022-09-13_at_4.33.49_PM.png)
+
 4. “Add Variable” with `String` type and put in the string as below
-    
-    ![Screen Shot 2022-09-13 at 4.35.31 PM.png](/Screen_Shot_2022-09-13_at_4.35.31_PM.png)
-    
+
+   ![Screen Shot 2022-09-13 at 4.35.31 PM.png](/Screen_Shot_2022-09-13_at_4.35.31_PM.png)
+
 5. Scroll down to “Users & Targeting” for whichever environment's server key you selected
 6. Change the targeting definition to say: `User ID` `is` `test_1` and **click “Save”**
-    
-    ![Screen Shot 2022-09-13 at 4.37.20 PM.png](/Screen_Shot_2022-09-13_at_4.37.20_PM.png)
-    
-    Now that the feature is set up, we’ll test it out in Lambda!
-    
+
+   ![Screen Shot 2022-09-13 at 4.37.20 PM.png](/Screen_Shot_2022-09-13_at_4.37.20_PM.png)
+
+   Now that the feature is set up, we’ll test it out in Lambda!
 
 ### Setting Up AWS Lambda
 
-The  [README in the example repo has more details regarding the Lambda Setup.](https://github.com/DevCycleHQ/devcycle-lambda-example#readme) 
+The
+[README in the example repo has more details regarding the Lambda Setup.](https://github.com/DevCycleHQ/devcycle-lambda-example#readme)
 
 1. Clone the [devcycle-lambda-example](https://github.com/DevCycleHQ/devcycle-lambda-example) repo
-2. In this example, we are using a ***server* key.** Copy your server key as the `<DEVCYCLE_SERVER_SDK_KEY>`
- in the `DVC.initialize` call. 
-[(You can get your Server SDK key from the DevCycle dashboard)](/essentials/keys)
+2. In this example, we are using a **_server_ key.** Copy your server key as the `<DEVCYCLE_SERVER_SDK_KEY>`  in
+   the `DVC.initialize` call. [(You can get your Server SDK key from the DevCycle dashboard)](/essentials/keys)
 
 ```jsx
-const devcycleClient = await DVC.initialize('<DEVCYCLE_SERVER_SDK_KEY>').onClientInitialized()
+const devcycleClient = await DVC.initialize("<DEVCYCLE_SERVER_SDK_KEY>").onClientInitialized();
 ```
 
 3. Create a new bucket for deployment artifacts by executing `1-create-bucket.sh`
@@ -63,7 +65,8 @@ devcycle-lambda-example$ ./1-create-bucket.sh
 make_bucket: devcycle-lambda-example-940d87e83ef56f53
 ```
 
-4. Build a Lambda layer that contains the function's runtime dependencies by executing `2-build-layer.sh`. (Packaging dependencies in a layer reduces the size of the deployment package that you upload when you modify your code.)
+4. Build a Lambda layer that contains the function's runtime dependencies by executing `2-build-layer.sh`. (Packaging
+   dependencies in a layer reduces the size of the deployment package that you upload when you modify your code.)
 
 ```jsx
 devcycle-lambda-example$ ./2-build-layer.sh
@@ -106,13 +109,16 @@ devcycle-lambda-example$ ./4-invoke.sh
 }]
 ```
 
-7. The output should show two events: 
-    
-    The first event is for the user with `user_id: test_1`. This event should have its type changed to `my-new-event`, as the user_id matches the targeting rule, resulting in the variation being ON. 
-    
-    Let the script invoke the function a few times and then press `CRTL+C`to exit.
-    
-8. To delete the application, you can run `5-cleanup.sh`. The cleanup script deletes the application stack, which includes the function and execution role, and local build artifacts. You can choose to delete the bucket and function logs as well.
+7. The output should show two events:
+
+   The first event is for the user with `user_id: test_1`. This event should have its type changed to `my-new-event`, as
+   the user_id matches the targeting rule, resulting in the variation being ON.
+
+   Let the script invoke the function a few times and then press `CRTL+C`to exit.
+
+8. To delete the application, you can run `5-cleanup.sh`. The cleanup script deletes the application stack, which
+   includes the function and execution role, and local build artifacts. You can choose to delete the bucket and function
+   logs as well.
 
 ```jsx
 devcycle-lambda-example$ ./5-cleanup.sh

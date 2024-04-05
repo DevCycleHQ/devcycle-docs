@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: DevCycle EdgeDB API
-  description: Documents the DevCycle edgeDB API which controls saving and getting EdgeDB data. 
+  description: Documents the DevCycle edgeDB API which controls saving and getting EdgeDB data.
   version: 1.0.0
 tags:
   - name: devcycle
@@ -18,19 +18,20 @@ paths:
           description: A unique id used to fetch and update the EdgeDB data
         - name: sdkKey
           in: query
-          description: SDK Key as defined in the dashboard for your DevCycle environment.
-            One of the Authorization header or "sdkKey" query parameter is required to be set.
+          description:
+            SDK Key as defined in the dashboard for your DevCycle environment. One of the Authorization header or
+            "sdkKey" query parameter is required to be set.
           required: false
           schema:
             type: string
-      
+
       requestBody:
         description: User properties to update the EdgeDB data
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/User'
+              $ref: "#/components/schemas/User"
 
       responses:
         200:
@@ -38,15 +39,15 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/EdgeDBApiResponse'
+                $ref: "#/components/schemas/EdgeDBApiResponse"
         400:
-          $ref: '#/components/responses/BadRequest'
+          $ref: "#/components/responses/BadRequest"
         401:
-          $ref: '#/components/responses/UnauthorizedError'
+          $ref: "#/components/responses/UnauthorizedError"
         404:
-          $ref: '#/components/responses/NotFound'
+          $ref: "#/components/responses/NotFound"
         500:
-          $ref: '#/components/responses/InternalServerError'
+          $ref: "#/components/responses/InternalServerError"
 
 components:
   schemas:
@@ -60,7 +61,7 @@ components:
         email:
           description: User's email used to identify the user on the dashaboard / target audiences
           type: string
-        
+
         name:
           description: User's name used to idenify the user on the dashaboard / target audiences
           type: string
@@ -70,7 +71,7 @@ components:
           additionalProperties:
             type: string
             maxLength: 2
-          
+
         country:
           description: User's country in ISO 3166 alpha-2 format
           additionalProperties:
@@ -80,11 +81,11 @@ components:
         customData:
           description: User's custom data to target the user with, data will be logged to DevCycle for use in dashboard.
           type: object
-            
+
         lastSeenDate:
           description: Date the user was last seen being used, Unix epoch timestamp format
           type: number
-            
+
       required:
         - user_id
 
@@ -120,7 +121,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/ErrorResponse'
+            $ref: "#/components/schemas/ErrorResponse"
 
     # 401
     UnauthorizedError:
@@ -128,7 +129,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/ErrorResponse'
+            $ref: "#/components/schemas/ErrorResponse"
 
     # 404
     NotFound:
@@ -136,7 +137,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/ErrorResponse'
+            $ref: "#/components/schemas/ErrorResponse"
 
     # 500
     InternalServerError:
@@ -144,4 +145,4 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/ErrorResponse'
+            $ref: "#/components/schemas/ErrorResponse"

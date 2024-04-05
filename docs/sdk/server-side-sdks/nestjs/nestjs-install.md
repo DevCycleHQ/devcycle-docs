@@ -12,6 +12,7 @@ sidebar_custom_props: { icon: material-symbols:install-desktop }
 Our library can be found on npm and installed by the following:
 
 #### NPM
+
 ```
 npm install --save @devcycle/nestjs-server-sdk
 ```

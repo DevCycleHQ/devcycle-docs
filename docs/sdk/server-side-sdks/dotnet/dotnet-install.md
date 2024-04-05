@@ -13,6 +13,7 @@ sidebar_custom_props: { icon: material-symbols:install-desktop }
 ## Local Bucketing
 
 Use the following command to install the NuGet package:
+
 ```bash
 dotnet add package DevCycle.SDK.Server.Local
 ```
@@ -26,6 +27,7 @@ and use the namespaces:
 ## Cloud Bucketing
 
 Use the following command to install the NuGet package:
+
 ```bash
 dotnet add package DevCycle.SDK.Server.Cloud
 ```
@@ -34,5 +36,4 @@ or download the SDK from Nuget - https://www.nuget.org/packages/DevCycle.SDK.Ser
 
 and use the namespaces:
 
-`using DevCycle.SDK.Server.Cloud.Api;`
-`using DevCycle.SDK.Server.Common.Model;`
+`using DevCycle.SDK.Server.Cloud.Api;` `using DevCycle.SDK.Server.Common.Model;`

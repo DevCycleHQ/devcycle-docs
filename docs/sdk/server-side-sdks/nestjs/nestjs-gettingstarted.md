@@ -9,20 +9,22 @@ sidebar_custom_props: { icon: material-symbols:rocket }
 [![Npm package version](https://badgen.net/npm/v/@devcycle/nestjs-server-sdk)](https://www.npmjs.com/package/@devcycle/nestjs-server-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)
 
-To use the DevCycle Server SDK in your project, import the `DevCycleModule` from the `@devcycle/nestjs-server-sdk`.
-We recommend adding the module to the imports of your root app module, so that the DevCycle client is available globally within your application.
+To use the DevCycle Server SDK in your project, import the `DevCycleModule` from the `@devcycle/nestjs-server-sdk`. We
+recommend adding the module to the imports of your root app module, so that the DevCycle client is available globally
+within your application.
 
 Example:
 
 ```typescript
-import { DevCycleModule } from '@devcycle/nestjs-server-sdk'
+import { DevCycleModule } from "@devcycle/nestjs-server-sdk";
 
 DevCycleModule.forRoot({
-  key: '<DEVCYCLE_SDK_SERVER_KEY>'
-})
+  key: "<DEVCYCLE_SDK_SERVER_KEY>",
+});
 ```
 
-You may also use `forRootAsync` if you would like to use a factory to inject dependencies. For example, using Nest's ConfigService to populate the SDK key:
+You may also use `forRootAsync` if you would like to use a factory to inject dependencies. For example, using Nest's
+ConfigService to populate the SDK key:
 
 ```typescript
 import { ConfigService } from '@nestjs/config'
@@ -37,27 +39,29 @@ DevCycleModule.forRootAsync({
 
 ## User Factory
 
-To use the [decorators](/sdk/server-side-sdks/nestjs/nestjs-usage#decorators) provided by the SDK, you will need to define a `userFactory` when registering the `DevCycleModule`.
-The `userFactory` is a function which accepts the current `ExecutionContext` as a parameter and returns a DevCycle User object.
-The user factory will be evaluated as a global interceptor, and the resulting user will be used when evaluating variables with the `@VariableValue` and `@RequireVariableValue` decorators.
+To use the [decorators](/sdk/server-side-sdks/nestjs/nestjs-usage#decorators) provided by the SDK, you will need to
+define a `userFactory` when registering the `DevCycleModule`. The `userFactory` is a function which accepts the current
+`ExecutionContext` as a parameter and returns a DevCycle User object. The user factory will be evaluated as a global
+interceptor, and the resulting user will be used when evaluating variables with the `@VariableValue` and
+`@RequireVariableValue` decorators.
 
 [DevCycleUser Typescript Schema](https://github.com/search?q=repo%3ADevCycleHQ%2Fjs-sdks+export+interface+DevCycleUser+language%3ATypeScript+path%3A*types.ts&type=code)
 
 ```typescript
-import { DevCycleModule } from '@devcycle/nestjs-server-sdk'
-import { ExecutionContext } from '@nestjs/common'
+import { DevCycleModule } from "@devcycle/nestjs-server-sdk";
+import { ExecutionContext } from "@nestjs/common";
 
 DevCycleModule.forRoot({
-  key: '<DEVCYCLE_SDK_SERVER_KEY>',
+  key: "<DEVCYCLE_SDK_SERVER_KEY>",
   userFactory: (context: ExecutionContext) => {
     // Example building a user object based on the request context
-    const req = context.switchToHttp().getRequest()
+    const req = context.switchToHttp().getRequest();
     return {
       user_id: req.user.id,
       email: req.user.email,
-    }
-  }
-})
+    };
+  },
+});
 ```
 
 ## Initialization Options
@@ -65,14 +69,14 @@ DevCycleModule.forRoot({
 The SDK exposes various initialization options which can be set when registering the DevCycleModule:
 
 ```javascript
-import { DevCycleModule } from '@devcycle/nestjs-server-sdk'
+import { DevCycleModule } from "@devcycle/nestjs-server-sdk";
 
 DevCycleModule.forRoot({
-  key: '<DEVCYCLE_SDK_SERVER_KEY>',
+  key: "<DEVCYCLE_SDK_SERVER_KEY>",
   options: {
-    logLevel: 'debug'
-  }
-})
+    logLevel: "debug",
+  },
+});
 ```
 
 | DevCycle Option              | Type           | Description                                                                                                                                                                  |

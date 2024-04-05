@@ -13,9 +13,7 @@ sidebar_custom_props: { icon: material-symbols:install-desktop }
 
 This version of the DevCycle Android Client SDK supports a minimum Android API Version 21.
 
-:::info
-**Proguard/R8:** If minifying your project, DevCycle requires **Android Gradle Plugin 7.1.x or higher**
-:::
+:::info **Proguard/R8:** If minifying your project, DevCycle requires **Android Gradle Plugin 7.1.x or higher** :::
 
 ## Installation
 
@@ -27,6 +25,7 @@ implementation("com.devcycle:android-client-sdk:+")
 
 :::info
 
-Refer to the latest version of the SDK on [maven central](https://maven.org/artifact/com.devcycle/android-client-sdk) if you would not prefer gradle to pull the latest version automatically by using `+`
+Refer to the latest version of the SDK on [maven central](https://maven.org/artifact/com.devcycle/android-client-sdk) if
+you would not prefer gradle to pull the latest version automatically by using `+`
 
 :::

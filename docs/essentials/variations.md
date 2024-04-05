@@ -3,27 +3,32 @@ title: Variations
 sidebar_position: 7
 ---
 
-Variations are different versions of a Feature. Each Variation can have different values for the Variables associated with the Feature. 
+Variations are different versions of a Feature. Each Variation can have different values for the Variables associated
+with the Feature.
 
-> For example, if you have a Feature that controls a new UI element and a Variable that controls the color of that element, you could have one Variation where the color is blue and another Variation where the color is red.
+> For example, if you have a Feature that controls a new UI element and a Variable that controls the color of that
+> element, you could have one Variation where the color is blue and another Variation where the color is red.
 
-When a user is "Served" a Variation based on the Targeting Rules, the Variable Values the user receives on their devices or as an API response will be the values for the served Variation.
+When a user is "Served" a Variation based on the Targeting Rules, the Variable Values the user receives on their devices
+or as an API response will be the values for the served Variation.
 
 ---
 
 ## Managing Variations
 
-
 ### From the CLI
 
-Once you have installed and authorized the CLI, select your relevant organization and project then run one of the following commands depending on your use case:
+Once you have installed and authorized the CLI, select your relevant organization and project then run one of the
+following commands depending on your use case:
 
 To retrieve variations for a feature from the management API
 
 ```bash
 dvc variations get
-```  
-You will be prompted to select the relevant feature, and should be presented with something which looks like the following (for a feature with two variations of `variation-on` and `variation-off`):
+```
+
+You will be prompted to select the relevant feature, and should be presented with something which looks like the
+following (for a feature with two variations of `variation-on` and `variation-off`):
 
 ```json
 [
@@ -44,7 +49,6 @@ You will be prompted to select the relevant feature, and should be presented wit
     }
   }
 ]
-
 ```
 
 To list the keys of all variations in a feature run:
@@ -53,22 +57,24 @@ To list the keys of all variations in a feature run:
 dvc variations list
 ```
 
-You will be prompted to select the relevant feature, and should be presented with something which looks like the following (for a feature with two variations of `variation-on` and `variation-off`):
+You will be prompted to select the relevant feature, and should be presented with something which looks like the
+following (for a feature with two variations of `variation-on` and `variation-off`):
 
 ```json
-[
-  "variation-on",
-  "variation-off"
-]
+["variation-on", "variation-off"]
 ```
 
 ### From the Dashboard
 
-To view the Variables and Variations within a Feature, navigate to the 'Variables' section on a Feature page sidebar. This will lead the user to a table containing all of the Variables used by this Feature and all of their values across all Variations.
+To view the Variables and Variations within a Feature, navigate to the 'Variables' section on a Feature page sidebar.
+This will lead the user to a table containing all of the Variables used by this Feature and all of their values across
+all Variations.
 
-Depending on the Feature type, the default Variations will be pre-set. The most common of which will be the Variations of "Variation OFF" and "Variation ON", with the boolean Variable being set to false and true, respectively.
+Depending on the Feature type, the default Variations will be pre-set. The most common of which will be the Variations
+of "Variation OFF" and "Variation ON", with the boolean Variable being set to false and true, respectively.
 
-When a user is "Served" a Variation based on the [Targeting Rules](/essentials/targeting), the Variable Values the user receives on their devices or as an API response will be the values for the served Variation.
+When a user is "Served" a Variation based on the [Targeting Rules](/essentials/targeting), the Variable Values the user
+receives on their devices or as an API response will be the values for the served Variation.
 
 ---
 
@@ -76,16 +82,19 @@ When a user is "Served" a Variation based on the [Targeting Rules](/essentials/t
 
 ### From the CLI
 
-Once you have installed and authorized the CLI, select your relevant organization and project then run the following command:
+Once you have installed and authorized the CLI, select your relevant organization and project then run the following
+command:
 
 ```bash
 dvc variations create
 ```
-You will be prompted to set a Name, Key and Variable Value for the selected feature and will receive something which resembles the following (which demonstrates creating a new variation called `new-variation` and setting the value to `true` for the variable named `variable-alpha`):
+
+You will be prompted to set a Name, Key and Variable Value for the selected feature and will receive something which
+resembles the following (which demonstrates creating a new variation called `new-variation` and setting the value to
+`true` for the variable named `variable-alpha`):
 
 ```json
 {
-
   "_id": "q1w2e3r4t5y6u7i",
   "_project": "p0o9i8u7y6t5",
   "source": "dashboard",
@@ -102,7 +111,7 @@ You will be prompted to set a Name, Key and Variable Value for the selected feat
       "key": "variation-on",
       "name": "Variation On",
       "variables": {
-                "variable-alpha": true
+        "variable-alpha": true
       }
     },
     {
@@ -110,7 +119,7 @@ You will be prompted to set a Name, Key and Variable Value for the selected feat
       "key": "variation-off",
       "name": "Variation Off",
       "variables": {
-                "variable-alpha": true
+        "variable-alpha": true
       }
     },
     {
@@ -118,7 +127,7 @@ You will be prompted to set a Name, Key and Variable Value for the selected feat
       "key": "new-variation",
       "name": "New Variation",
       "variables": {
-                "variable-alpha": true
+        "variable-alpha": true
       }
     }
   ],
@@ -155,9 +164,10 @@ You will be prompted to set a Name, Key and Variable Value for the selected feat
 
 ### From the Dashboard
 
-By default, most Feature types within DevCycle will begin with two Variations. At any time, extra Variations can be added by clicking the "Add Variation" button on the Variables section of a Feature.
+By default, most Feature types within DevCycle will begin with two Variations. At any time, extra Variations can be
+added by clicking the "Add Variation" button on the Variables section of a Feature.
 
-This will allow you to create a new Variation and assign all of the relevant values. 
+This will allow you to create a new Variation and assign all of the relevant values.
 
 Give your new Variation a **name** as well as a **key**, as well as its **values** For each of the current Variables.
 
@@ -167,25 +177,33 @@ Give your new Variation a **name** as well as a **key**, as well as its **values
 
 **Variation Key**
 
-- The Variation key is used for easy reference within the DevCycle SDKs and APIs 
+- The Variation key is used for easy reference within the DevCycle SDKs and APIs
 
 **Variation Value(s)**
 
-- The Variable values will be what the Variable's value will be in SDK and API responses if a targeting rule is targeting those specific Variations. 
+- The Variable values will be what the Variable's value will be in SDK and API responses if a targeting rule is
+  targeting those specific Variations.
 
-Once this Variation is created, it will become available as an option within the "Serve" dropdown for [Targeting Rules](/essentials/targeting). Users who are served this new Variation will receive the Variable Values associated with this new Variation!
+Once this Variation is created, it will become available as an option within the "Serve" dropdown for
+[Targeting Rules](/essentials/targeting). Users who are served this new Variation will receive the Variable Values
+associated with this new Variation!
 
 ---
 
 ## Updating a Variation
 
 ### From the CLI
-Once you have installed and authorized the CLI, select your relevant organization and project then run the following command:
+
+Once you have installed and authorized the CLI, select your relevant organization and project then run the following
+command:
 
 ```bash
 dvc variations update
 ```
-You will be prompted to select a feature and variation you would like to update, and can update the name, key or variable, then will receive a response which resembles something like is found below (which demonstrates changing the value of `new-variation` for `variable-alpha` from `true` to `false`):
+
+You will be prompted to select a feature and variation you would like to update, and can update the name, key or
+variable, then will receive a response which resembles something like is found below (which demonstrates changing the
+value of `new-variation` for `variable-alpha` from `true` to `false`):
 
 ```json
 {
@@ -205,7 +223,7 @@ You will be prompted to select a feature and variation you would like to update,
       "key": "variation-on",
       "name": "Variation On",
       "variables": {
-                "variable-alpha": true
+        "variable-alpha": true
       }
     },
     {
@@ -213,7 +231,7 @@ You will be prompted to select a feature and variation you would like to update,
       "key": "variation-off",
       "name": "Variation Off",
       "variables": {
-                "variable-alpha": true
+        "variable-alpha": true
       }
     },
     {
@@ -221,11 +239,11 @@ You will be prompted to select a feature and variation you would like to update,
       "key": "new-variation",
       "name": "New Variation",
       "variables": {
-                "variable-alpha": true
+        "variable-alpha": true
       }
     }
   ],
-   "controlVariation": "variation-on",
+  "controlVariation": "variation-on",
   "variables": [
     {
       "_id": "q1w2e3r4t5y6u7i",
@@ -257,6 +275,7 @@ You will be prompted to select a feature and variation you would like to update,
 ```
 
 ### From the Dashboard
+
 A Variation may be editing at any time by clicking the edit icon on the Variation column in the Variables table.
 
 ---
@@ -265,12 +284,10 @@ A Variation may be editing at any time by clicking the edit icon on the Variatio
 
 ### From the CLI
 
-:::caution
-Variation deletion is currently unavailable through the CLI.
-:::
+:::caution Variation deletion is currently unavailable through the CLI. :::
 
 ### From the Dashboard
 
-A Variation may be deleted at any time by clicking the edit icon on the Variation column of the Remote Variables page. Variations that are currently being used in any **Enabled** environment cannot be deleted. First remove any audience being targeted by this Variation prior to deletion.
-
-
+A Variation may be deleted at any time by clicking the edit icon on the Variation column of the Remote Variables page.
+Variations that are currently being used in any **Enabled** environment cannot be deleted. First remove any audience
+being targeted by this Variation prior to deletion.

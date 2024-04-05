@@ -1,14 +1,14 @@
 ---
 title: Flutter SDK
 ---
-import CustomDocCardList from '@site/src/components/CustomDocCardList'
-import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
+
+import CustomDocCardList from '@site/src/components/CustomDocCardList' import {useCurrentSidebarCategory} from
+'@docusaurus/theme-common';
 
 # DevCycle Flutter Client SDK
 
-The Flutter Client SDK for DevCycle! This SDK uses our Client SDK APIs to perform all user segmentation
-and bucketing for the SDK, providing fast response times using our globally distributed edge workers
-all around the world.
+The Flutter Client SDK for DevCycle! This SDK uses our Client SDK APIs to perform all user segmentation and bucketing
+for the SDK, providing fast response times using our globally distributed edge workers all around the world.
 
 <CustomDocCardList items={useCurrentSidebarCategory().items} columnWidth={4} />
 

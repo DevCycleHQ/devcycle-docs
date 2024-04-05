@@ -13,7 +13,9 @@ sidebar_custom_props: { icon: material-symbols:toggle-on }
 
 The user object is required for all methods. The only required field in the user object is userId.
 
-See the DevCycleUser class in [Java DevCycleUser model doc](https://github.com/DevCycleHQ/java-server-sdk/blob/main/docs/DevCycleUser.md) for all accepted fields.
+See the DevCycleUser class in
+[Java DevCycleUser model doc](https://github.com/DevCycleHQ/java-server-sdk/blob/main/docs/DevCycleUser.md) for all
+accepted fields.
 
 ```java
 import com.devcycle.sdk.server.common.model.DevCycleUser;
@@ -27,8 +29,8 @@ DevCycleUser user = DevCycleUser.builder()
 ## Get and use Variable by key
 
 This method will fetch a specific variable value by key for a given user. The default value will be used in cases where
-the user is not segmented into a feature using that variable, or the project configuration is unavailable
-to be fetched from DevCycle's CDN.
+the user is not segmented into a feature using that variable, or the project configuration is unavailable to be fetched
+from DevCycle's CDN.
 
 ```java
 Boolean variableValue = client.variableValue(user, "super_cool_feature", true);
@@ -41,12 +43,13 @@ if (variableValue.booleanValue()) {
 
 The default value can be of type `String`, `Boolean`, `Number`, or `Object`.
 
-If you would like to get the full Variable Object you can use `variable()` instead. This contains fields such as:
-`key`, `value`, `type`, `defaultValue`, `isDefaulted`.
+If you would like to get the full Variable Object you can use `variable()` instead. This contains fields such as: `key`,
+`value`, `type`, `defaultValue`, `isDefaulted`.
 
 ## Getting All Variables
-This method will fetch all variables for a given user and return as Map&lt;String, Variable&gt;. 
-If the project configuration is unavailable, this will return an empty map.
+
+This method will fetch all variables for a given user and return as Map&lt;String, Variable&gt;. If the project
+configuration is unavailable, this will return an empty map.
 
 To get values from your Variables, the `value` field inside the variable object can be accessed.
 
@@ -55,18 +58,21 @@ import com.devcycle.sdk.server.common.model.BaseVariable;
 
 Map<String, BaseVariable> variables = client.allVariables(user);
 ```
+
 :::caution
 
-This method is intended to be used for debugging and analytics purposes, *not* as a method for retrieving the value of Variables to change code behaviour.
-For that purpose, we strongly recommend using the individual variable access method described in [Get and use Variable by key](#get-and-use-variable-by-key)
-Using this method instead will result in no evaluation events being tracked for individual variables, and will not allow the use
-of other DevCycle features such as [Code Usage detection](/integrations/github/feature-usage-action)
+This method is intended to be used for debugging and analytics purposes, _not_ as a method for retrieving the value of
+Variables to change code behaviour. For that purpose, we strongly recommend using the individual variable access method
+described in [Get and use Variable by key](#get-and-use-variable-by-key) Using this method instead will result in no
+evaluation events being tracked for individual variables, and will not allow the use of other DevCycle features such as
+[Code Usage detection](/integrations/github/feature-usage-action)
 
 :::
+
 ## Getting All Features
 
-This method will fetch all features for a given user and return them as Map&lt;String, Feature&gt;.
-If the project configuration is unavailable, this will return an empty map.
+This method will fetch all features for a given user and return them as Map&lt;String, Feature&gt;. If the project
+configuration is unavailable, this will return an empty map.
 
 ```java
 Map<String, Feature> features = client.allFeatures(user);
@@ -89,7 +95,8 @@ client.track(user, event);
 
 ## Set Client Custom Data
 
-To assist with segmentation and bucketing you can set a custom data map that will be used for all variable and feature evaluations. User specific custom data will override client custom data.
+To assist with segmentation and bucketing you can set a custom data map that will be used for all variable and feature
+evaluations. User specific custom data will override client custom data.
 
 ```java
 // create a map of custom data
@@ -102,7 +109,10 @@ client.setClientCustomData(customData);
 
 ## Override Logging
 
-The SDK logs to stdout by default and does not require any specific logging package. To integrate with your own logging system, such as Java Logging or SLF4J, you can create a wrapper that implements the IDevCycleLogger interface. Then you can set the logger into the Java Server SDK setting the Custom Logger property in the options object used to initialize the client.
+The SDK logs to stdout by default and does not require any specific logging package. To integrate with your own logging
+system, such as Java Logging or SLF4J, you can create a wrapper that implements the IDevCycleLogger interface. Then you
+can set the logger into the Java Server SDK setting the Custom Logger property in the options object used to initialize
+the client.
 
 ```java
 IDevCycleLogger loggingWrapper = new IDevCycleLogger() {
@@ -140,8 +150,8 @@ DevCycleLocalOptions options = DevCycleLocalOptions.builder().customLogger(loggi
 
 **NOTE: EdgeDB is only available with Cloud Bucketing.**
 
-EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user.
-Read more about [EdgeDB](/extras/edgedb).
+EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time
+you identify a user. Read more about [EdgeDB](/extras/edgedb).
 
 To get started, contact us at support@devcycle.com to enable EdgeDB for your project.
 
@@ -180,6 +190,6 @@ public MyClass() {
 
 This will send a request to our EdgeDB API to save the custom data under the user `test_user`.
 
-In the example, Email and Country are associated to the user `test_user`.
-In your next identify call for the same `userId`, you may omit any of the data you've sent already as it will be pulled
-from the EdgeDB storage when segmenting to experiments and features.
+In the example, Email and Country are associated to the user `test_user`. In your next identify call for the same
+`userId`, you may omit any of the data you've sent already as it will be pulled from the EdgeDB storage when segmenting
+to experiments and features.

@@ -10,7 +10,8 @@ a.navbar__link + a.navbar__link {
   @apply ml-2;
 }
 
-div.dropdown a:hover.navbar__link, a.dropdown__link:hover {
+div.dropdown a:hover.navbar__link,
+a.dropdown__link:hover {
   @apply dark:bg-gray-600;
   @apply bg-blue-50;
   @apply rounded-md;
@@ -52,7 +53,6 @@ a:hover.menu__link {
   opacity: 1;
 }
 
-
 .header-beamer-link:hover {
   opacity: 0.6;
 }
@@ -76,7 +76,7 @@ a:hover.menu__link {
 .beamer_icon.active {
   z-index: 20 !important;
   width: 13px !important;
-  height:13px !important;
+  height: 13px !important;
   line-height: 13px !important;
 }
 
@@ -101,10 +101,8 @@ a:hover.menu__link {
   display: none;
 }
 
-
-
-
-a.menu__link menu__link--active, a.menu__link--active:not(.menu__link--sublist) {
+a.menu__link menu__link--active,
+a.menu__link--active:not(.menu__link--sublist) {
   @apply dark:bg-gray-600;
   @apply bg-blue-50;
   @apply rounded-md;
@@ -113,7 +111,7 @@ a.menu__link menu__link--active, a.menu__link--active:not(.menu__link--sublist) 
 
 .hidden {
   display: none !important;
-  }
+}
 
 /**
  * You can override the default Infima variables here.
@@ -174,9 +172,9 @@ html[data-theme="dark"] .DocSearch {
   z-index: 9999;
 }
 
-.theme-doc-sidebar-item-category-level-1  > * >  .menu__link {
-    font-weight: 700;
-    padding: 1em;
+.theme-doc-sidebar-item-category-level-1 > * > .menu__link {
+  font-weight: 700;
+  padding: 1em;
 }
 
 .theme-doc-sidebar-item-link-level-1 > .menu__link {
@@ -197,21 +195,23 @@ html[data-theme="dark"] .DocSearch {
 }
 
 @media (max-width: 1350px) {
-  .navbar__items--right a:nth-of-type(1), .navbar__items--right a:nth-of-type(2), .navbar__items--right a:nth-of-type(3), .navbar__items--right a:nth-of-type(4) {
-      display:none
+  .navbar__items--right a:nth-of-type(1),
+  .navbar__items--right a:nth-of-type(2),
+  .navbar__items--right a:nth-of-type(3),
+  .navbar__items--right a:nth-of-type(4) {
+    display: none;
   }
 }
 
 @media (max-width: 1350px) {
   .navbar__items div:nth-of-type(3) {
-      display:none
+    display: none;
   }
 }
 
 /* Section icons. */
 
-
-.section-title > div >a::before {
+.section-title > div > a::before {
   background-size: 24px;
   background-repeat: no-repeat;
   content: "";
@@ -233,81 +233,94 @@ html[data-theme="dark"] .DocSearch {
   filter: invert(23%) sepia(73%) saturate(3810%) hue-rotate(224deg) brightness(86%) contrast(96%); /* https://codepen.io/sosuke/pen/Pjoqqp */
 }
 
-.section-title.introduction > div >a::before {
+.section-title.introduction > div > a::before {
   background-image: url(../../static/sidebar/introduction.svg);
 }
 
-.section-title.examples >a::before {
+.section-title.examples > a::before {
   background-image: url(../../static/sidebar/examples.svg);
 }
 
-.section-title.roadmap >a::before {
+.section-title.roadmap > a::before {
   background-image: url(../../static/sidebar/roadmap.svg);
 }
 
-.section-title.sdk-features >a::before {
+.section-title.sdk-features > a::before {
   background-image: url(../../static/sidebar/sdk-features.svg);
 }
 
-
-.section-title.release-notes >a::before {
+.section-title.release-notes > a::before {
   background-image: url(../../static/sidebar/release-notes.svg);
 }
 
-.section-title.essentials > div >a::before {
+.section-title.essentials > div > a::before {
   background-image: url(../../static/sidebar/essentials.svg);
 }
 
-.section-title.extras > div >a::before {
+.section-title.extras > div > a::before {
   background-image: url(../../static/sidebar/extras.svg);
 }
 
-.section-title.client > div >a::before {
+.section-title.client > div > a::before {
   background-image: url(../../static/sidebar/client.svg);
 }
 
-.section-title.server > div >a::before {
+.section-title.server > div > a::before {
   background-image: url(../../static/sidebar/server.svg);
 }
 
-.section-title.best-practices > div >a::before{
+.section-title.best-practices > div > a::before {
   background-image: url(../../static/sidebar/best-practices.svg);
 }
 
 .responsiveCal {
-  position: relative; padding-bottom: 75%; height: 0; overflow: hidden;
-  }
-   
-  .responsiveCal iframe {
-  position: absolute; top:0; left: 0; width: 100%; height: 100%;
-  }
-  
-  @media all and (min-width: 768px) {
-      .deskContent {display:block;}
-      .phoneContent {display:none;}
-  }
-  
-  @media all and (max-width: 767px) {
-      .deskContent {display:none;}
-      .phoneContent {display:block;}
-  }
+  position: relative;
+  padding-bottom: 75%;
+  height: 0;
+  overflow: hidden;
+}
 
+.responsiveCal iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media all and (min-width: 768px) {
+  .deskContent {
+    display: block;
+  }
+  .phoneContent {
+    display: none;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .deskContent {
+    display: none;
+  }
+  .phoneContent {
+    display: block;
+  }
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 400px; /* 1fr takes the remaining space, 200px for the image */
+  align-items: start;
+  gap: 30px; /* adjust as needed */
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+}
+
+/* Media query for screens smaller than 768px */
+@media (max-width: 1000px) {
   .grid-container {
-    display: grid;
-    grid-template-columns: 1fr 400px; /* 1fr takes the remaining space, 200px for the image */
-    align-items: start;
-    gap: 30px; /* adjust as needed */
+    grid-template-columns: 1fr; /* Stack items on top of each other on small screens */
   }
-  
-  .image-container img {
-    width: 100%;
-    height: auto;
-  }
-  
-  /* Media query for screens smaller than 768px */
-  @media (max-width: 1000px) {
-    .grid-container {
-      grid-template-columns: 1fr; /* Stack items on top of each other on small screens */
-    }
-  }
-  
+}

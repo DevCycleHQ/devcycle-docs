@@ -11,11 +11,13 @@ sidebar_custom_props: { icon: material-symbols:install-desktop }
 
 ## Requirements
 
-This version of the DevCycle Flutter Client SDK requires a minimum of version of Flutter 2.5.0 (dart 2.14.0), iOS 13.7 and Android API Version 26.
+This version of the DevCycle Flutter Client SDK requires a minimum of version of Flutter 2.5.0 (dart 2.14.0), iOS 13.7
+and Android API Version 26.
 
 ## Installation
 
-Checkout [DevCycle Flutter Client SDK Releases](https://github.com/DevCycleHQ/flutter-client-sdk/releases) for the latest versions of the SDKs.
+Checkout [DevCycle Flutter Client SDK Releases](https://github.com/DevCycleHQ/flutter-client-sdk/releases) for the
+latest versions of the SDKs.
 
 ### Flutter CLI
 

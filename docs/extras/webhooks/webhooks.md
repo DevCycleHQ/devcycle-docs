@@ -5,7 +5,8 @@ sidebar_position: 1
 
 This topic explains how to create and use Webhooks in DevCycle.
 
-Webhooks allow you to build your own integrations that subscribe to Feature changes in DevCycle. Use Webhooks to update external ticket trackers, notify teammates of new features, targeting changes, and more.
+Webhooks allow you to build your own integrations that subscribe to Feature changes in DevCycle. Use Webhooks to update
+external ticket trackers, notify teammates of new features, targeting changes, and more.
 
 ## Outbound Webhooks
 
@@ -33,56 +34,56 @@ Below is the type definition for the payload that gets sent to the Webhook url:
  * that was changed
  */
 export type AuditLogChange = {
-  type: string
-  newContents: Record<string, unknown> | null
-  previousContents: Record<string, unknown> | null
-  _environments?: string[]
-  metadata?: Record<string, unknown>
-}
+  type: string;
+  newContents: Record<string, unknown> | null;
+  previousContents: Record<string, unknown> | null;
+  _environments?: string[];
+  metadata?: Record<string, unknown>;
+};
 
 type User = {
-  name?: string
-  email: string
-}
+  name?: string;
+  email: string;
+};
 
 type WebhookPayload = {
   /**
    * An array of types that were triggered, the 'changes' property
    * should have all these events in this array
    */
-  events: string[]
+  events: string[];
 
   /**
    * The key of the Feature
    */
-  key?: string
+  key?: string;
 
   /**
    * The key of the project
    */
-  projectId: string
+  projectId: string;
 
   /**
    * The version of the payload so we can have different versions
    * in the future
    */
-  version: string
+  version: string;
 
   /**
    * The changes that were made
    */
-  changes: AuditLogChange[]
+  changes: AuditLogChange[];
 
   /**
    * The date this Webhook triggered the URL on
    */
-  date: Date
+  date: Date;
 
   /**
    * The user that triggered the change
    */
-  user: User
-}
+  user: User;
+};
 ```
 
 For example, a user edits a Feature’s key and adds a new variable, the data posted to the user’s Webhook URL would be:
@@ -141,5 +142,5 @@ To delete a Webhook:
 
 ## Inbound Webhooks (Coming Soon)
 
-This Feature will allow the user to create Webhook urls for certain actions, for e.g. turning on/off a Production Environment.
-If you would like this Feature, contact product@devcycle.com!
+This Feature will allow the user to create Webhook urls for certain actions, for e.g. turning on/off a Production
+Environment. If you would like this Feature, contact product@devcycle.com!

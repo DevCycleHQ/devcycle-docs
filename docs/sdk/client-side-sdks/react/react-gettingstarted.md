@@ -11,103 +11,95 @@ sidebar_custom_props: { icon: material-symbols:rocket }
 
 There are two ways to initialize the SDK:
 
-- Non-Blocking: This loads your application and makes a request to initialize the SDK in the background. Once this request is complete,
-  your application will be ready to use the SDK.
-- Blocking: This allows you to delay the rendering of your application until the request to initialize the SDK is completed.
+- Non-Blocking: This loads your application and makes a request to initialize the SDK in the background. Once this
+  request is complete, your application will be ready to use the SDK.
+- Blocking: This allows you to delay the rendering of your application until the request to initialize the SDK is
+  completed.
 
-To use the provider, you must get the SDK Key from the DevCycle Dashboard.
-You can optionally pass in a user object to the provider to initialize the SDK.
-If you do not pass in a user to the provider, it will create an anonymous user and initialize the SDK with it.
-You can then call the `identifyUser` method on the client once the user has been authenticated.
-See [Identifying Users & Setting Properties](/sdk/features#identify) for more details.
+To use the provider, you must get the SDK Key from the DevCycle Dashboard. You can optionally pass in a user object to
+the provider to initialize the SDK. If you do not pass in a user to the provider, it will create an anonymous user and
+initialize the SDK with it. You can then call the `identifyUser` method on the client once the user has been
+authenticated. See [Identifying Users & Setting Properties](/sdk/features#identify) for more details.
 
 :::info
 
-It’s best to initialize DevCycle in your root component (App.jsx or App.tsx), so that its hooks can be accessed from anywhere within your application.
+It’s best to initialize DevCycle in your root component (App.jsx or App.tsx), so that its hooks can be accessed from
+anywhere within your application.
 
 :::
 
 ## Non-Blocking
 
-The withDevCycleProvider higher-order component (HOC) initializes the React SDK and wraps your root component. This provider may cause your app
-to flicker when it is first rendered, as all DevCycle variables will return their default values until the SDK is initialized.
+The withDevCycleProvider higher-order component (HOC) initializes the React SDK and wraps your root component. This
+provider may cause your app to flicker when it is first rendered, as all DevCycle variables will return their default
+values until the SDK is initialized.
 
 ```jsx
-import { withDevCycleProvider } from '@devcycle/react-client-sdk'
+import { withDevCycleProvider } from "@devcycle/react-client-sdk";
 function App() {
-  return <TheRestofYourApp />
+  return <TheRestofYourApp />;
 }
-export default withDevCycleProvider({ sdkKey: '<DEVCYCLE_CLIENT_SDK_KEY>' })(
-  App,
-)
+export default withDevCycleProvider({ sdkKey: "<DEVCYCLE_CLIENT_SDK_KEY>" })(App);
 ```
 
 ## Blocking
 
-The `useIsDevCycleInitialized` hook allows you to block rendering of your application until SDK initialization is complete.
-This ensures your app does not flicker due to value changes and enables you to control what you want displayed when initialization isn't finished yet.
+The `useIsDevCycleInitialized` hook allows you to block rendering of your application until SDK initialization is
+complete. This ensures your app does not flicker due to value changes and enables you to control what you want displayed
+when initialization isn't finished yet.
 
 ```js
-import {
-  useIsDevCycleInitialized,
-  withDevCycleProvider,
-} from '@devcycle/react-client-sdk'
+import { useIsDevCycleInitialized, withDevCycleProvider } from "@devcycle/react-client-sdk";
 
 function App() {
-  const dvcReady = useIsDevCycleInitialized()
+  const dvcReady = useIsDevCycleInitialized();
 
-  if (!dvcReady) return <LoadingState />
-  return <TheRestofYourApp />
+  if (!dvcReady) return <LoadingState />;
+  return <TheRestofYourApp />;
 }
 
-export default withDevCycleProvider({ sdkKey: '<DEVCYCLE_CLIENT_SDK_KEY>' })(
-  App,
-)
+export default withDevCycleProvider({ sdkKey: "<DEVCYCLE_CLIENT_SDK_KEY>" })(App);
 ```
 
 ## Deferred Initialization
 
 In many cases, user data is not available at the time the `DevCycleProvider` is created. If the provider is not passed a
 `user` object, then by default the SDK will be instantiated with an "anonymous" user and a configuration will be
-downloaded from DevCycle. The SDK will be considered "initialized" and the aforementioned `useIsDevCycleInitialized` hook
-will return `true` once this configuration has been downloaded.
+downloaded from DevCycle. The SDK will be considered "initialized" and the aforementioned `useIsDevCycleInitialized`
+hook will return `true` once this configuration has been downloaded.
 
 If you would like to defer initialization of the SDK until your user data is available, you can pass the
 `deferInitialization` option to the `DevCycleProvider`. This will cause the SDK to not fetch a configuration until the
-[`devcycleClient.identifyUser`](/sdk/client-side-sdks/react/react-usage#identifying-users) method is called with the user data.
-The `useIsDevCycleInitialized` hook will return `false` until
-that method has been called and a corresponding config has been retrieved. Until that config is retrieved, all calls
-to retrieve variable values will return their default values.
+[`devcycleClient.identifyUser`](/sdk/client-side-sdks/react/react-usage#identifying-users) method is called with the
+user data. The `useIsDevCycleInitialized` hook will return `false` until that method has been called and a corresponding
+config has been retrieved. Until that config is retrieved, all calls to retrieve variable values will return their
+default values.
 
 ```js
-import {
-  useIsDevCycleInitialized,
-  withDevCycleProvider,
-  useDevCycleClient,
-} from '@devcycle/react-client-sdk'
+import { useIsDevCycleInitialized, withDevCycleProvider, useDevCycleClient } from "@devcycle/react-client-sdk";
 
-let identified = false
+let identified = false;
 function App() {
-  const devcycleClient = useDevCycleClient()
+  const devcycleClient = useDevCycleClient();
   // e.g. a React Query style hook that retrieves user data
-  const { data: user, isFetched } = useUserFromMyUserStorage()
+  const { data: user, isFetched } = useUserFromMyUserStorage();
   if (user && !identified) {
-    devcycleClient.identifyUser(user)
-    identified = true
+    devcycleClient.identifyUser(user);
+    identified = true;
   }
-  const dvcReady = useIsDevCycleInitialized()
+  const dvcReady = useIsDevCycleInitialized();
 
   // rendering is blocked until the user is loaded, and has finished being identified in DevCycle
-  if (!dvcReady) return <LoadingState />
-  return <TheRestofYourApp />
+  if (!dvcReady) return <LoadingState />;
+  return <TheRestofYourApp />;
 }
 
 export default withDevCycleProvider({
-  sdkKey: '<DEVCYCLE_CLIENT_SDK_KEY>',
+  sdkKey: "<DEVCYCLE_CLIENT_SDK_KEY>",
   options: {
     deferInitialization: true,
   },
-})(App)
+})(App);
 ```
 
 ## Provider Config
@@ -124,7 +116,8 @@ The `withDevCycleProvider` function accepts a Provider Config object:
 
 ## Initialization Options
 
-The SDK exposes various initialization options which can be set by passing a `DevCycleOptions` object in the Provider Config:
+The SDK exposes various initialization options which can be set by passing a `DevCycleOptions` object in the Provider
+Config:
 
 [DevCycleOptions Typescript Schema](https://github.com/search?q=repo%3ADevCycleHQ%2Fjs-sdks+export+interface+DevCycleOptions+language%3ATypeScript+path%3A*types.ts&type=code)
 

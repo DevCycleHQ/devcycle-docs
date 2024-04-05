@@ -8,18 +8,23 @@ sidebar_custom_props: { icon: material-symbols:toggle-off }
 
 # OpenFeature Provider
 
-OpenFeature is an open standard that provides a vendor-agnostic, community-driven API for feature flagging that works with DevCycle.
+OpenFeature is an open standard that provides a vendor-agnostic, community-driven API for feature flagging that works
+with DevCycle.
 
-DevCycle provides a Java implementation of the [OpenFeature](https://openfeature.dev/) Provider interface, if you prefer to use the OpenFeature API.
+DevCycle provides a Java implementation of the [OpenFeature](https://openfeature.dev/) Provider interface, if you prefer
+to use the OpenFeature API.
 
 [![Maven](https://badgen.net/maven/v/maven-central/com.devcycle/java-server-sdk)](https://search.maven.org/artifact/com.devcycle/java-server-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/java-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/java-server-sdk)
 
 ## Usage
 
-The Provider implementation is built into the Java SDK. See the [Java Server SDK Installation](https://docs.devcycle.com/sdk/server-side-sdks/java/java-local-install) documentation for more information on how to install and the SDK in your project.
+The Provider implementation is built into the Java SDK. See the
+[Java Server SDK Installation](https://docs.devcycle.com/sdk/server-side-sdks/java/java-local-install) documentation for
+more information on how to install and the SDK in your project.
 
-Start by creating and configuring the `DevCycleLocalClient`. Once the DevCycle client is configured, call the `getOpenFeatureProvider()` function to obtain the OpenFeature provider and set it into the OpenFeature API.
+Start by creating and configuring the `DevCycleLocalClient`. Once the DevCycle client is configured, call the
+`getOpenFeatureProvider()` function to obtain the OpenFeature provider and set it into the OpenFeature API.
 
 ```java
 import com.devcycle.sdk.server.local.api.DevCycleLocalClient;
@@ -49,12 +54,13 @@ public class OpenFeatureExample {
 
 ### Required Targeting Key
 
-For DevCycle SDK to work we require either a `targeting key` or `user_id` attribute to be set on the OpenFeature context.
-This value is used to identify the user as the `user_id` property for a `DevCycleUser` in DevCycle.
+For DevCycle SDK to work we require either a `targeting key` or `user_id` attribute to be set on the OpenFeature
+context. This value is used to identify the user as the `user_id` property for a `DevCycleUser` in DevCycle.
 
 ### Mapping Context Properties to DevCycleUser
 
-The provider will automatically translate known `DevCycleUser` properties from the OpenFeature context to the `DevCycleUser` object.
+The provider will automatically translate known `DevCycleUser` properties from the OpenFeature context to the
+`DevCycleUser` object.
 [DevCycleUser Java Interface](https://github.com/DevCycleHQ/java-server-sdk/blob/main/src/main/java/com/devcycle/sdk/server/common/model/DevCycleUser.java)
 
 For example all these properties will be set on the `DevCycleUser`:
@@ -77,9 +83,11 @@ privateCustomData.put("private", "data");
 context.add("privateCustomData", Structure.mapToStructure(privateCustomData));
 ```
 
-Context properties that are not known `DevCycleUser` properties will be automatically added to the `customData` property of the `DevCycleUser`.
+Context properties that are not known `DevCycleUser` properties will be automatically added to the `customData` property
+of the `DevCycleUser`.
 
-DevCycle allows the following data types for custom data values: **boolean**, **integer**, **double**, **float**, and **String**. Other data types will be ignored.
+DevCycle allows the following data types for custom data values: **boolean**, **integer**, **double**, **float**, and
+**String**. Other data types will be ignored.
 
 ### JSON Flag Limitations
 
@@ -96,7 +104,8 @@ openFeatureClient.getObjectValue("json-flag", new Value("string"));
 openFeatureClient.getObjectValue("json-flag", new Value());
 ```
 
-However, these are not valid types for the DevCycle SDK, the DevCycle SDK only supports JSON Objects (as `Map<String,Object>`):
+However, these are not valid types for the DevCycle SDK, the DevCycle SDK only supports JSON Objects (as
+`Map<String,Object>`):
 
 ```java
 
@@ -105,4 +114,5 @@ defaultJsonData.put("default", "value");
 openFeatureClient.getObjectValue("json-flag", new Value(Structure.mapToStructure(defaultJsonData)));
 ```
 
-This is enforced both for both the flag values and the default values supplied to the `getObjectValue()` method. Invalid types will trigger a `dev.openfeature.sdk.exceptions.TypeMismatchError` exception.
+This is enforced both for both the flag values and the default values supplied to the `getObjectValue()` method. Invalid
+types will trigger a `dev.openfeature.sdk.exceptions.TypeMismatchError` exception.

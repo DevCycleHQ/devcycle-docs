@@ -1,258 +1,261 @@
-require('dotenv').config()
-const path = require('path')
-import remarkEmbedder from '@remark-embedder/core'
+require("dotenv").config();
+const path = require("path");
+import remarkEmbedder from "@remark-embedder/core";
 const YouTubeTransformer = {
-  name: 'YouTubeTransformer',
+  name: "YouTubeTransformer",
   shouldTransform(url) {
-    const ytEndpoints = [{
-      "schemes": [
-        "https://*.youtube.com/watch*",
-        "https://*.youtube.com/v/*",
-        "https://youtu.be/*",
-        "https://*.youtube.com/playlist?list=*",
-        "https://youtube.com/playlist?list=*",
-        "https://*.youtube.com/shorts*"
-      ],
-      "url": "https://www.youtube.com/oembed",
-      "discovery": true
-    }]
+    const ytEndpoints = [
+      {
+        schemes: [
+          "https://*.youtube.com/watch*",
+          "https://*.youtube.com/v/*",
+          "https://youtu.be/*",
+          "https://*.youtube.com/playlist?list=*",
+          "https://youtube.com/playlist?list=*",
+          "https://*.youtube.com/shorts*",
+        ],
+        url: "https://www.youtube.com/oembed",
+        discovery: true,
+      },
+    ];
 
     for (const endpoint of ytEndpoints) {
-      if (
-          endpoint.schemes?.some(scheme =>
-              new RegExp(scheme.replace(/\*/g, '(.*)')).test(url),
-          )
-      ) {
-        return true
+      if (endpoint.schemes?.some((scheme) => new RegExp(scheme.replace(/\*/g, "(.*)")).test(url))) {
+        return true;
       }
     }
-    return false
+    return false;
   },
   // default config function returns what it's given
   getHTML(url, options = {}) {
     function getVideoID(userInput) {
-      var res = userInput.match(/^.*(?:(?:youtu.be\/)|(?:v\/)|(?:\/u\/\w\/)|(?:embed\/)|(?:watch\?))\??v?=?([^#\&\?]*).*/);
+      var res = userInput.match(
+        /^.*(?:(?:youtu.be\/)|(?:v\/)|(?:\/u\/\w\/)|(?:embed\/)|(?:watch\?))\??v?=?([^#\&\?]*).*/,
+      );
       if (res) return res[1];
       return false;
     }
-    const videoID = getVideoID(url)
-    return `<div style="width: ${options.width || '100%'}; margin: 0 ${options.align || '0'};"><div style="position: relative; padding-bottom: 56.25%; padding-top: 25px; height: 0;"><iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/${videoID}"></iframe></div></div>`;
+    const videoID = getVideoID(url);
+    return `<div style="width: ${options.width || "100%"}; margin: 0 ${options.align || "0"};"><div style="position: relative; padding-bottom: 56.25%; padding-top: 25px; height: 0;"><iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/${videoID}"></iframe></div></div>`;
   },
-}
+};
 /**
  * Pinned version of the CLI to use for docs
  * When bumping the version, add any new commands to the documents array
  */
-const DVC_CLI_VERSION = 'v5.14.5' // auto updated by dvc cli release workflow
+const DVC_CLI_VERSION = "v5.14.5"; // auto updated by dvc cli release workflow
 
-const VSCODE_EXTENSION_VERSION = 'v1.4.3' // auto updated by extension release workflow
+const VSCODE_EXTENSION_VERSION = "v1.4.3"; // auto updated by extension release workflow
 
 const removeDocsSections = (content, sectionNames, headerIdentifier = "##") => {
-  let result = content
+  let result = content;
   for (const sectionName of sectionNames) {
-    const regex = new RegExp(`${headerIdentifier} ${sectionName}[\\s\\S]*?(?=## |#$|$)`, 'g');
+    const regex = new RegExp(`${headerIdentifier} ${sectionName}[\\s\\S]*?(?=## |#$|$)`, "g");
 
-    result = result.replace(regex, '')
+    result = result.replace(regex, "");
   }
-  return result
-}
+  return result;
+};
 
 /**
  * @type {Partial<import('@docusaurus/types').DocusaurusConfig>}
  */
 const config = {
   clientModules: [
-    require.resolve('./src/modules/analyticsModule.js'),
-    require.resolve('./src/modules/rudderstackClientModule.js'),
+    require.resolve("./src/modules/analyticsModule.js"),
+    require.resolve("./src/modules/rudderstackClientModule.js"),
   ],
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'throw',
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "throw",
   plugins: [
     () => {
       // ...
       return {
-        name: 'tailwind',
+        name: "tailwind",
         configurePostCss(postcssOptions) {
           postcssOptions.plugins.push(
-            require('postcss-import'),
-            require('tailwindcss'),
-            require('postcss-preset-env')({
+            require("postcss-import"),
+            require("tailwindcss"),
+            require("postcss-preset-env")({
               autoprefixer: {
-                flexbox: 'no-2009',
+                flexbox: "no-2009",
               },
               stage: 4,
             }),
-          )
-          return postcssOptions
+          );
+          return postcssOptions;
         },
-      }
+      };
     },
-    path.resolve(__dirname, 'plugins', 'custom-gtm'),
-    path.resolve(__dirname, 'plugins', 'custom-beamer'),
+    path.resolve(__dirname, "plugins", "custom-gtm"),
+    path.resolve(__dirname, "plugins", "custom-beamer"),
     [
-      'docusaurus-plugin-remote-content',
+      "docusaurus-plugin-remote-content",
       {
-        name: 'cli',
+        name: "cli",
         sourceBaseUrl: `https://raw.githubusercontent.com/DevCycleHQ/cli/${DVC_CLI_VERSION}`,
-        outDir: 'docs/cli',
+        outDir: "docs/cli",
         documents: [
-          'README.md',
-          'docs/alias.md',
-          'docs/autocomplete.md',
-          'docs/cleanup.md',
-          'docs/diff.md',
-          'docs/environments.md',
-          'docs/features.md',
-          'docs/generate.md',
-          'docs/help.md',
-          'docs/identity.md',
-          'docs/keys.md',
-          'docs/login.md',
-          'docs/logout.md',
-          'docs/organizations.md',
-          'docs/overrides.md',
-          'docs/projects.md',
-          'docs/repo.md',
-          'docs/status.md',
-          'docs/targeting.md',
-          'docs/usages.md',
-          'docs/variables.md',
-          'docs/variations.md',
+          "README.md",
+          "docs/alias.md",
+          "docs/autocomplete.md",
+          "docs/cleanup.md",
+          "docs/diff.md",
+          "docs/environments.md",
+          "docs/features.md",
+          "docs/generate.md",
+          "docs/help.md",
+          "docs/identity.md",
+          "docs/keys.md",
+          "docs/login.md",
+          "docs/logout.md",
+          "docs/organizations.md",
+          "docs/overrides.md",
+          "docs/projects.md",
+          "docs/repo.md",
+          "docs/status.md",
+          "docs/targeting.md",
+          "docs/usages.md",
+          "docs/variables.md",
+          "docs/variations.md",
         ],
         performCleanup: true,
         modifyContent: (filename, content) => {
-          if (filename.includes('README')) {
+          if (filename.includes("README")) {
             return {
               // reduce headers to use with table of contents
-              content: content.replace(/#\s/g, '## '),
-            }
+              content: content.replace(/#\s/g, "## "),
+            };
           }
-          return undefined
+          return undefined;
         },
       },
     ],
     [
-      'docusaurus-plugin-remote-content',
+      "docusaurus-plugin-remote-content",
       {
-        name: 'vscode-extension',
+        name: "vscode-extension",
         sourceBaseUrl: `https://raw.githubusercontent.com/DevCycleHQ/vscode-extension/${VSCODE_EXTENSION_VERSION}`,
-        outDir: 'docs/integrations/vscode-extension',
-        documents: [
-          'README.md',
-        ],
+        outDir: "docs/integrations/vscode-extension",
+        documents: ["README.md"],
         performCleanup: true,
         modifyContent: (filename, content) => {
-          if (filename.includes('README')) {
-            const noTitle = content.replace(/# [\s\S]*?##/, '# DevCycle VSCode Extension \n##')
+          if (filename.includes("README")) {
+            const noTitle = content.replace(/# [\s\S]*?##/, "# DevCycle VSCode Extension \n##");
             return {
-              content: removeDocsSections(noTitle, ['About DevCycle', 'Documentation', 'Sign Up for DevCycle', 'Contributing'])
-            }
+              content: removeDocsSections(noTitle, [
+                "About DevCycle",
+                "Documentation",
+                "Sign Up for DevCycle",
+                "Contributing",
+              ]),
+            };
           }
-          return undefined
+          return undefined;
         },
       },
     ],
     [
-      'docusaurus-plugin-remote-content',
+      "docusaurus-plugin-remote-content",
       {
-        name: 'github.feature-usage-action',
-        sourceBaseUrl: 'https://raw.githubusercontent.com/DevCycleHQ/feature-flag-code-usage-action/main/',
-        outDir: 'docs/integrations/github/feature-usage-action',
-        documents: ['README.md'],
+        name: "github.feature-usage-action",
+        sourceBaseUrl: "https://raw.githubusercontent.com/DevCycleHQ/feature-flag-code-usage-action/main/",
+        outDir: "docs/integrations/github/feature-usage-action",
+        documents: ["README.md"],
         performCleanup: true,
         modifyContent: (filename, content) => ({
           content:
-            '# GitHub: Feature Flag Code Usages \n' +
-            'Get the integration on the [GitHub Marketplace](https://github.com/marketplace/actions/devcycle-feature-flag-code-usages)\n' +
-            content
-        })
+            "# GitHub: Feature Flag Code Usages \n" +
+            "Get the integration on the [GitHub Marketplace](https://github.com/marketplace/actions/devcycle-feature-flag-code-usages)\n" +
+            content,
+        }),
       },
     ],
     [
-      'docusaurus-plugin-remote-content',
+      "docusaurus-plugin-remote-content",
       {
-        name: 'github.pr-insights-action',
-        sourceBaseUrl: 'https://raw.githubusercontent.com/DevCycleHQ/feature-flag-pr-insights-action/main/',
-        outDir: 'docs/integrations/github/pr-insights-action',
-        documents: ['README.md'],
+        name: "github.pr-insights-action",
+        sourceBaseUrl: "https://raw.githubusercontent.com/DevCycleHQ/feature-flag-pr-insights-action/main/",
+        outDir: "docs/integrations/github/pr-insights-action",
+        documents: ["README.md"],
         performCleanup: true,
         modifyContent: (filename, content) => ({
           content:
-            '# GitHub: Feature Flag Change Insights on Pull Request \n' +
-            'Get the integration on the [GitHub Marketplace](https://github.com/marketplace/actions/devcycle-feature-flag-insights-for-pull-requests)\n' +
-            content
-        })
+            "# GitHub: Feature Flag Change Insights on Pull Request \n" +
+            "Get the integration on the [GitHub Marketplace](https://github.com/marketplace/actions/devcycle-feature-flag-insights-for-pull-requests)\n" +
+            content,
+        }),
       },
     ],
     [
-      'docusaurus-plugin-remote-content',
+      "docusaurus-plugin-remote-content",
       {
-        name: 'bitbucket.feature-usage-action',
-        sourceBaseUrl: 'https://bitbucket.org/devcyclehq/devcycle-code-refs-pipe/raw/main/',
-        outDir: 'docs/integrations/bitbucket/feature-usage-action',
-        documents: ['README.md'],
+        name: "bitbucket.feature-usage-action",
+        sourceBaseUrl: "https://bitbucket.org/devcyclehq/devcycle-code-refs-pipe/raw/main/",
+        outDir: "docs/integrations/bitbucket/feature-usage-action",
+        documents: ["README.md"],
         performCleanup: true,
         modifyContent: (filename, content) => ({
           content:
-            '# Bitbucket: Feature Flag Code Usages\n' +
-            'Get the integration on the [Bitbucket Marketplace](https://bitbucket.org/product/features/pipelines/integrations?&p=devcyclehq/devcycle-code-refs-pipe)\n' +
-            content
-        })
+            "# Bitbucket: Feature Flag Code Usages\n" +
+            "Get the integration on the [Bitbucket Marketplace](https://bitbucket.org/product/features/pipelines/integrations?&p=devcyclehq/devcycle-code-refs-pipe)\n" +
+            content,
+        }),
       },
     ],
     [
-      'docusaurus-plugin-remote-content',
+      "docusaurus-plugin-remote-content",
       {
-        name: 'bitbucket.pr-insights-action',
-        sourceBaseUrl: 'https://bitbucket.org/devcyclehq/devcycle-pr-insights-pipe/raw/main/',
-        outDir: 'docs/integrations/bitbucket/pr-insights-action',
-        documents: ['README.md'],
+        name: "bitbucket.pr-insights-action",
+        sourceBaseUrl: "https://bitbucket.org/devcyclehq/devcycle-pr-insights-pipe/raw/main/",
+        outDir: "docs/integrations/bitbucket/pr-insights-action",
+        documents: ["README.md"],
         performCleanup: true,
         modifyContent: (filename, content) => ({
           content:
-            '# Bitbucket: Feature Flag Change Insights on Pull Request\n' +
-            'Get the integration on the [Bitbucket Marketplace](https://bitbucket.org/product/features/pipelines/integrations?&p=devcyclehq/devcycle-pr-insights-pipe)\n' +
-            content
-        })
+            "# Bitbucket: Feature Flag Change Insights on Pull Request\n" +
+            "Get the integration on the [Bitbucket Marketplace](https://bitbucket.org/product/features/pipelines/integrations?&p=devcyclehq/devcycle-pr-insights-pipe)\n" +
+            content,
+        }),
       },
     ],
     [
-      'docusaurus-plugin-remote-content',
+      "docusaurus-plugin-remote-content",
       {
-        name: 'gitlab.feature-usage-action',
-        sourceBaseUrl: 'https://gitlab.com/devcycle/devcycle-usages-ci-cd/-/raw/main/',
-        outDir: 'docs/integrations/gitlab/feature-usage-action',
-        documents: ['README.md'],
+        name: "gitlab.feature-usage-action",
+        sourceBaseUrl: "https://gitlab.com/devcycle/devcycle-usages-ci-cd/-/raw/main/",
+        outDir: "docs/integrations/gitlab/feature-usage-action",
+        documents: ["README.md"],
         performCleanup: true,
         modifyContent: (filename, content) => ({
           content:
-            '# GitLab: Feature Flag Code Usages \n' +
-            'Get the integration here: https://gitlab.com/devcycle/devcycle-usages-ci-cd\n' +
-            content
-        })
-      }
+            "# GitLab: Feature Flag Code Usages \n" +
+            "Get the integration here: https://gitlab.com/devcycle/devcycle-usages-ci-cd\n" +
+            content,
+        }),
+      },
     ],
     [
-      'docusaurus-plugin-remote-content',
+      "docusaurus-plugin-remote-content",
       {
-        name: 'gitlab.pr-insights-action',
-        sourceBaseUrl: 'https://gitlab.com/devcycle/devcycle-pr-insights-ci-cd/-/raw/main/',
-        outDir: 'docs/integrations/gitlab/pr-insights-action',
-        documents: ['README.md'],
+        name: "gitlab.pr-insights-action",
+        sourceBaseUrl: "https://gitlab.com/devcycle/devcycle-pr-insights-ci-cd/-/raw/main/",
+        outDir: "docs/integrations/gitlab/pr-insights-action",
+        documents: ["README.md"],
         performCleanup: true,
         modifyContent: (filename, content) => ({
           content:
-            '# GitLab: Feature Flag Change Insights on Merge Request\n' +
-            'Get the integration here: https://gitlab.com/devcycle/devcycle-pr-insights-ci-cd\n' +
-            content
-        })
-      }
-    ]
+            "# GitLab: Feature Flag Change Insights on Merge Request\n" +
+            "Get the integration here: https://gitlab.com/devcycle/devcycle-pr-insights-ci-cd\n" +
+            content,
+        }),
+      },
+    ],
   ],
 
   presets: [
     [
-      '@docusaurus/preset-classic',
+      "@docusaurus/preset-classic",
       {
         debug: Boolean(process.env.DEBUG || process.env.CI),
         docs: {
@@ -261,41 +264,41 @@ const config = {
           showLastUpdateAuthor: false,
           showLastUpdateTime: true,
           editCurrentVersion: true,
-          sidebarPath: require.resolve('./sidebars.js'),
+          sidebarPath: require.resolve("./sidebars.js"),
           remarkPlugins: [
-            [remarkEmbedder, {transformers: [[YouTubeTransformer]]}],
-            require('remark-docusaurus-tabs'),
+            [remarkEmbedder, { transformers: [[YouTubeTransformer]] }],
+            require("remark-docusaurus-tabs"),
           ],
           rehypePlugins: [],
-          routeBasePath: '/',
+          routeBasePath: "/",
         },
         sitemap: {
-          changefreq: 'weekly',
+          changefreq: "weekly",
           priority: 0.5,
         },
         theme: {
-          customCss: [require.resolve('./src/css/custom.css')],
+          customCss: [require.resolve("./src/css/custom.css")],
         },
       },
     ],
     [
-      'redocusaurus',
+      "redocusaurus",
       {
         debug: Boolean(process.env.DEBUG || process.env.CI),
         specs: [
           {
-            id: 'management-api',
-            spec: 'https://api.devcycle.com/swagger.json',
-            route: '/management-api/',
+            id: "management-api",
+            spec: "https://api.devcycle.com/swagger.json",
+            route: "/management-api/",
           },
           {
-            id: 'bucketing-api',
-            spec: 'bucketing-api.yaml',
-            route: '/bucketing-api/',
+            id: "bucketing-api",
+            spec: "bucketing-api.yaml",
+            route: "/bucketing-api/",
           },
         ],
         theme: {
-          primaryColor: '#365EDA',
+          primaryColor: "#365EDA",
           redocOptions: { hideDownloadButton: false },
         },
       },
@@ -303,39 +306,39 @@ const config = {
   ],
 
   /** ************ Rest of your Docusaurus Config *********** */
-  title: 'DevCycle Docs',
-  tagline: 'DevCycle Feature Management and Experimentation',
+  title: "DevCycle Docs",
+  tagline: "DevCycle Feature Management and Experimentation",
   customFields: {
     meta: {
       description:
-        'The DevCycle documentation site includes guides and API documentation for the complete platform including the management dashboard, management APIs, SDKs, and more. If you need help along the way feel free to reach out to support and if you don’t have an account yet, you can create a free account now.',
+        "The DevCycle documentation site includes guides and API documentation for the complete platform including the management dashboard, management APIs, SDKs, and more. If you need help along the way feel free to reach out to support and if you don’t have an account yet, you can create a free account now.",
     },
     DEVCYCLE_CLIENT_SDK_KEY: process.env.DEVCYCLE_CLIENT_SDK_KEY,
   },
   url:
-    process.env.VERCEL_ENV === 'production'
-      ? 'https://docs.devcycle.com'
+    process.env.VERCEL_ENV === "production"
+      ? "https://docs.devcycle.com"
       : process.env.VERCEL_URL
-      ? 'https://' + process.env.VERCEL_URL
-      : 'http://localhost:3000',
-  baseUrl: '/',
-  favicon: 'devcycle_favicon.svg',
+        ? "https://" + process.env.VERCEL_URL
+        : "http://localhost:3000",
+  baseUrl: "/",
+  favicon: "devcycle_favicon.svg",
   scripts: [
     {
-      src: 'https://use.fontawesome.com/releases/v5.15.4/js/all.js',
+      src: "https://use.fontawesome.com/releases/v5.15.4/js/all.js",
       async: true,
     },
   ],
   themeConfig: {
     announcementBar: {
-      id: 'support_us',
+      id: "support_us",
       content:
         'Ready to start feature flagging? Sign-up for a free <a target="_blank" rel="noopener noreferrer" href="https://devcycle.com">DevCycle account</a> today 🏳️',
-      backgroundColor: 'rgb(17 24 39)',
-      textColor: '#FFFFFF',
+      backgroundColor: "rgb(17 24 39)",
+      textColor: "#FFFFFF",
       isCloseable: false,
     },
-    image: 'devcycle_card.png',
+    image: "devcycle_card.png",
     docs: {
       sidebar: {
         autoCollapseCategories: true,
@@ -344,172 +347,172 @@ const config = {
     },
     prism: {
       additionalLanguages: [
-        'ruby',
-        'go',
-        'swift',
-        'kotlin',
-        'java',
-        'clike',
-        'scala',
-        'hcl',
-        'yaml',
-        'csharp',
-        'dart',
-        'python',
+        "ruby",
+        "go",
+        "swift",
+        "kotlin",
+        "java",
+        "clike",
+        "scala",
+        "hcl",
+        "yaml",
+        "csharp",
+        "dart",
+        "python",
         // Leave php disabled until this issue is fixed upstream: https://github.com/PrismJS/prism/issues/2769
         //'php'
       ],
     },
     algolia: {
-      appId: '6TW93YPS4X',
-      apiKey: '2a9dbde35586f5ae29571b19dacc71c6', // Public API key: it is safe to commit it
-      indexName: 'prod_DEVCYCLE_DOCS',
+      appId: "6TW93YPS4X",
+      apiKey: "2a9dbde35586f5ae29571b19dacc71c6", // Public API key: it is safe to commit it
+      indexName: "prod_DEVCYCLE_DOCS",
       contextualSearch: true,
     },
     navbar: {
       logo: {
-        alt: 'DevCycle Logo',
-        src: 'devcycle-docs-full-colour.svg',
-        srcDark: 'devcycle-docs-white.svg',
+        alt: "DevCycle Logo",
+        src: "devcycle-docs-full-colour.svg",
+        srcDark: "devcycle-docs-white.svg",
       },
       items: [
-          {
-              type: 'doc',
-              docId: 'index',
-              position: 'left',
-              collapse: 'false',
-              label: 'Home',
-          },
         {
-          type: 'doc',
-          docId: 'sdk/index',
-          position: 'left',
-          collapse: 'false',
-          label: 'SDKs',
+          type: "doc",
+          docId: "index",
+          position: "left",
+          collapse: "false",
+          label: "Home",
         },
         {
-          type: 'dropdown',
-          label: 'APIs',
-          position: 'left',
+          type: "doc",
+          docId: "sdk/index",
+          position: "left",
+          collapse: "false",
+          label: "SDKs",
+        },
+        {
+          type: "dropdown",
+          label: "APIs",
+          position: "left",
           items: [
             {
-              label: 'Management API',
-              to: '/management-api/',
+              label: "Management API",
+              to: "/management-api/",
             },
             {
-              label: 'Bucketing API',
-              to: '/bucketing-api/',
+              label: "Bucketing API",
+              to: "/bucketing-api/",
             },
           ],
         },
         {
-          type: 'doc',
-          docId: 'integrations/index',
-          position: 'left',
-          collapse: 'false',
-          label: 'Integrations',
+          type: "doc",
+          docId: "integrations/index",
+          position: "left",
+          collapse: "false",
+          label: "Integrations",
         },
         {
-          label: 'CLI',
-          to: '/cli/',
+          label: "CLI",
+          to: "/cli/",
         },
         {
-          label: 'Best Practices',
-          to: '/best-practices/',
+          label: "Best Practices",
+          to: "/best-practices/",
         },
         {
-          type: 'dropdown',
-          label: 'Community',
-          position: 'left',
+          type: "dropdown",
+          label: "Community",
+          position: "left",
           items: [
             {
-              label: 'Calendar',
-              to: '/community/calendar',
+              label: "Calendar",
+              to: "/community/calendar",
             },
             {
-              href: 'https://www.meetup.com/devcycle/',
-              label: 'MeetUps',
-              target: '_blank',
+              href: "https://www.meetup.com/devcycle/",
+              label: "MeetUps",
+              target: "_blank",
               rel: null,
             },
             {
-              href: 'https://blog.devcycle.com',
-              label: 'Blog',
-              target: '_blank',
+              href: "https://blog.devcycle.com",
+              label: "Blog",
+              target: "_blank",
               rel: null,
             },
             {
-              href: 'https://discord.gg/pKK4fJgGxG',
-              label: 'Discord',
-              target: '_blank',
+              href: "https://discord.gg/pKK4fJgGxG",
+              label: "Discord",
+              target: "_blank",
               rel: null,
             },
           ],
         },
         {
-          type: 'search',
-          position: 'right',
+          type: "search",
+          position: "right",
         },
         {
-          href: 'https://devcycle.com/contact/request-demo',
-          position: 'right',
-          label: 'Book a Demo',
-          className: 'navbar-book-demo',
+          href: "https://devcycle.com/contact/request-demo",
+          position: "right",
+          label: "Book a Demo",
+          className: "navbar-book-demo",
         },
         {
-          href: 'https://app.devcycle.com/?isSignUp=true',
-          position: 'right',
-          className: 'header-signup-link',
-          label: 'Sign Up',
+          href: "https://app.devcycle.com/?isSignUp=true",
+          position: "right",
+          className: "header-signup-link",
+          label: "Sign Up",
         },
         {
-          href: 'https://discord.gg/pKK4fJgGxG',
-          position: 'right',
-          className: 'header-discord-link',
-          'aria-label': 'Discord',
+          href: "https://discord.gg/pKK4fJgGxG",
+          position: "right",
+          className: "header-discord-link",
+          "aria-label": "Discord",
         },
         {
-          href: '#',
-          position: 'right',
-          className: 'header-beamer-link',
-          'aria-label': 'Beamer',
+          href: "#",
+          position: "right",
+          className: "header-beamer-link",
+          "aria-label": "Beamer",
         },
       ],
     },
     footer: {
       logo: {
-        alt: 'DevCycle Logo',
-        src: 'togglebot.png',
+        alt: "DevCycle Logo",
+        src: "togglebot.png",
       },
-      style: 'dark',
+      style: "dark",
       links: [
         {
-          title: 'Resources',
+          title: "Resources",
           items: [
             {
-              label: 'DevCycle home',
-              href: 'https://Devcycle.com',
+              label: "DevCycle home",
+              href: "https://Devcycle.com",
             },
             {
-              label: 'Dashboard',
-              href: 'https://app.devcycle.com',
+              label: "Dashboard",
+              href: "https://app.devcycle.com",
             },
             {
-              label: 'Github',
-              href: 'https://github.com/devcyclehq',
+              label: "Github",
+              href: "https://github.com/devcyclehq",
             },
             {
-              label: 'Discord',
-              href: 'https://discord.gg/pKK4fJgGxG',
+              label: "Discord",
+              href: "https://discord.gg/pKK4fJgGxG",
             },
           ],
         },
         {
-          title: 'More',
+          title: "More",
           items: [
             {
-              label: 'Blog',
-              href: 'https://blog.devcycle.com',
+              label: "Blog",
+              href: "https://blog.devcycle.com",
             },
             //   {
             //     label: 'Status',
@@ -518,15 +521,15 @@ const config = {
           ],
         },
         {
-          title: 'Community',
+          title: "Community",
           items: [
             {
-              label: 'Twitter',
-              href: 'https://twitter.com/devcyclehq',
+              label: "Twitter",
+              href: "https://twitter.com/devcyclehq",
             },
             {
-              label: 'Discord',
-              href: 'https://discord.gg/pKK4fJgGxG',
+              label: "Discord",
+              href: "https://discord.gg/pKK4fJgGxG",
             },
           ],
         },
@@ -534,6 +537,6 @@ const config = {
       copyright: `Copyright © ${new Date().getFullYear()} DevCycle.`,
     },
   },
-}
+};
 
-module.exports = config
+module.exports = config;

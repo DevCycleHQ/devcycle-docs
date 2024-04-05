@@ -11,10 +11,11 @@ sidebar_custom_props: { icon: material-symbols:rocket }
 
 ## Initializing the SDK
 
-We recommend initializing the SDK once in `onCreate` of your `Application` class or `MainActivity` to receive features as soon as possible, and to pass around the client instance around in your app.
+We recommend initializing the SDK once in `onCreate` of your `Application` class or `MainActivity` to receive features
+as soon as possible, and to pass around the client instance around in your app.
 
-Using the builder pattern we can initialize the DevCycle SDK by providing the `applicationContext`,
-DevCycleUser, and DevCycle mobile SDK key:
+Using the builder pattern we can initialize the DevCycle SDK by providing the `applicationContext`, DevCycleUser, and
+DevCycle mobile SDK key:
 
 ### _Kotlin example:_
 
@@ -98,7 +99,8 @@ A DevCycleUser can be built using the following methods:
 
 ## DevCycleOptions Builder
 
-The SDK exposes various initialization options which can be used by passing a `DevCycleOptions` object to the `withOptions` method of `DevCycleClient.builder()`:
+The SDK exposes various initialization options which can be used by passing a `DevCycleOptions` object to the
+`withOptions` method of `DevCycleClient.builder()`:
 
 [DevCycleOptions builder class](https://github.com/DevCycleHQ/android-client-sdk/blob/main/android-client-sdk/src/main/java/com/devcycle/sdk/android/api/DevCycleOptions.kt#L11)
 

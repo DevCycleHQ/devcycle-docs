@@ -12,54 +12,48 @@ sidebar_custom_props: { icon: material-symbols:rocket }
 
 There are two ways to initialize the SDK:
 
-- Non-Blocking: This loads your application and makes a request to initialize the SDK in the background. Once this request is complete,
-  your application will be ready to use the SDK.
-- Blocking: This allows you to delay the rendering of your application until the request to initialize the SDK is completed.
+- Non-Blocking: This loads your application and makes a request to initialize the SDK in the background. Once this
+  request is complete, your application will be ready to use the SDK.
+- Blocking: This allows you to delay the rendering of your application until the request to initialize the SDK is
+  completed.
 
-To use these providers, you must grab the SDK Key from the DevCycle Dashboard.
-You can optionally pass in a user object to the provider to initialize the SDK.
-If you do not pass in a user to the provider, it will create an anonymous user and initialize the SDK with it.
-You can then call the `identifyUser` method on the client once the user has been authenticated.
-See [Identifying Users & Setting Properties](/sdk/features#identify) for more details.
+To use these providers, you must grab the SDK Key from the DevCycle Dashboard. You can optionally pass in a user object
+to the provider to initialize the SDK. If you do not pass in a user to the provider, it will create an anonymous user
+and initialize the SDK with it. You can then call the `identifyUser` method on the client once the user has been
+authenticated. See [Identifying Users & Setting Properties](/sdk/features#identify) for more details.
 
 ## Non-Blocking
 
-The `withDevCycleProvider` function initializes the React SDK and wraps your root component. This provider may cause your app
-to flicker when it is first rendered, as it is waiting for the SDK to initialize.
+The `withDevCycleProvider` function initializes the React SDK and wraps your root component. This provider may cause
+your app to flicker when it is first rendered, as it is waiting for the SDK to initialize.
 
 ```js
-import { withDevCycleProvider } from '@devcycle/react-native-client-sdk'
+import { withDevCycleProvider } from "@devcycle/react-native-client-sdk";
 ```
 
 ```js
-export default withDevCycleProvider({ sdkKey: '<DEVCYCLE_CLIENT_SDK_KEY>' })(
-  App,
-)
+export default withDevCycleProvider({ sdkKey: "<DEVCYCLE_CLIENT_SDK_KEY>" })(App);
 ```
 
 ## Blocking
 
-The `useIsDevCycleInitialized` hook allows you to block rendering of your application until SDK initialization is complete. This ensures your app
-does not flicker due to value changes and enables you to control what you want displayed when initialization isn't finished yet.
+The `useIsDevCycleInitialized` hook allows you to block rendering of your application until SDK initialization is
+complete. This ensures your app does not flicker due to value changes and enables you to control what you want displayed
+when initialization isn't finished yet.
 
 ```js
-import {
-  useIsDevCycleInitialized,
-  withDevCycleProvider,
-} from '@devcycle/react-native-client-sdk'
+import { useIsDevCycleInitialized, withDevCycleProvider } from "@devcycle/react-native-client-sdk";
 ```
 
 ```js
 function App() {
-  const devcycleReady = useIsDevCycleInitialized()
+  const devcycleReady = useIsDevCycleInitialized();
 
-  if (!devcycleReady) return <LoadingState />
-  return <TheRestofYourApp />
+  if (!devcycleReady) return <LoadingState />;
+  return <TheRestofYourApp />;
 }
 
-export default withDevCycleProvider({ sdkKey: '<DEVCYCLE_CLIENT_SDK_KEY>' })(
-  App,
-)
+export default withDevCycleProvider({ sdkKey: "<DEVCYCLE_CLIENT_SDK_KEY>" })(App);
 ```
 
 ## Provider Config
@@ -76,7 +70,8 @@ The `withDevCycleProvider` function accepts a Provider Config object:
 
 ## Initialization Options
 
-The SDK exposes various initialization options which can be set by passing a `DevCycleOptions` object in the Provider Config:
+The SDK exposes various initialization options which can be set by passing a `DevCycleOptions` object in the Provider
+Config:
 
 [DevCycleOptions Typescript Schema](https://github.com/search?q=repo%3ADevCycleHQ%2Fjs-sdks+export+interface+DevCycleOptions+language%3ATypeScript+path%3A*types.ts&type=code)
 

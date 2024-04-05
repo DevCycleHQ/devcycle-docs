@@ -36,7 +36,8 @@ Then, run `pod install`.
 
 :::caution
 
-Carthage support for MacOS development with the DevCycle iOS SDK is currently not supported. Please contact us for more info.
+Carthage support for MacOS development with the DevCycle iOS SDK is currently not supported. Please contact us for more
+info.
 
 :::
 
@@ -46,9 +47,11 @@ Include the following in your `Cartfile` to integrate DevCycle as a dependency t
 github "DevCycleHQ/ios-client-sdk"
 ```
 
-Then, run `carthage update --platform <platform> --use-xcframeworks` where `platform` is the platform you are using the SDK on: `iOS | macOS | watchOS | tvOS`.
+Then, run `carthage update --platform <platform> --use-xcframeworks` where `platform` is the platform you are using the
+SDK on: `iOS | macOS | watchOS | tvOS`.
 
-Drag the built .xcframework bundles from Carthage/Build into the "Frameworks and Libraries" section of your application’s Xcode project.
+Drag the built .xcframework bundles from Carthage/Build into the "Frameworks and Libraries" section of your
+application’s Xcode project.
 
 ### Swift Package Manager
 
@@ -68,4 +71,5 @@ To use the library with Swift Package Manager, include it as a dependency in you
 ...
 ```
 
-You can also add it through Xcode, i.e. `File > Swift Packages > Add Package Dependency`, then enter the repository clone URL.
+You can also add it through Xcode, i.e. `File > Swift Packages > Add Package Dependency`, then enter the repository
+clone URL.

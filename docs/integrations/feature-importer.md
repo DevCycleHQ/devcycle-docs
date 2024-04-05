@@ -5,7 +5,9 @@ sidebar_position: 10
 
 ## DevCycle Feature Importer
 
-DevCycle's Feature Importer is designed to import resources from other feature flag providers. The importer is intended to be run on a single project and will create or update a project with the same key containing Environments, Features, and Variables. 
+DevCycle's Feature Importer is designed to import resources from other feature flag providers. The importer is intended
+to be run on a single project and will create or update a project with the same key containing Environments, Features,
+and Variables.
 
 :::info
 
@@ -14,6 +16,7 @@ The feature importer script is fully open-source. Check it out here: https://git
 :::
 
 ### Table of Contents
+
 - [Setup](#setup)
 - [Configuration](#configuration)
   - [Required](#required)
@@ -21,45 +24,50 @@ The feature importer script is fully open-source. Check it out here: https://git
 - [Code Migration](#code-migration)
 
 ### Setup
+
 1. Clone repo from [here](https://github.com/devcyclehq/feature-importer)
 2. Run `npm install` to install dependencies
 3. Setup [configuration file](#configuration)
 4. Run `npm start` to start an import
-  
+
 ### Configuration
-The feature importer can be configured using environment variables or a JSON config file. 
-By default the config is read from `config.json` in the project root, this can be overwritten using `CONFIG_FILE_PATH`.
+
+The feature importer can be configured using environment variables or a JSON config file. By default the config is read
+from `config.json` in the project root, this can be overwritten using `CONFIG_FILE_PATH`.
 
 #### Required
 
-- **ldAccessToken**: *string*
+- **ldAccessToken**: _string_
   - LaunchDarkly access token. Used for pulling feature flags.
   - Equivalent env var: `LD_ACCESS_TOKEN`
-- **dvcClientId**: *string*
+- **dvcClientId**: _string_
   - DevCycle client ID. Used for fetching API credentials.
   - Equivalent env var: `DVC_CLIENT_ID`
-- **dvcClientSecret**: *string*
+- **dvcClientSecret**: _string_
   - DevCycle client secret. Used for fetching API credentials.
   - Equivalent env var: `DVC_CLIENT_SECRET`
-- **sourceProjectKey**: *string*
+- **sourceProjectKey**: _string_
   - LaunchDarkly's project key. Resources will be pulled from this project.
   - Equivalent env var: `SOURCE_PROJECT_KEY`
 
 #### Optional
-- **targetProjectKey**: *string*
-  - A DevCycle project key. Resources will be created within this project. A project will be created with this key if it does not already exist.
+
+- **targetProjectKey**: _string_
+  - A DevCycle project key. Resources will be created within this project. A project will be created with this key if it
+    does not already exist.
   - If not specified, the target project key will be used
   - Equivalent env var: TARGET_PROJECT_KEY
 - **includeFeatures**: `string[]`
   - An array of LD feature flag keys to be imported. By default, the importer will attempt to migrate all features.
   - Equivalent env var: `INCLUDE_FEATURES`
-- **excludeFeatures**: *string[]*
+- **excludeFeatures**: _string[]_
   - An array of LD feature flag keys to be skipped when importing.
   - Equivalent env var: `EXCLUDE_FEATURES`
-- **overwriteDuplicates**: *boolean*
-  - If true, when the importer encounters a duplicate resource it will be overwritten. By default, duplicates will be skipped.
+- **overwriteDuplicates**: _boolean_
+  - If true, when the importer encounters a duplicate resource it will be overwritten. By default, duplicates will be
+    skipped.
   - Equivalent env var: `OVERWRITE_DUPLICATES`
-- **operationMap**: *`Map<string, string>`*
+- **operationMap**: _`Map<string, string>`_
   - A map of LD operations to map to DevCycle operations
   - DevCycle operations: `=`, `!=`, `>`, `<`, `>=`, `<=`, `contain`, `!contain`, `exist`, `!exist`
   - Equivalent env var: OPERATION_MAP
@@ -76,9 +84,9 @@ Sample config.json
   "excludeFeatures": [],
   "overwriteDuplicates": false,
   "operationMap": {
-		"startsWith": "contain",
-		"endsWith": "contain"
-	}
+    "startsWith": "contain",
+    "endsWith": "contain"
+  }
 }
 ```
 
@@ -98,11 +106,15 @@ OPERATION_MAP='{"endsWith":"contain","startsWith":"contain"}'
 ### Code Migration
 
 #### Migrating Code from LaunchDarkly
+
 - In LaunchDarkly, the primary identifier is `key`, in DVC the equivalent value should be passed as `user_id`
-- DVC supports the following top-level properties on the user object: see [DVC User Object](/sdk/client-side-sdks/javascript/javascript-gettingstarted#dvc-user-object).
-  Any other properties used for targeting should be passed within the `customData` map.
-- If you are passing a date to be used with LD's before/after operators, the value should be converted to a Long when passed to DVC. The importer will convert `before` & `after` operators to `<` & `>` in DVC.
-- DVC doesn't support targeting by the top-level `isAnonymous` property. If you are using LD's targeting with the `anonymous` attribute, make sure to include an `anonymous` property in the user's `customData`
+- DVC supports the following top-level properties on the user object: see
+  [DVC User Object](/sdk/client-side-sdks/javascript/javascript-gettingstarted#dvc-user-object). Any other properties
+  used for targeting should be passed within the `customData` map.
+- If you are passing a date to be used with LD's before/after operators, the value should be converted to a Long when
+  passed to DVC. The importer will convert `before` & `after` operators to `<` & `>` in DVC.
+- DVC doesn't support targeting by the top-level `isAnonymous` property. If you are using LD's targeting with the
+  `anonymous` attribute, make sure to include an `anonymous` property in the user's `customData`
 
 <details>
   <summary>

@@ -3,19 +3,23 @@ title: "Sending DevCycle Data as a Custom Event to Google Analytics 4 (GTM Speci
 sidebar_position: 1
 ---
 
-:::tip
-**As of September 2023, [Google is planning to release a simpler approach to this setup](https://support.google.com/tagmanager/answer/13543899).** The current setup between Google Tag Manager and Google Analytics 4 is lengthier than the previous methods of Universal Analytics and Optimize. DevCycle will update this guide when Google releases the new methods.
-:::
+:::tip **As of September 2023,
+[Google is planning to release a simpler approach to this setup](https://support.google.com/tagmanager/answer/13543899).**
+The current setup between Google Tag Manager and Google Analytics 4 is lengthier than the previous methods of Universal
+Analytics and Optimize. DevCycle will update this guide when Google releases the new methods. :::
 
 ### Transition from Google Optimize
 
-This guide enables you to integrate DevCycle feature flags with Google Analytics 4 (GA4) for A/B testing and experimentation using Google Tag Manager (GTM). If you are a former Google Optimize customer transitioning to GA4, this guide is specific to GTM implementations.
+This guide enables you to integrate DevCycle feature flags with Google Analytics 4 (GA4) for A/B testing and
+experimentation using Google Tag Manager (GTM). If you are a former Google Optimize customer transitioning to GA4, this
+guide is specific to GTM implementations.
 
 ### GTM Elements: Tags, Variables, and Triggers
 
-Below is a description of Google Tag Manager's tags, variables, and triggers. For more in-depth understanding, consult   [Google's official documentation](https://support.google.com/tagmanager/answer/6102821).
+Below is a description of Google Tag Manager's tags, variables, and triggers. For more in-depth understanding, consult
+[Google's official documentation](https://support.google.com/tagmanager/answer/6102821).
 
-- Tags execute specified functionality, such as sending data to GA4 or initializing DevCycle. 
+- Tags execute specified functionality, such as sending data to GA4 or initializing DevCycle.
 - Variables serve as placeholders for predefined values, which in this guide store the feature and variation data.
 - Triggers are conditions that, when met, execute actions defined in Tags.
 
@@ -26,7 +30,8 @@ Below is a description of Google Tag Manager's tags, variables, and triggers. Fo
 1. Navigate to your GTM workspace and access the "Tags" section.
 2. Create a new tag and name it "DevCycle Initialization & Feature Flag Configuration Values."
 3. Choose "Custom HTML" for "Tag Configuration."
-4. Insert a script to push a custom event named `set_user_properties` (or any name of your choosing) to the dataLayer with the parameters: `featureName: {{featureName}}` and `variation: {{variation}}`. This script can be found below. 
+4. Insert a script to push a custom event named `set_user_properties` (or any name of your choosing) to the dataLayer
+   with the parameters: `featureName: {{featureName}}` and `variation: {{variation}}`. This script can be found below.
 
 ```js
 <script>
@@ -65,6 +70,7 @@ Below is a description of Google Tag Manager's tags, variables, and triggers. Fo
     }
 </script>
 ```
+
 5. For “Triggering,” select the “Window Loaded” option as the firing trigger.
 
 ![Tag Configuration](/sept-13-2023-ga4-4.png)
@@ -78,7 +84,6 @@ Below is a description of Google Tag Manager's tags, variables, and triggers. Fo
 5. Repeat to create another variable and name it “variation.”
 
 ![Tag Configuration](/sept-13-2023-ga4-1.png)
-
 
 ![Tag Configuration](/sept-13-2023-ga4-2.png)
 
@@ -96,7 +101,7 @@ Below is a description of Google Tag Manager's tags, variables, and triggers. Fo
 
 1. While in the tag setup, go to "Triggering".
 2. Create a new trigger and set its type to "Custom Event".
-3. Name the event `'set_user_properties'` (Or the event name you chose). 
+3. Name the event `'set_user_properties'` (Or the event name you chose).
 
 ### Step 5: Publish Changes
 
@@ -104,12 +109,15 @@ Below is a description of Google Tag Manager's tags, variables, and triggers. Fo
    - Note: Review and test changes before publishing to ensure functionality.
 
 #### How to Validate in Preview Mode Before Publishing
-Before hitting "Submit," it's crucial to validate that your configurations are working as intended. Use GTM’s Preview mode for this.
+
+Before hitting "Submit," it's crucial to validate that your configurations are working as intended. Use GTM’s Preview
+mode for this.
 
 1. Click on "Preview" at the top right of the GTM interface.
 2. This will open a new browser tab, where you'll navigate to your website.
-3. Perform actions that should trigger the tag you've configured. 
-4. Check the GTM Preview pane that appears at the bottom of your website. It should show the tags that are fired upon your actions.
+3. Perform actions that should trigger the tag you've configured.
+4. Check the GTM Preview pane that appears at the bottom of your website. It should show the tags that are fired upon
+   your actions.
 5. Specifically, confirm that your DevCycle feature and variation data is correctly passed to GA4 tags.
 
 ## Google Analytics 4 Configuration
@@ -120,8 +128,8 @@ Before hitting "Submit," it's crucial to validate that your configurations are w
 2. Choose the metric for analysis under "Event Metric".
 3. Select the feature property under "Dimension," e.g., **`DVC_featureNameA`**.
    - If the dimension doesn't exist:
-      1. Go to "Admin" > "Custom definitions" > "Create custom dimension".
-      2. Set the scope to `Event` and name the event parameter according to your feature.
+     1. Go to "Admin" > "Custom definitions" > "Create custom dimension".
+     2. Set the scope to `Event` and name the event parameter according to your feature.
 
 <details>
   <summary>

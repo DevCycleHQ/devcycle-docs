@@ -11,10 +11,11 @@ sidebar_custom_props: { icon: material-symbols:toggle-on }
 
 ## DevCycleUser Object
 
-The full user data must be passed into every method. The only required field is `user_id`.
-The rest are optional and are used by the system for user segmentation into variables and features.
+The full user data must be passed into every method. The only required field is `user_id`. The rest are optional and are
+used by the system for user segmentation into variables and features.
 
-See the DevCycleUser model in the [Python user model doc](https://github.com/DevCycleHQ/python-server-sdk/blob/main/devcycle_python_sdk/models/user.py)
+See the DevCycleUser model in the
+[Python user model doc](https://github.com/DevCycleHQ/python-server-sdk/blob/main/devcycle_python_sdk/models/user.py)
 for all accepted fields including custom fields.
 
 ```python
@@ -27,10 +28,10 @@ user = DevCycleUser(
 
 ## Get and Use Variable by Key
 
-To get values from your Variables, `variable_value()` is used to fetch variable values using the user data,
-variable `key`, coupled with a default value for the variable. The default variable will be used in cases where
-the user is not segmented into a feature using that variable, or the project configuration is unavailable
-to be fetched from DevCycle's CDN.
+To get values from your Variables, `variable_value()` is used to fetch variable values using the user data, variable
+`key`, coupled with a default value for the variable. The default variable will be used in cases where the user is not
+segmented into a feature using that variable, or the project configuration is unavailable to be fetched from DevCycle's
+CDN.
 
 ```python
 key = 'key-test' # str | Variable key
@@ -45,8 +46,8 @@ except Exception as e:
 
 The default value can be of type string, boolean, number, or dictionary.
 
-If you would like to get the full Variable you can use `variable()` instead. This contains fields such as:
-`key`, `value`, `type`, `defaultValue`, `isDefaulted`.
+If you would like to get the full Variable you can use `variable()` instead. This contains fields such as: `key`,
+`value`, `type`, `defaultValue`, `isDefaulted`.
 
 ## Getting All Variables
 
@@ -65,10 +66,11 @@ See [getVariables](/bucketing-api/#operation/getVariables) on the Bucketing API 
 
 :::caution
 
-This method is intended to be used for debugging and analytics purposes, *not* as a method for retrieving the value of Variables to change code behaviour.
-For that purpose, we strongly recommend using the individual variable access method described in [Get and use Variable by key](#get-and-use-variable-by-key)
-Using this method instead will result in no evaluation events being tracked for individual variables, and will not allow the use
-of other DevCycle features such as [Code Usage detection](/integrations/github/feature-usage-action)
+This method is intended to be used for debugging and analytics purposes, _not_ as a method for retrieving the value of
+Variables to change code behaviour. For that purpose, we strongly recommend using the individual variable access method
+described in [Get and use Variable by key](#get-and-use-variable-by-key) Using this method instead will result in no
+evaluation events being tracked for individual variables, and will not allow the use of other DevCycle features such as
+[Code Usage detection](/integrations/github/feature-usage-action)
 
 :::
 
@@ -110,7 +112,8 @@ except Exception as e:
 
 ## Set Client Custom Data
 
-To assist with segmentation and bucketing you can set a custom data dictionary that will be used for all variable and feature evaluations. User specific custom data will override this client custom data.
+To assist with segmentation and bucketing you can set a custom data dictionary that will be used for all variable and
+feature evaluations. User specific custom data will override this client custom data.
 
 ```python
 try:
@@ -122,13 +125,12 @@ except Exception as e:
     print(f"Exception when calling DevCycleLocalClient->set_client_custom_data: {e}")
 ```
 
-:::caution
-Client Custom Data is only available for the Local Bucketing SDK
-:::
+:::caution Client Custom Data is only available for the Local Bucketing SDK :::
 
 ## EdgeDB
 
-When utilizing the Cloud Bucketing Python SDK, EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user. Read more about [EdgeDB](/extras/edgedb).
+When utilizing the Cloud Bucketing Python SDK, EdgeDB allows you to save user data to our EdgeDB storage so that you
+don't have to pass in all the user data every time you identify a user. Read more about [EdgeDB](/extras/edgedb).
 
 To get started, contact us at support@devcycle.com to enable EdgeDB for your project.
 
@@ -154,7 +156,9 @@ user = User(
 
 This will send a request to our EdgeDB API to save the custom data under the user UserId.
 
-In the example, Email and Country are associated to the user `test`. In your next identify call for the same UserId, you may omit any of the data you've sent already as it will be pulled from the EdgeDB storage when segmenting to experiments and features.
+In the example, Email and Country are associated to the user `test`. In your next identify call for the same UserId, you
+may omit any of the data you've sent already as it will be pulled from the EdgeDB storage when segmenting to experiments
+and features.
 
 :::caution
 
@@ -164,7 +168,9 @@ EdgeDB is currently not available when using Local Bucketing.
 
 ## SDK Proxy
 
-To further enable various deployment configurations - we provide a background process that can be used to proxy requests to the DevCycle API. This is useful when you have a more unique deployment style,
-or the SDK is not able to make requests to the DevCycle API directly. The installation and setup process for the proxy can be found here: https://github.com/DevCycleHQ/sdk-proxy#readme.
+To further enable various deployment configurations - we provide a background process that can be used to proxy requests
+to the DevCycle API. This is useful when you have a more unique deployment style, or the SDK is not able to make
+requests to the DevCycle API directly. The installation and setup process for the proxy can be found here:
+https://github.com/DevCycleHQ/sdk-proxy#readme.
 
 See the [SDK Proxy](../../sdk-proxy/index.md) section for more information.

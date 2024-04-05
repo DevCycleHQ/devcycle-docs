@@ -1,19 +1,17 @@
 module.exports = {
   corePlugins: {
-    preflight: false
+    preflight: false,
   },
-  mode: 'jit',
+  mode: "jit",
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
-  darkMode: 'class', // or 'media' or 'class'
+  darkMode: "class", // or 'media' or 'class'
   theme: {
     extend: {},
   },
   variants: {
     extend: {
-      opacity: ['disabled'],
+      opacity: ["disabled"],
     },
   },
-  plugins: [
-    require('@tailwindcss/aspect-ratio'),
-  ],
-}
+  plugins: [require("@tailwindcss/aspect-ratio")],
+};

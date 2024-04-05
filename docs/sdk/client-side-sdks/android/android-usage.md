@@ -11,9 +11,9 @@ sidebar_custom_props: { icon: material-symbols:toggle-on }
 
 ## Using Variable Values
 
-To get values from your Features, the `variableValue()` method is used to fetch variable values using
-the variable's identifier `key` coupled with a default value. The default value can be of type
-`String`, `Boolean`, `Number`, or `JSONObject`:
+To get values from your Features, the `variableValue()` method is used to fetch variable values using the variable's
+identifier `key` coupled with a default value. The default value can be of type `String`, `Boolean`, `Number`, or
+`JSONObject`:
 
 ### _Kotlin example:_
 
@@ -46,9 +46,9 @@ If the value is not ready, it will return the default value passed in the creati
 
 ## Variable Updates
 
-Variable values update whenever `identifyUser()` or `resetUser()` are called,
-or when the project configuration changes (to learn more, visit our [Realtime Updates](/sdk/features#realtime-updates) page).
-To listen for updates, a callback can be registered using the `onUpdate()` method:
+Variable values update whenever `identifyUser()` or `resetUser()` are called, or when the project configuration changes
+(to learn more, visit our [Realtime Updates](/sdk/features#realtime-updates) page). To listen for updates, a callback
+can be registered using the `onUpdate()` method:
 
 ### _Kotlin example:_
 
@@ -89,10 +89,11 @@ If the SDK has not finished initializing, these methods will return an empty Map
 
 :::caution
 
-This method is intended to be used for debugging and analytics purposes, *not* as a method for retrieving the value of Variables to change code behaviour.
-For that purpose, we strongly recommend using the individual variable access method described in [Using Variable Values](#using-variable-values)
-Using this method instead will result in no evaluation events being tracked for individual variables, and will not allow the use
-of other DevCycle features such as [Code Usage detection](/integrations/github/feature-usage-action)
+This method is intended to be used for debugging and analytics purposes, _not_ as a method for retrieving the value of
+Variables to change code behaviour. For that purpose, we strongly recommend using the individual variable access method
+described in [Using Variable Values](#using-variable-values) Using this method instead will result in no evaluation
+events being tracked for individual variables, and will not allow the use of other DevCycle features such as
+[Code Usage detection](/integrations/github/feature-usage-action)
 
 :::
 
@@ -116,7 +117,8 @@ If the SDK has not finished initializing, these methods will return an empty Map
 
 ## Identifying User
 
-To identify a different user, or the same user passed into the initialize method with more attributes, build a DevCycleUser object and pass it into `identifyUser`:
+To identify a different user, or the same user passed into the initialize method with more attributes, build a
+DevCycleUser object and pass it into `identifyUser`:
 
 Note: If you do not have a user ID, you can use any string at all.
 
@@ -220,7 +222,8 @@ If `onError` is called the user's configuration will not be updated and the prev
 
 ## Tracking Events
 
-To send events to DevCycle for metrics purposes, build an event object and then call "track". Note that these events will be periodically queued to be flushed to the DevCycle servers.
+To send events to DevCycle for metrics purposes, build an event object and then call "track". Note that these events
+will be periodically queued to be flushed to the DevCycle servers.
 
 ### _Kotlin example:_
 
@@ -290,7 +293,8 @@ devcycleClient.flushEvents(new DevCycleCallback<String>() {
 
 ## EdgeDB
 
-EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user. Read more about [EdgeDB](/extras/edgedb).
+EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time
+you identify a user. Read more about [EdgeDB](/extras/edgedb).
 
 To get started, contact us at support@devcycle.com to enable EdgeDB for your project.
 
@@ -324,4 +328,6 @@ DevCycleOptions options = DevCycleOptions.builder()
 
 This will send a request to our EdgeDB API to save the custom data under the user `test_user`.
 
-In the example, `amountSpent` is associated to the user `test_user`. In your next identify call for the same `userId`, you may omit any of the data you've sent already as it will be pulled from the EdgeDB storage when segmenting to experiments and features.
+In the example, `amountSpent` is associated to the user `test_user`. In your next identify call for the same `userId`,
+you may omit any of the data you've sent already as it will be pulled from the EdgeDB storage when segmenting to
+experiments and features.

@@ -56,7 +56,8 @@ namespace Example {
 
 ### Initialization With Callback
 
-You can also setup a callback to be notified when the client is fully initialized and use `DevCycleLocalOptions` to further configure the client.
+You can also setup a callback to be notified when the client is fully initialized and use `DevCycleLocalOptions` to
+further configure the client.
 
 ```csharp
 using System;

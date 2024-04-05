@@ -8,9 +8,11 @@ sidebar_custom_props: { icon: material-symbols:toggle-off }
 
 # OpenFeature Provider
 
-OpenFeature is an open standard that provides a vendor-agnostic, community-driven API for feature flagging that works with DevCycle.
+OpenFeature is an open standard that provides a vendor-agnostic, community-driven API for feature flagging that works
+with DevCycle.
 
-DevCycle provides a Go implementation of the [OpenFeature](https://openfeature.dev/) Provider interface, if you prefer to use the OpenFeature API.
+DevCycle provides a Go implementation of the [OpenFeature](https://openfeature.dev/) Provider interface, if you prefer
+to use the OpenFeature API.
 
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/go-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/go-server-sdk)
 
@@ -72,13 +74,13 @@ func main() {
 
 ### Required TargetingKey
 
-For the DevCycle SDK to work we require either a `targetingKey` or `user_id` to be set on the OpenFeature context.
-This is used to identify the user as the `UserId` for a `devcycle.User` in DevCycle.
+For the DevCycle SDK to work we require either a `targetingKey` or `user_id` to be set on the OpenFeature context. This
+is used to identify the user as the `UserId` for a `devcycle.User` in DevCycle.
 
 ### Context properties to User
 
-The provider will automatically translate known `devcycle.User` properties from the OpenFeature context to the `User` object.
-[User Go Interface](https://github.com/DevCycleHQ/go-server-sdk/blob/main/api/model_user_data.go)
+The provider will automatically translate known `devcycle.User` properties from the OpenFeature context to the `User`
+object. [User Go Interface](https://github.com/DevCycleHQ/go-server-sdk/blob/main/api/model_user_data.go)
 
 For example all these properties will be set on the `User`:
 
@@ -102,8 +104,8 @@ evalCtx := openfeature.NewEvaluationContext(
 client.SetEvaluationContext(evalCtx)
 ```
 
-Context properties that are not known `User` properties will be automatically
-added to the `CustomData` property of the `User`.
+Context properties that are not known `User` properties will be automatically added to the `CustomData` property of the
+`User`.
 
 ### Context Limitations
 

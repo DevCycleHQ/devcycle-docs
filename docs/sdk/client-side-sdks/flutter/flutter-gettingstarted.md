@@ -11,8 +11,8 @@ sidebar_custom_props: { icon: material-symbols:rocket }
 
 ## Initializing the SDK
 
-We recommend initializing the SDK once and pass around the client instance around in your app.
-Using the builder pattern we can initialize the DevCycle SDK by providing the DevCycleUser and DevCycle mobile SDK key:
+We recommend initializing the SDK once and pass around the client instance around in your app. Using the builder pattern
+we can initialize the DevCycle SDK by providing the DevCycleUser and DevCycle mobile SDK key:
 
 ```dart
 import 'package:devcycle_flutter_client_sdk/devcycle_flutter_client_sdk.dart';
@@ -47,7 +47,8 @@ class _MyAppState extends State<MyApp> {
 }
 ```
 
-The user object may specify a `userId` for a given User. If the `userId` is not specified, the User is considered to be anonymous.
+The user object may specify a `userId` for a given User. If the `userId` is not specified, the User is considered to be
+anonymous.
 
 ## DevCycleClient Builder
 
@@ -80,7 +81,8 @@ The DevCycleUser can be built using the following methods:
 
 ## DevCycleOptions Builder
 
-The SDK exposes various initialization options which can be used by passing a `DevCycleOptions` object to the `options` method of `DevCycleClient.builder()`:
+The SDK exposes various initialization options which can be used by passing a `DevCycleOptions` object to the `options`
+method of `DevCycleClient.builder()`:
 
 [DevCycleOptionsBuilder class](https://github.com/DevCycleHQ/flutter-client-sdk/blob/main/lib/devcycle_options.dart#L58)
 
@@ -97,7 +99,8 @@ The SDK exposes various initialization options which can be used by passing a `D
 
 ## Notifying when DevCycle features are available
 
-In the initialize call there is an optional `onInitialized` parameter you can use to determine when your features have been loaded:
+In the initialize call there is an optional `onInitialized` parameter you can use to determine when your features have
+been loaded:
 
 ```dart
 final _devcycleClient = DevCycleClientBuilder()

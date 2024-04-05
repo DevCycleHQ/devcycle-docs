@@ -8,10 +8,11 @@ sidebar_custom_props: { icon: material-symbols:toggle-off }
 
 # OpenFeature Provider
 
-OpenFeature is an open standard that provides a vendor-agnostic, community-driven API for feature flagging that works with DevCycle.
+OpenFeature is an open standard that provides a vendor-agnostic, community-driven API for feature flagging that works
+with DevCycle.
 
-DevCycle provides a NodeJS implementation of the [OpenFeature](https://openfeature.dev/) Provider interface
-directly from the SDK using the `getOpenFeatureProvider()` method.
+DevCycle provides a NodeJS implementation of the [OpenFeature](https://openfeature.dev/) Provider interface directly
+from the SDK using the `getOpenFeatureProvider()` method.
 
 ## Usage
 
@@ -20,6 +21,7 @@ directly from the SDK using the `getOpenFeatureProvider()` method.
 Install the DevCycle NodeJS Server SDK and the OpenFeature Server SDK peer dependencies:
 
 #### NPM
+
 ```bash
 npm install --save @devcycle/nodejs-server-sdk @openfeature/server-sdk @openfeature/core
 ```
@@ -60,42 +62,40 @@ const boolFlag = await openFeatureClient.getBooleanValue('boolean-flag', false)
 Ensure that you pass any custom DevCycleOptions set on the `DevCycleClient` instance to the DevCycleProvider constructor
 
 ```typescript
-const options = { logger: dvcDefaultLogger({ level: 'debug' }) }
-const devcycleClient = initializeDevCycle(
-  DEVCYCLE_SERVER_SDK_KEY,
-  options,
-)
-await OpenFeature.setProviderAndWait(await devcycleClient.getOpenFeatureProvider())
+const options = { logger: dvcDefaultLogger({ level: "debug" }) };
+const devcycleClient = initializeDevCycle(DEVCYCLE_SERVER_SDK_KEY, options);
+await OpenFeature.setProviderAndWait(await devcycleClient.getOpenFeatureProvider());
 ```
 
 ### Required TargetingKey
 
-For DevCycle SDK to work we require either a `targetingKey` or `user_id` to be set on the OpenFeature context.
-This is used to identify the user as the `user_id` for a `DevCycleUser` in DevCycle.
+For DevCycle SDK to work we require either a `targetingKey` or `user_id` to be set on the OpenFeature context. This is
+used to identify the user as the `user_id` for a `DevCycleUser` in DevCycle.
 
 ### Context properties to DevCycleUser
 
-The provider will automatically translate known `DevCycleUser` properties from the OpenFeature context to the `DevCycleUser` object.
+The provider will automatically translate known `DevCycleUser` properties from the OpenFeature context to the
+`DevCycleUser` object.
 [DevCycleUser TypeScript Interface](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/nodejs/src/models/user.ts#L16)
 
 For example all these properties will be set on the `DevCycleUser`:
 
 ```typescript
 openFeatureClient.setContext({
-  user_id: 'user_id',
-  email: 'email@devcycle.com',
-  name: 'name',
-  language: 'en',
-  country: 'CA',
-  appVersion: '1.0.11',
+  user_id: "user_id",
+  email: "email@devcycle.com",
+  name: "name",
+  language: "en",
+  country: "CA",
+  appVersion: "1.0.11",
   appBuild: 1000,
-  customData: { custom: 'data' },
-  privateCustomData: { private: 'data' },
-})
+  customData: { custom: "data" },
+  privateCustomData: { private: "data" },
+});
 ```
 
-Context properties that are not known `DevCycleUser` properties will be automatically
-added to the `customData` property of the `DevCycleUser`.
+Context properties that are not known `DevCycleUser` properties will be automatically added to the `customData` property
+of the `DevCycleUser`.
 
 ### Context Limitations
 
@@ -105,9 +105,9 @@ For example `obj` will be ignored:
 
 ```typescript
 openFeatureClient.setContext({
-  user_id: 'user_id',
-  obj: { key: 'value' },
-})
+  user_id: "user_id",
+  obj: { key: "value" },
+});
 ```
 
 ### JSON Flag Limitations
@@ -118,16 +118,16 @@ For example the following are all valid default value types to use with OpenFeat
 
 ```typescript
 // Invalid JSON values for the DevCycle SDK, will return defaults
-openFeatureClient.getObjectValue('json-flag', ['arry'])
-openFeatureClient.getObjectValue('json-flag', 610)
-openFeatureClient.getObjectValue('json-flag', false)
-openFeatureClient.getObjectValue('json-flag', 'string')
-openFeatureClient.getObjectValue('json-flag', null)
+openFeatureClient.getObjectValue("json-flag", ["arry"]);
+openFeatureClient.getObjectValue("json-flag", 610);
+openFeatureClient.getObjectValue("json-flag", false);
+openFeatureClient.getObjectValue("json-flag", "string");
+openFeatureClient.getObjectValue("json-flag", null);
 ```
 
 However, these are not valid types for the DevCycle SDK, the DevCycle SDK only supports JSON Objects:
 
 ```typescript
 // Valid JSON Object as the default value, will be evaluated by the DevCycle SDK
-openFeatureClient.getObjectValue('json-flag', { default: 'value' })
+openFeatureClient.getObjectValue("json-flag", { default: "value" });
 ```

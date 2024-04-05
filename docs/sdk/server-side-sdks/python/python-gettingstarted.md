@@ -53,4 +53,5 @@ user = DevCycleUser(
 )
 ```
 
-For a Django specific sample app, please see the [Python Django Example App](https://github.com/DevCycleHQ-Labs/example-python).
+For a Django specific sample app, please see the
+[Python Django Example App](https://github.com/DevCycleHQ-Labs/example-python).

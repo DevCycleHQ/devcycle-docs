@@ -2,8 +2,8 @@ openapi: 3.1.0
 info:
   title: DevCycle Bucketing API
   description:
-    Documents the DevCycle Bucketing API (https://bucketing-api.devcycle.com/) which provides an API interface to
-    User Bucketing and for generated SDKs.
+    Documents the DevCycle Bucketing API (https://bucketing-api.devcycle.com/) which provides an API interface to User
+    Bucketing and for generated SDKs.
   version: 1.2.0
 
 servers:
@@ -14,8 +14,7 @@ tags:
   - name: Bucketing API
   - name: Feature Opt-in
   - name: OpenFeature Remote Evaluation API (OFREP)
-    description:
-      "See the OpenFeature documentation for more information: https://github.com/open-feature/protocol"
+    description: "See the OpenFeature documentation for more information: https://github.com/open-feature/protocol"
 
 paths:
   /v1/variables/{key}:
@@ -23,7 +22,7 @@ paths:
       summary: Get variable by key for user data
       tags:
         - Bucketing API
-      operationId: 'getVariableByKey'
+      operationId: "getVariableByKey"
       security:
         - bearerAuth: []
       parameters:
@@ -35,7 +34,7 @@ paths:
             type: string
 
       requestBody:
-        $ref: '#/components/requestBodies/UserRequestBody'
+        $ref: "#/components/requestBodies/UserRequestBody"
 
       responses:
         200:
@@ -43,15 +42,15 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Variable'
+                $ref: "#/components/schemas/Variable"
         400:
-          $ref: '#/components/responses/BadRequest'
+          $ref: "#/components/responses/BadRequest"
         401:
-          $ref: '#/components/responses/UnauthorizedError'
+          $ref: "#/components/responses/UnauthorizedError"
         404:
-          $ref: '#/components/responses/NotFound'
+          $ref: "#/components/responses/NotFound"
         500:
-          $ref: '#/components/responses/InternalServerError'
+          $ref: "#/components/responses/InternalServerError"
 
   /v1/variables:
     post:
@@ -60,9 +59,9 @@ paths:
         - Bucketing API
       security:
         - bearerAuth: []
-      operationId: 'getVariables'
+      operationId: "getVariables"
       requestBody:
-        $ref: '#/components/requestBodies/UserRequestBody'
+        $ref: "#/components/requestBodies/UserRequestBody"
       responses:
         200:
           description: Variables response
@@ -71,26 +70,26 @@ paths:
               schema:
                 type: object
                 additionalProperties:
-                  $ref: '#/components/schemas/Variable'
+                  $ref: "#/components/schemas/Variable"
         400:
-          $ref: '#/components/responses/BadRequest'
+          $ref: "#/components/responses/BadRequest"
         401:
-          $ref: '#/components/responses/UnauthorizedError'
+          $ref: "#/components/responses/UnauthorizedError"
         404:
-          $ref: '#/components/responses/NotFound'
+          $ref: "#/components/responses/NotFound"
         500:
-          $ref: '#/components/responses/InternalServerError'
+          $ref: "#/components/responses/InternalServerError"
 
   /v1/features:
     post:
       summary: Get all features by key for user data
       tags:
         - Bucketing API
-      operationId: 'getFeatures'
+      operationId: "getFeatures"
       security:
         - bearerAuth: []
       requestBody:
-        $ref: '#/components/requestBodies/UserRequestBody'
+        $ref: "#/components/requestBodies/UserRequestBody"
       responses:
         200:
           description: Feature response
@@ -99,15 +98,15 @@ paths:
               schema:
                 type: object
                 additionalProperties:
-                  $ref: '#/components/schemas/Feature'
+                  $ref: "#/components/schemas/Feature"
         400:
-          $ref: '#/components/responses/BadRequest'
+          $ref: "#/components/responses/BadRequest"
         401:
-          $ref: '#/components/responses/UnauthorizedError'
+          $ref: "#/components/responses/UnauthorizedError"
         404:
-          $ref: '#/components/responses/NotFound'
+          $ref: "#/components/responses/NotFound"
         500:
-          $ref: '#/components/responses/InternalServerError'
+          $ref: "#/components/responses/InternalServerError"
 
   /v1/track:
     post:
@@ -116,9 +115,9 @@ paths:
         - Bucketing API
       security:
         - bearerAuth: []
-      operationId: 'postEvents'
+      operationId: "postEvents"
       requestBody:
-        $ref: '#/components/requestBodies/TrackRequestBody'
+        $ref: "#/components/requestBodies/TrackRequestBody"
       responses:
         201:
           description: Feature response
@@ -130,13 +129,13 @@ paths:
                   message:
                     type: string
         400:
-          $ref: '#/components/responses/BadRequest'
+          $ref: "#/components/responses/BadRequest"
         401:
-          $ref: '#/components/responses/UnauthorizedError'
+          $ref: "#/components/responses/UnauthorizedError"
         404:
-          $ref: '#/components/responses/NotFound'
+          $ref: "#/components/responses/NotFound"
         500:
-          $ref: '#/components/responses/InternalServerError'
+          $ref: "#/components/responses/InternalServerError"
 
   /v1/edgedb/{id}:
     patch:
@@ -152,8 +151,9 @@ paths:
           description: A unique id used to fetch and update the EdgeDB data
         - name: sdkKey
           in: query
-          description: SDK Key as defined in the dashboard for your DevCycle environment.
-            One of the Authorization header or "sdkKey" query parameter is required to be set.
+          description:
+            SDK Key as defined in the dashboard for your DevCycle environment. One of the Authorization header or
+            "sdkKey" query parameter is required to be set.
           required: false
           schema:
             type: string
@@ -164,7 +164,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UserDataEdgeDB'
+              $ref: "#/components/schemas/UserDataEdgeDB"
 
       responses:
         200:
@@ -172,15 +172,15 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/EdgeDBApiResponse'
+                $ref: "#/components/schemas/EdgeDBApiResponse"
         400:
-          $ref: '#/components/responses/BadRequest'
+          $ref: "#/components/responses/BadRequest"
         401:
-          $ref: '#/components/responses/UnauthorizedError'
+          $ref: "#/components/responses/UnauthorizedError"
         404:
-          $ref: '#/components/responses/NotFound'
+          $ref: "#/components/responses/NotFound"
         500:
-          $ref: '#/components/responses/InternalServerError'
+          $ref: "#/components/responses/InternalServerError"
 
   /v1/optInConfig:
     get:
@@ -191,8 +191,9 @@ paths:
       parameters:
         - name: sdkKey
           in: query
-          description: SDK Key as defined in the dashboard for your DevCycle environment.
-            One of the Authorization header or "sdkKey" query parameter is required to be set.
+          description:
+            SDK Key as defined in the dashboard for your DevCycle environment. One of the Authorization header or
+            "sdkKey" query parameter is required to be set.
           required: false
           schema:
             type: string
@@ -208,13 +209,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OptInConfigResponse'
+                $ref: "#/components/schemas/OptInConfigResponse"
         400:
-          $ref: '#/components/responses/BadRequest'
+          $ref: "#/components/responses/BadRequest"
         401:
-          $ref: '#/components/responses/UnauthorizedError'
+          $ref: "#/components/responses/UnauthorizedError"
         500:
-          $ref: '#/components/responses/InternalServerError'
+          $ref: "#/components/responses/InternalServerError"
 
   /v1/optIns/:user_id:
     put:
@@ -224,40 +225,40 @@ paths:
       parameters:
         - name: sdkKey
           in: query
-          description: SDK Key as defined in the dashboard for your DevCycle environment.
-            One of the Authorization header or "sdkKey" query parameter is required to be set.
+          description:
+            SDK Key as defined in the dashboard for your DevCycle environment. One of the Authorization header or
+            "sdkKey" query parameter is required to be set.
           required: false
           schema:
             type: string
       requestBody:
-        description: A map of feature IDs to boolean values. The value should be true if the user has opted in, false otherwise
+        description:
+          A map of feature IDs to boolean values. The value should be true if the user has opted in, false otherwise
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UserOptInData'
+              $ref: "#/components/schemas/UserOptInData"
       responses:
         200:
           description: Opt-in Config Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OptInConfigResponse'
+                $ref: "#/components/schemas/OptInConfigResponse"
         400:
-          $ref: '#/components/responses/BadRequest'
+          $ref: "#/components/responses/BadRequest"
         401:
-          $ref: '#/components/responses/UnauthorizedError'
+          $ref: "#/components/responses/UnauthorizedError"
         500:
-          $ref: '#/components/responses/InternalServerError'
+          $ref: "#/components/responses/InternalServerError"
 
   /ofrep/v1/evaluate/flags/{key}:
     post:
       tags:
         - OpenFeature Remote Evaluation API (OFREP)
-      summary:
-        OFREP Single Flag Evaluation Request
-      description:
-        Return a single flag for a user context
+      summary: OFREP Single Flag Evaluation Request
+      description: Return a single flag for a user context
       parameters:
         - name: key
           in: path
@@ -268,31 +269,31 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ofrep-evaluationRequest'
+              $ref: "#/components/schemas/ofrep-evaluationRequest"
       responses:
-        '200':
+        "200":
           description: OFREP successful evaluation response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ofrep-evaluationSuccess'
-        '400':
+                $ref: "#/components/schemas/ofrep-evaluationSuccess"
+        "400":
           description: Bad evaluation request
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ofrep-evaluationFailure'
-        '404':
+                $ref: "#/components/schemas/ofrep-evaluationFailure"
+        "404":
           description: Flag not found
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ofrep-flagNotFound'
-        '401':
+                $ref: "#/components/schemas/ofrep-flagNotFound"
+        "401":
           description: Unauthorized - You need credentials to access the API
-        '403':
+        "403":
           description: Forbidden - You are not authorized to access the API
-        '429':
+        "429":
           description: Rate limit reached on the Flag Management System
           headers:
             Retry-Later:
@@ -301,22 +302,20 @@ paths:
                 type: string
                 format: date-time
                 examples:
-                  - '2024-02-07T12:00:00Z'
-        '500':
+                  - "2024-02-07T12:00:00Z"
+        "500":
           description: Internal server error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ofrep-generalErrorResponse'
+                $ref: "#/components/schemas/ofrep-generalErrorResponse"
 
   /ofrep/v1/evaluate/flags:
     post:
       tags:
         - OpenFeature Remote Evaluation API (OFREP)
-      summary:
-        OFREP Bulk Evaluation Request
-      description:
-        Return all flag values for a user context.
+      summary: OFREP Bulk Evaluation Request
+      description: Return all flag values for a user context.
       parameters:
         - in: header
           name: If-None-Match
@@ -328,9 +327,9 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ofrep-bulkEvaluationRequest'
+              $ref: "#/components/schemas/ofrep-bulkEvaluationRequest"
       responses:
-        '200':
+        "200":
           description: OFREP successful evaluation response
           headers:
             ETag:
@@ -340,20 +339,20 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ofrep-bulkEvaluationSuccess'
-        '304':
+                $ref: "#/components/schemas/ofrep-bulkEvaluationSuccess"
+        "304":
           description: Bulk evaluation is not modified
-        '400':
+        "400":
           description: Bad evaluation request
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ofrep-bulkEvaluationFailure'
-        '401':
+                $ref: "#/components/schemas/ofrep-bulkEvaluationFailure"
+        "401":
           description: Unauthorized - You need credentials to access the API
-        '403':
+        "403":
           description: Forbidden - You are not authorized to access the API
-        '429':
+        "429":
           description: Rate limit reached on the Flag Management System
           headers:
             Retry-Later:
@@ -362,20 +361,20 @@ paths:
                 type: string
                 format: date-time
                 examples:
-                  - '2024-02-07T12:00:00Z'
-        '500':
+                  - "2024-02-07T12:00:00Z"
+        "500":
           description: Internal server error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ofrep-generalErrorResponse'
+                $ref: "#/components/schemas/ofrep-generalErrorResponse"
 components:
   securitySchemes:
     bearerAuth:
       type: apiKey
       in: header
       name: Authorization
-      description: 'Enter your DevCycle SDK token'
+      description: "Enter your DevCycle SDK token"
 
   schemas:
     UserDataEdgeDB:
@@ -448,8 +447,8 @@ components:
         privateCustomData:
           type: object
           description:
-            User's custom data to target the user with, data will not be logged to DevCycle
-            only used for feature bucketing.
+            User's custom data to target the user with, data will not be logged to DevCycle only used for feature
+            bucketing.
         createdDate:
           type: number
           description: Date the user was created, Unix epoch timestamp format
@@ -481,15 +480,14 @@ components:
         events:
           type: array
           items:
-            $ref: '#/components/schemas/Event'
+            $ref: "#/components/schemas/Event"
         user:
-          $ref: '#/components/schemas/UserData'
+          $ref: "#/components/schemas/UserData"
 
     UserOptInData:
       type: object
       additionalProperties:
         type: boolean
-
 
     Feature:
       type: object
@@ -503,7 +501,7 @@ components:
         type:
           type: string
           description: Feature type
-          enum: [ 'release', 'experiment', 'permission', 'ops' ]
+          enum: ["release", "experiment", "permission", "ops"]
         _variation:
           type: string
           description: Bucketed feature variation ID
@@ -534,7 +532,7 @@ components:
         type:
           type: string
           description: Variable type
-          enum: [ 'String', 'Boolean', 'Number', 'JSON' ]
+          enum: ["String", "Boolean", "Number", "JSON"]
         value:
           type: object
           description: Variable value can be a string, number, boolean, or JSON
@@ -603,7 +601,7 @@ components:
       description: Evaluate multiple flags in one request
       properties:
         context:
-          $ref: '#/components/schemas/ofrep-context'
+          $ref: "#/components/schemas/ofrep-context"
     ofrep-bulkEvaluationSuccess:
       description: Success response for the bulk evaluation request
       type: object
@@ -613,14 +611,16 @@ components:
           items:
             oneOf:
               - $ref: "#/components/schemas/ofrep-evaluationSuccess"
-              - $ref: '#/components/schemas/ofrep-evaluationFailure'
+              - $ref: "#/components/schemas/ofrep-evaluationFailure"
 
     ofrep-bulkEvaluationFailure:
       description: Bulk evaluation failure response
       properties:
         errorCode:
           type: string
-          description: An appropriate  code specific to the bulk evaluation error. See https://openfeature.dev/specification/types#error-code
+          description:
+            An appropriate  code specific to the bulk evaluation error. See
+            https://openfeature.dev/specification/types#error-code
         errorDetails:
           type: string
           description: Optional error details description for logging or other needs
@@ -631,7 +631,7 @@ components:
       description: Flag evaluation request
       properties:
         context:
-          $ref: '#/components/schemas/ofrep-context'
+          $ref: "#/components/schemas/ofrep-context"
 
     ofrep-evaluationSuccess:
       description: Flag evaluation success response.
@@ -641,7 +641,7 @@ components:
               $ref: "#/components/schemas/ofrep-key"
             reason:
               type: string
-              enum: [ STATIC,TARGETING_MATCH,SPLIT,DISABLED,UNKNOWN ]
+              enum: [STATIC, TARGETING_MATCH, SPLIT, DISABLED, UNKNOWN]
               description: An OpenFeature reason for the evaluation
             variant:
               type: string
@@ -660,13 +660,13 @@ components:
       description: Flag evaluation failure response
       properties:
         key:
-          $ref: '#/components/schemas/ofrep-key'
+          $ref: "#/components/schemas/ofrep-key"
         errorCode:
           type: string
-          enum: [ PARSE_ERROR,TARGETING_KEY_MISSING,INVALID_CONTEXT,GENERAL ]
+          enum: [PARSE_ERROR, TARGETING_KEY_MISSING, INVALID_CONTEXT, GENERAL]
           description: OpenFeature compatible error code. See https://openfeature.dev/specification/types#error-code
         errorDetails:
-          $ref: '#/components/schemas/ofrep-errorDetails'
+          $ref: "#/components/schemas/ofrep-errorDetails"
       required:
         - key
         - errorCode
@@ -675,12 +675,12 @@ components:
       description: Flag not found response
       properties:
         key:
-          $ref: '#/components/schemas/ofrep-key'
+          $ref: "#/components/schemas/ofrep-key"
         errorCode:
           type: string
-          enum: [ FLAG_NOT_FOUND ]
+          enum: [FLAG_NOT_FOUND]
         errorDetails:
-          $ref: '#/components/schemas/ofrep-errorDetails'
+          $ref: "#/components/schemas/ofrep-errorDetails"
       required:
         - key
         - errorCode
@@ -689,7 +689,7 @@ components:
       description: A general error response from the service
       properties:
         errorDetails:
-          $ref: '#/components/schemas/ofrep-errorDetails'
+          $ref: "#/components/schemas/ofrep-errorDetails"
 
     ofrep-key:
       type: string
@@ -762,14 +762,14 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/UserData'
+            $ref: "#/components/schemas/UserData"
 
     TrackRequestBody:
       required: true
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/UserDataAndEventsBody'
+            $ref: "#/components/schemas/UserDataAndEventsBody"
 
   responses:
     # 400
@@ -778,7 +778,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/ErrorResponse'
+            $ref: "#/components/schemas/ErrorResponse"
 
     # 401
     UnauthorizedError:
@@ -786,7 +786,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/ErrorResponse'
+            $ref: "#/components/schemas/ErrorResponse"
 
     # 404
     NotFound:
@@ -794,7 +794,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/ErrorResponse'
+            $ref: "#/components/schemas/ErrorResponse"
 
     # 500
     InternalServerError:
@@ -802,4 +802,4 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/ErrorResponse'
+            $ref: "#/components/schemas/ErrorResponse"

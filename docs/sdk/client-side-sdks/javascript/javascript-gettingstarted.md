@@ -9,22 +9,21 @@ sidebar_custom_props: { icon: material-symbols:rocket }
 [![Npm package version](https://badgen.net/npm/v/@devcycle/js-client-sdk)](https://www.npmjs.com/package/@devcycle/js-client-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)
 
-- If the JS SDK is installed using NPM, call `initializeDevCycle` with your client key, a user object, and an optional options object.
-- Otherwise, If you’re using the CDN to install the JS SDK, call `DevCycle.initializeDevCycle` with your client key, a user object, and an optional options object.
+- If the JS SDK is installed using NPM, call `initializeDevCycle` with your client key, a user object, and an optional
+  options object.
+- Otherwise, If you’re using the CDN to install the JS SDK, call `DevCycle.initializeDevCycle` with your client key, a
+  user object, and an optional options object.
 
-The user object needs either a `user_id`, or `isAnonymous` set to `true` for an anonymous user. The options object is optional,
-but can passed a `logWriter` for a custom logging solution and a `logLevel`, which must be one of `info`, `debug`, `warn` or `error`.
-The default options are to set the `logWriter` to be the console and the `logLevel` to `error`.
+The user object needs either a `user_id`, or `isAnonymous` set to `true` for an anonymous user. The options object is
+optional, but can passed a `logWriter` for a custom logging solution and a `logLevel`, which must be one of `info`,
+`debug`, `warn` or `error`. The default options are to set the `logWriter` to be the console and the `logLevel` to
+`error`.
 
 ```javascript
-const user = { user_id: 'my_user' }
-const dvcOptions = { logLevel: 'debug' }
+const user = { user_id: "my_user" };
+const dvcOptions = { logLevel: "debug" };
 // replace initializeDevCycle with DevCycle.initializeDevCycle if using the CDN
-const devcycleClient = initializeDevCycle(
-  '<DEVCYCLE_CLIENT_SDK_KEY>',
-  user,
-  dvcOptions,
-)
+const devcycleClient = initializeDevCycle("<DEVCYCLE_CLIENT_SDK_KEY>", user, dvcOptions);
 ```
 
 ## Deferred Initialization
@@ -34,18 +33,15 @@ In many cases, user data is not available at the time of initialization. If the 
 downloaded from DevCycle. The SDK makes a call to get the configuration for anonymous user and initializes.
 
 If you would like to defer initialization of the SDK until your user data is available, you can pass the
-`deferInitialization` option to the `intializeDevCycle` method. This will cause the SDK to not fetch a configuration until the
-[`devcycleClient.identifyUser`](/sdk/client-side-sdks/javascript/javascript-usage#identifying-users) method is called with the user data.
-Until that config is retrieved, all calls
-to retrieve variable values will return their default values.
+`deferInitialization` option to the `intializeDevCycle` method. This will cause the SDK to not fetch a configuration
+until the [`devcycleClient.identifyUser`](/sdk/client-side-sdks/javascript/javascript-usage#identifying-users) method is
+called with the user data. Until that config is retrieved, all calls to retrieve variable values will return their
+default values.
 
 ```js
-const dvcOptions = { logLevel: 'debug', deferInitialization: true }
+const dvcOptions = { logLevel: "debug", deferInitialization: true };
 // replace initializeDevCycle with DevCycle.initializeDevCycle if using the CDN
-const devcycleClient = initializeDevCycle(
-  '<DEVCYCLE_CLIENT_SDK_KEY>',
-  dvcOptions,
-)
+const devcycleClient = initializeDevCycle("<DEVCYCLE_CLIENT_SDK_KEY>", dvcOptions);
 ```
 
 ## DevCycleUser Object
@@ -83,6 +79,6 @@ The SDK exposes various initialization options which can be set on the `initiali
 | configCacheTTL               | Number                                                                                                   | The maximum allowed age of a cached config in milliseconds, defaults to 7 days                                 |
 | disableConfigCache           | Boolean                                                                                                  | Disable the use of cached configs                                                                              |
 | disableRealtimeUpdates       | Boolean                                                                                                  | Disable Realtime Updates                                                                                       |
-| deferInitialization          | Boolean                                                                                                       | Defer initialization (fetching configuration from DevCycle) until user is identified with `identifyUser` call  |
+| deferInitialization          | Boolean                                                                                                  | Defer initialization (fetching configuration from DevCycle) until user is identified with `identifyUser` call  |
 | disableAutomaticEventLogging | Boolean                                                                                                  | Disables logging of sdk generated events (e.g. variableEvaluated, variableDefaulted) to DevCycle.              |
 | disableCustomEventLogging    | Boolean                                                                                                  | Disables logging of custom events, from `track()` method, and user data to DevCycle.                           |

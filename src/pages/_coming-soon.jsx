@@ -1,34 +1,34 @@
-import React from 'react';
-import Layout from '@theme/Layout';
-import Link from '@docusaurus/Link';
-import { LightningBoltIcon, CubeIcon, ChipIcon } from '@heroicons/react/outline'
+import React from "react";
+import Layout from "@theme/Layout";
+import Link from "@docusaurus/Link";
+import { LightningBoltIcon, CubeIcon, ChipIcon } from "@heroicons/react/outline";
 
 const sections = [
   {
-    name: 'Getting Started',
-    link: '/home',
+    name: "Getting Started",
+    link: "/home",
     description:
-      'Find everything you need to get up and running with DevCycle here. From creating your account to getting your first Feature live in production this is your end-to-end guide to getting started.',
+      "Find everything you need to get up and running with DevCycle here. From creating your account to getting your first Feature live in production this is your end-to-end guide to getting started.",
     icon: LightningBoltIcon,
-    cta: 'Get Started Now',
+    cta: "Get Started Now",
   },
   {
-    name: 'Using Our SDKs',
-    link: '/sdk',
+    name: "Using Our SDKs",
+    link: "/sdk",
     description:
-      'Find the right SDK for your codebase and the best way to implement it for your needs. These docs include our supported functions as well as unique behaviors on different platforms.',
+      "Find the right SDK for your codebase and the best way to implement it for your needs. These docs include our supported functions as well as unique behaviors on different platforms.",
     icon: CubeIcon,
-    cta: 'Explore Our SDKs',
+    cta: "Explore Our SDKs",
   },
   {
-    name: 'Using Our Management APIs',
-    link: '/management-api/',
+    name: "Using Our Management APIs",
+    link: "/management-api/",
     description:
-      'A complete reference guide to our Management APIs. If you prefer controlling your whole feature management program in code, this is the place for you to go deep into our end-to-end APIs.',
+      "A complete reference guide to our Management APIs. If you prefer controlling your whole feature management program in code, this is the place for you to go deep into our end-to-end APIs.",
     icon: ChipIcon,
-    cta: 'Explore Our APIs',
+    cta: "Explore Our APIs",
   },
-]
+];
 
 const Welcome = () => {
   return (
@@ -43,14 +43,16 @@ const Welcome = () => {
                     <span className="block">Coming Soon!</span>
                   </h2>
                   <p className="mt-4 text-lg leading-6 text-blue-200">
-                  At DevCycle we're not just creating tools for better feature management, we're living it. We use our own tools day-in and day-out to improve our own processes and help us to be a better engineering organization.
+                    At DevCycle we're not just creating tools for better feature management, we're living it. We use our
+                    own tools day-in and day-out to improve our own processes and help us to be a better engineering
+                    organization.
                   </p>
                   <p className="mt-4 text-lg leading-6 text-blue-200">
-                    This section will be devoted to helping you go beyond understanding how to use DevCycle, and learn how to get the most out of it. Our goal is to help Feature Development teams achieve their goals and perform at an Elite level.
-                    </p>
-                    <p className="mt-4 text-lg leading-6 text-blue-200">
-                    So check back soon for some great content!
-                    </p>
+                    This section will be devoted to helping you go beyond understanding how to use DevCycle, and learn
+                    how to get the most out of it. Our goal is to help Feature Development teams achieve their goals and
+                    perform at an Elite level.
+                  </p>
+                  <p className="mt-4 text-lg leading-6 text-blue-200">So check back soon for some great content!</p>
                 </div>
               </div>
               <div className="-mt-6 aspect-w-5 aspect-h-3 md:aspect-w-2 md:aspect-h-1">
@@ -65,10 +67,7 @@ const Welcome = () => {
         </div>
       </header>
       <main className="mt-5">
-        <section
-          className="max-w-7xl mx-auto relative z-10 pb-32 px-4 sm:px-6 lg:px-8"
-          aria-labelledby="get-started"
-        >
+        <section className="max-w-7xl mx-auto relative z-10 pb-32 px-4 sm:px-6 lg:px-8" aria-labelledby="get-started">
           <h2 className="sr-only" id="get-started">
             Get Started
           </h2>
@@ -84,7 +83,8 @@ const Welcome = () => {
                 </div>
                 <div className="p-6 bg-gray-50 rounded-bl-2xl rounded-br-2xl md:px-8">
                   <Link href={section.link} className="text-base font-medium text-blue-700 hover:text-blue-600">
-                    {section.cta}<span aria-hidden="true"> &rarr;</span>
+                    {section.cta}
+                    <span aria-hidden="true"> &rarr;</span>
                   </Link>
                 </div>
               </div>
@@ -93,12 +93,15 @@ const Welcome = () => {
         </section>
       </main>
     </div>
-  )
-}
+  );
+};
 
 function Docs() {
   return (
-    <Layout title="Welcome to the DevCycle Best Practice Guides" description="Find answers to all your DevCycle implementation questions, and learn more about how to start using our management dashboard, APIs, SDKs, and more.">
+    <Layout
+      title="Welcome to the DevCycle Best Practice Guides"
+      description="Find answers to all your DevCycle implementation questions, and learn more about how to start using our management dashboard, APIs, SDKs, and more."
+    >
       <Welcome />
     </Layout>
   );

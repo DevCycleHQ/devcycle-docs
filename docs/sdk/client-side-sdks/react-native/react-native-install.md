@@ -52,9 +52,12 @@ Add the following packages that are required for React Native functionality as d
 npx pod-install
 ```
 
-The [@react-native-async-storage/async-storage](https://www.npmjs.com/package/@react-native-async-storage/async-storage) package provides the ability to leverage on Device Storage that is used for caching by the SDK.
-The [react-native-get-random-values](https://www.npmjs.com/package/react-native-get-random-values) package provides a polyfill for cryptographic functionality used to generate random IDs.
-The [react-native-device-info](https://www.npmjs.com/package/react-native-device-info) package provides information about the current device running the SDK, which is required to correctly apply targeting rules.
+The [@react-native-async-storage/async-storage](https://www.npmjs.com/package/@react-native-async-storage/async-storage)
+package provides the ability to leverage on Device Storage that is used for caching by the SDK. The
+[react-native-get-random-values](https://www.npmjs.com/package/react-native-get-random-values) package provides a
+polyfill for cryptographic functionality used to generate random IDs. The
+[react-native-device-info](https://www.npmjs.com/package/react-native-device-info) package provides information about
+the current device running the SDK, which is required to correctly apply targeting rules.
 
 ## Install SDK Dependencies
 
@@ -74,30 +77,31 @@ Install the SDK dependencies, run the following command
 
 ## Import SDK Dependencies
 
-1.  Import the `@react-native-async-storage/async-storage` package somewhere in your code (e.g. in the `App.jsx` file). (see example below)
-2.  Import the `react-native-get-random-values` package somewhere in your code (e.g. in the `App.jsx` file). (see example below)
+1.  Import the `@react-native-async-storage/async-storage` package somewhere in your code (e.g. in the `App.jsx` file).
+    (see example below)
+2.  Import the `react-native-get-random-values` package somewhere in your code (e.g. in the `App.jsx` file). (see
+    example below)
 3.  Import the `react-native-device-info` package and set `global.DeviceInfo = DeviceInfo`. (see example below)
 
 Example of the above steps:
 
 ```javascript
-import React from 'react'
-import 'react-native-get-random-values'
-import DeviceInfo from 'react-native-device-info'
-import '@react-native-async-storage/async-storage'
-import { withDevCycleProvider } from '@devcycle/react-native-client-sdk'
+import React from "react";
+import "react-native-get-random-values";
+import DeviceInfo from "react-native-device-info";
+import "@react-native-async-storage/async-storage";
+import { withDevCycleProvider } from "@devcycle/react-native-client-sdk";
 
-global.DeviceInfo = DeviceInfo
+global.DeviceInfo = DeviceInfo;
 ```
 
 ## Wrap Application in HOC
 
-Wrap your application component tree in either the `withDevCycleProvider` or `asyncWithDVCProvider` higher-order component (HOC), as explained in the [Getting Started](#getting-started) section.
+Wrap your application component tree in either the `withDevCycleProvider` or `asyncWithDVCProvider` higher-order
+component (HOC), as explained in the [Getting Started](#getting-started) section.
 
 ```jsx
-export default withDevCycleProvider({ sdkKey: '<DEVCYCLE_CLIENT_SDK_KEY>' })(
-  App,
-)
+export default withDevCycleProvider({ sdkKey: "<DEVCYCLE_CLIENT_SDK_KEY>" })(App);
 ```
 
 ## Example
@@ -105,30 +109,28 @@ export default withDevCycleProvider({ sdkKey: '<DEVCYCLE_CLIENT_SDK_KEY>' })(
 A complete working example of an `App.jsx` file is below:
 
 ```jsx
-import React from 'react'
-import { View, Text } from 'react-native'
+import React from "react";
+import { View, Text } from "react-native";
 
-import 'react-native-get-random-values'
-import DeviceInfo from 'react-native-device-info'
-import '@react-native-async-storage/async-storage'
-import { withDevCycleProvider } from '@devcycle/react-native-client-sdk'
+import "react-native-get-random-values";
+import DeviceInfo from "react-native-device-info";
+import "@react-native-async-storage/async-storage";
+import { withDevCycleProvider } from "@devcycle/react-native-client-sdk";
 
-global.DeviceInfo = DeviceInfo
+global.DeviceInfo = DeviceInfo;
 function App() {
   return (
     <View
       style={{
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
       <Text>My React App</Text>
     </View>
-  )
+  );
 }
 
-export default withDevCycleProvider({ sdkKey: '<DEVCYCLE_CLIENT_SDK_KEY>' })(
-  App,
-)
+export default withDevCycleProvider({ sdkKey: "<DEVCYCLE_CLIENT_SDK_KEY>" })(App);
 ```

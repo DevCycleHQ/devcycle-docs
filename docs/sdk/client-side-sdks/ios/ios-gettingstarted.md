@@ -13,9 +13,9 @@ sidebar_custom_props: { icon: material-symbols:rocket }
 
 ## Initializing the SDK
 
-We recommend initializing the SDK once in `didFinishLaunchingWithOptions` of your `AppDelegate` for iOS / tvOS,
-or `applicationDidFinishLaunching` for macOS, to receive features for as soon as possible
-and to pass around the client instance around in your app.
+We recommend initializing the SDK once in `didFinishLaunchingWithOptions` of your `AppDelegate` for iOS / tvOS, or
+`applicationDidFinishLaunching` for macOS, to receive features for as soon as possible and to pass around the client
+instance around in your app.
 
 ### Swift
 
@@ -46,7 +46,8 @@ The user object needs either a `user_id`, or `isAnonymous` set to `true` for an 
 
 ### Objective-C
 
-For Objective-C we use a standard callback pattern to initialize the DevCycle SDK by providing the DevCycleUser and DevCycle mobile SDK key:
+For Objective-C we use a standard callback pattern to initialize the DevCycle SDK by providing the DevCycleUser and
+DevCycle mobile SDK key:
 
 ```objc
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -101,7 +102,8 @@ The DevCycleUser can be built using the following methods:
 
 ## DevCycleOptions Builder
 
-The SDK exposes various initialization options which can be used by passing a `DevCycleOptions` object to the `withOptions` method of `DevCycleClient.builder()`:
+The SDK exposes various initialization options which can be used by passing a `DevCycleOptions` object to the
+`withOptions` method of `DevCycleClient.builder()`:
 
 [DevCycleOptionsBuilder class](https://github.com/DevCycleHQ/ios-client-sdk/blob/main/DevCycle/Models/DevCycleOptions.swift#L17)
 
@@ -119,7 +121,8 @@ The SDK exposes various initialization options which can be used by passing a `D
 
 ## Notifying when DevCycle features are available
 
-In the initialize call there is an optional `onInitialized` parameter you can use to determine when your features have been loaded:
+In the initialize call there is an optional `onInitialized` parameter you can use to determine when your features have
+been loaded:
 
 ### Swift
 

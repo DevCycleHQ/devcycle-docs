@@ -3,17 +3,21 @@ title: DataDog
 sidebar_position: 3
 ---
 
-DevCycle's clientside Javascript SDKs - including JS and React, can now be easily integrated with [DataDog RUM Feature Flag Tracking](https://docs.datadoghq.com/real_user_monitoring/feature_flag_tracking) - enabling the enrichment of your RUM data with DevCycle's variable data.
+DevCycle's clientside Javascript SDKs - including JS and React, can now be easily integrated with
+[DataDog RUM Feature Flag Tracking](https://docs.datadoghq.com/real_user_monitoring/feature_flag_tracking) - enabling
+the enrichment of your RUM data with DevCycle's variable data.
 
 ![DataDog RUM Feature Flag Tracking screen shot](/datadog-rum-screenshot.png)
 
 ### Table of Contents
+
 - [Configuration](#configuration)
   - [JavaScript](#javascript)
   - [React](#react)
 - [Coming Soon](#coming-soon)
-  
+
 ### Configuration
+
 Tracking variable evaluations with DataDog RUM is very simple, requiring only two steps.
 
 1. Enable the experimental feature in your `datadogRum.init` configuration
@@ -26,7 +30,10 @@ datadogRum.init({
 });
 ```
 
-2. Call `datadogRum.addFeatureFlagEvaluation(key, value)` whenever a variable is evaluated. Since the JavaScript and React SDKs [emit an event](https://docs.devcycle.com/sdk/client-side-sdks/javascript/javascript-usage#subscribing-to-sdk-events) on every variable evaluation, this code should run within the subscription callback.
+2. Call `datadogRum.addFeatureFlagEvaluation(key, value)` whenever a variable is evaluated. Since the JavaScript and
+   React SDKs
+   [emit an event](https://docs.devcycle.com/sdk/client-side-sdks/javascript/javascript-usage#subscribing-to-sdk-events)
+   on every variable evaluation, this code should run within the subscription callback.
 
 See below for more specific examples:
 
@@ -37,7 +44,7 @@ To track all variable evaluations:
 ```jsx
 const user = { user_id: "my_user" };
 const dvcOptions = { logLevel: "debug" };
-const devcycleClient = initialize("<DVC_CLIENT_SDK_KEY>", user, dvcOptions); 
+const devcycleClient = initialize("<DVC_CLIENT_SDK_KEY>", user, dvcOptions);
 ...
 devcycleClient.subscribe(
     "variableEvaluted:*",
@@ -52,7 +59,7 @@ To track a specific variable evaluation (in this case a variable whose key is `m
 ```jsx
 const user = { user_id: "my_user" };
 const dvcOptions = { logLevel: "debug" };
-const devcycleClient = initialize("<DVC_CLIENT_SDK_KEY>", user, dvcOptions); 
+const devcycleClient = initialize("<DVC_CLIENT_SDK_KEY>", user, dvcOptions);
 ...
 devcycleClient.subscribe(
     "variableEvaluted:my-variable-key",

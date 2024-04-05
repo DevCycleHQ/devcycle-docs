@@ -1,5 +1,5 @@
 ---
-title: Installation 
+title: Installation
 ---
 
 # Installation
@@ -32,10 +32,9 @@ sudo rpm -i devcycle-local-bucketing-proxy_*.rpm
 
 ## Configuration
 
-A sample config.json file is included in the package and can be found
-at `/etc/devcycle-local-bucketing-proxy/config.json.example`. The most current
-version of the file can be found on
-our [GitHub](https://github.com/DevCycleHQ/local-bucketing-proxy/blob/main/config.json.example).
+A sample config.json file is included in the package and can be found at
+`/etc/devcycle-local-bucketing-proxy/config.json.example`. The most current version of the file can be found on our
+[GitHub](https://github.com/DevCycleHQ/local-bucketing-proxy/blob/main/config.json.example).
 
 Alternatively - it can be configured via environment variables. The following environment variables are supported:
 
@@ -44,7 +43,7 @@ Alternatively - it can be configured via environment variables. The following en
 `DVC_LB_PROXY_SDK_KEY` is the only required environment variable if not using a configuration file
 
 | KEY                                                    | TYPE          | DEFAULT | DESCRIPTION                                                                     |
-|--------------------------------------------------------|---------------|---------|---------------------------------------------------------------------------------|
+| ------------------------------------------------------ | ------------- | ------- | ------------------------------------------------------------------------------- |
 | DVC_LB_PROXY_CONFIG                                    | String        |         | The path to a JSON configuration file.                                          |
 | DVC_LB_PROXY_UNIX_SOCKET_PATH                          | String        |         | The path to the Unix socket.                                                    |
 | DVC_LB_PROXY_HTTP_PORT                                 | Integer       | 8080    | The port to listen on for HTTP requests. Defaults to 8080.                      |
@@ -69,11 +68,11 @@ Alternatively - it can be configured via environment variables. The following en
 
 ## Post-Installation
 
-If you have installed an OS packaged version of the proxy - the binary will be installed
-to `/usr/bin/devcycle-local-bucketing-proxy`.
+If you have installed an OS packaged version of the proxy - the binary will be installed to
+`/usr/bin/devcycle-local-bucketing-proxy`.
 
 You will need to configure a separate supervisor/orchestrator such as `systemd` or `upstart` if no you need to create a
 long-lived process.
 
-We recommend keeping the logging output of the proxy available as it streams to `stdout` and `stderr` by default.
-To enable debug http logging, set the `GIN_MODE` environment variable to `debug`.
+We recommend keeping the logging output of the proxy available as it streams to `stdout` and `stderr` by default. To
+enable debug http logging, set the `GIN_MODE` environment variable to `debug`.

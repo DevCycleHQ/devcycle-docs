@@ -11,10 +11,12 @@ sidebar_custom_props: { icon: material-symbols:rocket }
 
 Please follow the [installation](/sdk/server-side-sdks/ruby/ruby-install) procedure and then run the following code:
 
-Please note; the default mode is to use Local Bucketing - to use cloud bucketing - set the `enable_cloud_bucketing` option to `true`.
+Please note; the default mode is to use Local Bucketing - to use cloud bucketing - set the `enable_cloud_bucketing`
+option to `true`.
 
-The last argument to `DevCycle::Client.new` tells the sdk whether you want to wait for initialization - meaning that the method will block
-until the first config is fetched and set successfully or an unrecoverable error occurs during initialization.
+The last argument to `DevCycle::Client.new` tells the sdk whether you want to wait for initialization - meaning that the
+method will block until the first config is fetched and set successfully or an unrecoverable error occurs during
+initialization.
 
 ```ruby
 # Load the gem
@@ -64,7 +66,8 @@ Rails.configuration.devcycle_client = DevCycle::Client.new(
 
 ## Initializing the SDK in a Rails App Using Unicorn
 
-When using Unicorn with the `preload_app` configuration set to `true`, the SDK needs to be initialized in the `after_work` block in the `config/unicorn.rb` file:
+When using Unicorn with the `preload_app` configuration set to `true`, the SDK needs to be initialized in the
+`after_work` block in the `config/unicorn.rb` file:
 
 ```ruby
 after_fork do |server, worker|
@@ -78,7 +81,8 @@ end
 
 ## Initializing the SDK in a Rails App Using Puma
 
-When using Puma with the `preload_app` configuration set to `true`, the SDK needs to be initialized in the `on_worker_boot` block in the `config/puma.rb` file:
+When using Puma with the `preload_app` configuration set to `true`, the SDK needs to be initialized in the
+`on_worker_boot` block in the `config/puma.rb` file:
 
 ```ruby
 on_worker_boot do

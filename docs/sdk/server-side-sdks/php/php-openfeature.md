@@ -38,14 +38,14 @@ $openFeatureClient = $api->getClient();
 
 ### Required TargetingKey
 
-For DevCycle SDK to work we require either a `targetingKey` or `user_id` to be set on the OpenFeature context.
-This is used to identify the user as the `user_id` for a `DevCycleUser` in DevCycle. Setting the `user_id` property
-will take priority over `targetingKey`.
+For DevCycle SDK to work we require either a `targetingKey` or `user_id` to be set on the OpenFeature context. This is
+used to identify the user as the `user_id` for a `DevCycleUser` in DevCycle. Setting the `user_id` property will take
+priority over `targetingKey`.
 
 ### Context properties to DevCycleUser
 
-The provider will automatically translate known `DevCycleUser` properties from the OpenFeature context to
-the `DevCycleUser` object.
+The provider will automatically translate known `DevCycleUser` properties from the OpenFeature context to the
+`DevCycleUser` object.
 
 For example all these properties will be set on the `DevCycleUser`:
 
@@ -71,8 +71,8 @@ $context = new EvaluationContext('user', $attributes);
 
 ```
 
-Context properties that are not known `DevCycleUser` properties will be automatically
-added to the `CustomData` property of the `DevCycleUser`.
+Context properties that are not known `DevCycleUser` properties will be automatically added to the `CustomData` property
+of the `DevCycleUser`.
 
 ### Context Limitations
 

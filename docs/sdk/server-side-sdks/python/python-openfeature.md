@@ -8,9 +8,11 @@ sidebar_custom_props: { icon: material-symbols:toggle-off }
 
 # OpenFeature Provider
 
-OpenFeature is an open standard that provides a vendor-agnostic, community-driven API for feature flagging that works with DevCycle.
+OpenFeature is an open standard that provides a vendor-agnostic, community-driven API for feature flagging that works
+with DevCycle.
 
-DevCycle provides a Python implementation of the [OpenFeature](https://openfeature.dev/) Provider interface, if you prefer to use the OpenFeature API.
+DevCycle provides a Python implementation of the [OpenFeature](https://openfeature.dev/) Provider interface, if you
+prefer to use the OpenFeature API.
 
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/python-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/python-server-sdk)
 
@@ -51,12 +53,13 @@ open_feature_client = api.get_client()
 
 ### Required Targeting Key
 
-For the DevCycle SDK to work we require either a `targeting_key` or `user_id` to be set on the OpenFeature context.
-This is used to identify the user as the `user_id` for a `DevCycleUser` in DevCycle.
+For the DevCycle SDK to work we require either a `targeting_key` or `user_id` to be set on the OpenFeature context. This
+is used to identify the user as the `user_id` for a `DevCycleUser` in DevCycle.
 
 ### Context properties to DevCycleUser
 
-The provider will automatically translate known `DevCycleUser` properties from the OpenFeature context to the `DevCycleUser` object.
+The provider will automatically translate known `DevCycleUser` properties from the OpenFeature context to the
+`DevCycleUser` object.
 [DevCycleUser Python Interface](https://github.com/DevCycleHQ/python-server-sdk/blob/main/devcycle_python_sdk/models/user.py)
 
 For example all these properties will be set on the `DevCycleUser`:
@@ -81,8 +84,8 @@ context = EvaluationContext(
 open_feature_client.context = context
 ```
 
-Context properties that are not known `DevCycleUser` properties will be automatically
-added to the `CustomData` property of the `DevCycleUser`.
+Context properties that are not known `DevCycleUser` properties will be automatically added to the `CustomData` property
+of the `DevCycleUser`.
 
 ### Context Limitations
 
