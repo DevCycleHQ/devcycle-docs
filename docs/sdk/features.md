@@ -298,7 +298,7 @@ Custom Domains is an enterprise feature and requires manual setup on both your e
 
 :::
 
-For instructions on setting up a custom domain, see [Custom Domains](/extras/custom-domains/custom-domains).
+For instructions on setting up a custom domain, see [Custom Domains](/extras/custom-domains).
 
 ## Realtime Updates
 
