@@ -10,6 +10,12 @@ sidebar_position: 4
 ## Types of Keys
 
 ### SDK Keys
+SDK Keys are used to authenticate an SDK with DevCycle.
+
+SDK keys are separated into Server, Mobile and Client due to the unique security requirements and constraints of each platform.
+
+Features can also be targeted to a specific type of SDK using [SDK Visibility](/extras/sdk-visibility)
+
 #### Server Keys
 
 All the DevCycle Server-side SDKs should be initialized with the environment's Server-side SDK key. This SDK key provides read-only access of the features on your DevCycle environment. This key is used for SDKs which currently make continuous calls to the DevCycle APIs for each SDK interaction per user. It also has access to the full project configuration data, which is used for local bucketing SDKs.
@@ -24,7 +30,7 @@ All the DevCycle Client-side SDKs (non-mobile) should be initialized with the en
 
 All the DevCycle Mobile SDKs should be initialized with the environment's Mobile SDK key. This SDK key provides read-only access to the features accessible by a given user on your DevCycle environment. Specifically, it grants access to the DevCycle SDK API, which returns user-customized configurations including feature information which they are permitted to access.
 
-This key is separate from the standard SDK keys due to the differing security requirements of client-side (eg. browser) and mobile use cases. Separation allows one key to be rotated without affecting the other. In the future, it will also be possible to control feature availability specifically for mobile keys.
+This key is separate from the standard SDK keys due to the differing security requirements of client-side (eg. browser) and mobile use cases. Separation allows one key to be rotated without affecting the other. 
 
 ---
 
