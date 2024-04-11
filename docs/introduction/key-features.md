@@ -11,7 +11,7 @@ serves to illustrate some of the key capabilities of the platform.
 #### SDKs for Every Platform
 DevCycle provides SDKs for every major platform, and certain frameworks within those platforms.
 
-See the full list on the [SDKs page](/sdks).
+See the full list on the [SDKs page](/sdk).
 
 #### Fast Global Response Times
 The APIs serving DevCycle SDKs are globally distributed and extremely fast, serving most requests in under 100ms.
