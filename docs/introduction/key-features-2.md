@@ -9,7 +9,7 @@ DevCycle is a comprehensive feature flag management platform with a wide range o
 makes us different.
 
 ## Ensure Safety When Changing Flags
-- Govern who can access and modify flags configurations in production using [Permissions](/extras/permissions).
+- Govern who can access and modify flags configurations in production using Permissions.
 - Allow developers to hand off configuration of flags safely,
 by enforcing [schemas](/extras/advanced-variables/variable-schemas) that determine what values a flag can be set to.
 - Easily see a [history](/extras/audit-log) of changes to flags, including who performed each change.
