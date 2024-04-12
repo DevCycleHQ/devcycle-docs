@@ -42,7 +42,7 @@ If a change on the dashboard triggers your variable value to change, it will rer
 
 ## Getting the DevCycle Client
 
-The SDK provides a hook to access the underlying DevCycle client. This allows you identify users, track events, and directly access
+The SDK provides a hook to access the underlying DevCycle client. This allows you to identify users, track events, and directly access
 variables:
 
 ### useDevCycleClient
@@ -212,6 +212,6 @@ This will send a request to our EdgeDB API to save the custom data under the use
 In the example, `amountSpent` is associated to the user `test_user`. In your next `identify` call for the same `user_id`,
 you may omit any of the data you've sent already as it will be pulled from the EdgeDB storage when segmenting to experiments and features:
 
-```
+```js
 devcycleClient.identifyUser({ user_id: 'test_user' }) // no need to pass in "amountSpent" any more!
 ```
