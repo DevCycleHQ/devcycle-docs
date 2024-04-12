@@ -5,7 +5,9 @@ sidebar_position: 1
 
 # Permissions
 
-At DevCycle, we offer Permissions Gating to protect Environments which are marked as "production" from unauthorized changes. This allows Organizations to manage which users can modify the Targeting Status, Rules and served Variations in a production Environment that may impact their end users.
+At DevCycle, our primary goal for permissions is to protect production. We've designed our permission to be lightweight, straightforward and simple while ensuring production is protected.
+
+Specifically, we offer Permissions Gating to protect Environments which are marked as "production" from unauthorized changes. This allows Organizations to manage which users can modify the Targeting Status, Rules and served Variations in a production Environment that may impact their end users.
 
 Permissions can be enabled for Organizations on our Business or Enterprise plans. Please contact our [support](mailto:support@devcycle.com) team to get started.
 
@@ -15,22 +17,29 @@ Permissions enforcement will apply to all Projects and Production-type Environme
 
 ## What Can Users Do?
 
-For more information, checkout the [Organization Roles](/essentials/organizations#organization-roles) documentation.
+To ensure usability, all users are able to make any edits to a Feature when production targeting isn't enabled. Permissions Gating and it's protections come into play when production targeting is either enabled or a user is attempting to enable production.
+
+See below for the full details on what each user role can do when permissions are enabled.
 
 ### Members
 
-- Configure Development and Staging Environments
-- Configure **Inactive** Production Environments
+- ✅ Configure Development and Staging Environments
+- ✅ Configure **Inactive** Production Environments
+- ❌ Configure **Active** Production Environments, Variables and Variations
+- ❌ Change and manage Roles of all Users in the Organization
 
 ### Publishers
 
 Everything **Members** can do, plus
 
-- Enable or Disable Production Environments Targeting
-- Configure **Active** Production Environments
+- ✅ Enable or Disable Production Environments Targeting
+- ✅ Configure **Active** Production Environments, Variables and Variations
+- ❌ Change and manage Roles of all Users in the Organization
 
 ### Owners
 
 Everything **Publishers** can do, plus
 
-- Change and manage Roles of all Users in the Organization
+- ✅ Change and manage Roles of all Users in the Organization
+
+For more information, checkout the [Organization Roles](/essentials/organizations#organization-roles) documentation.
