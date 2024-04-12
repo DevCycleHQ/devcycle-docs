@@ -47,6 +47,20 @@ give access to new features without requiring a refresh.
 
 [Learn More](/sdk/features#realtime-updates)
 
+## Cool Stuff
+
+#### Managed Feature Opt-In
+Easily add a full feature opt-in experience to your application to allow end users to control their experience.
+One line of code, and DevCycle does the rest.
+
+[Learn More](/extras/advanced-targeting/feature-opt-in)
+
+#### Global User Database
+Store user attributes in a fast, globally-replicated database and target users based on those attributes. Import data from
+other systems for use in targeting rules.
+
+[Learn More](/extras/edgedb)
+
 ## Development Tools
 #### Easy Overriding of Your Own Flag Values
 Override the flag values being served to you, without risky modification of targeting rules. Test upcoming features
@@ -59,6 +73,11 @@ Access DevCycle information directly from your editor. Detect and jump to flag u
 in each environment.
 
 [Learn More](/integrations#ide-plugins)
+
+#### CLI
+Configure flags right in the terminal, or override your own flag values for development. 
+
+[Learn More](/cli)
 
 #### Flag Usage Detection and Cleanup
 Keep on top of which flags are being used in your codebase, and clean up unused ones to prevent tech debt.
