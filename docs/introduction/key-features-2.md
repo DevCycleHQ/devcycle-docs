@@ -58,4 +58,4 @@ Feature flagging is better when integrated into the rest of your critical tools.
 See how to integrate your own tools:
 - Notify external systems of changes to your flags using [Outbound Webhooks](/extras/webhooks). 
 - See changes in your [monitoring systems](/integrations#observability) and alert on potential issues.
-- A complete [API](/api) and [CLI](/cli) are available to run automations or scripts as necessary.
+- A complete [API](/management-api) and [CLI](/cli) are available to run automations or scripts as necessary.
