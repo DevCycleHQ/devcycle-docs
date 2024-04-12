@@ -5,7 +5,7 @@ sidebar_position: 1
 
 # Permissions
 
-At DevCycle, we offer Permissions gating to protect Environments which are marked as Production from unauthorized changes. This allows Organizations to manage which users can modify the Targeting Status, Rules and Served Variations in a Production Environment that may impact their End Users.
+At DevCycle, we offer Permissions Gating to protect Environments which are marked as "production" from unauthorized changes. This allows Organizations to manage which users can modify the Targeting Status, Rules and served Variations in a production Environment that may impact their end users.
 
 Permissions can be enabled for Organizations on our Business or Enterprise plans. Please contact our [support](mailto:support@devcycle.com) team to get started.
 
@@ -14,6 +14,8 @@ Permissions enforcement will apply to all Projects and Production-type Environme
 :::
 
 ## What Can Users Do?
+
+For more information, checkout the [Organization Roles](/essentials/organizations#organization-roles) documentation.
 
 ### Members
 
@@ -24,11 +26,11 @@ Permissions enforcement will apply to all Projects and Production-type Environme
 
 Everything **Members** can do, plus
 
-- Change Targeting Status of Production Environments
-- Modify **Active** Production Environmentss
+- Enable or Disable Production Environments Targeting
+- Configure **Active** Production Environments
 
 ### Owners
 
 Everything **Publishers** can do, plus
 
-- Change and Manage Roles of all Users in the Organization
+- Change and manage Roles of all Users in the Organization
