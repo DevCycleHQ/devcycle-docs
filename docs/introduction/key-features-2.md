@@ -10,15 +10,14 @@ DevCycle is a comprehensive feature flag management platform with a wide range o
 Here are the core concepts and features behind them that what we think makes us different.
 
 ## Protect Production without Getting in Your Way
-At DevCycle we understand that to be effective, all team members need to be able to operate without fear of breaking production. We strategically use a balance of guardrails, permissions and observability to ensure all users have confidence in the actions they are taking.
+For feature flagging to be effective, all team members need to be able to operate without fear of breaking production. We use a balance of guardrails, permissions and observability to ensure all users have confidence in the actions they are taking.
 
 Specific Features:
-- Govern who can access and modify flags configurations in production using Permissions.
-- Allow developers to hand off configuration of flags safely,
-by enforcing [schemas](/extras/advanced-variables/variable-schemas) that determine what values a flag can be set to.
-- Easily see a [history](/extras/audit-log) of changes to flags, including who performed each change.
+- Govern who modify flags in production using Permissions.
+- Allow product manager to modify flag values safely, by enforcing [schemas](/extras/advanced-variables/variable-schemas).
+- Easily see a [detailed history](/extras/audit-log) of all changes to flags.
 - Write type-safe code using our [Code Generators](/sdk/client-side-sdks/javascript/javascript-typescript).
-- Ensure a predictable and reviewable process for changing flags using Gitops and [Terraform](/integrations/terraform).
+- Ensure a predictable process for changing flags using Gitops and [Terraform](/integrations/terraform).
 
 ## Manage Flags Without Leaving Your Workflow
 - Use the [CLI](/cli) and [Editor Plugins](/integrations#ide-plugins) to manage flags without interrupting your work. 
