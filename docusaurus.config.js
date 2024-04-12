@@ -327,14 +327,14 @@ const config = {
     },
   ],
   themeConfig: {
-    announcementBar: {
-      id: 'support_us',
-      content:
-        'Ready to start feature flagging? Sign-up for a free <a target="_blank" rel="noopener noreferrer" href="https://devcycle.com">DevCycle account</a> today 🏳️',
-      backgroundColor: 'rgb(17 24 39)',
-      textColor: '#FFFFFF',
-      isCloseable: false,
-    },
+    // announcementBar: {
+    //   id: 'support_us',
+    //   content:
+    //     'Ready to start feature flagging? Sign-up for a free <a target="_blank" rel="noopener noreferrer" href="https://devcycle.com">DevCycle account</a> today 🏳️',
+    //   backgroundColor: 'rgb(17 24 39)',
+    //   textColor: '#FFFFFF',
+    //   isCloseable: false,
+    // },
     image: 'devcycle_card.png',
     docs: {
       sidebar: {
