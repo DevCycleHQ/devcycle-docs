@@ -36,9 +36,7 @@ const DevCycleFeaturePage = () => {
 }
 ```
 
-See [getVariableByKey](https://docs.devcycle.com/bucketing-api/#operation/getVariableByKey) on the Bucketing API for the variable response format.
-
-If a change on the dashboard triggers your variable value to change, it will rerender your page to reflect your new variable value. To learn more, visit the [Realtime Updates](/sdk/features#realtime-updates) page.
+If a change on the dashboard triggers your variable value to change, it will rerender any components calling this hook in order to reflect your new variable value. To learn more, visit the [Realtime Updates](/sdk/features#realtime-updates) page.
 
 ## Getting the DevCycle Client
 
