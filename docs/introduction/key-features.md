@@ -8,6 +8,8 @@ sidebar_position: 2
 DevCycle is a comprehensive feature flag management platform with a wide range of features. The following page
 serves to illustrate some of the key capabilities of the platform.
 
+## Basics
+
 #### SDKs for Every Platform
 DevCycle provides SDKs for every major platform, and certain frameworks within those platforms.
 
@@ -45,20 +47,12 @@ give access to new features without requiring a refresh.
 
 [Learn More](/sdk/features#realtime-updates)
 
+## Development Tools
 #### Easy Overriding of Your Own Flag Values
-Override the flag values being served to you, without risky modification of targeting rules. Test upcoming features 
+Override the flag values being served to you, without risky modification of targeting rules. Test upcoming features
 in production, debug issues with different flag values, and more.
 
 [Learn More](/extras/advanced-targeting/self-targeting)
-
-#### Schematized Flags for Safe Configuration
-Allow developers to hand off configuration of flags safely, by enforcing schemas that determine what values a flag
-can be set to.
-
-[Learn more](/extras/advanced-variables/variable-schemas)
-
-#### Permissions
-Govern who can access and modify flags configurations in production. 
 
 #### Editor Integrations
 Access DevCycle information directly from your editor. Detect and jump to flag usages, and quickly see whether flags are enabled
@@ -67,7 +61,7 @@ in each environment.
 [Learn More](/integrations#ide-plugins)
 
 #### Flag Usage Detection and Cleanup
-Keep on top of which flags are being used in your codebase, and clean up unused ones to prevent tech debt. 
+Keep on top of which flags are being used in your codebase, and clean up unused ones to prevent tech debt.
 
 [Learn More](/best-practices/tech-debt#code-usages)
 
@@ -76,15 +70,28 @@ Ensure that your code is using flag names that actually exist, and that flag val
 
 [Learn More](/sdk/client-side-sdks/javascript/javascript-typescript)
 
+#### Gitops and Terraform
+Manage your DevCycle configuration as code, and apply changes to your configuration in a controlled manner using Terraform
+
+[Learn More](/integrations/terraform)
+
+## Safety and Compliance
+
+#### Permissions
+Govern who can access and modify flags configurations in production.
+
+#### Schematized Flags for Safe Configuration
+Allow developers to hand off configuration of flags safely, by enforcing schemas that determine what values a flag
+can be set to.
+
+[Learn more](/extras/advanced-variables/variable-schemas)
+
 #### Audit Log
 Easily see a history of changes to flags, including who performed each change. 
 
 [Learn More](/extras/audit-log)
 
-#### Gitops and Terraform
-Manage your DevCycle configuration as code, and apply changes to your configuration in a controlled manner using Terraform
-
-[Learn More](/integrations/terraform)
+## Monitoring and Observability
 
 #### Webhooks and Integrations
 Notify external systems of changes to your flags. Link flags with project management tools like Jira, or see a feed
