@@ -23,10 +23,14 @@ DevCycle provides a Javascript implementation of the OpenFeature Web Provider in
 
 Install the OpenFeature React SDK and DevCycle Web Provider:
 
+[//]: # (wizard-install-start)
+
 #### NPM
 ```bash
-npm install --save @openfeature/react-sdk @devcycle/openfeature-web-provider 
+npm install @openfeature/react-sdk @devcycle/openfeature-web-provider 
 ```
+
+[//]: # (wizard-install-end)
 
 #### Yarn
 If using `yarn` you will need to install further peer-dependencies:
@@ -36,6 +40,8 @@ yarn add @openfeature/react-sdk @openfeature/web-sdk @openfeature/core @devcycle
 ```
 
 ### Getting Started
+
+[//]: # (wizard-initialize-start)
 
 Initialize the DevCycleProvider and set it as the provider for OpenFeature,
 which will initialize the DevCycle JS Client SDK internally:
@@ -54,7 +60,15 @@ function App() {
     </OpenFeatureProvider>
   )
 }
+```
+[//]: # (wizard-initialize-end)
 
+### Evaluating a Variable
+[//]: # (wizard-evaluate-start)
+
+Use a variable value by passing the variable key and default value to one of the OpenFeature flag evaluation hooks
+
+```typescript jsx
 function Page() {
   const newMessage = useBooleanFlagValue('new-message', false)
   return (
@@ -68,6 +82,8 @@ function Page() {
 
 export default App
 ```
+[//]: # (wizard-evaluate-end)
+
 
 ### Passing DevCycleOptions to the DevCycleProvider
 
