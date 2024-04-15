@@ -3971,14 +3971,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^18.2.29":
-  version: 18.2.36
-  resolution: "@types/react@npm:18.2.36"
+"@types/react@npm:^18.2.78":
+  version: 18.2.78
+  resolution: "@types/react@npm:18.2.78"
   dependencies:
     "@types/prop-types": "*"
-    "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: 561fab294117983f3d245a63730bcffb423fc2a1b0f27d20c870abc5d980bc206a74f741cb11b5170fcdf0e747ac05448369cd930fbf345f74ed567f8fef3a9e
+  checksum: f686d735707d46690d05ac76e8c8a619802ea6a4a8f2837981669f7dc13b6984751edc4994242afa3be279df15c67b72a5a658f02a7c5ca16f9a0b4878f1bf18
   languageName: node
   linkType: hard
 
@@ -6489,7 +6488,7 @@ __metadata:
     "@mdx-js/react": ^3.0.0
     "@remark-embedder/core": ^3.0.2
     "@tailwindcss/aspect-ratio": ^0.4.2
-    "@types/react": ^18.2.29
+    "@types/react": ^18.2.78
     "@vercel/analytics": ^1.1.1
     clsx: ^2.0.0
     docusaurus-plugin-remote-content: ^4.0.0
