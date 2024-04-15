@@ -6494,7 +6494,7 @@ __metadata:
     clsx: ^2.0.0
     docusaurus-plugin-remote-content: ^4.0.0
     dotenv: ^16.1.4
-    mixpanel-browser: ^2.45.0
+    mixpanel-browser: ^2.49.0
     postcss-import: ^15.1.0
     postcss-preset-env: ^9.3.0
     prism-react-renderer: ^2.1.0
@@ -10731,10 +10731,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mixpanel-browser@npm:^2.45.0":
-  version: 2.47.0
-  resolution: "mixpanel-browser@npm:2.47.0"
-  checksum: f44e0e0ac70b3772ed1be7c826d3cb0ffbf2dda35e6b927a3f7167795283745ae16573ae6ba303238bf776e3a5ed72c98c3c3f97e2a3c72bcbada15b956e9e9d
+"mixpanel-browser@npm:^2.49.0":
+  version: 2.49.0
+  resolution: "mixpanel-browser@npm:2.49.0"
+  checksum: 24da033aa2a07d49518a4f3646fdf41f6408cb2944aa0001e234d92bdf42b23d28c0e3f277c7196a564f47318d48545811a90eab87c2d215200ec82f369ab46b
   languageName: node
   linkType: hard
 
