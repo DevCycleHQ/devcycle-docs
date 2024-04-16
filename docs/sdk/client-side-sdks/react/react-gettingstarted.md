@@ -29,8 +29,10 @@ It’s best to initialize DevCycle in your root component (App.jsx or App.tsx), 
 
 ## Non-Blocking
 
+[//]: # (wizard-initialize-start)
+
 The withDevCycleProvider higher-order component (HOC) initializes the React SDK and wraps your root component. This provider may cause your app
-to flicker when it is first rendered, as all DevCycle variables will return their default values until the SDK is initialized.
+to flicker when it is first rendered, as all DevCycle variables will return their default values until the SDK is initialized. To avoid this, use the usIsDevCycleInitialized hook.
 
 ```jsx
 import { withDevCycleProvider } from '@devcycle/react-client-sdk'
@@ -41,6 +43,8 @@ export default withDevCycleProvider({ sdkKey: '<DEVCYCLE_CLIENT_SDK_KEY>' })(
   App,
 )
 ```
+
+[//]: # (wizard-initialize-end)
 
 ## Blocking
 

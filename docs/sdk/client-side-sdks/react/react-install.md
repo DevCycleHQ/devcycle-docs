@@ -17,11 +17,13 @@ This SDK is compatible with React versions 16.8.0 and above.
 
 To install the SDK, run the following command:
 
+[//]: # (wizard-install-start)
 ### npm
 
 ```bash
 npm install --save @devcycle/react-client-sdk
 ```
+[//]: # (wizard-install-end)
 
 ### yarn
 
