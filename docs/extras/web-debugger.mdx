@@ -3,14 +3,17 @@ title: Web Debugger
 sidebar_position: 7
 ---
 
+import WebDebugger from '@site/static/web-debugger.png';
+import { CenteredImage } from '@site/src/components/CenteredImage';
+
 # Web Debugger
 
-The Web Debugger is a helpful utility you can embed in your own site when using DevCycle. It allows authorized users to see the current state of their Variables, use Self-Targeting to override those Variables, and see a stream of Events from the SDK as they occur. 
+The Web Debugger is a helpful utility you can embed in your own site when using DevCycle. It allows authorized users to see the current state of their Variables, use Self-Targeting to override those Variables, and see a stream of Events from the SDK as they occur.
 
 The Debugger is a powerful tool for debugging and modifying your DevCycle experience right from the website where it's being used, without
 having to visit the dashboard.
 
-![Screenshot of Web Debugger](/web-debugger.png)
+<CenteredImage src={WebDebugger} alt="Screenshot of Web Debugger" height={500} />
 
 ## Installation
 The Web Debugger is available as a standalone NPM package that can be installed in your frontend projects. Install the
@@ -38,7 +41,7 @@ const client = initializeDevCycle('SDK_KEY', { user_id: 'my-user' })
 
 initializeDevCycleDebugger(client)
 ```
-This will initialize the Debugger using the default options. 
+This will initialize the Debugger using the default options.
 
 If you are using React, you can also intialize the Debugger using the included React component
 ```jsx
@@ -59,7 +62,7 @@ provider context. Any options that the regular Javascript function accepts can b
 
 ### Controlling Visibility
 
-By default, the Debugger will show any time the environment variable `NODE_ENV` is set to 'development'. 
+By default, the Debugger will show any time the environment variable `NODE_ENV` is set to 'development'.
 
 To control when the Debugger is visible (and for who), there are two options available.
 
@@ -109,12 +112,12 @@ to log in. The Debugger is only available to those with a DevCycle dashboard acc
 The Debugger has several main features.
 
 ### Self-Targeting
-The Debugger allows you to quickly change your [Self-Targeting Overrides](/extras/advanced-targeting/self-targeting) and see the changes reflected immediately on the current page. If you don't currently have Self-Targeting set up, the Debugger will present an option to quickly set your "DevCycle Identity" to the currently identified user on the page. 
+The Debugger allows you to quickly change your [Self-Targeting Overrides](/extras/advanced-targeting/self-targeting) and see the changes reflected immediately on the current page. If you don't currently have Self-Targeting set up, the Debugger will present an option to quickly set your "DevCycle Identity" to the currently identified user on the page.
 
 Once set, you can now view and modify your Overrides for any Feature in your project.
 
 ### Live Configuration & User Identity
-In the "Live Configuration" section, you'll find a list of the Features and Variations that you are currently being served by DevCycle on this page. 
+In the "Live Configuration" section, you'll find a list of the Features and Variations that you are currently being served by DevCycle on this page.
 Each row can be clicked to expand and see the set of Variables and their values which are associated with that Feature and Variation.
 
 At the top of this section you can also see the current user data that you've been identified with on this page, and modify any property.
@@ -122,4 +125,4 @@ Applying changes to that data will trigger the SDK's `identify` function and tri
 
 ### Events
 The Events section shows a real-time stream of events from the SDK, including new configs being obtained and any custom events that you
-are tracking yourself. 
+are tracking yourself.
