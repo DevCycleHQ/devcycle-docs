@@ -37,3 +37,11 @@ The `View Changes on Feature [Feature Name]` will take you to the Audit Log entr
 - `/devcycle [ subscribe | unsubscribe | list ]`
 - `/dvc [ subscribe | unsubscribe | list ]`
 
+## Uninstall the DevCycle Slack App 
+
+In the case that you connected your Slack app to the wrong workspace or would like to remove it, please follow the instructions in this [Slack Help Center article](https://slack.com/help/articles/360003125231-Remove-apps-and-custom-integrations-from-your-workspace#remove-an-app). 
+
+![How to Remove DevCycle Slack App](/apr-2024-slack-uninstall.png)
+
+
+
