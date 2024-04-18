@@ -9,6 +9,8 @@ sidebar_custom_props: { icon: material-symbols:rocket }
 [![Pub](https://img.shields.io/pub/v/devcycle_flutter_client_sdk)](https://img.shields.io/pub/v/devcycle_flutter_client_sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/flutter-client-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/flutter-client-sdk)
 
+[//]: # (wizard-initialize-start)
+
 ## Initializing the SDK
 
 We recommend initializing the SDK once and pass around the client instance around in your app.
@@ -46,6 +48,7 @@ class _MyAppState extends State<MyApp> {
     ...
 }
 ```
+[//]: # (wizard-initialize-end)
 
 The user object may specify a `userId` for a given User. If the `userId` is not specified, the User is considered to be anonymous.
 

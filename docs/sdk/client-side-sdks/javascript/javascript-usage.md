@@ -41,7 +41,9 @@ devcycleClient.onClientInitialized((err) => {
 
 ## Using Variable Values
 
-To get values from your Variables, `variableValue()` is used to fetch variable values using the identifier `key` coupled with a default value.
+[//]: # (wizard-evaluate-start)
+
+To get values from your Variables, `variableValue()` is used to fetch Variable values using the identifier `key` coupled with a default value.
 The default value can be of type `String`, `Boolean`, `Number`, or `Object`.
 
 ```javascript
@@ -50,6 +52,8 @@ const variable = devcycleClient.variableValue(
   'default value',
 )
 ```
+
+[//]: # (wizard-evaluate-end)
 
 If you would like to get the full `Variable` object using the `variable()` method it also contains the following params:
 

@@ -66,7 +66,7 @@ function App() {
 ### Evaluating a Variable
 [//]: # (wizard-evaluate-start)
 
-Use a variable value by passing the variable key and default value to one of the OpenFeature flag evaluation hooks
+Use a Variable value by passing the Variable key and default value to one of the OpenFeature flag evaluation hooks
 
 ```typescript jsx
 function Page() {

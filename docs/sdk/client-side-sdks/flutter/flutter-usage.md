@@ -9,6 +9,8 @@ sidebar_custom_props: { icon: material-symbols:toggle-on }
 [![Pub](https://img.shields.io/pub/v/devcycle_flutter_client_sdk)](https://img.shields.io/pub/v/devcycle_flutter_client_sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/flutter-client-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/flutter-client-sdk)
 
+[//]: # (wizard-evaluate-start)
+
 ## Using Variable Values
 
 To get values from your Variables, the `variableValue()` method is used to fetch variable values using
@@ -21,6 +23,8 @@ final strValue = _devcycleClient.variableValue(key: "string_key", defaultValue: 
 final numValue = _devcycleClient.variableValue(key: "num_key", defaultValue: 4);
 final jsonValue = _devcycleClient.variableValue(key: "json_key", defaultValue: { "key": "value" });
 ```
+[//]: # (wizard-evaluate-end)
+
 
 If you would like to get the full `Variable` object using the `variable()` method it also contains the following params:
 
