@@ -63,7 +63,7 @@
     "@docusaurus/types": "latest",
     "@iconify-icon/react": "^1.0.8",
     "@types/react": "^18.2.29",
-    "typescript": "~5.2.2",
+    "typescript": "~5.4.5",
     "webpack": "^5.91.0"
   },
   "engines": {
