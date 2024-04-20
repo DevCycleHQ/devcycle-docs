@@ -115,7 +115,8 @@ The SDK exposes various initialization options which can be used by passing a `D
 | configCacheTTL               | Int       | 604800000 | The maximum allowed age of a cached config in milliseconds, defaults to 7 days                                 |
 | disableConfigCache           | Bool      | false     | Disable the use of cached configs                                                                              |
 | disableRealtimeUpdates       | Bool      | false     | Disable Realtime Updates                                                                                       |
-| apiProxyURL                  | String    | nil       | Allows the SDK to communicate with a proxy of DevCycle Bucketing API / Client SDK API.                         |
+| apiProxyURL                  | String    | nil       | Allows the SDK to communicate with a proxy of DevCycle Client SDK API.                                         |
+| eventsApiProxyURL            | String    | nil       | Allows the SDK to communicate with a proxy of DevCycle Events API.                                             |
 
 ## Notifying when DevCycle features are available
 
