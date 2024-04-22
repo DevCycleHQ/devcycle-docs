@@ -9,7 +9,7 @@ To view the current Organization (or change Organizations) click on your user av
 
 :::tip
 
-If [granular permissions](/extras/permissions) have been activated in your organization, you will have more customization options for projects permissions.
+If [granular permissions](/extras/permissions) have been activated in your Organization, you will have more customization options for Project permissions.
 
 :::
  
