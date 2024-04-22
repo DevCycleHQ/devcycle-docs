@@ -9,6 +9,8 @@ sidebar_custom_props: { icon: material-symbols:toggle-on }
 [![Maven](https://badgen.net/maven/v/maven-central/com.devcycle/java-server-sdk)](https://search.maven.org/artifact/com.devcycle/java-server-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/java-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/java-server-sdk)
 
+[//]: # (wizard-evaluate-start)
+
 ## DevCycleUser Object
 
 The user object is required for all methods. The only required field in the user object is userId.
@@ -38,6 +40,7 @@ if (variableValue.booleanValue()) {
     // Old code here
 }
 ```
+[//]: # (wizard-evaluate-end)
 
 The default value can be of type `String`, `Boolean`, `Number`, or `Object`.
 

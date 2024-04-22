@@ -17,6 +17,7 @@ DevCycle provides a Python implementation of the [OpenFeature](https://openfeatu
 ## Usage
 
 ### Installation
+[//]: # (wizard-install-start)
 
 Install the OpenFeature Python SDK and DevCycle Provider:
 
@@ -26,7 +27,10 @@ $ pip install devcycle-python-server-sdk
 
 (you may need to run `pip` with root permission: `sudo pip install devcycle-python-server-sdk`)
 
+[//]: # (wizard-install-end)
+
 ### Getting Started
+[//]: # (wizard-initialize-start)
 
 Initialize the DevCycle SDK and set the DevCycleProvider as the provider for OpenFeature:
 
@@ -40,7 +44,7 @@ from openfeature.evaluation_context import EvaluationContext
 options = DevCycleLocalOptions()
 
 # create an instance of the DevCycleLocalClient class
-devcycle_client = DevCycleLocalClient('DEVCYCLE_SERVER_SDK_KEY', options)
+devcycle_client = DevCycleLocalClient('<DEVCYCLE_SERVER_SDK_KEY>', options)
 
 # set the provider for OpenFeature
 api.set_provider(devcycle_client.get_openfeature_provider())
@@ -48,6 +52,26 @@ api.set_provider(devcycle_client.get_openfeature_provider())
 # get the OpenFeature client
 open_feature_client = api.get_client()
 ```
+[//]: # (wizard-initialize-end)
+
+### Evaluate a Variable
+Use a Variable value by setting the EvaluationContext, then passing the Variable key and default value to one of the OpenFeature flag evaluation methods.
+
+[//]: # (wizard-evaluate-start)
+
+```python
+context = EvaluationContext(
+        targeting_key="test-1234",
+        attributes={
+            "email": "test-user@domain.com",
+            "name": "Test User",
+        },
+    )
+open_feature_client.context = context
+
+flag_value = client.get_boolean_value("boolean_flag", False)
+```
+[//]: # (wizard-evaluate-end)
 
 ### Required Targeting Key
 

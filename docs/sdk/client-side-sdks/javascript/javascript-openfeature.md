@@ -49,7 +49,7 @@ import { OpenFeature } from '@openfeature/web-sdk'
 const user = { user_id: 'user_id' }
 
 // Initialize the DevCycle Provider
-const devcycleProvider = new DevCycleProvider(DEVCYCLE_CLIENT_SDK_KEY)
+const devcycleProvider = new DevCycleProvider('<DEVCYCLE_CLIENT_SDK_KEY>')
 // Set the context before the provider is set to ensure the DevCycle SDK is initialized with a user context.
 await OpenFeature.setContext(user)
 // Set the DevCycleProvider for OpenFeature
@@ -69,7 +69,7 @@ Ensure that you pass any custom DevCycleOptions to the DevCycleProvider construc
 const user = { user_id: 'user_id' }
 
 const options = { logger: dvcDefaultLogger({ level: 'debug' }) }
-const devcycleProvider = new DevCycleProvider(DEVCYCLE_CLIENT_SDK_KEY, options)
+const devcycleProvider = new DevCycleProvider('<DEVCYCLE_CLIENT_SDK_KEY>', options)
 await OpenFeature.setProviderAndWait(devcycleProvider)
 ```
 
