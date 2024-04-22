@@ -3,10 +3,16 @@ title: Organizations
 sidebar_position: 1
 ---
 
-Organizations are the top level of the Account hierarchy within DevCycle, and are where all Users and Projects are managed. Users within an organization will have the same permissions across all projects, and a user may be part of multiple Organizations.
+Organizations are the top level of the Account hierarchy within DevCycle, and are where all Users and Projects are managed. Users within an organization will have the same [permissions](/extras/permissions) across all projects, and a user may be part of multiple Organizations.
 
 To view the current Organization (or change Organizations) click on your user avatar on the top right of the DevCycle Dashboard. The active Organization will have a green badge next to it.
 
+:::tip
+
+If [granular permissions](/extras/permissions) have been activated in your organization, you will have more customization options for projects permissions.
+
+:::
+ 
 **Discovering Other Organizations**
 
 To find other organizations that might have been created by people within your Company / Domain, you can easily [navigate to the Discovery page](https://app.devcycle.com/organizationDiscovery) by selecting `Find and Create Orgs` from the avatar dropdown.
