@@ -73,6 +73,8 @@ The table below displays the built-in roles and their associated permissions:
 | Edit Team Member Roles        |  ✅   |           |        |
 | Modify Features in Production |  ✅   |    ✅     |        |
 
+For more information, check out the [Permissions](/extras/permissions) documentation.
+
 **Assigning Roles**
 
 To assign a role to a team member, simply navigate to their profile. If you have the requisite role, you will be able to assign a new role to the member by using the Role dropdown.
