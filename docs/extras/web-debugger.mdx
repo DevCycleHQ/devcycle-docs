@@ -15,6 +15,10 @@ having to visit the dashboard.
 
 <CenteredImage src={WebDebugger} alt="Screenshot of Web Debugger" height={500} />
 
+:::info
+The Web Debugger is currently in beta. If you have any feedback or suggestions, please let us know by [email](mailto:product@devcycle.com) or on our [Discord](https://discord.gg/pKK4fJgGxG).
+:::
+
 ## Installation
 The Web Debugger is available as a standalone NPM package that can be installed in your frontend projects. Install the
 package from NPM
@@ -43,9 +47,9 @@ initializeDevCycleDebugger(client)
 ```
 This will initialize the Debugger using the default options.
 
-If you are using React, you can also intialize the Debugger using the included React component
+If you are using React, you can alternatively initialize the Debugger using the included React component
 ```jsx
-import { DevCycleDebugger } from '@devcycle/web-debugger';
+import { DevCycleDebugger } from '@devcycle/web-debugger/react';
 
 // render the component anywhere within the DevCycle React SDK's Provider context
 export default function SomeComponent({children}){
