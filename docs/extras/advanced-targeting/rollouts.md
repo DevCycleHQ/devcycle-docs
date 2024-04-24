@@ -21,6 +21,8 @@ If a user qualifies for a target that has a schedule, and the schedule has not y
 
 ## Rollouts
 
+### Gradual Rollouts
+
 To roll out a Feature to a Target at specific times, open the "Schedule" dropdown and select "Gradual Rollout". 
 
 This will give you the option to create a rollout, from a start percentage to an end percentage at specific dates. Use this option to gradually roll out the feature to users and monitor the impact over time without creating an instant switch of users.
@@ -37,7 +39,29 @@ To **instantly rollout or rollback** a feature to a specfic percentage of users 
 
 :::
 
- 
+### Multi-Step Rollouts
+
+This rollout option allows you to setup a stepped or phased rollout for your Feature. For example, you can use the Multi-Step rollout functionality to setup a rollout schedule with certain percentage milestones, e.g. rollout to 25% of users on X date, rollout to 50% of users at Y date, and then gradually rollout to the rest of users (100%) by Z date. 
+
+To set up a Multi-Step Rollout in your Targeting Rule, open the "Schedule" dropdown and select "Multi-step Rollout". 
+
+This will give you the option to create a custom, multi-step rollout, where you can define a start percentage, and add as many rollout steps as you wish, each with their own percentage and scheduled date.  
+
+You must select how you would like your rollout to transition between steps by clicking on the icons below each rollout step.
+
+![Step vs Gradual Transition](/apr-2024-step-gradual.png)
+
+- **Step**: Transition immediately between steps. 
+- **Gradual**: Transition gradually between steps. 
+
+While a feature is active and a rollout has been set, you can view the current % of rollout at any time. 
+
+Here is how you'd set up the phased rollout example described above: 
+
+![Multi-step Rollout Example](/apr-2024-multi-step-rollout.png)
+
+## FAQ about Rollouts
+
 **How often are rollouts evaluated? / When does the rollout % update?**
 
 Rollouts are calculated in real-time -- meaning that the rate of increase of the current % is based on the time between the start and end dates. 
