@@ -9,6 +9,8 @@ sidebar_custom_props: { icon: simple-icons:ruby }
 [![RubyGems](https://badgen.net/rubygems/v/devcycle-ruby-server-sdk/latest)](https://rubygems.org/gems/devcycle-ruby-server-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/ruby-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/ruby-server-sdk)
 
+[//]: # (wizard-evaluate-start)
+
 ## User Object
 
 The full user data must be passed into every method. The only required field is `user_id`.
@@ -37,6 +39,7 @@ rescue
   puts "Exception when calling DevCycle::Client->variable_value"
 end
 ```
+[//]: # (wizard-evaluate-end)
 
 The default value can be of type string, boolean, number, or object.
 

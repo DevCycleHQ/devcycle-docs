@@ -9,6 +9,8 @@ sidebar_custom_props: { icon: material-symbols:toggle-on }
 [![PyPI](https://badgen.net/pypi/v/devcycle-python-server-sdk)](https://pypi.org/project/devcycle-python-server-sdk/)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/python-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/python-server-sdk)
 
+[//]: # (wizard-evaluate-start)
+
 ## DevCycleUser Object
 
 The full user data must be passed into every method. The only required field is `user_id`.
@@ -42,6 +44,7 @@ try:
 except Exception as e:
      print(f"Exception when calling DevCycleLocalClient->variable_value: {e}")
 ```
+[//]: # (wizard-evaluate-end)
 
 The default value can be of type string, boolean, number, or dictionary.
 
@@ -142,7 +145,7 @@ from devcycle_python_sdk.models.user import User
 options = DevCycleCloudOptions(enable_edge_db=True)
 
 # create an instance of the DevCycleCloudClient class
-devcycle_client = DevCycleCloudClient('DEVCYCLE_SERVER_SDK_KEY', options)
+devcycle_client = DevCycleCloudClient('<DEVCYCLE_SERVER_SDK_KEY>', options)
 
 # all functions require user data to be an instance of the User class
 user = User(

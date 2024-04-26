@@ -51,7 +51,7 @@ import { OpenFeatureProvider, useBooleanFlagValue, OpenFeature } from '@openfeat
 import DevCycleProvider from '@devcycle/openfeature-web-provider'
 
 await OpenFeature.setContext({ user_id: 'user_id' })
-await OpenFeature.setProviderAndWait(new DevCycleProvider(DEVCYCLE_CLIENT_SDK_KEY))
+await OpenFeature.setProviderAndWait(new DevCycleProvider('<DEVCYCLE_CLIENT_SDK_KEY>'))
 
 function App() {
   return (
@@ -93,7 +93,7 @@ Ensure that you pass any custom DevCycleOptions to the DevCycleProvider construc
 const user = { user_id: 'user_id' }
 
 const options = { logger: dvcDefaultLogger({ level: 'debug' }) }
-const devcycleProvider = new DevCycleProvider(DEVCYCLE_CLIENT_SDK_KEY, options)
+const devcycleProvider = new DevCycleProvider('<DEVCYCLE_CLIENT_SDK_KEY>', options)
 await OpenFeature.setProviderAndWait(devcycleProvider)
 ```
 

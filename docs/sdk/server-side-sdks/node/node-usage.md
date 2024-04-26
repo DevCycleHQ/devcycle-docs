@@ -9,6 +9,8 @@ sidebar_custom_props: { icon: material-symbols:toggle-on }
 [![Npm package version](https://badgen.net/npm/v/@devcycle/nodejs-server-sdk)](https://www.npmjs.com/package/@devcycle/nodejs-server-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)
 
+[//]: # (wizard-evaluate-start)
+
 ## User Object
 
 The full user data must be passed into every method. The only required field is the `user_id`.
@@ -40,6 +42,7 @@ if (value) {
   // Feature Flag on
 }
 ```
+[//]: # (wizard-evaluate-end)
 
 The default value can be of type string, boolean, number, or object.
 

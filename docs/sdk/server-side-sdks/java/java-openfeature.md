@@ -15,9 +15,41 @@ DevCycle provides a Java implementation of the [OpenFeature](https://openfeature
 [![Maven](https://badgen.net/maven/v/maven-central/com.devcycle/java-server-sdk)](https://search.maven.org/artifact/com.devcycle/java-server-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/java-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/java-server-sdk)
 
-## Usage
+## Installation
+The Provider implementation is built into the Java SDK. 
 
-The Provider implementation is built into the Java SDK. See the [Java Server SDK Installation](https://docs.devcycle.com/sdk/server-side-sdks/java/java-local-install) documentation for more information on how to install and the SDK in your project.
+[//]: # (wizard-install-start)
+
+### Maven
+
+You can use the Java SDK in your Maven project by adding the following to your _pom.xml_:
+
+```xml
+<dependency>
+    <groupId>com.devcycle</groupId>
+    <artifactId>java-server-sdk</artifactId>
+    <version>LATEST</version>
+    <scope>compile</scope>
+</dependency>
+```
+
+:::info
+
+Refer to the latest version of the SDK on [maven central](https://maven.org/artifact/com.devcycle/java-server-sdk) if you would not prefer Maven or Gradle to pull the latest version automatically by using `+`
+
+:::
+
+### Gradle
+
+Alternatively you can use the SDK in your Gradle project by adding the following to _build.gradle_:
+
+```yaml
+implementation("com.devcycle:java-server-sdk:+")
+```
+[//]: # (wizard-install-end)
+
+## Usage
+[//]: # (wizard-initialize-start)
 
 Start by creating and configuring the `DevCycleLocalClient`. Once the DevCycle client is configured, call the `getOpenFeatureProvider()` function to obtain the OpenFeature provider and set it into the OpenFeature API.
 
@@ -38,12 +70,22 @@ public class OpenFeatureExample {
 
         // Get the OpenFeature client
         Client openFeatureClient = api.getClient();
-
-        // Retrieve a boolean flag from the OpenFeature client
-        Boolean variableValue = openFeatureClient.getBooleanValue("boolean-flag", false, new MutableContext("user-1234"));
     }
 }
 ```
+
+[//]: # (wizard-initialize-end)
+
+## Evaluate a Variable
+[//]: # (wizard-evaluate-start)
+
+Use a Variable value by passing the Variable key, default value, and EvaluationContext to one of the OpenFeature flag evaluation methods.
+
+```java
+// Retrieve a boolean flag from the OpenFeature client
+Boolean variableValue = openFeatureClient.getBooleanValue("boolean-flag", false, new MutableContext("user-1234"));
+```
+[//]: # (wizard-evaluate-end)
 
 **NOTE: use `DevCycleCloudClient` \ `DevCycleCloudOptions` for Cloud Bucketing mode.**
 

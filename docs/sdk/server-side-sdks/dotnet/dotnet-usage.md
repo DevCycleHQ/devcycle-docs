@@ -10,6 +10,8 @@ sidebar_custom_props: { icon: material-symbols:toggle-on }
 [![Nuget Local](https://badgen.net/nuget/v/DevCycle.SDK.Server.Cloud)](https://www.nuget.org/packages/DevCycle.SDK.Server.Local/)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/dotnet-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/dotnet-server-sdk)
 
+[//]: # (wizard-evaluate-start)
+
 ## DevCycleUser Object
 
 The user object is required for all methods. The only required field in the user object is userId
@@ -29,6 +31,7 @@ In that case it will return a variable value with the value set to whatever was 
 ```csharp
 bool result = await client.VariableValue(user, "your-variable-key", true);
 ```
+[//]: # (wizard-evaluate-end)
 
 The default value can be of type `String`, `Boolean`, `Number`, or `Object`.
 

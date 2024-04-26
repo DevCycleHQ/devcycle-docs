@@ -16,6 +16,8 @@ Please note; the default mode is to use Local Bucketing - to use cloud bucketing
 The last argument to `DevCycle::Client.new` tells the sdk whether you want to wait for initialization - meaning that the method will block
 until the first config is fetched and set successfully or an unrecoverable error occurs during initialization.
 
+[//]: # (wizard-initialize-start)
+
 ```ruby
 # Load the gem
 require 'devcycle-ruby-server-sdk'
@@ -33,6 +35,7 @@ rescue DevCycle::ApiError => e
 end
 
 ```
+[//]: # (wizard-initialize-end)
 
 ## Configure SDK
 

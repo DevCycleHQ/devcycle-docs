@@ -18,7 +18,39 @@ DevCycle provides a C# implementation of the [OpenFeature](https://openfeature.d
 
 The OpenFeature Provider is included in the DevCycle SDK for .NET / C# natively. It's included for both Cloud and Local Bucketing.
 
+## Local Bucketing
+
+[//]: # (wizard-install-start)
+
+Use the following command to install the NuGet package:
+```bash
+dotnet add package DevCycle.SDK.Server.Local
+```
+
+or download the SDK from Nuget - https://nuget.info/packages/DevCycle.SDK.Server.Local/
+
+and use the namespaces:
+
+`using DevCycle.SDK.Server.Local.Api;`
+
+[//]: # (wizard-install-end)
+
+## Cloud Bucketing
+
+Use the following command to install the NuGet package:
+```bash
+dotnet add package DevCycle.SDK.Server.Cloud
+```
+
+or download the SDK from Nuget - https://www.nuget.org/packages/DevCycle.SDK.Server.Cloud/
+
+and use the namespaces:
+
+`using DevCycle.SDK.Server.Cloud.Api;`
+`using DevCycle.SDK.Server.Common.Model;`
+
 ### Getting Started
+[//]: # (wizard-initialize-start)
 
 Initialize the DevCycle SDK and set the DevCycleProvider as the provider for OpenFeature:
 
@@ -48,9 +80,19 @@ EvaluationContext ctx = EvaluationContext.Builder()
     .Set("nonSetValueBubbledCustomData3", 1)
     .Set("nonSetValueBubbledCustomData4", new Value((object)null))
     .Build();
+```
+[//]: # (wizard-initialize-end)
 
+### Evaluate a Variable
+Use a Variable value by passing the Variable key, default value, and EvaluationContext to one of the OpenFeature flag evaluation methods
+
+[//]: # (wizard-evaluate-start)
+
+```csharp
 var variableResult = await oFeatureClient.GetStringDetails(readOnlyVariable.Key, "default", ctx);
 ```
+
+[//]: # (wizard-evaluate-end)
 
 ### Required TargetingKey
 

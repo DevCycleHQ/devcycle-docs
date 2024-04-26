@@ -12,6 +12,7 @@ sidebar_custom_props: { icon: material-symbols:install-desktop }
 Requires PHP 7.3 and later.
 
 ### Composer Installation
+[//]: # (wizard-install-start)
 
 To install the bindings via [Composer](https://getcomposer.org/), add the following to `composer.json`:
 
@@ -30,6 +31,7 @@ Once the composer install is complete, a `vendor` folder should be generated at 
 ```php
 require_once(__DIR__ . '/vendor/autoload.php');
 ```
+[//]: # (wizard-install-end)
 
 ## SDK Proxy
 
