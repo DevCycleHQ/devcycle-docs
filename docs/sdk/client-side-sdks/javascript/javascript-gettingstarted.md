@@ -9,6 +9,8 @@ sidebar_custom_props: { icon: material-symbols:rocket }
 [![Npm package version](https://badgen.net/npm/v/@devcycle/js-client-sdk)](https://www.npmjs.com/package/@devcycle/js-client-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)
 
+[//]: # (wizard-initialize-start)
+
 - If the JS SDK is installed using NPM, call `initializeDevCycle` with your client key, a user object, and an optional options object.
 - Otherwise, If you’re using the CDN to install the JS SDK, call `DevCycle.initializeDevCycle` with your client key, a user object, and an optional options object.
 
@@ -26,6 +28,8 @@ const devcycleClient = initializeDevCycle(
   dvcOptions,
 )
 ```
+
+[//]: # (wizard-initialize-end)
 
 ## Deferred Initialization
 
