@@ -37,18 +37,6 @@ end
 ```
 [//]: # (wizard-initialize-end)
 
-## Configure SDK
-
-```ruby
-# Load the gem
-require 'devcycle-ruby-server-sdk'
-
-# Setup authorization
-devcycle_client = DevCycle::Client.new(ENV['DEVCYCLE_SERVER_SDK_KEY'], DevCycle::Options.new, true)
-
-user = DevCycle::User.new({ user_id: 'user_id_example' })
-```
-
 ## Initializing the SDK in a Rails App
 
 The SDK can be initialized in an initializer file:

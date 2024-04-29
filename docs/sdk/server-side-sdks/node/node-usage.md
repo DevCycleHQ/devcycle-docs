@@ -122,7 +122,7 @@ Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to
 const DevCycle = require('@devcycle/nodejs-server-sdk')
 
 const devcycleClient = DevCycle.initializeDevCycle(
-  '<DEVCYCLE_SDK_SERVER_KEY>',
+  '<DEVCYCLE_SERVER_SDK_KEY>',
   {
     enableCloudBucketing: true,
     enableEdgeDB: true,

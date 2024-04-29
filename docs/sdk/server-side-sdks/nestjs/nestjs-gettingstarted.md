@@ -20,7 +20,7 @@ Example:
 import { DevCycleModule } from '@devcycle/nestjs-server-sdk'
 
 DevCycleModule.forRoot({
-  key: '<DEVCYCLE_SDK_SERVER_KEY>'
+  key: '<DEVCYCLE_SERVER_SDK_KEY>'
 })
 ```
 
@@ -31,7 +31,7 @@ import { ConfigService } from '@nestjs/config'
 
 DevCycleModule.forRootAsync({
   useFactory: (config: ConfigService) => ({
-    key: config.get('DEVCYCLE_SDK_SERVER_KEY'),
+    key: config.get('DEVCYCLE_SERVER_SDK_KEY'),
   }),
   inject: [ConfigService]
 }),
@@ -50,7 +50,7 @@ import { DevCycleModule } from '@devcycle/nestjs-server-sdk'
 import { ExecutionContext } from '@nestjs/common'
 
 DevCycleModule.forRoot({
-  key: '<DEVCYCLE_SDK_SERVER_KEY>',
+  key: '<DEVCYCLE_SERVER_SDK_KEY>',
   userFactory: (context: ExecutionContext) => {
     // Example building a user object based on the request context
     const req = context.switchToHttp().getRequest()
@@ -71,7 +71,7 @@ The SDK exposes various initialization options which can be set when registering
 import { DevCycleModule } from '@devcycle/nestjs-server-sdk'
 
 DevCycleModule.forRoot({
-  key: '<DEVCYCLE_SDK_SERVER_KEY>',
+  key: '<DEVCYCLE_SERVER_SDK_KEY>',
   options: {
     logLevel: 'debug'
   }
