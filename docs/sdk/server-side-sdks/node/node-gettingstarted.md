@@ -21,7 +21,7 @@ JS Example:
 const DevCycle = require('@devcycle/nodejs-server-sdk')
 
 const devcycleClient = await DevCycle.initializeDevCycle(
-  '<DEVCYCLE_SDK_SERVER_KEY>',
+  '<DEVCYCLE_SERVER_SDK_KEY>',
 ).onClientInitialized()
 ```
 [//]: # (wizard-initialize-end)
@@ -32,7 +32,7 @@ Typescript Example:
 import { initializeDevCycle } from '@devcycle/nodejs-server-sdk'
 
 const devcycleClient = await initializeDevCycle(
-  '<DEVCYCLE_SDK_SERVER_KEY>',
+  '<DEVCYCLE_SERVER_SDK_KEY>',
 ).onClientInitialized()
 ```
 
@@ -44,7 +44,7 @@ The SDK exposes various initialization options which can be set on the `initiali
 
 ```javascript
 const devcycleClient = await DevCycle.initializeDevCycle(
-  '<DEVCYCLE_SDK_SERVER_KEY>',
+  '<DEVCYCLE_SERVER_SDK_KEY>',
   {
     configPollingIntervalMS: 60 * 1000,
   },
