@@ -9,7 +9,7 @@ To view the current Organization (or change Organizations) click on your user av
 
 :::tip
 
-If [granular permissions](/extras/permissions) have been activated in your Organization, you will have more customization options for Project permissions.
+[Granular permissions](/extras/permissions) are only available on business or enterprise plans, if you'd like to turn on permissions message us at support[at]devcycle.com
 
 :::
  
