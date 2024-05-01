@@ -66,15 +66,12 @@ There are three main roles in DevCycle:
 
 The table below displays the built-in roles and their associated permissions:
 
-| Permission                    | Owner | Publisher | Member | Granular Owner<sup>1</sup> |
-| ----------------------------- | :---: | :-------: | :----: | :------------------------: |
-| Add Team Members              |  ✅   |    ✅     |   ✅   |             ✅             |
-| Edit Team Member Roles        |  ✅   |           |        |             ✅             |
-| Modify Features in Production |  ✅   |    ✅     |        |                            |
-
-> _<sup>1</sup> Granular (by environment) Roles & Permissions are for Business/Enterprise Customers only. Contact our team for details._
-
-
+| Permission                    | Owner | Publisher | Member |
+| ----------------------------- | :---: | :-------: | :----: |
+| Add Team Members              |  ✅   |    ✅     |   ✅   |
+| Remove Team Members           |  ✅   |           |        |
+| Edit Team Member Roles        |  ✅   |           |        |
+| Modify Features in Production |  ✅   |    ✅     |        |
 
 **Assigning Roles**
 

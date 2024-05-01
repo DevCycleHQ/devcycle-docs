@@ -11,6 +11,8 @@ sidebar_custom_props: { icon: material-symbols:rocket }
 [![SwiftPM compatible](https://img.shields.io/badge/SwiftPM-compatible-4BC51D.svg?style=flat)](https://swift.org/package-manager/)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/ios-client-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/ios-client-sdk)
 
+[//]: # (wizard-initialize-start)
+
 ## Initializing the SDK
 
 We recommend initializing the SDK once in `didFinishLaunchingWithOptions` of your `AppDelegate` for iOS / tvOS,
@@ -43,6 +45,8 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 ```
 
 The user object needs either a `user_id`, or `isAnonymous` set to `true` for an anonymous user.
+
+[//]: # (wizard-initialize-end)
 
 ### Objective-C
 
@@ -115,7 +119,8 @@ The SDK exposes various initialization options which can be used by passing a `D
 | configCacheTTL               | Int       | 604800000 | The maximum allowed age of a cached config in milliseconds, defaults to 7 days                                 |
 | disableConfigCache           | Bool      | false     | Disable the use of cached configs                                                                              |
 | disableRealtimeUpdates       | Bool      | false     | Disable Realtime Updates                                                                                       |
-| apiProxyURL                  | String    | nil       | Allows the SDK to communicate with a proxy of DevCycle Bucketing API / Client SDK API.                         |
+| apiProxyURL                  | String    | nil       | Allows the SDK to communicate with a proxy of DevCycle Client SDK API.                                         |
+| eventsApiProxyURL            | String    | nil       | Allows the SDK to communicate with a proxy of DevCycle Events API.                                             |
 
 ## Notifying when DevCycle features are available
 

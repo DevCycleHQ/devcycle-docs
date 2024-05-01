@@ -9,6 +9,8 @@ sidebar_custom_props: { icon: material-symbols:rocket }
 [![Npm package version](https://badgen.net/npm/v/@devcycle/nestjs-server-sdk)](https://www.npmjs.com/package/@devcycle/nestjs-server-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)
 
+[//]: # (wizard-initialize-start)
+
 To use the DevCycle Server SDK in your project, import the `DevCycleModule` from the `@devcycle/nestjs-server-sdk`.
 We recommend adding the module to the imports of your root app module, so that the DevCycle client is available globally within your application.
 
@@ -18,7 +20,7 @@ Example:
 import { DevCycleModule } from '@devcycle/nestjs-server-sdk'
 
 DevCycleModule.forRoot({
-  key: '<DEVCYCLE_SDK_SERVER_KEY>'
+  key: '<DEVCYCLE_SERVER_SDK_KEY>'
 })
 ```
 
@@ -29,7 +31,7 @@ import { ConfigService } from '@nestjs/config'
 
 DevCycleModule.forRootAsync({
   useFactory: (config: ConfigService) => ({
-    key: config.get('DEVCYCLE_SDK_SERVER_KEY'),
+    key: config.get('DEVCYCLE_SERVER_SDK_KEY'),
   }),
   inject: [ConfigService]
 }),
@@ -48,7 +50,7 @@ import { DevCycleModule } from '@devcycle/nestjs-server-sdk'
 import { ExecutionContext } from '@nestjs/common'
 
 DevCycleModule.forRoot({
-  key: '<DEVCYCLE_SDK_SERVER_KEY>',
+  key: '<DEVCYCLE_SERVER_SDK_KEY>',
   userFactory: (context: ExecutionContext) => {
     // Example building a user object based on the request context
     const req = context.switchToHttp().getRequest()
@@ -59,6 +61,7 @@ DevCycleModule.forRoot({
   }
 })
 ```
+[//]: # (wizard-initialize-end)
 
 ## Initialization Options
 
@@ -68,7 +71,7 @@ The SDK exposes various initialization options which can be set when registering
 import { DevCycleModule } from '@devcycle/nestjs-server-sdk'
 
 DevCycleModule.forRoot({
-  key: '<DEVCYCLE_SDK_SERVER_KEY>',
+  key: '<DEVCYCLE_SERVER_SDK_KEY>',
   options: {
     logLevel: 'debug'
   }

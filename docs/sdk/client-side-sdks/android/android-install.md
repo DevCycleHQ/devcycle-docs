@@ -11,7 +11,7 @@ sidebar_custom_props: { icon: material-symbols:install-desktop }
 
 ## Requirements
 
-This version of the DevCycle Android Client SDK supports a minimum Android API Version 21.
+This version of the DevCycle Android Client SDK supports a minimum Android API Version 23.
 
 :::info
 **Proguard/R8:** If minifying your project, DevCycle requires **Android Gradle Plugin 7.1.x or higher**
@@ -19,11 +19,14 @@ This version of the DevCycle Android Client SDK supports a minimum Android API V
 
 ## Installation
 
+[//]: # (wizard-install-start)
+
 The SDK can be installed into your Android project by adding the following to _build.gradle_:
 
 ```yaml
 implementation("com.devcycle:android-client-sdk:+")
 ```
+[//]: # (wizard-install-end)
 
 :::info
 

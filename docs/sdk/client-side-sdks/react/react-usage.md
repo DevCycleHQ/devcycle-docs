@@ -11,6 +11,8 @@ sidebar_custom_props: { icon: material-symbols:toggle-on }
 
 ## Getting a Variable
 
+[//]: # (wizard-evaluate-start)
+
 The SDK provides a hook to access your DevCycle variables:
 
 ### useVariableValue
@@ -35,6 +37,8 @@ const DevCycleFeaturePage = () => {
   )
 }
 ```
+
+[//]: # (wizard-evaluate-end)
 
 If a change on the dashboard triggers your variable value to change, it will rerender any components calling this hook in order to reflect your new variable value. To learn more, visit the [Realtime Updates](/sdk/features#realtime-updates) page.
 

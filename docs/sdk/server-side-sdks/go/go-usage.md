@@ -8,6 +8,8 @@ sidebar_custom_props: { icon: material-symbols:toggle-on }
 
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/go-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/go-server-sdk)
 
+[//]: # (wizard-evaluate-start)
+
 ## User Object
 
 The user object is required for all methods. This is the basis of how segmentation and bucketing decisions are made.
@@ -29,6 +31,7 @@ value unless an error occurs. In that case it will return a variable value set t
 ```go
 variableValue, err := devcycleClient.VariableValue(user, "my-variable-key", "test")
 ```
+[//]: # (wizard-evaluate-end)
 
 `variableValue` is an `interface{}` - so you'll need to cast it to your proper variable type.
 When using `JSON` as the variable type, you'll have to have JSON to unmarshal it to a proper type instead of accessing it raw.

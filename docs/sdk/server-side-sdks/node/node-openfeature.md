@@ -20,9 +20,12 @@ directly from the SDK using the `getOpenFeatureProvider()` method.
 Install the DevCycle NodeJS Server SDK and the OpenFeature Server SDK peer dependencies:
 
 #### NPM
+[//]: # (wizard-install-start)
+
 ```bash
 npm install --save @devcycle/nodejs-server-sdk @openfeature/server-sdk @openfeature/core
 ```
+[//]: # (wizard-install-end)
 
 #### Yarn
 
@@ -31,6 +34,8 @@ yarn add @devcycle/nodejs-server-sdk @openfeature/server-sdk @openfeature/core
 ```
 
 ### Getting Started
+
+[//]: # (wizard-initialize-start)
 
 Initialize the DevCycle SDK and set the DevCycleProvider as the provider for OpenFeature:
 
@@ -47,13 +52,23 @@ const devcycleClient = initializeDevCycle(DEVCYCLE_SERVER_SDK_KEY)
 await OpenFeature.setProviderAndWait(await devcycleClient.getOpenFeatureProvider())
 // Create the OpenFeature client
 openFeatureClient = OpenFeature.getClient()
+```
+[//]: # (wizard-initialize-end)
+
+### Evaluate a Variable
+[//]: # (wizard-evaluate-start)
+
+Use a Variable value by setting the EvaluationContext, then passing the Variable key and default value to one of the OpenFeature flag evaluation methods.
+
+```typescript
 // Set the context for the OpenFeature client, you can use 'targetingKey' or 'user_id'
 openFeatureClient.setContext({ targetingKey: 'node_sdk_test' })
 
-
 // Retrieve a boolean flag from the OpenFeature client
 const boolFlag = await openFeatureClient.getBooleanValue('boolean-flag', false)
+
 ```
+[//]: # (wizard-evaluate-end)
 
 ### Passing DevCycleOptions to the DevCycleProvider
 

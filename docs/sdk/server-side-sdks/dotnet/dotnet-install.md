@@ -12,6 +12,8 @@ sidebar_custom_props: { icon: material-symbols:install-desktop }
 
 ## Local Bucketing
 
+[//]: # (wizard-install-start)
+
 Use the following command to install the NuGet package:
 ```bash
 dotnet add package DevCycle.SDK.Server.Local
@@ -22,6 +24,8 @@ or download the SDK from Nuget - https://nuget.info/packages/DevCycle.SDK.Server
 and use the namespaces:
 
 `using DevCycle.SDK.Server.Local.Api;`
+
+[//]: # (wizard-install-end)
 
 ## Cloud Bucketing
 

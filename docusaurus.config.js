@@ -4,24 +4,26 @@ import remarkEmbedder from '@remark-embedder/core'
 const YouTubeTransformer = {
   name: 'YouTubeTransformer',
   shouldTransform(url) {
-    const ytEndpoints = [{
-      "schemes": [
-        "https://*.youtube.com/watch*",
-        "https://*.youtube.com/v/*",
-        "https://youtu.be/*",
-        "https://*.youtube.com/playlist?list=*",
-        "https://youtube.com/playlist?list=*",
-        "https://*.youtube.com/shorts*"
-      ],
-      "url": "https://www.youtube.com/oembed",
-      "discovery": true
-    }]
+    const ytEndpoints = [
+      {
+        schemes: [
+          'https://*.youtube.com/watch*',
+          'https://*.youtube.com/v/*',
+          'https://youtu.be/*',
+          'https://*.youtube.com/playlist?list=*',
+          'https://youtube.com/playlist?list=*',
+          'https://*.youtube.com/shorts*',
+        ],
+        url: 'https://www.youtube.com/oembed',
+        discovery: true,
+      },
+    ]
 
     for (const endpoint of ytEndpoints) {
       if (
-          endpoint.schemes?.some(scheme =>
-              new RegExp(scheme.replace(/\*/g, '(.*)')).test(url),
-          )
+        endpoint.schemes?.some((scheme) =>
+          new RegExp(scheme.replace(/\*/g, '(.*)')).test(url),
+        )
       ) {
         return true
       }
@@ -31,26 +33,33 @@ const YouTubeTransformer = {
   // default config function returns what it's given
   getHTML(url, options = {}) {
     function getVideoID(userInput) {
-      var res = userInput.match(/^.*(?:(?:youtu.be\/)|(?:v\/)|(?:\/u\/\w\/)|(?:embed\/)|(?:watch\?))\??v?=?([^#\&\?]*).*/);
-      if (res) return res[1];
-      return false;
+      var res = userInput.match(
+        /^.*(?:(?:youtu.be\/)|(?:v\/)|(?:\/u\/\w\/)|(?:embed\/)|(?:watch\?))\??v?=?([^#\&\?]*).*/,
+      )
+      if (res) return res[1]
+      return false
     }
     const videoID = getVideoID(url)
-    return `<div style="width: ${options.width || '100%'}; margin: 0 ${options.align || '0'};"><div style="position: relative; padding-bottom: 56.25%; padding-top: 25px; height: 0;"><iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/${videoID}"></iframe></div></div>`;
+    return `<div style="width: ${options.width || '100%'}; margin: 0 ${
+      options.align || '0'
+    };"><div style="position: relative; padding-bottom: 56.25%; padding-top: 25px; height: 0;"><iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/${videoID}"></iframe></div></div>`
   },
 }
 /**
  * Pinned version of the CLI to use for docs
  * When bumping the version, add any new commands to the documents array
  */
-const DVC_CLI_VERSION = 'v5.14.5' // auto updated by dvc cli release workflow
+const DVC_CLI_VERSION = 'v5.14.6' // auto updated by dvc cli release workflow
 
 const VSCODE_EXTENSION_VERSION = 'v1.4.4' // auto updated by extension release workflow
 
-const removeDocsSections = (content, sectionNames, headerIdentifier = "##") => {
+const removeDocsSections = (content, sectionNames, headerIdentifier = '##') => {
   let result = content
   for (const sectionName of sectionNames) {
-    const regex = new RegExp(`${headerIdentifier} ${sectionName}[\\s\\S]*?(?=## |#$|$)`, 'g');
+    const regex = new RegExp(
+      `${headerIdentifier} ${sectionName}[\\s\\S]*?(?=## |#$|$)`,
+      'g',
+    )
 
     result = result.replace(regex, '')
   }
@@ -137,15 +146,21 @@ const config = {
         name: 'vscode-extension',
         sourceBaseUrl: `https://raw.githubusercontent.com/DevCycleHQ/vscode-extension/${VSCODE_EXTENSION_VERSION}`,
         outDir: 'docs/integrations/vscode-extension',
-        documents: [
-          'README.md',
-        ],
+        documents: ['README.md'],
         performCleanup: true,
         modifyContent: (filename, content) => {
           if (filename.includes('README')) {
-            const noTitle = content.replace(/# [\s\S]*?##/, '# DevCycle VSCode Extension \n##')
+            const noTitle = content.replace(
+              /# [\s\S]*?##/,
+              '# DevCycle VSCode Extension \n##',
+            )
             return {
-              content: removeDocsSections(noTitle, ['About DevCycle', 'Documentation', 'Sign Up for DevCycle', 'Contributing'])
+              content: removeDocsSections(noTitle, [
+                'About DevCycle',
+                'Documentation',
+                'Sign Up for DevCycle',
+                'Contributing',
+              ]),
             }
           }
           return undefined
@@ -156,7 +171,8 @@ const config = {
       'docusaurus-plugin-remote-content',
       {
         name: 'github.feature-usage-action',
-        sourceBaseUrl: 'https://raw.githubusercontent.com/DevCycleHQ/feature-flag-code-usage-action/main/',
+        sourceBaseUrl:
+          'https://raw.githubusercontent.com/DevCycleHQ/feature-flag-code-usage-action/main/',
         outDir: 'docs/integrations/github/feature-usage-action',
         documents: ['README.md'],
         performCleanup: true,
@@ -164,15 +180,16 @@ const config = {
           content:
             '# GitHub: Feature Flag Code Usages \n' +
             'Get the integration on the [GitHub Marketplace](https://github.com/marketplace/actions/devcycle-feature-flag-code-usages)\n' +
-            content
-        })
+            content,
+        }),
       },
     ],
     [
       'docusaurus-plugin-remote-content',
       {
         name: 'github.pr-insights-action',
-        sourceBaseUrl: 'https://raw.githubusercontent.com/DevCycleHQ/feature-flag-pr-insights-action/main/',
+        sourceBaseUrl:
+          'https://raw.githubusercontent.com/DevCycleHQ/feature-flag-pr-insights-action/main/',
         outDir: 'docs/integrations/github/pr-insights-action',
         documents: ['README.md'],
         performCleanup: true,
@@ -180,15 +197,16 @@ const config = {
           content:
             '# GitHub: Feature Flag Change Insights on Pull Request \n' +
             'Get the integration on the [GitHub Marketplace](https://github.com/marketplace/actions/devcycle-feature-flag-insights-for-pull-requests)\n' +
-            content
-        })
+            content,
+        }),
       },
     ],
     [
       'docusaurus-plugin-remote-content',
       {
         name: 'bitbucket.feature-usage-action',
-        sourceBaseUrl: 'https://bitbucket.org/devcyclehq/devcycle-code-refs-pipe/raw/main/',
+        sourceBaseUrl:
+          'https://bitbucket.org/devcyclehq/devcycle-code-refs-pipe/raw/main/',
         outDir: 'docs/integrations/bitbucket/feature-usage-action',
         documents: ['README.md'],
         performCleanup: true,
@@ -196,15 +214,16 @@ const config = {
           content:
             '# Bitbucket: Feature Flag Code Usages\n' +
             'Get the integration on the [Bitbucket Marketplace](https://bitbucket.org/product/features/pipelines/integrations?&p=devcyclehq/devcycle-code-refs-pipe)\n' +
-            content
-        })
+            content,
+        }),
       },
     ],
     [
       'docusaurus-plugin-remote-content',
       {
         name: 'bitbucket.pr-insights-action',
-        sourceBaseUrl: 'https://bitbucket.org/devcyclehq/devcycle-pr-insights-pipe/raw/main/',
+        sourceBaseUrl:
+          'https://bitbucket.org/devcyclehq/devcycle-pr-insights-pipe/raw/main/',
         outDir: 'docs/integrations/bitbucket/pr-insights-action',
         documents: ['README.md'],
         performCleanup: true,
@@ -212,15 +231,16 @@ const config = {
           content:
             '# Bitbucket: Feature Flag Change Insights on Pull Request\n' +
             'Get the integration on the [Bitbucket Marketplace](https://bitbucket.org/product/features/pipelines/integrations?&p=devcyclehq/devcycle-pr-insights-pipe)\n' +
-            content
-        })
+            content,
+        }),
       },
     ],
     [
       'docusaurus-plugin-remote-content',
       {
         name: 'gitlab.feature-usage-action',
-        sourceBaseUrl: 'https://gitlab.com/devcycle/devcycle-usages-ci-cd/-/raw/main/',
+        sourceBaseUrl:
+          'https://gitlab.com/devcycle/devcycle-usages-ci-cd/-/raw/main/',
         outDir: 'docs/integrations/gitlab/feature-usage-action',
         documents: ['README.md'],
         performCleanup: true,
@@ -228,15 +248,16 @@ const config = {
           content:
             '# GitLab: Feature Flag Code Usages \n' +
             'Get the integration here: https://gitlab.com/devcycle/devcycle-usages-ci-cd\n' +
-            content
-        })
-      }
+            content,
+        }),
+      },
     ],
     [
       'docusaurus-plugin-remote-content',
       {
         name: 'gitlab.pr-insights-action',
-        sourceBaseUrl: 'https://gitlab.com/devcycle/devcycle-pr-insights-ci-cd/-/raw/main/',
+        sourceBaseUrl:
+          'https://gitlab.com/devcycle/devcycle-pr-insights-ci-cd/-/raw/main/',
         outDir: 'docs/integrations/gitlab/pr-insights-action',
         documents: ['README.md'],
         performCleanup: true,
@@ -244,10 +265,10 @@ const config = {
           content:
             '# GitLab: Feature Flag Change Insights on Merge Request\n' +
             'Get the integration here: https://gitlab.com/devcycle/devcycle-pr-insights-ci-cd\n' +
-            content
-        })
-      }
-    ]
+            content,
+        }),
+      },
+    ],
   ],
 
   presets: [
@@ -263,7 +284,7 @@ const config = {
           editCurrentVersion: true,
           sidebarPath: require.resolve('./sidebars.js'),
           remarkPlugins: [
-            [remarkEmbedder, {transformers: [[YouTubeTransformer]]}],
+            [remarkEmbedder, { transformers: [[YouTubeTransformer]] }],
             require('remark-docusaurus-tabs'),
           ],
           rehypePlugins: [],
@@ -373,13 +394,13 @@ const config = {
         srcDark: 'devcycle-docs-white.svg',
       },
       items: [
-          {
-              type: 'doc',
-              docId: 'index',
-              position: 'left',
-              collapse: 'false',
-              label: 'Home',
-          },
+        {
+          type: 'doc',
+          docId: 'index',
+          position: 'left',
+          collapse: 'false',
+          label: 'Home',
+        },
         {
           type: 'doc',
           docId: 'sdk/index',
@@ -425,12 +446,6 @@ const config = {
             {
               label: 'Calendar',
               to: '/community/calendar',
-            },
-            {
-              href: 'https://www.meetup.com/devcycle/',
-              label: 'MeetUps',
-              target: '_blank',
-              rel: null,
             },
             {
               href: 'https://blog.devcycle.com',
