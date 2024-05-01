@@ -1,5 +1,5 @@
 ---
-title: Key Features (new)
+title: Key Features
 sidebar_position: 2
 ---
 
