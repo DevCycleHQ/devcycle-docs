@@ -12,6 +12,7 @@ The DevCycle Next.js SDK lets you easily integrate your Next.js applications wit
 <CustomDocCardList items={useCurrentSidebarCategory().items} columnWidth={4} />
 
 The SDK is available as a package on npm. It is also open source and can be viewed on Github.
+This SDK depends on the [fetch](https://github.com/BuilderIO/this-package-uses-fetch) API.
 
 [![Npm package version](https://badgen.net/npm/v/@devcycle/nextjs-sdk)](https://www.npmjs.com/package/@devcycle/nextjs-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/js-sdks/tree/main/sdk/nextjs)

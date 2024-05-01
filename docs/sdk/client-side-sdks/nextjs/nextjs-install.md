@@ -16,12 +16,15 @@ sidebar_custom_props: { icon: material-symbols:install-desktop }
 
 ## Installation
 
+[//]: # (wizard-install-start)
+
 To install the SDK, run the following command:
 
 ### npm
 ```bash
 npm install @devcycle/nextjs-sdk
 ```
+[//]: # (wizard-install-end)
 
 ### yarn
 ```bash

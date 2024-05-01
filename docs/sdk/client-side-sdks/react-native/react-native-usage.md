@@ -10,6 +10,8 @@ sidebar_custom_props: { icon: material-symbols:toggle-on }
 [![Npm package version](https://badgen.net/npm/v/@devcycle/react-native-expo-client-sdk)](https://www.npmjs.com/package/@devcycle/react-native-expo-client-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)
 
+[//]: # (wizard-evaluate-start)
+
 ## Getting a Variable
 
 The SDK provides a hook to access your DevCycle variables:
@@ -36,6 +38,7 @@ const DevCycleFeaturePage = () => {
   )
 }
 ```
+[//]: # (wizard-evaluate-end)
 
 ## useDevCycleClient
 
