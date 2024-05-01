@@ -14,7 +14,7 @@ You can use the DevCycle Slack app to keep track of and monitor feature flags wi
 
 ![Screenshot of Setttings Page on dashboard](/apr-2024-slack1.png)
 
-2. Click on the `Add to Slack` button and connect the DevCycle Slack app with your  workspace. 
+2. Click on the `Add to Slack` button and connect the DevCycle Slack app with your workspace.
 
 ![Screenshot of Integrations tab on dashboard](/apr-2024-slack2.png)
 
