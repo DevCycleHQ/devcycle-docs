@@ -5,7 +5,8 @@ sidebar_position: 1
 
 This topic explains how to create and use Webhooks in DevCycle.
 
-Webhooks allow you to build your own integrations that subscribe to Feature changes in DevCycle. Use Webhooks to update external ticket trackers, notify teammates of new features, targeting changes, and more.
+Webhooks allow you to build your own integrations that subscribe to Feature changes in DevCycle.
+Use Webhooks to update external ticket trackers, notify teammates of new features, targeting changes, and more.
 
 ## Outbound Webhooks
 
@@ -141,5 +142,5 @@ To delete a Webhook:
 
 ## Inbound Webhooks (Coming Soon)
 
-This Feature will allow the user to create Webhook urls for certain actions, for e.g. turning on/off a Production Environment.
-If you would like this Feature, contact product@devcycle.com!
+This feature will allow the user to create Webhook urls for certain actions, like turning on/off a Feature in production.
+If you would like this feature, contact product@devcycle.com!
