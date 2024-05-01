@@ -14,5 +14,8 @@ It will then update its configuration using a realtime streaming connection any 
 The DevCycle JS SDK is available as a NPM package will a full Typescript interface. 
 The open-source code can be viewed on the [DevCycle GitHub](https://github.com/DevCycleHQ/js-sdks/tree/main/sdk/js).
 
+This SDK depends on the [fetch](https://github.com/BuilderIO/this-package-uses-fetch) API.
+
+
 [![Npm package version](https://badgen.net/npm/v/@devcycle/js-client-sdk)](https://www.npmjs.com/package/@devcycle/js-client-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)

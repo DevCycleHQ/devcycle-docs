@@ -9,6 +9,8 @@ sidebar_custom_props: { icon: material-symbols:rocket }
 [![Pub](https://img.shields.io/pub/v/devcycle_flutter_client_sdk)](https://img.shields.io/pub/v/devcycle_flutter_client_sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/flutter-client-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/flutter-client-sdk)
 
+[//]: # (wizard-initialize-start)
+
 ## Initializing the SDK
 
 We recommend initializing the SDK once and pass around the client instance around in your app.
@@ -46,6 +48,7 @@ class _MyAppState extends State<MyApp> {
     ...
 }
 ```
+[//]: # (wizard-initialize-end)
 
 The user object may specify a `userId` for a given User. If the `userId` is not specified, the User is considered to be anonymous.
 
@@ -94,6 +97,8 @@ The SDK exposes various initialization options which can be used by passing a `D
 | configCacheTTL               | Int       | 604800000 | The maximum allowed age of a cached config in milliseconds, defaults to 7 days                                 |
 | disableConfigCache           | Bool      | false     | Disable the use of cached configs                                                                              |
 | disableRealtimeUpdates       | Bool      | false     | Disable Realtime Updates                                                                                       |
+| apiProxyURL                  | String    | null      | Allows the SDK to communicate with a proxy of DevCycle Client SDK API.                                         |
+| eventsApiProxyURL            | String    | null      | Allows the SDK to communicate with a proxy of DevCycle Events API.                                             |
 
 ## Notifying when DevCycle features are available
 

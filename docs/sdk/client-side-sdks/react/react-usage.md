@@ -38,9 +38,9 @@ const DevCycleFeaturePage = () => {
 }
 ```
 
-If a change on the dashboard triggers your variable value to change, it will rerender any components calling this hook in order to reflect your new variable value. To learn more, visit the [Realtime Updates](/sdk/features#realtime-updates) page.
-
 [//]: # (wizard-evaluate-end)
+
+If a change on the dashboard triggers your variable value to change, it will rerender any components calling this hook in order to reflect your new variable value. To learn more, visit the [Realtime Updates](/sdk/features#realtime-updates) page.
 
 ## Getting the DevCycle Client
 

@@ -10,6 +10,8 @@ sidebar_custom_props: { icon: material-symbols:toggle-on }
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)
 
 ## DevCycle Client
+[//]: # (wizard-evaluate-start)
+
 With the DevCycleModule imported, the `DevCycleClient` can be injected into your controllers or providers.
 
 The Nest.js SDK is a wrapper for DevCycle's Node.js SDK. For more information about methods available on the DevCycleClient, see the [Node.js Usage documentation](/sdk/server-side-sdks/node/node-usage).
@@ -34,6 +36,7 @@ export class MyController {
     }
 }
 ```
+[//]: # (wizard-evaluate-end)
 
 ## DevCycle Service
 With the DevCycleModule imported, the `DevCycleService` can be injected into your controllers or providers. The DevCycleService methods evaluate variables with the user returned from your [userFactory](/sdk/server-side-sdks/nestjs/nestjs-gettingstarted#user-factory), so you don't need to specify a user each time a method is called.

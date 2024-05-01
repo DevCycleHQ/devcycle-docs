@@ -10,6 +10,8 @@ sidebar_custom_props: { icon: material-symbols:rocket }
 
 ## Initializing SDK
 
+[//]: # (wizard-initialize-start)
+
 When initializing the Go SDK, you can choose to use `Cloud` or `Local` bucketing. The default mode is `Local`.
 To use `Cloud` bucketing, set the `devcycle.Options` setting `EnableCloudBucketing` to true.
 
@@ -43,6 +45,7 @@ func main() {
 	}
 }
 ```
+[//]: # (wizard-initialize-end)
 
 If using local bucketing, be sure to check the error return from creating a new Client - if the local bucketing engine fails to
 initialize for any reason- it'll return as an error here.
