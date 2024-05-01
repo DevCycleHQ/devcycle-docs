@@ -9,6 +9,8 @@ sidebar_custom_props: { icon: material-symbols:rocket }
 [![Maven](https://badgen.net/maven/v/maven-central/com.devcycle/android-client-sdk)](https://search.maven.org/artifact/com.devcycle/android-client-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/android-client-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/android-client-sdk)
 
+[//]: # (wizard-initialize-start)
+
 ## Initializing the SDK
 
 We recommend initializing the SDK once in `onCreate` of your `Application` class or `MainActivity` to receive features as soon as possible, and to pass around the client instance around in your app.
@@ -39,6 +41,8 @@ override fun onCreate(savedInstanceState: Bundle?) {
     ...
 }
 ```
+
+[//]: # (wizard-initialize-end)
 
 ### _Java example:_
 
@@ -111,6 +115,8 @@ The SDK exposes various initialization options which can be used by passing a `D
 | configCacheTTL               | Long      | 604800000 | The maximum allowed age of a cached config in milliseconds, defaults to 7 days                                 |
 | disableConfigCache           | Boolean   | false     | Disable the use of cached configs                                                                              |
 | disableRealtimeUpdates       | Boolean   | false     | Disable Realtime Updates                                                                                       |
+| apiProxyURL                  | String    | null      | Allows the SDK to communicate with a proxy of DevCycle Client SDK API.                                         |
+| eventsApiProxyURL            | String    | null      | Allows the SDK to communicate with a proxy of DevCycle Events API.                                             |
 
 ## Notifying when DevCycle features are available
 

@@ -23,10 +23,13 @@ DevCycle provides a Javascript implementation of the OpenFeature Web Provider in
 
 Install the OpenFeature Web SDK and DevCycle Web Provider:
 
+[//]: # (wizard-install-start)
+
 #### NPM
 ```bash
 npm install --save @devcycle/openfeature-web-provider
 ```
+[//]: # (wizard-install-end)
 
 #### Yarn
 If using `yarn` you will need to install peer-dependencies:
@@ -36,6 +39,8 @@ yarn add @openfeature/web-sdk @openfeature/core @devcycle/openfeature-web-provid
 ```
 
 ### Getting Started
+
+[//]: # (wizard-initialize-start)
 
 Initialize the DevCycleProvider and set it as the provider for OpenFeature,
 which will initialize the DevCycle JS Client SDK internally:
@@ -49,17 +54,26 @@ import { OpenFeature } from '@openfeature/web-sdk'
 const user = { user_id: 'user_id' }
 
 // Initialize the DevCycle Provider
-const devcycleProvider = new DevCycleProvider(DEVCYCLE_CLIENT_SDK_KEY)
+const devcycleProvider = new DevCycleProvider('<DEVCYCLE_CLIENT_SDK_KEY>')
 // Set the context before the provider is set to ensure the DevCycle SDK is initialized with a user context.
 await OpenFeature.setContext(user)
 // Set the DevCycleProvider for OpenFeature
 await OpenFeature.setProviderAndWait(devcycleProvider)
 // Get the OpenFeature client
 const openFeatureClient = OpenFeature.getClient()
+```
+[//]: # (wizard-initialize-end)
 
+
+[//]: # (wizard-evaluate-start)
+
+Use a Variable value by passing the Variable key and default value to one of the OpenFeature flag evaluation methods
+```typescript
 // Retrieve a boolean flag from the OpenFeature client
 const boolFlag = openFeatureClient.getBooleanValue('boolean-flag', false)
 ```
+
+[//]: # (wizard-evaluate-end)
 
 ### Passing DevCycleOptions to the DevCycleProvider
 
@@ -69,7 +83,7 @@ Ensure that you pass any custom DevCycleOptions to the DevCycleProvider construc
 const user = { user_id: 'user_id' }
 
 const options = { logger: dvcDefaultLogger({ level: 'debug' }) }
-const devcycleProvider = new DevCycleProvider(DEVCYCLE_CLIENT_SDK_KEY, options)
+const devcycleProvider = new DevCycleProvider('<DEVCYCLE_CLIENT_SDK_KEY>', options)
 await OpenFeature.setProviderAndWait(devcycleProvider)
 ```
 

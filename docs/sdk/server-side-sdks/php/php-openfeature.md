@@ -21,7 +21,30 @@ to use the OpenFeature API.
 The OpenFeature Provider is included in the DevCycle SDK for PHP natively. It's compatible with both Cloud, and SDK
 proxy modes.
 
+[//]: # (wizard-install-start)
+
+To install the bindings via [Composer](https://getcomposer.org/), add the following to `composer.json`:
+
+```json
+{
+  "require": {
+    "devcycle/php-server-sdk": "*"
+  }
+}
+```
+
+Then run `composer install`
+
+Once the composer install is complete, a `vendor` folder should be generated at the root of your project. Include this at the start of your app index file:
+
+```php
+require_once(__DIR__ . '/vendor/autoload.php');
+```
+[//]: # (wizard-install-end)
+
+
 ### Getting Started
+[//]: # (wizard-initialize-start)
 
 Initialize the DevCycle SDK and set the DevCycleProvider as the provider for OpenFeature:
 
@@ -35,6 +58,26 @@ $api = OpenFeatureAPI::getInstance();
 $api->setProvider($devCycleClient->getOpenFeatureProvider());
 $openFeatureClient = $api->getClient();
 ```
+[//]: # (wizard-initialize-end)
+
+### Evaluate a Variable
+[//]: # (wizard-evaluate-start)
+
+Use a Variable value by setting the EvaluationContext, then passing the Variable key and default value to one of the OpenFeature flag evaluation methods.
+
+```csharp
+// Create a new user attribute object that can be used by OpenFeature as part of the flag evaluation process.
+$user_attributes = new Attributes(array("user_id" => "my-user"));
+
+// Create a new evaluation context for the feature flag evaluations. This context is used to provide user or environment details for flag evaluations in OpenFeature.
+$openfeature_context = new EvaluationContext(attributes: $user_attributes);
+
+// Use the OpenFeature client to get the string value of the "string-flag" feature flag.
+$flag_value = $openfeature_client->getStringValue("string-flag", "default", $openfeature_context);
+
+```
+[//]: # (wizard-evaluate-end)
+
 
 ### Required TargetingKey
 

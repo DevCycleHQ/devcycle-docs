@@ -11,6 +11,8 @@ sidebar_custom_props: { icon: material-symbols:toggle-on }
 
 ## Getting a Variable
 
+[//]: # (wizard-evaluate-start)
+
 The SDK provides a hook to access your DevCycle variables:
 
 ### useVariableValue
@@ -36,13 +38,13 @@ const DevCycleFeaturePage = () => {
 }
 ```
 
-See [getVariableByKey](https://docs.devcycle.com/bucketing-api/#operation/getVariableByKey) on the Bucketing API for the variable response format.
+[//]: # (wizard-evaluate-end)
 
-If a change on the dashboard triggers your variable value to change, it will rerender your page to reflect your new variable value. To learn more, visit the [Realtime Updates](/sdk/features#realtime-updates) page.
+If a change on the dashboard triggers your variable value to change, it will rerender any components calling this hook in order to reflect your new variable value. To learn more, visit the [Realtime Updates](/sdk/features#realtime-updates) page.
 
 ## Getting the DevCycle Client
 
-The SDK provides a hook to access the underlying DevCycle client. This allows you identify users, track events, and directly access
+The SDK provides a hook to access the underlying DevCycle client. This allows you to identify users, track events, and directly access
 variables:
 
 ### useDevCycleClient
@@ -212,6 +214,6 @@ This will send a request to our EdgeDB API to save the custom data under the use
 In the example, `amountSpent` is associated to the user `test_user`. In your next `identify` call for the same `user_id`,
 you may omit any of the data you've sent already as it will be pulled from the EdgeDB storage when segmenting to experiments and features:
 
-```
+```js
 devcycleClient.identifyUser({ user_id: 'test_user' }) // no need to pass in "amountSpent" any more!
 ```

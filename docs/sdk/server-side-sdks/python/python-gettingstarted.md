@@ -12,6 +12,7 @@ sidebar_custom_props: { icon: material-symbols:rocket }
 ## Initializing Local Bucketing SDK
 
 Code sample for importing and setting up the DevCycleLocalClient.
+[//]: # (wizard-initialize-start)
 
 ```python
 from devcycle_python_sdk import DevCycleLocalClient, DevCycleLocalOptions
@@ -21,7 +22,7 @@ from devcycle_python_sdk.models.user import DevCycleUser
 options = DevCycleLocalOptions()
 
 # create an instance of the DevCycleLocalClient class
-devcycle_client = DevCycleLocalClient('DEVCYCLE_SERVER_SDK_KEY', options)
+devcycle_client = DevCycleLocalClient('<DEVCYCLE_SERVER_SDK_KEY>', options)
 
 # all client functions require user data to be an instance of the DevCycleUser class
 user = DevCycleUser(
@@ -30,6 +31,7 @@ user = DevCycleUser(
     country='CA'
 )
 ```
+[//]: # (wizard-initialize-end)
 
 ## Initializing Cloud Bucketing SDK
 
@@ -43,7 +45,7 @@ from devcycle_python_sdk.models.user import DevCycleUser
 options = DevCycleCloudOptions(enable_edge_db=True)
 
 # create an instance of the DevCycleCloudClient class
-devcycle_client = DevCycleCloudClient('DEVCYCLE_SERVER_SDK_KEY', options)
+devcycle_client = DevCycleCloudClient('<DEVCYCLE_SERVER_SDK_KEY>', options)
 
 # all client functions require user data to be an instance of the DevCycleUser class
 user = DevCycleUser(

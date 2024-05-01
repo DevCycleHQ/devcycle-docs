@@ -22,6 +22,8 @@ This version of the DevCycle Client SDK supports the following platforms:
 
 ## Installation
 
+[//]: # (wizard-install-start)
+
 ### CocoaPods
 
 The SDK can be installed into your iOS project by adding the following to your cocoapod spec:
@@ -31,6 +33,8 @@ pod 'DevCycle'
 ```
 
 Then, run `pod install`.
+
+[//]: # (wizard-install-end)
 
 ### Carthage
 

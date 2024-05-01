@@ -9,6 +9,8 @@ sidebar_custom_props: { icon: material-symbols:toggle-on }
 [![Maven](https://badgen.net/maven/v/maven-central/com.devcycle/android-client-sdk)](https://search.maven.org/artifact/com.devcycle/android-client-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/android-client-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/android-client-sdk)
 
+[//]: # (wizard-evaluate-start)
+
 ## Using Variable Values
 
 To get values from your Features, the `variableValue()` method is used to fetch variable values using
@@ -23,6 +25,8 @@ var boolValue: Boolean = devcycleClient.variableValue("bool_key", false)
 var numValue: Number = devcycleClient.variableValue("num_key", 0)
 var jsonValue: JSONObject = devcycleClient.variableValue("json_key", JSONObject("{ \"key\": \"value\" }"))
 ```
+
+[//]: # (wizard-evaluate-end)
 
 ### _Java example:_
 

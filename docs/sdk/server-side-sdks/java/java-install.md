@@ -37,6 +37,8 @@ ldd --version
 
 :::
 
+[//]: # (wizard-install-start)
+
 ### Maven
 
 You can use the SDK in your Maven project by adding the following to your _pom.xml_:
@@ -63,6 +65,7 @@ Alternatively you can use the SDK in your Gradle project by adding the following
 ```yaml
 implementation("com.devcycle:java-server-sdk:+")
 ```
+[//]: # (wizard-install-end)
 
 ## DNS Caching
 

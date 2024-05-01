@@ -9,6 +9,8 @@ sidebar_custom_props: { icon: material-symbols:rocket }
 [![Npm package version](https://badgen.net/npm/v/@devcycle/nodejs-server-sdk)](https://www.npmjs.com/package/@devcycle/nodejs-server-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)
 
+[//]: # (wizard-initialize-start)
+
 To use the DevCycle Server SDK in your project, import the `@devcycle/nodejs-server-sdk` package and
 call `initializeDevCycle` with your DevCycle SDK server key. You may optionally `await` for the client
 to be initialized.
@@ -19,9 +21,10 @@ JS Example:
 const DevCycle = require('@devcycle/nodejs-server-sdk')
 
 const devcycleClient = await DevCycle.initializeDevCycle(
-  '<DEVCYCLE_SDK_SERVER_KEY>',
+  '<DEVCYCLE_SERVER_SDK_KEY>',
 ).onClientInitialized()
 ```
+[//]: # (wizard-initialize-end)
 
 Typescript Example:
 
@@ -29,7 +32,7 @@ Typescript Example:
 import { initializeDevCycle } from '@devcycle/nodejs-server-sdk'
 
 const devcycleClient = await initializeDevCycle(
-  '<DEVCYCLE_SDK_SERVER_KEY>',
+  '<DEVCYCLE_SERVER_SDK_KEY>',
 ).onClientInitialized()
 ```
 
@@ -41,7 +44,7 @@ The SDK exposes various initialization options which can be set on the `initiali
 
 ```javascript
 const devcycleClient = await DevCycle.initializeDevCycle(
-  '<DEVCYCLE_SDK_SERVER_KEY>',
+  '<DEVCYCLE_SERVER_SDK_KEY>',
   {
     configPollingIntervalMS: 60 * 1000,
   },

@@ -16,11 +16,14 @@ To get started, install the React Native SDK. If working with React native Expo,
 
 The command to install the React Native SDK is:
 
+[//]: # (wizard-install-start)
+
 ### npm
 
 ```bash
   npm install --save @devcycle/react-native-client-sdk
 ```
+[//]: # (wizard-install-end)
 
 ### yarn
 
@@ -72,6 +75,8 @@ Install the SDK dependencies, run the following command
   yarn add @react-native-async-storage/async-storage react-native-get-random-values react-native-device-info
 ```
 
+[//]: # (wizard-initialize-start)
+
 ## Import SDK Dependencies
 
 1.  Import the `@react-native-async-storage/async-storage` package somewhere in your code (e.g. in the `App.jsx` file). (see example below)
@@ -99,6 +104,8 @@ export default withDevCycleProvider({ sdkKey: '<DEVCYCLE_CLIENT_SDK_KEY>' })(
   App,
 )
 ```
+[//]: # (wizard-initialize-end)
+
 
 ## Example
 
