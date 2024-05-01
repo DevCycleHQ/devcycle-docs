@@ -1,119 +1,61 @@
 ---
-title: Key Features
+title: Key Features (new)
 sidebar_position: 2
 ---
 
-# Key Features
+# What Makes Us Different
 
-DevCycle is a comprehensive feature flag management platform with a wide range of features. The following page
-serves to illustrate some of the key capabilities of the platform.
+DevCycle is a comprehensive feature flag management platform with a wide range of capabilities. We believe that modern software development processes require feature flagging in order to be successful. For feature flagging to provide its full value, developers need to embed it into their workflow. So DevCycle is designed for the developer first, but with the whole team in mind.
 
-## Basics
+Here are the core concepts and features behind them that we think make us different.
 
-#### SDKs for Every Platform
-DevCycle provides SDKs for every major platform, and certain frameworks within those platforms.
+## Protect Production without Getting in Your Way
+For feature flagging to be effective, all team members need to be able to operate without fear of breaking production. We use a balance of guardrails, permissions and observability to ensure all users have confidence in the actions they are taking.
 
-See the full list on the [SDKs page](/sdk).
+Here's how:
+- Govern who modify flags in production using [Permissions](/extras/permissions).
+- Allow non-technical users to modify flag values safely, by enforcing [schemas](/extras/advanced-variables/variable-schemas).
+- Easily see a [detailed history](/extras/audit-log) of all changes to flags.
+- Write type-safe code using our [Code Generators](/sdk/client-side-sdks/javascript/javascript-typescript).
+- Ensure a predictable process for changing flags using Gitops and [Terraform](/integrations/terraform).
 
-#### Fast Global Response Times
-The APIs serving DevCycle SDKs are globally distributed and extremely fast, serving most requests in under 100ms.
+## Manage Flags Without Leaving Your Workflow
+Excellent developer tools reduce context-switching away from code as much as possible. Each user has a core set of tools that they use to do their work, it is our job to make those tools better. So we've built a set of tools to help you stay in the flow regardless of how you work.
 
-For more information, see [System Architecture](/introduction/architecture).
+Here's how:
+- Use the [CLI](/cli) and [Editor Plugins](/integrations#ide-plugins) to manage flags without interrupting your work. 
+- Detect and jump to flag usages in code, and quickly see whether flags are enabled in each environment. 
+- [Override](/extras/advanced-targeting/self-targeting) your own flag values for development or testing in production.
 
-#### Targeting and Segmentation
-Precisely configure who or what should receive a flag value.
-Combine conditions with boolean logic to create complex targeting rules.
+## Feature Flagging is a Team Sport
+Feature flags are most valuable when all team members are part of the process. A feature flag's purpose, state and impact should be obvious and discoverable to all users.
 
-[Learn more](/essentials/targeting)
+Here's how:
+- We never [bill](https://devcycle.com/pricing) on seats.
+- Group multiple related flags and change their values together using [Features](/introduction/core-concepts/feature-hierarchy).
+- Link your flags to productivity tools like [Jira](/integrations/jira) or [Slack](/integrations/slack).
+- Safely QA your flags in development or right in production with [Self-Targeting](/extras/advanced-targeting/self-targeting).
 
-#### Reusable Targeting Rules
-Easily reuse a common targeting rule configuration, and apply it across multiple flags.
+## Features Aren't Complete Until Flags Have Been Removed
+Old, unused flags are tech-debt that create operational risk. This means that the process of removing flags is as important as creating them.
 
-[Learn More](/extras/advanced-targeting/audiences)
+Here's how you can keep your feature flagging environment clean in DevCycle:
+- Keep on top of which flags are actually being used in your codebase with
+[Code Usage Detection](/best-practices/tech-debt#code-usages). 
+- Mark flags as "[completed](/essentials/status-and-lifecycle)" when a feature is released.
+- Automatically remove your flags with our [CLI Cleanup](/cli/docs/cleanup) command.
 
-#### A/B Testing and Experimentation 
-Test multiple variations of a feature in production, and measure the impact on key metrics.
+## Let Us Manage User Data
+Modern architecture means distributed systems running at the edge. Relevant targeting data isn't always available in all systems or services. So we've built ways to keep our platform fast while managing targeting data for you.
 
-[Learn More](/extras/metrics/feature-experimentation)
+Here's how:
+- Store user attributes in a [fast, globally-replicated database](/extras/edgedb) and target flags based on those attributes. 
+- Easily add a full [feature opt-in](/extras/advanced-targeting/feature-opt-in) experience to your application to allow end users to control their experience.
 
-#### Schedules and Rollouts
-Schedule a flag to be enabled at a certain time, or gradually roll it out to percentages of users. 
+## Integrate with Any Other Tool
+Feature flagging is better when integrated into the rest of your critical tools. While we have a selection of [integrations](/integrations) built and ready for you to install, we understand you may need other integrations so we've made DevCycle as extensible as possible.
 
-[Learn More](/extras/advanced-targeting/rollouts)
-
-#### Realtime Updates
-Make changes to flag configurations and see them pushed in real time to all users. Quickly turn off broken features, or
-give access to new features without requiring a refresh.
-
-[Learn More](/sdk/features#realtime-updates)
-
-## Cool Stuff
-
-#### Managed Feature Opt-In
-Easily add a full feature opt-in experience to your application to allow end users to control their experience.
-One line of code, and DevCycle does the rest.
-
-[Learn More](/extras/advanced-targeting/feature-opt-in)
-
-#### Global User Database
-Store user attributes in a fast, globally-replicated database and target users based on those attributes. Import data from
-other systems for use in targeting rules.
-
-[Learn More](/extras/edgedb)
-
-## Development Tools
-#### Easy Overriding of Your Own Flag Values
-Override the flag values being served to you, without risky modification of targeting rules. Test upcoming features
-in production, debug issues with different flag values, and more.
-
-[Learn More](/extras/advanced-targeting/self-targeting)
-
-#### Editor Integrations
-Access DevCycle information directly from your editor. Detect and jump to flag usages, and quickly see whether flags are enabled
-in each environment.
-
-[Learn More](/integrations#ide-plugins)
-
-#### CLI
-Configure flags right in the terminal, or override your own flag values for development. 
-
-[Learn More](/cli)
-
-#### Flag Usage Detection and Cleanup
-Keep on top of which flags are being used in your codebase, and clean up unused ones to prevent tech debt.
-
-[Learn More](/best-practices/tech-debt#code-usages)
-
-#### Type Safety and Code Generators
-Ensure that your code is using flag names that actually exist, and that flag values are being used correctly.
-
-[Learn More](/sdk/client-side-sdks/javascript/javascript-typescript)
-
-#### Gitops and Terraform
-Manage your DevCycle configuration as code, and apply changes to your configuration in a controlled manner using Terraform
-
-[Learn More](/integrations/terraform)
-
-## Safety and Compliance
-
-#### Permissions
-Govern who can access and modify flags configurations in production.
-
-#### Schematized Flags for Safe Configuration
-Allow developers to hand off configuration of flags safely, by enforcing schemas that determine what values a flag
-can be set to.
-
-[Learn more](/extras/advanced-variables/variable-schemas)
-
-#### Audit Log
-Easily see a history of changes to flags, including who performed each change. 
-
-[Learn More](/extras/audit-log)
-
-## Monitoring and Observability
-
-#### Webhooks and Integrations
-Notify external systems of changes to your flags. Link flags with project management tools like Jira, or see a feed
-of updates in Slack. See changes in your monitoring systems and alert on potential issues.
-
-[Learn More](/integrations)
+See how to integrate your own tools:
+- Notify external systems of changes to your flags using [Outbound Webhooks](/extras/webhooks). 
+- See changes in your [monitoring systems](/integrations#observability) and alert on potential issues.
+- A complete [API](/management-api) and [CLI](/cli) are available to run automations or scripts as necessary.
