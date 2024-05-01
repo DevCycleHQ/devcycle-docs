@@ -10,8 +10,6 @@ import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 The DevCycle .NET / C# SDK has two operation modes; Cloud Bucketing - which interfaces with the [DevCycle Bucketing API](/bucketing-api/#tag/devcycle), 
 and Local Bucketing - which performs bucketing locally.
 
-## Recommendation: Local Bucketing for the .NET SDK
-
 We recommend using the Local Bucketing mode by default, as it performs fast local evaluations of your feature flags.
 If you need access to [EdgeDB](https://docs.devcycle.com/extras/edgedb) you will need to use the Cloud Bucketing mode of the SDK. 
 See [Here](/sdk/#difference-between-local-and-cloud-bucketing) for more information. 
