@@ -3,7 +3,8 @@ title: Terraform
 sidebar_position: 7
 ---
 DevCycle Terraform Provider is a Terraform provider that provides a way to manage DevCycle projects, features, variables, variations, and environments.
-It also provides the ability to evaluate variables as a user and feature flag Terraform controlled infrastructure.
+It also provides the ability to receive DevCycle Variable values during the `apply` step, and feature flag the behaviour
+of other Terraform configuration.
 
 <!-- toc -->
 * [Setup](#setup)
