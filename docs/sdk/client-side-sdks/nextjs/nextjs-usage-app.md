@@ -11,6 +11,8 @@ sidebar_custom_props: { icon: material-symbols:toggle-on }
 
 
 ## Usage
+[//]: # (wizard-initialize-start)
+
 ### Create the DevCycle Context and Export It
 To use DevCycle on the server, you must create a context that can be shared across your server components. The context
 will hold the user data and configuration for the current request, and ensures subsequent calls to retrieve variables
@@ -64,6 +66,8 @@ export default async function RootLayout({
     )
 }
 ```
+[//]: # (wizard-initialize-end)
+
 Note: You _must_ use the client SDK key of your project, not the server SDK key. The key is used across the server and
 the client and will be sent to the clientside to bootstrap the client SDK.
 
@@ -93,6 +97,8 @@ const { getVariableValue, getClientContext } = setupDevCycle(
 :::
 
 ### Get a Variable Value 
+[//]: # (wizard-evaluate-start)
+
 #### Server Component
 ```typescript jsx
 import { getVariableValue } from './devcycle'
@@ -119,6 +125,8 @@ export const MyClientComponent = function () {
     return myVariable ? <NewComponent/> : <OldComponent/>
 }
 ```
+[//]: # (wizard-evaluate-end)
+
 
 ### Tracking an Event
 #### Client Component

@@ -11,6 +11,8 @@ sidebar_custom_props: { icon: material-symbols:toggle-on }
 [![SwiftPM compatible](https://img.shields.io/badge/SwiftPM-compatible-4BC51D.svg?style=flat)](https://swift.org/package-manager/)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/ios-client-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/ios-client-sdk)
 
+[//]: # (wizard-evaluate-start)
+
 ## Using Variable Values
 
 To get values from your Features, the `variableValue()` method is used to fetch variable values using
@@ -25,6 +27,7 @@ let strValue = devcycleClient.variableValue(key: "string_key", defaultValue: "de
 let numValue = devcycleClient.variableValue(key: "num_key", defaultValue: 4)
 let jsonValue = devcycleClient.variableValue(key: "json_key", defaultValue: [:])
 ```
+[//]: # (wizard-evaluate-end)
 
 ### Objective-C
 

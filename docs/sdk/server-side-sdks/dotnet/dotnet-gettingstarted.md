@@ -34,6 +34,7 @@ namespace Example {
 ```
 
 ## Local Bucketing - Initializing SDK
+[//]: # (wizard-initialize-start)
 
 To start, initialize a client using the SDK key.
 
@@ -53,6 +54,7 @@ namespace Example {
     }
 }
 ```
+[//]: # (wizard-initialize-end)
 
 ### Initialization With Callback
 
