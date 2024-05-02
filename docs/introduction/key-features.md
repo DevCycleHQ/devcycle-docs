@@ -9,7 +9,7 @@ DevCycle is a comprehensive feature flag management platform with a wide range o
 
 Here are the core concepts and features behind them that we think make us different.
 
-## Protect Production without Getting in Your Way
+## Protect Production Without Getting in Your Way
 For feature flagging to be effective, all team members need to be able to operate without fear of breaking production. We use a balance of guardrails, permissions and observability to ensure all users have confidence in the actions they are taking.
 
 Here's how:
