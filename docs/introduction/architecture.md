@@ -106,7 +106,7 @@ This data is returned to the SDKs to be cached locally and used each time `varia
 3. When user data is updated using the `identifyUser()` or `resetUser()` methods, the SDKs will 
 request a new configuration from the Client SDK API.
 
-4. The Client SDKs make SSE connections to receive real-time updates, which triggers a request for an 
+4. The Client SDKs make SSE connections to receive real-time updates, which trigger a request for an 
 updated configuration from the Client SDK API.
 
 5. Event data is sent at intervals to our Events API.
