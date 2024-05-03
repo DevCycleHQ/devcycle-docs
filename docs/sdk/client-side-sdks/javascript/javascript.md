@@ -11,7 +11,7 @@ It will then update its configuration using a realtime streaming connection any 
 
 <CustomDocCardList items={useCurrentSidebarCategory().items} columnWidth={4} />
 
-The DevCycle JS SDK is available as a NPM package will a full Typescript interface. 
+The DevCycle JS SDK is available as a NPM package will a full Typescript interface. It also supports service worker environments.
 The open-source code can be viewed on the [DevCycle GitHub](https://github.com/DevCycleHQ/js-sdks/tree/main/sdk/js).
 
 This SDK depends on the [fetch](https://github.com/BuilderIO/this-package-uses-fetch) API.

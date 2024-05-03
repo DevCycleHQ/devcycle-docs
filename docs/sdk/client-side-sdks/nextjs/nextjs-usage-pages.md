@@ -99,7 +99,7 @@ However, it omits features that rely on the dynamic request information to work.
 
 ## Initialization Options
 
-The SDK exposes various initialization options which can be set by passing a `DevCycleOptions` object in the setupDevCycle method:
+The SDK exposes various initialization options which can be set by passing a `DevCycleOptions` object in the appWithDevCycle method:
 
 [DevCycleOptions Typescript Schema](https://github.com/search?q=repo%3ADevCycleHQ%2Fjs-sdks+export+interface+DevCycleOptions+language%3ATypeScript+path%3A*types.ts&type=code)
 

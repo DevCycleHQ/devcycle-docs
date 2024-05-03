@@ -220,6 +220,33 @@ subscribe to an event that doesn't exist. These are the events you can subscribe
 | Feature Updated    | `featureUpdated:*`    | <code>(key: string, feature: DVCFeature &#124; null)</code>   | This event gets triggered when a feature's variation changes for a user. You can subscribe to all feature updates using the `*` identifier, or you can pass in the key of the feature you want to subscribe to, e.g. `featureUpdated:my_feature_key`.     |
 | Config Updated     | `configUpdated`       |                                                               | This event gets triggered when there are any variable, variation, or feature changes.                                                                                                                                                                     |
 
+## Bootstrapping and Server-Side Rendering
+:::info
+If you are using Next.js, we recommend using the [Next.js SDK](/sdk/client-side-sdks/nextjs) instead of this option.
+:::
+
+The SDK supports the ability to have its configuration bootstrapped during initialization, which allows it to 
+start serving up-to-date Variable values immediately. Using this option skips the initial configuration fetch that normally 
+occurs when the page is first loaded, reducing the time before correct content can be shown.
+
+This is especially useful for server-side rendering use-cases, where you may have a configuration already on the server which can be provided in the page response.
+
+To provide a bootstrapped config, pass the option when initializing the SDK:
+```javascript
+const user = { user_id: 'my_user' }
+const devcycleClient = initializeDevCycle(
+  '<DEVCYCLE_CLIENT_SDK_KEY>',
+  user,
+  {
+    bootstrapConfig: CONFIG_DATA
+  },
+)
+```
+
+If you are using a Javascript-based server rendering framework like Remix, the DevCycle Node.js SDK provides a 
+convenient way to obtain the configuration data needed for bootstrapping. See the [Node.js documentation](/sdk/server-side-sdks/node/node-bootstrapping) for more information.
+
+
 ## EdgeDB
 
 EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user.
