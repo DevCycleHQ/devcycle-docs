@@ -1,0 +1,18 @@
+name: Generate PlantUML Diagrams
+on: push
+jobs:
+  generate_plantuml:
+    runs-on: ubuntu-latest
+    name: Generate
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: plantuml
+        id: plantuml
+        uses: kolchurinvv/generate-plantuml-action@master
+        with:
+          path: "static/diagrams"
+        env:
+          GITHUB_TOKEN: ${{ secrets.AUTOMATION_USER_TOKEN }}

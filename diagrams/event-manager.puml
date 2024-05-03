@@ -1,0 +1,27 @@
+@startuml
+group Event Manager
+group Constructor/Initialization
+start
+    if (options.DisableAutomaticEventLogging and options.DisableCustomEventLogging) then (yes)
+        end
+    else (no)
+        :Start Event Flush Thread;
+    endif
+stop
+end group
+
+group Event Flush Thread
+while (Event Received) is (not Flush Stop)
+    switch (Event Type)
+        case ()
+            :Flush Interval;
+        case ()
+            :Force Flush;
+    endswitch
+    :Flush Events;
+endwhile (Flush Stop)
+end
+end group
+end group
+
+@enduml
