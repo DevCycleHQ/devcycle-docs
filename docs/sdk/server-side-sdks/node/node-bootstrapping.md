@@ -82,8 +82,7 @@ export async function loader({
 }: LoaderFunctionArgs) {
   const user = await getUser(request);
   const userAgent = request.headers.get('user-agent');
-  const devcycleNodeClient = getDevCycleNodejsClient();
-  const config = await devcycleNodeClient.getClientBootstrapConfig(user, userAgent);
+  const config = await devcycleClient.getClientBootstrapConfig(user, userAgent);
   return json({user, config});
 }
 
