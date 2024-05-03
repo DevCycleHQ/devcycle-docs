@@ -37,10 +37,13 @@ You should also pass the userAgent from the request, which allows the SDK to det
 const user = {
   user_id: 'some user data'
 }
-const bootstrapConfig = devcycleClient.getClientBootstrapConfig(user, userAgent)
+const bootstrapConfig = await devcycleClient.getClientBootstrapConfig(user, userAgent)
 ```
 
-and pass it wherever you initialize your DevCycle client SDK. For example with the React SDK:
+Calling this method will run a fast, local evaluation of your project's Targeting Rules using a cached copy of the configuration.
+You can expect the same level of performance as with any server-side evaluation.
+
+Now pass the result in wherever you initialize your DevCycle client SDK. For example with the React SDK:
 
 ```jsx
 import { DevCycleProvider } from '@devcycle/react-client-sdk'
