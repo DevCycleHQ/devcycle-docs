@@ -237,6 +237,14 @@ html[data-theme="dark"] .DocSearch {
   background-image: url(../../static/sidebar/introduction.svg);
 }
 
+.section-title.welcome >a::before {
+  background-image: url(../../static/sidebar/hello.svg);
+}
+
+.section-title.overview >a::before {
+  background-image: url(../../static/sidebar/overview.svg);
+}
+
 .section-title.examples >a::before {
   background-image: url(../../static/sidebar/examples.svg);
 }

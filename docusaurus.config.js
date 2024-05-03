@@ -395,15 +395,15 @@ const config = {
       },
       items: [
         {
-          type: 'doc',
-          docId: 'index',
+          type: 'docSidebar',
+          sidebarId: 'home',
           position: 'left',
           collapse: 'false',
           label: 'Home',
         },
         {
-          type: 'doc',
-          docId: 'sdk/index',
+          type: 'docSidebar',
+          sidebarId: 'sdks',
           position: 'left',
           collapse: 'false',
           label: 'SDKs',
