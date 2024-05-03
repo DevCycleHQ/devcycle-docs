@@ -46,7 +46,7 @@ import { DevCycleProvider } from '@devcycle/react-client-sdk'
 export default function App() {
   return (
         <DevCycleProvider options={{
-        sdkKey: bootstrapConfig.sdkKey,
+        sdkKey: bootstrapConfig.clientSDKKey,
         bootstrapConfig: bootstrapConfig,
         user: user
       }}>
@@ -83,7 +83,7 @@ export default function Component() {
   const data = useLoaderData<typeof loader>();
   return (
     <DevCycleProvider options={{
-        sdkKey: data.config.sdkKey,
+        sdkKey: data.config.clientSDKKey,
         bootstrapConfig: data.config,
         user: data.user
     }}>
