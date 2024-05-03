@@ -1,8 +1,5 @@
 name: Generate PlantUML Diagrams
-on:
-  push:
-    paths:
-      - "**.puml"
+on: push
 permissions:
   contents: write
 
