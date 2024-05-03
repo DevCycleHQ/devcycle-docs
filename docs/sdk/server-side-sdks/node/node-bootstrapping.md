@@ -3,6 +3,7 @@ title: Bootstrapping / Server-Side Rendering
 sidebar_label: Bootstrapping / SSR
 sidebar_position: 5
 description: SDK features for bootstrapping a client SDK on the server
+sidebar_custom_props: { icon: material-symbols:sync-alt }
 ---
 
 # Bootstrapping and Server-Side Rendering
