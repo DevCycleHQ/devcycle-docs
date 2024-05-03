@@ -1,7 +1,7 @@
 ---
 title: Bootstrapping / Server-Side Rendering 
 sidebar_label: Bootstrapping / SSR
-sidebar_position: 3
+sidebar_position: 5
 description: SDK features for bootstrapping a client SDK on the server
 ---
 
@@ -16,9 +16,10 @@ for that SDK to get started.
 To enable this feature, initialize a Node.js client on the serverside and enable client bootstrapping mode:
 
 ```javascript
-const DevCycle = require('@devcycle/nodejs-server-sdk')
+// devcycle.ts
+import { initializeDevCycle } from '@devcycle/nodejs-server-sdk'
 
-const devcycleClient = await DevCycle.initializeDevCycle(
+export const devcycleClient = await initializeDevCycle(
   '<DEVCYCLE_SERVER_SDK_KEY>',
   {
     enableClientBootstrapping: true,
@@ -43,14 +44,15 @@ and pass it wherever you initialize your DevCycle client SDK. For example with t
 ```jsx
 import { DevCycleProvider } from '@devcycle/react-client-sdk'
 export default function App() {
-  return
-  <DevCycleProvider options={{
-    sdkKey: bootstrapConfig.sdkKey,
-    bootstrapConfig: bootstrapConfig,
-    user: user
-  }}>
-    <TheRestofYourApp />
-  </DevCycleProvider>
+  return (
+        <DevCycleProvider options={{
+        sdkKey: bootstrapConfig.sdkKey,
+        bootstrapConfig: bootstrapConfig,
+        user: user
+      }}>
+        <TheRestofYourApp />
+      </DevCycleProvider>
+  )
 }
 ```
 
@@ -65,9 +67,7 @@ Here is an example that connects all these pieces in Remix with the React SDK:
 import type { LoaderFunctionArgs } from "@remix-run/node"
 import { json } from "@remix-run/node"
 import { DevCycleProvider } from '@devcycle/react-client-sdk'
-// this is an imaginary method that might represent how you'd retrieve your intialized DevCycle Node.js client 
-// throughout your app
-import { getDevCycleNodejsClient } from '../devcycle'
+import { devcycleClient } from '../devcycle'
 
 export async function loader({
   request,
