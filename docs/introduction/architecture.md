@@ -24,7 +24,7 @@ to create and manage various models like Audiences / Features / Variables / Vari
 
 2. Changes made by the **Management API** are delivered via a queue to the **Config Service**. 
 
-3. The **Config Service** bundles all changes into a JSON configuration for each project, environment, 
+3. The **Config Service** bundles all changes into a JSON configuration for each Project, Environment, 
 and SDK type combination.
 
 4. The configuration data is then uploaded to **Cloudflare's CDN**.
