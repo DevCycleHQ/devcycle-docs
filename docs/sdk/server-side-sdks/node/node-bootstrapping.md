@@ -6,14 +6,14 @@ description: SDK features for bootstrapping a client SDK on the server
 ---
 
 # Bootstrapping and Server-Side Rendering
-When using a server rendering framework such as Remix, Nuxt, or SvelteKit, you will likely be rendering content on the server and sending it to the client for hydration. When feature flagging is involved, you need to make sure that rendering on the server uses the same flag values as the client. It is also important to avoid the performance impact of the initial clientside DevCycle configuration fetch that would normally have to occur when the page is first loaded.
+When using a server rendering framework such as Remix, Nuxt, or SvelteKit, you will likely be rendering content on the server and sending it to the client for hydration. When feature flagging is involved, you need to make sure that rendering on the server uses the same flag values as the client. It is also important to avoid the performance impact of the initial client-side DevCycle configuration fetch that would normally have to occur when the page is first loaded.
 
-To support these use-cases, the Node.js SDK provides functionality for generating clientside configurations on the server, for use during server-side rendering as well as bootstrapping on the client.
+To support these use-cases, the Node.js SDK provides functionality for generating client-side configurations on the server, for use during server-side rendering as well as bootstrapping on the client.
 
 To use it, you must also have the DevCycle JS Client SDK installed in your server application. Follow the [setup docs](/sdk/client-side-sdks/javascript/javascript-install)
 for that SDK to get started.
 
-To enable this feature, initialize a Node.js client on the serverside and enable client bootstrapping mode:
+To enable this feature, initialize a Node.js client on the server and enable client bootstrapping mode:
 
 ```javascript
 // devcycle.ts
@@ -95,4 +95,4 @@ export default function Component() {
 
 Once these pieces are in place, Remix will supply the component with the client configuration for the current user. It can then
 be provided to the React SDK by passing it to the `bootstrapConfig` option of the `DevCycleProvider`. From this point downwards in the component
- tree, the React SDK will return Variable values from this bootstrapped config during serverside rendering, and will hydrate with the same configuration on the client.
+ tree, the React SDK will return Variable values from this bootstrapped config during server-side rendering, and will hydrate with the same configuration on the client.
