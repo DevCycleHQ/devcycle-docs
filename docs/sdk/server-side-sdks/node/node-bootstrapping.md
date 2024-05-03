@@ -7,6 +7,10 @@ sidebar_custom_props: { icon: material-symbols:sync-alt }
 ---
 
 # Bootstrapping and Server-Side Rendering
+:::info
+If you are using Next.js, we recommend using the [Next.js SDK](/sdk/client-side-sdks/nextjs) instead of this option.
+:::
+
 When using a server rendering framework such as Remix, Nuxt, or SvelteKit, you will likely be rendering content on the server and sending it to the client for hydration. When feature flagging is involved, you need to make sure that rendering on the server uses the same flag values as the client. It is also important to avoid the performance impact of the initial client-side DevCycle configuration fetch that would normally have to occur when the page is first loaded.
 
 To support these use-cases, the Node.js SDK provides functionality for generating client-side configurations on the server, for use during server-side rendering as well as bootstrapping on the client.
