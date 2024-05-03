@@ -1,5 +1,5 @@
 @startuml
-
+'DevCycle Server SDK Initialization Sequence Diagram
 start
 :new DevCycleClient(sdkKey, options);
 group Constructor/Initialization
