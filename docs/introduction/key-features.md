@@ -13,7 +13,7 @@ Here are the core concepts and features behind them that we think make us differ
 For feature flagging to be effective, all team members need to be able to operate without fear of breaking production. We use a balance of guardrails, permissions and observability to ensure all users have confidence in the actions they are taking.
 
 Here's how:
-- Govern who modify flags in production using [Permissions](/extras/permissions).
+- Govern who can modify flags in production using [Permissions](/extras/permissions).
 - Allow non-technical users to modify flag values safely, by enforcing [schemas](/extras/advanced-variables/variable-schemas).
 - Easily see a [detailed history](/extras/audit-log) of all changes to flags.
 - Write type-safe code using our [Code Generators](/sdk/client-side-sdks/javascript/javascript-typescript).
