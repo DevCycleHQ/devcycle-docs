@@ -96,3 +96,5 @@ export default function Component() {
 Once these pieces are in place, Remix will supply the component with the client configuration for the current user. It can then
 be provided to the React SDK by passing it to the `bootstrapConfig` option of the `DevCycleProvider`. From this point downwards in the component
  tree, the React SDK will return Variable values from this bootstrapped config during server-side rendering, and will hydrate with the same configuration on the client.
+
+To see this in action, check out the [Remix bootstrapping example application](https://github.com/DevCycleHQ-Sandbox/bootstrap-example-remix).
