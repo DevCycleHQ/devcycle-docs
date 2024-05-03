@@ -58,7 +58,7 @@ we have a cross-platform end-to-end SDK test-harness to ensure platform consiste
 - **Secure**: WASM runs in a [memory-safe sandboxed execution environment](https://webassembly.org/docs/security/)
 that has proven its security credentials across web browsers.
 
-However, WASM is not a silver bullet, and for certain very highly threaded lower-level use cases, 
+However, WASM is not a silver bullet, and for certain very high performance/concurrent threading use cases, 
 we have built a native implementation, for example, in our [GO SDK](https://github.com/DevCycleHQ/go-server-sdk).
 
 ## Local Bucketing Server SDK Architecture
@@ -83,8 +83,6 @@ and configuration data locally to bucket users into features and variations to d
 For most use cases, local bucketing SDKs provide superior performance and reliability.
 However, the cloud-bucketing SDKs can make integration easier for specific use cases where access to
 [EdgeDB](/extras/edgedb) to integrate user data between client-side and backend applications is needed.
-
-**Note: Server-sent event support for Server SDKs is currently under development.**
 
 1. On each `variableValue()` / `variable()` call, the Cloud Bucketing Server SDKs fetch data from the 
 [Bucketing API](/bucketing-api/) served by Cloudflare Workers at the edge.
@@ -116,8 +114,8 @@ updated configuration from the Client SDK API.
 ## SDK Test Harness
 
 Our [SDK Test Harness](https://github.com/DevCycleHQ/test-harness) aims to define a set of standardized end-to-end tests 
-that run against multiple SDKs written in different languages. The tests defined using Jest are run using 
-a set of HTTP requests made to a series of proxy servers for each SDK language.
+that run against multiple SDKs written in different languages. The tests are defined using Jest, and are run using 
+a set of HTTP requests made to a series of locally run proxy servers for each SDK language.
 
 These proxy servers then take the commands from the requests made from the tests to set up the SDKs in different ways, 
 execute all the core SDK methods, and measure their responses. They ensure that each SDK behaves the same way, 
