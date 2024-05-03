@@ -207,7 +207,7 @@ const devcycleClient = initializeDevCycle(
 ```
 
 If you are using a Javascript-based server rendering framework like Remix, the DevCycle Node.js SDK provides a
-convenient way to obtain the configuration data needed for bootstrapping. See the Node.js documentation for more information.
+convenient way to obtain the configuration data needed for bootstrapping. See the [Node.js documentation](/sdk/server-side-sdks/node/node-bootstrapping) for more information.
 
 
 ## EdgeDB
