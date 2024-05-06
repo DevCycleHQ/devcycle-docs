@@ -5,7 +5,7 @@ title: Node.js SDK
 import CustomDocCardList from '@site/src/components/CustomDocCardList'
 import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 
-# DevCycle NodeJS Server SDK
+# DevCycle Node.js Server SDK
 
 There are two modes for the SDK, Cloud bucketing (using the [Bucketing API](https://docs.devcycle.com/bucketing-api/)) and Local Bucketing.
 
