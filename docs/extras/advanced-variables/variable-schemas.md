@@ -11,11 +11,11 @@ To define a Variable Schema for a variable, navigate to the Schema section of th
 
 There are three different types of schemas that you can define for your variable: 
 
-- Enum (*String or Number Variable)*
+- Enum (*String or Number Variable*)
 - Regex (*String Variable*)
 - JSON (*JSON Variable*)
 
-Each schema type requires  a **Brief Description**. For example, when defining an Enum schema for a String variable that's meant for a greeting message on a sign up page, a sample description could be “Greeting options for sign-up page.” 
+Each schema type requires a **Brief Description**. For example, when defining an Enum schema for a String variable that's meant for a greeting message on a sign up page, a sample description could be “Greeting options for sign-up page.” 
 
 You also must set an **Example Value**. The example value will be used as the initial value for each variation when adding this variable to a feature.
 
@@ -36,7 +36,7 @@ A **Regex** schema allows you to define a regex pattern. Variation values for a 
 *Regex Example:* 
 ![Regex Schema Example](/june-2023-regex-schema-example.png)
 
-A **JSON** schema will allow DVC users to define a JSON schema that variation values must follow.  If “JSON schema” type is selected, users can define the schema below in a JSON editor. Example JSON Schemas and more information about them can be found [here](https://json-schema.org/learn/miscellaneous-examples.html#basic).
+A **JSON** schema will allow DVC users to define a JSON schema that variation values must follow. If “JSON schema” type is selected, users can define the schema below in a JSON editor. Example JSON Schemas and more information about them can be found [here](https://json-schema.org/learn/miscellaneous-examples.html#basic).
 
 *JSON Example:* 
 ![JSON Schema Example](/june-2023-json-schema-example.png)

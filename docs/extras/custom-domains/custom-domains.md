@@ -52,7 +52,7 @@ Once you have completed the above setup to create a CNAME, proceed in modifying 
 Add the `apiProxyURL` option and your CNAME domains as per the [JS SDK Initialization Options](https://docs.devcycle.com/sdk/client-side-sdks/javascript/javascript-gettingstarted#initialization-options).
 
 ```javascript
-const devcycleClient = initializeDevCycle('<DVC_CLIENT_SDK_KEY>', user, {
+const devcycleClient = initializeDevCycle('<DEVCYCLE_CLIENT_SDK_KEY>', user, {
   apiProxyURL: 'https://api-alias.your-domain.com',
 })
 ```

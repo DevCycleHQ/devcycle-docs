@@ -16,7 +16,7 @@ This article will discuss feature flag guidelines that optimize continuous integ
 - an understanding of unit and integration tests
 - knowledge of CI/CD principles and practices
 
-[A brief overview of CI/CD can be found here.](https://devcycle.com/solutions/ci-cd)
+[A brief overview of CI/CD can be found here.](https://blog.devcycle.com/ci-cd-explained/)
 
 ## When to create a feature flag
 

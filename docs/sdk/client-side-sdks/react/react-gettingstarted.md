@@ -56,9 +56,9 @@ import {
 } from '@devcycle/react-client-sdk'
 
 function App() {
-  const dvcReady = useIsDevCycleInitialized()
+  const devCycleReady = useIsDevCycleInitialized()
 
-  if (!dvcReady) return <LoadingState />
+  if (!devCycleReady) return <LoadingState />
   return <TheRestofYourApp />
 }
 
@@ -98,10 +98,10 @@ function App() {
     devcycleClient.identifyUser(user)
     identified = true
   }
-  const dvcReady = useIsDevCycleInitialized()
+  const devcycleReady = useIsDevCycleInitialized()
 
   // rendering is blocked until the user is loaded, and has finished being identified in DevCycle
-  if (!dvcReady) return <LoadingState />
+  if (!devcycleReady) return <LoadingState />
   return <TheRestofYourApp />
 }
 

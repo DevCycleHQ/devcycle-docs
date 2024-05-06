@@ -19,16 +19,16 @@ To get you up and started, we've put together an example repository to be used t
 
 Before setting up your Google Cloud function, we will set up three Features on the DevCycle dashboard of three different types: `campaign-switch` (Boolean), `campaign-details` (JSON), `dec-campaign-proposed-name`(String).
 
-To set the feature flags, make sure you have a DevCycle account [https://devcycle.com/](https://devcycle.com/).
+To set the feature flags, make sure you have a [DevCycle](https://app.devcycle.com/) account.
 
-1. Click “Create New Feature” from your “Feature Management” section
-    
-    ![Screen Shot 2022-09-13 at 11.05.15 AM.png](/Screen_Shot_2022-09-13_at_11.05.15_AM.png)
-    
+1. Click “Create New Feature” from your “Feature" page or clicke the `+` button on the navigation bar
+
+   ![create-a-feature-cta.png](/create-feature-cta.png)
+
 2. Click “Release” and type in the feature flag name in the popped up modal.
-    
-    ![Screen Shot 2022-09-13 at 11.03.52 AM.png](/Screen_Shot_2022-09-13_at_11.03.52_AM.png)
-    
+
+   ![feature-create-modal.png](/Screen_Shot_2022-09-13_at_11.03.52_AM.png)
+
 3. By default, you will see a Boolean feature flag
     
     ![Screen Shot 2022-09-13 at 11.08.49 AM.png](/Screen_Shot_2022-09-13_at_11.08.49_AM.png)
@@ -100,22 +100,21 @@ EdgeDB is purpose built to work at edge, and when used in conjunction with a ser
 
 Here is some more reading: 
 
-[What is EdgeDB? (/home/feature-management/edgedb/what-is-edgedb)
+[What is EdgeDB?](/extras/edgedb)
 
-[Use Cases of EdgeDB ](/extras/edgedb)
+[Use Cases of EdgeDB ](/extras/edgedb#use-cases)
 
 ### Enable EdgeDB (NodeJS SDK Version)
 
-First, you need to enable EdgeDB in the DevCycle Dashboard
-[https://docs.devcycle.com/extras/edgedb)
+First, you need to [enable EdgeDB](/extras/edgedb#setup) in the DevCycle Dashboard
 
 With the [DevCycle NodeJs SDK ](/sdk/server-side-sdks/node) we use the `enableCloudBucketing` and `enableEdgeDB` options to enable EdgeDB usage. ([SDK initialization option details: ](/sdk/server-side-sdks/node/node-gettingstarted#initialization-options))
 
 ```jsx
-const devcycleClient = DVC.initialize(serverKey, {
-        enableCloudBucketing: true,
-        enableEdgeDB: true
-    });
+const devcycleClient = initializeDevCycle(serverKey, {
+  enableCloudBucketing: true,
+  enableEdgeDB: true,
+})
 ```
 
 With EdgeDB enabled, you can save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user.
@@ -133,7 +132,7 @@ const { value: campaignData } = await devcycleClient.variable({ user_id: "testus
 const { value: proposedCampaignTitle } = await devcycleClient.variable({ user_id: "testuser_1234333" }, "dec-campaign-proposed-name", "");
 ```
 
-With the`VIP` variation set in `dec-campaign-proposed-name`, we can head to the `dec-campaign-proposed-name` Feature in the dashboard and test EdgeDB:
+With the `VIP` variation set in `dec-campaign-proposed-name`, we can head to the `dec-campaign-proposed-name` Feature in the dashboard and test EdgeDB:
 1. Add a targeting rule with name “VIP” and move it above “All User” rule. 
 2. In the Definition, select “User Email” and type in the email we have set in EdgeDB (i.e. `vip@email.ca`)
 3. From the “Serve” dropdown, select “VIP”

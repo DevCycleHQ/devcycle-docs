@@ -36,8 +36,8 @@ To track all variable evaluations:
 
 ```jsx
 const user = { user_id: "my_user" };
-const dvcOptions = { logLevel: "debug" };
-const devcycleClient = initialize("<DVC_CLIENT_SDK_KEY>", user, dvcOptions); 
+const devcycleOptions = { logLevel: "debug" };
+const devcycleClient = initialize("<DEVCYCLE_CLIENT_SDK_KEY>", user, devcycleOptions);
 ...
 devcycleClient.subscribe(
     "variableEvaluted:*",
@@ -51,8 +51,8 @@ To track a specific variable evaluation (in this case a variable whose key is `m
 
 ```jsx
 const user = { user_id: "my_user" };
-const dvcOptions = { logLevel: "debug" };
-const devcycleClient = initialize("<DVC_CLIENT_SDK_KEY>", user, dvcOptions); 
+const devcycleOptions = { logLevel: "debug" };
+const devcycleClient = initialize("<DEVCYCLE_CLIENT_SDK_KEY>", user, devcycleOptions);
 ...
 devcycleClient.subscribe(
     "variableEvaluted:my-variable-key",
@@ -68,13 +68,13 @@ We recommend encapsulating your RUM code within a React hook, so consider the fo
 
 ```jsx
 import { datadogRum } from '@datadog/browser-rum'
-import { DVCVariableValue, useDVCClient } from '@devcycle/react-client-sdk'
+import { DVCVariableValue, useDevCycleClient } from '@devcycle/react-client-sdk'
 import { DVCVariable } from '@devcycle/js-client-sdk'
 
 let didInit = false
 
 export const useDatadogRum = () => {
-  const devcycleClient = useDVCClient()
+  const devcycleClient = useDevCycleClient()
   if (!didInit) {
     didInit = true
     datadogRum.init({

@@ -23,28 +23,28 @@ Let's say you are a developer and working with the marketing team.
 
 They have some small campaigns to launch in future months and want you to build a webpage to promote the events. Instead of changing the event details **every** time before the next event is launched, you can utilize DevCycle Feature Flags to help you coordinate with the marketing team. 
 
-The below example will demonstrate how you can use our feature flags with different types (`Boolean`, `String`, `JSON`). I will explain how I use 3 feature flags in the followings. 
+The below example will demonstrate how you can use our feature flags with different types (`Boolean`, `String`, `JSON`) of variables.
 
 In the example code, `campaign-switch` (Boolean), is a switch to turn on/off the feature. 
 
-Let’s say you have a campaign in October and December and don’t have one in November. You can just turn on your Feature Flag, `campaign-switch,` in Oct and Dec, and turn it off in Nov. 
+Let’s say you have a campaign in October and December and don’t have one in November. You can just turn on your Feature Flag, `campaign-switch`, in Oct and Dec, and turn it off in Nov. 
 
-No extra deployment is needed can always be owned by the marketing team. For `campaign-details` (JSON), you, as a developer, can set a data template of what you need in the website and let the marketing team change it whenever they want, like the number of guests, campaign id and name. 
+No extra deployment is needed can always be owned by the marketing team. For `campaign-details` (JSON), you, as a developer, can set a data template of what you need in the website and let the marketing team change it whenever they want, like the number of guests, campaign id and name.
 
-For `dec-campaign-proposed-name`(String), it is convenient for the specific campaign team to add and choose the campaign name in the decision phrase. Sometimes we could have last-minute decisions, but with Feature Flags, the marketing team can change the campaign name easily by themselves (no coding needed!).
+For `dec-campaign-proposed-name` (String), it is convenient for the specific campaign team to add and choose the campaign name in the decision phrase. Sometimes we could have last-minute decisions, but with Feature Flags, the marketing team can change the campaign name easily by themselves (no coding needed!).
 
 Next section helps you understand how we set the 3 feature flags in DevCycle!
 
 ### Setting up the feature on DevCycle Dashboard
 
-Before setting up your Azure function, we will set up three Features on the DevCycle dashboard of three different types: `campaign-switch` (Boolean), `campaign-details` (JSON), `dec-campaign-proposed-name`(String).
+Before setting up your Azure function, we will set up three Features on the DevCycle dashboard of three different types: `campaign-switch` (Boolean), `campaign-details` (JSON), `dec-campaign-proposed-name` (String).
 
 To set the feature flags, make sure you have a DevCycle account [https://devcycle.com/](https://devcycle.com/).
 
-1. Click “Create New Feature” from your “Feature Management” section
-    
-    ![Screen Shot 2022-09-13 at 11.05.15 AM.png](/Screen_Shot_2022-09-13_at_11.05.15_AM.png)
-    
+1. Click “Create New Feature” from your “Feature" page or clicke the `+` button on the navigation bar
+
+   ![create-a-feature-cta.png](/create-feature-cta.png)
+
 2. Click “Release” and type in the feature flag name in the popped up modal.
     
     ![Screen Shot 2022-09-13 at 11.03.52 AM.png](/Screen_Shot_2022-09-13_at_11.03.52_AM.png)
@@ -89,7 +89,7 @@ This section will be using [Visual Studio Code](https://code.visualstudio.com/) 
     
 2. Clone the example code from above:
 https://github.com/DevCycleHQ/azure-functions-example
-3. With the A[zure Tools extensio](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)n, you can click on the function cloned from the example code and deploy to the function app you have just created:
+3. With the [Azure Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack), you can click on the function cloned from the example code and deploy to the function app you have just created:
     
     ![Screen Shot 2022-09-13 at 3.37.48 PM.png](/Screen_Shot_2022-09-13_at_3.37.48_PM.png)
     
@@ -139,13 +139,13 @@ https://github.com/DevCycleHQ/azure-functions-example
 
 [First, you need to enable EdgeDB in the DevCycle Dashboard](/extras/edgedb)
 
-With the [DevCycle NodeJs SDK ](/sdk/server-side-sdks/node) we use the `enableCloudBucketing` and `enableEdgeDB` options to enable EdgeDB usage. ([SDK initialization option details: ](/sdk/server-side-sdks/node/node-gettingstarted#initialization-options))
+With the [DevCycle NodeJs SDK](/sdk/server-side-sdks/node) we use the `enableCloudBucketing` and `enableEdgeDB` options to enable EdgeDB usage. ([SDK initialization option details: ](/sdk/server-side-sdks/node/node-gettingstarted#initialization-options))
 
 ```jsx
-const devcycleClient = DVC.initialize(serverKey, {
-        enableCloudBucketing: true,
-        enableEdgeDB: true
-    });
+const devcycleClient = initializeDevCycle(serverKey, {
+  enableCloudBucketing: true,
+  enableEdgeDB: true,
+})
 ```
 
 With EdgeDB enabled, you can save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user.
@@ -163,8 +163,9 @@ const { value: campaignData } = await devcycleClient.variable({ user_id: "testus
 const { value: proposedCampaignTitle } = await devcycleClient.variable({ user_id: "testuser_1234333" }, "dec-campaign-proposed-name", "");
 ```
 
-With the`VIP` variation set in `dec-campaign-proposed-name`, we can head to the `dec-campaign-proposed-name` Feature in the dashboard and test EdgeDB:
-1. Add a targeting rule with name “VIP” and move it above “All User” rule. 
+With the `VIP` variation set in `dec-campaign-proposed-name`, we can head to the `dec-campaign-proposed-name` Feature in the dashboard and test EdgeDB:
+
+1. Add a targeting rule with name “VIP” and move it above “All User” rule.
 2. In the Definition, select “User Email” and type in the email we have set in EdgeDB (i.e. `vip@email.ca`)
 3. From the “Serve” dropdown, select “VIP”
 4. Click “Save”
