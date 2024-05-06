@@ -42,12 +42,12 @@ module.exports = {
       className: 'section-title roadmap',
       id: 'product-roadmap', // The internal path
     },
-    {
-      type: 'doc',
-      label: 'Release Notes',
-      className: 'section-title release-notes',
-      id: 'release-notes', // The internal path
-    },
+    // {
+    //   type: 'doc',
+    //   label: 'Release Notes',
+    //   className: 'section-title release-notes',
+    //   id: 'release-notes', // The internal path
+    // },
   ],
   sdks: [
     {
