@@ -112,8 +112,8 @@ With the [DevCycle NodeJs SDK ](/sdk/server-side-sdks/node) we use the `enableCl
 
 ```jsx
 const devcycleClient = initializeDevCycle(serverKey, {
-  enableCloudBucketing: true,
-  enableEdgeDB: true,
+      enableCloudBucketing: true,
+      enableEdgeDB: true,
 })
 ```
 
