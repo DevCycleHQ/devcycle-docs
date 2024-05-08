@@ -4,7 +4,6 @@ info:
   description:
     Documents the DevCycle Bucketing API (https://bucketing-api.devcycle.com/) which provides an API interface to
     User Bucketing and for generated SDKs.
-  version: 1.2.0
 
 servers:
   - url: https://bucketing-api.devcycle.com/
