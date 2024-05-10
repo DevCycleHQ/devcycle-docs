@@ -39,12 +39,13 @@ from devcycle_python_sdk import DevCycleLocalClient, DevCycleLocalOptions
 from devcycle_python_sdk.models.user import DevCycleUser
 from openfeature import api
 from openfeature.evaluation_context import EvaluationContext
+import os
 
 # Create an options object to do custom configurations, or use the defaults
 options = DevCycleLocalOptions()
 
 # create an instance of the DevCycleLocalClient class
-devcycle_client = DevCycleLocalClient('<DEVCYCLE_SERVER_SDK_KEY>', options)
+devcycle_client = DevCycleLocalClient(os.environ["DEVCYCLE_SERVER_SDK_KEY"], options)
 
 # set the provider for OpenFeature
 api.set_provider(devcycle_client.get_openfeature_provider())

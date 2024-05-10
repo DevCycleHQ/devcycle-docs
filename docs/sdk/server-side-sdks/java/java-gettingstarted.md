@@ -21,7 +21,7 @@ public class MyClass {
     private DevCycleLocalClient client;
 
     public MyClass() {
-        client = new DevCycleLocalClient("<DEVCYCLE_SERVER_SDK_KEY>");
+        client = new DevCycleLocalClient(System.getenv("DEVCYCLE_SERVER_SDK_KEY"));
     }
 }
 ```
@@ -67,7 +67,7 @@ public class MyClass {
             .disableCustomEventLogging(false)
             .build();
 
-        client = new DevCycleLocalClient("<DEVCYCLE_SERVER_SDK_KEY>", options);
+        client = new DevCycleLocalClient(System.getenv("DEVCYCLE_SERVER_SDK_KEY"), options);
     }
 }
 ```

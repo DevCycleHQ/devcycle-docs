@@ -17,12 +17,13 @@ Code sample for importing and setting up the DevCycleLocalClient.
 ```python
 from devcycle_python_sdk import DevCycleLocalClient, DevCycleLocalOptions
 from devcycle_python_sdk.models.user import DevCycleUser
+import os
 
 # Create an options object to do custom configurations, or use the defaults
 options = DevCycleLocalOptions()
 
 # create an instance of the DevCycleLocalClient class
-devcycle_client = DevCycleLocalClient('<DEVCYCLE_SERVER_SDK_KEY>', options)
+devcycle_client = DevCycleLocalClient(os.environ["DEVCYCLE_SERVER_SDK_KEY"], options)
 
 # all client functions require user data to be an instance of the DevCycleUser class
 user = DevCycleUser(
@@ -40,12 +41,13 @@ Code sample for importing and setting up the DevCycleCloudClient.
 ```python
 from devcycle_python_sdk import DevCycleCloudClient, DevCycleCloudOptions
 from devcycle_python_sdk.models.user import DevCycleUser
+import os
 
 # Create an options object and enable storing user data in EdgeDB
 options = DevCycleCloudOptions(enable_edge_db=True)
 
 # create an instance of the DevCycleCloudClient class
-devcycle_client = DevCycleCloudClient('<DEVCYCLE_SERVER_SDK_KEY>', options)
+devcycle_client = DevCycleCloudClient(os.environ["DEVCYCLE_SERVER_SDK_KEY"], options)
 
 # all client functions require user data to be an instance of the DevCycleUser class
 user = DevCycleUser(
