@@ -24,7 +24,7 @@ namespace Example {
         public void main() {
             // using ensures REST Client resources are correctly disposed once no longer required.
             using DevCycleCloudClient client = new DevCycleCloudClientBuilder()
-                .SetSDKKey("<DEVCYCLE_SERVER_SDK_KEY>")
+                .SetSDKKey(Environment.GetEnvironmentVariable("DEVCYCLE_SERVER_SDK_KEY"))
                 .SetLogger(LoggerFactory.Create(builder => builder.AddConsole()))
                 .Build();
 

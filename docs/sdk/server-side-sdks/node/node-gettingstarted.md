@@ -21,7 +21,7 @@ JS Example:
 const DevCycle = require('@devcycle/nodejs-server-sdk')
 
 const devcycleClient = await DevCycle.initializeDevCycle(
-  '<DEVCYCLE_SERVER_SDK_KEY>',
+  process.env.DEVCYCLE_SERVER_SDK_KEY,
 ).onClientInitialized()
 ```
 [//]: # (wizard-initialize-end)
@@ -32,7 +32,7 @@ Typescript Example:
 import { initializeDevCycle } from '@devcycle/nodejs-server-sdk'
 
 const devcycleClient = await initializeDevCycle(
-  '<DEVCYCLE_SERVER_SDK_KEY>',
+  process.env.DEVCYCLE_SERVER_SDK_KEY,
 ).onClientInitialized()
 ```
 

@@ -62,7 +62,7 @@ public class OpenFeatureExample {
     public static void main(String[] args) {
         // Initialize DevCycle Client
         DevCycleLocalOptions options = DevCycleLocalOptions.builder().build();
-        DevCycleLocalClient devCycleClient = new DevCycleLocalClient("DEVCYCLE_SERVER_SDK_KEY", options);
+        DevCycleLocalClient devCycleClient = new DevCycleLocalClient(System.getenv("DEVCYCLE_SERVER_SDK_KEY"), options);
 
         // Set the provider into the OpenFeature API
         OpenFeatureAPI api = OpenFeatureAPI.getInstance();
