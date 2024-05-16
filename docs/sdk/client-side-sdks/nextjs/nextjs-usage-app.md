@@ -68,8 +68,9 @@ export default async function RootLayout({
 ```
 [//]: # (wizard-initialize-end)
 
-Note: You _must_ use the client SDK key of your project, not the server SDK key. The key is used across the server and
-the client and will be sent to the clientside to bootstrap the client SDK.
+Note: You _must_ use the correct type of SDK key for each key option provided here. The server key is used to retrieve
+privileged configuration information on the server, while the client key is required to instantiate the client SDK. 
+Using the wrong key in either place risks leaking a server key to the client, or breaking server-side functionality.
 
 The setupDevCycle method will:
 - provide a `getVariableValue` method that encapsulates your configured SDK key, user getter and options
