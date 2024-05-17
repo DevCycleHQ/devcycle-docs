@@ -32,14 +32,14 @@ const getUserIdentity = async () => {
     }
 }
 
-export const { getVariableValue, getClientContext } = setupDevCycle(
-    // SDK Key. This will be public and sent to the client, so you MUST use the client SDK key.
-    process.env.NEXT_PUBLIC_DEVCYCLE_CLIENT_SDK_KEY ?? '',
-    // pass your method for getting the user identity
-    getUserIdentity,
-    // pass any options you want to use for the DevCycle SDK
-    {},
-)
+export const { getVariableValue, getClientContext } = setupDevCycle({
+  // Server SDK Key. This will be private and used to retrieve configuration data, so you MUST use the server SDK key.
+  serverSDKKey: process.env.DEVCYCLE_SERVER_SDK_KEY ?? '',
+  // Client SDK Key. This will be public and sent to the client, so you MUST use the client SDK key.
+  clientSDKKey: process.env.NEXT_PUBLIC_DEVCYCLE_CLIENT_SDK_KEY ?? '',
+  userGetter: getUserIdentity,
+  options: {}
+})
 ```
 Provide the context function to the DevCycleClientsideProvider as high as possible in your component tree.
 
@@ -68,8 +68,9 @@ export default async function RootLayout({
 ```
 [//]: # (wizard-initialize-end)
 
-Note: You _must_ use the client SDK key of your project, not the server SDK key. The key is used across the server and
-the client and will be sent to the clientside to bootstrap the client SDK.
+Note: You _must_ use the correct type of SDK key for each key option provided here. The server key is used to retrieve
+privileged configuration information on the server, while the client key is required to instantiate the client SDK. 
+Using the wrong key in either place risks leaking a server key to the client, or breaking server-side functionality.
 
 The setupDevCycle method will:
 - provide a `getVariableValue` method that encapsulates your configured SDK key, user getter and options
@@ -85,14 +86,14 @@ Due to a bug in Next.js, realtime updates functionality is only available in Nex
 below that, you _must_ disable realtime updates to prevent clientside errors. To do so, pass the option in your
 initialization function:
 ```typescript
-const { getVariableValue, getClientContext } = setupDevCycle(
-    process.env.NEXT_PUBLIC_DEVCYCLE_CLIENT_SDK_KEY ?? '',
-    getUserIdentity,
-    {
-        // pass this option to disable realtime updates when using Next.js below 14.1
-        disableRealtimeUpdates: true,
-    },
-)
+export const { getVariableValue, getClientContext } = setupDevCycle({
+  serverSDKKey: process.env.DEVCYCLE_SERVER_SDK_KEY ?? '',
+  clientSDKKey: process.env.NEXT_PUBLIC_DEVCYCLE_CLIENT_SDK_KEY ?? '',
+  userGetter: getUserIdentity,
+  options: {
+    disableRealtimeUpdates: true,
+  }
+})
 ````
 :::
 
@@ -199,16 +200,21 @@ The SDK also supports static rendering. To accomplish this, we provide an initia
 features that read from dynamic request data (specifically the User Agent header).
 Pass the `staticMode` option to the setup function:
 ```typescript
-export const { getVariableValue, getClientContext } = setupDevCycle(
-    process.env.NEXT_PUBLIC_DEVCYCLE_CLIENT_SDK_KEY ?? '',
-    getUserIdentity,
-    {
-        staticMode: true,
-    },
-)
+export const { getVariableValue, getClientContext } = setupDevCycle({
+  serverSDKKey: process.env.DEVCYCLE_SERVER_SDK_KEY ?? '',
+  clientSDKKey: process.env.NEXT_PUBLIC_DEVCYCLE_CLIENT_SDK_KEY ?? '',
+  userGetter: getUserIdentity,
+  options: {
+    staticMode: true,
+  }
+})
+
 ```
-When your page is rendered, the DevCycle configuration that is available at that time as well as the user data
-provided during the build will be used to provide the values for DevCycle variables. Realtime configuration updates that
+Note that the `userGetter` function you provide must also be "static", i.e. it must not rely on dynamic request data
+such as headers or cookies. If it does, then the page will still be opted into dynamic rendering.
+
+When your page is rendered, the DevCycle configuration that is available at that time as well as the static user data
+that is available from the user getter will be used to provide the values for DevCycle variables. Realtime configuration updates that
 are received while someone is viewing a statically-rendered page will still trigger a re-render of the page with the
 new configuration data.
 
