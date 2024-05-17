@@ -1,16 +1,16 @@
 ---
 title: React Native SDK Usage
 sidebar_label: Usage
-sidebar_position: 3
+sidebar_position: 4
 description: Using the SDK
 sidebar_custom_props: { icon: material-symbols:toggle-on }
 ---
 
-[![Npm package version](https://badgen.net/npm/v/@devcycle/react-native-client-sdk)](https://www.npmjs.com/package/@devcycle/react-native-client-sdk)
-[![Npm package version](https://badgen.net/npm/v/@devcycle/react-native-expo-client-sdk)](https://www.npmjs.com/package/@devcycle/react-native-expo-client-sdk)
+[![React-Native package version](https://badgen.net/npm/v/@devcycle/react-native-client-sdk)](https://www.npmjs.com/package/@devcycle/react-native-client-sdk)
+[![Expo package version](https://badgen.net/npm/v/@devcycle/react-native-expo-client-sdk)](https://www.npmjs.com/package/@devcycle/react-native-expo-client-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)
 
-[//]: # (wizard-evaluate-start)
+[//]: # 'wizard-evaluate-start'
 
 ## Getting a Variable
 
@@ -38,7 +38,8 @@ const DevCycleFeaturePage = () => {
   )
 }
 ```
-[//]: # (wizard-evaluate-end)
+
+[//]: # 'wizard-evaluate-end'
 
 ## useDevCycleClient
 
@@ -134,7 +135,7 @@ If the SDK has not finished initializing, these methods will return an empty obj
 
 :::caution
 
-This method is intended to be used for debugging and analytics purposes, *not* as a method for retrieving the value of Variables to change code behaviour.
+This method is intended to be used for debugging and analytics purposes, _not_ as a method for retrieving the value of Variables to change code behaviour.
 For that purpose, we strongly recommend using the individual variable access method described in [Getting a Variable](#getting-a-variable)
 Using this method instead will result in no evaluation events being tracked for individual variables, and will not allow the use
 of other DevCycle features such as [Code Usage detection](/integrations/github/feature-usage-action)
