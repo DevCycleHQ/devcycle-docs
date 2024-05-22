@@ -13,7 +13,7 @@ This guide enables you to integrate DevCycle feature flags with Google Analytics
 
 ### GTM Elements: Tags, Variables, and Triggers
 
-Below is a description of Google Tag Manager's tags, variables, and triggers. For more in-depth understanding, consult   [Google's official documentation](https://support.google.com/tagmanager/answer/6102821).
+Below is a description of Google Tag Manager's tags, variables, and triggers. For more in-depth understanding, consult [Google's official documentation](https://support.google.com/tagmanager/answer/6102821).
 
 - Tags execute specified functionality, such as sending data to GA4 or initializing DevCycle. 
 - Variables serve as placeholders for predefined values, which in this guide store the feature and variation data.
@@ -31,11 +31,11 @@ Below is a description of Google Tag Manager's tags, variables, and triggers. Fo
 ```js
 <script>
     let user = { isAnonymous: true };
-    let dvcOptions = { logLevel: "debug" };
+    let devcycleOptions = { logLevel: "debug" };
     let devcycleClient = DevCycle.initializeDevCycle(
         "<SDK_KEY>",  // Replace with your specific DevCycle SDK Key
         user,
-        dvcOptions
+        devcycleOptions
     );
 
     devcycleClient.onClientInitialized().then(function () {
@@ -118,7 +118,7 @@ Before hitting "Submit," it's crucial to validate that your configurations are w
 
 1. Navigate to "Reports" > "Library" > "New Report".
 2. Choose the metric for analysis under "Event Metric".
-3. Select the feature property under "Dimension," e.g., **`DVC_featureNameA`**.
+3. Select the feature property under "Dimension," e.g., **`DevCycle_featureNameA`**.
    - If the dimension doesn't exist:
       1. Go to "Admin" > "Custom definitions" > "Create custom dimension".
       2. Set the scope to `Event` and name the event parameter according to your feature.

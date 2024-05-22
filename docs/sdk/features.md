@@ -13,7 +13,7 @@ functionality that DevCycle supports across the SDKs.
 - [Evaluating Features & Using Variables](#evaluating-features--using-variables)
 - [Getting All Features](#getting-all-features)
 - [Getting All Variables](#getting-all-variables)
-- [Identifying Users / Setting Properties](#Identifying-a-User-or-Setting-Properties)
+- [Identifying Users / Setting Properties](#identifying-a-user-or-setting-properties)
 - [Tracking Events](#tracking-custom-events)
 
 **Limited**
@@ -32,7 +32,7 @@ logic.
 
 A typical initialization call looks like this
 ```typescript
-const devcycleClient = initializeDevCycle('<DVC_CLIENT_SDK_KEY>', user)
+const devcycleClient = initializeDevCycle('<DEVCYCLE_CLIENT_SDK_KEY>', user)
 ```
 
 SDKs also offer a way to wait for initialization to finish, meaning that the DevCycle configuration has been obtained
@@ -63,7 +63,7 @@ The SDK key is unique to each project and environment and can be found in the De
 
 A typical initialization call looks like this
 ```typescript
-const devcycleClient = initializeDevCycle('<DVC_SERVER_SDK_KEY>')
+const devcycleClient = initializeDevCycle('<DEVCYCLE_SERVER_SDK_KEY>')
 ```
 
 SDKs also offer a way to wait for initialization to finish, meaning that the DevCycle configuration has been obtained

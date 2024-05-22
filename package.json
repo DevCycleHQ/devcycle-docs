@@ -19,11 +19,11 @@
     "dev": "docusaurus start"
   },
   "dependencies": {
-    "@docusaurus/core": "latest",
-    "@docusaurus/plugin-content-docs": "latest",
-    "@docusaurus/preset-classic": "latest",
-    "@docusaurus/theme-common": "latest",
-    "@docusaurus/utils": "latest",
+    "@docusaurus/core": "^3.2.1",
+    "@docusaurus/plugin-content-docs": "^3.2.1",
+    "@docusaurus/preset-classic": "^3.2.1",
+    "@docusaurus/theme-common": "^3.2.1",
+    "@docusaurus/utils": "^3.2.1",
     "@docusaurus/utils-validation": "^3.2.1",
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "@fortawesome/free-brands-svg-icons": "^6.4.0",
@@ -58,9 +58,9 @@
     "yaml": "^2.4.1"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "latest",
-    "@docusaurus/tsconfig": "latest",
-    "@docusaurus/types": "latest",
+    "@docusaurus/module-type-aliases": "^3.2.1",
+    "@docusaurus/tsconfig": "^3.2.1",
+    "@docusaurus/types": "^3.2.1",
     "@iconify-icon/react": "^1.0.8",
     "@types/react": "^18.2.29",
     "typescript": "~5.2.2",

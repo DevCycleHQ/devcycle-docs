@@ -36,8 +36,8 @@ To track all variable evaluations, initialize the DevCycle client with your SDK 
 
 ```javascript
 const user = { user_id: "my_user" };
-const dvcOptions = { logLevel: "debug" };
-const devcycleClient = initialize("<DVC_CLIENT_SDK_KEY>", user, dvcOptions);
+const devcycleOptions = { logLevel: "debug" };
+const devcycleClient = initializeDevCycle("<DEVCYCLE_CLIENT_SDK_KEY>", user, devcycleOptions);
 ...
 devcycleClient.subscribe(
   "variableEvaluted:*",
@@ -64,14 +64,14 @@ For React, we recommend encapsulating your RUM code within a React hook. Conside
 
 ```javascript
 import { DatadogRum } from '@Datadog/browser-rum'
-import { DVCVariableValue, useDVCClient } from '@devcycle/react-client-sdk'
+import { DVCVariableValue, useDevCycleClient } from '@devcycle/react-client-sdk'
 import { DVCVariable } from '@devcycle/js-client-sdk'
 import { useEffect } from 'react'
 
 let didInit = false
 
 export const useDatadogRum = () => {
-  const devcycleClient = useDVCClient()
+  const devcycleClient = useDevCycleClient()
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_ENABLE_Datadog_RUM === '1' && !didInit) {
       didInit = true
