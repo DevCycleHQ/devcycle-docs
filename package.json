@@ -52,7 +52,7 @@
     "react-dom": "^18.2.0",
     "redocusaurus": "^2.0.0",
     "remark-docusaurus-tabs": "^0.2.0",
-    "styled-components": "^6.1.8",
+    "styled-components": "^6.1.11",
     "tailwindcss": "^3.3.5",
     "vercel": "^32.5.0",
     "yaml": "^2.4.1"
