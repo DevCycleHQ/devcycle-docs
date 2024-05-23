@@ -17,10 +17,10 @@ To get you up and started, we've put together an example repository to be used t
 
 ### Setting Up Feature Flags for the Example
 
-1. Create a new feature on the DevCycle Dashboard
-    
-    ![Screen Shot 2022-09-13 at 11.05.15 AM.png](/Screen_Shot_2022-09-13_at_11.05.15_AM.png)
-    
+1. Click “Create New Feature” from your “Feature" page or clicke the `+` button on the navigation bar
+
+   ![create-a-feature-cta.png](/create-feature-cta.png)
+
 2. Choose a Release type, and as per our example code we’ll name this feature `event-type`
     
     ![Screen Shot 2022-09-13 at 4.30.46 PM.png](/Screen_Shot_2022-09-13_at_4.30.46_PM.png)
@@ -45,15 +45,17 @@ To get you up and started, we've put together an example repository to be used t
 
 ### Setting Up AWS Lambda
 
-The  [README in the example repo has more details regarding the Lambda Setup.](https://github.com/DevCycleHQ/devcycle-lambda-example#readme) 
+The [README in the example repo has more details regarding the Lambda Setup.](https://github.com/DevCycleHQ/devcycle-lambda-example#readme) 
 
 1. Clone the [devcycle-lambda-example](https://github.com/DevCycleHQ/devcycle-lambda-example) repo
-2. In this example, we are using a ***server* key.** Copy your server key as the `<DEVCYCLE_SERVER_SDK_KEY>`
- in the `DVC.initialize` call. 
-[(You can get your Server SDK key from the DevCycle dashboard)](/essentials/keys)
+2. In this example, we are using a **_server_ key.** Copy your server key as the `<DEVCYCLE_SERVER_SDK_KEY>`
+    in the `initializeDevCycle` call.
+   [(You can get your Server SDK key from the DevCycle dashboard)](/essentials/keys)
 
 ```jsx
-const devcycleClient = await DVC.initialize('<DEVCYCLE_SERVER_SDK_KEY>').onClientInitialized()
+const devcycleClient = await initializeDevCycle(
+  '<DEVCYCLE_SERVER_SDK_KEY>',
+).onClientInitialized()
 ```
 
 3. Create a new bucket for deployment artifacts by executing `1-create-bucket.sh`

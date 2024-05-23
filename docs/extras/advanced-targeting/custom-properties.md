@@ -9,7 +9,7 @@ These properties are set on the user data that you provide to DevCycle when
 
 For example, adding properties to a user in a DevCycle SDK might look like this:
 ```jsx
-import { useDVCClient } from '@devcycle/react-client-sdk'
+import { useDevCycleClient } from '@devcycle/react-client-sdk'
 
 const user = {
   user_id: 'user1',
@@ -19,7 +19,7 @@ const user = {
     isBetaUser: true,
   },
 }
-const client = useDVCClient()
+const client = useDevCycleClient()
 client.identifyUser(user)
 ```
 

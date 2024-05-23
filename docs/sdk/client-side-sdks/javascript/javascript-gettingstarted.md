@@ -20,12 +20,12 @@ The default options are to set the `logWriter` to be the console and the `logLev
 
 ```javascript
 const user = { user_id: 'my_user' }
-const dvcOptions = { logLevel: 'debug' }
+const devcycleOptions = { logLevel: 'debug' }
 // replace initializeDevCycle with DevCycle.initializeDevCycle if using the CDN
 const devcycleClient = initializeDevCycle(
   '<DEVCYCLE_CLIENT_SDK_KEY>',
   user,
-  dvcOptions,
+  devcycleOptions,
 )
 ```
 
@@ -44,11 +44,11 @@ Until that config is retrieved, all calls
 to retrieve variable values will return their default values.
 
 ```js
-const dvcOptions = { logLevel: 'debug', deferInitialization: true }
+const devcycleOptions = { logLevel: 'debug', deferInitialization: true }
 // replace initializeDevCycle with DevCycle.initializeDevCycle if using the CDN
 const devcycleClient = initializeDevCycle(
   '<DEVCYCLE_CLIENT_SDK_KEY>',
-  dvcOptions,
+  devcycleOptions,
 )
 ```
 

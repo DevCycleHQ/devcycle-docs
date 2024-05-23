@@ -46,11 +46,11 @@ Members are added to an Organization from the [Organization Settings](#organizat
 **Adding Members**
 From here, you can click the "Add Team Member" button to add a new Member to your Organization. This will bring up a window where you can enter the email of the user you wish to invite. This will send an email to the Member, allowing them to start the process of creating an account.
 
-When a Member is added and an account is created, the user will begin within the Member role. To learn more about Roles, read [Team Member Roles](#organization-roles).
+When a Member is added and an account is created, the user will begin within the Member role. To learn more about Roles, read [Organization Roles](#organization-roles).
 
 **Editing Members**
 
-To view more detail of a Team Members within your Organization, click the "View Profile" button on the Member's list for the user you wish to view. This will lead to the User's profile page where you may modify their [Team Member Role](#roles) if you are an Owner of the Organization.
+To view more detail of a Team Members within your Organization, click the "View Profile" button on the Member's list for the user you wish to view. This will lead to the User's profile page where you may modify their [Organization Roles](#organization-roles) if you are an Owner of the Organization.
 
 **Removing Members**
 

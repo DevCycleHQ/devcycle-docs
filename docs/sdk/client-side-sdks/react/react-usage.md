@@ -209,6 +209,65 @@ const devcycleClient = initializeDevCycle(
 If you are using a Javascript-based server rendering framework like Remix, the DevCycle Node.js SDK provides a
 convenient way to obtain the configuration data needed for bootstrapping. See the [Node.js documentation](/sdk/server-side-sdks/node/node-bootstrapping) for more information.
 
+## Rendering Helpers
+
+The SDK comes with a few helpful utilities to make rendering different content based on Variable values easier.
+
+### RenderIfEnabled
+The `RenderIfEnabled` utility is a component which will render its children when the provided Variable key is 
+enabled (boolean true):
+```typescript jsx
+import { RenderIfEnabled } from '@devcycle/react-client-sdk'
+
+const DevCycleFeaturePage = () => {
+  return (
+    <RenderIfEnabled variableKey="my-feature">
+      <div>Feature is enabled!</div>
+    </RenderIfEnabled>
+  )
+}
+```
+
+You can also define a target and default value in order to look for something other than `true`, even a different
+data type:
+```typescript jsx
+import { RenderIfEnabled } from '@devcycle/react-client-sdk'
+const DevCycleFeaturePage = () => {
+  return (
+    <RenderIfEnabled variableKey="my-feature" targetValue="my-target" defaultValue="my-default">
+      <div>Feature is enabled!</div>
+    </RenderIfEnabled>
+  )
+}
+```
+
+### Swap Components
+The `SwapComponents` utility is a component which will render one of two components based on the value of a Variable.
+It's useful for implementing a [Branch by Abstraction](https://martinfowler.com/bliki/BranchByAbstraction.html)
+approach to feature flagging your components.
+
+```typescript jsx
+import { SwapComponents } from '@devcycle/react-client-sdk'
+const OldComponent = ({content}) => {
+  return <h1>Old Component: {content}</h1>
+}
+
+const NewComponent = ({content}) => {
+  return <h1>New Component: {content}</h1>
+}
+
+const DevCycleFeaturePage = () => {
+  const ComponentToUse = SwapComponents('my-variable', OldComponent, NewComponent)
+  return (
+    <ComponentToUse content={'Some Content'} />
+  )
+}
+````
+
+The `SwapComponents` utility is a higher-order component which wraps and returns the appropriate component based on the value of the Variable.
+In this example, if the `my-variable` value evaluates to `true`, then `NewComponent` will be rendered when `ComponentToUse`
+is rendered. Otherwise, `OldComponent` will be rendered. Any props passed to `ComponentToUse` will be passed to the rendered component.
+If using Typescript, `OldComponent` and `NewComponent` must have compatible props interfaces, which `ComponentToUse` will inherit.
 
 ## EdgeDB
 

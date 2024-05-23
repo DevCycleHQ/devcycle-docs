@@ -3,7 +3,7 @@ title: Javascript SDK Typescript Usage
 sidebar_label: Typescript
 sidebar_position: 4
 description: SDK features for Typescript users
-sidebar_custom_props: {icon: cib:typescript}
+sidebar_custom_props: { icon: cib:typescript }
 ---
 
 [![Npm package version](https://badgen.net/npm/v/@devcycle/js-client-sdk)](https://www.npmjs.com/package/@devcycle/js-client-sdk)
@@ -47,11 +47,11 @@ type VariableTypes = {
 }
 
 const user = { user_id: 'my_user' }
-const dvcOptions = { logLevel: 'debug' }
+const devcycleOptions = { logLevel: 'debug' }
 const devcycleClient = initializeDevCycle<VariableTypes>(
   '<DEVCYCLE_CLIENT_SDK_KEY>',
   user,
-  dvcOptions,
+  devcycleOptions,
 )
 ```
 

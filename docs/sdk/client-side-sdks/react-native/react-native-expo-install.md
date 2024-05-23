@@ -1,26 +1,26 @@
 ---
-title: React Native SDK Installation
-sidebar_label: Installation
-sidebar_position: 1
-description: Installing the SDK
+title: Expo SDK Installation
+sidebar_label: Expo Installation
+sidebar_position: 2
+description: Installing the Expo SDK
 sidebar_custom_props: { icon: material-symbols:install-desktop }
 ---
 
-[![React-Native package version](https://badgen.net/npm/v/@devcycle/react-native-client-sdk)](https://www.npmjs.com/package/@devcycle/react-native-client-sdk)
+[![Expo package version](https://badgen.net/npm/v/@devcycle/react-native-expo-client-sdk)](https://www.npmjs.com/package/@devcycle/react-native-expo-client-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)
 
-To get started, install the React Native SDK. For React Native Expo, see the [Expo SDK Installation](/sdk/client-side-sdks/react-native/react-native-expo-install) guide.
+To get started, install the React Native Expo SDK.
 
 ## Installation
 
-The command to install the React Native SDK is:
+The command to install the React Native Expo SDK is:
 
 [//]: # 'wizard-install-start'
 
-### npm
+### npx
 
 ```bash
-npm install --save @devcycle/react-native-client-sdk
+npx expo install @devcycle/react-native-expo-client-sdk
 ```
 
 [//]: # 'wizard-install-end'
@@ -28,30 +28,30 @@ npm install --save @devcycle/react-native-client-sdk
 ### yarn
 
 ```bash
-yarn add @devcycle/react-native-client-sdk
+yarn expo install @devcycle/react-native-expo-client-sdk
 ```
 
 ## Install SDK Dependencies
 
 Install the SDK dependencies, run the following command
 
-### npm
+### npx
 
 ```bash
-npm install --save @react-native-async-storage/async-storage react-native-get-random-values react-native-device-info
+npx expo install @react-native-async-storage/async-storage react-native-get-random-values react-native-device-info
 ```
 
 ### yarn
 
 ```bash
-yarn add @react-native-async-storage/async-storage react-native-get-random-values react-native-device-info
+yarn expo install @react-native-async-storage/async-storage react-native-get-random-values react-native-device-info
 ```
 
 ## Install Pods
 
-Add the following packages that are required for React Native functionality as dependencies of your project:
+Add the following packages that are required for React Native Expo functionality as dependencies of your project:
 
-```shell
+```bash
 npx pod-install
 ```
 
@@ -74,7 +74,7 @@ import React from 'react'
 import 'react-native-get-random-values'
 import DeviceInfo from 'react-native-device-info'
 import '@react-native-async-storage/async-storage'
-import { withDevCycleProvider } from '@devcycle/react-native-client-sdk'
+import { withDevCycleProvider } from '@devcycle/react-native-expo-client-sdk'
 
 global.DeviceInfo = DeviceInfo
 ```
@@ -102,7 +102,7 @@ import { View, Text } from 'react-native'
 import 'react-native-get-random-values'
 import DeviceInfo from 'react-native-device-info'
 import '@react-native-async-storage/async-storage'
-import { withDevCycleProvider } from '@devcycle/react-native-client-sdk'
+import { withDevCycleProvider } from '@devcycle/react-native-expo-client-sdk'
 
 global.DeviceInfo = DeviceInfo
 function App() {
