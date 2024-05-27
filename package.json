@@ -54,7 +54,7 @@
     "remark-docusaurus-tabs": "^0.2.0",
     "styled-components": "^6.1.8",
     "tailwindcss": "^3.3.5",
-    "vercel": "^32.5.0",
+    "vercel": "^34.2.3",
     "yaml": "^2.4.1"
   },
   "devDependencies": {
