@@ -14,7 +14,7 @@ SDK Keys are used to authenticate an SDK with DevCycle.
 
 SDK keys are separated into Server, Mobile and Client due to the unique security requirements and constraints of each platform.
 
-Features can also be targeted to a specific type of SDK using [SDK Visibility](/extras/sdk-visibility)
+Features can also be targeted to a specific type of SDK using [SDK Visibility](/topics/advanced-targeting/sdk-visibility)
 
 #### Server Keys
 

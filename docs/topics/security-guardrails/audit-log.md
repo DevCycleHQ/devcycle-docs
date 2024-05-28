@@ -33,7 +33,7 @@ For modifications to values, each card will show the orignal value on the left-h
 
 :::info
 
-Please note that [Self-Targeting](/extras/advanced-targeting/self-targeting) actions are not recorded in the Audit Log.
+Please note that [Self-Targeting](/topics/development-qa/self-targeting) actions are not recorded in the Audit Log.
 
 :::
 

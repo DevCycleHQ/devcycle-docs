@@ -131,7 +131,7 @@ Client Custom Data is only available for the Local Bucketing SDK
 
 ## EdgeDB
 
-When utilizing the Cloud Bucketing Python SDK, EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user. Read more about [EdgeDB](/extras/edgedb).
+When utilizing the Cloud Bucketing Python SDK, EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user. Read more about [EdgeDB](/topics/advanced-targeting/edgedb).
 
 To get started, contact us at support@devcycle.com to enable EdgeDB for your project.
 
