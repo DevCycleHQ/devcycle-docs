@@ -1,6 +1,6 @@
 ---
 title: Variable Schemas
-sidebar_position: 1
+sidebar_position: 3
 ---
 
 Variable Schemas is a new DevCycle feature that lets you define allowable values for your variables when creating feature variations. Variable Schemas help developers ensure that team members can easily select allowable inputs for variable values without being nervous that a certain value might cause an application crash or negatively impact end user experience. 

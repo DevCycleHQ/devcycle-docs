@@ -1,6 +1,6 @@
 ---
-title: Feature Experimentation
-sidebar_position: 3
+title: A/B Testing & Experimentation
+sidebar_position: 1
 ---
 
 :::info
