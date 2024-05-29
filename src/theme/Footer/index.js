@@ -22,7 +22,7 @@ const navigation = {
     },
     {
       name: 'Discord',
-      href: 'https://discord.gg/pKK4fJgGxG',
+      href: 'https://discord.gg/8uEqSsRKy5',
       icon: () => (
         <svg
           width="24"
