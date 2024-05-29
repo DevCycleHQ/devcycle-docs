@@ -1,22 +1,17 @@
 ---
-title: EdgeDB
+title: EdgeDB (Stored Custom Properties)
 sidebar_position: 6
 ---
 
-EdgeDB is a lightning-fast, globally replicated edge storage tool that simplifies the implementation of DevCycle in serverless environments or multiplatform applications. EdgeDB enables a number of different features and applications for DevCycle. In particular EdgeDB powers Edge Flags, Super Segments and Data Residency Controls.
+EdgeDB is a lightning-fast, globally replicated edge storage tool that allows you to store information about your users for future use in Targeting Rules. For example, you can set a custom property when a user performs a key action in your application, and then target based on that property in the future without having to 
+continuously provide that data in the SDK. 
+
+EdgeDB is also a powerful tool for cross-platform feature flagging, where you may only have the user data available in one platform, but need to target the same user in another platform.
 
 To learn more about EdgeDB check out the documentation for the features powered EdgeDB below.
 
-### Features Enabled by EdgeDB
-
-- Edge Flags
-- Super Segments
-- Data Residency
-
-# Edge Flags
-EdgeDB is a low-latency, centralized user data storage system that is accessible across all of our SDKs. With EdgeDB, you can accurately use targeting rules without having to pass all of a user’s data into the SDKs each time. Once targeting data is stored in EdgeDB, it can be easily accessed on any platform without the need for data pipelines.
-
-This guide will explain how to set up and use EdgeDB. It will also discuss some use cases to help you determine where to implement EdgeDB in your project.
+# Stored Custom Properties
+This guide will explain how to set up and use EdgeDB to target users using Stored Custom Properties. It will also discuss some use cases to help you determine where to implement EdgeDB in your project.
 
 ### Prerequisites
 
@@ -36,13 +31,14 @@ Once EdgeDB is enabled in your project, you must turn on EdgeDB mode for the SDK
 
 ## Example Usage
 
-Let’s say you have set a Targeting Rule that targets users by a custom property called `pricingPlan`. We can use EdgeDB to maintain the user’s experience over different platforms. To set the `pricingPlan`, pass in the custom property as usual, in addition to the `enableEdgeDB` option. *Note: The following example uses the JavaScript SDK.*
+Let’s say you have set a Targeting Rule that targets users by a custom property called `pricingPlan`. We can use EdgeDB to store the user's plan for future use. To set the `pricingPlan`, pass in the custom property when identifying the user, in addition to the `enableEdgeDB` option. *Note: The following example uses the JavaScript SDK.*
 
 ```jsx
 const user = {
   user_id: 'demo_user',
   customData: {
     'pricingPlan': 'premium'
+  
   }
 }
 const options = {
@@ -66,7 +62,7 @@ In the example above, `'demo_user'` will still receive the features based on the
 
 We are able to support updates to users using our EdgeDB Public Rest API. The docs for it can be found [here](/bucketing-api/).
 
-You are able to use this to update users with all of the supported data, along with custom data, and be able to use that data for segmenting in the SDKs without having to explicitly pass all of the data when `identifyUser` is called.
+You are able to use this to update stored user custom data, and be able to use that data for segmenting in the SDKs without having to explicitly pass all of the data when `identifyUser` is called.
 
 ```
 curl --location --request PATCH 'https://sdk-api.devcycle.com/v1/edgedb/my-user' \
@@ -103,7 +99,7 @@ For specific documentation on how to use Edge Flags with each SDK
 - [.NET SDK](/sdk/server-side-sdks/dotnet/dotnet-usage#edgedb---cloud-only)
 
 :::info
-**Data stored in EdgeDB is only used for user segmenting (targeting rules), so EdgeDB won’t return data to the SDK.**
+**Data stored in EdgeDB is only used for user segmenting (targeting rules), so EdgeDB won’t return that data to the SDK.**
 
 In the second block of code, if we tried to access `devcycleClient.user.customData.pricingPlan`, it will be undefined. This does not mean the data is not in EdgeDB; it is simply because EdgeDB data is not returned to the SDK itself. However, the data will still be used for the targeting rules that were configured in the dashboard.
 
@@ -113,6 +109,9 @@ In the second block of code, if we tried to access `devcycleClient.user.customDa
 ## Use Cases
 
 There are several scenarios where EdgeDB’s data synchronization can be useful. The following list can give you some ideas about when to implement EdgeDB.
+
+**Storing complex facets or decisions about a user.** There are often complex properties describing a user which are not easily retrieved or derived on each call to the SDK. For example, a data analysis system may want to categorize users a certain way based on many factors, or an application may want to record that a user performed
+an action in real time. EdgeDB allows you to store this information when it is available and use it later for targeting.
 
 **Storing data for cross-channel applications.** When you store information in EdgeDB, you can use it as targeting data regardless of the channel in use (mobile, web, OTT, IoT). This allows you to keep a consistent user experience across platforms.
 
@@ -131,23 +130,6 @@ In this guide we explored:
 - how to enable EdgeDB for your project
 - how to implement EdgeDB in your code
 - some use cases on how EdgeDB can improve efficiency and privacy within your apps
-
-
-# Super Segments 
-
-Super Segments are collections of users that are targeted by data from any external source. 
-
-This means that users or their data can be “imported” into DevCycle for targeting in experiments or features by making use of EdgeDB. 
-
-## Usage
-
-This data can be imported to DevCycle and EdgeDB in a number of different methods:
-- Via the [EdgeDB API](/best-practices/edgedb-and-edge-flags/edge-db-via-api-simple)
-- Through the [Zapier Integration](/best-practices/edgedb-and-edge-flags/import-from-anywhere)
-
-Once a Super Segment has been created in EdgeDB it can then be accessed via Feature Flags using [Custom Properties](/extras/advanced-targeting/custom-properties) within a targeting rule.
-
-Make sure to add the Custom Property to any feature, using the same key used when creating the Super Segment via the API or Zapier Integration.
 
 # Data Residency
 
