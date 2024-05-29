@@ -95,7 +95,7 @@ If you'd like, you can edit the values of the Variables and Variations that were
 
 ### Modify Targeting
 
-The way Variables are delivered different values to different users is via Targeting Rules. The example feature will have created some initial Targeting Rules, but feel free to modify these however you'd like. If you would like to try targeting off of user data, you can check out the documentation on [Custom Properties here](/extras/advanced-targeting/custom-properties).
+The way Variables are delivered different values to different users is via Targeting Rules. The example feature will have created some initial Targeting Rules, but feel free to modify these however you'd like. If you would like to try targeting off of user data, you can check out the documentation on [Custom Properties here](/topics/advanced-targeting/custom-properties).
 
 ### Toggle Variations
 
@@ -164,7 +164,7 @@ You can edit the values of the Variables and Variations that were auto-populated
 
 ### Modify Targeting
 
-The way Variables are delivered different values to different users is via Targeting Rules. The Feature creation process will have created some initial Targeting Rules, but you can modify these however you'd like. Just make sure that Targeting is enabled, and you have at least one Targeting Rule targeting "All Users" in the Environment you chose when initializing the SDK. If you would like to try targeting off of user data, you can check out the documentation on [Custom Properties here](/extras/advanced-targeting/custom-properties).
+The way Variables are delivered different values to different users is via Targeting Rules. The Feature creation process will have created some initial Targeting Rules, but you can modify these however you'd like. Just make sure that Targeting is enabled, and you have at least one Targeting Rule targeting "All Users" in the Environment you chose when initializing the SDK. If you would like to try targeting off of user data, you can check out the documentation on [Custom Properties here](/topics/advanced-targeting/custom-properties).
 
 ### Toggle Variations
 

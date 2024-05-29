@@ -1,6 +1,6 @@
 ---
 title: How Metrics are Calculated
-sidebar_position: 2
+sidebar_position: 4
 ---
 
 # How things are calculated

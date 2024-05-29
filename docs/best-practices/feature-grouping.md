@@ -10,7 +10,7 @@ This guide describes how to manage large amounts of feature flags with DevCycle.
 
 ## Why Group Flags?
 
-Feature Flags can accumulate very quickly. Without an organizational mechanism, the feature management dashboard would be extremely cluttered. Imagine developing a complex feature with various parts, such as the [Metrics and Experimentation feature in DevCycle](/extras/metrics/feature-experimentation). Each piece of functionality needs a flag: There’s a flag for the API, the UI, each type of experimentation, string flags for naming, and so on. It would be helpful to have the ability to find all these flags in the same place.
+Feature Flags can accumulate very quickly. Without an organizational mechanism, the feature management dashboard would be extremely cluttered. Imagine developing a complex feature with various parts, such as the [Metrics and Experimentation feature in DevCycle](/topics/experimentation-metrics/feature-experimentation). Each piece of functionality needs a flag: There’s a flag for the API, the UI, each type of experimentation, string flags for naming, and so on. It would be helpful to have the ability to find all these flags in the same place.
 
 Not only do we want flags for each part of a feature, but we also want the ability to turn off the entire feature, all at once, in case something goes wrong. Other Feature Flag management solutions require you to create complex feature flag dependencies to set up a “master switch” for a group of flags. In contrast, DevCycle allows you to easily group feature flags and disable them simultaneously with one switch.
 

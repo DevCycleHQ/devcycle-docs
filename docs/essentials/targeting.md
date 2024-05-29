@@ -8,11 +8,11 @@ incrementally roll out features for monitoring, or create and test different fea
 
 :::tip Already understand the targeting essentials?
 Be sure to check out our advanced targeting documentation which covers topics like:
-- [Audiences](/extras/advanced-targeting/audiences)
-- [Custom Properties](/extras/advanced-targeting/custom-properties)
-- [Random Variations](/extras/advanced-targeting/random-variations)
-- [Rollouts](/extras/advanced-targeting/rollouts)
-- [Self-Targeting](/extras/advanced-targeting/self-targeting)
+- [Audiences](/topics/advanced-targeting/audiences)
+- [Custom Properties](/topics/advanced-targeting/custom-properties)
+- [Random Variations](/topics/advanced-targeting/random-variations)
+- [Rollouts](/topics/advanced-targeting/rollouts)
+- [Self-Targeting](/topics/development-qa/self-targeting)
 :::
 
 ## Targeting Properties
@@ -35,7 +35,7 @@ Below is a summary of the properties built into the platform, and how to specify
 | Country          | Country the user is located in. Must be a valid 2 letter [ISO-3166 country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)      | Set "country" property    |
 
 In addition to these built-in properties, you can specify any other property that suits your needs using the
-[Custom Properties](/extras/advanced-targeting/custom-properties) feature. 
+[Custom Properties](/topics/advanced-targeting/custom-properties) feature. 
 
 Here is an example of a user object being passed to an SDK with these properties set:
 ```typescript
@@ -203,7 +203,7 @@ From here you will be able to enable or disable the specific targeting rule by c
 
 :::tip
 
-Looking to use DevCycle to help you QA a new feature? Be sure to check out [Self-Targeting](/extras/advanced-targeting/self-targeting).
+Looking to use DevCycle to help you QA a new feature? Be sure to check out [Self-Targeting](/topics/development-qa/self-targeting).
 
 :::
 
@@ -218,10 +218,10 @@ You will be prompted to select a feature, environment and what you would like to
 
 You should then select `Add Targeting Rule` and will be prompted to define a Name, Variations to serve and a filter. For this case, if you have not yet created any filters, you should select `Add Filter`.
 
-Here you will be prompted to select a definition of all (for all users), user (to target a specific user based on an identifier like email, country, etc.) or audienceMatch [(see Audiences)](/extras/advanced-targeting/audiences).
+Here you will be prompted to select a definition of all (for all users), user (to target a specific user based on an identifier like email, country, etc.) or audienceMatch [(see Audiences)](/topics/advanced-targeting/audiences).
 
 :::info
-Looking to reuse an audience in user targeting for features? Be sure to check out the our documentation explaining how to [create and manage Audiences via our API or within the DevCycle dashboard](/extras/advanced-targeting/audiences).
+Looking to reuse an audience in user targeting for features? Be sure to check out the our documentation explaining how to [create and manage Audiences via our API or within the DevCycle dashboard](/topics/advanced-targeting/audiences).
 :::
 
 Once you have chosen your relevant definition select `Continue` (twice) when prompted. If successful you should see a flow which resembles the following (which represents added a new targeting rule to `feature-a` in the `Staging Environment` for any users with the email address that contains `devcycle` and will serve them a variation named `New Variation` ):
