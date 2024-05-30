@@ -3,12 +3,14 @@ title: EdgeDB (Stored Custom Properties)
 sidebar_position: 6
 ---
 
+# EdgeDB and Stored Custom Properties
+
 EdgeDB is a lightning-fast, globally replicated edge storage tool that allows you to store information about your users for future use in Targeting Rules. For example, you can set a custom property when a user performs a key action in your application, and then target based on that property in the future without having to 
 continuously provide that data in the SDK. 
 
 EdgeDB is also a powerful tool for cross-platform feature flagging, where you may only have the user data available in one platform, but need to target the same user in another platform.
 
-To learn more about EdgeDB check out the documentation for the features powered EdgeDB below.
+To learn more about EdgeDB check out the documentation for the features powered by EdgeDB below.
 
 # Stored Custom Properties
 This guide will explain how to set up and use EdgeDB to target users using Stored Custom Properties. It will also discuss some use cases to help you determine where to implement EdgeDB in your project.
@@ -130,21 +132,3 @@ In this guide we explored:
 - how to enable EdgeDB for your project
 - how to implement EdgeDB in your code
 - some use cases on how EdgeDB can improve efficiency and privacy within your apps
-
-# Data Residency
-
-![data residency header](/sept-12-2022-edgedb-data-residency.png)
-
-With EdgeDB you are in complete control of your data. While the primary purpose of EdgeDB is to make data available across platforms, globally. You can also lock down the locales that data is saved to.
-
-When saving data to EdgeDB you can specify which locale the data should be saved to and DevCycle will do the rest, ensuring the user data is only saved to the edge in the right geography and that it is not replicated anywhere that it shouldn't be.
-
-In this way, if you need controls for Data Residency EdgeDB gives you complete control while still simplifying your feature flag setup.
-
-## Usage
-
-:::info
-
-To get started with Data Residency in EdgeDB please contact DevCycle support at [support@devcycle.com](mailto:support@devcycle.com).
-
-:::
