@@ -51,7 +51,7 @@ const YouTubeTransformer = {
  */
 const DVC_CLI_VERSION = 'v5.14.9' // auto updated by dvc cli release workflow
 
-const VSCODE_EXTENSION_VERSION = 'v1.4.6' // auto updated by extension release workflow
+const VSCODE_EXTENSION_VERSION = 'v1.4.7' // auto updated by extension release workflow
 
 const removeDocsSections = (content, sectionNames, headerIdentifier = '##') => {
   let result = content
