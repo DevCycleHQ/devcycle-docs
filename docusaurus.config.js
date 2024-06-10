@@ -454,7 +454,7 @@ const config = {
               rel: null,
             },
             {
-              href: 'https://discord.gg/pKK4fJgGxG',
+              href: 'https://discord.gg/8uEqSsRKy5',
               label: 'Discord',
               target: '_blank',
               rel: null,
@@ -478,7 +478,7 @@ const config = {
           label: 'Sign Up',
         },
         {
-          href: 'https://discord.gg/pKK4fJgGxG',
+          href: 'https://discord.gg/8uEqSsRKy5',
           position: 'right',
           className: 'header-discord-link',
           'aria-label': 'Discord',
@@ -515,7 +515,7 @@ const config = {
             },
             {
               label: 'Discord',
-              href: 'https://discord.gg/pKK4fJgGxG',
+              href: 'https://discord.gg/8uEqSsRKy5',
             },
           ],
         },
@@ -541,7 +541,7 @@ const config = {
             },
             {
               label: 'Discord',
-              href: 'https://discord.gg/pKK4fJgGxG',
+              href: 'https://discord.gg/8uEqSsRKy5',
             },
           ],
         },
