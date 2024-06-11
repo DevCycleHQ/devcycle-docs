@@ -9,6 +9,10 @@ import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 
 The DevCycle Next.js SDK lets you easily integrate your Next.js applications with DevCycle.
 
+:::info
+Self-Targeting is currently unavailable on the Next.js SDK.
+:::
+
 <CustomDocCardList items={useCurrentSidebarCategory().items} columnWidth={4} />
 
 The SDK is available as a package on npm. It is also open source and can be viewed on Github.
