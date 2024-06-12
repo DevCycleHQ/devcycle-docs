@@ -3,45 +3,39 @@ title: Quickstart Tutorial
 sidebar_position: 1
 ---
 
-In this tutorial, we'll introduce some of the core features of DevCycle while showcasing a great use-case for feature flags: **Maintenance Mode in a React application.**
+In this tutorial, we'll be showcasing a great use case for feature flags, guiding you through the creation of a simple [React app](https://react.dev), connecting it to DevCycle, and implementing an [Ops feature flag](introduction/core-concepts/feature-types#ops) to enable/disable a **Maintenance Mode** page. 
+
+You'll learn about some of the core features of DevCycle, while experiencing firsthand just how easy it is to implement feature flags to enhance your application's functionality and flexibility.
 
 https://www.youtube.com/watch?v=RHpoc9TTR8U
 
 ---
 
-## Create a New Account
+## Step 1. Create a Feature
 
-If you don't have an account with DevCycle, you can [create a completely free account here](https://app.devcycle.com/?isSignUp=true).
+:::info
 
-We offer an always free tier to start, with pricing that scales with usage as needed. For more details on our pricing, [check it out here](https://devcycle.com/pricing).
-
-## Create a Feature
+This guided onboarding to core DevCycle functionality assumes you already have an account. If not you can [create one for free here](https://app.devcycle.com/?isSignUp=true). We offer an **always free** tier to start, with [pricing that scales](https://devcycle.com/pricing) with usage as needed.
+:::
 
 On the DevCycle Dashboard, access the "Feature Management" page via the `Features` button on the top navbar. Click the blue `+ Create New Feature` button (or select the "+" button in the main navbar) to begin the Feature creation process.
 
 To create a Feature:
 
 1. Click either the "+" button or the "Create new Feature" button.
-2. Choose an `Ops Feature` from the options modal. To read more about the Feature types and their uses, see [DevCycle Feature Types](/essentials/features).
+2. Choose an `Ops Feature` from the options modal. To read more about the Feature types and their uses, see [DevCycle Feature Types](/introduction/core-concepts/feature-types).
 3. After choosing a type, name and describe your Feature:
     - **Feature name:** For our example, this will be `Maintenance Mode`.
     - **Feature key:** This key is how the Feature and its Variables will be referenced in code. (A key of `maintenance-mode` will be automatically suggested based on the entered name.)
     - **Initial Variable Key:** Define an initial Variable key that can differ from the new Feature key name. The Feature Key and the Initial Variable Key will mimic the input entered in the Feature Name field formatted in kebab case (e.g., `maintenance-mode`).
     - **Initial Variable Type:** Select `Boolean` for this example.
-4. Click "create".
+4. Click "Create".
 
-Congratulations! You have now created the `Maintenance Mode` Operational Feature within your project.
-
-## Copy SDK Key
-
-1. Click on the View SDK Keys (i.e., Key Icon) in the top navbar.
-2. Copy the first SDK key you see, which should be for the Client in the Development environment.
-   ![alt text](/tutorial/tutorial-keys.png)
-3. Save this key for later.
+Congratulations! You have now created the `Maintenance Mode` Ops Feature within your project.
 
 ---
 
-## Create a New React App
+## Step 2. Create a New React App
 
 In your terminal, run the following commands to spin up a new React app.
 
@@ -55,8 +49,6 @@ If successful, you should see the following in your terminal:
 
 ![alt text](https://cdn.jsdelivr.net/gh/facebook/create-react-app@27b42ac7efa018f2541153ab30d63180f5fa39e0/screencast.svg)
 
-> Image taken from the [Getting Started documentation on create-react-app.dev](https://create-react-app.dev/docs/getting-started)
-
 And if you visit `localhost:3000`, you should see the default React app page:
 
 ![alt text](/tutorial/tutorial-default.png)
@@ -64,9 +56,9 @@ And if you visit `localhost:3000`, you should see the default React app page:
 
 ---
 
-## Implement the DevCycle SDK
+## Step 3. Implement the DevCycle SDK
 
-Now that you have a Maintenance Mode Feature created, its time to install the SDK and implement your first Variable:
+With a Maintenance Mode Feature created over on the DevCycle platform, its time to install the SDK and implement the actual maintenance mode logic in the React application:
 
 **1. Install the DevCycle SDK via the relevant dependency manager.** 
 
@@ -81,16 +73,31 @@ or via yarn:
 yarn add @devcycle/react-client-sdk
 ```
 
-**2. Import DevCycle and initialize it.** 
-Depending on which [type of SDK](/sdk/) and which environment you are initializing for, the SDK Key will be different. Read more about [Environments](/essentials/environments) and [keys](/essentials/keys) in the essentials.
+**2. Import DevCycle.** 
 
-To initialize DevCycle, head over to `App.js` and add the following to the import statements at the top of the file"
+To import DevCycle, head over to `App.js` and add the following to the import statements at the top of the file:
 
 ```javascript
 import { withDevCycleProvider } from "@devcycle/react-client-sdk";
 ```
 
-Next wrap your App component with `withDevCycleProvider`, providing your SDK Key, to allow DevCycle to be used throughout your React app:
+**3. Obtain SDK Key.**
+
+In order to initialize DevCycle in your application, you'll need to obtain the relevant SDK key from the DevCycle Dashboard, which in our case (a React application) will be the Client key for the Development Environment. 
+
+To obtain the SDK key, you'll need to:
+
+1. Navigate to your DevCycle Dashboard.
+2. Click on the View SDK Keys (i.e., Key Icon) in the top navbar.
+3. Copy the Client Key from the Development environment.
+
+![alt text](/tutorial/tutorial-keys.png)
+
+Depending on which [type of SDK](/sdk/) and which environment you are initializing for, the SDK Key will be different. Read more about [Environments](/essentials/environments) and [keys](/essentials/keys) in the essentials.
+
+**4. Initialize DevCycle Provider**
+
+Next wrap your App component with the `withDevCycleProvider` higher order component to allow DevCycle to be used throughout your React app:
 
 ```javascript
 export default withDevCycleProvider({
@@ -98,7 +105,7 @@ export default withDevCycleProvider({
 })(App);
 ```
 
-**3. Access your Variable.** 
+**5. Access your Variable.** 
 
 Implement the code to evaluate the Variable that is being controlled by the Feature you just created. Read more about Variables [here](/essentials/variables).
 
@@ -118,7 +125,7 @@ const maintenanceMode = useVariableValue("maintenance-mode", false);
 }
 ```
 
-**4. Add Maitenance Mode Page and Set evaluation logic** 
+**6. Add Maintenance Mode Page and Set evaluation logic** 
 Finally, you will add logic to conditionally render either the maintenance page or the default app content based on the variable's value.
 
 Here is the full code implementing that logic:
@@ -167,15 +174,20 @@ function App() {
 }
 ```
 
-## Modify Targeting
+---
 
-Variables deliver different values to different users via Targeting Rules. During the creation process for our "Maintenance Mode" feature, some initial Targeting Rules were set up to serve `Configuration 1` or `true` for your personal email address in the development environment. In this example, we haven't set any User Properties to target, so we'll update these targeting rules to impact All Users, which is generally how you would want to use Maintenance Mode.
+## Step 4. Modify Targeting
 
-**Step 1: Change Definition**
+Variables deliver different values to different users via Targeting Rules. During the creation process for our "Maintenance Mode" feature, some initial Targeting Rules were set up to serve `Configuration 1` or `true` for your personal email address in the development environment. 
 
-1. Under your targeting rules, locate the rule that targets User Email.
-2. Change this rule to target All Users.
-3. Click save.
+In this example, we haven't set any User Properties to target, so we'll update these targeting rules to impact All Users, which is generally how you would want to use Maintenance Mode. 
+
+To update these targetting rules, you'll need to:
+
+1. Navigate to your DevCycle Dashboard.
+2. Under your **Development Environment** targeting rules, locate the definition that references `User Email`.
+3. Change this rule to target `All Users`.
+4. Click `Save`.
 
 If everything is working, your maintenance mode should now be enabled, and you will see the maintenance mode screen.
 
@@ -183,7 +195,9 @@ If everything is working, your maintenance mode should now be enabled, and you w
 
 For more information on targeting based on user data, see the documentation on [Custom Properties here](/extras/advanced-targeting/custom-properties).
 
-## Toggle Variations
+---
+
+## Step 5. Toggle Variations
 
 The final step is to toggle between different Variations. 
 
@@ -193,5 +207,10 @@ The final step is to toggle between different Variations.
 
 If everything is working, your maintenance mode should now be disabled, and you will see the normal app screen.
 
-> That's it! You've just set up and toggled a maintenance mode feature flag running in your own app using DevCycle.
+---
 
+:::tip[Congratulations!]
+
+You've just set up and toggled a maintenance mode feature flag running in your own React app using DevCycle.
+
+:::
