@@ -184,7 +184,7 @@ In this example, we haven't set any User Properties to target, so we'll update t
 
 To update these targetting rules, you'll need to:
 
-1. Navigate to your DevCycle Dashboard.
+1. Navigate to the Maintenance Mode Feature on your DevCycle Dashboard.
 2. Under your **Development Environment** targeting rules, locate the definition that references `User Email`.
 3. Change this rule to target `All Users`.
 4. Click `Save`.
