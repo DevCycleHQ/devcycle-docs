@@ -138,15 +138,13 @@ Here is an example scenario of Passthrough Rollouts' expected behaviour:
 
 ### *What do you need to do?*
 
-If your team is leveraging a server-side SDK, your team must upgrade your SDK before **July 17, 2024** as Passthrough Rollouts require specific DevCycle Server SDK Versions to be deployed.  
+If your team is leveraging a server-side SDK, your team must upgrade your SDK before **July 17, 2024** as Passthrough Rollouts require specific DevCycle Server SDK Versions to be deployed (with the exception of the PHP SDK, which does not require an SDK update).
 
 
 - Python: **3.5.0** [![PyPI](https://badgen.net/pypi/v/devcycle-python-server-sdk)](https://pypi.org/project/devcycle-python-server-sdk/) 
-
 - Java: **2.2.0** [![Maven](https://badgen.net/maven/v/maven-central/com.devcycle/java-server-sdk)](https://search.maven.org/artifact/com.devcycle/java-server-sdk)
 - Dotnet (Local): **3.1.0** [![Nuget Local](https://badgen.net/nuget/v/DevCycle.SDK.Server.Cloud)](https://www.nuget.org/packages/DevCycle.SDK.Server.Local/)
 - Node: **1.29.0** [![Npm package version](https://badgen.net/npm/v/@devcycle/nodejs-server-sdk)](https://www.npmjs.com/package/@devcycle/nodejs-server-sdk)
-- PHP: **2.1.0** [![Packagist](https://badgen.net/packagist/v/devcycle/php-server-sdk/latest)](https://packagist.org/packages/devcycle/php-server-sdk)
 - Ruby: **2.7.0** [![GitHub](https://img.shields.io/github/stars/devcyclehq/ruby-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/ruby-server-sdk)
 - GO: **2.15.0** [![GitHub](https://img.shields.io/github/stars/devcyclehq/go-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/go-server-sdk)
 - Nestjs: **0.7.0** [![Npm package version](https://badgen.net/npm/v/@devcycle/nestjs-server-sdk)](https://www.npmjs.com/package/@devcycle/nestjs-server-sdk)
