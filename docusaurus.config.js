@@ -49,9 +49,9 @@ const YouTubeTransformer = {
  * Pinned version of the CLI to use for docs
  * When bumping the version, add any new commands to the documents array
  */
-const DVC_CLI_VERSION = 'v5.14.9' // auto updated by dvc cli release workflow
+const DVC_CLI_VERSION = 'v5.14.12' // auto updated by dvc cli release workflow
 
-const VSCODE_EXTENSION_VERSION = 'v1.4.6' // auto updated by extension release workflow
+const VSCODE_EXTENSION_VERSION = 'v1.4.9' // auto updated by extension release workflow
 
 const removeDocsSections = (content, sectionNames, headerIdentifier = '##') => {
   let result = content
@@ -454,7 +454,7 @@ const config = {
               rel: null,
             },
             {
-              href: 'https://discord.gg/pKK4fJgGxG',
+              href: 'https://discord.gg/8uEqSsRKy5',
               label: 'Discord',
               target: '_blank',
               rel: null,
@@ -478,7 +478,7 @@ const config = {
           label: 'Sign Up',
         },
         {
-          href: 'https://discord.gg/pKK4fJgGxG',
+          href: 'https://discord.gg/8uEqSsRKy5',
           position: 'right',
           className: 'header-discord-link',
           'aria-label': 'Discord',
@@ -515,7 +515,7 @@ const config = {
             },
             {
               label: 'Discord',
-              href: 'https://discord.gg/pKK4fJgGxG',
+              href: 'https://discord.gg/8uEqSsRKy5',
             },
           ],
         },
@@ -541,7 +541,7 @@ const config = {
             },
             {
               label: 'Discord',
-              href: 'https://discord.gg/pKK4fJgGxG',
+              href: 'https://discord.gg/8uEqSsRKy5',
             },
           ],
         },

@@ -11,6 +11,10 @@ On each feature, you will see a Self-Targeting section within the Users & Target
 
 Within the slide-out, you can setup your DevCycle Identity, select Self-Targeting overrides, and see the other team members that are currently Self-Targeting for that feature, including the variation and environment they have active overrides in.
 
+:::caution
+Self-Targeting is currently unavailable on the Next.js SDK.
+:::
+
 ## DevCycle Identity
 
 ### From the CLI

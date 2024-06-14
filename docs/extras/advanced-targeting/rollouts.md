@@ -105,3 +105,47 @@ the user will *still* not receive a later target.
 For modifications  to or additions of a gradual roll-out, entries in the [Audit Log](/extras/audit-log) will be marked as `Stage 1` and labelled as a `Linear` roll-out. 
 
 :::
+
+## Passthrough Rollouts (*effective for ALL DevCycle Projects on July 17, 2024*)
+
+On **July 17, 2024**, we will be implementing Passthrough Rollouts for Environment Targeting. 
+
+If your team is actively using the Scheduled Rollouts functionality for Targeting Rules,  this change may affect Targeting Rules for your Features, so we've put together resources to make this transition as smooth as possible for you.
+
+### *What are Passthrough Rollouts?*
+
+Currently, any user that qualifies for the rule will be held on the rule and receive default values until the schedule or rollout has triggered.
+
+With **Passthrough Rollouts**, if a rollout or schedule hasn’t been hit for a Targeting Rule, the platform will behave as if the rule doesn’t exist, regardless if the user qualifies for the rule or not. Essentially, users will not be “stuck” on the first rule and be served the default value until the Targeting Rule’s schedule is live. 
+
+Here is an example scenario of Passthrough Rollouts' expected behaviour:
+
+- Let's pretend today's date is April 18th. 
+
+- In the screenshot below, given the scheduled date for the Targeting Rule #1 is in the future and has not happened yet, all users will pass through that rule and be evaluated against Targeting Rule #2 - `Promotion` and receive the Spin variation for the next week. 
+
+- Once April 26th arrives, users will now be evaluated against the first rule and be served the Base variation. 
+
+- Conversely, if Passthrough Rollouts *were not* enabled, All Users would be "stuck" on and only evaluated against Targeting Rule #1 and continue to receive the default value in code until April 26th. 
+
+![Example Passthrough Rollouts](/may-2024-example-passthrough-scenario.png)
+
+
+### *What do you need to know?*
+
+- **May 22, 2024:** Starting today, all existing projects will have a Passthrough Rollouts section in each Project’s settings page. This will give you an option to enable this setting ahead of the switchover date. All new Projects created from this date forward, will have passthrough rollouts as the default behaviour.
+- **July 17, 2024:** All projects will switch to Passthrough Rollouts enabled by default, and will no longer be available as an option on the Project settings page. If your team is leveraging a server-side SDK, your team must upgrade your SDK before this date, as Passthrough Rollouts require specific DevCycle Server SDK Versions to be deployed.
+
+### *What do you need to do?*
+
+If your team is leveraging a server-side SDK, your team must upgrade your SDK before **July 17, 2024** as Passthrough Rollouts require specific DevCycle Server SDK Versions to be deployed (with the exception of the PHP SDK, which does not require an SDK update).
+
+
+- Python: **3.5.0** [![PyPI](https://badgen.net/pypi/v/devcycle-python-server-sdk)](https://pypi.org/project/devcycle-python-server-sdk/) 
+- Java: **2.2.0** [![Maven](https://badgen.net/maven/v/maven-central/com.devcycle/java-server-sdk)](https://search.maven.org/artifact/com.devcycle/java-server-sdk)
+- Dotnet (Local): **3.1.0** [![Nuget Local](https://badgen.net/nuget/v/DevCycle.SDK.Server.Cloud)](https://www.nuget.org/packages/DevCycle.SDK.Server.Local/)
+- Node: **1.29.0** [![Npm package version](https://badgen.net/npm/v/@devcycle/nodejs-server-sdk)](https://www.npmjs.com/package/@devcycle/nodejs-server-sdk)
+- Ruby: **2.7.0** [![GitHub](https://img.shields.io/github/stars/devcyclehq/ruby-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/ruby-server-sdk)
+- GO: **2.15.0** [![GitHub](https://img.shields.io/github/stars/devcyclehq/go-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/go-server-sdk)
+- Nestjs: **0.7.0** [![Npm package version](https://badgen.net/npm/v/@devcycle/nestjs-server-sdk)](https://www.npmjs.com/package/@devcycle/nestjs-server-sdk)
+

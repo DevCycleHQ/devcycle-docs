@@ -10,8 +10,8 @@ We provide the proxy in a few formats for usage:
 - Docker Image
 - OS Packaged Binary
 
-The raw source can be used if needing to integrate a custom docker image; or if you need to build a custom binary for
-your environment that will use the exposed API to instanitate the proxy.
+The raw source can be used if building a custom image is required, or if you need to build a custom binary for
+your environment that will use the exposed API to instantiate the proxy.
 
 We recommend using the OS packaged version for easy future upgrades and management.
 
