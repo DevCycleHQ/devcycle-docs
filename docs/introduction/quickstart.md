@@ -1,173 +1,216 @@
 ---
-title: Quickstart
+title: Quickstart Tutorial
 sidebar_position: 1
 ---
 
-This page will guide you through the initial setup steps with DevCycle.
+In this tutorial, we'll be showcasing a great use case for feature flags, guiding you through the creation of a simple [React app](https://react.dev), connecting it to DevCycle, and implementing an [Ops feature flag](/introduction/core-concepts/feature-types#ops) to enable/disable a **Maintenance Mode** page. 
 
-Whether you follow our guided onboarding flow, or you skip ahead to the dashboard to explore on your own, this quickstart guide will get you up and running with a Free Account and functional feature flags in just a couple minutes.
+You'll learn about some of the core features of DevCycle, while experiencing firsthand just how easy it is to implement feature flags to enhance your application's functionality and flexibility.
 
-https://www.youtube.com/watch?v=bZD-pyKGwR4
-
----
-
-## Create a New Account
-
-### Sign Up
-
-If you don't yet have an account with DevCycle, that's not a problem! [Simply make a completely free account right here.](https://app.devcycle.com/?isSignUp=true)
-
-We have an always free tier to start and the pricing will scale with usage as you need. You can create a free account right away, and if you're curious about our pricing, [check it out here](https://devcycle.com/pricing).
-
-### Verify Email
-
-When you first sign up, you'll be asked to verify your email so that we can ensure security while also making Organizations that were previously created by your colleagues discoverable. After signing up please go to the inbox of the account you signed up with, where you should find an email from our team. If you run into any difficulties verifying your email, such as not receiving the verification email, remember to check your Spam folder. And always feel free to reach out to support@devcycle.com.
-
-### Create Organization
-
-Once you have verified your email you will be prompted to provide your name and then either create an [Organization](/essentials/organizations) or join one if we've detected one associated with your email domain. An Organization is your top-level account in DevCycle, which can contain many [Projects](/essentials/projects) and Team Members.
-
-### Role and Tech Stack
-
-To better guide you through onboarding, we also ask you to identify your role and the tech stack you primarily work with in your Organization. In this way we can customize the onboarding flow as well as guide you toward the code and example apps that makes the most sense for your needs.
+https://www.youtube.com/watch?v=RHpoc9TTR8U
 
 ---
 
-Once you enter a role and your stack you'll be presented with a choice to either proceed to a focused and guided onboarding experience or to explore on your own. If you'd like to explore on your own, [skip ahead to that section of this guide](#self-exploration-with-example-app).
+## Step 1. Create a Feature
 
-## Guided Onboarding
+:::info
 
-The guided onboarding experience leverages our example apps and a focused set of steps to have you up and running with some example feature flags in a matter of minutes. This flow intends to help you understand the core concepts behind DevCycle. Once you are done this onboarding flow, you'll have a fully functional set of feature flags created in your dashboard connected to a running example app that you can then explore further on your own before implementing into your own code.
+This guided onboarding to core DevCycle functionality assumes you already have an account. If not you can [create one for free here](https://app.devcycle.com/?isSignUp=true). We offer an **always free** tier to start, with [pricing that scales](https://devcycle.com/pricing) with usage as needed.
+:::
 
-### Select Language
-
-While you have already told us your stack in the previous step, the guided onboarding focuses on one example app, so this screen allows you to select which language you'd specifically like to run the example app in. This can obviously be different than the stack you identified, just choose whichever language is easiest for you to do some simple exploration in.
-
-### Build and Run Example App
-
-Once you've selected an example app we'll provide you with the way to install, build and run the app locally. The platform detects a running app using your SDK key at this point, so you will be allowed to progress once you've installed and run the example app.
-
-### Learn About Variables, Variations and Targeting
-
-While DevCycle has a lot of unique features, some of the most important ones are how we organize and target feature flags to users. In DevCycle we call feature flags Variables. Variables live in your code and allow you to build conditionals around the values they retrieve. Variables are organized within Features in DevCycle. Features can contain one or many Variables and are the vehicle by which Variables are configured, using Variations. Variations determine a set of values to deliver to each Variable within a Feature. Which Variation a user receives is determined by Targeting Rules.
-
-The onboarding guide steps you through Variables, Variations and Targeting to ensure these base concepts are clear.
-
-### Toggle A Variation
-
-As you can see the example app starts with a number of Variables already configured within the dashboard. To toggle your first Variation within DevCycle follow the instructions to choose a new Variation and observe the change in the example app you're running.
-
-### Create Your Own Variation
-
-Now that you've toggled between Variations you can go back and create a Variation of your own. You can select from a number of predefined values for each Variable. Once you've set up the Variation go back to the Targeting Rule and serve that Variation to yourself in the example app.
-
-### Explore Feature In-Dash
-
-That's it! You've done the most important actions in DevCycle.
-
-What you have now is a fully functioning app, set up with feature flags, connected to your Project. You can now continue to the main dashboard and play around with the example app and its connected Feature however you'd like.
-
-We'd suggest playing around with Targeting Rules and different user properties to customize how Variations are delivered.
-
----
-
-## Self-Exploration With an Example App
-
-If you choose not to follow the guided onboarding and instead skip ahead to the main dashboard you can still get started quickly and easily with DevCycle by downloading and running an example app connected to your project.
-
-### Download Example App
-
-The first step is to download and run the right example app for your stack. You can find our full selection of <a href="https://docs.devcycle.com/examples" target="_blank">example apps here</a>. Download whichever one you'd like and make sure you modify the app appropriately to leverage the SDK keys from your project.
-
-The keys you need can be found either in your Project settings under Environments & Keys or via the Code Sample section of any Feature.
-
-### Auto-Create Example Feature
-
-Once you have your example app connected to your project and running the next step is to create a Feature to control the example app.
-
-Most of our example apps are standardized so you can use the automated Feature creation link in the example app's README to create a Feature that contains all of the Variables necessary to control the app.
-
-Once you've followed the steps in the Feature creation link, you'll have a Feature that contains a couple of Variables, Variations and Targeting Rules.
-
-### Adjust Variables and Variations
-
-If you'd like, you can edit the values of the Variables and Variations that were auto-populated or create any other Variations that you would like. Variations are the set of values that will be delivered to the example app and all of the Variables are already connected so you can feel free to edit these in any way.
-
-### Modify Targeting
-
-The way Variables are delivered different values to different users is via Targeting Rules. The example feature will have created some initial Targeting Rules, but feel free to modify these however you'd like. If you would like to try targeting off of user data, you can check out the documentation on [Custom Properties here](/extras/advanced-targeting/custom-properties).
-
-### Toggle Variations
-
-The last step is to toggle between different Variations. If you have take the initial Targeting 
-Rule that was set up for the example app that is targeting a Variation to All Users you can switch the Variation that is being served to whatever you would like. Hit save and the example app should now reflect the change you just made.
-
-That's it! That's the core functionality of DevCycle in a nutshell. You've just set up and toggled some feature flags running in a live app.
-
----
-
-## Self-Exploration with Your Own App
-
-If you'd like to get started by just implementing one of DevCycle's SDKs directly into your own app, we can help guid you through that process as well.
-
-Assuming you've created an account, skipped the guided onboarding flow and are now on an empty DevCycle dashboard, follow these steps to get started.
-
-### Create a Feature
-
-On the DevCycle Dashboard, the "Feature Management" page can be accessed at any time via the `Features` button on the top navbar. Once there you can click the blue `+ Create New Feature` button (or can select the "+" button in the main navbar) to begin the Feature creation process.
+On the DevCycle Dashboard, access the "Feature Management" page via the `Features` button on the top navbar. Click the blue `+ Create New Feature` button (or select the "+" button in the main navbar) to begin the Feature creation process.
 
 To create a Feature:
 
-1. Click either the "+" button or the "Create new Feature" button
+1. Click either the "+" button or the "Create new Feature" button.
+2. Choose an `Ops Feature` from the options modal. To read more about the Feature types and their uses, see [DevCycle Feature Types](/introduction/core-concepts/feature-types).
+3. After choosing a type, name and describe your Feature:
+    - **Feature name:** For our example, this will be `Maintenance Mode`.
+    - **Feature key:** This key is how the Feature and its Variables will be referenced in code. (A key of `maintenance-mode` will be automatically suggested based on the entered name.)
+    - **Initial Variable Key:** Define an initial Variable key that can differ from the new Feature key name. The Feature Key and the Initial Variable Key will mimic the input entered in the Feature Name field formatted in kebab case (e.g., `maintenance-mode`).
+    - **Initial Variable Type:** Select `Boolean` for this example.
+4. Click "Create".
 
-2. A screen for deciding your Feature Type will now appear:
-
-    a. For the purposes of getting started, just pick a Release Feature (it's the most common type of Feature). To read more about the Feature types and their uses, read [DevCycle Feature Types](/essentials/features).
-
-3. After choosing a type, the modal will progress to allow you to name and describe your Feature where you will be prompted to enter:
-
-    **a. A descriptive Feature name**
-
-    **b. A unique Feature key.** This key is how the Feature and its Variables will be referenced in code. (A key will be automatically suggested based on the entered name.)
-
-    **c. A unique Initial Variable Key.** 
-    Initial Variable Key allows you to define an initial Variable key that can differ from the new Feature key name. As you type in the Feature Name, the Feature Key and the Initial Variable Key will mimic whatever input is entered in the Feature Name field formatted in kebab case.
-
-    **d. The Initial Variable Type.** 
-    Initial Variable Type allows you to select the type of Variable for the initial Variable created along with your Feature. The Variable can be Boolean, JSON, String, or Number.
-
-    **e. Optionally, you may choose to provide a detailed description of the feature.**
-
-    **f. Click "create"**
-
-Congratulations! You have now created a Feature within your project.
+Congratulations! You have now created the `Maintenance Mode` Ops Feature within your project.
 
 ---
 
-### Implement the DevCycle SDK and your First Variable
+## Step 2. Create a New React App
 
-Now that you have a Feature created, its time to install the SDK and implement your first Variable:
+In your terminal, run the following commands to spin up a new React app.
 
-**1. Install the DevCycle SDK via the relevant dependency manager.** For example, the react SDK is installed via npm: ```npm i @devcycle/react-client-sdk```
+```bash
+npx create-react-app my-app
+cd my-app
+npm start
+```
 
-**2. Import DevCycle and initialize it.** Depending on which [type of SDK](/sdk/) and which environment you are initializing for, the SDK Key will be different. Read more about [Environments](/essentials/environments) and [keys](/essentials/keys) in the essentials.
+If successful, you should see the following in your terminal:
 
-**3. Access your Variable.** Implement the code to evaluate the Variable that is being controlled by the Feature you just created. Read more about Variables [here](/essentials/variables).
+![alt text](https://cdn.jsdelivr.net/gh/facebook/create-react-app@27b42ac7efa018f2541153ab30d63180f5fa39e0/screencast.svg)
 
-All of these steps can be found in the Code Sample section of the Feature page. Just select the relevant Environment and SDK language and it will give you all of the code you need to get the SDK installed and your Variable implemented.
+And if you visit `localhost:3000`, you should see the default React app page:
 
-Deeper documentation can be found in the relevant SDK docs. Depending on your use case, DevCycle has various types of SDKs. [Read more about our server-side, mobile, and client-side SDKs here.](/sdk/)
+![alt text](/tutorial/tutorial-default.png)
 
-### Adjust Variables and Variations
 
-You can edit the values of the Variables and Variations that were auto-populated after creating your Feature or you can create any other Variations that you would like. Variations are the set of values that will be delivered to the example app and all of the Variables are already connected so you can feel free to edit these in any way.
+---
 
-### Modify Targeting
+## Step 3. Implement the DevCycle SDK
 
-The way Variables are delivered different values to different users is via Targeting Rules. The Feature creation process will have created some initial Targeting Rules, but you can modify these however you'd like. Just make sure that Targeting is enabled, and you have at least one Targeting Rule targeting "All Users" in the Environment you chose when initializing the SDK. If you would like to try targeting off of user data, you can check out the documentation on [Custom Properties here](/extras/advanced-targeting/custom-properties).
+With a Maintenance Mode Feature created over on the DevCycle platform, its time to install the SDK and implement the actual maintenance mode logic in the React application:
 
-### Toggle Variations
+**1. Install the DevCycle SDK via the relevant dependency manager.** 
 
-The last step is to toggle between different Variations. Either take one of the initial Targeting Rules that was created or one you just created and switch the Variation that is being served to whatever you would like. Hit save and your application should now reflect the change you just made.
+For this example, the React SDK is installed via npm:
 
-That's it! That's the core functionality of DevCycle in a nutshell. You've just set up and toggled some feature flags running in your own app.
+```bash
+npm i @devcycle/react-client-sdk
+```
+or via yarn:
+
+```bash
+yarn add @devcycle/react-client-sdk
+```
+
+**2. Import DevCycle.** 
+
+To import DevCycle, head over to `App.js` and add the following to the import statements at the top of the file:
+
+```javascript
+import { withDevCycleProvider } from "@devcycle/react-client-sdk";
+```
+
+**3. Obtain SDK Key.**
+
+In order to initialize DevCycle in your application, you'll need to obtain the relevant SDK key from the DevCycle Dashboard, which in our case (a React application) will be the Client key for the Development Environment. 
+
+To obtain the SDK key, you'll need to:
+
+1. Navigate to your DevCycle Dashboard.
+2. Click on the View SDK Keys (i.e., Key Icon) in the top navbar.
+3. Copy the Client Key from the Development environment.
+
+![alt text](/tutorial/tutorial-keys.png)
+
+Depending on which [type of SDK](/sdk/) and which environment you are initializing for, the SDK Key will be different. Read more about [Environments](/essentials/environments) and [keys](/essentials/keys) in the essentials.
+
+**4. Initialize DevCycle Provider**
+
+Next wrap your App component with the `withDevCycleProvider` higher order component to allow DevCycle to be used throughout your React app:
+
+```javascript
+export default withDevCycleProvider({
+  sdkKey: "dvc_client_********_fff1111",
+})(App);
+```
+
+**5. Access your Variable.** 
+
+Implement the code to evaluate the Variable that is being controlled by the Feature you just created. Read more about Variables [here](/essentials/variables).
+
+To access the variable, you'll first need to import the `useVariableValue` hook at the top of `App.js`
+
+
+```javascript
+import { useVariableValue } from "@devcycle/react-client-sdk";
+```
+
+Next you will use the `useVariableValue` hook to access the Maintenance Mode variable you created earlier. Create a new `maintenanceMode` constant inside your `App()` function which calls `useVariableValue` with two parameters: the `maintenance-mode` key and then a default value for this flag, which in your case will be `false`:
+
+```javascript
+function App() {
+const maintenanceMode = useVariableValue("maintenance-mode", false);
+// Additional hooks and logic
+}
+```
+
+**6. Add Maintenance Mode Page and Set evaluation logic** 
+Finally, you will add logic to conditionally render either the maintenance page or the default app content based on the variable's value.
+
+Here is the full code implementing that logic:
+
+```javascript
+function App() {
+  const maintenanceMode = useVariableValue("maintenance-mode", false);
+
+  if (maintenanceMode) {
+    return (
+      <div className="App">
+        <article>
+          <h1>We&rsquo;ll be back soon!</h1>
+          <div>
+            <p>
+              Sorry for the inconvenience but we&rsquo;re performing some
+              maintenance at the moment. If you need to you can always{" "}
+              <a href="mailto:#">contact us</a>, otherwise we&rsquo;ll be back
+              online shortly!
+            </p>
+            <p>&mdash; The Team</p>
+          </div>
+        </article>
+      </div>
+    );
+  }
+
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
+}
+```
+
+---
+
+## Step 4. Modify Targeting
+
+Variables deliver different values to different users via Targeting Rules. During the creation process for our "Maintenance Mode" feature, some initial Targeting Rules were set up to serve `Configuration 1` or `true` for your personal email address in the development environment. 
+
+In this example, we haven't set any User Properties to target, so we'll update these targeting rules to impact All Users, which is generally how you would want to use Maintenance Mode. 
+
+To update these targetting rules, you'll need to:
+
+1. Navigate to the Maintenance Mode Feature on your DevCycle Dashboard.
+2. Under your **Development Environment** targeting rules, locate the definition that references `User Email`.
+3. Change this rule to target `All Users`.
+4. Click `Save`.
+
+If everything is working, your maintenance mode should now be enabled, and you will see the maintenance mode screen.
+
+![alt text](/tutorial/tutorial-maintenance.png)
+
+For more information on targeting based on user data, see the documentation on [Custom Properties here](/extras/advanced-targeting/custom-properties).
+
+---
+
+## Step 5. Toggle Variations
+
+The final step is to toggle between different Variations. 
+
+1. Revisit the `All Users` rule you just updated.
+2. Change the variation from `Configuration 1` to `Configuration 2`.
+3. Click save.
+
+If everything is working, your maintenance mode should now be disabled, and you will see the normal app screen.
+
+---
+
+:::tip[Congratulations!]
+
+You've just set up and toggled a maintenance mode feature flag running in your own React app using DevCycle.
+
+:::
