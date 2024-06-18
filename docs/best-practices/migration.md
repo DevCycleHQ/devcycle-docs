@@ -9,20 +9,20 @@ sidebar_custom_props: { icon: carbon:migrate }
 
 ## Introduction
 
-Migrating from an existing feature flagging system to a new one can be complex, especially with a large codebase. OpenFeature provides a standardized interface that simplifies this process. This guide outlines best practices for leveraging OpenFeature and its new Multi-Provider to ensure a smooth transition from your existing feature flagging system to DevCycle.
+Migrating from an existing feature flagging system to a new one can be complex, especially with a large codebase. OpenFeature provides a standardized interface that simplifies this process. This guide outlines best practices for leveraging OpenFeature and its Multi-Provider to ensure a smooth transition from your existing feature flagging system to DevCycle.
 
 ## Why Use OpenFeature?
 
 ### Benefits of OpenFeature
 
 - **Standardized Interface**: Provides a consistent way to evaluate feature flags, irrespective of the underlying provider.
-- **Production-Ready SDKs**: Handles configuration data fetching, error handling, and input verification.
-- **Reduced Maintenance**: Minimizes custom code required for feature flag management.
-- **Easy Integration**: Supports various feature flagging systems with built-in providers and custom provider options.
+- **Community Driven**": An open source CNCF incubating project under the Apache 2 license.
+
+For more details, visit the [OpenFeature homepage](https://openfeature.dev) and review their [documentation](https://openfeature.dev/docs/reference/intro/).
 
 ## Best Practices for Migration
 
-### Abstract Evaluations
+### Step 1. Abstract Evaluations
 
 Instead of directly calling a specific Provider throughout your code, abstract flag evaluations using OpenFeature. This abstraction makes future migrations easier between providers, or utilizing multiple providers.
 
@@ -38,11 +38,11 @@ const value = await openFeatureClient.getStringValue(
 );
 ```
 
-### Implement Multi-Provider
+### Step 2. Implement Multi-Provider
 
 Use the Multi-Provider feature in OpenFeature to handle gradual migrations. This allows you to use multiple providers simultaneously and define rules for flag evaluation.
 
-#### Setting Up Multi-Provider
+#### Step 3. Setting Up Multi-Provider
 
 ```tsx
 const multiProvider = new MultiProvider([
@@ -110,25 +110,23 @@ Requires that all providers agree on a value. If they return the same value, the
    );
    ```
 
-### Port Data
+### Step 4. Port Data
 
 Ensure all your flagging data is ported from your existing Provider to DevCycle. This involves transferring flag definitions, user targeting rules, and any associated metadata.
 
-### Test and Validate
+The DevCycle team has even build a [Feature Importer](https://docs.devcycle.com/integrations/feature-importer) to help with this process that is open source and customizable to import flags from either internal or 3rd party platforms.
+
+### Step 5. Monitor and Log
+
+Implement monitoring and logging to track the performance and correctness of flag evaluations. This helps in identifying and resolving any issues during the migration.
+
+### Step 6. Test and Validate
 
 Before fully transitioning to DevCycle, conduct thorough testing to ensure that:
 
 - Flag evaluations return expected results.
 - Performance is not negatively impacted.
 - There are no regressions in existing functionality.
-
-### Monitor and Log
-
-Implement monitoring and logging to track the performance and correctness of flag evaluations. This helps in identifying and resolving any issues during the migration.
-
-### Document and Train
-
-Ensure your team is well-versed with OpenFeature and DevCycle. Provide comprehensive documentation and training sessions to facilitate a smooth transition.
 
 ## Conclusion
 
