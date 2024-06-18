@@ -24,7 +24,7 @@ Migrating from an existing feature flagging system to a new one can be complex, 
 
 ### Abstract Evaluations
 
-Instead of directly calling your Provider throughout your code, abstract flag evaluations using OpenFeature. This abstraction makes future migrations easier.
+Instead of directly calling a specific Provider throughout your code, abstract flag evaluations using OpenFeature. This abstraction makes future migrations easier between providers, or utilizing multiple providers.
 
 ```tsx
 const myFlagProvider = new MyFlagProvider()
