@@ -47,7 +47,7 @@ Use the Multi-Provider feature in OpenFeature to handle gradual migrations. This
 ```tsx
 const multiProvider = new MultiProvider([
   { provider: new DevCycleProvider() },
-  { provider: new ExsitingProvider() }
+  { provider: new ExistingProvider() }
 ]);
 
 await OpenFeature.setProviderAndWait(multiProvider);
