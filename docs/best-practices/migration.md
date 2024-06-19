@@ -42,7 +42,7 @@ const value = await openFeatureClient.getStringValue(
 
 Use the Multi-Provider feature in OpenFeature to handle gradual migrations. This allows you to use multiple providers simultaneously and define rules for flag evaluation.
 
-#### Step 3. Setting Up Multi-Provider
+### Step 3. Setting Up Multi-Provider
 
 ```tsx
 const multiProvider = new MultiProvider([
