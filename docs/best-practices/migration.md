@@ -24,7 +24,7 @@ For more details, visit the [OpenFeature homepage](https://openfeature.dev) and 
 
 ### Step 1. Abstract Evaluations
 
-Instead of directly calling a specific Provider throughout your code, abstract flag evaluations using OpenFeature. This abstraction makes future migrations easier between providers, or utilizing multiple providers.
+Instead of directly calling a specific Provider throughout your code, abstract flag evaluations using OpenFeature. This abstraction makes future migrations between providers easier, and enables the use of multiple providers at the same time.
 
 ```tsx
 const myFlagProvider = new MyFlagProvider()
