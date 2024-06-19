@@ -114,7 +114,7 @@ Requires that all providers agree on a value. If they return the same value, the
 
 Ensure all your flagging data is ported from your existing Provider to DevCycle. This involves transferring flag definitions, user targeting rules, and any associated metadata.
 
-The DevCycle team has even build a [Feature Importer](https://docs.devcycle.com/integrations/feature-importer) to help with this process that is open source and customizable to import flags from either internal or 3rd party platforms.
+The DevCycle team has even built a [Feature Importer](https://docs.devcycle.com/integrations/feature-importer) to help with this process that is open source and can be customized to import flags from either internal or 3rd party platforms.
 
 ### Step 5. Monitor and Log
 
