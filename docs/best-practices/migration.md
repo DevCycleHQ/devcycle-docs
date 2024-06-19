@@ -16,7 +16,7 @@ Migrating from an existing feature flagging system to a new one can be complex, 
 ### Benefits of OpenFeature
 
 - **Standardized Interface**: Provides a consistent way to evaluate feature flags, irrespective of the underlying provider.
-- **Community Driven**": An open source CNCF incubating project under the Apache 2 license.
+- **Community Driven**: An open source CNCF incubating project under the Apache 2 license.
 
 For more details, visit the [OpenFeature homepage](https://openfeature.dev) and review their [documentation](https://openfeature.dev/docs/reference/intro/).
 
