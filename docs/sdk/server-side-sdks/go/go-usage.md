@@ -144,3 +144,23 @@ making bucketing decisions.
 In this example, the `Variable` call would make an API request and send along the user data specified by the call.
 That data would be used in combination with EdgeDB data to make correct bucketing decisions before returning the
 variable's value.
+
+
+## Enabling Beta Realtime Updates
+:::warning
+This feature is in beta, and may not function as expected. Please ensure that you have the latest version of the SDK.
+:::
+
+To enable Beta Realtime Updates, pass in the `EnableBetaRealtimeUpdates` option to the SDK initialization:
+```go
+options := devcycle.Options{
+    EnableBetaRealtimeUpdates:    true,
+    // other options omitted for this example
+}
+
+devcycleClient, err := devcycle.NewClient(sdkKey, &options)
+```
+
+This functionality will reduce the number of polling requests that are made to the DevCycle Config CDN, and instead will
+use a long lived HTTP connection to receive updates on when there is a new config available. This reduces outbound network
+traffic, as well as optimizes the SDK for efficiency.
