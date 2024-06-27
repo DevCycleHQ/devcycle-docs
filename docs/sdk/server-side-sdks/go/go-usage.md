@@ -162,5 +162,5 @@ devcycleClient, err := devcycle.NewClient(sdkKey, &options)
 ```
 
 This functionality will reduce the number of polling requests that are made to the DevCycle Config CDN, and instead will
-use a long lived HTTP connection to receive updates on when there is a new config available. This reduces outbound network
+use a long-lived HTTP connection to receive updates when there is a new config available. This reduces outbound network
 traffic, as well as optimizes the SDK for efficiency.
