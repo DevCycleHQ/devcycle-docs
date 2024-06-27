@@ -147,6 +147,10 @@ In the example, Email and Country are associated to the user `test_user`. In you
 This feature is in beta, and may not function as expected. Please ensure that you have the latest version of the SDK.
 :::
 
+This functionality will reduce the number of polling requests that are made to the DevCycle Config CDN, and instead will
+use a long-lived HTTP connection (Server Sent Events) to receive updates when there is a new config available.
+This reduces outbound network traffic, as well as optimizes the SDK for efficiency.
+
 To enable Beta Realtime Updates, pass in the `enableBetaRealtimeUpdates` option to the SDK initialization:
 ```javascript
 const devcycleClient = DevCycle.initializeDevCycle(
@@ -157,9 +161,6 @@ const devcycleClient = DevCycle.initializeDevCycle(
 )
 ```
 
-This functionality will reduce the number of polling requests that are made to the DevCycle Config CDN, and instead will
-use a long lived HTTP connection to receive updates on when there is a new config available. This reduces outbound network
-traffic, as well as optimizes the SDK for efficiency.
 
 ## Close Client
 

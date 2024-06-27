@@ -151,6 +151,10 @@ variable's value.
 This feature is in beta, and may not function as expected. Please ensure that you have the latest version of the SDK.
 :::
 
+This functionality will reduce the number of polling requests that are made to the DevCycle Config CDN, and instead will
+use a long-lived HTTP connection (Server Sent Events) to receive updates when there is a new config available. 
+This reduces outbound network traffic, as well as optimizes the SDK for efficiency. 
+
 To enable Beta Realtime Updates, pass in the `EnableBetaRealtimeUpdates` option to the SDK initialization:
 ```go
 options := devcycle.Options{
@@ -161,6 +165,3 @@ options := devcycle.Options{
 devcycleClient, err := devcycle.NewClient(sdkKey, &options)
 ```
 
-This functionality will reduce the number of polling requests that are made to the DevCycle Config CDN, and instead will
-use a long-lived HTTP connection to receive updates when there is a new config available. This reduces outbound network
-traffic, as well as optimizes the SDK for efficiency.
