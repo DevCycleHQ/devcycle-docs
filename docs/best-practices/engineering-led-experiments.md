@@ -16,7 +16,7 @@ To complete this guide, you may want to review the following topics:
 
 - [Creating and Managing Variations](/essentials/variables)
 - [Random Distribution Targeting](/essentials/targeting)
-- [Feature Experimentation](/extras/metrics/feature-experimentation)
+- [Feature Experimentation](/essentials/feature-experimentation)
 - [Creating a Metric](/extras/metrics/creating-and-managing-metrics) and [Metric Types](/extras/metrics/creating-and-managing-metrics#types)
 
 ## Metrics in DevCycle
@@ -116,7 +116,7 @@ Some of the simplest and most precise experiments are basic A/B tests comparing 
 
 For more complex features you may compare more variations with several combinations of variable values. You would then randomly distribute the variations according to the number of variations you are including in the experiment.
 
-For more information about comparing multiple variations in an experiment, refer to [Feature Experimentation](/extras/metrics/feature-experimentation#comparing-multiple-variations).
+For more information about comparing multiple variations in an experiment, refer to [Feature Experimentation](/essentials/feature-experimentation#comparing-multiple-variations).
 
 ### Choosing Metrics
 
