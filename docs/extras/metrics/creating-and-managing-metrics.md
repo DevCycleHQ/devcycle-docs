@@ -132,7 +132,7 @@ Here are some steps you can follow to track metrics within a feature:
 
     While the setup has some default values, the Metric requires the following fields to be filled:
 
-    - **Control** - This is what will be used to show a comparative analysis against all other variations in a feature. Typically, an "off" or "Baseline" variation would act as the control. For more information on this, please refer to the [Feature Experimentation documentation](/extras/metrics/feature-experimentation).
+    - **Control** - This is what will be used to show a comparative analysis against all other variations in a feature. Typically, an "off" or "Baseline" variation would act as the control. For more information on this, please refer to the [Feature Experimentation documentation](/essentials/feature-experimentation).
 
     - **Date Range** - This range will default from the moment the Metric (or feature) was created, to now within 30 days. If 30 days have passed since the creation of the Metric or feature, the date range must be a 30 day range.
 
