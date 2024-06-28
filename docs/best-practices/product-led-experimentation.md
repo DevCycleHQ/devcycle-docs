@@ -19,7 +19,7 @@ To complete this guide, you may want to review the following topics:
 - [DevCycle Feature Hierarchy](/introduction/core-concepts/feature-hierarchy)
 - [Creating and Managing Variations](/essentials/variables)
 - [Random Distribution Targeting](/essentials/targeting)
-- [Feature Experimentation](/extras/metrics/feature-experimentation)
+- [Feature Experimentation](/essentials/feature-experimentation)
 - [Creating a Metric](/extras/metrics/creating-and-managing-metrics) and [Metric Types](/extras/metrics/creating-and-managing-metrics#types)
 
 ## Conducting Experiments: A Collaborative Approach 
