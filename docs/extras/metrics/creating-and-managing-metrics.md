@@ -94,7 +94,7 @@ To run a test, the following fields must be set:
 
 **Feature** - This is the specific feature this Metric should be applied to. Any event that has been sent since the creation of this Metric from a user receiving any variation of this feature will be part of this Metric. In the event that an error is shown, this means the event has not been seen from this feature yet.
 
-**Control** - After selecting a Feature, a "control" variation must be selected. This is what will be used to show a comparative analysis against all other variations in a feature. Typically, an "off" or "Baseline" variation would act as the control. For more information on this, please refer to the [Feature Experimentation documentation](/extras/metrics/feature-experimentation).
+**Control** - After selecting a Feature, a "control" variation must be selected. This is what will be used to show a comparative analysis against all other variations in a feature. Typically, an "off" or "Baseline" variation would act as the control. For more information on this, please refer to the [Feature Experimentation documentation](/essentials/feature-experimentation).
 
 **Date Range** - This range will default from the moment the Metric (or feature) was created, to now within 30 days. If 30 days have passed since the creation of the Metric or feature, the date range must be a 30 day range.
 
