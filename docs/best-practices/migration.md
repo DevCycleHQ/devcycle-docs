@@ -9,14 +9,16 @@ sidebar_custom_props: { icon: carbon:migrate }
 
 ## Introduction
 
-Migrating from an existing feature flagging system to a new one can be complex, especially with a large codebase. [OpenFeature](https://openfeature.dev) provides a standardized interface that simplifies this process. This guide outlines best practices for leveraging OpenFeature and its Multi-Provider to ensure a smooth transition from your existing feature flagging system to DevCycle.
+Migrating from an existing feature flagging system to a new one can be complex, especially with a large codebase. [OpenFeature](https://openfeature.dev) provides a standardized interface that simplifies this process. This guide outlines best practices for leveraging OpenFeature and its Multi-Provider utility to ensure a smooth transition from your existing feature flagging system to DevCycle.
 
 ## Why Use OpenFeature?
 
 ### Benefits of OpenFeature
 
-- **Standardized Interface**: Provides a consistent way to evaluate feature flags, irrespective of the underlying provider.
-- **Community Driven**: An open source CNCF incubating project under the Apache 2 license.
+- Production-ready SDKs that take care of all the hard stuff with fetching configuration data, error handling, and verifying inputs
+- Standard interface that works the same in your code regardless of which provider you use
+- Reduced maintenance burden by eliminating a piece of code you have to maintain
+- Integration with code analysis and automated cleanup tools designed to look for OpenFeature calls
 
 For more benefits, visit the [OpenFeature homepage](https://openfeature.dev) and review their [documentation](https://openfeature.dev/docs/reference/intro/).
 
@@ -24,11 +26,11 @@ For more benefits, visit the [OpenFeature homepage](https://openfeature.dev) and
 
 ### Step 1. Abstract Evaluations
 
-Instead of directly calling a specific Provider throughout your code, abstract flag evaluations using OpenFeature. This abstraction makes future migrations between providers easier, and enables the use of multiple providers at the same time.
+Instead of directly calling a specific feature flagging solution throughout your code, abstract flag evaluations using OpenFeature.
 
 ```tsx
-const myFlagProvider = new MyFlagProvider()
-await OpenFeature.setProviderAndWait(myFlagProvider)
+const existingFlagProvider = new ExistingProvider()
+await OpenFeature.setProviderAndWait(existingFlagProvider)
 
 const openFeatureClient = OpenFeature.getClient();
 const value = await openFeatureClient.getStringValue(
@@ -38,13 +40,30 @@ const value = await openFeatureClient.getStringValue(
 );
 ```
 
-### Step 2. Implement Multi-Provider
+### Step 2. Implement the Multi-Provider
 
-Use the Multi-Provider feature in OpenFeature to handle gradual migrations. This allows you to use multiple providers simultaneously and define rules for flag evaluation.
+The Multi-Provider allows you to use multiple underlying providers as sources of flag data for the OpenFeature SDK. When a flag is being evaluated, the Multi-Provider will consult each underlying provider it is managing in order to determine the final result. Different evaluation strategies can be defined to control which providers get evaluated and which result is used.
 
-### Step 3. Setting Up Multi-Provider
+:::warning
+The Multi-Provider is currently available only for the NodeJS and Web Openfeature SDKs
+:::
+
+
+#### Install the Multi-Provider package:
+
+```bash
+npm install @openfeature/multi-provider 
+# OR 
+npm install @openfeature/multi-provider-web
+```
+
+#### Initialize the Multi-Provider in your code:
 
 ```tsx
+
+import { MultiProvider } from '@openfeature/multi-provider'
+import { OpenFeature } from '@openfeature/server-sdk'
+
 const multiProvider = new MultiProvider([
   { provider: new DevCycleProvider() },
   { provider: new ExistingProvider() }
@@ -60,57 +79,25 @@ const value = await openFeatureClient.getStringValue(
 );
 ```
 
-#### Strategies
+#### Implement DevCycleMigrationStrategy
 
-The Multi-Provider supports several strategies to control how providers are evaluated and how the final result is determined.
+The Multi-Provider supports various strategies to control provider evaluation and result determination. The default **FirstMatchStrategy** evaluates providers in order, moving to the next if the current returns `FLAG_NOT_FOUND`. Any error will be thrown by the Multi-Provider and caught by the OpenFeature SDK, returning the default value. This strategy is ideal for migrating providers, preferring the new provider while using the old as a fallback.
 
-1. **FirstMatchStrategy**
-This is the default strategy, and evaluates providers in order, moving to the next provider only if the current one returns a `FLAG_NOT_FOUND` result. This is useful for preferring DevCycle results while keeping the existing Provider as a fallback.
+While the default strategy is generally recommended for vendor migration, a special **DevCycleMigrationStrategy** has been created specifically for migrating to DevCycle. This strategy extends **FirstMatchStrategy** to accommodate DevCycle's process by returning `DEFAULT` for "flag not found" cases. To effectively use this strategy with DevCycle, ensure that all targeting rules include an "All Users" rule. This will prevent the return of `DEFAULT` for known keys.
+
    ```tsx
+   import { DevCycleMigrationStrategy } from '@devcycle/nodejs-server-sdk/openfeature-strategy'
+
    const multiProvider = new MultiProvider(
      [
        { provider: new DevCycleProvider() },
        { provider: new ExistingProvider() }
      ],
-     new FirstMatchStrategy()
+     new DevCycleMigrationStrategy()
    );
    ```
 
-2. **FirstSuccessfulStrategy**
-Similar to `FirstMatchStrategy`, but errors from providers do not halt execution. It returns the first successful result from a provider.
-   ```tsx
-   const multiProvider = new MultiProvider(
-     [
-       { provider: new DevCycleProvider() },
-       { provider: new ExistingProvider() }
-     ],
-     new FirstSuccessfulStrategy()
-   );
-   ```
-
-3. **ComparisonStrategy**
-Requires that all providers agree on a value. If they return the same value, the result is that value; otherwise, an error is returned. This is useful for validating the success of a provider migration.
-   ```tsx
-   const devcycleProvider = new DevCycleProvider();
-   const existingProvider = new ExistingProvider();
-
-   const onMismatch = (_resolutions: ProviderResolutionResult<FlagValue>[]) => {
-     logger.warn('Provider mismatch!');
-   };
-
-   const multiProvider = new MultiProvider(
-     [
-       { provider: devcycleProvider },
-       { provider: existingProvider }
-     ],
-     new ComparisonStrategy(
-       existingProvider,
-       onMismatch
-     )
-   );
-   ```
-
-### Step 4. Port Data
+### Step 3. Port Data
 
 Ensure all your flagging data is ported from your existing provider to DevCycle. This involves transferring flag definitions, user targeting rules, and any associated metadata. You can do this gradually by creating new flags in DevCycle while keeping existing ones in the old system until they are retired. **With that in mind, this transition period can also be seen as an exciting opportunity to clean up all your old flags.**
 
@@ -120,18 +107,29 @@ Did you know the DevCycle team built a [Feature Importer](https://docs.devcycle.
 
 To ensure a seamless transition, consider the following best practices:
 
-**Audit Your Current Flags:** Before migrating, conduct a thorough audit of your existing flags. Identify and document active flags, deprecated flags, and any that can be immediately retired.
-**Establish a Migration Timeline:** Create a detailed timeline for the migration process. Prioritize the migration of critical flags first and schedule non-critical flags for later stages.
-**Monitor and Validate Post-Migration:** After migrating flags, continuously monitor their performance and validate that they function as expected. This ensures any discrepancies can be quickly addressed.
-**Leverage DevCycle's Analytics:** Take advantage of DevCycle's analytics to gain insights into flag performance and user interactions. Use this data to refine your feature flag strategy and optimize user experiences.
+1. **Audit Your Current Flags:** 
+
+- Before migrating, conduct a thorough audit of your existing flags. Identify and document active flags, deprecated flags, and any that can be immediately retired.
+
+2. **Establish a Migration Timeline:** 
+
+- Create a detailed timeline for the migration process. Prioritize the migration of critical flags first and schedule non-critical flags for later stages.
+
+3. **Monitor and Validate Post-Migration:** 
+
+- After migrating flags, continuously monitor their performance and validate that they function as expected. This ensures any discrepancies can be quickly addressed.
+
+4. **Leverage DevCycle's Analytics:** 
+
+- Take advantage of DevCycle's analytics to gain insights into flag performance and user interactions. Use this data to refine your feature flag strategy and optimize user experiences.
 
 By following these steps, you can ensure a smooth transition to DevCycle, taking full advantage of its robust feature management capabilities.
 
-### Step 5. Monitor and Log
+### Step 4. Monitor and Log
 
 Implement monitoring and logging to track the performance and correctness of flag evaluations. This helps in identifying and resolving any issues during the migration.
 
-### Step 6. Test and Validate
+### Step 5. Test and Validate
 
 Before fully transitioning to DevCycle, conduct thorough testing to ensure that:
 
