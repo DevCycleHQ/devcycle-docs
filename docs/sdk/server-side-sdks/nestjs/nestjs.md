@@ -9,7 +9,7 @@ import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 
 The NestJS SDK supports Local Bucketing mode by default and performs fast local evaluations of your feature flags.
 
-<CustomDocCardList items={useCurrentSidebarCategory().items} columnWidth={4} />
+<CustomDocCardList items={useCurrentSidebarCategory().items} columnWidth={6} />
 
 The SDK is available as a package on NPM, will a full Typescript interface. 
 It is also open source and can be viewed on the [DevCycle GitHub](https://github.com/DevCycleHQ/js-sdks/tree/main/sdk/nestjs).

@@ -15,7 +15,7 @@ Currently, DevCycle for React only supports access via functional component hook
 
 :::
 
-<CustomDocCardList items={useCurrentSidebarCategory().items} columnWidth={4} />
+<CustomDocCardList items={useCurrentSidebarCategory().items} columnWidth={6} />
 
 The SDK is available as a package on npm. It is also open source and can be viewed on Github.
 This SDK depends on the [fetch](https://github.com/BuilderIO/this-package-uses-fetch) API.

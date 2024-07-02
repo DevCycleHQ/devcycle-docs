@@ -9,7 +9,7 @@ import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 
 The DevCycle Next.js SDK lets you easily integrate your Next.js applications with DevCycle.
 
-<CustomDocCardList items={useCurrentSidebarCategory().items} columnWidth={4} />
+<CustomDocCardList items={useCurrentSidebarCategory().items} columnWidth={6} />
 
 The SDK is available as a package on npm. It is also open source and can be viewed on Github.
 This SDK depends on the [fetch](https://github.com/BuilderIO/this-package-uses-fetch) API.

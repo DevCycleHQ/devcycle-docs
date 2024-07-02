@@ -14,7 +14,7 @@ We recommend using the Local Bucketing mode by default, as it performs fast loca
 If you need access to [EdgeDB](https://docs.devcycle.com/extras/edgedb) you will need to use the Cloud Bucketing mode of the SDK. 
 See [Here](/sdk/#difference-between-local-and-cloud-bucketing) for more information. 
 
-<CustomDocCardList items={useCurrentSidebarCategory().items} columnWidth={4} />
+<CustomDocCardList items={useCurrentSidebarCategory().items} columnWidth={6} />
 
 The SDK is available as a package on Nuget. It is also open source and can be viewed on Github.
 
