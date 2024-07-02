@@ -1,13 +1,7 @@
 ---
 title: Feature Experimentation
-sidebar_position: 3
+sidebar_position: 10
 ---
-
-:::info
-Experimentation relies on custom events.
-
-Experimentation is available to all customers on any plan. However, to perform experiments, events must be sent to DevCycle to calculate metrics. These events are added to your existing plan. To learn more, read about our pricing, or contact us.
-:::
 
 ##  Overview
 
@@ -48,6 +42,12 @@ To set this up, create a targeting rule in Production that delivers to All Users
 ![Random Distribution 50/50](/feature-experiment-5050.png)
 
 ## Adding Metrics to Your Feature
+
+:::info
+Experimentation relies on custom events.
+
+Experimentation is available to all customers on any plan. However, to perform experiments, events must be sent to DevCycle to calculate metrics. These events are added to your existing plan. To learn more, read about our pricing, or contact us.
+:::
 
 Now that you have two segments receiving different experiences, the only other thing you need to run an experiment is a metric to evaluate the comparative performance of those experiences.
 
