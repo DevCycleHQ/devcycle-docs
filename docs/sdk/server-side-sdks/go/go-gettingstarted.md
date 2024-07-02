@@ -52,13 +52,13 @@ initialize for any reason- it'll return as an error here.
 
 ## Async Initialization
 
-Additionally, local bucketing mode supports an optional `OnInitializedChannel` parameter which will tell the sdk to run the initialization
-process in a separate go routine. When the channel receives a message, you will know the initialization process is complete.
+Additionally, local bucketing mode supports an optional `ClientEventHandler` parameter which will tell the sdk to run the initialization
+process in a separate go routine. This can be useful if you want to wait for the client to be fully initialized before proceeding.
 
 ```go
-onInitializedChannel := make(chan bool)
+onInitializedChannel := make(chan api.ClientEvent)
 options := devcycle.Options{
-    OnInitializedChannel:    onInitializedChannel,
+    ClientEventHandler:    onInitializedChannel,
     // other options omitted for this example
 }
 
@@ -73,3 +73,4 @@ log.Println("DevCycle client not guaranteed to be initialized yet")
 <-onInitializedChannel
 log.Println("Devcycle client initialized")
 ```
+
