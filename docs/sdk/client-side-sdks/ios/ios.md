@@ -12,7 +12,7 @@ iOS / macOS / tvOS / watchOS application. This SDK uses our Client SDK APIs to p
 segmentation and bucketing for the SDK, providing fast response times using our globally distributed 
 edge workers all around the world.
 
-<CustomDocCardList items={useCurrentSidebarCategory().items} columnWidth={4} />
+<CustomDocCardList items={useCurrentSidebarCategory().items} columnWidth={6} />
 
 The SDK is available as a package on [CocoaPods](https://cocoapods.org/pods/DevCycle), 
 [Carthage](https://github.com/Carthage/Carthage) and [Swift Package Manager](https://swift.org/package-manager/). 

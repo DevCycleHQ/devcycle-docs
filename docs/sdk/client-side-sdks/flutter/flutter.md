@@ -10,7 +10,7 @@ The Flutter Client SDK for DevCycle! This SDK uses our Client SDK APIs to perfor
 and bucketing for the SDK, providing fast response times using our globally distributed edge workers
 all around the world.
 
-<CustomDocCardList items={useCurrentSidebarCategory().items} columnWidth={4} />
+<CustomDocCardList items={useCurrentSidebarCategory().items} columnWidth={6} />
 
 The SDK is available as a package on Pub. It is also open source and can be viewed on GitHub.
 

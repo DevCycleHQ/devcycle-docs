@@ -21,7 +21,7 @@ Extra steps are required to get DevCycle working with React Native Web. See the 
 
 :::
 
-<CustomDocCardList items={useCurrentSidebarCategory().items} columnWidth={4} />
+<CustomDocCardList items={useCurrentSidebarCategory().items} columnWidth={6} />
 
 The React Native SDK is available as a package on npm. A separate React Native Expo SDK is available as a package on npm. Both SDKs are also open source and can be viewed on Github.
 
