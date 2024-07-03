@@ -29,8 +29,8 @@ For more benefits, visit the [OpenFeature homepage](https://openfeature.dev) and
 Instead of directly calling a specific feature flagging solution throughout your code, abstract flag evaluations using OpenFeature.
 
 ```tsx
-const existingFlagProvider = new ExistingProvider()
-await OpenFeature.setProviderAndWait(existingFlagProvider)
+const existingProvider = new ExistingProvider()
+await OpenFeature.setProviderAndWait(existingProvider)
 
 const openFeatureClient = OpenFeature.getClient();
 const value = await openFeatureClient.getStringValue(
@@ -45,7 +45,7 @@ const value = await openFeatureClient.getStringValue(
 The Multi-Provider allows you to use multiple underlying providers as sources of flag data for the OpenFeature SDK. When a flag is being evaluated, the Multi-Provider will consult each underlying provider it is managing in order to determine the final result. Different evaluation strategies can be defined to control which providers get evaluated and which result is used.
 
 :::warning
-The Multi-Provider is currently available only for the NodeJS and Web Openfeature SDKs
+The Multi-Provider is currently available only for the NodeJS and Web OpenFeature SDKs
 :::
 
 
@@ -62,16 +62,24 @@ npm install @openfeature/multi-provider-web
 ```tsx
 
 import { MultiProvider } from '@openfeature/multi-provider'
-import { OpenFeature } from '@openfeature/server-sdk'
+import { OpenFeature, Client } from '@openfeature/server-sdk'
+import { initializeDevCycle } from '@devcycle/nodejs-server-sdk'
+
+const existingProvider = new ExistingProvider();
+
+const { DEVCYCLE_SERVER_SDK_KEY } = process.env
+const devcycleClient = initializeDevCycle(DEVCYCLE_SERVER_SDK_KEY)
+const devcycleProvider = await devcycleClient.getOpenFeatureProvider()
 
 const multiProvider = new MultiProvider([
-  { provider: new DevCycleProvider() },
-  { provider: new ExistingProvider() }
+  { provider: devcycleProvider },
+  { provider: existingProvider }
 ]);
 
 await OpenFeature.setProviderAndWait(multiProvider);
 
 const openFeatureClient = OpenFeature.getClient();
+
 const value = await openFeatureClient.getStringValue(
   'flag-key', 
   'default value', 
@@ -79,23 +87,27 @@ const value = await openFeatureClient.getStringValue(
 );
 ```
 
-#### Implement DevCycleMigrationStrategy
+#### Specifiy DevCycleMigrationStrategy
 
 The Multi-Provider supports various strategies to control provider evaluation and result determination. The default **FirstMatchStrategy** evaluates providers in order, moving to the next if the current returns `FLAG_NOT_FOUND`. Any error will be thrown by the Multi-Provider and caught by the OpenFeature SDK, returning the default value. This strategy is ideal for migrating providers, preferring the new provider while using the old as a fallback.
 
-While the default strategy is generally recommended for vendor migration, a special **DevCycleMigrationStrategy** has been created specifically for migrating to DevCycle. This strategy extends **FirstMatchStrategy** to accommodate DevCycle's process by returning `DEFAULT` for "flag not found" cases. To effectively use this strategy with DevCycle, ensure that all targeting rules include an "All Users" rule. This will prevent the return of `DEFAULT` for known keys.
+While the default strategy is generally recommended for vendor migration, a special **DevCycleMigrationStrategy** has been created specifically for migrating to DevCycle. This strategy extends **FirstMatchStrategy** to accommodate DevCycle's process by returning `DEFAULT` for "flag not found" cases. 
 
    ```tsx
    import { DevCycleMigrationStrategy } from '@devcycle/nodejs-server-sdk/openfeature-strategy'
 
    const multiProvider = new MultiProvider(
      [
-       { provider: new DevCycleProvider() },
-       { provider: new ExistingProvider() }
+       { provider: devcycleProvider },
+       { provider: existingProvider }
      ],
      new DevCycleMigrationStrategy()
    );
    ```
+
+:::warning
+To effectively use this strategy with DevCycle, ensure that all targeting rules include an "All Users" rule. This will prevent the return of `DEFAULT` for known keys.
+:::
 
 ### Step 3. Port Data
 
