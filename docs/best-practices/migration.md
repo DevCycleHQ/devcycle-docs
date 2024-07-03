@@ -60,7 +60,6 @@ npm install @openfeature/multi-provider-web
 #### Initialize the Multi-Provider in your code:
 
 ```tsx
-
 import { MultiProvider } from '@openfeature/multi-provider'
 import { OpenFeature, Client } from '@openfeature/server-sdk'
 import { initializeDevCycle } from '@devcycle/nodejs-server-sdk'
