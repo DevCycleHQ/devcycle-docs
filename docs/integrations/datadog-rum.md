@@ -11,6 +11,7 @@ DevCycle's clientside Javascript SDKs - including JS and React, can now be easil
 - [Configuration](#configuration)
   - [JavaScript](#javascript)
   - [React](#react)
+- [Best Practices](#best-practices)
 - [Coming Soon](#coming-soon)
   
 ### Configuration
@@ -104,6 +105,10 @@ export const App = () => {
   )
 }
 ```
+### Best Practices
+
+In our ["Observability Best Practices Using DevCycle with Datadog's RUM Feature Flag Tracking"](/best-practices/datadog-rum) article, we explore best practices for enriching RUM data with DevCycle's variable data, giving you more granular control over data collection and event tracking based on user-specific configurations.
+
 
 ### Coming Soon
 
