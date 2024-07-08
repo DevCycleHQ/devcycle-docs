@@ -3239,12 +3239,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@heroicons/react@npm:^2.0.18":
-  version: 2.1.3
-  resolution: "@heroicons/react@npm:2.1.3"
+"@heroicons/react@npm:^2.1.4":
+  version: 2.1.4
+  resolution: "@heroicons/react@npm:2.1.4"
   peerDependencies:
     react: ">= 16"
-  checksum: 10/b9a1100a1381b13567ac5c5a43d77f39fc5d20682bc3e9a1674eecbe656ad756287e5f1c9024cec8f5a2245607f2372278c956c6279ee9b79ef305a7337fd5b8
+  checksum: 10/99dffa86bfca6c06dc69d8a16ddf49ac5976767adbf6d3439fe6006741884b63068493e2fea567fcacb961b540dc65a861de3135b628d4928350044c39e8083f
   languageName: node
   linkType: hard
 
@@ -6900,7 +6900,7 @@ __metadata:
     "@fortawesome/free-regular-svg-icons": "npm:^6.4.0"
     "@fortawesome/free-solid-svg-icons": "npm:^6.4.0"
     "@fortawesome/react-fontawesome": "npm:^0.2.0"
-    "@heroicons/react": "npm:^2.0.18"
+    "@heroicons/react": "npm:^2.1.4"
     "@iconify-icon/react": "npm:^1.0.8"
     "@mdx-js/react": "npm:^3.0.0"
     "@remark-embedder/core": "npm:^3.0.2"
