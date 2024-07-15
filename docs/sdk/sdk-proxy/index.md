@@ -15,6 +15,10 @@ host in your environment.
 It is a minimal service written in Go which maintains a copy of the latest DevCycle configuration in order to provide 
 the fastest evaluation times possible for high scale environments.
 
+:::tip
+The DevCycle SDK Proxy is similar in many ways to the Relay Proxy employed by other providers in the industry.
+:::
+
 ## How It Works
 
 The proxy has two operation modes: HTTP over TCP and HTTP over Unix sockets. Depending on which deployment method you
