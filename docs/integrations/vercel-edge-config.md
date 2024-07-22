@@ -14,7 +14,8 @@ The Edge Config integration is currently available for the following SDKs:
 - Node.js
 - Next.js
 
-Using it requires a Vercel account and an application running there which uses one of those SDKs. 
+Using the integration requires a Vercel account and an application running in that account which is using 
+one of the above SDKs.
 
 :::info
 
@@ -37,7 +38,7 @@ This will open a separate window which will load the setup form on the DevCycle 
 already so that you can log in inside this window.
 
 Once logged in, you can select which projects in DevCycle you want to upload to Edge Config, and which Edge Config to upload them to.
-You must have created an Edge Config beforehand in order to select it here. To create an Edge Config, follow [Vercel's documentation](https://vercel.com/docs/storage/edge-config/get-started)
+You must have created an Edge Config beforehand in order to select it here. To create an Edge Config, follow [Vercel's documentation](https://vercel.com/docs/storage/edge-config/get-started).
 
 After you have made your selections, hit "Submit" to finish configuring the integration.
 
@@ -79,7 +80,7 @@ Now the SDK will retrieve its configuration from Edge Config. That's it!
 #### Next.js
 For more information on Next.js SDK usage, see the [docs](/sdk/client-side-sdks/nextjs)
 
-*App Router*
+**App Router**
 ```typescript
 import { createClient } from '@vercel/edge-config'
 import { EdgeConfigSource} from '@devcycle/vercel-edge-config'
@@ -99,7 +100,7 @@ export const { getVariableValue, getClientContext } = setupDevCycle({
 })
 ```
 
-*Pages Router*
+**Pages Router**
 ```typescript
 import { createClient } from '@vercel/edge-config'
 import { EdgeConfigSource} from '@devcycle/vercel-edge-config'
