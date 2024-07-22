@@ -106,9 +106,9 @@ For modifications  to or additions of a gradual roll-out, entries in the [Audit 
 
 :::
 
-## Passthrough Rollouts (*effective for ALL DevCycle Projects on July 17, 2024*)
+## Passthrough Rollouts (*effective for ALL DevCycle Projects on August 14, 2024*)
 
-On **July 17, 2024**, we will be implementing Passthrough Rollouts for Environment Targeting. 
+On **August 14, 2024**, we will be implementing Passthrough Rollouts for Environment Targeting. 
 
 If your team is actively using the Scheduled Rollouts functionality for Targeting Rules,  this change may affect Targeting Rules for your Features, so we've put together resources to make this transition as smooth as possible for you.
 
@@ -134,11 +134,11 @@ Here is an example scenario of Passthrough Rollouts' expected behaviour:
 ### *What do you need to know?*
 
 - **May 22, 2024:** Starting today, all existing projects will have a Passthrough Rollouts section in each Project’s settings page. This will give you an option to enable this setting ahead of the switchover date. All new Projects created from this date forward, will have passthrough rollouts as the default behaviour.
-- **July 17, 2024:** All projects will switch to Passthrough Rollouts enabled by default, and will no longer be available as an option on the Project settings page. If your team is leveraging a server-side SDK, your team must upgrade your SDK before this date, as Passthrough Rollouts require specific DevCycle Server SDK Versions to be deployed.
+- **August 14, 2024:** All projects will switch to Passthrough Rollouts enabled by default, and will no longer be available as an option on the Project settings page. If your team is leveraging a server-side SDK, your team must upgrade your SDK before this date, as Passthrough Rollouts require specific DevCycle Server SDK Versions to be deployed.
 
 ### *What do you need to do?*
 
-If your team is leveraging a server-side SDK, your team must upgrade your SDK before **July 17, 2024** as Passthrough Rollouts require specific DevCycle Server SDK Versions to be deployed (with the exception of the PHP SDK, which does not require an SDK update).
+If your team is leveraging a server-side SDK, your team must upgrade your SDK before **August 14, 2024** as Passthrough Rollouts require specific DevCycle Server SDK Versions to be deployed (with the exception of the PHP SDK, which does not require an SDK update).
 
 
 - Python: **3.5.0** [![PyPI](https://badgen.net/pypi/v/devcycle-python-server-sdk)](https://pypi.org/project/devcycle-python-server-sdk/) 
