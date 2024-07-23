@@ -48,40 +48,85 @@ The Multi-Provider allows you to use multiple underlying providers as sources of
 The Multi-Provider is currently available only for the NodeJS and Web OpenFeature SDKs
 :::
 
+#### SERVER-SIDE IMPLEMENTATION
 
-#### Install the Multi-Provider package:
+##### Install the Multi-Provider package:
 
 ```bash
-npm install @openfeature/multi-provider 
-# OR 
-npm install @openfeature/multi-provider-web
+npm install @openfeature/multi-provider
 ```
 
-#### Initialize the Multi-Provider in your code:
+##### Initialize the Multi-Provider in your code:
 
 ```tsx
-import { MultiProvider } from '@openfeature/multi-provider'
-import { OpenFeature, Client } from '@openfeature/server-sdk'
-import { initializeDevCycle } from '@devcycle/nodejs-server-sdk'
+import { MultiProvider } from '@openfeature/multi-provider';
+import { OpenFeature } from '@openfeature/server-sdk';
+import { initializeDevCycle } from '@devcycle/nodejs-server-sdk';
 
+// DevCycle Provider Setup
+const { DEVCYCLE_SDK_KEY } = process.env;
+const user = { user_id: "user_id" };
+const devcycleClient = initializeDevCycle(DEVCYCLE_SDK_KEY);
+const devcycleProvider = await devcycleClient.getOpenFeatureProvider();
+
+// Existing Provider Setup
 const existingProvider = new ExistingProvider();
 
-const { DEVCYCLE_SERVER_SDK_KEY } = process.env
-const devcycleClient = initializeDevCycle(DEVCYCLE_SERVER_SDK_KEY)
-const devcycleProvider = await devcycleClient.getOpenFeatureProvider()
-
+// Multi-provider Setup
 const multiProvider = new MultiProvider([
   { provider: devcycleProvider },
   { provider: existingProvider }
 ]);
 
+await OpenFeature.setContext(user);
 await OpenFeature.setProviderAndWait(multiProvider);
 
 const openFeatureClient = OpenFeature.getClient();
 
 const value = await openFeatureClient.getStringValue(
-  'flag-key', 
-  'default value', 
+  'flag-key',
+  'default value',
+  someUser
+);
+```
+
+#### CLIENT-SIDE IMPLEMENTATION
+
+##### Install the Web Multi-Provider package:
+
+```bash
+npm install @openfeature/multi-provider-web
+```
+
+##### Initialize the Web Multi-Provider in your code:
+
+```tsx
+import { WebMultiProvider } from "@openfeature/multi-provider-web";
+import { OpenFeature } from "@openfeature/web-sdk";
+import DevCycleProvider from "@devcycle/openfeature-web-provider";
+
+// DevCycle Provider Setup
+const { DEVCYCLE_SDK_KEY } = process.env;
+const user = { user_id: "user_id" };
+const devCycleProvider = new DevCycleProvider(DEVCYCLE_SDK_KEY);
+
+// Existing Provider Setup
+const existingProvider = new ExistingProvider();
+
+// Multi-provider Setup
+const multiProvider = new WebMultiProvider([
+  { provider: devCycleProvider },
+  { provider: existingProvider }
+]);
+
+await OpenFeature.setContext(user);
+await OpenFeature.setProviderAndWait(multiProvider);
+
+const openFeatureClient = OpenFeature.getClient();
+
+const value = await openFeatureClient.getStringValue(
+  'flag-key',
+  'default value',
   someUser
 );
 ```
@@ -92,17 +137,32 @@ The Multi-Provider supports various strategies to control provider evaluation an
 
 While the default strategy is generally recommended for vendor migration, a special **DevCycleMigrationStrategy** has been created specifically for migrating to DevCycle. This strategy extends **FirstMatchStrategy** to accommodate DevCycle's process by returning `DEFAULT` for "flag not found" cases. 
 
-   ```tsx
-   import { DevCycleMigrationStrategy } from '@devcycle/nodejs-server-sdk/openfeature-strategy'
+##### SERVER-SIDE IMPLEMENTATION
+```tsx
+  import { DevCycleMigrationStrategy } from '@devcycle/nodejs-server-sdk/openfeature-strategy'
 
-   const multiProvider = new MultiProvider(
+  const multiProvider = new MultiProvider(
      [
        { provider: devcycleProvider },
        { provider: existingProvider }
      ],
      new DevCycleMigrationStrategy()
    );
-   ```
+```
+
+##### CLIENT-SIDE IMPLEMENTATION
+
+```tsx
+  import { DevCycleMigrationStrategy } from "@devcycle/openfeature-web-provider/strategy";
+   
+  const multiProvider = new WebMultiProvider(
+     [
+       { provider: devcycleProvider },
+       { provider: existingProvider }
+     ],
+     new DevCycleMigrationStrategy()
+   );
+```
 
 :::warning
 To effectively use this strategy with DevCycle, ensure that all targeting rules include an "All Users" rule. This will prevent the return of `DEFAULT` for known keys.
