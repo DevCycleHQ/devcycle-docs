@@ -1,5 +1,5 @@
 ---
-title: Slack
+title: Integration for Slack
 sidebar_position: 11
 ---
 
@@ -9,13 +9,13 @@ You can use the DevCycle App for Slack to keep track of and monitor feature flag
 
 ## Setup
 
-1. Navigate to the Settings page in the DevCycle Dashboard, click on Integrations in the side navigation bar, and click View on the Slack integration.
+1. Navigate to the Settings page in the DevCycle Dashboard, click on Integrations in the side navigation bar, and click `View` on the Integration for Slack.
 
-![Screenshot of Setttings Page on dashboard](/apr-2024-slack1.png)
+![Screenshot of Setttings Page on dashboard](/july-2024-integrations-page.png)
 
 2. Click on the `Add to Slack` button and connect the DevCycle App for Slack with your workspace.
 
-![Screenshot of Integrations tab on dashboard](/apr-2024-slack2.png)
+![Screenshot of Integrations tab on dashboard](/july-2024-slack-page-add.png)
 
 3. Once the DevCycle app has been added, you can now subscribe to Feature changes on a project-level or by individual Feature(s).
 4. First, navigate to the Slack channel where you would like to have the Slack messages to be posted.
@@ -44,6 +44,6 @@ The `View Changes on Feature` will take you to the Audit Log entry with more det
 
 ## Uninstall the DevCycle App for Slack
 
-In the case that you connected your Slack app to the wrong workspace or would like to remove it, please follow the instructions in this [Slack Help Center article](https://slack.com/help/articles/360003125231-Remove-apps-and-custom-integrations-from-your-workspace#remove-an-app).
+In the case that you connected the DevCycle app for Slack to the wrong workspace or would like to remove it, please follow the instructions in this [Slack Help Center article](https://slack.com/help/articles/360003125231-Remove-apps-and-custom-integrations-from-your-workspace#remove-an-app).
 
 ![How to Remove DevCycle App for Slack](/apr-2024-slack-uninstall.png)
