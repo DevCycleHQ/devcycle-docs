@@ -9,7 +9,7 @@ sidebar_position: 1
 Approval Workflows are an Enterprise feature. To learn more, read about our [pricing](https://devcycle.com/pricing). To upgrade your plan, please contact [Sales](mailto:sales@devcycle.com) or your Account Manager. 
 :::
 
-With Approval Workflows, when a DevCycle user wants to change a Feature, they must request review and approval from a Publisher within their DevCycle organization. Approval Workflows give people greater visibility on Feature changes and act as a safeguard for your team. These review-style approvals mirror common code review workflows, such as pull request (PR) reviews in GitHub. 
+With Approval Workflows, when a DevCycle user wants to change a Feature, they must request a review and approval from a Publisher within their DevCycle organization. Approval Workflows give people greater visibility on Feature changes and act as a safeguard for your team. These review-style approvals mirror common code review workflows, such as pull request (PR) reviews in GitHub. 
 
 Anyone with a Publisher, or Owner role can approve a Change Request, regardless of whether or not their review has been requested. Publishers whom the requester selects receive an email notifying them that their review has been requested, as well as an in-dashboard notification on DevCycle's homepage.
 
@@ -36,11 +36,11 @@ To enable Approval Workflows in a project:
 
 ## Requesting a Review for a Change Request
 
-Once enabled, all team members will require approval on Feature changes in <b> all environments </b> from a Publisher or Owner within your DevCycle organization. 
+Once Approval Workflows have been enabled, all team members, regardless of their permission level, will require approval on Feature changes in <b> all environments </b> from a Publisher or Owner within your DevCycle organization. 
 
 1. Onnce you've made your desired Feature changes, click on the `Submit Change Request` button at the top-right corner of the Feature page. 
 2. Review and confirm the changes displayed in the Review Change modal.
-3. Enter a Description to add details that help your reviewers understand the changes you made.
+3. Enter a brief description that helps your reviewers understand the changes you made.
 4. Select one or more reviewers from the Reviewers menu and click Submit. 
 
 ![Submit Change Request Modal](/july-2024-submit-cr.png)
