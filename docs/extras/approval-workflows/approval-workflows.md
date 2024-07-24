@@ -57,7 +57,7 @@ If the <b> "Publishers can skip the review process" </b> setting has been turned
 
 The button `Force Apply` will appear on the Change Request modal for these users. 
 
-If a user chooses to `Force Apply` then they will required to still include a change description, however they cannot select other reviewers. 
+If a user chooses to `Force Apply` then they are required to include a change description, however they cannot select other reviewers. 
 
 ![Force Apply Change Request Modal](/july-2024-force-apply..png)
 
