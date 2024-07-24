@@ -53,7 +53,7 @@ Members who do not have permission to approve requests can still view the Change
 
 ## Force Applying a Change Request as a Publisher
 
-If the <b> "Publishers can skip the review process" </b> setting has been turned on for your Project, Publishers, and Owners will be able to Force Apply their Change Request and bypass the review process. This feature is intended to reduce friction for users who have publishing permissions. 
+Force applying changes to bypass the review process for Publishers is only available if the <b> "Publishers can skip the review process" </b> setting has been turned on for your Project. This feature is intended to reduce friction for users who have publishing permissions. 
 
 The button `Force Apply` will appear on the Change Request modal for these users. 
 
