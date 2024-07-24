@@ -41,7 +41,7 @@ Once enabled, all team members will require approval on Feature changes in <b> a
 1. Onnce you've made your desired Feature changes, click on the `Submit Change Request` button at the top-right corner of the Feature page. 
 2. Review and confirm the changes displayed in the Review Change modal.
 3. Enter a Description to add details that help your reviewers understand the changes you made.
-4. Select one or more reviewers from the Reviewers menu and click Submit. 
+4. Select one or more reviewers from the Reviewers list and click Submit. 
 
 ![Submit Change Request Modal](/july-2024-submit-cr.png)
 
