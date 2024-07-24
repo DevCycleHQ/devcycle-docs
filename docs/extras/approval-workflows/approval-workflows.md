@@ -38,10 +38,15 @@ To enable Approval Workflows in a project:
 
 Once Approval Workflows have been enabled, all team members, regardless of their permission level, will require approval on Feature changes in <b> all environments </b> from a Publisher or Owner within your DevCycle organization. 
 
-1. Onnce you've made your desired Feature changes, click on the `Submit Change Request` button at the top-right corner of the Feature page. 
+1. Once you've made your desired Feature changes, click on the `Submit Change Request` button at the top-right corner of the Feature page. 
 2. Review and confirm the changes displayed in the Review Change modal.
+<<<<<<< HEAD
 3. Enter a brief description that helps your reviewers understand the changes you made.
 4. Select one or more reviewers from the Reviewers menu and click Submit. 
+=======
+3. Enter a Description to add details that help your reviewers understand the changes you made.
+4. Select one or more reviewers from the Reviewers list and click Submit. 
+>>>>>>> dd33cb6f5bf5f67b1ceb06a133064aee28d0f90f
 
 ![Submit Change Request Modal](/july-2024-submit-cr.png)
 
@@ -53,11 +58,11 @@ Members who do not have permission to approve requests can still view the Change
 
 ## Force Applying a Change Request as a Publisher
 
-If the <b> "Publishers can skip the review process" </b> setting has been turned on for your Project, Publishers, and Owners will be able to Force Apply their Change Request and bypass the review process. This feature is intended to reduce friction for users who have publishing permissions. 
+Force applying changes to bypass the review process for Publishers is only available if the <b> "Publishers can skip the review process" </b> setting has been turned on for your Project. This feature is intended to reduce friction for users who have publishing permissions. 
 
 The button `Force Apply` will appear on the Change Request modal for these users. 
 
-If a user chooses to `Force Apply` then they will required to still include a change description, however they cannot select other reviewers. 
+If a user chooses to `Force Apply` then they are required to include a change description, however they cannot select other reviewers. 
 
 ![Force Apply Change Request Modal](/july-2024-force-apply..png)
 
