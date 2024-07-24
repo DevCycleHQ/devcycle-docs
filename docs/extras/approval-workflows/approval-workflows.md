@@ -36,17 +36,12 @@ To enable Approval Workflows in a project:
 
 ## Requesting a Review for a Change Request
 
-Once Approval Workflows have been enabled, all team members, regardless of their permission level, will require approval on Feature changes in <b> all environments </b> from a Publisher or Owner within your DevCycle organization. 
+Once Approval Workflows have been enabled, every team member, regardless of their permission level, will require approval on Feature changes in <b> all environments </b> from a Publisher or Owner within your DevCycle organization. 
 
 1. Once you've made your desired Feature changes, click on the `Submit Change Request` button at the top-right corner of the Feature page. 
 2. Review and confirm the changes displayed in the Review Change modal.
-<<<<<<< HEAD
 3. Enter a brief description that helps your reviewers understand the changes you made.
 4. Select one or more reviewers from the Reviewers menu and click Submit. 
-=======
-3. Enter a Description to add details that help your reviewers understand the changes you made.
-4. Select one or more reviewers from the Reviewers list and click Submit. 
->>>>>>> dd33cb6f5bf5f67b1ceb06a133064aee28d0f90f
 
 ![Submit Change Request Modal](/july-2024-submit-cr.png)
 
