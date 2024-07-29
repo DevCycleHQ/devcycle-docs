@@ -56,6 +56,10 @@ Drag the built .xcframework bundles from Carthage/Build into the "Frameworks and
 
 ### Swift Package Manager
 
+:::info
+**Package URL Conflicts:** If you have a package that conflicts with the naming of the `ios-client-sdk`, then you can use https://github.com/DevCycleHQ/devcycle-ios-client-sdk.git.
+:::
+
 To use the library with Swift Package Manager, include it as a dependency in your `Package.swift` file like so:
 
 ```
