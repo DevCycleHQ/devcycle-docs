@@ -3,7 +3,7 @@ title: Vercel Edge Config
 sidebar_position: 10
 ---
 
-The Vercel Edge Config integration allows you to automatically upload DevCycle flagging configurations to [Vercel Edge Config](https://vercel.com/docs/storage/edge-config),
+The Vercel Edge Config integration allows you to automatically sync DevCycle flagging configurations to [Vercel Edge Config](https://vercel.com/docs/storage/edge-config),
 a lightning fast data storage system optimized for deployments running on Vercel.
 
 With this integration, DevCycle SDKs running in Vercel can obtain flag configurations faster than ever, reducing latency
