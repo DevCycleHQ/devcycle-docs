@@ -34,10 +34,11 @@ If your Edge Config cannot store your project's configuration after the integrat
 
 ### Configure Integration
 To get started, visit the [integration's page on Vercel](https://vercel.com/integrations/devcycle) and click "Add Integration".
-This will open a separate window which will load the setup form on the DevCycle dashboard. Make sure you have a DevCycle account
-already so that you can log in inside this window.
+This will open a separate window which will load the setup form on the DevCycle dashboard. If you don't already have a DevCycle account,
+you will be taken through the signup process. Once you've created your account and Organization, you'll be brought back to the integration
+setup.
 
-Once logged in, you can select which projects in DevCycle you want to upload to Edge Config, and which Edge Config to upload them to.
+Once logged in, you can select which projects in DevCycle you want to sync to Edge Config, and which Edge Config to sync them to.
 You must have created an Edge Config beforehand in order to select it here. To create an Edge Config, follow [Vercel's documentation](https://vercel.com/docs/storage/edge-config/get-started).
 
 After you have made your selections, hit "Submit" to finish configuring the integration.
