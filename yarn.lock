@@ -3248,14 +3248,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@iconify-icon/react@npm:^1.0.8":
-  version: 1.0.8
-  resolution: "@iconify-icon/react@npm:1.0.8"
+"@iconify-icon/react@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "@iconify-icon/react@npm:2.1.0"
   dependencies:
-    iconify-icon: "npm:^1.0.8"
+    iconify-icon: "npm:^2.1.0"
   peerDependencies:
     react: ">=16"
-  checksum: 10/9495e0174df438e0ce2fb7cbc2d92e5a22fcb6e74389345051c0e6289649a36b229980967ad44f9eb06b5f7aced069984947277b37168da01dc87b6c0e13e27c
+  checksum: 10/919853de5e2df59adf896d59f644bf5355b32d9e4c8fb39a8acb44364393c237bf7ff04f0a51b099ca20a192aa136c632ad589b8261f6a214434ff17b08e1a9c
   languageName: node
   linkType: hard
 
@@ -6901,7 +6901,7 @@ __metadata:
     "@fortawesome/free-solid-svg-icons": "npm:^6.4.0"
     "@fortawesome/react-fontawesome": "npm:^0.2.0"
     "@heroicons/react": "npm:^2.0.18"
-    "@iconify-icon/react": "npm:^1.0.8"
+    "@iconify-icon/react": "npm:^2.1.0"
     "@mdx-js/react": "npm:^3.0.0"
     "@remark-embedder/core": "npm:^3.0.2"
     "@tailwindcss/aspect-ratio": "npm:^0.4.2"
@@ -9088,12 +9088,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"iconify-icon@npm:^1.0.8":
-  version: 1.0.8
-  resolution: "iconify-icon@npm:1.0.8"
+"iconify-icon@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "iconify-icon@npm:2.1.0"
   dependencies:
     "@iconify/types": "npm:^2.0.0"
-  checksum: 10/85dad261b9544ff5a159dea8c6f251de3a8936939e127192a21595a50e0c2b842ad6470ccdfdb1fa247774d4d537f5f8e738c4d51876abac462c90232a377ecd
+  checksum: 10/60240a1764018ea049c89ffaa5d524d26de58272e7693179932c7034133506b87aa264af2c09b5de9415488dba361a77f8ea439bf0675dba929ce4b932222288
   languageName: node
   linkType: hard
 
