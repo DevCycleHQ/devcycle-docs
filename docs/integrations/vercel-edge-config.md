@@ -41,7 +41,7 @@ you will be taken through the signup process. Once you've created your account a
 setup.
 
 Once logged in, you can select which projects in DevCycle you want to sync to Edge Config, and which Edge Config to sync them to.
-If you don't have an Edge Config already set up, you'll have the opportunity to set one up in the configuration flow. You can also create an Edge Config ahead of time by following [Vercel's documentation](https://vercel.com/docs/storage/edge-config/get-started).
+If you don't have an Edge Config already set up, one will be created for you with the name DevCycle during the configuration flow. You can also create an Edge Config ahead of time by following [Vercel's documentation](https://vercel.com/docs/storage/edge-config/get-started).
 
 After you have made your selections, hit "Submit" to finish configuring the integration.
 
