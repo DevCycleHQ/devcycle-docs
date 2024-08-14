@@ -32,8 +32,6 @@ If your Edge Config cannot store your project's configuration after the integrat
 
 ## Setup
 
-Make sure the Edge Config you would like to use in Vercel with this integration has been connected to the project where you’re planning to run the DevCycle code. Vercel's documentation for this can be found [here](https://vercel.com/docs/storage/edge-config/get-started#connect-your-vercel-project).
-
 ### Configure Integration
 To get started, visit the [integration's page on Vercel](https://vercel.com/integrations/devcycle) and click "Add Integration".
 This will open a separate window which will load the setup form on the DevCycle dashboard. If you don't already have a DevCycle account,
@@ -48,6 +46,8 @@ After you have made your selections, hit "Submit" to finish configuring the inte
 ### Setup SDK
 
 If you haven't already installed the DevCycle [Node.js](https://docs.devcycle.com/sdk/server-side-sdks/node/) or [Next.js](https://docs.devcycle.com/sdk/server-side-sdks/nestjs/) SDK you can follow the installation and usage guides for those SDKs in our [documentation here](https://docs.devcycle.com/sdk/). You can also find helpful setup information like where to find SDK keys in our [Quickstart Tutorial](https://docs.devcycle.com/introduction/quickstart).
+
+Make sure the Edge Config you would like to use has been connected to the project where you’re planning to run the DevCycle code. Vercel's documentation for this can be found [here](https://vercel.com/docs/storage/edge-config/get-started#connect-your-vercel-project).
 
 In order to use the integration in a DevCycle SDK, you must install the `@devcycle/vercel-edge-config` package and provide it 
 during SDK initialization. Using that package requires the `@vercel/edge-config` package to be installed as well:
