@@ -42,6 +42,15 @@ The `View Changes on Feature` will take you to the Audit Log entry with more det
 - `/devcycle [ subscribe | unsubscribe | list | help ]`
 - `/dvc [ subscribe | unsubscribe | list | help ]`
 
+## Private Channels
+
+To use the DevCycle Integration for Slack in private channels, you must invite the DevCycle App to the channel.
+
+![Screenshot of Private Channel Invite Command](/aug-2024-slack-private-channel-invite.png)
+
+![Screenshot of Private Channel Add App](/aug-2024-slack-private-channel-add.png)
+
+
 ## Uninstall the DevCycle App for Slack
 
 In the case that you connected the DevCycle app for Slack to the wrong workspace or would like to remove it, please follow the instructions in this [Slack Help Center article](https://slack.com/help/articles/360003125231-Remove-apps-and-custom-integrations-from-your-workspace#remove-an-app).
