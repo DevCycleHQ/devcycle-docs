@@ -14,8 +14,8 @@ The Edge Config integration is currently available for the following SDKs:
 - Node.js
 - Next.js
 
-Using the integration requires a Vercel account and an application running in that account which is using 
-one of the above SDKs.
+Using the integration requires a Vercel account, an application running in that account which is using 
+one of the above SDKs, and an Edge Config connected to a project in Vercel..
 
 :::info
 
@@ -32,6 +32,8 @@ If your Edge Config cannot store your project's configuration after the integrat
 
 ## Setup
 
+If you haven't already installed the DevCycle [Node.js](https://docs.devcycle.com/sdk/server-side-sdks/node/) or [Next.js](https://docs.devcycle.com/sdk/server-side-sdks/nestjs/) SDK you can follow the installation and usage guides for those SDKs in our [documentation here]([https://docs.devcycle.com/sdk/server-side-sdks/node/](https://docs.devcycle.com/sdk/)). You can also find helpful setup information like where to find SDK keys in our [Quickstart Tutorial](https://docs.devcycle.com/introduction/quickstart).
+
 ### Configure Integration
 To get started, visit the [integration's page on Vercel](https://vercel.com/integrations/devcycle) and click "Add Integration".
 This will open a separate window which will load the setup form on the DevCycle dashboard. If you don't already have a DevCycle account,
@@ -39,7 +41,7 @@ you will be taken through the signup process. Once you've created your account a
 setup.
 
 Once logged in, you can select which projects in DevCycle you want to sync to Edge Config, and which Edge Config to sync them to.
-You must have created an Edge Config beforehand in order to select it here. To create an Edge Config, follow [Vercel's documentation](https://vercel.com/docs/storage/edge-config/get-started).
+If you don't have an Edge Config already set up, you'll have the opportunity to set one up in the configuration flow. You can also create an Edge Config ahead of time by following [Vercel's documentation](https://vercel.com/docs/storage/edge-config/get-started).
 
 After you have made your selections, hit "Submit" to finish configuring the integration.
 
