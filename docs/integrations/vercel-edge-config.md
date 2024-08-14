@@ -59,6 +59,8 @@ yarn add @devcycle/vercel-edge-config @vercel/edge-config
 Follow the SDK-specific instructions below:
 
 #### Node.js
+For more information on Node SDK usage, see the [docs](/sdk/server-side-sdks/node)
+
 ```typescript
 import { createClient } from '@vercel/edge-config'
 import { EdgeConfigSource} from '@devcycle/vercel-edge-config'
