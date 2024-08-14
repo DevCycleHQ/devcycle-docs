@@ -15,7 +15,7 @@ The Edge Config integration is currently available for the following SDKs:
 - Next.js
 
 Using the integration requires a Vercel account, an application running in that account which is using 
-one of the above SDKs, and an Edge Config connected to a project in Vercel..
+one of the above SDKs, and an Edge Config connected to a project in Vercel.
 
 :::info
 
