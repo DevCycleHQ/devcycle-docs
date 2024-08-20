@@ -1,6 +1,6 @@
 ---
 title: Status and Lifecycle
-sidebar_position: 9
+sidebar_position: 10
 ---
 
 # Status and Lifecycle Management in DevCycle

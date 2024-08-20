@@ -1,6 +1,6 @@
 ---
 title: Environments
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 Environments in DevCycle map to the environments which traditionally exist within a system's development lifecycle. Every Feature within DevCycle will exist across every Environment in your DevCycle Project, but each Environment manages Features independently. 
