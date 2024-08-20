@@ -92,7 +92,7 @@ For more information on Next.js SDK usage, see the [docs](/sdk/client-side-sdks/
 ```typescript
 import { createClient } from '@vercel/edge-config'
 import { EdgeConfigSource} from '@devcycle/vercel-edge-config'
-import { setupDevCycle } from '@devcycle/nextjs-sdk'
+import { setupDevCycle } from '@devcycle/nextjs-sdk/server'
 
 const edgeClient = createClient(process.env.EDGE_CONFIG)
 const edgeConfigSource = new EdgeConfigSource(edgeClient)
@@ -100,7 +100,7 @@ const edgeConfigSource = new EdgeConfigSource(edgeClient)
 export const { getVariableValue, getClientContext } = setupDevCycle({
   serverSDKKey: process.env.DEVCYCLE_SERVER_SDK_KEY ?? '',
   clientSDKKey: process.env.NEXT_PUBLIC_DEVCYCLE_CLIENT_SDK_KEY ?? '',
-  userGetter: getUserIdentity,
+  userGetter: () => ({user_id: 'test_user'}),
   options: {
     // pass the configSource option with the instance of EdgeConfigSource
     configSource: edgeConfigSource
