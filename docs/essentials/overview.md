@@ -1,11 +1,11 @@
 ---
 title: DevCycle Overview
-sidebar_position: 1
+sidebar_class_name: hidden
 ---
 
 DevCycle is a feature flag platform built for engineering teams of any size, helping you easily create, rollout, and cleanup feature flags without disrupting your workflow.
 
-If you’re unfamiliar with the concepts of feature flagging we suggest checking out the [Martin Fowler post on the subject](https://martinfowler.com/articles/feature-toggles.html).
+If you’re unfamiliar with the concepts of feature flagging we suggest checking out the post on the Martin Fowler site called [Feature Toggles (aka Feature Flags)](https://martinfowler.com/articles/feature-toggles.html) by Pete Hodgson.
 
 To help teams fit feature flagging into their development process we’ve taken a different approach than most. This page is a great starting point to understanding how we think about feature flagging and how you can get the most of out of DevCycle.
 

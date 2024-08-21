@@ -1,6 +1,6 @@
 ---
 title: Variables
-sidebar_position: 7
+sidebar_position: 6
 ---
 
 Variables are the elements that can change within a Feature. 

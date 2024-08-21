@@ -1,6 +1,6 @@
 ---
 title: Targeting
-sidebar_position: 9
+sidebar_position: 8
 ---
 
 Targeting rules can be used to grant features to specific user groups, 

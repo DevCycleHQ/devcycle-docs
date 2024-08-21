@@ -1,6 +1,6 @@
 ---
 title: Features
-sidebar_position: 6
+sidebar_position: 5
 ---
 
 > Features are the main elements that you want to control or experiment with in your application. They can be anything from a new UI element to a backend algorithm. 

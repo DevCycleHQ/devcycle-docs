@@ -1,6 +1,6 @@
 ---
 title: Projects
-sidebar_position: 3
+sidebar_position: 2
 ---
 
 > Projects are nested within [organizations](./organizations.md) and contain your [Features](./features.md) and [Environments](./environments.md) (and through them your [keys](./keys.md), [variables](./variables.md) and [variations](./variations.md)).
