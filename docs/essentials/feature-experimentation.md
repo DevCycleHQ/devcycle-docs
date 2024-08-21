@@ -88,31 +88,33 @@ Statistical significance has been achieved if this number is either 0% or 100%.
 ![Negative Metric Results](/feature-experiment-negative-results.png)
 
 
-## Experimentation using a Custom Property for Randomization (Custom Property-Targeted Experiments)
+## Experimentation using a Custom Property for Randomization
 
-DevCycle typically uses the User ID as the primary key for Targeting Rules and feature rollouts. However, in certain scenarios, Features you release are intended to be rolled out to a cohort of users vs an individual user. For example, a new feature in a B2B platform might impact an entire organization rather than a single user within that organization. In such cases, you can randomize and rollout by using a Custom Property. 
+:::info
+For documentation on this functionality outside of the context of experimentation you can check out our documentation dedicated to this topic [here](/extras/advanced-targeting/randomize-using-custom-property).
+:::
 
-### What are Custom Property-Targeted Experiments?
-In Custom Property-targeted experiments, the experiment is applied to a set of users (those who possess a Custom Property) rather than individual users. This means that every user who has that Custom Property will experience the same Feature variation, such as being part of the control or the test variant. This approach allows you to assess the impact of changes on the group as a whole.
+DevCycle typically uses the User ID as the primary key for Targeting Rules, Feature rollouts and randomization. However, in certain scenarios, Features you release are intended to be rolled out to a cohort of users vs an individual user. For example, a new feature in a B2B platform might impact an entire organization rather than a single user within that organization. In such cases, you can randomize and rollout by using a Custom Property. 
 
-Groups in DevCycle are defined using Custom Properties. These groups could be companies, geographic locations, or any set of users sharing common characteristics.
+### What are Experiments that Randomize Using a Custom Property?
+When running an experiment where you randomize using a Custom Property, the experiment is applied to a set of users (those who possess a Custom Property) rather than individual users. This means that every user who has that Custom Property will experience the same Feature Variation, such as being part of the control or the test variant. This approach allows you to assess the impact of changes on the group as a whole.
 
-### How to Run Custom Property-Targeted Experiments
+Groups in DevCycle are defined using Custom Properties. These groups could be companies, tenants, geographic locations, or any set of users sharing common characteristics.
 
-To set this up, create a targeting rule that serves a Random Distribution of the Variations. 
+### How to Randomize Using a Custom Property in Experiments
 
-When you select `Random Distribution`, a `Randomize Using` field will appear under the  `Schedule` section when creating a Targeting Rule. The dropdown will populate with all existing Custom Properties. 
+To set this up, create a Targeting Rule that serves a Random Distribution of the Variations. 
 
-Select the Custom Property you wish to use for your random distribution or rollout.
+When you select `Random Distribution`, a `Randomize Using` field will appear at the bottom of the Targeting Rule under the `Schedule` section. The dropdown will populate with all existing Custom Properties. Select the Custom Property you wish to use for your random distribution. If you are both randomizing distribution and using a gradual rollout of some form, the Custom Property will be used for both forms of randomization, keeping distribution sticky based off of that property.
 
 
-### Risks in Custom Property-Targeted Experiments
+### Risks to Experimentation
 
-There are several risks to be aware of when conducting Custom Property-targeted experiments:
+There are several risks to be aware of when randomizing your Experiments in this way:
 
 1. Less Statistical Power 
 
-In Custom Property-targeted experiments, each group is treated as a single data point, reducing the overall statistical power of the experiment. For example, a platform might have millions of users but only a few thousand companies using it. This typically requires running Custom Property-targeted experiments for a longer period to achieve statistically significant results.
+In experiments with randomization using a Custom Property, each group is treated as a single data point, reducing the overall statistical power of the experiment. For example, a platform might have millions of users but only a few thousand companies using it. This typically requires running these types of experiments for a longer period to achieve statistically significant results.
 
 2. Higher Randomization Risk 
 
@@ -122,6 +124,6 @@ For example, if a new pricing model is tested across different companies, an imb
 
 3. Fewer User-Level Insights:
 
-Custom Property-targeted experiments provide insights at an aggregate level, potentially obscuring user-level behaviors and preferences.
+Custom Property-targeted experiments provide insights at an aggregate level, potentially obscuring user-level behaviors and preferences. For example, a new feature might increase overall usage within a company, but it might not reveal which specific roles or user types are most engaged with the feature.
 
-For example, a new feature might increase overall usage within a company, but it might not reveal which specific roles or user types are most engaged with the feature.
+Regardless of the type of risk, if you are worried about the statistical validity of your experiment you should make sure that there is both a significant number of groups as well as good balanced stratification across the groups that you're testing against. These two factors protect you against the most substantial risks.
