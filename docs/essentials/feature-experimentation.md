@@ -86,3 +86,42 @@ Statistical significance has been achieved if this number is either 0% or 100%.
 
 **Negative Results**
 ![Negative Metric Results](/feature-experiment-negative-results.png)
+
+
+## Experimentation using a Custom Property for Randomization (Custom Property-Targeted Experiments)
+
+DevCycle typically uses the User ID as the primary key for Targeting Rules and feature rollouts. However, in certain scenarios, Features you release are intended to be rolled out to a cohort of users vs an individual user. For example, a new feature in a B2B platform might impact an entire organization rather than a single user within that organization. In such cases, you can randomize and rollout by using a Custom Property. 
+
+### What are Custom Property-Targeted Experiments?
+In Custom Property-targeted experiments, the experiment is applied to a set of users (those who possess a Custom Property) rather than individual users. This means that every user who has that Custom Property will experience the same Feature variation, such as being part of the control or the test variant. This approach allows you to assess the impact of changes on the group as a whole.
+
+Groups in DevCycle are defined using Custom Properties. These groups could be companies, geographic locations, or any set of users sharing common characteristics.
+
+### How to Run Custom Property-Targeted Experiments
+
+To set this up, create a targeting rule that serves a Random Distribution of the Variations. 
+
+When you select `Random Distribution`, a `Randomize Using` field will appear under the  `Schedule` section when creating a Targeting Rule. The dropdown will populate with all existing Custom Properties. 
+
+Select the Custom Property you wish to use for your random distribution or rollout.
+
+
+### Risks in Custom Property-Targeted Experiments
+
+There are several risks to be aware of when conducting Custom Property-targeted experiments:
+
+1. Less Statistical Power 
+
+In Custom Property-targeted experiments, each group is treated as a single data point, reducing the overall statistical power of the experiment. For example, a platform might have millions of users but only a few thousand companies using it. This typically requires running Custom Property-targeted experiments for a longer period to achieve statistically significant results.
+
+2. Higher Randomization Risk 
+
+There's a greater risk of improper randomization when assigning Custom Properties to control or test variants. With fewer data points, any imbalance can significantly skew the results.
+
+For example, if a new pricing model is tested across different companies, an imbalance in the distribution of company sizes could lead to inaccurate conclusions about the model’s effectiveness.
+
+3. Fewer User-Level Insights:
+
+Custom Property-targeted experiments provide insights at an aggregate level, potentially obscuring user-level behaviors and preferences.
+
+For example, a new feature might increase overall usage within a company, but it might not reveal which specific roles or user types are most engaged with the feature.
