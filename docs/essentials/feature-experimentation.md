@@ -112,18 +112,10 @@ When you select `Random Distribution`, a `Randomize Using` field will appear at 
 
 There are several risks to be aware of when randomizing your Experiments in this way:
 
-1. Less Statistical Power 
+1. *Less Statistical Power:* In experiments with randomization using a Custom Property, each group is treated as a single data point, reducing the overall statistical power of the experiment. For example, a platform might have millions of users but only a few thousand companies using it. This typically requires running these types of experiments for a longer period to achieve statistically significant results.
 
-In experiments with randomization using a Custom Property, each group is treated as a single data point, reducing the overall statistical power of the experiment. For example, a platform might have millions of users but only a few thousand companies using it. This typically requires running these types of experiments for a longer period to achieve statistically significant results.
+2. *Higher Randomization Risk:* There's a greater risk of improper randomization when assigning Custom Properties to control or test variants. With fewer data points, any imbalance can significantly skew the results. For example, if a new pricing model is tested across different companies, an imbalance in the distribution of company sizes could lead to inaccurate conclusions about the model’s effectiveness.
 
-2. Higher Randomization Risk 
-
-There's a greater risk of improper randomization when assigning Custom Properties to control or test variants. With fewer data points, any imbalance can significantly skew the results.
-
-For example, if a new pricing model is tested across different companies, an imbalance in the distribution of company sizes could lead to inaccurate conclusions about the model’s effectiveness.
-
-3. Fewer User-Level Insights:
-
-Custom Property-targeted experiments provide insights at an aggregate level, potentially obscuring user-level behaviors and preferences. For example, a new feature might increase overall usage within a company, but it might not reveal which specific roles or user types are most engaged with the feature.
+3. *Fewer User-Level Insights:* Custom Property-targeted experiments provide insights at an aggregate level, potentially obscuring user-level behaviors and preferences. For example, a new feature might increase overall usage within a company, but it might not reveal which specific roles or user types are most engaged with the feature.
 
 Regardless of the type of risk, if you are worried about the statistical validity of your experiment you should make sure that there is both a significant number of groups as well as good balanced stratification across the groups that you're testing against. These two factors protect you against the most substantial risks.
