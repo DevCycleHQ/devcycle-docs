@@ -73,8 +73,8 @@ import { initializeDevCycle } from '@devcycle/nodejs-server-sdk'
 
 // the EDGE_CONFIG environment variable contains a connection string for a particular edge config. It is set automatically
 // when you connect an edge config to a project in Vercel.
-const edgeClient = createClient(process.env.EDGE_CONFIG)
-const edgeConfigSource = new EdgeConfigSource(edgeClient)
+const edgeConfigClient = createClient(process.env.EDGE_CONFIG);
+const edgeConfigSource = new EdgeConfigSource(edgeConfigClient)
 
 const devcycleClient = initializeDevCycle(
   process.env.DEVCYCLE_SERVER_SDK_KEY, 
