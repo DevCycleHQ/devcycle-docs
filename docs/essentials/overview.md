@@ -88,7 +88,7 @@ Targeting Rule components:
 - **Serve**: The Variation that you’re granting to the current targeting rule’s definition. For experiments, you may use the `Random Distribution` option to split traffic at a set percentage to each Variation.
 - **Schedule**: This is used to schedule the distribution of a Variation of the feature at a specific date, or to implement a gradual or phased rollout of the Feature.
 
-If you find that you are often using the same Targeting Rules for multiple Features, try creating Audiences!
+If you find that you are often using the same Targeting Rules for multiple Features, try creating [Audiences](https://docs.devcycle.com/essentials/overview#audiences)!
 
 ### Audiences
 
@@ -96,14 +96,22 @@ Audiences allow you to save a definition of Targeting Rules with a name so that 
 
 Audiences that you’ve created appear as an option for targeting in all Features.
 
+## Bucketing
+
+Bucketing is the process of determining the eligibility to receive a Feature and which Variation of a Feature that a user, device or some other entity will receive. Bucketing takes user and Custom Property data from the application (SDK) and compares it to each Feature’s targeting rules to determine eligibility. If a user meets the conditions of a targeting rule, they will be served the Variation that is indicated on the targeting rule. Finally, the application (SDK) will receive the Variable values that fall under the Variation that is served. 
+
+### Bucketing Consistency
+
+By default, Bucketing is performed consistently on DevCycle by leveraging a hash of `userid` and a Targeting Rule ID. For a Targeting Rule that has a Rollout or is serving a Random Distribution, this hash ensures that users, devices, or entities are uniquely assigned a Variation, and they will keep that Variation as long as the `userid` and Targeting rule remain unedited.
+
 ## A/B Testing & Experimentation
 
 Experimentation and A/B Testing are important parts of a Feature’s lifecycle. Experiments can be as simple as comparing any audiences against a metric or can be fully [randomized](https://docs.devcycle.com/essentials/targeting#serving-a-random-variation-experimentation--random-distribution) A/B tests using statistical methodologies. 
 
 The primary concept of an experiment is the need to have at least two different experiences to compare performance. Any Feature in DevCycle can be turned into an experiment, and it only requires the following:
 
-1. At least two Variations served to your users.
-2. At least one Metric defined and attached to your feature.
+1. At least two [Variations](#variations) served to your users.
+2. At least one [Metric](https://docs.devcycle.com/essentials/overview#metrics) defined and attached to your feature.
 
 Once set up, you can track the experiment's progress and determine whether there is a winning variant from within the Feature’s Experiment Results page.
 
