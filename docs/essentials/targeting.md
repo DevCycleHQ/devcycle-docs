@@ -94,7 +94,11 @@ Each property has a type that has its own set of comparators available to it.
 | is                                              | string, number, boolean | exact match on one of the values  |
 | is not                                          | string, number, boolean | exact match on none of the values |
 | contains                                        | string                  | substring match                   |
-| does not contain                                | string                  | substring does not match          |      |
+| does not contain                                | string                  | substring does not match          |
+| starts with                                     | string                  | substring match                   |
+| does not start with                             | string                  | substring does not match          |
+| ends with                                       | string                  | substring match                   |
+| does not end with                               | string                  | substring does not match          |
 | exists                                          | string, number, boolean | null check                        |
 | does not exist                                  | string, number, boolean | null check                        |
 | equals, does not equal                          | number                  | math comparison                   |
