@@ -3,6 +3,17 @@ title: Randomize using a Custom Property
 sidebar_position: 9
 ---
 
+:::warning
+To use this functionality in conjunction with Server-Side SDKs you must ensure you are on at least these SDK versions:
+- DotNet 4.1.0
+- Go 2.18.1
+- Java 2.3.0
+- Node.js 1.19.0
+- Python 3.7.0
+- Ruby 3.2.0
+- SDK Proxy 2.2.0
+:::
+
 DevCycle uses User ID as the primary key for delivering variations, rolling out a feature, and randomizing distribution. However, there are cases in which a User ID is not the primary identifier of the request to DVC, thus making the usage of DevCycle features, specifically Gradual Rollouts, difficult in these scenarios. 
 
 This functionality allows you to set a [Custom Property](docs/extras/advanced-targeting/custom-properties.md) as the key to roll out / distribute on rather than User ID, such as Account, Organization, Tenant or Store ID.  For example, at DevCycle, we would use this feature to gradually roll out new functionality on an organization-by-organization basis rather than on a user-by-user basis to ensure all users in the org see the same features.
