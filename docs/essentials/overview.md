@@ -13,8 +13,8 @@ To help teams fit feature flagging into their development process we’ve taken 
 
 If you just want to skip ahead and get started with DevCycle, all you need to do is:
 
-1. Create a new DevCycle [account](https://app.devcycle.com/signup)
-2. Implement a DevCycle SDK ([https://docs.devcycle.com/sdk/](https://docs.devcycle.com/sdk/)) on your platform
+1. Create a new [DevCycle account](https://app.devcycle.com/signup)
+2. Implement a [DevCycle SDK](https://docs.devcycle.com/sdk/) on your platform
 
 ## DevCycle Structure
 
@@ -88,7 +88,7 @@ Targeting Rule components:
 - **Serve**: The Variation that you’re granting to the current targeting rule’s definition. For experiments, you may use the `Random Distribution` option to split traffic at a set percentage to each Variation.
 - **Schedule**: This is used to schedule the distribution of a Variation of the feature at a specific date, or to implement a gradual or phased rollout of the Feature.
 
-If you find that you are often using the same Targeting Rules for multiple Features, try creating [Audiences](https://docs.devcycle.com/essentials/overview#audiences)!
+If you find that you are often using the same Targeting Rules for multiple Features, try creating [Audiences](#audiences)!
 
 ### Audiences
 
@@ -111,7 +111,7 @@ Experimentation and A/B Testing are important parts of a Feature’s lifecycle. 
 The primary concept of an experiment is the need to have at least two different experiences to compare performance. Any Feature in DevCycle can be turned into an experiment, and it only requires the following:
 
 1. At least two [Variations](#variations) served to your users.
-2. At least one [Metric](https://docs.devcycle.com/essentials/overview#metrics) defined and attached to your feature.
+2. At least one [Metric](#metrics) defined and attached to your feature.
 
 Once set up, you can track the experiment's progress and determine whether there is a winning variant from within the Feature’s Experiment Results page.
 
