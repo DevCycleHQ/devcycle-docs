@@ -16,6 +16,8 @@ Since this functionality is only relevant in specific Targeting Rule use cases, 
 
 The `Randomize Using` field will appear at the bottom of the Targeting Rule, under the `Schedule` section. The dropdown will also populate with all existing Custom Properties. Select the Custom Property you wish to use for your random distribution or rollout.
 
+![Randomize Using field in Targeting Rules](/custom-property-randomization-rollouts.png)
+
 ## Expected Behaviour when Using a Custom Property as the Randomization Key
 
 :::info

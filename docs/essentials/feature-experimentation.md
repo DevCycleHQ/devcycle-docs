@@ -101,12 +101,15 @@ When running an experiment where you randomize using a Custom Property, the expe
 
 Groups in DevCycle are defined using Custom Properties. These groups could be companies, tenants, geographic locations, or any set of users sharing common characteristics.
 
+![Randomization Grouping](/custom-property-groups.png)
+
 ### How to Randomize Using a Custom Property in Experiments
 
 To set this up, create a Targeting Rule that serves a Random Distribution of the Variations. 
 
 When you select `Random Distribution`, a `Randomize Using` field will appear at the bottom of the Targeting Rule under the `Schedule` section. The dropdown will populate with all existing Custom Properties. Select the Custom Property you wish to use for your random distribution. If you are both randomizing distribution and using a gradual rollout of some form, the Custom Property will be used for both forms of randomization, keeping distribution sticky based off of that property.
 
+![Experimentation with Custom Property Randomization](/custom-property-randomization-experiments.png)
 
 ### Risks to Experimentation
 
@@ -117,5 +120,7 @@ There are several risks to be aware of when randomizing your Experiments in this
 2. **Higher Randomization Risk:** There's a greater risk of improper randomization when assigning Custom Properties to control or test variants. With fewer data points, any imbalance can significantly skew the results. For example, if a new pricing model is tested across different companies, an imbalance in the distribution of company sizes could lead to inaccurate conclusions about the model’s effectiveness.
 
 3. **Fewer User-Level Insights:** Custom Property-targeted experiments provide insights at an aggregate level, potentially obscuring user-level behaviors and preferences. For example, a new feature might increase overall usage within a company, but it might not reveal which specific roles or user types are most engaged with the feature.
+
+4. **Randomization Collisions:** Our random distritution system works on a murmurhash, where we purposely limit User IDs to less than 200 characters to reduce the risk of collisions. If you randomize off of a Custom Property where the values are over 200 characters there is a potential for collisions that could impact randomization.
 
 Regardless of the type of risk, if you are worried about the statistical validity of your experiment you should make sure that there is both a significant number of groups as well as good balanced stratification across the groups that you're testing against. These two factors protect you against the most substantial risks.
