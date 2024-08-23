@@ -107,7 +107,7 @@ Groups in DevCycle are defined using Custom Properties. These groups could be co
 
 To set this up, create a Targeting Rule that serves a Random Distribution of the Variations. 
 
-When you select `Random Distribution`, a `Randomize Using` field will appear at the bottom of the Targeting Rule under the `Schedule` section. The dropdown will populate with all existing Custom Properties. Select the Custom Property you wish to use for your random distribution. If you are both randomizing distribution and using a gradual rollout of some form, the Custom Property will be used for both forms of randomization, keeping distribution sticky based off of that property.
+When you select `Random Distribution`, `Randomize Using` field will appear at the bottom of the Targeting Rule under the `Schedule` section. The dropdown will populate with all existing Custom Properties. Select the Custom Property you wish to use for your random distribution. If you are both randomizing distribution and using a gradual rollout of some form, the Custom Property will be used for both forms of randomization, keeping distribution sticky based off of that property.
 
 ![Experimentation with Custom Property Randomization](/custom-property-randomization-experiments.png)
 
