@@ -48,6 +48,8 @@ initializeDevCycleDebugger(client)
 ```
 This will initialize the Debugger using the default options.
 
+### React
+
 If you are using React, you can alternatively initialize the Debugger using the included React component:
 ```jsx
 import { DevCycleDebugger } from '@devcycle/web-debugger/react';
@@ -63,6 +65,25 @@ export default function SomeComponent({children}){
 }
 ```
 The React component makes setup slightly simpler because it automatically obtains the SDK client from the React SDK's
+provider context. Any options that the regular Javascript function accepts can be passed as props to this component.
+
+### Next.js
+
+If you are using Next.js, you can alternatively initialize the Debugger using the included React component:
+```jsx
+import { DevCycleDebugger } from '@devcycle/web-debugger/next';
+
+// render the component anywhere within the DevCycle Next SDK's Provider context
+export default function SomeComponent({children}){
+    return (
+        <>
+          <DevCycleDebugger/>
+          {children}
+        </>
+    )
+}
+```
+The React component makes setup slightly simpler because it automatically obtains the SDK client from the Next SDK's
 provider context. Any options that the regular Javascript function accepts can be passed as props to this component.
 
 ### Controlling Visibility
