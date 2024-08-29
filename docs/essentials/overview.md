@@ -1,6 +1,6 @@
 ---
 title: DevCycle Overview
-sidebar_class_name: hidden
+sidebar_position: 1
 ---
 
 DevCycle is a feature flag platform built for engineering teams of any size, helping you easily create, rollout, and cleanup feature flags without disrupting your workflow.

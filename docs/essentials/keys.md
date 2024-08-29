@@ -1,6 +1,6 @@
 ---
 title: Keys
-sidebar_position: 4
+sidebar_position: 3
 ---
 
 > All Environments within a Project have their own set of keys. For more information about Environments, [please read here](/essentials/environments).
