@@ -1,6 +1,6 @@
 ---
 title: Organizations
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 Organizations are the top level of the Account hierarchy within DevCycle, and are where all Users and Projects are managed. Users within an organization will have the same [permissions](/extras/permissions) across all projects, and a user may be part of multiple Organizations.
