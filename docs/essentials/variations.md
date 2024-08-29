@@ -1,6 +1,7 @@
 ---
 title: Variations
 sidebar_position: 7
+sidebar_class_name: hidden
 ---
 
 Variations are different versions of a Feature. Each Variation can have different values for the Variables associated with the Feature. 

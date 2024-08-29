@@ -1,6 +1,7 @@
 ---
 title: Projects
 sidebar_position: 2
+sidebar_class_name: hidden
 ---
 
 > Projects are nested within [organizations](./organizations.md) and contain your [Features](./features.md) and [Environments](./environments.md) (and through them your [keys](./keys.md), [variables](./variables.md) and [variations](./variations.md)).
