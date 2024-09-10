@@ -23,6 +23,12 @@ user := devcycle.User{
 }
 ```
 
+:::caution
+
+Any number types passed into `customData`, `privateCustomData` or `ClientCustomData` must be a 64 bit wide type (int64, float64)
+to avoid any potential issues with floating point error.
+
+:::
 ## Get and Use Variable by Key
 
 This method will fetch a specific variable value by key for a given user. It will return the variable
@@ -105,6 +111,13 @@ err = devcycleClient.SetClientCustomData(map[string]interface{}{
     "some-key": "some-value",
 })
 ```
+
+:::caution
+
+Any number types passed into `customData`, `privateCustomData` or `ClientCustomData` must be a 64 bit wide type (int64, float64)
+to avoid any potential issues with floating point error.
+
+:::
 
 :::caution
 Client Custom Data is only available for the Local Bucketing SDK
