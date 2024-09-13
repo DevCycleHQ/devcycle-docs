@@ -1,0 +1,10 @@
+---
+title: CLI User Guides
+sidebar_class_name: hidden
+displayed_sidebar: cli
+---
+
+import CustomDocCardList from '@site/src/components/CustomDocCardList'
+import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
+
+<CustomDocCardList items={useCurrentSidebarCategory().items} columnWidth={6} />

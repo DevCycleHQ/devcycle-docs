@@ -431,8 +431,19 @@ const config = {
           label: 'Integrations',
         },
         {
+          type: 'dropdown',
           label: 'CLI',
-          to: '/cli/',
+          position: 'left',
+          items: [
+            {
+              label: 'Setup',
+              to: '/cli/'
+            },
+            {
+              label: 'User Guides',
+              to: '/cli-guides/projects'
+            }
+          ]
         },
         {
           label: 'Best Practices',
