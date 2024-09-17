@@ -7,4 +7,59 @@ displayed_sidebar: cli
 import CustomDocCardList from '@site/src/components/CustomDocCardList'
 import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 
-<CustomDocCardList items={useCurrentSidebarCategory().items} columnWidth={6} />
+Learn how to use the DevCycle CLI to perform day to day tasks right from your command line. Visit our [Reference Docs](/cli) to get setup and one of the following guides to get started.
+
+<CustomDocCardList
+  columnWidth={6}
+  items={[
+    {
+      type: 'link',
+      href: '/cli-guides/projects',
+      label: 'Projects',
+      description: 'hidden',
+      icon: 'ant-design:code-filled',
+    },
+    {
+      type: 'link',
+      href: '/cli-guides/Environments',
+      label: 'Environments',
+      description: 'hidden',
+      icon: 'ant-design:code-filled',
+    },
+    {
+      type: 'link',
+      href: '/cli-guides/keys',
+      label: 'SDK Keys',
+      description: 'hidden',
+      icon: 'ant-design:code-filled',
+    },
+    {
+      type: 'link',
+      href: '/cli-guides/features',
+      label: 'Features',
+      description: 'hidden',
+      icon: 'ant-design:code-filled',
+    },
+    {
+      type: 'link',
+      href: '/cli-guides/variables',
+      label: 'Variables',
+      description: 'hidden',
+      icon: 'ant-design:code-filled',
+    },
+    {
+      type: 'link',
+      href: '/cli-guides/variations',
+      label: 'Variations',
+      description: 'hidden',
+      icon: 'ant-design:code-filled',
+    },
+    {
+      type: 'link',
+      href: '/cli-guides/targeting',
+      label: 'Targeting',
+      description: 'hidden',
+      icon: 'ant-design:code-filled',
+    },
+  ]}
+/>

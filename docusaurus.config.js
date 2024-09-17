@@ -436,12 +436,12 @@ const config = {
           position: 'left',
           items: [
             {
-              label: 'Setup',
+              label: 'Reference Docs',
               to: '/cli/'
             },
             {
               label: 'User Guides',
-              to: '/cli-guides/projects'
+              to: '/cli-guides/'
             }
           ]
         },

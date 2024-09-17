@@ -1,9 +1,9 @@
 ---
-title: Variation
+title: Variations
 sidebar_position: 6
 ---
 
-# CLI: Variation
+# CLI: Variations
 
 ## Manage
 
