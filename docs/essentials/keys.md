@@ -3,7 +3,7 @@ title: Keys
 sidebar_position: 3
 ---
 
-> All Environments within a Project have their own set of keys. For more information about Environments, [please read here](/essentials/environments).
+> All Environments within a Project have their own set of keys. For more information about Environments, [please read here](/essentials/overview#environments).
 
 ---
 
@@ -32,15 +32,13 @@ All the DevCycle Mobile SDKs should be initialized with the environment's Mobile
 
 This key is separate from the standard SDK keys due to the differing security requirements of client-side (eg. browser) and mobile use cases. Separation allows one key to be rotated without affecting the other. 
 
----
-
 ### Management API Key
 
 This key is required to interact with the DevCycle [Management API](/management-api).
 
-## Managing Keys
+---
 
-### From the Dashboard
+## Managing Keys
 
 **Client, Mobile and Server Keys**
 
@@ -63,22 +61,3 @@ The Client ID and Secret for use with the OAuth flow on the Management API will 
 
 **Note:** Due to the fact that the Management API can read and modify all aspects of your DevCycle projects,
 DO NOT share this key or deploy any client-side code containing this key.
-
-### From the CLI
-
-**Client, Mobile and Server Keys**
-
-Once you have installed and authorized the [CLI](/cli), select your relevant organization and project then
-run one of the following commands depending on your use case:
-
-To retrieve all keys for a specific environment for a project from the Management API.
-
-```bash
-dvc keys get
-```
-
-**Management API Key**
-
-:::caution
-Accessing the Management API key from the CLI is not currently possible.
-:::
