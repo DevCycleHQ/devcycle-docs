@@ -17,80 +17,6 @@ Be sure to check out our advanced variable documentation which covers topics lik
 
 ## Managing Variables
 
-
-### From the CLI
-
-Once you have installed and authorized the CLI, select your relevant organization and project then run one of the following commands depending on your use case:
-
-To retrieve all variables for a project from the management API.
-
-```bash
-dvc variables get
-```  
-You should be presented with something which looks like the following (which represents three existing variables named `variable-alpha`, `variable-beta` and `feature-b` with the first two active and the final archived.):
-
-```json
-
-[
-  {
-    "_id": "q1w2e3r4t5y6u7i",
-    "_project": "p0o9i8u7y6t5",
-    "name": "feature-b",
-    "key": "feature-b",
-    "type": "Boolean",
-    "status": "archived",
-    "defaultValue": false,
-    "source": "dashboard",
-    "_createdBy": "google-oauth2|113009494912133793971",
-    "createdAt": "2023-07-26T20:51:59.421Z",
-    "updatedAt": "2023-07-26T21:01:17.592Z"
-  },
-  {
-    "_id": "q1w2e3r4t5y6u7i",
-    "_project": "p0o9i8u7y6t5",
-    "_feature": "e3r4t5y6u7u7",
-    "name": "Variable Beta",
-    "key": "variable-beta",
-    "description": "New String Variable",
-    "type": "String",
-    "status": "active",
-    "source": "cli",
-    "_createdBy": "google-oauth2|q1w2e3r4t5",
-    "createdAt": "2023-07-26T20:46:49.209Z",
-    "updatedAt": "2023-07-26T21:07:23.402Z"
-  },
-  {
-    "_id": "q1w2e3r4t5y6u7i",
-    "_project": "p0o9i8u7y6t5",
-    "_feature": "e3r4t5y6u7u7",
-    "name": "Variable Alpha",
-    "key": "variable-alpha",
-    "description": "",
-    "type": "Boolean",
-    "status": "active",
-    "source": "dashboard",
-    "_createdBy": "google-oauth2|q1w2e3r4t5t",
-    "createdAt": "2023-07-26T20:28:03.057Z",
-    "updatedAt": "2023-07-26T21:04:17.638Z"
-  }
-]
-```
-
-To list the keys of all variable in a project enter:
-```bash
-dvc variations list
-```
-You should be presented with something which looks like the following:
-```json
-[
-  "feature-b",
-  "variable-beta",
-  "variable-alpha",
-]
-```
-
-### From the Dashboard
-
 To view the Variables and Variations within a Feature, navigate to the 'Variables' section on a Feature page sidebar. This will lead the user to a table containing all of the Variables used by this Feature and all of their values across all Variations:
 
 Each Feature manages its own set of Variables. **By default, upon creation of a Feature, a Boolean Variable will be created which has the same name as the Feature's key for easier reference.** 
@@ -109,7 +35,7 @@ Hover over these indicators for more detail about a Variable's code references &
 Depending on the Feature type, the default Variations will be pre-set. For example, the most common feature type is a Release Flag, and it will have two variations - "Variation OFF" and "Variation ON", with the boolean Variable being set to false and true, respectively.
 
 :::info
-For more information on variations please visit the [variations section](/essentials/variations) of the documentation.
+For more information on variations please visit the [variations section](/essentials/overview#variations) of the documentation.
 :::
 
 #### Global Variables Dashboard
@@ -147,38 +73,6 @@ To use the Code Refs feature, the [DevCycle action for Code References](/integra
 
 ## Creating a New Variable
 
-
-### From the CLI
-
-Once you have installed and authorized the CLI, select your relevant organization and project then run the following command:
-
-```bash
-dvc variables create
-```
-You will be prompted to set a Name, Key, Description (Optional), Type of Variable (String, Boolean, Number or JSON) and the feature to which you would like to assign the variable. 
-
-If successful you will receive something which resembles the following (which demonstrates creating a new `string` variable called `variable-beta` and adding it to the feature named `feature-a`):
-
-```json
-{
-  "_id": "q1w2e3r4t5y6u7i",
-  "_project": "p0o9i8u7y6t5",
-  "_feature": "e3r4t5y6u7u7",
-  "name": "Variable Beta",
-  "key": "variable-beta",
-  "description": "New String Variable",
-  "type": "String",
-  "status": "active",
-  "source": "cli",
-  "_createdBy": "google-oauth2|q1w2e3r4t5y6ui8",
-  "createdAt": "2023-07-26T20:46:49.209Z",
-  "updatedAt": "2023-07-26T20:46:49.209Z"
-}
-```
-
-
-### From the Dashboard
-
 A user can add as many Variables as they desire by simply clicking the "Add Variable" button. 
 
 Give your new Variable a **key**, a **type**, and its **values** for each of the current Variations.
@@ -204,33 +98,6 @@ For JSON variables, the only allowable **Values** are JSON objects with key-valu
 
 ## Updating a Variable
 
-### From the CLI
-Once you have installed and authorized the CLI, select your relevant organization and project then run the following command:
-
-```bash
-dvc variable update
-```
-You will be prompted to select a variable you would like to update, and can update the name, description or associated feature (not current working), then will receive a response which resembles something like is found below (which demonstrates changing the name of a variable named `Variable Beta` to `Variable Beta (Renamed)`):
-
-```json
-{
- "_id": "q1w2e3r4t5y6u7i",
-  "_project": "p0o9i8u7y6t5",
-  "_feature": "e3r4t5y6u7u7",
-  "name": "Variable Beta (Renamed)",
-  "key": "variable-beta",
-  "description": "New String Variable",
-  "type": "String",
-  "status": "active",
-  "source": "cli",
-  "_createdBy": "google-oauth2|113009494912133793971",
-  "createdAt": "2023-07-26T20:46:49.209Z",
-  "updatedAt": "2023-07-26T21:06:30.024Z"
-}
-```
-
-### From the Dashboard
-
 DevCycle allows users to edit the Variable Type of existing variables. We understand the importance of type-safety in variable management in addition to having flexibility when creating & editing variables. As such, editing unassociated variable versus associated variables differs slightly so you have as much context as possible on the ramifications of changing a variable type & its impact on your code.
 
 #### Unassociated Variables
@@ -248,14 +115,6 @@ Be cautious when editing variable types as any code that is evaluating this vari
 
 ## Removing a Variable
 
-### From the CLI
-
-:::caution
-Variable removal is currently unavailable through the CLI.
-:::
-
-### From the Dashboard
-
 To remove a Variable from a feature, simply click on the edit icon next to the variable key and select the option to remove the variable from the variable edit modal.
 
 Removing a Variable from this page does not completely remove the Variable from DevCycle. The Variable will still be visible in the [Variable Dashboard](#variables-dashboard), but it will not be associated with any features.
@@ -271,14 +130,6 @@ To fully delete a Variable you must do so via our [Management API](/management-a
 
 ## Archiving a Variable
 
-### From the CLI
-
-:::caution
-Variable archiving is currently unavailable through the CLI.
-:::
-
-### From the Dashboard
-
 Archiving Variables is a good way to clean up the DevCycle dashboard and ensure that it is easy to understand which Variables are available for use and which should no longer be leveraged going forward.
 
 To archive a Variable it must first be [removed from any active features](#removing-a-variable). Variables can be archived at the same time as removing from a feature. When the option to remove has been selected the confirmation modal will also provide the option to archive the Variable.
@@ -292,14 +143,6 @@ Once archived, Variables can be viewed by toggling the Variable status filter to
 ---
 
 ## Re-associating a Variable
-
-### From the CLI
-
-:::caution
-Variable re-association is currently unavailable through the CLI.
-:::
-
-### From the Dashboard
 
 DevCycle has the ability to re-use existing variables and re-associate them to different features. 
 
