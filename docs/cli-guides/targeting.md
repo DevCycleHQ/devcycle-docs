@@ -1,9 +1,9 @@
 ---
-title: Targeting
+title: Targeting Rules
 sidebar_position: 7
 ---
 
-# CLI: Targeting
+# CLI: Targeting Rules
 
 ## Manage
 

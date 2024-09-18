@@ -17,32 +17,6 @@ Self-Targeting is currently unavailable on the Next.js SDK.
 
 ## DevCycle Identity
 
-### From the CLI
-
-Once you have installed and authorized the [CLI](/cli), select your relevant organization and project.
-
-#### Get
-
-To retrieve your current DevCycle Identity for a project, run the following command:
-
-```bash
-dvc identity get
-```
-
-#### Manage
-
-Run the following command setup or modify your DevCycle Identity.
-
-```bash
-dvc identity update
-```
-
-You will be prompted to set a User ID. If you already have a User ID set, you will need to confirm that you wish to override the existing User ID.
-
-Note: Clearing the User ID will remove all Overrides. The CLI will prompt for a confirmation of clearing all Overrides associated with that User ID in the project.
-
-### From the Dashboard
-
 Setup your DevCycle Identity by entering the user ID you are providing to the DevCycle SDK, and which uniquely identifies you. Doing so unlocks debugging features such as Self-Targeting, a feature that allows you to override targeting rules to deliver different variations of the feature to yourself.
 
 You can setup & update your DVC Identity within the Self-Targeting slide-out itself OR on your profile page within your project settings.
@@ -50,44 +24,6 @@ You can setup & update your DVC Identity within the Self-Targeting slide-out its
 ![DVC Identity Self-Targeting Slide-out](/august-2023-self-targeting-dvc-id.png)
 
 ## Self-Targeting Override
-
-### From the CLI
-
-#### Get
-
-To retrieve all active Overrides for a project, run the following command:
-
-```bash
-dvc overrides list
-```
-
-To retrieve the Overrides for a specific feature and environment, run the following command::
-
-```bash
-dvc overrides get
-```
-
-You will be prompted to select a feature and environment if they are not passed as flags to the command.
-
-#### Manage
-
-Run the following command setup or modify your Overrides.
-
-```bash
-dvc overrides update
-```
-
-You will be prompted to select a feature, environment and variation to set as your Override value.
-
-Run the following command to clear your Overrides.
-
-```bash
-dvc overrides clear
-```
-
-You will be prompted to select a feature and environment for which to clear Overrides. In the event you wish to clear all Overrides for the project, you may pass the `--all` flag on the command.
-
-### From the Dashboard
 
 Once you’ve setup your DevCycle Identity, you are able to use Self-Targeting! Navigate to the feature you’d like to target yourself in and open the Self-Targeting slide-out by clicking on the Manage Self-Targeting button.
 
