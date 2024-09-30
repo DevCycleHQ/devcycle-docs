@@ -12,8 +12,24 @@ sidebar_custom_props: { icon: material-symbols:rocket }
 
 ## Initializing the SDK
 
-We recommend initializing the SDK once and pass around the client instance around in your app.
-Using the builder pattern we can initialize the DevCycle SDK by providing the DevCycleUser and DevCycle mobile SDK key:
+We recommend initializing the SDK once and passing around the client instance around in your app.
+Initialize the DevCycle SDK by providing the DevCycle User, DevCycle mobile SDK key and any other start options along with the relevant TaskNode as defined in the `MainScene.xml`:
+
+```xml
+<!-- Within your MainScene.xml -->
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="MainScene" extends="Scene">
+    <script type="text/brightscript" uri="MainScene.brs" />
+    <script
+        type="text/brightscript"
+        uri="pkg:/components/DevCycle/DevCycleSGClient.brs"
+    />
+    <children>
+        <DevCycleTask id="devCycleTask" />
+        <!-- Other Child Nodes / Elements -->
+    </children>
+</component>
+```
 
 ```javascript
 // Within your MainScene.brs
