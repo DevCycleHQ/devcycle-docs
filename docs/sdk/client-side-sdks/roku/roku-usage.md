@@ -17,10 +17,10 @@ the variable's identifier `key` coupled with a default value. The default value 
 `String`, `Boolean`, `Number`, or `Object`:
 
 ```javascript
-boolValue = m.devcycleClient.getVariableValue(key: "bool_key", defaultValue: false)
-strValue = m.devcycleClient.getVariableValue(key: "string_key", defaultValue: "default")
-numValue = m.devcycleClient.getVariableValue(key: "num_key", defaultValue: 4)
-jsonValue = m.devcycleClient.getVariableValue(key: "json_key", defaultValue: {})
+boolValue = m.devcycleClient.getVariableValue('bool_key', false)
+strValue = m.devcycleClient.getVariableValue('string_key', 'default')
+numValue = m.devcycleClient.getVariableValue('num_key', 4)
+jsonValue = m.devcycleClient.getVariableValue('json_key', {})
 ```
 
 [//]: # 'wizard-evaluate-end'
@@ -32,7 +32,7 @@ jsonValue = m.devcycleClient.getVariableValue(key: "json_key", defaultValue: {})
 To get all the Features returned in the config:
 
 ```javascript
-features = m.devcycleClient.allFeatures()
+features = m.devcycleClient.getAllFeatures()
 ```
 
 If the SDK has not finished initializing, these methods will return an empty object.
@@ -42,7 +42,7 @@ If the SDK has not finished initializing, these methods will return an empty obj
 To get all the variables returned in the config:
 
 ```javascript
-variables = m.devcycleClient.allVariables()
+variables = m.devcycleClient.getAllVariables()
 ```
 
 If the SDK has not finished initializing, these methods will return an empty object.
@@ -117,9 +117,6 @@ Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to
 ```javascript
 user = {
   user_id: 'test_user',
-  customData: {
-    amouintSpent: 50,
-  },
 }
 
 options = {
@@ -127,6 +124,4 @@ options = {
 }
 ```
 
-This will send a request to our EdgeDB API to save the custom data under the user `test_user`.
-
-In the example, `amountSpent` is associated to the user `test_user`. In your next identify call for the same `user_id`, you may omit any of the data you've sent already as it will be pulled from the EdgeDB storage when segmenting to experiments and features.
+For every identify call for a given `user_id`, any data you have synced from a server application to our EdgeDB storage will pulled when segmenting to experiments and features.
