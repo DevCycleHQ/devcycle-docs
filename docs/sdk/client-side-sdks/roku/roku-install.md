@@ -23,3 +23,5 @@ This version of the DevCycle Client SDK supports the following platforms:
 Download the latest release from [Github Releases](https://github.com/DevCycleHQ/roku-client-sdk/releases) and extract the provided files into your source tree. You may need to rename the paths inside `DevCycleTask.xml` depending on your project structure.
 
 For SceneGraph usage, add a `DevCycleTask` node to your scene.
+
+[//]: # 'wizard-install-end'
