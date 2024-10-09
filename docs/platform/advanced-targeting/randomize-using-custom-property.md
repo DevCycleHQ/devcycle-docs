@@ -16,7 +16,7 @@ To use this functionality in conjunction with Server-Side SDKs you must ensure y
 
 DevCycle uses User ID as the primary key for delivering variations, rolling out a feature, and randomizing distribution. However, there are cases in which a User ID is not the primary identifier of the request to DVC, thus making the usage of DevCycle features, specifically Gradual Rollouts, difficult in these scenarios. 
 
-This functionality allows you to set a [Custom Property](docs/extras/advanced-targeting/custom-properties.md) as the key to roll out / distribute on rather than User ID, such as Account, Organization, Tenant or Store ID.  For example, at DevCycle, we would use this feature to gradually roll out new functionality on an organization-by-organization basis rather than on a user-by-user basis to ensure all users in the org see the same features.
+This functionality allows you to set a [Custom Property](docs/platform/advanced-targeting/custom-properties.md) as the key to roll out / distribute on rather than User ID, such as Account, Organization, Tenant or Store ID.  For example, at DevCycle, we would use this feature to gradually roll out new functionality on an organization-by-organization basis rather than on a user-by-user basis to ensure all users in the org see the same features.
 
 ## Setting Up a Targeting Rule using an Custom Property for Randomization
 Since this functionality is only relevant in specific Targeting Rule use cases, the option to randomize using a Custom Property will only appear when you:

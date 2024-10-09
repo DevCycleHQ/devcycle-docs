@@ -8,11 +8,11 @@ incrementally roll out features for monitoring, or create and test different fea
 
 :::tip Already understand the targeting essentials?
 Be sure to check out our advanced targeting documentation which covers topics like:
-- [Audiences](/extras/advanced-targeting/audiences)
-- [Custom Properties](/extras/advanced-targeting/custom-properties)
-- [Random Variations](/extras/advanced-targeting/random-variations)
-- [Rollouts](/extras/advanced-targeting/rollouts)
-- [Self-Targeting](/extras/advanced-targeting/self-targeting)
+- [Audiences](/platform/advanced-targeting/audiences)
+- [Custom Properties](/platform/advanced-targeting/custom-properties)
+- [Random Variations](/platform/advanced-targeting/random-variations)
+- [Rollouts](/platform/advanced-targeting/rollouts)
+- [Self-Targeting](/platform/advanced-targeting/self-targeting)
 :::
 
 ## Targeting Properties
@@ -35,7 +35,7 @@ Below is a summary of the properties built into the platform, and how to specify
 | Country          | Country the user is located in. Must be a valid 2 letter [ISO-3166 country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)      | Set "country" property    |
 
 In addition to these built-in properties, you can specify any other property that suits your needs using the
-[Custom Properties](/extras/advanced-targeting/custom-properties) feature. 
+[Custom Properties](/platform/advanced-targeting/custom-properties) feature. 
 
 Here is an example of a user object being passed to an SDK with these properties set:
 ```typescript
@@ -147,7 +147,7 @@ From here you will be able to enable or disable the specific targeting rule by c
 
 :::tip
 
-Looking to use DevCycle to help you QA a new feature? Be sure to check out [Self-Targeting](/extras/advanced-targeting/self-targeting).
+Looking to use DevCycle to help you QA a new feature? Be sure to check out [Self-Targeting](/platform/advanced-targeting/self-targeting).
 
 :::
 

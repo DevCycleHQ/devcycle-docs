@@ -266,8 +266,8 @@ html[data-theme="dark"] .DocSearch {
   background-image: url(../../static/sidebar/essentials.svg);
 }
 
-.section-title.extras > div >a::before {
-  background-image: url(../../static/sidebar/extras.svg);
+.section-title.platform > div >a::before {
+  background-image: url(../../static/sidebar/platform.svg);
 }
 
 .section-title.client > div >a::before {

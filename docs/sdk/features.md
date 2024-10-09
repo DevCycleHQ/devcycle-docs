@@ -107,7 +107,7 @@ The default value will be returned in the following scenarios:
   configuration from breaking your application at runtime.
 - The SDK has finished initializing, but the user has not been targeted for a Feature that controls this Variable
 
-For more information on how the default value is used, see [Variable Defaults](/extras/advanced-variables/variable-defaults).
+For more information on how the default value is used, see [Variable Defaults](/platform/advanced-variables/variable-defaults).
 
 ## Getting All Features
 
@@ -242,7 +242,7 @@ to represent the user.
 
 User data can also contain "custom data", which is a key-value map of any arbitrary data you want to use for targeting.
 The provided data can be used in Targeting Rules by creating Custom Properties in the DevCycle dashboard. Learn more
-about [Custom Property Targeting](/extras/advanced-targeting/custom-properties)
+about [Custom Property Targeting](/platform/advanced-targeting/custom-properties)
 
 When setting custom properties you have a choice between keeping that data completely private or allowing 
 for the data to be logged back to DevCycle's events database. Both options allow for the same targeting capabilities, 
@@ -298,7 +298,7 @@ Custom Domains is an enterprise feature and requires manual setup on both your e
 
 :::
 
-For instructions on setting up a custom domain, see [Custom Domains](/extras/custom-domains).
+For instructions on setting up a custom domain, see [Custom Domains](/platform/custom-domains).
 
 ## Realtime Updates
 
@@ -344,6 +344,6 @@ The SDK determines flag values by making an API call for each decision, using wo
 globally. Every function within the SDK will reach out to these edge workers and respond with
 extremely low latency.
 
-Cloud bucketing is required to use specific features such as (EdgeDB)[/extras/edgedb] and
-(Feature Opt-In)[/extras/advanced-targeting/feature-opt-in]. If you aren't using these features, then Local Bucketing
+Cloud bucketing is required to use specific features such as (EdgeDB)[/platform/edgedb] and
+(Feature Opt-In)[/platform/advanced-targeting/feature-opt-in]. If you aren't using these features, then Local Bucketing
 is the recommended mode.
