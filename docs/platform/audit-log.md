@@ -1,6 +1,6 @@
 ---
 title: Audit Log
-sidebar_position: 1
+sidebar_position: 3
 ---
 
 The Audit Log tracks all modifications made to a Feature. DevCycle captures the DevCycle user who made the change, a time stamp, and what was modified on each Feature save.
@@ -33,7 +33,7 @@ For modifications to values, each card will show the orignal value on the left-h
 
 :::info
 
-Please note that [Self-Targeting](/extras/advanced-targeting/self-targeting) actions are not recorded in the Audit Log.
+Please note that [Self-Targeting](/platform/advanced-targeting/self-targeting) actions are not recorded in the Audit Log.
 
 :::
 

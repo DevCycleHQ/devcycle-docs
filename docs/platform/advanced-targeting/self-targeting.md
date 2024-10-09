@@ -1,6 +1,6 @@
 ---
 title: Self-Targeting
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 Self-Targeting is a DevCycle QA & debugging feature that allows you to easily serve yourself different variations of a feature without having to modify targeting rules in each environment. To leverage this feature, you must set up your DevCycle Identity by associating an SDK User ID to your DevCycle user profile.

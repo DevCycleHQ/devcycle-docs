@@ -193,7 +193,7 @@ If everything is working, your maintenance mode should now be enabled, and you w
 
 ![alt text](/tutorial/tutorial-maintenance.png)
 
-For more information on targeting based on user data, see the documentation on [Custom Properties here](/extras/advanced-targeting/custom-properties).
+For more information on targeting based on user data, see the documentation on [Custom Properties here](/platform/advanced-targeting/custom-properties).
 
 ---
 

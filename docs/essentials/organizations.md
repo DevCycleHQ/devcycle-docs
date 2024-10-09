@@ -3,13 +3,13 @@ title: Organizations
 sidebar_position: 2
 ---
 
-Organizations are the top level of the Account hierarchy within DevCycle, and are where all Users and Projects are managed. Users within an organization will have the same [permissions](/extras/permissions) across all projects, and a user may be part of multiple Organizations.
+Organizations are the top level of the Account hierarchy within DevCycle, and are where all Users and Projects are managed. Users within an organization will have the same [permissions](/platform/permissions) across all projects, and a user may be part of multiple Organizations.
 
 To view the current Organization (or change Organizations) click on your user avatar on the top right of the DevCycle Dashboard. The active Organization will have a green badge next to it.
 
 :::tip
 
-[Granular permissions](/extras/permissions) are only available on business or enterprise plans, if you'd like to turn on permissions message us at support[at]devcycle.com
+[Granular permissions](/platform/permissions) are only available on business or enterprise plans, if you'd like to turn on permissions message us at support[at]devcycle.com
 
 :::
  
@@ -79,7 +79,7 @@ The table below displays the built-in roles and their associated permissions:
 | Edit Team Member Roles        |  ✅   |           |        |
 | Modify Features in Production |  ✅   |    ✅     |        |
 
-For more information, check out the [Permissions](/extras/permissions) documentation.
+For more information, check out the [Permissions](/platform/permissions) documentation.
 
 **Assigning Roles**
 
