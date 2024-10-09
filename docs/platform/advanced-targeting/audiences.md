@@ -1,6 +1,6 @@
 ---
 title: Audiences
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 This topic explains how to create and manage Audiences via our API or within the DevCycle dashboard. 

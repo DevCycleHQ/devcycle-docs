@@ -1,6 +1,6 @@
 ---
 title: Audit Log
-sidebar_position: 1
+sidebar_position: 3
 ---
 
 The Audit Log tracks all modifications made to a Feature. DevCycle captures the DevCycle user who made the change, a time stamp, and what was modified on each Feature save.

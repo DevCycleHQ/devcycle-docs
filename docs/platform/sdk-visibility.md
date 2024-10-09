@@ -1,6 +1,6 @@
 ---
 title: SDK Visibility
-sidebar_position: 6
+sidebar_position: 5
 ---
 
 Typically, DevCycle Variables are served to any SDK where the identified user matches the configured set of targeting rules. This behaviour is suitable for most applications. However, there are cases where a project may contain server-side Features that should never have their Variables served to client and/or mobile SDKs. It can become cumbersome and risky to ensure Targeting Rules exclude those SDKs in every server-only Feature.

@@ -1,6 +1,6 @@
 ---
 title: Custom Properties
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 Custom Properties are properties on a user which can be used for [Targeting Users for Features](/essentials/targeting). 
