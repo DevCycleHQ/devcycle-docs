@@ -102,7 +102,7 @@ the user will *still* not receive a later target.
 
 :::info
 
-For modifications  to or additions of a gradual roll-out, entries in the [Audit Log](/extras/audit-log) will be marked as `Stage 1` and labelled as a `Linear` roll-out. 
+For modifications  to or additions of a gradual roll-out, entries in the [Audit Log](/platform/audit-log) will be marked as `Stage 1` and labelled as a `Linear` roll-out. 
 
 :::
 

@@ -20,7 +20,7 @@ To complete this guide, you may want to review the following topics:
 - [Creating and Managing Variations](/essentials/variables)
 - [Random Distribution Targeting](/essentials/targeting)
 - [Feature Experimentation](/essentials/feature-experimentation)
-- [Creating a Metric](/extras/metrics/creating-and-managing-metrics) and [Metric Types](/extras/metrics/creating-and-managing-metrics#types)
+- [Creating a Metric](/platform/metrics/creating-and-managing-metrics) and [Metric Types](/platform/metrics/creating-and-managing-metrics#types)
 
 ## Conducting Experiments: A Collaborative Approach 
 
@@ -34,7 +34,7 @@ Product managers often spearhead the creation of an experiment brief or structur
 
 - **Hypothesis**: A hypothesis should be specific, measurable, and iterative. The simplest and most effective template for hypotheses is: "By doing [X] to [Y], we expect [Z]." 
 - **Description:** Provide a high-level description of the experiment, make sure to note the location of the experiment and any relevant context.
-- **Target Audience:** Depending on your experiment, you may want to target all users or an audience defined by a [custom property](/extras/advanced-targeting/custom-properties)
+- **Target Audience:** Depending on your experiment, you may want to target all users or an audience defined by a [custom property](/platform/advanced-targeting/custom-properties)
     - For example, you may want to run your experiment only on users in Canada or only those that have a certain subscription tier.
 - **Variations:** Decide how many variations you wish to test and what those variations are.
     - For example, will you be testing a red checkout button versus a blue checkout button, or will you be testing a red versus a blue versus a green checkout button?
@@ -64,10 +64,10 @@ After creating the necessary Variations, select the appropriate Metrics for your
 
 For example, if we expect sorting search results to affect page load time significantly, we would create a Metric to track page load time and attach it to our Feature.
 
-To calculate [Metrics](/extras/metrics/creating-and-managing-metrics), DevCycle uses custom events sent via the API or SDKs. Your team may already be passing events to DevCycle, but if not your engineering team may have to implement 
+To calculate [Metrics](/platform/metrics/creating-and-managing-metrics), DevCycle uses custom events sent via the API or SDKs. Your team may already be passing events to DevCycle, but if not your engineering team may have to implement 
 [custom event tracking](/best-practices/engineering-led-experiments#calculating-metrics-by-tracking-events) to capture all of the data you wish to use in your experiment. 
 
-Once you have set up the SDK to send custom events, you can [create Metrics](/extras/metrics/creating-and-managing-metrics#creating-a-metric) on the Metric tab in DevCycle. You define whether a decrease or an increase in values means improvement. Metrics uses this input to clearly show whether the results were positive or negative when you start your experiment. 
+Once you have set up the SDK to send custom events, you can [create Metrics](/platform/metrics/creating-and-managing-metrics#creating-a-metric) on the Metric tab in DevCycle. You define whether a decrease or an increase in values means improvement. Metrics uses this input to clearly show whether the results were positive or negative when you start your experiment. 
 
 ![Creating a Metric](/mar-2024-create-metric.gif)
 
@@ -75,7 +75,7 @@ Once you have set up the SDK to send custom events, you can [create Metrics](/ex
 The **Event Type** in the modal must correspond to the `type` field defined in code. This is not to be confused with the Type selected from the dropdown.
 :::
 
-To [apply your Metric to a Feature](/extras/metrics/creating-and-managing-metrics#attaching-metrics-to-features), navigate to the Comparative Analysis section of the Feature page, and select the metric you wish to attach. 
+To [apply your Metric to a Feature](/platform/metrics/creating-and-managing-metrics#attaching-metrics-to-features), navigate to the Comparative Analysis section of the Feature page, and select the metric you wish to attach. 
 
 ![Attach a Metric](/mar-2024-attach-metric.gif)
 
@@ -83,7 +83,7 @@ If your team wishes to conduct experiment analysis outside of DevCycle, you can 
 
 ### QA & Testing
 
-Product managers can still actively participate during the development process, conducting QA checks in each environment. DevCycle's [Self-Targeting feature](/extras/advanced-targeting/self-targeting), allows product managers to serve themselves different Variations of Features safely without altering targeting rules in each environment.
+Product managers can still actively participate during the development process, conducting QA checks in each environment. DevCycle's [Self-Targeting feature](/platform/advanced-targeting/self-targeting), allows product managers to serve themselves different Variations of Features safely without altering targeting rules in each environment.
 
 Alternatively, you can turn on the Feature/experiment in pre-prod or prod environments & **only** target internal users so your team can test the end experience for users. 
 
@@ -97,7 +97,7 @@ Once you are ready to launch, navigate to Feature, and click on the Production e
 
 ![Random Distribution](/march-2024-random-distribution-experiment-.gif)
 
-To run an experiment, you simply have to setup a [Random Distribution Targeting rule](/extras/advanced-targeting/random-variations) and decide roll-out strategy or schedule the launch of the experiment. 
+To run an experiment, you simply have to setup a [Random Distribution Targeting rule](/platform/advanced-targeting/random-variations) and decide roll-out strategy or schedule the launch of the experiment. 
 
 ## 4. Monitor & Analyze Experiment Results
 

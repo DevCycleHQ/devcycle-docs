@@ -1,6 +1,6 @@
 ---
 title: Feature Obfuscation
-sidebar_position: 1
+sidebar_position: 9
 ---
 
 Feature flags are often used to hide upcoming features before release. Normally, not showing the feature on a UI
@@ -87,7 +87,7 @@ export const MY_SECOND_VARIABLE = 'dvc_obfs_359f6c73757fe30a9950ce39333c2329915a
 :::info
 The generated file also includes Typescript definitions of each Variable, which allows you to make your DevCycle usage
 type-safe by enforcing the correct datatype for each Variable. When using an 
-[enum schema](https://devcycle-docs-git-obfuscation-devcyclehq.vercel.app/extras/advanced-variables/variable-schemas), 
+[enum schema](https://devcycle-docs-git-obfuscation-devcyclehq.vercel.app/platform/advanced-variables/variable-schemas), 
 the types will also enforce that one of the allowed values is used. For more information, see the documentation for 
 [Typescript with the Javascript SDK](/sdk/client-side-sdks/javascript/javascript-typescript)
 :::

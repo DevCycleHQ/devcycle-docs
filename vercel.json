@@ -12,9 +12,9 @@
     { "source": "/:path*/getting-started/:path*", "destination": "/introduction/quickstart", "statusCode": 301 },
     { "source": "/home/feature-management/features-and-variables/targeting-users", "destination": "/essentials/targeting", "statusCode": 301 },
     { "source": "/home/feature-management/features-and-variables/variables-and-variations", "destination": "/essentials/variables", "statusCode": 301 },
-    { "source": "/home/feature-management/features-and-variables/custom-properties", "destination": "/extras/advanced-targeting/custom-properties", "statusCode": 301 },
-    { "source": "/home/feature-management/features-and-variables/sdk-visibility", "destination": "/extras/sdk-visibility", "statusCode": 301 },
-    { "source": "/home/feature-management/features-and-variables/metrics-and-analysis/:path*", "destination": "/extras/metrics/:path*", "statusCode": 301 },
+    { "source": "/home/feature-management/features-and-variables/custom-properties", "destination": "/platform/advanced-targeting/custom-properties", "statusCode": 301 },
+    { "source": "/home/feature-management/features-and-variables/sdk-visibility", "destination": "/platform/sdk-visibility", "statusCode": 301 },
+    { "source": "/home/feature-management/features-and-variables/metrics-and-analysis/:path*", "destination": "/platform/metrics/:path*", "statusCode": 301 },
     { "source": "/home/feature-management/organizing-your-flags-and-variables/feature-dashboard", "destination": "/essentials/features", "statusCode": 301 },
     { "source": "/home/feature-management/organizing-your-flags-and-variables/environments", "destination": "/essentials/environments", "statusCode": 301 },
     { "source": "/home/feature-management/organizing-your-flags-and-variables/api-and-sdk-keys", "destination": "/essentials/keys", "statusCode": 301 },
@@ -22,10 +22,12 @@
     { "source": "/home/feature-management/organizing-your-flags-and-variables/organizations-projects", "destination": "/essentials/organizations", "statusCode": 301 },
     { "source": "/home/your-organization/:path*", "destination": "/essentials/organizations", "statusCode": 301 },
     { "source": "/home/demos/:path*", "destination": "/examples", "statusCode": 301 },
-    { "source": "/home/feature-management/edgedb/:path*", "destination": "/extras/edgedb", "statusCode": 301 },
-    { "source": "/home/feature-management/feature-opt-in/:path*", "destination": "/extras/advanced-targeting/feature-opt-in", "statusCode": 301 },
+    { "source": "/home/feature-management/edgedb/:path*", "destination": "/platform/edgedb", "statusCode": 301 },
+    { "source": "/home/feature-management/feature-opt-in/:path*", "destination": "/platform/advanced-targeting/feature-opt-in", "statusCode": 301 },
     { "source": "/tools-and-integrations/:path*", "destination": "/integrations/:path*", "statusCode": 301 },
-    { "source": "/tools-and-integrations/", "destination": "/integrations", "statusCode": 301 }
+    { "source": "/tools-and-integrations/", "destination": "/integrations", "statusCode": 301 },
+    { "source": "/extras/:path*", "destination": "/platform/:path*", "statusCode": 301 }
+
   ],
   "rewrites": [
     { "source": "/.well-known/ai-plugin.json", "destination": "/.well-known/ai-plugin.json" }

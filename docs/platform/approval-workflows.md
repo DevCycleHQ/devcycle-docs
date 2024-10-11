@@ -1,6 +1,6 @@
 ---
 title: Approval Workflows
-sidebar_position: 1
+sidebar_position: 12
 ---
 
 # Approval Workflows
@@ -20,7 +20,7 @@ The following actions do not trigger an approval request:
 ## Setting Up Approval Workflows for a DevCycle Project
 
 :::info
-[Permissions](docs/extras/permissions/permissions.md) must be enabled for Organizations to use Approval Workflows. Please contact our [support](mailto:support@devcycle.com) team to get started with Permissions if you wish to use this feature.  
+[Permissions](/platform/permissions) must be enabled for Organizations to use Approval Workflows. Please contact our [support](mailto:support@devcycle.com) team to get started with Permissions if you wish to use this feature.  
 :::
 
 Approval Workflows are a Project-level setting within DevCycle. 

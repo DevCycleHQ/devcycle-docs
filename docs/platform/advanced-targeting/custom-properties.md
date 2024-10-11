@@ -1,6 +1,6 @@
 ---
 title: Custom Properties
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 Custom Properties are properties on a user which can be used for [Targeting Users for Features](/essentials/targeting). 
@@ -40,7 +40,7 @@ Every time you identify a particular user, you must pass the custom data into th
 
 DevCycle's EdgeDB feature enables the saving of user data into DevCycle's EdgeDB storage, 
 allowing you to segment by custom properties without having to repeatedly pass the same data to the SDK.
-[View our EdgeDB docs to find out how it works](/extras/edgedb).
+[View our EdgeDB docs to find out how it works](/platform/edgedb).
 :::
 
 
