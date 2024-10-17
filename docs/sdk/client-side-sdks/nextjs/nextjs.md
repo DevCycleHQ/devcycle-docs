@@ -30,4 +30,3 @@ This SDK depends on the [fetch](https://github.com/BuilderIO/this-package-uses-f
 - Minimum Next.js version: 14.1
 - Minimum React version: 18.2
 - Variable evaluations and custom events are only tracked in client components in App Router.
-- Self-Targeting is currently unavailable on the Next.js SDK.
