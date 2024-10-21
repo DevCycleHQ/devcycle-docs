@@ -155,7 +155,7 @@ At DevCycle, we use this feature to easily enable features for certain organizat
 
 ### Setting Up a Custom Property Schema 
 
-You can find a list of all existing Custom Properties in the Project Settings section of your [Settings page](/https://app.devcycle.com/o/r/settings). 
+You can find a list of all existing Custom Properties in the Project Settings section of your [Settings page](https://app.devcycle.com/r/settings). 
 
 ![Custom Property Section on Settings Page](/oct-2024-cust-prop-settings-page.png)
 
