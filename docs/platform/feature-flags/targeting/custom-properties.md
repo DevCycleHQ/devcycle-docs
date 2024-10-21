@@ -144,3 +144,34 @@ You can target users in numerous ways using Custom Properties. The following lis
 **Special Users**. Sometimes organizations want to release a feature to special users only, such as users with a paid membership, those with a free trial, or those who have made large contributions to the company. In this case, some property name suggestions are `accountType` `pricingPlan` `isSubscriber` `isTrialUser` `amountContributed` etc.
 
 **User Behaviour or Preferences.** You can experiment on users based on their behaviour or preferences. Some examples include `numberOfPageVisits` `gaveConsent` `preferredColor` etc.
+
+## Custom Property Schemas
+
+Similar to [Variable Schemas](/platform/advanced-variables/variable-schemas.md), Custom Property Schemas allow you to set up a schema and define a list of possible values for a custom property, which will appear in a dropdown when setting up Targeting Rules. Labels can be defined for each value to make selections more human-readable and easier to identify. This removes the need to remember valid inputs for a specific custom property.
+
+At DevCycle, we use this feature to easily enable features for certain organizations without needing to double-check the client database or Auth0 for the correct organization ID.
+
+![Custom Property Schema Targeting Rule](/oct-2024-cust-prop-schema-targ-rule.png)
+
+### Setting Up a Custom Property Schema 
+
+You can find a list of all existing Custom Properties in the Project Settings section of your [Settings page](/https://app.devcycle.com/o/r/settings). 
+
+![Custom Property Section on Settings Page](/oct-2024-cust-prop-settings-page.png)
+
+To add a schema to a Custom Property, click on the Custom Property you want to modify. On the Custom Property Details page, locate the Schema section. Schemas can be added to Custom Properties that are already in use.
+
+![Schema Section on Details Page](/oct-2024-schema-on-cust-prop-det-page.png)
+
+From there, select an Enum Schema from the dropdown. This allows you to specify allowable values for a string or number Custom Property type.
+
+If you want to require this property to be set when passing custom data to the SDK, click the toggle icon next to Property Required.
+
+Once you select an Enum Schema type, define the allowable values in the Allowed Values section below.
+
+If desired, you can permit additional values to be entered in Targeting Rules that aren't directly defined in the schema. For example, if I defined three options—Alberta, Quebec, and Ontario—in the Allowed Values section and toggled this option on, I wouldn’t be limited to those three values, even though they would appear in the Custom Property value dropdown.
+
+![Custom Property Schema Targeting Rule](/oct-2024-cust-prop-schema-filled.png)
+
+Once you save your changes and apply the schema to the Custom Property, a dropdown with the allowed values will be available when setting up Targeting Rules for that Custom Property.
+
