@@ -163,7 +163,7 @@ To add a schema to a Custom Property, click on the Custom Property you want to m
 
 ![Schema Section on Details Page](/oct-2024-schema-on-cust-prop-det-page.png)
 
-From there, select an Enum Schema from the dropdown. This allows you to specify allowable values for a string or number Custom Property type.
+From there, select an Enum Schema from the dropdown. This allows you to specify allowable values for string or number properties.
 
 If you want to require this property to be set when passing custom data to the SDK, click the toggle icon next to Property Required.
 
