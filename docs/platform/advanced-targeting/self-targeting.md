@@ -11,10 +11,6 @@ On each feature, you will see a Self-Targeting section within the Users & Target
 
 Within the slide-out, you can setup your DevCycle Identity, select Self-Targeting overrides, and see the other team members that are currently Self-Targeting for that feature, including the variation and environment they have active overrides in.
 
-:::caution
-Self-Targeting is currently unavailable on the Next.js SDK.
-:::
-
 ## DevCycle Identity
 
 Setup your DevCycle Identity by entering the user ID you are providing to the DevCycle SDK, and which uniquely identifies you. Doing so unlocks debugging features such as Self-Targeting, a feature that allows you to override targeting rules to deliver different variations of the feature to yourself.
