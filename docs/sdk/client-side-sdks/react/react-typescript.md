@@ -60,3 +60,9 @@ types. These wrapped methods should now be used in place of the original methods
 
 Consider configuring this command to run as part of your build process to keep your type definitions up to date with
 the latest configuration from DevCycle.
+
+:::info
+
+Any Variables that are a part of a [Completed Feature](../essentials/status-and-lifecycle#completing-a-feature) will be marked as deprecated in the types output. This is a powerful aid for Variable cleanup, because you can see which Variables need to be cleaned up right in your code.
+
+:::
