@@ -53,7 +53,7 @@ When a Feature is marked as "Completed," the following changes are implemented:
 - Additional targeting rules cannot be added when a Feature is "Complete" and must be reverted to In Progress to do so.
 - The Variables section will display only one single Variation; you may not add more Variations.
 - Variable values can still be modified, and Environments can be toggled on and off.
-- When using the CLI code generator to [generate typescript types](../sdk/client-side-sdks/javascript/javascript-typescript#cli), any Variables that are a part of a completed Feature will be marked as deprecated.
+- When using the CLI code generator to [generate typescript types](https://docs.devcycle.com/sdk/client-side-sdks/javascript/javascript-typescript#cli), any Variables that are a part of a completed Feature will be marked as deprecated.
 
 ### Cleanup Checklist for Variables
 
