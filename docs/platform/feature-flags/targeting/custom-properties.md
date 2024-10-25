@@ -169,7 +169,9 @@ If you want to require this property to be set when passing custom data to the S
 
 Once you select an Enum Schema type, define the allowable values in the Allowed Values section below.
 
-If desired, you can permit additional values to be entered in Targeting Rules that aren't directly defined in the schema. For example, if I defined three options—Alberta, Quebec, and Ontario—in the Allowed Values section and toggled this option on, I wouldn’t be limited to those three values, even though they would appear in the Custom Property value dropdown.
+If desired, you can turn on the Allow Additional Values setting, which will permit additional values to be used in Targeting Rules that aren't directly defined in that Custom Property's schema. 
+
+For example, if you defined three options—Alberta, Quebec, and Ontario—in the Allowed Values section and toggled this option on, you wouldn’t be limited to those three values, even though they appear in the Custom Property value dropdown.
 
 ![Custom Property Schema Targeting Rule](/oct-2024-cust-prop-schema-filled.png)
 
