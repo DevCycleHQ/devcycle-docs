@@ -165,7 +165,7 @@ To add a schema to a Custom Property, click on the Custom Property you want to m
 
 From there, select an Enum Schema from the dropdown. This allows you to specify allowable values for string or number properties.
 
-If you want to require this property to be set when passing custom data to the SDK, click the toggle icon next to Property Required.
+If you want to require this property to be set when passing custom data to the SDK, click the toggle icon next to Property Required. *Note: currently, this only affects the output of our [type generators](/sdk/client-side-sdks/javascript/javascript-typescript). 
 
 Once you select an Enum Schema type, define the allowable values in the Allowed Values section below.
 
