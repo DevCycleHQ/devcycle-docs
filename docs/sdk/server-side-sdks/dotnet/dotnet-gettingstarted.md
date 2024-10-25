@@ -58,7 +58,7 @@ namespace Example {
 
 ## Initialization Options
 
-You can also setup a callback to be notified when the client is fully initialized and use `DevCycleLocalOptions` to further configure the client.
+The SDK exposes various initialization options which can be set when initializing the DevCycle client:
 
 ```csharp
 using System;
