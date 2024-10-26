@@ -6,6 +6,9 @@ on:
 jobs:
   wait-for-vercel-deployment:
     runs-on: ubuntu-20.04
+    permissions:
+      contents: read
+      id-token: write
     env:
       VERCEL_DEPLOYMENT_URL: "devcycle-docs.vercel.app"
     steps:
