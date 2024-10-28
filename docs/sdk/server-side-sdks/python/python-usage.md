@@ -171,3 +171,24 @@ To further enable various deployment configurations - we provide a background pr
 or the SDK is not able to make requests to the DevCycle API directly. The installation and setup process for the proxy can be found here: https://github.com/DevCycleHQ/sdk-proxy#readme.
 
 See the [SDK Proxy](../../sdk-proxy/index.md) section for more information.
+
+## Enabling Beta Realtime Updates
+:::warning
+This feature is in beta, and may not function as expected. Please ensure that you have the latest version of the SDK.
+:::
+
+This functionality will reduce the number of polling requests that are made to the DevCycle Config CDN, and instead will
+use a long-lived HTTP connection (Server Sent Events) to receive updates when there is a new config available.
+This reduces outbound network traffic, as well as optimizes the SDK for efficiency.
+
+To enable Beta Realtime Updates, pass in the `enableBetaRealtimeUpdates` option to the SDK initialization:
+
+```python
+from devcycle_python_sdk import DevCycleCloudClient, DevCycleCloudOptions
+from devcycle_python_sdk.models.user import DevCycleUser
+import os
+
+options = DevCycleCloudOptions(enableBetaRealtimeUpdates=True)
+
+devcycle_client = DevCycleCloudClient(os.environ["DEVCYCLE_SERVER_SDK_KEY"], options)
+```
