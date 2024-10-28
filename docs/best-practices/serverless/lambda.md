@@ -50,7 +50,7 @@ The [README in the example repo has more details regarding the Lambda Setup.](ht
 1. Clone the [devcycle-lambda-example](https://github.com/DevCycleHQ/devcycle-lambda-example) repo
 2. In this example, we are using a **_server_ key.** Copy your server key as the `<DEVCYCLE_SERVER_SDK_KEY>`
     in the `initializeDevCycle` call.
-   [(You can get your Server SDK key from the DevCycle dashboard)](/essentials/keys)
+   [(You can get your Server SDK key from the DevCycle dashboard)](/platform/account-management/keys)
 
 ```jsx
 const devcycleClient = await initializeDevCycle(

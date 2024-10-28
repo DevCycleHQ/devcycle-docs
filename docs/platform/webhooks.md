@@ -1,6 +1,6 @@
 ---
 title: Webhooks
-sidebar_position: 8
+sidebar_position: 7
 ---
 
 This topic explains how to create and use Webhooks in DevCycle.

@@ -10,7 +10,7 @@ This guide describes how to manage large amounts of feature flags with DevCycle.
 
 ## Why Group Flags?
 
-Feature Flags can accumulate very quickly. Without an organizational mechanism, the feature management dashboard would be extremely cluttered. Imagine developing a complex feature with various parts, such as the [Metrics and Experimentation feature in DevCycle](/essentials/feature-experimentation). Each piece of functionality needs a flag: There’s a flag for the API, the UI, each type of experimentation, string flags for naming, and so on. It would be helpful to have the ability to find all these flags in the same place.
+Feature Flags can accumulate very quickly. Without an organizational mechanism, the feature management dashboard would be extremely cluttered. Imagine developing a complex feature with various parts, such as the [Metrics and Experimentation feature in DevCycle](/platform/experimentation/feature-experimentation). Each piece of functionality needs a flag: There’s a flag for the API, the UI, each type of experimentation, string flags for naming, and so on. It would be helpful to have the ability to find all these flags in the same place.
 
 Not only do we want flags for each part of a feature, but we also want the ability to turn off the entire feature, all at once, in case something goes wrong. Other Feature Flag management solutions require you to create complex feature flag dependencies to set up a “master switch” for a group of flags. In contrast, DevCycle allows you to easily group feature flags and disable them simultaneously with one switch.
 
@@ -38,7 +38,7 @@ We should also rename our variation. Since our `show-metrics-api` flag is no lon
 
 ![Metrics API Variable is Off](/july-2022-metrics-api-false.png)
 
-But what if we only want a specific group of users to have the API disabled? Let’s say we want our Internal QA users to continue seeing the API, but we want it to be hidden from external users. **This leads to the second method to disable Variables: creating a new [Variation](/essentials/variables).** We can create a new Variation called “General Users” and set the `show-metrics-api` variable to `false`.
+But what if we only want a specific group of users to have the API disabled? Let’s say we want our Internal QA users to continue seeing the API, but we want it to be hidden from external users. **This leads to the second method to disable Variables: creating a new [Variation](essentials/variables-and-variations/variations).** We can create a new Variation called “General Users” and set the `show-metrics-api` variable to `false`.
 
 ![General users variation for Metrics Feature](/july-2022-general-users-variation.png)
 
@@ -48,13 +48,13 @@ Doing so will hide the API from users receiving the General Users variation, whi
 
 **Managing multiple Variables and Variations:**
 
-To learn more about managing multiple Variables and Variations within a feature, [Read here](/essentials/variables).
+To learn more about managing multiple Variables and Variations within a feature, [Read here](/essentials/variables-and-variations/variables).
 
 :::
 
 ### Using Targeting as a “Master Switch”
 
-One challenge with many Feature Flag management solutions is creating a switch that controls a whole feature and its feature flag dependencies. DevCycle, however, makes it easy to disable an entire Feature and its Remote Variables using [Targeting Rules](/essentials/targeting).
+One challenge with many Feature Flag management solutions is creating a switch that controls a whole feature and its feature flag dependencies. DevCycle, however, makes it easy to disable an entire Feature and its Remote Variables using [Targeting Rules](/essentials/targeting/targeting-overview).
 
 **Method 1: Disabling a feature for everyone**
 
@@ -74,7 +74,7 @@ Targeting Rules also allow you to disable the entire feature for only a specific
 
 **Targeting Users:**
 
-[Read here to learn more about how to Target Users](/essentials/targeting).
+[Read here to learn more about how to Target Users](/essentials/targeting/targeting-overview).
 
 :::
 
@@ -90,4 +90,4 @@ Here are similar resources to help with organizing Feature Flags:
 
 - [Feature Types](/essentials/features)
 - [Effectively Organizing Your Feature Flags](/best-practices/effectively-organizing-feature-flags)
-- [Creating Variables & Variations](/essentials/variables)
+- [Creating Variables & Variations](/essentials/variables-and-variations/variables)

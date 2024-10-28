@@ -3,7 +3,7 @@ title: Quickstart Tutorial
 sidebar_position: 1
 ---
 
-In this tutorial, we'll be showcasing a great use case for feature flags, guiding you through the creation of a simple [React app](https://react.dev), connecting it to DevCycle, and implementing an [Ops feature flag](/introduction/core-concepts/feature-types#ops) to enable/disable a **Maintenance Mode** page. 
+In this tutorial, we'll be showcasing a great use case for feature flags, guiding you through the creation of a simple [React app](https://react.dev), connecting it to DevCycle, and implementing an [Ops feature flag](/platform/feature-management/feature-types#ops) to enable/disable a **Maintenance Mode** page. 
 
 You'll learn about some of the core features of DevCycle, while experiencing firsthand just how easy it is to implement feature flags to enhance your application's functionality and flexibility.
 
@@ -23,7 +23,7 @@ On the DevCycle Dashboard, access the "Feature Management" page via the `Feature
 To create a Feature:
 
 1. Click either the "+" button or the "Create new Feature" button.
-2. Choose an `Ops Feature` from the options modal. To read more about the Feature types and their uses, see [DevCycle Feature Types](/introduction/core-concepts/feature-types).
+2. Choose an `Ops Feature` from the options modal. To read more about the Feature types and their uses, see [DevCycle Feature Types](/platform/feature-management/feature-types).
 3. After choosing a type, name and describe your Feature:
     - **Feature name:** For our example, this will be `Maintenance Mode`.
     - **Feature key:** This key is how the Feature and its Variables will be referenced in code. (A key of `maintenance-mode` will be automatically suggested based on the entered name.)
@@ -93,7 +93,7 @@ To obtain the SDK key, you'll need to:
 
 ![alt text](/tutorial/tutorial-keys.png)
 
-Depending on which [type of SDK](/sdk/) and which environment you are initializing for, the SDK Key will be different. Read more about [Environments](/essentials/environments) and [keys](/essentials/keys) in the essentials.
+Depending on which [type of SDK](/sdk/) and which environment you are initializing for, the SDK Key will be different. Read more about [Environments](/platform/account-management/environments) and [keys](/platform/account-management/keys) in the essentials.
 
 **4. Initialize DevCycle Provider**
 
@@ -107,7 +107,7 @@ export default withDevCycleProvider({
 
 **5. Access your Variable.** 
 
-Implement the code to evaluate the Variable that is being controlled by the Feature you just created. Read more about Variables [here](/essentials/variables).
+Implement the code to evaluate the Variable that is being controlled by the Feature you just created. Read more about Variables [here](/essentials/variables-and-variations/variables).
 
 To access the variable, you'll first need to import the `useVariableValue` hook at the top of `App.js`
 
@@ -193,7 +193,7 @@ If everything is working, your maintenance mode should now be enabled, and you w
 
 ![alt text](/tutorial/tutorial-maintenance.png)
 
-For more information on targeting based on user data, see the documentation on [Custom Properties here](/platform/advanced-targeting/custom-properties).
+For more information on targeting based on user data, see the documentation on [Custom Properties here](/essentials/targeting/custom-properties).
 
 ---
 
