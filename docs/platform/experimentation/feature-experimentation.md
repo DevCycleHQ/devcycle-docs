@@ -91,7 +91,7 @@ Statistical significance has been achieved if this number is either 0% or 100%.
 ## Experimentation using a Custom Property for Randomization
 
 :::info
-For documentation on this functionality outside of the context of experimentation you can check out our documentation dedicated to this topic [here](/platform/advanced-targeting/randomize-using-custom-property).
+For documentation on this functionality outside of the context of experimentation you can check out our documentation dedicated to this topic [here](/essentials/targeting/randomize-using-custom-property).
 :::
 
 DevCycle typically uses the User ID as the primary key for Feature rollouts and randomization. However, in certain scenarios, Features you release are intended to be rolled out to a cohort of users vs an individual user. For example, a new feature in a B2B platform might impact an entire organization rather than a single user within that organization. In such cases, you can randomize and rollout by using a Custom Property. 
