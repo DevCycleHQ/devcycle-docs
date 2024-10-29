@@ -38,7 +38,7 @@ We should also rename our variation. Since our `show-metrics-api` flag is no lon
 
 ![Metrics API Variable is Off](/july-2022-metrics-api-false.png)
 
-But what if we only want a specific group of users to have the API disabled? Let’s say we want our Internal QA users to continue seeing the API, but we want it to be hidden from external users. **This leads to the second method to disable Variables: creating a new [Variation](essentials/variables-and-variations/variations).** We can create a new Variation called “General Users” and set the `show-metrics-api` variable to `false`.
+But what if we only want a specific group of users to have the API disabled? Let’s say we want our Internal QA users to continue seeing the API, but we want it to be hidden from external users. **This leads to the second method to disable Variables: creating a new [Variation](/essentials/variables-and-variations/variations).** We can create a new Variation called “General Users” and set the `show-metrics-api` variable to `false`.
 
 ![General users variation for Metrics Feature](/july-2022-general-users-variation.png)
 

@@ -20,7 +20,7 @@ To complete this guide, you may want to review the following topics:
 - [Creating and Managing Variations](/essentials/variables-and-variations/variations)
 - [Random Distribution Targeting](/essentials/targeting/random-variations)
 - [Feature Experimentation](/platform/experimentation/feature-experimentation)
-- [Creating a Metric](platform/experimentation/creating-and-managing-metrics) and [Metric Types](/platform/experimentation/creating-and-managing-metrics#types)
+- [Creating a Metric](/platform/experimentation/creating-and-managing-metrics) and [Metric Types](/platform/experimentation/creating-and-managing-metrics#types)
 
 ## Conducting Experiments: A Collaborative Approach 
 
