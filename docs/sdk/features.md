@@ -298,7 +298,7 @@ Custom Domains is an enterprise feature and requires manual setup on both your e
 
 :::
 
-For instructions on setting up a custom domain, see [Custom Domains](/platform/custom-domains).
+For instructions on setting up a custom domain, see [Custom Domains](/platform/extras/custom-domains).
 
 ## Realtime Updates
 
@@ -345,5 +345,5 @@ globally. Every function within the SDK will reach out to these edge workers and
 extremely low latency.
 
 Cloud bucketing is required to use specific features such as [EdgeDB](/essentials/targeting/edgedb) and
-[Feature Opt-In](/platform/testing-and-qa/feature-opt-in). If you aren't using these features, then Local Bucketing
+[Feature Opt-In](/platform/extras/feature-opt-in). If you aren't using these features, then Local Bucketing
 is the recommended mode.

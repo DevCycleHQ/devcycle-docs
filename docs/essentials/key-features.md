@@ -50,12 +50,12 @@ Modern architecture means distributed systems running at the edge. Relevant targ
 
 Here's how:
 - Store user attributes in a [fast, globally-replicated database](/essentials/targeting/edgedb) and target flags based on those attributes. 
-- Easily add a full [feature opt-in](/platform/testing-and-qa/feature-opt-in) experience to your application to allow end users to control their experience.
+- Easily add a full [feature opt-in](/platform/extras/feature-opt-in) experience to your application to allow end users to control their experience.
 
 ## Integrate with Any Other Tool
 Feature flagging is better when integrated into the rest of your critical tools. While we have a selection of [integrations](/integrations) built and ready for you to install, we understand you may need other integrations so we've made DevCycle as extensible as possible.
 
 See how to integrate your own tools:
-- Notify external systems of changes to your flags using [Outbound Webhooks](/platform/webhooks). 
+- Notify external systems of changes to your flags using [Outbound Webhooks](/platform/extras/webhooks). 
 - See changes in your [monitoring systems](/integrations#observability) and alert on potential issues.
 - A complete [API](/management-api) and [CLI](/cli) are available to run automations or scripts as necessary.

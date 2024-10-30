@@ -218,7 +218,7 @@ that is available from the user getter will be used to provide the values for De
 are received while someone is viewing a statically-rendered page will still trigger a re-render of the page with the
 new configuration data.
 
-If you wish to rebuild your static pages when a DevCycle configuration changes, consider setting up a [DevCycle Webhook](/platform/webhooks) to
+If you wish to rebuild your static pages when a DevCycle configuration changes, consider setting up a [DevCycle Webhook](/platform/extras/webhooks) to
 trigger your build process.
 
 ## Advanced

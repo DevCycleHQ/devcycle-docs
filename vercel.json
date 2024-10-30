@@ -23,7 +23,7 @@
     { "source": "/home/your-organization/:path*", "destination": "/platform/account-management/organizations", "statusCode": 301 },
     { "source": "/home/demos/:path*", "destination": "/examples", "statusCode": 301 },
     { "source": "/home/feature-management/edgedb/:path*", "destination": "/essentials/targeting/edgedb", "statusCode": 301 },
-    { "source": "/home/feature-management/feature-opt-in/:path*", "destination": "/platform/testing-and-qa/feature-opt-in", "statusCode": 301 },
+    { "source": "/home/feature-management/feature-opt-in/:path*", "destination": "/platform/extras/feature-opt-in", "statusCode": 301 },
     { "source": "/tools-and-integrations/:path*", "destination": "/integrations/:path*", "statusCode": 301 },
     { "source": "/tools-and-integrations/", "destination": "/integrations", "statusCode": 301 },
     { "source": "/extras/:path*", "destination": "/platform/:path*", "statusCode": 301 },
@@ -43,7 +43,6 @@
     { "source": "/essentials/variables", "destination": "/essentials/variables-and-variations/variables", "statusCode": 301 },
     { "source": "/essentials/variations", "destination": "/essentials/variables-and-variations/variations", "statusCode": 301 },
     { "source": "/platform/advanced-variables/variable-defaults", "destination": "/essentials/variables-and-variations/variable-defaults", "statusCode": 301 },
-    { "source": "/platform/advanced-variables/variable-schemas", "destination": "/essentials/variables-and-variations/variable-schemas", "statusCode": 301 },
     { "source": "/platform/metrics/feature-flag-reach", "destination": "/essentials/variables-and-variations/feature-flag-reach", "statusCode": 301 },
 
     { "source": "/essentials/organizations", "destination": "/platform/account-management/organizations", "statusCode": 301 },
@@ -64,10 +63,14 @@
     { "source": "/platform/feature-obfuscation", "destination": "/platform/security-and-guardrails/feature-obfuscation", "statusCode": 301 },
     { "source": "/platform/permissions", "destination": "/platform/security-and-guardrails/permissions", "statusCode": 301 },
     { "source": "/platform/sdk-visibility", "destination": "/platform/security-and-guardrails/sdk-visibility", "statusCode": 301 },
+    { "source": "/platform/advanced-variables/variable-schemas", "destination": "/platform/security-and-guardrails/variable-schemas", "statusCode": 301 },
     
-    { "source": "/platform/advanced-targeting/feature-opt-in", "destination": "/platform/testing-and-qa/feature-opt-in", "statusCode": 301 },
     { "source": "/platform/web-debugger", "destination": "/platform/testing-and-qa/web-debugger", "statusCode": 301 },
-    { "source": "/platform/advanced-targeting/self-targeting", "destination": "/platform/testing-and-qa/self-targeting", "statusCode": 301 }
+    { "source": "/platform/advanced-targeting/self-targeting", "destination": "/platform/testing-and-qa/self-targeting", "statusCode": 301 },
+
+    { "source": "/platform/custom-domains", "destination": "/platform/extras/custom-domains", "statusCode": 301 },
+    { "source": "/platform/webhooks", "destination": "/platform/extras/webhooks", "statusCode": 301 },
+    { "source": "/platform/advanced-targeting/feature-opt-in", "destination": "/platform/extras/feature-opt-in", "statusCode": 301 }
 
   ],
   "rewrites": [
