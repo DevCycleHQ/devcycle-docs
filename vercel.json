@@ -42,8 +42,8 @@
 
     { "source": "/essentials/variables", "destination": "/essentials/variables-and-variations/variables", "statusCode": 301 },
     { "source": "/essentials/variations", "destination": "/essentials/variables-and-variations/variations", "statusCode": 301 },
-    { "source": "/essentials/advanced-variables/variable-defaults", "destination": "/essentials/variables-and-variations/variable-defaults", "statusCode": 301 },
-    { "source": "/essentials/advanced-variables/variable-schemas", "destination": "/essentials/variables-and-variations/variable-schemas", "statusCode": 301 },
+    { "source": "/platform/advanced-variables/variable-defaults", "destination": "/essentials/variables-and-variations/variable-defaults", "statusCode": 301 },
+    { "source": "/platform/advanced-variables/variable-schemas", "destination": "/essentials/variables-and-variations/variable-schemas", "statusCode": 301 },
     { "source": "/platform/metrics/feature-flag-reach", "destination": "/essentials/variables-and-variations/feature-flag-reach", "statusCode": 301 },
 
     { "source": "/essentials/organizations", "destination": "/platform/account-management/organizations", "statusCode": 301 },
