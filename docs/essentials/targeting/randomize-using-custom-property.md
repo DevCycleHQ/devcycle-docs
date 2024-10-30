@@ -1,6 +1,6 @@
 ---
 title: Randomize using a Custom Property
-sidebar_position: 7
+sidebar_position: 6
 ---
 
 :::warning

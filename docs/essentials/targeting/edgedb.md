@@ -1,6 +1,6 @@
 ---
 title: EdgeDB (Stored Custom Properties)
-sidebar_position: 8
+sidebar_position: 7
 ---
 
 # EdgeDB and Stored Custom Properties
