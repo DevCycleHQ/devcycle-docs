@@ -14,7 +14,7 @@ For feature flagging to be effective, all team members need to be able to operat
 
 Here's how:
 - Govern who can modify flags in production using [Permissions](/platform/security-and-guardrails/permissions).
-- Allow non-technical users to modify flag values safely, by enforcing [schemas](/essentials/variables-and-variations/variable-schemas).
+- Allow non-technical users to modify flag values safely, by enforcing [schemas](/platform/security-and-guardrails/variable-schemas).
 - Easily see a [detailed history](/platform/security-and-guardrails/audit-log) of all changes to flags.
 - Write type-safe code using our [Code Generators](/sdk/client-side-sdks/javascript/javascript-typescript).
 - Ensure a predictable process for changing flags using Gitops and [Terraform](/integrations/terraform).

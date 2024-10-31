@@ -11,7 +11,7 @@ By default, upon creation of a Feature, a `Boolean Variable`` will be created wh
 
 :::tip Already understand the variable essentials?
 Be sure to check out our advanced variable documentation which covers topics like:
-- [Variable Schemas](/essentials/variables-and-variations/variable-schemas)
+- [Variable Schemas](/platform/security-and-guardrails/variable-schemas)
 :::
 ---
 

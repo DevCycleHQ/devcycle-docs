@@ -40,7 +40,7 @@ For more detail on each of these concepts, see below.
 
 Variables are the main "primitive" that you interact with using the DevCycle SDK. A `Variable` is identified by a unique
 `key`, has a particular data type, and can optionally be defined with a 
-more specific [schema](/essentials/variables-and-variations/variable-schemas) of possible allowed values.
+more specific [schema](/platform/security-and-guardrails/variable-schemas) of possible allowed values.
 
 > Variables may be the following types: `Boolean`, `JSON`, `Number`, or `String`.
 
