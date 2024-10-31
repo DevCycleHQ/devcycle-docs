@@ -38,7 +38,7 @@ We should also rename our variation. Since our `show-metrics-api` flag is no lon
 
 ![Metrics API Variable is Off](/july-2022-metrics-api-false.png)
 
-But what if we only want a specific group of users to have the API disabled? Let’s say we want our Internal QA users to continue seeing the API, but we want it to be hidden from external users. **This leads to the second method to disable Variables: creating a new [Variation](/essentials/variables-and-variations/variations).** We can create a new Variation called “General Users” and set the `show-metrics-api` variable to `false`.
+But what if we only want a specific group of users to have the API disabled? Let’s say we want our Internal QA users to continue seeing the API, but we want it to be hidden from external users. **This leads to the second method to disable Variables: creating a new [Variation](/platform/feature-flags/variables-and-variations/variations).** We can create a new Variation called “General Users” and set the `show-metrics-api` variable to `false`.
 
 ![General users variation for Metrics Feature](/july-2022-general-users-variation.png)
 
@@ -48,13 +48,13 @@ Doing so will hide the API from users receiving the General Users variation, whi
 
 **Managing multiple Variables and Variations:**
 
-To learn more about managing multiple Variables and Variations within a feature, [Read here](/essentials/variables-and-variations/variables).
+To learn more about managing multiple Variables and Variations within a feature, [Read here](/platform/feature-flags/variables-and-variations/variables).
 
 :::
 
 ### Using Targeting as a “Master Switch”
 
-One challenge with many Feature Flag management solutions is creating a switch that controls a whole feature and its feature flag dependencies. DevCycle, however, makes it easy to disable an entire Feature and its Remote Variables using [Targeting Rules](/essentials/targeting/targeting-overview).
+One challenge with many Feature Flag management solutions is creating a switch that controls a whole feature and its feature flag dependencies. DevCycle, however, makes it easy to disable an entire Feature and its Remote Variables using [Targeting Rules](/platform/feature-flags/targeting/targeting-overview).
 
 **Method 1: Disabling a feature for everyone**
 
@@ -74,7 +74,7 @@ Targeting Rules also allow you to disable the entire feature for only a specific
 
 **Targeting Users:**
 
-[Read here to learn more about how to Target Users](/essentials/targeting/targeting-overview).
+[Read here to learn more about how to Target Users](/platform/feature-flags/targeting/targeting-overview).
 
 :::
 
@@ -90,4 +90,4 @@ Here are similar resources to help with organizing Feature Flags:
 
 - [Feature Types](/essentials/features)
 - [Effectively Organizing Your Feature Flags](/best-practices/effectively-organizing-feature-flags)
-- [Creating Variables & Variations](/essentials/variables-and-variations/variables)
+- [Creating Variables & Variations](/platform/feature-flags/variables-and-variations/variables)

@@ -9,7 +9,7 @@ Super Segments are collections of users that are targeted by data from any exter
 
 This means that users or their data can be “imported” into DevCycle for targeting in experiments or features by making use of EdgeDB. 
 
-While this can all be handled via the [EdgeDB API](/bucketing-api/#tag/EdgeDB), as outlined in [here](/essentials/targeting/edgedb), DevCycle has created a Zapier integration which allows for easy sending of data directly to the desired EdgeDB environment in a project. This makes connecting any tools (like [Amplitude](https://amplitude.com/), [Segment](https://segment.com/) and others) with Zapier integrations directly to DevCycle extremely simple!
+While this can all be handled via the [EdgeDB API](/bucketing-api/#tag/EdgeDB), as outlined in [here](/platform/feature-flags/targeting/edgedb), DevCycle has created a Zapier integration which allows for easy sending of data directly to the desired EdgeDB environment in a project. This makes connecting any tools (like [Amplitude](https://amplitude.com/), [Segment](https://segment.com/) and others) with Zapier integrations directly to DevCycle extremely simple!
 
 ## Salesforce Guide
 
@@ -98,7 +98,7 @@ Now, any time a new lead enters SalesForce, it will be sent to EdgeDB with their
 Now that we’ve got data in EdgeDB, it can be used for targeting in any feature within DevCycle.
 
 :::info 
-Any data saved to EdgeDB is considered a “Custom Property” within DevCycle and can be targeted by simply adding that same property in the dashboard. To find out more about Custom Properties, [read here.](/essentials/targeting/custom-properties) 
+Any data saved to EdgeDB is considered a “Custom Property” within DevCycle and can be targeted by simply adding that same property in the dashboard. To find out more about Custom Properties, [read here.](/platform/feature-flags/targeting/custom-properties) 
 :::
 
 To use the SalesForce data from above, simply create a new custom property in the dashboard (if it does not already exist):

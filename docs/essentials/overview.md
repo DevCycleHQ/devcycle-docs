@@ -106,7 +106,7 @@ By default, Bucketing is performed consistently on DevCycle by leveraging a hash
 
 ## A/B Testing & Experimentation
 
-Experimentation and A/B Testing are important parts of a Feature’s lifecycle. Experiments can be as simple as comparing any audiences against a metric or can be fully [randomized](https://docs.devcycle.com/essentials/targeting/random-variations) A/B tests using statistical methodologies. 
+Experimentation and A/B Testing are important parts of a Feature’s lifecycle. Experiments can be as simple as comparing any audiences against a metric or can be fully [randomized](https://docs.devcycle.com/platform/feature-flags/targeting/random-variations) A/B tests using statistical methodologies. 
 
 The primary concept of an experiment is the need to have at least two different experiences to compare performance. Any Feature in DevCycle can be turned into an experiment, and it only requires the following:
 

@@ -16,9 +16,9 @@ We've designed experimentation to be accessible across various roles within your
 
 To complete this guide, you may want to review the following topics:
 
-- [DevCycle Feature Hierarchy](/platform/feature-management/feature-hierarchy)
-- [Creating and Managing Variations](/essentials/variables-and-variations/variations)
-- [Random Distribution Targeting](/essentials/targeting/random-variations)
+- [DevCycle Feature Hierarchy](/essentials/feature-hierarchy)
+- [Creating and Managing Variations](/platform/feature-flags/variables-and-variations/variations)
+- [Random Distribution Targeting](/platform/feature-flags/targeting/random-variations)
 - [Feature Experimentation](/platform/experimentation/feature-experimentation)
 - [Creating a Metric](/platform/experimentation/creating-and-managing-metrics) and [Metric Types](/platform/experimentation/creating-and-managing-metrics#types)
 
@@ -34,7 +34,7 @@ Product managers often spearhead the creation of an experiment brief or structur
 
 - **Hypothesis**: A hypothesis should be specific, measurable, and iterative. The simplest and most effective template for hypotheses is: "By doing [X] to [Y], we expect [Z]." 
 - **Description:** Provide a high-level description of the experiment, make sure to note the location of the experiment and any relevant context.
-- **Target Audience:** Depending on your experiment, you may want to target all users or an audience defined by a [custom property](/essentials/targeting/custom-properties)
+- **Target Audience:** Depending on your experiment, you may want to target all users or an audience defined by a [custom property](/platform/feature-flags/targeting/custom-properties)
     - For example, you may want to run your experiment only on users in Canada or only those that have a certain subscription tier.
 - **Variations:** Decide how many variations you wish to test and what those variations are.
     - For example, will you be testing a red checkout button versus a blue checkout button, or will you be testing a red versus a blue versus a green checkout button?
@@ -48,7 +48,7 @@ Engineers translate experiment structures into code and are often responsible fo
 
 ### Creating the Feature, Variables, & Variations:
 
-Depending on the complexity of the experiment or Feature, the engineers responsible may want to create multiple Variables. For example, engineers may want a separate flag or Variable that controls the backend logic and a separate Variable(s) that control the frontend elements. See [Feature Hierarchy](/platform/feature-management/feature-hierarchy) for more information on how Features and Variables relate to each other. 
+Depending on the complexity of the experiment or Feature, the engineers responsible may want to create multiple Variables. For example, engineers may want a separate flag or Variable that controls the backend logic and a separate Variable(s) that control the frontend elements. See [Feature Hierarchy](/essentials/feature-hierarchy) for more information on how Features and Variables relate to each other. 
 
 ![Variable Table](/mar-2024-example-variable-table.png) 
 
@@ -97,7 +97,7 @@ Once you are ready to launch, navigate to Feature, and click on the Production e
 
 ![Random Distribution](/march-2024-random-distribution-experiment-.gif)
 
-To run an experiment, you simply have to setup a [Random Distribution Targeting rule](/essentials/targeting/rollouts) and decide roll-out strategy or schedule the launch of the experiment. 
+To run an experiment, you simply have to setup a [Random Distribution Targeting rule](/platform/feature-flags/targeting/rollouts) and decide roll-out strategy or schedule the launch of the experiment. 
 
 ## 4. Monitor & Analyze Experiment Results
 
@@ -111,7 +111,7 @@ Once the planned time has passed, you can review the graphs created by the Metri
 
 ![Feature Experiment Image](/feature-experiment-full.png)
 
-After you decide which flag variation has the impact you want, you can roll that variation out to 100% of your customers by either [completing the Feature/experiment](/platform/feature-management/status-and-lifecycle#completed) or change the experiment targeting rule to serve the winning variation.
+After you decide which flag variation has the impact you want, you can roll that variation out to 100% of your customers by either [completing the Feature/experiment](/platform/feature-flags/status-and-lifecycle#completed) or change the experiment targeting rule to serve the winning variation.
 
 ## Summary
 This guide on Product-Led Experimentation in DevCycle explains how to facilitate collaboration between product managers and engineers to conduct experiments, optimize software, and improve user experiences within the DevCycle. 

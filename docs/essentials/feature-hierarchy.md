@@ -1,6 +1,6 @@
 ---
 title: Feature Hierarchy
-sidebar_position: 1
+sidebar_position: 4
 ---
 In a traditional feature flagging platform, there is only one type of entity to worry about: a `feature flag`! In these 
 platforms, a `feature flag` contains the targeting rules and possible values for its respective key, all rolled into one.
@@ -71,7 +71,7 @@ A `Feature` can most simply be thought of as a "new product feature", but could 
 
 > By default, upon creation of a Feature, a Boolean Variable will be created which has the same name as the Feature's key for easier reference. Variables cannot be used in multiple existing Features, so their keys must be unique. The Variable Type helps enforce consistent usage across the team to avoid type mismatches in different use cases.
 
-When creating a Feature in the DevCycle, you will be able to choose a [Feature Type](/platform/feature-management/feature-types) which will pre-fill some options in the Feature and help kick-start your usage of the Feature. 
+When creating a Feature in the DevCycle, you will be able to choose a [Feature Type](/essentials/feature-types) which will pre-fill some options in the Feature and help kick-start your usage of the Feature. 
 
 
 ## Variations 

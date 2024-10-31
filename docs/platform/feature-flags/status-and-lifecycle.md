@@ -33,7 +33,7 @@ One could consider a Feature "Complete" once it has been tested, approved, and i
 
 The "Archived" status is designed to be the terminal state for Features that have reached the end of their lifecycle, were never implemented in code, or have become entirely obsolete. 
 
-A Feature should be archived after it has been cleaned up and its Variables removed from the codebase. Ideally, users should have also marked the Feature as **[Completed](/platform/feature-management/status-and-lifecycle#completed)**  in DevCycle.
+A Feature should be archived after it has been cleaned up and its Variables removed from the codebase. Ideally, users should have also marked the Feature as **[Completed](/platform/feature-flags/status-and-lifecycle#completed)**  in DevCycle.
 
 Archiving Features helps clean up your dashboard and codebase by essentially putting the Feature into a read-only mode and hiding it from the standard dashboard views. Archived Features' Audit Logs are accessible and available for teams to review.
 

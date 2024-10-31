@@ -11,7 +11,7 @@ Welcome to the DevCycle PHP SDK. There are two modes for the SDK,
 Cloud bucketing (using the [Bucketing API](https://docs.devcycle.com/bucketing-api/)) and Local Bucketing.
 
 We recommend using the Local Bucketing mode by default, as it performs fast local evaluations of your feature flags.
-If you need access to [EdgeDB](https://docs.devcycle.com/essentials/targeting/edgedb) you will need to use the Cloud Bucketing mode of the SDK.
+If you need access to [EdgeDB](https://docs.devcycle.com/platform/feature-flags/targeting/edgedb) you will need to use the Cloud Bucketing mode of the SDK.
 
 <CustomDocCardList items={useCurrentSidebarCategory().items} columnWidth={6} />
 

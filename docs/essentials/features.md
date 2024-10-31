@@ -6,7 +6,7 @@ sidebar_class_name: hidden
 > Features are the main elements that you want to control or experiment with in your application. They can be anything from a new UI element to a backend algorithm. 
 
 :::info
-When creating a Feature in DevCycle, you will be able to choose a [Feature Type](/platform/feature-management/feature-types) which will pre-fill some options in the Feature and help kick-start your usage of the Feature. 
+When creating a Feature in DevCycle, you will be able to choose a [Feature Type](/essentials/feature-types) which will pre-fill some options in the Feature and help kick-start your usage of the Feature. 
 :::
 
 ---
@@ -18,11 +18,11 @@ The Feature Dashboard is where all of your features can be viewed, edited, and f
 |   Column     | Description                            |
 |--------|----------------------------|
 | Creator | This will show the icon of the user who created this Feature. |
-| Status | The Feature's Current [Status](/platform/feature-management/status-and-lifecycle). This indicates the Feature's current position in the Development [LifeCycle](/platform/feature-management/status-and-lifecycle). |
+| Status | The Feature's Current [Status](/platform/feature-flags/status-and-lifecycle). This indicates the Feature's current position in the Development [LifeCycle](/platform/feature-flags/status-and-lifecycle). |
 | Name | The Feature's name. This can be changed at any time by editing the Feature. |
 | Key | This is the feature's Key. Use this key to reference the Feature in the SDKs or APIs. |
 | Feature type | The selected type of the Feature. Use this to organize your Features. |
-| # Of Variables | This will show a count of how many variables are used within this Feature. To learn more read [Creating Variables and Variations](/essentials/variables-and-variations/variables) |
+| # Of Variables | This will show a count of how many variables are used within this Feature. To learn more read [Creating Variables and Variations](/platform/feature-flags/variables-and-variations/variables) |
 | Edit | Click this to edit on the row the Feature. |
 
 Use the search input to search by Name, Key, or Description. The filters can be used to filter by Type or Creator. Each column header can be clicked to sort the column. 
@@ -37,7 +37,7 @@ Use the search input to search by Name, Key, or Description. The filters can be 
 
 From this page, you can create a Feature Flag by clicking "Create New Feature" or the `+` in the top bar. 
 
-A screen for deciding your Feature Type will now appear. To read more about the feature types and their uses, read [DevCycle Feature Types](/platform/feature-management/feature-types).
+A screen for deciding your Feature Type will now appear. To read more about the feature types and their uses, read [DevCycle Feature Types](/essentials/feature-types).
 
 After choosing a type, the information modal will appear prompting you to enter the following information:
 
@@ -80,9 +80,9 @@ Feature settings including name, key, and type can be changed from feature page 
 
 ## Archiving a Feature
 
-Archiving is the terminal state for Features that have reached the end of their lifecycle, were never implemented in code, or have become entirely obsolete. See [Status & Lifecyle](/platform/feature-management/status-and-lifecycle) for more information on how to manage Feature Lifecycles in DevCycle. 
+Archiving is the terminal state for Features that have reached the end of their lifecycle, were never implemented in code, or have become entirely obsolete. See [Status & Lifecyle](/platform/feature-flags/status-and-lifecycle) for more information on how to manage Feature Lifecycles in DevCycle. 
 
-Upon Archive, the Feature is put into a read-only mode, and its Audit Logs are accessible and available for teams to review. All [Variables](/essentials/variables-and-variations/variables) will be archived along with the Feature *but* can be re-used and associated to other Features. All Variables in this Feature will begin to serve Default values in code.
+Upon Archive, the Feature is put into a read-only mode, and its Audit Logs are accessible and available for teams to review. All [Variables](/platform/feature-flags/variables-and-variations/variables) will be archived along with the Feature *but* can be re-used and associated to other Features. All Variables in this Feature will begin to serve Default values in code.
 
 This action cannot be undone.
 

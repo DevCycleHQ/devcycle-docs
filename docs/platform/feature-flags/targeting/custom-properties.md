@@ -3,7 +3,7 @@ title: Custom Properties
 sidebar_position: 3
 ---
 
-Custom Properties are properties on a user which can be used for [Targeting Users for Features](/essentials/targeting/targeting-overview). 
+Custom Properties are properties on a user which can be used for [Targeting Users for Features](/platform/feature-flags/targeting/targeting-overview). 
 These properties are set on the user data that you provide to DevCycle when 
 [identifying a user](https://docs.devcycle.com/sdk/features#identifying-a-user-or-setting-properties) in the SDK. 
 
@@ -40,7 +40,7 @@ Every time you identify a particular user, you must pass the custom data into th
 
 DevCycle's EdgeDB feature enables the saving of user data into DevCycle's EdgeDB storage, 
 allowing you to segment by custom properties without having to repeatedly pass the same data to the SDK.
-[View our EdgeDB docs to find out how it works](/essentials/targeting/edgedb).
+[View our EdgeDB docs to find out how it works](/platform/feature-flags/targeting/edgedb).
 :::
 
 
@@ -95,7 +95,7 @@ Once a property has been created, it will be accessible in the definition dropdo
 
 ![property type open](/march-2022-property-dropdown-with-properties.png)
 
-First, select your property to use it like any other targeting definition as outlined in [Targeting Users](/essentials/targeting/targeting-overview)
+First, select your property to use it like any other targeting definition as outlined in [Targeting Users](/platform/feature-flags/targeting/targeting-overview)
 
 Then, finish your Targeting Rule by filling out the comparator and the value fields. 
 

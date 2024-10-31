@@ -5,7 +5,7 @@ sidebar_position: 1
 
 ##  Overview
 
-At DevCycle we believe that experimentation should be a part of the natural lifecycle of all features. So no matter the [feature type](/essentials/features) selected, can be experimented on. Experiments can be as simple as comparing any target audiences against a metric, or can be fully [randomized](/essentials/targeting/random-variations) A/B tests using statistical methodologies.
+At DevCycle we believe that experimentation should be a part of the natural lifecycle of all features. So no matter the [feature type](/essentials/features) selected, can be experimented on. Experiments can be as simple as comparing any target audiences against a metric, or can be fully [randomized](/platform/feature-flags/targeting/random-variations) A/B tests using statistical methodologies.
 
 This article outlines why and how to run and analyze experiments on your features within DevCycle. 
 
@@ -33,7 +33,7 @@ To run an experiment on any feature, all you need is two things:
 
 ### Comparing Multiple Variations
 
-The primary concept of an experiment is the need to have at least two different experiences to compare performances. There are several ways in DevCycle to run multiple experiences for users. We go into depth on this in our [Targeting documentation](/essentials/targeting/targeting-overview).
+The primary concept of an experiment is the need to have at least two different experiences to compare performances. There are several ways in DevCycle to run multiple experiences for users. We go into depth on this in our [Targeting documentation](/platform/feature-flags/targeting/targeting-overview).
 
 To get started with your first feature experiment, it is best to keep it simple and run a basic A/B test comparing two variations, one control and one treatment Variation, delivered randomly to all your users.
 
@@ -91,7 +91,7 @@ Statistical significance has been achieved if this number is either 0% or 100%.
 ## Experimentation using a Custom Property for Randomization
 
 :::info
-For documentation on this functionality outside of the context of experimentation you can check out our documentation dedicated to this topic [here](/essentials/targeting/randomize-using-custom-property).
+For documentation on this functionality outside of the context of experimentation you can check out our documentation dedicated to this topic [here](/platform/feature-flags/targeting/randomize-using-custom-property).
 :::
 
 DevCycle typically uses the User ID as the primary key for Feature rollouts and randomization. However, in certain scenarios, Features you release are intended to be rolled out to a cohort of users vs an individual user. For example, a new feature in a B2B platform might impact an entire organization rather than a single user within that organization. In such cases, you can randomize and rollout by using a Custom Property. 

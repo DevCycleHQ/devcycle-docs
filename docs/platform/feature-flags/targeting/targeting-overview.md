@@ -8,10 +8,10 @@ incrementally roll out features for monitoring, or create and test different fea
 
 :::tip Already understand the targeting essentials?
 Be sure to check out our advanced targeting documentation which covers topics like:
-- [Audiences](/essentials/targeting/audiences)
-- [Custom Properties](/essentials/targeting/custom-properties)
-- [Random Variations](/essentials/targeting/random-variations)
-- [Rollouts](/essentials/targeting/rollouts)
+- [Audiences](/platform/feature-flags/targeting/audiences)
+- [Custom Properties](/platform/feature-flags/targeting/custom-properties)
+- [Random Variations](/platform/feature-flags/targeting/random-variations)
+- [Rollouts](/platform/feature-flags/targeting/rollouts)
 - [Self-Targeting](/platform/testing-and-qa/self-targeting)
 :::
 
@@ -35,7 +35,7 @@ Below is a summary of the properties built into the platform, and how to specify
 | Country          | Country the user is located in. Must be a valid 2 letter [ISO-3166 country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)      | Set "country" property    |
 
 In addition to these built-in properties, you can specify any other property that suits your needs using the
-[Custom Properties](/essentials/targeting/custom-properties) feature. 
+[Custom Properties](/platform/feature-flags/targeting/custom-properties) feature. 
 
 Here is an example of a user object being passed to an SDK with these properties set:
 ```typescript
@@ -153,7 +153,7 @@ Looking to use DevCycle to help you QA a new feature? Be sure to check out [Self
 
 On the features dashboard page, select `Users & Targeting` from the left hand menu and choose which [environment](/essentials/overview#environments) it should apply to. If a feature is toggled `ON` for an environment, the rules defined within the environment will be followed.
 
-Once the targeting rule is defined, the next step is to determine what Variation users targeted by this rule should receive. Note: The available variations will be determined by the chosen Feature Type, however, [these can](/essentials/variables-and-variations/variations) be modified and more variations can be added at any time.
+Once the targeting rule is defined, the next step is to determine what Variation users targeted by this rule should receive. Note: The available variations will be determined by the chosen Feature Type, however, [these can](/platform/feature-flags/variables-and-variations/variations) be modified and more variations can be added at any time.
 
 To choose the Variation for this targeted audience, use the "Serve" dropdown and choose the desired variation. When the environment is enabled, and if a user fulfills the targeting rule, they will then be served that variation and its associated variable values.
 

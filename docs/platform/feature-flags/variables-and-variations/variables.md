@@ -26,7 +26,7 @@ On the Feature page, there are indicators for each Variable that inform you of t
 - if a Variable has been seen in code (if [Code References](/integrations/github/feature-usage-action) have been enabled)
 - if evaluations have been seen 
 
-These indicators are helpful when setting up features. They help to confirm proper setup, and aid in Variable cleanup once a Feature has completed it's [lifecycle](/platform/feature-management/status-and-lifecycle).
+These indicators are helpful when setting up features. They help to confirm proper setup, and aid in Variable cleanup once a Feature has completed it's [lifecycle](/platform/feature-flags/status-and-lifecycle).
 
 Hover over these indicators for more detail about a Variable's code references & evaluation information. 
 
@@ -47,7 +47,7 @@ To navigate to this page, use the `Variables` button on DevCycle dashboard's top
 |        |                            |
 |--------|----------------------------|
 | **Variable Name** | The name given to the Variable upon its creation |
-| **Feature** | The name of the Feature that is currently managing a variable. **Note** that Variables can only be managed by a single Feature at a time. If you wish to change what Feature is managing a Variable, first remove that Variable from a feature as outlined in [Creating Variables and Variations](/essentials/variables-and-variations/variables). If the Variable is NOT being managed by a Feature, this column will note the lack of Feature. **Click on a Feature name to navigate directly to the Feature managing this Variable** |
+| **Feature** | The name of the Feature that is currently managing a variable. **Note** that Variables can only be managed by a single Feature at a time. If you wish to change what Feature is managing a Variable, first remove that Variable from a feature as outlined in [Creating Variables and Variations](/platform/feature-flags/variables-and-variations/variables). If the Variable is NOT being managed by a Feature, this column will note the lack of Feature. **Click on a Feature name to navigate directly to the Feature managing this Variable** |
 | **Type** | The type of the feature flag. This type can one of: Boolean, JSON, Number, Boolean, or String. |
 | **Created At** | The time this Variable was first created. |
 

@@ -150,7 +150,7 @@ From here, useful information such as trends and patterns in the data can be use
 
 ### How do Metrics get calculated?
 
-To calculate Metrics, DevCycle uses [the custom events sent via its API or SDKs](/sdk/features#track). Each Event has the information of which user sent it and which Feature and Variation they were in at that time. For optimal experiments, use Features with variations [randomly distributed across users](/essentials/targeting/random-variations).
+To calculate Metrics, DevCycle uses [the custom events sent via its API or SDKs](/sdk/features#track). Each Event has the information of which user sent it and which Feature and Variation they were in at that time. For optimal experiments, use Features with variations [randomly distributed across users](/platform/feature-flags/targeting/random-variations).
 
 To read more on the queries behind the Metrics, see [How Metrics Are Calculated](/platform/experimentation/how-metrics-are-calculated)
 

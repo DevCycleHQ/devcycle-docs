@@ -22,7 +22,7 @@ Each environment has its own set of SDK keys for Client-Side, Mobile, and Server
 
 > **Every Feature you create will automatically be created on every environment within a project.** Each environment then has its own set of targeting rules. This means that a feature's code can be deployed across every environment, and its access can be managed on an environment level. 
 
-You can easily view a Feature's status across all environments by simply going to that Feature's management page, and the Feature's targeting or availability across each environment can be managed directly from that page in the associated targeting section. More details on [turning features on or off can be found here](/essentials/features), and more details on creating rules for your [Feature on each environment can be found here](/essentials/targeting/targeting-overview).
+You can easily view a Feature's status across all environments by simply going to that Feature's management page, and the Feature's targeting or availability across each environment can be managed directly from that page in the associated targeting section. More details on [turning features on or off can be found here](/essentials/features), and more details on creating rules for your [Feature on each environment can be found here](/platform/feature-flags/targeting/targeting-overview).
 
 ---
 

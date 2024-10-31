@@ -76,10 +76,10 @@ You will be prompted to select a feature, environment and what you would like to
 
 You should then select `Add Targeting Rule` and will be prompted to define a Name, Variations to serve and a filter. For this case, if you have not yet created any filters, you should select `Add Filter`.
 
-Here you will be prompted to select a definition of all (for all users), user (to target a specific user based on an identifier like email, country, etc.) or audienceMatch [(see Audiences)](/essentials/targeting/audiences).
+Here you will be prompted to select a definition of all (for all users), user (to target a specific user based on an identifier like email, country, etc.) or audienceMatch [(see Audiences)](/platform/feature-flags/targeting/audiences).
 
 :::info
-Looking to reuse an audience in user targeting for features? Be sure to check out the our documentation explaining how to [create and manage Audiences via our API or within the DevCycle dashboard](/essentials/targeting/audiences).
+Looking to reuse an audience in user targeting for features? Be sure to check out the our documentation explaining how to [create and manage Audiences via our API or within the DevCycle dashboard](/platform/feature-flags/targeting/audiences).
 :::
 
 Once you have chosen your relevant definition select `Continue` (twice) when prompted. If successful you should see a flow which resembles the following (which represents added a new targeting rule to `feature-a` in the `Staging Environment` for any users with the email address that contains `devcycle` and will serve them a variation named `New Variation` ):

@@ -3,7 +3,7 @@ title: Projects
 sidebar_position: 2
 ---
 
-> Projects are nested within [organizations](/platform/account-management/organizations) and contain your [Features](/essentials/overview#features) and [Environments](/essentials/overview#environments) (and through them your [keys](/platform/account-management/keys), [variables](/essentials/variables-and-variations/variables) and [variations](/essentials/variables-and-variations/variations)).
+> Projects are nested within [organizations](/platform/account-management/organizations) and contain your [Features](/essentials/overview#features) and [Environments](/essentials/overview#environments) (and through them your [keys](/platform/account-management/keys), [variables](/platform/feature-flags/variables-and-variations/variables) and [variations](/platform/feature-flags/variables-and-variations/variations)).
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Feature Types
-sidebar_position: 2
+sidebar_position: 5
 ---
 
 Feature Types within the DevCycle dashboard are a way of describing and handling Feature Toggles / Feature Flags in more complex and diverse ways. 

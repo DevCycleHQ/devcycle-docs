@@ -32,7 +32,7 @@ Feature flags are most valuable when all team members are part of the process. A
 
 Here's how:
 - We never [bill](https://devcycle.com/pricing) on seats.
-- Group multiple related flags and change their values together using [Features](/platform/feature-management/feature-hierarchy).
+- Group multiple related flags and change their values together using [Features](/essentials/feature-hierarchy).
 - Link your flags to productivity tools like [Jira](/integrations/jira) or [Slack](/integrations/slack).
 - Safely QA your flags in development or right in production with [Self-Targeting](/platform/testing-and-qa/self-targeting).
 
@@ -42,14 +42,14 @@ Old, unused flags are tech-debt that create operational risk. This means that th
 Here's how you can keep your feature flagging environment clean in DevCycle:
 - Keep on top of which flags are actually being used in your codebase with
 [Code Usage Detection](/best-practices/tech-debt#code-usages). 
-- Mark flags as "[completed](/platform/feature-management/status-and-lifecycle)" when a feature is released.
+- Mark flags as "[completed](/platform/feature-flags/status-and-lifecycle)" when a feature is released.
 - Automatically remove your flags with our [CLI Cleanup](/cli/docs/cleanup) command.
 
 ## Let Us Manage User Data
 Modern architecture means distributed systems running at the edge. Relevant targeting data isn't always available in all systems or services. So we've built ways to keep our platform fast while managing targeting data for you.
 
 Here's how:
-- Store user attributes in a [fast, globally-replicated database](/essentials/targeting/edgedb) and target flags based on those attributes. 
+- Store user attributes in a [fast, globally-replicated database](/platform/feature-flags/targeting/edgedb) and target flags based on those attributes. 
 - Easily add a full [feature opt-in](/platform/extras/feature-opt-in) experience to your application to allow end users to control their experience.
 
 ## Integrate with Any Other Tool

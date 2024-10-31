@@ -39,6 +39,6 @@ Please note that [Self-Targeting](/platform/testing-and-qa/self-targeting) actio
 
 ### Feature Created Modification Cards in the Audit Log
 
-When a Feature is created, you will see multiple modification cards populate in the Audit Log. The first modification card in the Audit Log will outline the initial Feature configuration (initial variable, variations, status, settings, etc.). Then, depending on the [Feature Type](/platform/feature-management/feature-types) selected when creating a new Feature, the following cards will highlight the each Environment's Targeting status, along with the templated Targeting Rules (if they exist). See an example below of an Experiment Feature Type.
+When a Feature is created, you will see multiple modification cards populate in the Audit Log. The first modification card in the Audit Log will outline the initial Feature configuration (initial variable, variations, status, settings, etc.). Then, depending on the [Feature Type](/essentials/feature-types) selected when creating a new Feature, the following cards will highlight the each Environment's Targeting status, along with the templated Targeting Rules (if they exist). See an example below of an Experiment Feature Type.
 
 ![Audit Log Experiment Feature Type](/nov2023-audit-log-experiment-feature-type.png)

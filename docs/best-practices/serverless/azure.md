@@ -137,7 +137,7 @@ https://github.com/DevCycleHQ/azure-functions-example
     
 ### Enable EdgeDB (NodeJS SDK Version)
 
-[First, you need to enable EdgeDB in the DevCycle Dashboard](/essentials/targeting/edgedb)
+[First, you need to enable EdgeDB in the DevCycle Dashboard](/platform/feature-flags/targeting/edgedb)
 
 With the [DevCycle NodeJs SDK](/sdk/server-side-sdks/node) we use the `enableCloudBucketing` and `enableEdgeDB` options to enable EdgeDB usage. ([SDK initialization option details: ](/sdk/server-side-sdks/node/node-gettingstarted#initialization-options))
 

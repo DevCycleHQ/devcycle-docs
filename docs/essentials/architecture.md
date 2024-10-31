@@ -82,7 +82,7 @@ and configuration data locally to bucket users into features and variations to d
 
 For most use cases, local bucketing SDKs provide superior performance and reliability.
 However, the cloud-bucketing SDKs can make integration easier for specific use cases where access to
-[EdgeDB](/essentials/targeting/edgedb) to integrate user data between client-side and backend applications is needed.
+[EdgeDB](/platform/feature-flags/targeting/edgedb) to integrate user data between client-side and backend applications is needed.
 
 1. On each `variableValue()` / `variable()` call, the Cloud Bucketing Server SDKs fetch data from the 
 [Bucketing API](/bucketing-api/) served by Cloudflare Workers at the edge.

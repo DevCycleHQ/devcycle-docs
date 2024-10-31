@@ -100,13 +100,13 @@ EdgeDB is purpose built to work at edge, and when used in conjunction with a ser
 
 Here is some more reading: 
 
-[What is EdgeDB?](/essentials/targeting/edgedb)
+[What is EdgeDB?](/platform/feature-flags/targeting/edgedb)
 
-[Use Cases of EdgeDB ](/essentials/targeting/edgedb#use-cases)
+[Use Cases of EdgeDB ](/platform/feature-flags/targeting/edgedb#use-cases)
 
 ### Enable EdgeDB (NodeJS SDK Version)
 
-First, you need to [enable EdgeDB](/essentials/targeting/edgedb#setup) in the DevCycle Dashboard
+First, you need to [enable EdgeDB](/platform/feature-flags/targeting/edgedb#setup) in the DevCycle Dashboard
 
 With the [DevCycle NodeJs SDK ](/sdk/server-side-sdks/node) we use the `enableCloudBucketing` and `enableEdgeDB` options to enable EdgeDB usage. ([SDK initialization option details: ](/sdk/server-side-sdks/node/node-gettingstarted#initialization-options))
 
