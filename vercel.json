@@ -9,7 +9,7 @@
     { "source": "/home", "destination": "/", "statusCode": 301 },
     { "source": "/home/", "destination": "/", "statusCode": 301 },
     { "source": "/tools-and-integrations/cli", "destination": "/cli", "statusCode": 301 },
-    { "source": "/:path*/getting-started/:path*", "destination": "/introduction/quickstart", "statusCode": 301 },
+    { "source": "/:path*/getting-started/:path*", "destination": "/quickstart", "statusCode": 301 },
     { "source": "/home/feature-management/features-and-variables/targeting-users", "destination": "/platform/feature-flags/targeting/targeting-overview", "statusCode": 301 },
     { "source": "/home/feature-management/features-and-variables/variables-and-variations", "destination": "/platform/feature-flags/variables-and-variations/variables", "statusCode": 301 },
     { "source": "/home/feature-management/features-and-variables/custom-properties", "destination": "/platform/feature-flags/targeting/custom-properties", "statusCode": 301 },
@@ -29,6 +29,7 @@
     { "source": "/extras/:path*", "destination": "/platform/:path*", "statusCode": 301 },
     { "source": "/extras/:path*/", "destination": "/platform/:path*", "statusCode": 301 },
 
+    { "source": "/introduction/quickstart", "destination": "/quickstart", "statusCode": 301 },
     { "source": "/introduction/key-features", "destination": "/essentials/key-features", "statusCode": 301 },
     { "source": "/introduction/architecture", "destination": "/essentials/architecture", "statusCode": 301 },
 
