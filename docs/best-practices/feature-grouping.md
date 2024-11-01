@@ -88,6 +88,6 @@ This guide explained how to manage large amounts of features flags by:
 
 Here are similar resources to help with organizing Feature Flags:
 
-- [Feature Types](/essentials/features)
+- [Feature Types](/platform/feature-flags/features)
 - [Effectively Organizing Your Feature Flags](/best-practices/effectively-organizing-feature-flags)
 - [Creating Variables & Variations](/platform/feature-flags/variables-and-variations/variables)

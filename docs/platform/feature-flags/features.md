@@ -1,6 +1,6 @@
 ---
 title: Features
-sidebar_class_name: hidden
+sidebar_position: 1
 ---
 
 > Features are the main elements that you want to control or experiment with in your application. They can be anything from a new UI element to a backend algorithm. 
@@ -66,7 +66,7 @@ If the unassociated variable key submitted is archived, a similar modal will app
 
 If you wish to unarchive & re-associate, click on the toggle and click `Yes, Proceed`. 
 
-The feature will be created along with the newly re-associated variable. The variations and corresponding variable values will be populated depending on the [Feature Type](/essentials/features) selected. 
+The feature will be created along with the newly re-associated variable. The variations and corresponding variable values will be populated depending on the [Feature Type](/platform/feature-flags/features) selected. 
 
 If you attempt to use a duplicate variable key belonging to a variable that's associated with an existing feature, the dashboard will return an error. 
 

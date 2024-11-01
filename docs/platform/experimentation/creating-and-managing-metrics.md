@@ -156,6 +156,6 @@ To read more on the queries behind the Metrics, see [How Metrics Are Calculated]
 
 ### Running Experiments
 
-With Metrics on a feature, experimentation can be easily executed on any Feature. At DevCycle we believe that experimentation should be a part of the natural lifecycle of all features. So no matter the [feature type](/essentials/features) selected, experimentation will always be available for use.
+With Metrics on a feature, experimentation can be easily executed on any Feature. At DevCycle we believe that experimentation should be a part of the natural lifecycle of all features. So no matter the [feature type](/platform/feature-flags/features) selected, experimentation will always be available for use.
 
 To learn more on how to run experiments with DevCycle, read [Feature Experimentation](/platform/experimentation/feature-experimentation)

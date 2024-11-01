@@ -15,7 +15,7 @@
     { "source": "/home/feature-management/features-and-variables/custom-properties", "destination": "/platform/feature-flags/targeting/custom-properties", "statusCode": 301 },
     { "source": "/home/feature-management/features-and-variables/sdk-visibility", "destination": "/platform/security-and-guardrails/sdk-visibility", "statusCode": 301 },
     { "source": "/home/feature-management/features-and-variables/metrics-and-analysis/:path*", "destination": "/platform/metrics/:path*", "statusCode": 301 },
-    { "source": "/home/feature-management/organizing-your-flags-and-variables/feature-dashboard", "destination": "/essentials/features", "statusCode": 301 },
+    { "source": "/home/feature-management/organizing-your-flags-and-variables/feature-dashboard", "destination": "/platform/feature-flags/features", "statusCode": 301 },
     { "source": "/home/feature-management/organizing-your-flags-and-variables/environments", "destination": "/platform/account-management/environments", "statusCode": 301 },
     { "source": "/home/feature-management/organizing-your-flags-and-variables/api-and-sdk-keys", "destination": "/platform/account-management/keys", "statusCode": 301 },
     { "source": "/home/feature-management/organizing-your-flags-and-variables/variable-dashboard", "destination": "/platform/feature-flags/variables-and-variations/variables", "statusCode": 301 },
