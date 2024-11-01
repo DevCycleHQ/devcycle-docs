@@ -65,7 +65,7 @@ To set the feature flags, make sure you have a [DevCycle](https://app.devcycle.c
     ![Screen Shot 2022-09-13 at 11.42.38 AM.png](/Screen_Shot_2022-09-13_at_11.42.38_AM.png)
     
 3. Add the environment variable `SERVER_KEY` under “Runtime environment variables” ([Related Google Doc](https://cloud.google.com/functions/docs/configuring/env-var) 
-For getting the server-side SDK key from DevCycle, you can read this section ([https://docs.devcycle.com/essentials/keys](/essentials/keys))
+For getting the server-side SDK key from DevCycle, you can read this section ([https://docs.devcycle.com/platform/account-management/keys](/platform/account-management/keys))
     ![Screen Shot 2022-09-13 at 11.51.57 AM.png](/Screen_Shot_2022-09-13_at_11.51.57_AM.png)
     
 4. Click “Next” and enter the ([contents of the `index.js` from the example repo](https://github.com/DevCycleHQ/google-cloud-functions-example/blob/main/index.js)) into the Console
@@ -100,13 +100,13 @@ EdgeDB is purpose built to work at edge, and when used in conjunction with a ser
 
 Here is some more reading: 
 
-[What is EdgeDB?](/platform/edgedb)
+[What is EdgeDB?](/platform/feature-flags/targeting/edgedb)
 
-[Use Cases of EdgeDB ](/platform/edgedb#use-cases)
+[Use Cases of EdgeDB ](/platform/feature-flags/targeting/edgedb#use-cases)
 
 ### Enable EdgeDB (NodeJS SDK Version)
 
-First, you need to [enable EdgeDB](/platform/edgedb#setup) in the DevCycle Dashboard
+First, you need to [enable EdgeDB](/platform/feature-flags/targeting/edgedb#setup) in the DevCycle Dashboard
 
 With the [DevCycle NodeJs SDK ](/sdk/server-side-sdks/node) we use the `enableCloudBucketing` and `enableEdgeDB` options to enable EdgeDB usage. ([SDK initialization option details: ](/sdk/server-side-sdks/node/node-gettingstarted#initialization-options))
 
