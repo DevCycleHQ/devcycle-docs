@@ -32,6 +32,8 @@
     { "source": "/introduction/key-features", "destination": "/essentials/key-features", "statusCode": 301 },
     { "source": "/introduction/architecture", "destination": "/essentials/architecture", "statusCode": 301 },
 
+    { "source": "/essentials/features", "destination": "/platform/feature-flags/features", "statusCode": 301 },
+    { "source": "/essentials/status-and-lifecycle", "destination": "/platform/feature-flags/status-and-lifecycle", "statusCode": 301 },
     { "source": "/essentials/targeting", "destination": "/platform/feature-flags/targeting/targeting-overview", "statusCode": 301 },
     { "source": "/platform/advanced-targeting/audiences", "destination": "/platform/feature-flags/targeting/audiences", "statusCode": 301 },
     { "source": "/platform/advanced-targeting/custom-properties", "destination": "/platform/feature-flags/targeting/custom-properties", "statusCode": 301 },
@@ -39,7 +41,6 @@
     { "source": "/platform/advanced-targeting/randomize-using-custom-property", "destination": "/platform/feature-flags/targeting/randomize-using-custom-property", "statusCode": 301 },
     { "source": "/platform/advanced-targeting/rollouts", "destination": "/platform/feature-flags/targeting/rollouts", "statusCode": 301 },
     { "source": "/platform/edgedb", "destination": "/platform/feature-flags/targeting/edgedb", "statusCode": 301 },
-
     { "source": "/essentials/variables", "destination": "/platform/feature-flags/variables-and-variations/variables", "statusCode": 301 },
     { "source": "/essentials/variations", "destination": "/platform/feature-flags/variables-and-variations/variations", "statusCode": 301 },
     { "source": "/platform/advanced-variables/variable-defaults", "destination": "/platform/feature-flags/variables-and-variations/variable-defaults", "statusCode": 301 },
@@ -56,7 +57,6 @@
 
     { "source": "/introduction/core-concepts/feature-hierarchy", "destination": "/essentials/feature-hierarchy", "statusCode": 301 },
     { "source": "/introduction/core-concepts/feature-types", "destination": "/essentials/feature-types", "statusCode": 301 },
-    { "source": "/essentials/status-and-lifecycle", "destination": "/platform/feature-flags/status-and-lifecycle", "statusCode": 301 },
 
     { "source": "/platform/approval-workflows", "destination": "/platform/security-and-guardrails/approval-workflows", "statusCode": 301 },
     { "source": "/platform/audit-log", "destination": "/platform/security-and-guardrails/audit-log", "statusCode": 301 },
