@@ -96,7 +96,7 @@ To run a test, the following fields must be set:
 
 **Control** - After selecting a Feature, a "control" variation must be selected. This is what will be used to show a comparative analysis against all other variations in a feature. Typically, an "off" or "Baseline" variation would act as the control. For more information on this, please refer to the [Feature Experimentation documentation](/platform/experimentation/feature-experimentation).
 
-**Date Range** - This range will default from the moment the Metric (or feature) was created, to now within 30 days. If 30 days have passed since the creation of the Metric or feature, the date range must be a 30 day range.
+**Date Range** - Select a date range of up to 30 days to display results for. This range will default to the last 30 days or to the Feature creation date if the Feature was created within 30 days. 
 
 **Environment** - This will calculate the Metric using events from the specified environments.
 
@@ -134,7 +134,7 @@ Here are some steps you can follow to track metrics within a feature:
 
     - **Control** - This is what will be used to show a comparative analysis against all other variations in a feature. Typically, an "off" or "Baseline" variation would act as the control. For more information on this, please refer to the [Feature Experimentation documentation](/platform/experimentation/feature-experimentation).
 
-    - **Date Range** - This range will default from the moment the Metric (or feature) was created, to now within 30 days. If 30 days have passed since the creation of the Metric or feature, the date range must be a 30 day range.
+    - **Date Range** - Select a date range of up to 30 days to display results for. This range will default to the last 30 days or to the Feature creation date if the Feature was created within 30 days.
 
     - **Environment** - This will calculate the Metric using events from the specified environments.
 

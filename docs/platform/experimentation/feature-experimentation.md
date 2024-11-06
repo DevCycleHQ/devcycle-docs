@@ -63,7 +63,7 @@ Once you have metrics in your project, all you need to do is:
 
 ![Adding a Metric](/feature-experiment-control-metric.png)
 
-Now that you have a metric added and a control Variation selected, the performance of the experiment will be tracked over time. With the performance of the treatment Variation compared to the control Variation with Difference and Chance of Beating Baseline percentages shown and updated in real-time as the experiment runs.
+Now that you have a metric added and a control Variation selected, the performance of the experiment will be tracked over time. The performance of the treatment Variation compared to the control Variation will be tracked by the Difference and Statistical Significance indicator in real-time as the experiment progresses.
 
 ![Reviewing Metric Performance](/feature-experiment-full.png)
 
@@ -77,14 +77,20 @@ The length of time an experiment needs to run to determine a winner varies depen
 
 Given the time it takes, your team should generally avoid early analysis and create a process by which an experiment runs with no review of results until a pre-determined amount of time has passed.
 
-Once this time has passed, the charts and graphs for any added metrics can be reviewed to determine which Variation performed best. When metrics are created, you define if a decrease or an increase is the targeted improvement. Our results graphs take this into account and show clearly if the metrics have driven either positive or negative results. The charts also provide guidance on if statistical significance has been achieved by providing a Chance of Beating baseline.
+Once this time has passed, the charts and graphs for any added metrics can be reviewed to determine which Variation performed best. When metrics are created, you define if a decrease or an increase is the targeted improvement. Our results graphs take this into account and show clearly if the metrics have driven either positive or negative results. The charts also provide guidance on if statistical significance has been achieved by displaying the following indicators.
 
-Statistical significance has been achieved if this number is either 0% or 100%.
+| Statistical Significance | Definition |
+| :-: | - |
+| :white_check_mark: | Positive Significant Result |
+| :x: | Negative Significant Result |
+| ... | Non-Significant Result |
 
 **Positive Results**
+
 ![Positive Metric Results](/feature-experiment-positive-results.png)
 
 **Negative Results**
+
 ![Negative Metric Results](/feature-experiment-negative-results.png)
 
 

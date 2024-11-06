@@ -32,9 +32,9 @@ This Metric type calculates the total number of times a unique user (or service)
 
 ### Explanation of Columns
 
-**Variation** - The name of the variation for the feature. Each event sent by DevCycle will contain a set of Features and Variations a user is in at that time, which will ultimately influence the entire calculation
+**Variation** - The name of the variation for the feature. Each event sent by DevCycle will contain a set of Features and Variations a user is in at that time, which will ultimately influence the entire calculation.
 
-**Events/Denominator** = This is a straight calculation of the number of events divided by the denominator chosen for the metric
+**Events/Denominator** = This is a straight calculation of the number of events divided by the denominator chosen for the metric.
 
 **% Rate** - This is calculated in the following way:
 
@@ -42,9 +42,7 @@ This Metric type calculates the total number of times a unique user (or service)
 
 **% Difference** - This is a simple calculation of the difference between the Events/Denominator of the variation and the Control variation. 
 
-**Chance to beat Control** - This number will fluctuate as your experiment accumulates more data.
-
-Once the Chance to beat Control reaches 100% it confirms that the variation has reached a 95% confidence between Control and Variation.
+**Statistical Significance** - An icon that indicates whether the Feature has reached statistical significance or not at a 95% confidence interval.
 
 ## Value Optimization Metrics (Numerical Metrics)
 
@@ -62,12 +60,10 @@ Similar to the sum per user, the average for user also uses the numerical value 
 
 ### Explanation of Columns
 
-**Variation** - The name of the variation for the feature. Each event sent by DevCycle will contain a set of Features and Variations a user is in at that time, which will ultimately influence the entire calculation
+**Variation** - The name of the variation for the feature. Each event sent by DevCycle will contain a set of Features and Variations a user is in at that time, which will ultimately influence the entire calculation.
 
 **Average Value per User** - Is the calculated mean of the user event averages.
 
 **% Difference** - Simple difference check against the Control value.
 
-**Chance to beat Control** Similar to above - this number will fluctuate as your experiment accumulates more data.
-
-Once the Chance of Beating Baseline reaches 100% it confirms that the variation has reached a 95% confidence between Baseline and Variation.
+**Statistical Significance** - An icon that indicates whether the Feature has reached statistical significance or not at a 95% confidence interval.
