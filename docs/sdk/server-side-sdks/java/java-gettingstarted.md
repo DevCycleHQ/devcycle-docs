@@ -63,12 +63,12 @@ public class MyClass {
 
 **NOTE: use `DevCycleCloudOptions` \ `DevCycleCloudClient` for Cloud Bucketing mode.**
 
+### Local Bucketing Options
 
 | DevCycle Option              | Type           | Description                                                                                                                                                                  |
 |------------------------------|----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | customLogger                       | IDevCycleLogger | Logger override to replace default logger                                                                                                                                    |
-| restOptions                       | restOptions | insert description                                                                                                                                    |
-| enableEdgeDB                 | Boolean        | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle. <br />NOTE: This is only available with Cloud Bucketing enabled.                                          |
+| restOptions                       | IRestOptions | insert description                                                                                                                                    |
 | configPollingIntervalMS      | Int         | Controls the polling interval in milliseconds to fetch new environment config changes, defaults to 30 seconds, minimum value is 1 second.                                    |
 | configPollingTimeoutMs       | Int         | Controls the request timeout to fetch new environment config changes, defaults to 10 seconds, must be less than the configPollingIntervalMS value, minimum value is 1 second. |
 | eventFlushIntervalMS         | Int         | Controls the interval between flushing events to the DevCycle servers, defaults to 10 seconds.                                                                               |
@@ -80,3 +80,13 @@ public class MyClass {
 | configCdnBaseUrl                  | String         | Insert Description.                                                                                  |
 | eventsApiBaseUrl                  | String         | Insert Description.                                                                                       |
 | enableBetaRealtimeUpdates    | Boolean        | Enables the usage of Beta Realtime Updates for DevCycle. This feature is currently in beta.                                                                                  |
+
+
+### Cloud Bucketing Options
+
+| DevCycle Option              | Type           | Description                                                                                                                                                                  |
+|------------------------------|----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| customLogger                       | IDevCycleLogger | Logger override to replace default logger                                                                                                                                    |
+| restOptions                       | IRestOptions | insert description                                                                                                                                    |
+| enableEdgeDB                 | Boolean        | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle. <br />NOTE: This is only available with Cloud Bucketing enabled.                                          |
+| baseUrlOverride                  | String         | Insert Description.                                                                                       |
