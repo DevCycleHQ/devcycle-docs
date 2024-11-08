@@ -181,14 +181,14 @@ This functionality will reduce the number of polling requests that are made to t
 use a long-lived HTTP connection (Server Sent Events) to receive updates when there is a new config available.
 This reduces outbound network traffic, as well as optimizes the SDK for efficiency.
 
-To enable Beta Realtime Updates, pass in the `enableBetaRealtimeUpdates` option to the SDK initialization:
+To enable Beta Realtime Updates, pass in the `enable_beta_realtime_updates` option to the SDK initialization:
 
 ```python
 from devcycle_python_sdk import DevCycleCloudClient, DevCycleCloudOptions
 from devcycle_python_sdk.models.user import DevCycleUser
 import os
 
-options = DevCycleCloudOptions(enableBetaRealtimeUpdates=True)
+options = DevCycleCloudOptions(enable_beta_realtime_updates=True)
 
 devcycle_client = DevCycleCloudClient(os.environ["DEVCYCLE_SERVER_SDK_KEY"], options)
 ```

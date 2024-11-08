@@ -56,9 +56,8 @@ namespace Example {
 ```
 [//]: # (wizard-initialize-end)
 
-## Initialization Options
-
-The SDK exposes various initialization options which can be set when initializing the DevCycle client:
+### Initialization with Callback
+You can also setup a callback to be notified when the client is fully initialized and use `DevCycleLocalOptions` to further configure the client.
 
 ```csharp
 using System;
@@ -69,11 +68,9 @@ using DevCycle.SDK.Server.Common.API;
 using DevCycle.SDK.Server.Common.Model;
 using DevCycle.SDK.Server.Common.Model.Local;
 using Microsoft.Extensions.Logging;
-
 namespace Example {
     public class Example {
         private static DevCycleLocalClient client;
-
         static async Task Main(string[] args) {
             client = new DevCycleLocalClientBuilder()
                 .SetSDKKey("<DEVCYCLE_SERVER_SDK_KEY>")
@@ -87,12 +84,39 @@ namespace Example {
                 })
                 .SetLogger(LoggerFactory.Create(builder => builder.AddConsole()))
                 .Build();
-
             try {
                 await Task.Delay(5000);
             } catch (TaskCanceledException) {
                 System.Environment.Exit(0);
             }
+        }
+        private static void ClientInitialized() {
+            // Start using the client here
+        }
+    }
+}
+```
+
+## Initialization Options
+
+The SDK exposes various initialization options which can be set when initializing the DevCycle client:
+
+```csharp
+
+namespace Example {
+    public class Example {
+        private static DevCycleLocalClient client;
+
+        static async Task Main(string[] args) {
+            client = new DevCycleLocalClientBuilder()
+                .SetSDKKey("<DEVCYCLE_SERVER_SDK_KEY>")
+                .SetOptions(new DevCycleLocalOptions(configPollingIntervalMs: 60000, eventFlushIntervalMs: 60000))
+                .SetInitializedSubscriber((o, e) => {
+                    
+                })
+                .SetLogger(LoggerFactory.Create(builder => builder.AddConsole()))
+                .Build();
+
         }
 
         private static void ClientInitialized() {
@@ -104,16 +128,19 @@ namespace Example {
 
 | DevCycle Option              | Type           | Description                                                                                                                                                                  |
 |------------------------------|----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| logger                       | DevCycleLogger | Logger override to replace default logger                                                                                                                                    |
-| logLevel                     | String         | Set log level of the default logger. Options are: `debug`, `info`, `warn`, `error`. Defaults to `info`.                                                                      |
-| enableCloudBucketing         | Boolean        | Switches the SDK to use Cloud Bucketing (via the DevCycle Bucketing API) instead of Local Bucketing.                                                                         |
-| enableEdgeDB                 | Boolean        | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle. <br />NOTE: This is only available with Cloud Bucketing.                                          |
-| configPollingIntervalMS      | Number         | Controls the polling interval in milliseconds to fetch new environment config changes, defaults to 10 seconds, minimum value is 1 second.                                    |
-| configPollingTimeoutMS       | Number         | Controls the request timeout to fetch new environment config changes, defaults to 5 seconds, must be less than the configPollingIntervalMS value, minimum value is 1 second. |
-| eventFlushIntervalMS         | Number         | Controls the interval between flushing events to the DevCycle servers, defaults to 30 seconds.                                                                               |
-| disableAutomaticEventLogging | Boolean        | Disables logging of sdk generated events (e.g. aggVariableEvaluated, aggVariableDefaulted) to DevCycle.                                                                      |
-| disableCustomEventLogging    | Boolean        | Disables logging of custom events, from `track()` method, and user data to DevCycle.                                                                                         |
-| flushEventQueueSize          | Number         | Controls the maximum size the event queue can grow to until a flush is forced. Defaults to `1000`.                                                                           |
-| maxEventQueueSize            | Number         | Controls the maximum size the event queue can grow to until events are dropped. Defaults to `2000`.                                                                          |
-| apiProxyURL                  | String         | Allows the SDK to communicate with a proxy of DevCycle bucketing API / client SDK API.                                                                                       |
-| enableBetaRealtimeUpdates    | Boolean        | Enables the usage of Beta Realtime Updates for DevCycle. This feature is currently in beta.                                                                                  |
+| enableEdgeDB                 | bool        | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle. <br />NOTE: This is only available with Cloud Bucketing enabled.                                          |
+| configPollingIntervalMs      | int         | Controls the polling interval in milliseconds to fetch new environment config changes, defaults to 10 seconds, minimum value is 1 second.                                    |
+| configPollingTimeoutMs       | int         | Controls the request timeout to fetch new environment config changes, defaults to 5 seconds, must be less than the configPollingIntervalMS value, minimum value is 1 second. |
+| disableAutomaticEvents | bool        | Disables logging of sdk generated events (e.g. aggVariableEvaluated, aggVariableDefaulted) to DevCycle.                                                                      |
+| disableCustomEvents    | bool        | Disables logging of custom events, from `track()` method, and user data to DevCycle.                                                                                         |
+| flushEventQueueSize          | int         | Controls the maximum size the event queue can grow to until a flush is forced. Defaults to `1000`.                                                                           |
+| maxEventsInQueue            | int         | Controls the maximum size the event queue can grow to until events are dropped. Defaults to `2000`.                                                                          |
+| eventRequestChunkSize            | int         | Insert Description. Defaults to `100`.                                                                          |
+| eventFlushIntervalMs            | int         | Insert Description. Defaults to `10000`.                                                                          |
+| cdnUri                  | string         | Insert Description.                                                                                       |
+| cdnSlug                  | string         | Insert Description.                                                                                       |
+| eventsApiUri                  | string         | Insert Description.                                                                                    |
+| eventsApiSlug                  | string         | Insert Description.                                                                                     |
+| cdnCustomHeaders                  | Dictionary         | Insert Description.                                                                                       |
+| eventsApiCustomHeaders                  | Dictionary         | Insert Description.                                                                                       |
+| enableBetaRealtimeUpdates    | bool        | Enables the usage of Beta Realtime Updates for DevCycle. This feature is currently in beta.                                                                                  |
