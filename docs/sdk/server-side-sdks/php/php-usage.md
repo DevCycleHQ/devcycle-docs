@@ -195,26 +195,3 @@ To run the tests, use:
 composer install
 vendor/bin/phpunit
 ```
-
-## Enabling Beta Realtime Updates
-:::warning
-This feature is in beta, and may not function as expected. Please ensure that you have the latest version of the SDK.
-:::
-
-This functionality will reduce the number of polling requests that are made to the DevCycle Config CDN, and instead will
-use a long-lived HTTP connection (Server Sent Events) to receive updates when there is a new config available.
-This reduces outbound network traffic, as well as optimizes the SDK for efficiency.
-
-To enable Beta Realtime Updates, pass in the `enableBetaRealtimeUpdates` option to the SDK initialization:
-
-```php
-$options = new DevCycleOptions({
-    enableBetaRealtimeUpdates: true
-  });
-$devCycleClient = new DevCycleClient(
-    sdkKey: getenv("DEVCYCLE_SERVER_SDK_KEY"),
-    dvcOptions: $options);
-$user_data = new DevCycleUser(array(
-  "user_id"=>"my-user"
-));
-```
