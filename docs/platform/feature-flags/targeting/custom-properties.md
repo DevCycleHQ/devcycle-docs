@@ -166,7 +166,7 @@ From there, select an Enum Schema from the dropdown. This allows you to specify 
 
 If you want to require this property to be set when passing custom data to the SDK, click the toggle icon next to Property Required.  Enabling Property Required provides an additional safeguard when passing user data into Typescript-based SDKs.  
 
-Currently, this setting only affects the output of our [type generators](/sdk/client-side-sdks/javascript/javascript-typescript).  When enabled, TypeScript enforces that the property is present in custom data. If any Custom Property flagged as required is missing, the SDK will generate a TypeScript error to alert you about missing data.```
+Currently, this setting only affects the output of our [type generators](/sdk/client-side-sdks/javascript/javascript-typescript).  When enabled, TypeScript enforces that the property is present in custom data. If any Custom Property flagged as required is missing, the SDK will generate a TypeScript error to alert you about missing data.
 
 
 
