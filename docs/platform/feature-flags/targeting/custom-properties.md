@@ -147,7 +147,7 @@ You can target users in numerous ways using Custom Properties. The following lis
 
 ## Custom Property Schemas
 
-Similar to [Variable Schemas](/platform/advanced-variables/variable-schemas.md), Custom Property Schemas allow you to set up a schema and define a list of possible values for a Custom Property, which will appear in a dropdown when setting up Targeting Rules. Labels can be defined for each value to make selections more human-readable and easier to identify. This removes the need to remember valid inputs for a specific custom property.
+Similar to [Variable Schemas](/platform/advanced-variables/variable-schemas.md), Custom Property Schemas allow you to set up a schema and define a list of possible values for a Custom Property, which will appear in a dropdown when setting up Targeting Rules. Labels can be defined for each value to make selections more human-readable and easier to identify. This removes the need to remember valid inputs for a specific Custom Property.
 
 At DevCycle, we pass each organization's ID as a Custom Property that we use to turn on Features for specific customers. Schemas allow us to set up allowable organization ID values, along with their human-readable names, which makes it easy to set up Targeting Rules without needing to double-check for a correct organization ID.
 
