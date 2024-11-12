@@ -168,7 +168,6 @@ If you want to require this property to be set when passing custom data to the S
 
 Enabling Property Required provides an additional safeguard when passing user data into the SDK. When enabled, TypeScript enforces that a specified property, such as org_id, is present in the custom data. If any custom property flagged as required is missing, the SDK will generate a TypeScript error during development, alerting you to missing data essential for your targeting rules to work correctly in the dashboard.
 
-Example Scenario: If `organization_id` is a required property for your targeting rules to function properly, any attempt to identify users without this property will cause a TypeScript error in your editor, ensuring you don’t unintentionally leave it out.
 
  
 
