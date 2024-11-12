@@ -168,7 +168,6 @@ If you want to require this property to be set when passing custom data to the S
 
 Currently, this setting only affects the output of our [type generators](/sdk/client-side-sdks/javascript/javascript-typescript).  When enabled, TypeScript enforces that the property is present in custom data. If any Custom Property flagged as required is missing, the SDK will generate a TypeScript error to alert you about missing data.```
 
-Enabling Property Required provides an additional safeguard when passing user data into the SDK. When enabled, TypeScript enforces that a specified property, such as org_id, is present in the custom data. If any custom property flagged as required is missing, the SDK will generate a TypeScript error during development, alerting you to missing data essential for your targeting rules to work correctly in the dashboard.
 
 
  
