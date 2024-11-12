@@ -171,7 +171,6 @@ Enabling Property Required provides an additional safeguard when passing user da
 Example Scenario: If `organization_id` is a required property for your targeting rules to function properly, any attempt to identify users without this property will cause a TypeScript error in your editor, ensuring you don’t unintentionally leave it out.
 
  
-*Note: currently, this only affects the output of our [type generators](/sdk/client-side-sdks/javascript/javascript-typescript). 
 
 Once you select an Enum Schema type, define the allowable values in the Allowed Values section below.
 
