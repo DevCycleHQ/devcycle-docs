@@ -123,14 +123,7 @@ To enable Beta Realtime Updates, pass in the `enableBetaRealtimeUpdates` option 
 ```csharp
     client = new DevCycleLocalClientBuilder()
         .SetSDKKey("<DEVCYCLE_SERVER_SDK_KEY>")
-        .SetOptions(new DevCycleLocalOptions(enableBetaRealtimeUpdates: true, eventFlushIntervalMs: 60000))
-        .SetInitializedSubscriber((o, e) => {
-            if (e.Success) {
-                ClientInitialized();
-            } else {
-                Console.WriteLine($"Client did not initialize. Errors: {e.Errors}");
-            }
-        })
+        .SetOptions(new DevCycleLocalOptions(enableBetaRealtimeUpdates: true))
         .SetLogger(LoggerFactory.Create(builder => builder.AddConsole()))
         .Build();
 ```

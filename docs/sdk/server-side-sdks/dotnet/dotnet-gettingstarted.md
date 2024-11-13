@@ -111,9 +111,6 @@ namespace Example {
             client = new DevCycleLocalClientBuilder()
                 .SetSDKKey("<DEVCYCLE_SERVER_SDK_KEY>")
                 .SetOptions(new DevCycleLocalOptions(configPollingIntervalMs: 60000, eventFlushIntervalMs: 60000))
-                .SetInitializedSubscriber((o, e) => {
-                    
-                })
                 .SetLogger(LoggerFactory.Create(builder => builder.AddConsole()))
                 .Build();
 
