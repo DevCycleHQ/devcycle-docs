@@ -55,6 +55,6 @@ $user_data = new DevCycleUser(array(
 | DevCycle Option              | Type           | Description                                                                                                                                                                  |
 |------------------------------|----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | enableEdgeDB                 | bool        | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle. <br />NOTE: This is only available with Cloud Bucketing.                                          |
-| bucketingApiHostname    | string        | Insert Description.                           |
+| bucketingApiHostname    | string        | Contact support for usage instructions.                           |
 | unixSocketPath    | string        | Contact DevCycle support for instructions on how to configure this option.                           |
 | httpOptions    | array        | Contact DevCycle support for instructions on how to configure this option.                           |

@@ -77,18 +77,18 @@ devcycle_client = DevCycleCloudClient(os.environ["DEVCYCLE_SERVER_SDK_KEY"], opt
 
 | DevCycle Option              | Type           | Description                                                                                                                                                                  |
 |------------------------------|----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| config_cdn_uri      | str         | Insert Description.                                    |
+| config_cdn_uri      | str         | Contact support for usage instructions.                                    |
 | config_request_timeout_ms       | int         | Controls the request timeout to fetch new environment config changes, defaults to 5 seconds, must be less than the configPollingIntervalMS value, minimum value is 1 second. |
 | config_polling_interval_ms      | int         | Controls the polling interval in milliseconds to fetch new environment config changes, defaults to 1 second.                                    |
 | config_retry_delay_ms      | int         | Controls the delay between retries to fetch new environment config changes, defaults to 200 milliseconds.                                    |
 | on_client_initialized      | Optional[Callable]         | Contact DevCycle support for instructions on how to configure this option.                                    |
-| events_api_uri      | str         | Insert Description.                                    |
+| events_api_uri      | str         | Contact support for usage instructions.                                    |
 | max_event_queue_size            | int         | Controls the maximum size the event queue can grow to until events are dropped. Defaults to `2000`.                                                 |
 | event_flush_interval_ms         | int         | Controls the interval between flushing events to the DevCycle servers, defaults to 10 seconds.                                               |
 | flush_event_queue_size          | int         | Controls the maximum size the event queue can grow to until a flush is forced. Defaults to `1000`.                                                                           |
-| event_request_chunk_size          | int         | Insert Description. Defaults to `100`.                                                                           |
-| event_request_timeout_ms         | int         | Controls the request timeout for posting events to DevCycle.. Defaults to `10000`.                                                              |
-| event_retry_delay_ms          | int         | Insert Description. Defaults to `100`.                                                                           |
+| event_request_chunk_size          | int         | Count of events to chunk per event upload request. Defaults to `100`.                                                                           |
+| event_request_timeout_ms         | int         | Controls the request timeout for posting events to DevCycle. Defaults to `10000`.                                                              |
+| event_retry_delay_ms          | int         | Controls the delay between retries when posting events to DevCycle. Defaults to `100`.                                                                           |
 | disable_automatic_event_logging | bool        | Disables logging of sdk generated events (e.g. aggVariableEvaluated, aggVariableDefaulted) to DevCycle.                                                                      |
 | disable_custom_event_logging    | bool        | Disables logging of custom events, from `track()` method, and user data to DevCycle.                                                                                         |
 | enable_beta_realtime_ypdates    | bool        | Enables the usage of Beta Realtime Updates for DevCycle. This feature is currently in beta.                                                                                  |
@@ -99,7 +99,7 @@ devcycle_client = DevCycleCloudClient(os.environ["DEVCYCLE_SERVER_SDK_KEY"], opt
 | DevCycle Option              | Type           | Description                                                                                                                                                                  |
 |------------------------------|----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | enable_edge_db                 | bool        | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle.                                          |
-| bucketing_api_uri             | str        | Insert Description.                                          |
+| bucketing_api_uri             | str        | Contact support for usage instructions.                                          |
 | request_timeout       | int         | Controls the request timeout to fetch new environment config changes, defaults to 5 seconds, minimum value is 1 second. |
 | request_retries         | int         | Controls the number of request retries to the DevCycle servers, defaults to 5.                                                                               |
 | retry_delay         | int         | Controls the delay between retries to the DevCycle servers, defaults to 200 milliseconds.                                                                               |

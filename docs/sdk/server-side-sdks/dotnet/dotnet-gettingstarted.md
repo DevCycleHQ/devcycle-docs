@@ -132,12 +132,12 @@ namespace Example {
 | disableCustomEvents    | bool        | Disables logging of custom events, from `track()` method, and user data to DevCycle.                                                                                         |
 | flushEventQueueSize          | int         | Controls the maximum size the event queue can grow to until a flush is forced. Defaults to `1000`.                                                                           |
 | maxEventsInQueue            | int         | Controls the maximum size the event queue can grow to until events are dropped. Defaults to `2000`.                                                                          |
-| eventRequestChunkSize            | int         | Insert Description. Defaults to `100`.                                                                          |
-| eventFlushIntervalMs            | int         | Insert Description. Defaults to `10000`.                                                                          |
-| cdnUri                  | string         | Insert Description.                                                                                       |
-| cdnSlug                  | string         | Insert Description.                                                                                       |
-| eventsApiUri                  | string         | Insert Description.                                                                                    |
-| eventsApiSlug                  | string         | Insert Description.                                                                                     |
-| cdnCustomHeaders                  | Dictionary         | Insert Description.                                                                                       |
-| eventsApiCustomHeaders                  | Dictionary         | Insert Description.                                                                                       |
+| eventRequestChunkSize            | int         | Count of events to chunk per event upload request. Defaults to `100`.                                                                          |
+| eventFlushIntervalMs            | int         | Controls the interval between flushing events to the DevCycle servers. Defaults to `10000`.                                                                          |
+| cdnUri                  | string         | Contact support for usage instructions.                                                                                       |
+| cdnSlug                  | string         | Contact support for usage instructions.                                                                                       |
+| eventsApiUri                  | string         | Contact support for usage instructions.                                                                                    |
+| eventsApiSlug                  | string         | Contact support for usage instructions.                                                                                     |
+| cdnCustomHeaders                  | Dictionary         | Contact support for usage instructions.                                                                                       |
+| eventsApiCustomHeaders                  | Dictionary         | Contact support for usage instructions.                                                                                       |
 | enableBetaRealtimeUpdates    | bool        | Enables the usage of Beta Realtime Updates for DevCycle. This feature is currently in beta.                                                                                  |

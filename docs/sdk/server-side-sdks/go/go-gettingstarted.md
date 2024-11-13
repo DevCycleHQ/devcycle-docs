@@ -114,11 +114,11 @@ func main() {
 | RequestTimeout       | time.Duration         | Controls the request timeout to fetch new environment config changes, defaults to 5 seconds, must be less than the configPollingIntervalMS value, minimum value is 1 second. |
 | DisableAutomaticEventLogging | bool        | Disables logging of sdk generated events (e.g. aggVariableEvaluated, aggVariableDefaulted) to DevCycle.                                                                      |
 | DisableCustomEventLogging    | bool        | Disables logging of custom events, from `track()` method, and user data to DevCycle.                                                                      |
-| DisableETagMatching    | bool        | Insert Description.                                                                      |
+| DisableETagMatching    | bool        | Contact Support for usage instructions.                                                                      |
 | EnableBetaRealtimeUpdates    | bool        | Enables the usage of Beta Realtime Updates for DevCycle. This feature is currently in beta.                                                                                  |
 | MaxEventQueueSize            | int         | Controls the maximum size the event queue can grow to until events are dropped. Defaults to `2000`.                                                                          |
 | FlushEventQueueSize          | int         | Controls the maximum size the event queue can grow to until a flush is forced. Defaults to `1000`.                                                                           |
-| ConfigCDNURI                  | string         | Insert Description.                                                                      |
-| EventsAPIURI                  | string         | Insert Description.                                                                      |
-| ClientEventHandler                  | api.ClientEvent         | Insert Description.                                                                      |
-| BucketingAPIURI                  | string         | Insert Description.                                                                      |
+| ConfigCDNURI                  | string         | Contact support for usage instructions.                                                                      |
+| EventsAPIURI                  | string         | Contact support for usage instructions.                                                                      |
+| ClientEventHandler                  | api.ClientEvent         | Async initialization callback handler.                                                                      |
+| BucketingAPIURI                  | string         | Contact support for usage instructions.                                                                      |
