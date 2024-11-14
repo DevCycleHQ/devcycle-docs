@@ -40,7 +40,7 @@ try {
 
 ## Initialization Options
 
-The SDK exposes various initialization options which can be set when creating a new devCycleClient:
+The SDK exposes various initialization options which can be set when creating a new DevCycleClient:
 
 ```php
 $options = new DevCycleOptions();
