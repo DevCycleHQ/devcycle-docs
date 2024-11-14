@@ -307,6 +307,20 @@ DevCycle leverages Server-Sent Events (SSE) to notify the SDKs that a feature (t
 has been saved and that they should fetch the new configuration. A connection URL is included in the config that the SDK fetches, 
 triggering the SDK to open a connection with our SSE provider listening for any changes in the given environment.
 
+**Supported SDKs**
+- Javascript
+- React
+- iOS
+- Android
+- Flutter
+- NodeJS (including Next and Nest)
+- Python
+- Ruby
+- Java
+- Go
+- .NET
+- PHP (via SDK Proxy)
+
 ### SDK Specifics
 
 #### **Javascript SDK**, **React SDK**
