@@ -302,7 +302,7 @@ For instructions on setting up a custom domain, see [Custom Domains](/platform/c
 
 ## Realtime Updates
 
-DevCycle SDKs (both client-side and server-side) are capable of being notified in realtime that new configuration changes have been made in the DevCycle platform.
+All DevCycle SDKs are capable of being notified in realtime that new configuration changes have been made in the DevCycle platform.
 DevCycle leverages Server-Sent Events (SSE) to notify the SDKs that a feature (targeting rules, variable values, etc.)
 has been updated and that they should fetch the new configuration. A connection URL is included in the config that the SDK fetches, 
 triggering the SDK to open a connection with our SSE provider and listen for any changes in the given environment.
@@ -334,7 +334,7 @@ If the user backgrounds the application for some period of time, the SDK will di
 
 #### Server-Side SDKs
 
-If the server loses its connection it will be re-opened on the next config poll, which can be configured as desired.
+If the server loses its connection it will be re-opened it will be re-opened automatically after a configurable interval.
 
 
 ## Local and Cloud Bucketing
