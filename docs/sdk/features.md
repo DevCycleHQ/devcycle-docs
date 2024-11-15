@@ -78,7 +78,7 @@ await devcycleClient.onClientInitialized()
 ## Evaluating Features & Using Variables
 
 This section explains how to use retrieve the Variables of a Feature as well as use their values. For information 
-on setting up a Feature for use, read [Variables and Variations](/essentials/variables) and [Targeting Users](/essentials/targeting)
+on setting up a Feature for use, read [Variables and Variations](/platform/feature-flags/variables-and-variations/variables) and [Targeting Users](/platform/feature-flags/targeting/targeting-overview)
 
 Every SDK provides a method to retrieve a Variable's value. It expects to receive the unique key of the Variable, 
 and a default value to serve in case no other value is available.
@@ -107,7 +107,7 @@ The default value will be returned in the following scenarios:
   configuration from breaking your application at runtime.
 - The SDK has finished initializing, but the user has not been targeted for a Feature that controls this Variable
 
-For more information on how the default value is used, see [Variable Defaults](/platform/advanced-variables/variable-defaults).
+For more information on how the default value is used, see [Variable Defaults](/platform/feature-flags/variables-and-variations/variable-defaults).
 
 ## Getting All Features
 
@@ -131,7 +131,7 @@ The response is the following general format, with slight changes depending on t
 }
 ```
 
-Only Features that the User has satisfied [targeting rules](/essentials/targeting) for will be returned by this function. 
+Only Features that the User has satisfied [targeting rules](/platform/feature-flags/targeting/targeting-overview) for will be returned by this function. 
 The feature must also be **enabled** for that environment.
 
 ## Getting all Variables
@@ -157,7 +157,7 @@ The response is the following general format, with slight changes depending on t
 }
 ```
 
-Only Variables in Features that the user has satisfied [targeting rules](/essentials/targeting) for will be part of the response in this method. 
+Only Variables in Features that the user has satisfied [targeting rules](/platform/feature-flags/targeting/targeting-overview) for will be part of the response in this method. 
 The Feature must also be **enabled** for the environment this SDK is being called on.
 
 :::caution
@@ -242,7 +242,7 @@ to represent the user.
 
 User data can also contain "custom data", which is a key-value map of any arbitrary data you want to use for targeting.
 The provided data can be used in Targeting Rules by creating Custom Properties in the DevCycle dashboard. Learn more
-about [Custom Property Targeting](/platform/advanced-targeting/custom-properties)
+about [Custom Property Targeting](/platform/feature-flags/targeting/custom-properties)
 
 When setting custom properties you have a choice between keeping that data completely private or allowing 
 for the data to be logged back to DevCycle's events database. Both options allow for the same targeting capabilities, 
@@ -298,7 +298,7 @@ Custom Domains is an enterprise feature and requires manual setup on both your e
 
 :::
 
-For instructions on setting up a custom domain, see [Custom Domains](/platform/custom-domains).
+For instructions on setting up a custom domain, see [Custom Domains](/platform/extras/custom-domains).
 
 ## Realtime Updates
 
@@ -354,6 +354,6 @@ The SDK determines flag values by making an API call for each decision, using wo
 globally. Every function within the SDK will reach out to these edge workers and respond with
 extremely low latency.
 
-Cloud bucketing is required to use specific features such as [EdgeDB](/platform/edgedb) and
-[Feature Opt-In](/platform/advanced-targeting/feature-opt-in). If you aren't using these features, then Local Bucketing
+Cloud bucketing is required to use specific features such as [EdgeDB](/platform/feature-flags/targeting/edgedb) and
+[Feature Opt-In](/platform/extras/feature-opt-in). If you aren't using these features, then Local Bucketing
 is the recommended mode.

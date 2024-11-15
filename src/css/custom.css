@@ -233,7 +233,7 @@ html[data-theme="dark"] .DocSearch {
   filter: invert(23%) sepia(73%) saturate(3810%) hue-rotate(224deg) brightness(86%) contrast(96%); /* https://codepen.io/sosuke/pen/Pjoqqp */
 }
 
-.section-title.introduction > div >a::before {
+.section-title.quickstart >a::before {
   background-image: url(../../static/sidebar/introduction.svg);
 }
 
