@@ -45,15 +45,6 @@ public class MyClass {
     public MyClass() {
         DevCycleLocalOptions options = DevCycleLocalOptions.builder()
             .configPollingIntervalMs(60000)
-            .configRequestTimeoutMs(30000)
-            .eventFlushIntervalMS(10000)
-            .flushEventQueueSize(1000)
-            .maxEventQueueSize(2000)
-            .eventRequestChunkSize(100)
-            .configCdnBaseUrl("https://my-custom.config.com/")
-            .eventsApiBaseUrl("https://my-custom.events.com/")
-            .disableAutomaticEventLogging(false)
-            .disableCustomEventLogging(false)
             .build();
 
         client = new DevCycleLocalClient(System.getenv("DEVCYCLE_SERVER_SDK_KEY"), options);

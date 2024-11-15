@@ -86,11 +86,9 @@ end
 The SDK exposes various initialization options which can be set when registering the DevCycle Client:
 
 ```ruby
-# Load the gem
 require 'devcycle-ruby-server-sdk'
 
-# Setup authorization
-options = DevCycle::Options.new(enable_edge_db: true, enable_cloud_bucketing: true)
+options = DevCycle::Options.new(config_polling_interval_ms: 10000)
 
 devcycle_client = DevCycle::Client.new("dvc_server_token_hash", options, true)
 user = DevCycle::User.new({

@@ -87,13 +87,7 @@ func main() {
 	sdkKey := os.Getenv("DEVCYCLE_SERVER_SDK_KEY")
 
 	options := devcycle.Options{
-		EnableEdgeDB:                 false,
-		EnableCloudBucketing:         false,
-		EventFlushIntervalMS:         30 * time.Second,
-		ConfigPollingIntervalMS:      1 * time.Minute,
-		RequestTimeout:               30 * time.Second,
-		DisableAutomaticEventLogging: false,
-		DisableCustomEventLogging:    false,
+		ConfigPollingIntervalMS:      1 * time.Minute
 	}
 
 	devcycleClient, err := devcycle.NewClient(sdkKey, &options)

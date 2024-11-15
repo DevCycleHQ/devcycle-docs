@@ -313,7 +313,8 @@ triggering the SDK to open a connection with our SSE provider and listen for any
 - iOS
 - Android
 - Flutter
-- NodeJS (including Next and Nest)
+- NodeJS (including Nest)
+- Next.js
 - Python
 - Ruby
 - Java
