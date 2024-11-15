@@ -44,7 +44,7 @@ public class MyClass {
 
     public MyClass() {
         DevCycleLocalOptions options = DevCycleLocalOptions.builder()
-            .configPollingIntervalMs(60000)
+            // Insert Options
             .build();
 
         client = new DevCycleLocalClient(System.getenv("DEVCYCLE_SERVER_SDK_KEY"), options);

@@ -110,7 +110,7 @@ namespace Example {
         static async Task Main(string[] args) {
             client = new DevCycleLocalClientBuilder()
                 .SetSDKKey("<DEVCYCLE_SERVER_SDK_KEY>")
-                .SetOptions(new DevCycleLocalOptions(configPollingIntervalMs: 60000))
+                .SetOptions(new DevCycleLocalOptions())
                 .SetLogger(LoggerFactory.Create(builder => builder.AddConsole()))
                 .Build();
 

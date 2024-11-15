@@ -86,8 +86,8 @@ import (
 func main() {
 	sdkKey := os.Getenv("DEVCYCLE_SERVER_SDK_KEY")
 
-	options := devcycle.Options{
-		ConfigPollingIntervalMS:      1 * time.Minute
+	options := devcycle.Options{ 
+		// Insert Options
 	}
 
 	devcycleClient, err := devcycle.NewClient(sdkKey, &options)

@@ -46,7 +46,7 @@ The SDK exposes various initialization options which can be set when creating a 
 $options = new DevCycleOptions();
 $devCycleClient = new DevCycleClient(
     sdkKey: getenv("DEVCYCLE_SERVER_SDK_KEY"),
-    dvcOptions: $options);
+    dvcOptions: ($options);
 $user_data = new DevCycleUser(array(
   "user_id"=>"my-user"
 ));

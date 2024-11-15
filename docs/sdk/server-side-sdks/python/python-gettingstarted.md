@@ -64,13 +64,15 @@ For a Django specific sample app, please see the [Python Django Example App](htt
 The SDK exposes various initialization options which can be set when registering the DevCycleModule:
 
 ```python
-from devcycle_python_sdk import DevCycleCloudClient, DevCycleCloudOptions
+from devcycle_python_sdk import DevCycleLocalClient, DevCycleLocalOptions
 from devcycle_python_sdk.models.user import DevCycleUser
 import os
 
-options = DevCycleCloudOptions(enable_edge_db=True)
+# Create an options object to do custom configurations, or use the defaults
+options = DevCycleLocalOptions()
 
-devcycle_client = DevCycleCloudClient(os.environ["DEVCYCLE_SERVER_SDK_KEY"], options)
+# create an instance of the DevCycleLocalClient class
+devcycle_client = DevCycleLocalClient(os.environ["DEVCYCLE_SERVER_SDK_KEY"], options)
 ```
 
 ### Local Bucketing Options

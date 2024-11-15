@@ -88,7 +88,7 @@ The SDK exposes various initialization options which can be set when registering
 ```ruby
 require 'devcycle-ruby-server-sdk'
 
-options = DevCycle::Options.new(config_polling_interval_ms: 10000)
+options = DevCycle::Options.new()
 
 devcycle_client = DevCycle::Client.new("dvc_server_token_hash", options, true)
 user = DevCycle::User.new({

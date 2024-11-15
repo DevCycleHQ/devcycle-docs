@@ -73,8 +73,8 @@ import { DevCycleModule } from '@devcycle/nestjs-server-sdk'
 DevCycleModule.forRoot({
   key: '<DEVCYCLE_SERVER_SDK_KEY>',
   options: {
-    logLevel: 'debug'
-  }
+    // Insert Options
+    }
 })
 ```
 

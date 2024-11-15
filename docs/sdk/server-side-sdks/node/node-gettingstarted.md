@@ -46,7 +46,7 @@ The SDK exposes various initialization options which can be set on the `initiali
 const devcycleClient = await DevCycle.initializeDevCycle(
   '<DEVCYCLE_SERVER_SDK_KEY>',
   {
-    configPollingIntervalMS: 60 * 1000,
+    // Insert Options
   },
 ).onClientInitialized()
 ```
