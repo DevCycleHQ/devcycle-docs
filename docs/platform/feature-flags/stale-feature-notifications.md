@@ -9,7 +9,7 @@ Stale Feature Notifications are a Premium feature. To learn more, read about our
 
 Stale Features are identified based on specific conditions associated with their usage, modifications, and Feature type. DevCycle will alert you when a Feature has been qualified as potentially stale to help ensure that Features are surfaced for cleanup. 
 
-If a Feature is marked as stale, DevCycle encourages users to take action by updaing its status to Complete or Archived. This indicates that a Feature is ready to be cleaned up and removed from your codebase. 
+If a Feature is marked as stale, DevCycle encourages users to take action by updating its status to Complete or Archived. This indicates that a Feature is ready to be cleaned up and removed from your codebase. 
 
 ## Stale Feature Reasons 
 
