@@ -10,7 +10,7 @@ sidebar_custom_props: { icon: material-symbols:toggle-on }
 [![Expo package version](https://badgen.net/npm/v/@devcycle/react-native-expo-client-sdk)](https://www.npmjs.com/package/@devcycle/react-native-expo-client-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)
 
-[//]: # 'wizard-evaluate-start'
+[//]: # (wizard-evaluate-start)
 
 ## Getting a Variable
 
@@ -39,7 +39,7 @@ const DevCycleFeaturePage = () => {
 }
 ```
 
-[//]: # 'wizard-evaluate-end'
+[//]: # (wizard-evaluate-end)
 
 ## useDevCycleClient
 

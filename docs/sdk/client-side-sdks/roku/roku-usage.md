@@ -8,7 +8,7 @@ sidebar_custom_props: { icon: material-symbols:toggle-on }
 
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/roku-client-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/roku-client-sdk)
 
-[//]: # 'wizard-evaluate-start'
+[//]: # (wizard-evaluate-start)
 
 ## Using Variable Values
 
@@ -23,7 +23,7 @@ numValue = m.devcycleClient.getVariableValue('num_key', 4)
 jsonValue = m.devcycleClient.getVariableValue('json_key', {})
 ```
 
-[//]: # 'wizard-evaluate-end'
+[//]: # (wizard-evaluate-end)
 
 ## Grabbing All Features / Variables
 

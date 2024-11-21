@@ -59,7 +59,7 @@ The [@react-native-async-storage/async-storage](https://www.npmjs.com/package/@r
 The [react-native-get-random-values](https://www.npmjs.com/package/react-native-get-random-values) package provides a polyfill for cryptographic functionality used to generate random IDs.
 The [react-native-device-info](https://www.npmjs.com/package/react-native-device-info) package provides information about the current device running the SDK, which is required to correctly apply targeting rules.
 
-[//]: # 'wizard-initialize-start'
+[//]: # (wizard-initialize-start)
 
 ## Import SDK Dependencies
 
@@ -89,7 +89,7 @@ export default withDevCycleProvider({ sdkKey: '<DEVCYCLE_CLIENT_SDK_KEY>' })(
 )
 ```
 
-[//]: # 'wizard-initialize-end'
+[//]: # (wizard-initialize-end)
 
 ## Example
 

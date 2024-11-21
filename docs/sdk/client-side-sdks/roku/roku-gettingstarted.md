@@ -8,7 +8,7 @@ sidebar_custom_props: { icon: material-symbols:rocket }
 
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/roku-client-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/roku-client-sdk)
 
-[//]: # 'wizard-initialize-start'
+[//]: # (wizard-initialize-start)
 
 ## Initializing the SDK
 
@@ -51,7 +51,7 @@ sub init()
 end sub
 ```
 
-[//]: # 'wizard-initialize-end'
+[//]: # (wizard-initialize-end)
 
 The user object may specify a unqiue `user_id` for a given User. If the `user_id` is not specified, the User is considered to be anonymous and we will utilize the Device ID as a unique identifier.
 
