@@ -15,7 +15,7 @@ To get started, install the React Native SDK. For React Native Expo, see the [Ex
 
 The command to install the React Native SDK is:
 
-[//]: # 'wizard-install-start'
+[//]: # (wizard-install-start)
 
 ### npm
 
@@ -23,7 +23,7 @@ The command to install the React Native SDK is:
 npm install --save @devcycle/react-native-client-sdk
 ```
 
-[//]: # 'wizard-install-end'
+[//]: # (wizard-install-end)
 
 ### yarn
 
@@ -59,7 +59,7 @@ The [@react-native-async-storage/async-storage](https://www.npmjs.com/package/@r
 The [react-native-get-random-values](https://www.npmjs.com/package/react-native-get-random-values) package provides a polyfill for cryptographic functionality used to generate random IDs.
 The [react-native-device-info](https://www.npmjs.com/package/react-native-device-info) package provides information about the current device running the SDK, which is required to correctly apply targeting rules.
 
-[//]: # 'wizard-initialize-start'
+[//]: # (wizard-initialize-start)
 
 ## Import SDK Dependencies
 
@@ -89,7 +89,7 @@ export default withDevCycleProvider({ sdkKey: '<DEVCYCLE_CLIENT_SDK_KEY>' })(
 )
 ```
 
-[//]: # 'wizard-initialize-end'
+[//]: # (wizard-initialize-end)
 
 ## Example
 
