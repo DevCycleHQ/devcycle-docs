@@ -20,12 +20,14 @@ directly from the SDK using the `getOpenFeatureProvider()` method.
 Install the DevCycle NodeJS Server SDK and the OpenFeature Server SDK peer dependencies:
 
 #### NPM
-[//]: # (wizard-install-start)
+
+[//]: # 'wizard-install-start'
 
 ```bash
 npm install --save @devcycle/nodejs-server-sdk @openfeature/server-sdk @openfeature/core
 ```
-[//]: # (wizard-install-end)
+
+[//]: # 'wizard-install-end'
 
 #### Yarn
 
@@ -35,7 +37,7 @@ yarn add @devcycle/nodejs-server-sdk @openfeature/server-sdk @openfeature/core
 
 ### Getting Started
 
-[//]: # (wizard-initialize-start)
+[//]: # 'wizard-initialize-start'
 
 Initialize the DevCycle SDK and set the DevCycleProvider as the provider for OpenFeature:
 
@@ -53,22 +55,43 @@ await OpenFeature.setProviderAndWait(await devcycleClient.getOpenFeatureProvider
 // Create the OpenFeature client
 openFeatureClient = OpenFeature.getClient()
 ```
-[//]: # (wizard-initialize-end)
+
+[//]: # 'wizard-initialize-end'
 
 ### Evaluate a Variable
-[//]: # (wizard-evaluate-start)
 
-Use a Variable value by setting the EvaluationContext, then passing the Variable key and default value to one of the OpenFeature flag evaluation methods.
+[//]: # 'wizard-evaluate-start'
+
+Use a Variable value by creating the EvaluationContext, then passing the Variable key, default value, and EvaluationContext to one of the OpenFeature flag evaluation methods.
 
 ```typescript
 // Set the context for the OpenFeature client, you can use 'targetingKey' or 'user_id'
-openFeatureClient.setContext({ targetingKey: 'node_sdk_test' })
+const context = { targetingKey: 'node_sdk_test' }
 
 // Retrieve a boolean flag from the OpenFeature client
-const boolFlag = await openFeatureClient.getBooleanValue('boolean-flag', false)
-
+const boolFlag = await openFeatureClient.getBooleanValue(
+  'boolean-flag',
+  false,
+  context,
+)
 ```
-[//]: # (wizard-evaluate-end)
+
+[//]: # 'wizard-evaluate-end'
+
+### Tracking Events
+
+You can use the OpenFeature `track` method to track events which will be sent to DevCycle as custom events. Calling `track` will queue the event, which will be sent in batches to the DevCycle servers.
+
+```typescript
+const context = { targetingKey: 'node_sdk_test' }
+openFeatureClient.track('custom-event', context, {
+  target: 'event-target',
+  value: 100,
+  metaDataField: 'value',
+})
+```
+
+To track custom events with OpenFeature you are required to set the first argument as the event name, and pass the EvaluationContext as the second argument. The event name will be used as the event's `type` in DevCycle, and you can optionally set a `value` / `target` / `date` as defined in the [DevCycleEvent Typescript Schema](https://github.com/search?q=repo%3ADevCycleHQ%2Fjs-sdks+export+interface+DevCycleEvent+language%3ATypeScript+path%3A*types.ts&type=code). Any additional properties will be added to the event as `metaData` fields.
 
 ### Passing DevCycleOptions to the DevCycleProvider
 
@@ -76,11 +99,10 @@ Ensure that you pass any custom DevCycleOptions set on the `DevCycleClient` inst
 
 ```typescript
 const options = { logger: dvcDefaultLogger({ level: 'debug' }) }
-const devcycleClient = initializeDevCycle(
-  DEVCYCLE_SERVER_SDK_KEY,
-  options,
+const devcycleClient = initializeDevCycle(DEVCYCLE_SERVER_SDK_KEY, options)
+await OpenFeature.setProviderAndWait(
+  await devcycleClient.getOpenFeatureProvider(),
 )
-await OpenFeature.setProviderAndWait(await devcycleClient.getOpenFeatureProvider())
 ```
 
 ### Required TargetingKey
