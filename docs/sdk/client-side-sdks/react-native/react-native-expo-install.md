@@ -15,7 +15,7 @@ To get started, install the React Native Expo SDK.
 
 The command to install the React Native Expo SDK is:
 
-[//]: # 'wizard-install-start'
+[//]: # (wizard-install-start)
 
 ### npx
 
@@ -23,7 +23,7 @@ The command to install the React Native Expo SDK is:
 npx expo install @devcycle/react-native-expo-client-sdk
 ```
 
-[//]: # 'wizard-install-end'
+[//]: # (wizard-install-end)
 
 ### yarn
 

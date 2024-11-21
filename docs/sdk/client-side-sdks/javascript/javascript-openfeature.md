@@ -23,7 +23,7 @@ DevCycle provides a Javascript implementation of the OpenFeature Web Provider in
 
 Install the OpenFeature Web SDK and DevCycle Web Provider:
 
-[//]: # 'wizard-install-start'
+[//]: # (wizard-install-start)
 
 #### NPM
 
@@ -31,7 +31,7 @@ Install the OpenFeature Web SDK and DevCycle Web Provider:
 npm install --save @devcycle/openfeature-web-provider
 ```
 
-[//]: # 'wizard-install-end'
+[//]: # (wizard-install-end)
 
 #### Yarn
 
