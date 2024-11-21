@@ -67,6 +67,7 @@ const openFeatureClient = OpenFeature.getClient()
 ```
 
 [//]: # 'wizard-initialize-end'
+
 [//]: # 'wizard-evaluate-start'
 
 Use a Variable value by passing the Variable key and default value to one of the OpenFeature flag evaluation methods
@@ -100,10 +101,7 @@ Ensure that you pass any custom DevCycleOptions to the DevCycleProvider construc
 const user = { user_id: 'user_id' }
 
 const options = { logger: dvcDefaultLogger({ level: 'debug' }) }
-const devcycleProvider = new DevCycleProvider(
-  '<DEVCYCLE_CLIENT_SDK_KEY>',
-  options,
-)
+const devcycleProvider = new DevCycleProvider('<DEVCYCLE_CLIENT_SDK_KEY>', options)
 await OpenFeature.setProviderAndWait(devcycleProvider)
 ```
 

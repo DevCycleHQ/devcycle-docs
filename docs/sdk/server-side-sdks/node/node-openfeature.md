@@ -69,11 +69,7 @@ Use a Variable value by creating the EvaluationContext, then passing the Variabl
 const context = { targetingKey: 'node_sdk_test' }
 
 // Retrieve a boolean flag from the OpenFeature client
-const boolFlag = await openFeatureClient.getBooleanValue(
-  'boolean-flag',
-  false,
-  context,
-)
+const boolFlag = await openFeatureClient.getBooleanValue('boolean-flag', false, context)
 ```
 
 [//]: # 'wizard-evaluate-end'
