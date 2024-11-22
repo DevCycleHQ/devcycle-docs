@@ -15,15 +15,17 @@ If a Feature is marked as stale, DevCycle encourages users to take action by upd
 
 Features can belong to one of the following staleness reaons:
 
-### Unmodified - Short-Lived 
+### Unmodified 
 
-A Feature is classified as `Unmodified - Short-Lived` if it has not been updated for more than 1 month.
+#### Short-Lived 
+
+A Feature is classified as `Unmodified` if it has not been updated for more than 14 days. 
 
 **Applicable to**: Release, Experiment Feature types.
 
-### Unmodified - Long-Lived 
+#### Long-Lived 
 
-A Feature is classified as `Unmodified - Long-Lived` if it has not been updated for more than 30 days.
+A Feature is classified as `Unmodified` if it has not been updated for more than 30 days.
 
 **Applicable to**: Ops, Permissions Feature types.
 
@@ -35,7 +37,7 @@ A **Released** Feature is one that has been serving the same variation to all us
 
 ### Unused 
 
-An **Unused** Feature is one where there are no evaluations or defaults for any variables in the feature for 2 weeks. Targeting status is irrelevant.
+An **Unused** Feature is one where there are no evaluations or defaults for any Variables associated with the Feature for 2 weeks. Targeting status is irrelevant.
 
 **Applicable to**: All Feature types. 
 
@@ -71,7 +73,7 @@ If a Feature is marked as stale, you will see a notification at the top of the F
 
 Click the `Details` button on the notification. This will take you to the Status section of the Feature page, where you will find the specific reason for the Feature's staleness.
 
-To snooze a notification for a Feature, cclick on the `Snooze` button and select a timeframe in which you'd like to pause staleness checks for this Feature. After the time has elapsed, the Feature will be checked for staleness again.
+To snooze a notification for a Feature, click on the `Snooze` button and select a timeframe in which you'd like to pause staleness checks for this Feature. After the time has elapsed, the Feature will be checked for staleness again.
 
 ![image of snooze](/nov-2024-stale-feat-snooze.png)
 
