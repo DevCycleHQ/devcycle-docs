@@ -177,4 +177,3 @@ options := devcycle.Options{
 
 devcycleClient, err := devcycle.NewClient(sdkKey, &options)
 ```
-
