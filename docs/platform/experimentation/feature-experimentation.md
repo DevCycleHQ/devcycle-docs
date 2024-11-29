@@ -65,7 +65,7 @@ Once you have metrics in your project, all you need to do is:
 
 Now that you have a metric added and a control Variation selected, the performance of the experiment will be tracked over time. The performance of the treatment Variation compared to the control Variation will be tracked by the Difference and Statistical Significance indicator in real-time as the experiment progresses.
 
-![Reviewing Metric Performance](/feature-experiment-full.png)
+![Reviewing Metric Performance](/feature-experiment-full-results.png)
 
 Any number of metrics can be added to a feature for analysis, keep clicking “Choose a Metric” and add pre-existing or create new metrics as needed.
 
