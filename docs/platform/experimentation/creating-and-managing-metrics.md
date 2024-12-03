@@ -144,7 +144,7 @@ Once these fields are set, the calculation can be ran by clicking the calculate 
 
 Once calculated, if there is available data for the Feature, the results data will populate within the dashboard.
 
-![Calculation results](/june-2022-metrics-calculated.png)
+![Calculation results](/feature-experiment-full-results.png)
 
 From here, useful information such as trends and patterns in the data can be used to make informed decisions about how to optimize the feature for performance improvements.
 
