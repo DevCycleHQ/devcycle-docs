@@ -6,7 +6,7 @@ description: SDK features for Typescript users
 sidebar_custom_props: {icon: cib:typescript}
 ---
 
-[![Npm package version](https://badgen.net/npm/v/@devcycle/js-client-sdk)](https://www.npmjs.com/package/@devcycle/js-client-sdk)
+[![Npm package version](https://badgen.net/npm/v/@devcycle/nodejs-server-sdk)](https://www.npmjs.com/package/@devcycle/nodejs-server-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)
 
 # Typescript Usage
@@ -39,15 +39,24 @@ const myVariableValue = devcycleClient.variableValue('my-variable', user, 'defau
 ```
 
 ## Usage
-
-To use this enhanced type-safety, you can pass a type definition containing the variable keys and types
-to the `initializeDevCycle` function:
+To use this enhanced type-safety, you can define a type containing the variable keys and their types
 
 ```typescript
 type VariableTypes = {
   'my-variable': string
 }
+````
 
+You can then use `declare module` interface merging to augment the types the SDK uses:
+```typescript
+declare module '@devcycle/types' {
+  interface CustomVariableDefinitions extends VariableTypes {}
+}
+```
+
+You can alternatively pass the definition as a generic argument to the `initializeDevCycle` function:
+
+```typescript
 const dvcOptions = { logLevel: 'debug' }
 const devcycleClient = await initializeDevCycle<VariableTypes>(
   '<DEVCYCLE_SERVER_SDK_KEY>',
@@ -75,8 +84,7 @@ Ensure that the CLI is properly setup and authenticated to your project before r
 for further instructions on setting up the CLI.
 
 This command will generate a file called `dvcVariableTypes.ts` in the configured output directory.
-You can then import the generated types from this file, and pass them to the generic arg of the `initializeDevCycle` call as
-described above.
+The generated output will contain the `declare module` statement to automatically augment the SDK's types.
 
 Consider configuring this command to run as part of your build process to keep your type definitions up to date with
 the latest configuration from DevCycle.

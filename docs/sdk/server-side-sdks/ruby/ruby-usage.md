@@ -163,3 +163,28 @@ This will send a request to our EdgeDB API to save the custom data under the use
 In the example, Email and Country are associated to the user `test_user`.
 In your next identify call for the same `user_id`, you may omit any of the data you've sent already as it will be pulled
 from the EdgeDB storage when segmenting to experiments and features.
+
+## Enabling Beta Realtime Updates
+:::warning
+This feature is in beta, and may not function as expected. Please ensure that you have the latest version of the SDK.
+:::
+
+This functionality will reduce the number of polling requests that are made to the DevCycle Config CDN, and instead will
+use a long-lived HTTP connection (Server Sent Events) to receive updates when there is a new config available.
+This reduces outbound network traffic, as well as optimizes the SDK for efficiency.
+
+To enable Beta Realtime Updates, pass in the `enableBetaRealtimeUpdates` option to the SDK initialization:
+
+```ruby
+# Load the gem
+require 'devcycle-ruby-server-sdk'
+
+# Setup authorization
+options = DevCycle::Options.new(enableBetaRealtimeUpdates: true)
+
+devcycle_client = DevCycle::Client.new("dvc_server_token_hash", options, true)
+user = DevCycle::User.new({
+   user_id: 'test_user',
+   email: 'example@example.ca',
+   country: 'CA'
+ })

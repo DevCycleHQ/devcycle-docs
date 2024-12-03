@@ -166,3 +166,4 @@ const devcycleClient = DevCycle.initializeDevCycle(
 
 If you need to close the DevCycleClient object to stop all open connections and timers, call `devcycleClient.close()`.
 This can be useful for cleaning DevCycleClient objects during unit testing.
+

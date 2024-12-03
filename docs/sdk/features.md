@@ -302,30 +302,40 @@ For instructions on setting up a custom domain, see [Custom Domains](/platform/e
 
 ## Realtime Updates
 
-DevCycle SDKs are capable of being notified in real time that new configuration changes have been made in the DevCycle platform.
+All DevCycle SDKs are capable of being notified in realtime that new configuration changes have been made in the DevCycle platform.
 DevCycle leverages Server-Sent Events (SSE) to notify the SDKs that a feature (targeting rules, variable values, etc.)
-has been saved and that they should fetch the new configuration.
+has been updated and that they should fetch the new configuration. A connection URL is included in the config that the SDK fetches, 
+triggering the SDK to open a connection with our SSE provider and listen for any changes in the given environment.
 
-#### Client-Side SDK
+**Supported SDKs**
+- Javascript
+- React
+- iOS
+- Android
+- Flutter
+- NodeJS (including Nest)
+- Next.js
+- Python
+- Ruby
+- Java
+- Go
+- .NET
+- PHP (via SDK Proxy)
 
-A connection URL is included in the config that the SDK fetches, triggering the SDK to open a connection with our SSE provider listening
-for any changes from the dashboard.
+### SDK Specifics
 
-The following Client-Side SDKs currently have Realtime Updates:
-
-- Javascript SDK
-- React SDK
-- iOS SDK
-- Android SDK
-- Flutter SDK
-
-##### **Javascript SDK**, **React SDK**
+#### **Javascript SDK**, **React SDK**
 
 If the user loses focus on the webpage for longer then the `inactivityDelay` (the default of which is set to 2 minutes, and can be configured through the options), the SDK will disconnect from the SSE provider and will reconnect when the user opens the tab / window again (i.e. the page's visibility state = `visible`). The SDK will also request a new configuration during reconnection to receive any updates it may have missed while the realtime connection was closed.
 
-##### **iOS SDK**, **Android SDK** & **Flutter SDK**
+#### **iOS SDK**, **Android SDK** & **Flutter SDK**
 
 If the user backgrounds the application for some period of time, the SDK will disconnect from the SSE provider and will reconnect again when the user brings the application to the foreground. When the application is brought to the foreground the SDK will request a new configuration to receive any updates it may have missed while the realtime connection was closed.
+
+#### Server-Side SDKs
+
+If the server loses its connection it will be re-opened it will be re-opened automatically after a configurable interval.
+
 
 ## Local and Cloud Bucketing
 
