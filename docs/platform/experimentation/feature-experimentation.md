@@ -51,9 +51,9 @@ Experimentation is available to all customers on any plan. However, to perform e
 
 Now that you have two segments receiving different experiences, the only other thing you need to run an experiment is a metric to evaluate the comparative performance of those experiences.
 
-To add a metric to your feature, click “Comparative Analysis” under the “Data & Results” section on the sidebar of the feature editing page. Click the “Choose a Metric” dropdown. This will bring up the option to add a metric that has already been created in the project or to create a new one.
+To add a metric to your feature, click “Experiment Results” under the “Data & Results” section on the sidebar of the feature editing page. Click the “Choose a Metric” dropdown. This will bring up the option to add a metric that has already been created in the project or to create a new one.
 
-![Add Metrics from Feature Editing Page](/august-2022-add-metric-feature-page.png)
+![Add Metrics from Feature Editing Page](/add-metric-feature-page.png)
 
 For the creation of new metrics check out our documentation [here](/platform/experimentation/creating-and-managing-metrics).
 

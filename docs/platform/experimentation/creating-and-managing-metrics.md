@@ -114,21 +114,17 @@ Tracking metrics within a feature is an important aspect of data analysis, as it
 
 Here are some steps you can follow to track metrics within a feature:
 
-1.  **Select the feature you want to track**: Within that feature, navigate to the `Data & Results` section of the page and click on `Comparative Analysis`.
+1.  **Select the feature you want to track**: Within that feature, navigate to the `Data & Results` section of the page and click on `Experiment Results`.
 
-    ![Comparative Analysis tab within a DevCycle feature's Data & Results view](/comparative-analysis-navigation-tab.png)
+    ![Comparative Analysis tab within a DevCycle feature's Data & Results view](/experiment-results-navigation-tab.png)
 
 2.  **Choose the metric(s) associated with the feature**: Create new metrics or attach existing ones to the feature by navigating to the `Choose a Metric` dropdown.
 
-    ![Choose a Metric dropdown menu](/comparative-analysis-metrics-dropdown.png)
+    ![Choose a Metric dropdown menu](/experiment-results-metrics-dropdown.png)
 
 3.  **Attach the metric(s)**: Attach the metric from the dropdown menu by selecting it. For our example, let's use the metric `Metric Testing`, which has already been setup within our project.
 
-    !["Metric Testing" metric selected from the metrics dropdown](/comparative-analysis-metric-testing.png)
-
-4.  **Calculate results**: Once one or more metrics have been selected, we can then run the metric calculation to generate insight into how the feature is doing.
-
-    ![Feature metrics ready to be calcuated](/comparative-analysis-calculate-metrics.png)
+    !["Metric Testing" metric selected from the metrics dropdown](/experiment-results-metrics-testing.png)
 
     While the setup has some default values, the Metric requires the following fields to be filled:
 
@@ -138,15 +134,15 @@ Here are some steps you can follow to track metrics within a feature:
 
     - **Environment** - This will calculate the Metric using events from the specified environments.
 
-Once these fields are set, the calculation can be ran by clicking the calculate button, which will run for all Metrics for the Feature.
+4.  **Calculate results**: Once one or more metrics have been selected, we can then run the metric calculation to generate insight into how the feature is doing.
 
-![Arrow pointing to calculate button on Metric](/june-2022-calculate-metric.png)
+    ![Feature metrics ready to be calcuated](/experiment-results-metrics-calculate.png)
 
-Once calculated, if there is available data for the Feature, the results data will populate within the dashboard.
+5. **View your results**: Once calculated, if there is available data for the Feature, the results data will populate within the dashboard.
 
-![Calculation results](/feature-experiment-full-results.png)
+    ![Calculation results](/feature-experiment-full-results.png)
 
-From here, useful information such as trends and patterns in the data can be used to make informed decisions about how to optimize the feature for performance improvements.
+    From here, useful information such as trends and patterns in the data can be used to make informed decisions about how to optimize the feature for performance improvements.
 
 ### How do Metrics get calculated?
 
