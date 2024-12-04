@@ -75,7 +75,7 @@ Once you have set up the SDK to send custom events, you can [create Metrics](/pl
 The **Event Type** in the modal must correspond to the `type` field defined in code. This is not to be confused with the Type selected from the dropdown.
 :::
 
-To [apply your Metric to a Feature](/platform/experimentation/creating-and-managing-metrics#attaching-metrics-to-features), navigate to the Comparative Analysis section of the Feature page, and select the metric you wish to attach. 
+To [apply your Metric to a Feature](/platform/experimentation/creating-and-managing-metrics#attaching-metrics-to-features), navigate to the Experiment Results section of the Feature page, and select the metric you wish to attach. 
 
 ![Attach a Metric](/mar-2024-attach-metric.gif)
 

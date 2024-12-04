@@ -44,16 +44,16 @@ To set this up, create a targeting rule in Production that delivers to All Users
 ## Adding Metrics to Your Feature
 
 :::info
-Experimentation relies on custom events.
+Experimentation relies on [custom events](/sdk/features#tracking-custom-events).
 
-Experimentation is available to all customers on any plan. However, to perform experiments, events must be sent to DevCycle to calculate metrics. These events are added to your existing plan. To learn more, read about our pricing, or contact us.
+Experimentation is available to all customers on any plan. However, to perform experiments, events must be sent to DevCycle to calculate metrics. These events are added to your existing plan. To learn more, read about our [pricing](https://www.devcycle.com/pricing), or contact us.
 :::
 
 Now that you have two segments receiving different experiences, the only other thing you need to run an experiment is a metric to evaluate the comparative performance of those experiences.
 
-To add a metric to your feature, click “Comparative Analysis” under the “Data & Results” section on the sidebar of the feature editing page. Click the “Choose a Metric” dropdown. This will bring up the option to add a metric that has already been created in the project or to create a new one.
+To add a metric to your feature, click “Experiment Results” under the “Data & Results” section on the sidebar of the feature editing page. Click the “Choose a Metric” dropdown. This will bring up the option to add a metric that has already been created in the project or to create a new one.
 
-![Add Metrics from Feature Editing Page](/august-2022-add-metric-feature-page.png)
+![Add Metrics from Feature Editing Page](/add-metric-feature-page.png)
 
 For the creation of new metrics check out our documentation [here](/platform/experimentation/creating-and-managing-metrics).
 
@@ -63,11 +63,11 @@ Once you have metrics in your project, all you need to do is:
 
 ![Adding a Metric](/feature-experiment-control-metric.png)
 
-Now that you have a metric added and a control Variation selected, the performance of the experiment will be tracked over time. With the performance of the treatment Variation compared to the control Variation with Difference and Chance of Beating Baseline percentages shown and updated in real-time as the experiment runs.
+Now that you have a metric added and a control Variation selected, the performance of the experiment will be tracked over time. The performance of the treatment Variation compared to the control Variation will be tracked by the Difference and Statistical Significance indicator in real-time as the experiment progresses.
 
-![Reviewing Metric Performance](/feature-experiment-full.png)
+![Reviewing Metric Performance](/feature-experiment-full-results.png)
 
-Any number of metrics can be added to a feature for analysis, keep clicking “Choose a Metric” and add pre-existing or create new metrics as needed.
+Any number of metrics can be added to a Feature for analysis, keep clicking “Choose a Metric” and add pre-existing or create new metrics as needed.
 
 ## Determining a Winner
 
@@ -77,14 +77,20 @@ The length of time an experiment needs to run to determine a winner varies depen
 
 Given the time it takes, your team should generally avoid early analysis and create a process by which an experiment runs with no review of results until a pre-determined amount of time has passed.
 
-Once this time has passed, the charts and graphs for any added metrics can be reviewed to determine which Variation performed best. When metrics are created, you define if a decrease or an increase is the targeted improvement. Our results graphs take this into account and show clearly if the metrics have driven either positive or negative results. The charts also provide guidance on if statistical significance has been achieved by providing a Chance of Beating baseline.
+Once this time has passed, the charts and graphs for any added metrics can be reviewed to determine which Variation performed best. When metrics are created, you define if a decrease or an increase is the targeted improvement. Our results graphs take this into account and show clearly if the metrics have driven either positive or negative results. The charts also provide guidance on if statistical significance has been achieved by displaying the following indicators.
 
-Statistical significance has been achieved if this number is either 0% or 100%.
+| Statistical Significance | Definition |
+| :-: | - |
+| :white_check_mark: | Positive Significant Result |
+| :x: | Negative Significant Result |
+| ... | Non-Significant Result |
 
 **Positive Results**
+
 ![Positive Metric Results](/feature-experiment-positive-results.png)
 
 **Negative Results**
+
 ![Negative Metric Results](/feature-experiment-negative-results.png)
 
 
