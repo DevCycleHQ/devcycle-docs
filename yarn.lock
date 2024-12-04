@@ -6322,13 +6322,13 @@ __metadata:
   linkType: hard
 
 "cross-spawn@npm:^7.0.0, cross-spawn@npm:^7.0.3":
-  version: 7.0.3
-  resolution: "cross-spawn@npm:7.0.3"
+  version: 7.0.6
+  resolution: "cross-spawn@npm:7.0.6"
   dependencies:
     path-key: "npm:^3.1.0"
     shebang-command: "npm:^2.0.0"
     which: "npm:^2.0.1"
-  checksum: 10/e1a13869d2f57d974de0d9ef7acbf69dc6937db20b918525a01dacb5032129bd552d290d886d981e99f1b624cb03657084cc87bd40f115c07ecf376821c729ce
+  checksum: 10/0d52657d7ae36eb130999dffff1168ec348687b48dd38e2ff59992ed916c88d328cf1d07ff4a4a10bc78de5e1c23f04b306d569e42f7a2293915c081e4dfee86
   languageName: node
   linkType: hard
 
@@ -8996,8 +8996,8 @@ __metadata:
   linkType: hard
 
 "http-proxy-middleware@npm:^2.0.3":
-  version: 2.0.6
-  resolution: "http-proxy-middleware@npm:2.0.6"
+  version: 2.0.7
+  resolution: "http-proxy-middleware@npm:2.0.7"
   dependencies:
     "@types/http-proxy": "npm:^1.17.8"
     http-proxy: "npm:^1.18.1"
@@ -9009,7 +9009,7 @@ __metadata:
   peerDependenciesMeta:
     "@types/express":
       optional: true
-  checksum: 10/768e7ae5a422bbf4b866b64105b4c2d1f468916b7b0e9c96750551c7732383069b411aa7753eb7b34eab113e4f77fb770122cb7fb9c8ec87d138d5ddaafda891
+  checksum: 10/4a51bf612b752ad945701995c1c029e9501c97e7224c0cf3f8bf6d48d172d6a8f2b57c20fec469534fdcac3aa8a6f332224a33c6b0d7f387aa2cfff9b67216fd
   languageName: node
   linkType: hard
 
@@ -15868,7 +15868,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webpack-dev-server@npm:^4.15.1":
+"webpack-dev-server@npm:^4.15.2":
   version: 4.15.2
   resolution: "webpack-dev-server@npm:4.15.2"
   dependencies:

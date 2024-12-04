@@ -1,17 +1,17 @@
 ---
-title: React SDK Typescript Usage
+title: Next.js SDK Typescript Usage
 sidebar_label: Typescript
-sidebar_position: 4
+sidebar_position: 5
 description: SDK features for Typescript users
 sidebar_custom_props: {icon: cib:typescript}
 ---
 
-[![Npm package version](https://badgen.net/npm/v/@devcycle/react-client-sdk)](https://www.npmjs.com/package/@devcycle/react-client-sdk)
+[![Npm package version](https://badgen.net/npm/v/@devcycle/nextjs-sdk)](https://www.npmjs.com/package/@devcycle/nextjs-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)
 
 # Typescript Usage
 
-The DevCycle React SDK is written in Typescript and includes a full Typescript interface.
+The DevCycle Next.js SDK is written in Typescript and includes a full Typescript interface.
 
 It is also possible to enhance the type safety of the SDK by using the
 [Devcycle CLI](https://docs.devcycle.com/tools-and-integrations/cli) to generate a type definition
@@ -34,6 +34,11 @@ const myVariable = useVariableValue('some-key', 'default-value')
 
 // this works, since we know this key exists and is a string
 const myVariable = useVariableValue('my-variable', 'default-value')
+  
+...
+
+// type safety also applies to serverside getVariableValue calls
+const myVariable = await getVariableValue('my-variable', 'default-value')
 ```
 
 ## Usage

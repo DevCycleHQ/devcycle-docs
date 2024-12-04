@@ -476,12 +476,12 @@ const config = {
           type: 'search',
           position: 'right',
         },
-        {
-          href: 'https://devcycle.com/contact/request-demo',
-          position: 'right',
-          label: 'Book a Demo',
-          className: 'navbar-book-demo',
-        },
+        // {
+        //   href: 'https://devcycle.com/contact/request-demo',
+        //   position: 'right',
+        //   label: 'Book a Demo',
+        //   className: 'navbar-book-demo',
+        // },
         {
           href: 'https://app.devcycle.com/?isSignUp=true',
           position: 'right',
