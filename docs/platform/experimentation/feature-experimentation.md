@@ -44,9 +44,9 @@ To set this up, create a targeting rule in Production that delivers to All Users
 ## Adding Metrics to Your Feature
 
 :::info
-Experimentation relies on custom events.
+Experimentation relies on [custom events](/sdk/features#tracking-custom-events).
 
-Experimentation is available to all customers on any plan. However, to perform experiments, events must be sent to DevCycle to calculate metrics. These events are added to your existing plan. To learn more, read about our pricing, or contact us.
+Experimentation is available to all customers on any plan. However, to perform experiments, events must be sent to DevCycle to calculate metrics. These events are added to your existing plan. To learn more, read about our [pricing](https://www.devcycle.com/pricing), or contact us.
 :::
 
 Now that you have two segments receiving different experiences, the only other thing you need to run an experiment is a metric to evaluate the comparative performance of those experiences.
@@ -67,7 +67,7 @@ Now that you have a metric added and a control Variation selected, the performan
 
 ![Reviewing Metric Performance](/feature-experiment-full-results.png)
 
-Any number of metrics can be added to a feature for analysis, keep clicking “Choose a Metric” and add pre-existing or create new metrics as needed.
+Any number of metrics can be added to a Feature for analysis, keep clicking “Choose a Metric” and add pre-existing or create new metrics as needed.
 
 ## Determining a Winner
 
