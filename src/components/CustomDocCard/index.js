@@ -23,7 +23,7 @@ function CardLayout({ href, icon, title, description, customIcon }) {
   return (
     <CardContainer href={href}>
       <h2 className={clsx('flex', styles.cardTitle)} title={title}>
-        {icon ? <Icon icon={icon} height="24" className="mr-2" />
+        {!customIcon ? <Icon icon={icon} height="24" className="mr-2" />
           : <img src={customIcon} height="24" className="mr-2"></img>}
         <span className="ml-2">{title}</span>
       </h2>
