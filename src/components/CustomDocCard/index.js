@@ -19,11 +19,12 @@ function CardContainer({ href, children }) {
     </Link>
   )
 }
-function CardLayout({ href, icon, title, description }) {
+function CardLayout({ href, icon, title, description, customIcon }) {
   return (
     <CardContainer href={href}>
       <h2 className={clsx('flex', styles.cardTitle)} title={title}>
-        <Icon icon={icon} height="24" className="mr-2" />
+        {icon ? <Icon icon={icon} height="24" className="mr-2" />
+          : <img src={customIcon} height="24" className="mr-2"></img>}
         <span className="ml-2">{title}</span>
       </h2>
 
@@ -61,6 +62,7 @@ function CardLink({ item }) {
       title={item.label}
       icon={item?.customProps?.icon ? item.customProps.icon : item.icon}
       description={doc?.description ?? item.description}
+      customIcon = {item?.customIconPath ? item.customIconPath : ""}
     />
   )
 }
