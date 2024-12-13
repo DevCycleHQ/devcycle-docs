@@ -15,7 +15,7 @@ To get started, install the React Native SDK. For React Native Expo, see the [Ex
 
 The command to install the React Native SDK is:
 
-[//]: # 'wizard-install-start'
+[//]: # (wizard-install-start)
 
 ### npm
 
@@ -23,7 +23,7 @@ The command to install the React Native SDK is:
 npm install --save @devcycle/react-native-client-sdk
 ```
 
-[//]: # 'wizard-install-end'
+[//]: # (wizard-install-end)
 
 ### yarn
 
@@ -60,7 +60,7 @@ The [react-native-get-random-values](https://www.npmjs.com/package/react-native-
 The [react-native-device-info](https://www.npmjs.com/package/react-native-device-info) package provides information about the current device running the SDK, which is required to correctly apply targeting rules.
 The [react-native-sse](https://www.npmjs.com/package/react-native-sse) package provides SSE connection functionality to enable real-time updates.
 
-[//]: # 'wizard-initialize-start'
+[//]: # (wizard-initialize-start)
 
 ## Import SDK Dependencies
 
@@ -90,7 +90,7 @@ export default withDevCycleProvider({ sdkKey: '<DEVCYCLE_CLIENT_SDK_KEY>' })(
 )
 ```
 
-[//]: # 'wizard-initialize-end'
+[//]: # (wizard-initialize-end)
 
 ## Example
 
