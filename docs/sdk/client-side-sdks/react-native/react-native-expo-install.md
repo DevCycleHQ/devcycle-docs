@@ -38,7 +38,7 @@ Install the SDK dependencies, run the following command
 ### npx
 
 ```bash
-npx expo install @react-native-async-storage/async-storage react-native-get-random-values react-native-device-info  react-native-sse
+npx expo install @react-native-async-storage/async-storage react-native-get-random-values react-native-device-info react-native-sse
 ```
 
 ### yarn
