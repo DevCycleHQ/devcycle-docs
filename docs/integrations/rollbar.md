@@ -3,7 +3,7 @@ title: Rollbar
 
 ---
 
-Rollbar is a tool used for error logging and real-time performance tracking for your applications. Rollbar provides you with the ability to capture detailed information on errors to help diagnose and resolve issues faster. Supplment those logs further by including DevCycle Feature data into your error logging.
+Rollbar is a tool used for error logging and real-time performance tracking for your applications. Rollbar provides you with the ability to capture detailed information on errors to help diagnose and resolve issues faster. Enrich your logs further by including DevCycle Feature data into your error logging.
 
 The DevCycle Rollbar integration enhances error tracking by adding feature configuration data directly to your Rollbar error logs. By sending DevCycle Feature and Variable data from the DevCycle SDKs to Rollbar, developers can gain valuable insights into the specific feature configuration that was delivered to a user during an error.
 
@@ -119,4 +119,6 @@ try {
 
 Rollbar service links allow you to create links that connect directly with DevCycle, to provide easy access to Features and Variables from the Rollbar interface.
 
-To learn how to create service links for DevCycle, visit [here](https://docs.rollbar.com/docs/service-links#devcycle)
+![Screenshot of Service Link from Rollbar](/integrations/rollbar-service-link.png)
+
+To learn how to create service links for DevCycle, visit the Rollbar docs [here](https://docs.rollbar.com/docs/service-links#devcycle).
