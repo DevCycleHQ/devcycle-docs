@@ -11,7 +11,7 @@ The DevCycle Rollbar integration enhances error tracking by adding feature confi
 
 ### Including DevCycle Features in your Rollbar Config
 
-Include DevCycle Feature data to the initialization of Rollbar to allow all Rollbar errors to be populated with the specific DevCycle feature configuration at that time of the error. The exact DevCycle data and format that you pass to rollbar can be easily configured, so feel free to experiment with the data that's available on your SDK.
+Include DevCycle Feature data to the initialization of Rollbar to allow all Rollbar errors to be populated with the specific DevCycle feature configuration at that time of the error. The exact DevCycle data and format that you pass to Rollbar can be easily configured, so feel free to experiment with the data that's available on your SDK.
 
 In our example below, we supply all Features and Variables that the user/device received to the Rollbar config.
 
