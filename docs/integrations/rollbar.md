@@ -3,20 +3,22 @@ title: Rollbar
 
 ---
 
+Rollbar is a tool used for error logging and real-time performance tracking for your applications. Rollbar provides you with the ability to capture detailed information on errors to help diagnose and resolve issues faster. Supplment those logs further by including DevCycle Feature data into your error logging.
+
 The DevCycle Rollbar integration enhances error tracking by adding feature configuration data directly to your Rollbar error logs. By sending DevCycle Feature and Variable data from the DevCycle SDKs to Rollbar, developers can gain valuable insights into the specific feature configuration that was delivered to a user during an error.
 
 ## Configuration
 
 ### Including DevCycle Features in your Rollbar Config
 
-Supply Feature and/or Variable data to all errors by adding them to the Rollbar config.
+Include DevCycle Feature data to the initialization of Rollbar to allow all Rollbar errors to be populated with the specific DevCycle feature configuration at that time of the error. The exact DevCycle data and format that you pass to rollbar can be easily configured, so feel free to experiment with the data that's available on your SDK.
+
+In our example below, we supply all Features and Variables that the user/device received to the Rollbar config.
 
 **Steps**:
 1. Get all Features and/or all Variables from the DevCycle SDK.
 2. Create a custom field called `devCycleSettings` within your Rollbar config payload.
 3. Add your Features and Variables to the `devCycleSettings` object.
-
-Example:
 
 ```jsx
 import { Provider, useRollbar } from '@rollbar/react
@@ -78,7 +80,9 @@ export default withDevCycleProvider({
 
 ### Including DevCycle Features on Specific Errors
 
-Provide Feature and/or Variable data to specific errors that you log to Rollbar. 
+Rollbar allows you to define extra properties for an error. Instead of providing all Feature data on initialization, you may want to supply DevCycle Feature data to specific errors of you choice. 
+
+In our example below, we're using DevCycle to determine whether a user should receive a new Feature with new behavior or the existing old behavior. If there is an error running any of those behaviors, we're logging an error to Rollbar and supplying all DevCycle Features to the error as an extra property.
 
 **Steps**:
 1. Get all Features and/or all Variables from the DevCycle SDK.
@@ -113,4 +117,6 @@ try {
 
 ## Service Links
 
-To learn how to create service links in Rollbar, visit [here](https://docs.rollbar.com/docs/service-links#devcycle)
+Rollbar service links allow you to create links that connect directly with DevCycle, to provide easy access to Features and Variables from the Rollbar interface.
+
+To learn how to create service links for DevCycle, visit [here](https://docs.rollbar.com/docs/service-links#devcycle)
