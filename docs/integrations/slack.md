@@ -11,7 +11,7 @@ You can use the DevCycle App for Slack to keep track of and monitor feature flag
 
 1. Navigate to the Settings page in the DevCycle Dashboard, click on Integrations in the side navigation bar, and click `View` on the Integration for Slack.
 
-![Screenshot of Setttings Page on dashboard](/july-2024-integrations-page.png)
+![Screenshot of Settings Page on dashboard](/july-2024-integrations-page.png)
 
 2. Click on the `Add to Slack` button and connect the DevCycle App for Slack with your workspace.
 
