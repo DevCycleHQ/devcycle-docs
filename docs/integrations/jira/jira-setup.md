@@ -35,15 +35,11 @@ Your Jira project is now configured with your DevCycle project!
 
 ### Connecting an Individual DevCycle Project
 
-1. If you choose to only connect a single DevCycle Project to jira, use the project's jira token which can be found under Settings > Projects in your DevCycle dashboard. Click "edit" on the project
+1. If you choose to only connect a single DevCycle Project to jira, use the project's jira token which can be found under Settings > Projects Settings > Manage in your DevCycle dashboard. Copy this token.
 
-![DevCycle project settings page](/feb-2022-jira-project-settings-1.png)
+![DevCycle project settings page](/jan-2024-project-jira-token.png)
 
-2. Copy this token:
-
-![project info for jira copy](/feb-2022-jira-copy.png)
-
-3. Paste your Jira Connection Token into the Jira configuration page, and save.
+2. Paste your Jira Connection Token into the Jira configuration page, and save.
 
 ![Screen Shot 2022-02-25 at 3.12.31 PM.png](/feb-2022-jira-app-config.png)
 
