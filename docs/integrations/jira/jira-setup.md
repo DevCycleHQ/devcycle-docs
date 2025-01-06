@@ -11,11 +11,11 @@ sidebar_position: 1
 
 2. Once the app has been installed you will be able to see the DevCycle app in the "Apps" dropdown in your Jira project.
 
-![Image with installation info](/feb-2022-jira-marketplace-header-added.png)
+![jira dropdown](/jan-2024-jira-dropdown.png)
 
 Clicking "DevCycle" in the "Apps" dropdown will bring you to the configuration page prompting you to input your DevCycle access token.
 
-![jira dropdown](/feb-2022-jira-dropdown.png)
+![jira configuration](/jan-2024-jira-configuration.png)
 
 :::tip
 You can choose to connect a DevCycle project to Jira individually, or connect your entire DevCycle Organization and all of its projects to your Jira project with a single token. Details below.
