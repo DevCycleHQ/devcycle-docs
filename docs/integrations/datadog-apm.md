@@ -9,7 +9,7 @@ DevCycle's clientside Javascript SDKs - including JS and React, can be easily in
 
 ## Configuration
 
-The DevCycle APM integration provides Traces with more depth by passing in DevCycle variable data during it's time of execution, allowing Developers to get a better understanding of the performance impact of each Feature.
+The DevCycle APM integration provides Traces with more depth by passing in DevCycle variable data during its time of execution, allowing Developers to get a better understanding of the performance impact of each Feature.
 
 To add variable data to Traces, we'll retrieve variable data from a DevCycle SDK and add that data as metadata to the active Trace. See the example below.
 
