@@ -52,7 +52,7 @@ if (span) {
 
 ## Results
 
-DevCycle data will then appear in the span within your traces. In our example, we're passing a `devcycle` object containing information that's relevant to the current action.
+DevCycle data will then appear in the span within your traces. In our example, we're passing a `devcycle` object containing the Variable and Variable value combination that's relevant to the current action.
 
 ![Datadog APM Spam Metadata](/integrations/datadog-apm/datadog-apm-span.png)
 
