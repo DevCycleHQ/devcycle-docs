@@ -33,8 +33,8 @@ if (span) {
 To add DevCycle Variables to Traces, we'll retrieve Variable data from a DevCycle SDK and add that data as metadata to the active Trace. A simple way to pass along multiple Variables and its values to DataDog is shown below.
 
 ``` javascript
-const variableA = dvcClient.variable('new-homepage-hero', 'defaultValue');
-const variableB = dvcClient.variable('new-homepage-layout', 'defaultValue');
+const variableA = devcycleClient.variable('new-homepage-hero', 'defaultValue');
+const variableB = devcycleClient.variable('new-homepage-layout', 'defaultValue');
 
 const variables = {
     variableA: variableA.value,
