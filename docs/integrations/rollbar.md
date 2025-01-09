@@ -119,6 +119,6 @@ try {
 
 Rollbar service links allow you to create links that connect directly with DevCycle, to provide easy access to Features and Variables from the Rollbar interface.
 
-![Screenshot of Service Link from Rollbar](/integrations/rollbar-service-link.png)
+![Screenshot of Service Link from Rollbar](/integrations/rollbar/rollbar-service-link.png)
 
 To learn how to create service links for DevCycle, visit the Rollbar docs [here](https://docs.rollbar.com/docs/service-links#devcycle).
