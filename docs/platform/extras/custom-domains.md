@@ -14,7 +14,7 @@ recognized domain. A DNS CNAME needs to be created to leverage this feature.
 
 **Setting Up Custom Domains:**
 
-Custom Domains is an enterprise feature and requires manual setup on both your end as well as DevCycle's. If you are interested in getting set up these docs will guide you through the steps, but please reach out to support@devcycle.com for assistance.
+Custom Domains is a business and enterprise feature and requires manual setup on both your end as well as DevCycle's. If you are interested in getting set up these docs will guide you through the steps, but please reach out to support@devcycle.com for assistance.
 
 :::
 
