@@ -11,7 +11,7 @@ sidebar_custom_props: { icon: material-symbols:toggle-on }
 
 ## DevCycle Client
 
-[//]: # 'wizard-evaluate-start'
+[//]: # (wizard-evaluate-start)
 
 With the DevCycleModule imported, the `DevCycleClient` can be injected into your controllers or providers.
 
@@ -36,7 +36,7 @@ export class MyController {
 }
 ```
 
-[//]: # 'wizard-evaluate-end'
+[//]: # (wizard-evaluate-end)
 
 ## DevCycle Service
 
