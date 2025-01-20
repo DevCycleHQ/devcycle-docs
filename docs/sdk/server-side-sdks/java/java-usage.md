@@ -187,29 +187,22 @@ In the example, Email and Country are associated to the user `test_user`.
 In your next identify call for the same `userId`, you may omit any of the data you've sent already as it will be pulled
 from the EdgeDB storage when segmenting to experiments and features.
 
+## Realtime Updates
 
-## Enabling Beta Realtime Updates
-:::warning
-This feature is in beta, and may not function as expected. Please ensure that you have the latest version of the SDK.
-:::
-
-This functionality will reduce the number of polling requests that are made to the DevCycle Config CDN, and instead will
+This feature reduces the number of polling requests that are made to the DevCycle Config CDN, and instead will
 use a long-lived HTTP connection (Server Sent Events) to receive updates when there is a new config available.
 This reduces outbound network traffic, as well as optimizes the SDK for efficiency.
 
-To enable Beta Realtime Updates, pass in the `enableBetaRealtimeUpdates` option to the SDK initialization:
+To disable realtime updates, pass in the `disableRealtimeUpdates` option to the SDK initialization:
 
 ```java
-import com.devcycle.sdk.server.local.api.DevCycleLocalClient;
-import com.devcycle.sdk.server.local.model.DevCycleLocalOptions;
-
 public class MyClass {
 
     private DevCycleLocalClient client;
 
     public MyClass() {
         DevCycleLocalOptions options = DevCycleLocalOptions.builder()
-            .enableBetaRealtimeUpdates(true)
+            .disableRealtimeUpdates(true)
             .build();
 
         client = new DevCycleLocalClient(System.getenv("DEVCYCLE_SERVER_SDK_KEY"), options);
