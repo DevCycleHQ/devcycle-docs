@@ -3,8 +3,8 @@ title: Features and Functionality
 sidebar_position: 1
 ---
 
-DevCycle strives to ensure that all our APIs and SDKs have identical functionality 
-(except language- or platform-specific nuances). Below is a list of all the current 
+DevCycle strives to ensure that all our APIs and SDKs have identical functionality
+(except language- or platform-specific nuances). Below is a list of all the current
 functionality that DevCycle supports across the SDKs.
 
 **Universal**
@@ -15,11 +15,11 @@ functionality that DevCycle supports across the SDKs.
 - [Getting All Variables](#getting-all-variables)
 - [Identifying Users / Setting Properties](#identifying-a-user-or-setting-properties)
 - [Tracking Events](#tracking-custom-events)
+- [Realtime Updates](#realtime-updates)
 
 **Limited**
 
 - [Custom Domains](#custom-domains)
-- [Realtime Updates](#realtime-updates)
 
 ## Initialization
 
@@ -31,6 +31,7 @@ The current user is determined by you, and should contain any details about the 
 logic.
 
 A typical initialization call looks like this
+
 ```typescript
 const devcycleClient = initializeDevCycle('<DEVCYCLE_CLIENT_SDK_KEY>', user)
 ```
@@ -39,6 +40,7 @@ SDKs also offer a way to wait for initialization to finish, meaning that the Dev
 and the SDK is ready to return the correct variable values for the given user.
 
 Here is a Javascript example:
+
 ```typescript
 // wait for client to initialize
 await devcycleClient.onClientInitialized()
@@ -48,20 +50,22 @@ await devcycleClient.onClientInitialized()
 
 When initialized, each client-side SDK will cache the retrieved configuration for the user.
 
-This cache will be used in scenarios where on subsequent initializations a new configuration is not available. 
+This cache will be used in scenarios where on subsequent initializations a new configuration is not available.
 This may be due to a lack of internet connection or a lack of connection to DevCycle.
 
-Additionally, if the SDK is interacted with before any initialization (such as attempting to read a variable far 
+Additionally, if the SDK is interacted with before any initialization (such as attempting to read a variable far
 early on in an application before initialization), the cached value will be read.
 
-If a variable is first read from the cache and has a listener for [realtime updates](#realtime-updates), if a 
+If a variable is first read from the cache and has a listener for [realtime updates](#realtime-updates), if a
 new value is retrieved after initialization, the `onUpdate` function will be triggered.
 
 ### Server-Side SDKs
+
 For most server-side SDKs, the only required parameter to initialize the SDK is the SDK Key.
 The SDK key is unique to each project and environment and can be found in the DevCycle dashboard.
 
 A typical initialization call looks like this
+
 ```typescript
 const devcycleClient = initializeDevCycle('<DEVCYCLE_SERVER_SDK_KEY>')
 ```
@@ -70,6 +74,7 @@ SDKs also offer a way to wait for initialization to finish, meaning that the Dev
 and the SDK is ready to return the correct variable values for the given user.
 
 Here is a Javascript example:
+
 ```typescript
 // wait for client to initialize
 await devcycleClient.onClientInitialized()
@@ -77,10 +82,10 @@ await devcycleClient.onClientInitialized()
 
 ## Evaluating Features & Using Variables
 
-This section explains how to use retrieve the Variables of a Feature as well as use their values. For information 
+This section explains how to use retrieve the Variables of a Feature as well as use their values. For information
 on setting up a Feature for use, read [Variables and Variations](/platform/feature-flags/variables-and-variations/variables) and [Targeting Users](/platform/feature-flags/targeting/targeting-overview)
 
-Every SDK provides a method to retrieve a Variable's value. It expects to receive the unique key of the Variable, 
+Every SDK provides a method to retrieve a Variable's value. It expects to receive the unique key of the Variable,
 and a default value to serve in case no other value is available.
 
 A typical Variable method would look something like this:
@@ -94,7 +99,7 @@ const myVariableValue = devcycleClient.variableValue(
 )
 ```
 
-Each call to this method is tracked as an "evaluation" event. These events will be shown in the DevCycle dashboard and 
+Each call to this method is tracked as an "evaluation" event. These events will be shown in the DevCycle dashboard and
 are used to power the analytics graphs that allow you to see the effects of your Variables being used.
 
 The default value will be returned in the following scenarios:
@@ -131,7 +136,7 @@ The response is the following general format, with slight changes depending on t
 }
 ```
 
-Only Features that the User has satisfied [targeting rules](/platform/feature-flags/targeting/targeting-overview) for will be returned by this function. 
+Only Features that the User has satisfied [targeting rules](/platform/feature-flags/targeting/targeting-overview) for will be returned by this function.
 The feature must also be **enabled** for that environment.
 
 ## Getting all Variables
@@ -157,7 +162,7 @@ The response is the following general format, with slight changes depending on t
 }
 ```
 
-Only Variables in Features that the user has satisfied [targeting rules](/platform/feature-flags/targeting/targeting-overview) for will be part of the response in this method. 
+Only Variables in Features that the user has satisfied [targeting rules](/platform/feature-flags/targeting/targeting-overview) for will be part of the response in this method.
 The Feature must also be **enabled** for the environment this SDK is being called on.
 
 :::caution
@@ -212,7 +217,7 @@ corresponding to that user. A typical call to this method looks like
 
 ```typescript
 const user = {
-  user_id: 'myUser'
+  user_id: 'myUser',
 }
 
 await devCycleClient.identifyUser(user)
@@ -220,20 +225,21 @@ await devCycleClient.identifyUser(user)
 
 The `identifyUser` method always includes a way to wait for the operation to finish. When finished, the SDK will have
 the correct configuration for the given user and all Variable evaluations from that point onward will be based on the
-new user's data. This method is useful when user data can not be known at initialization time, or when the user's 
+new user's data. This method is useful when user data can not be known at initialization time, or when the user's
 identity must be changed during the application's lifecycle.
 
 #### Anonymous Users
 
 :::info
 
-If a user id is not supplied, client-side SDKs will automatically generate a user id and assign it to the current user. 
-This id will be cached and used between app sessions / website visits until a user id is supplied or [reset](#reset-user) is 
+If a user id is not supplied, client-side SDKs will automatically generate a user id and assign it to the current user.
+This id will be cached and used between app sessions / website visits until a user id is supplied or [reset](#reset-user) is
 called. This will ensure you will not experience a rise in MAUs if the main experience of your application is in a logged-out or anonymous state.
 
 :::
 
 #### Resetting a User
+
 Client SDKs also contain a method for "resetting" a user's identity. This can be used in cases like "logging out", where there is no longer
 any identifiable information to pass to the SDK. In those cases, "reset" will clear all stored data and generate a new "anonymous" user ID
 to represent the user.
@@ -244,25 +250,25 @@ User data can also contain "custom data", which is a key-value map of any arbitr
 The provided data can be used in Targeting Rules by creating Custom Properties in the DevCycle dashboard. Learn more
 about [Custom Property Targeting](/platform/feature-flags/targeting/custom-properties)
 
-When setting custom properties you have a choice between keeping that data completely private or allowing 
-for the data to be logged back to DevCycle's events database. Both options allow for the same targeting capabilities, 
+When setting custom properties you have a choice between keeping that data completely private or allowing
+for the data to be logged back to DevCycle's events database. Both options allow for the same targeting capabilities,
 but you should use Private Custom Data if you are looking to avoid having user data saved to any external system.
 
-With Private Custom Data, data is used solely for targeting decisions within DevCycle's Edge Workers. 
+With Private Custom Data, data is used solely for targeting decisions within DevCycle's Edge Workers.
 It is then discarded and no record is saved anywhere.
 
-With regular Custom Data, the data used for evaluation purposes is logged back to DevCycle's events database where 
+With regular Custom Data, the data used for evaluation purposes is logged back to DevCycle's events database where
 it can be used for debugging purposes or providing guidance on evaluation reasons.
 
 #### Server-Side SDK Identification
 
-Unlike the Client-Side SDKs, Server-Side SDKs work in a multi-user context. 
-Because of this, a single Identify function does not make sense. 
+Unlike the Client-Side SDKs, Server-Side SDKs work in a multi-user context.
+Because of this, a single Identify function does not make sense.
 Instead, you must provide the user data to each function call when evaluating variables. For example:
 
 ```typescript
 const user = {
-    user_id: 'myUser'
+  user_id: 'myUser',
 }
 
 const myVariableValue = devcycleClient.variableValue(
@@ -271,7 +277,7 @@ const myVariableValue = devcycleClient.variableValue(
   // Variable "key"
   'my-variable-key',
   // Default value to use if DevCycle has no other value
-  'default-value'
+  'default-value',
 )
 ```
 
@@ -285,7 +291,7 @@ and metrics on A/B tests and experiments within the DevCycle dashboard.
 
 ## Custom Domains
 
-When using client-side SDKs, particularly web client SDKs there is the potential for Ad Blockers 
+When using client-side SDKs, particularly web client SDKs there is the potential for Ad Blockers
 and browser privacy features to block requests and third-party cookies. Custom Domains with DevCycle ensures
 all cookies and requests used are first-party and will not be blocked by ensuring requests are sent through your
 recognized domain. A DNS CNAME needs to be created to leverage this feature.
@@ -304,23 +310,8 @@ For instructions on setting up a custom domain, see [Custom Domains](/platform/e
 
 All DevCycle SDKs are capable of being notified in realtime that new configuration changes have been made in the DevCycle platform.
 DevCycle leverages Server-Sent Events (SSE) to notify the SDKs that a feature (targeting rules, variable values, etc.)
-has been updated and that they should fetch the new configuration. A connection URL is included in the config that the SDK fetches, 
+has been updated and that they should fetch the new configuration. A connection URL is included in the config that the SDK fetches,
 triggering the SDK to open a connection with our SSE provider and listen for any changes in the given environment.
-
-**Supported SDKs**
-- Javascript
-- React
-- iOS
-- Android
-- Flutter
-- NodeJS (including Nest)
-- Next.js
-- Python
-- Ruby
-- Java
-- Go
-- .NET
-- PHP (via SDK Proxy)
 
 ### SDK Specifics
 
@@ -335,7 +326,6 @@ If the user backgrounds the application for some period of time, the SDK will di
 #### Server-Side SDKs
 
 If the server loses its connection it will be re-opened it will be re-opened automatically after a configurable interval.
-
 
 ## Local and Cloud Bucketing
 

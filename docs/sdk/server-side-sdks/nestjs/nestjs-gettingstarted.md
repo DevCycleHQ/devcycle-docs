@@ -9,7 +9,7 @@ sidebar_custom_props: { icon: material-symbols:rocket }
 [![Npm package version](https://badgen.net/npm/v/@devcycle/nestjs-server-sdk)](https://www.npmjs.com/package/@devcycle/nestjs-server-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)
 
-[//]: # (wizard-initialize-start)
+[//]: # 'wizard-initialize-start'
 
 To use the DevCycle Server SDK in your project, import the `DevCycleModule` from the `@devcycle/nestjs-server-sdk`.
 We recommend adding the module to the imports of your root app module, so that the DevCycle client is available globally within your application.
@@ -20,7 +20,7 @@ Example:
 import { DevCycleModule } from '@devcycle/nestjs-server-sdk'
 
 DevCycleModule.forRoot({
-  key: '<DEVCYCLE_SERVER_SDK_KEY>'
+  key: '<DEVCYCLE_SERVER_SDK_KEY>',
 })
 ```
 
@@ -58,10 +58,11 @@ DevCycleModule.forRoot({
       user_id: req.user.id,
       email: req.user.email,
     }
-  }
+  },
 })
 ```
-[//]: # (wizard-initialize-end)
+
+[//]: # 'wizard-initialize-end'
 
 ## Initialization Options
 
@@ -74,12 +75,12 @@ DevCycleModule.forRoot({
   key: '<DEVCYCLE_SERVER_SDK_KEY>',
   options: {
     // Insert Options
-    }
+  },
 })
 ```
 
 | DevCycle Option              | Type           | Description                                                                                                                                                                  |
-|------------------------------|----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ---------------------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | logger                       | DevCycleLogger | Logger override to replace default logger                                                                                                                                    |
 | logLevel                     | String         | Set log level of the default logger. Options are: `debug`, `info`, `warn`, `error`. Defaults to `info`.                                                                      |
 | enableCloudBucketing         | Boolean        | Switches the SDK to use Cloud Bucketing (via the DevCycle Bucketing API) instead of Local Bucketing.                                                                         |
@@ -92,4 +93,4 @@ DevCycleModule.forRoot({
 | flushEventQueueSize          | Number         | Controls the maximum size the event queue can grow to until a flush is forced. Defaults to `1000`.                                                                           |
 | maxEventQueueSize            | Number         | Controls the maximum size the event queue can grow to until events are dropped. Defaults to `2000`.                                                                          |
 | apiProxyURL                  | String         | Allows the SDK to communicate with a proxy of DevCycle bucketing API / client SDK API.                                                                                       |
-| enableBetaRealtimeUpdates    | Boolean        | Enables the usage of Beta Realtime Updates for DevCycle. This feature is currently in beta.                                                                                  |
+| disableRealtimeUpdates       | Boolean        | Disables the usage of realtime updates SSE connections for DevCycle, will revert to polling against the config CDN.                                                          |

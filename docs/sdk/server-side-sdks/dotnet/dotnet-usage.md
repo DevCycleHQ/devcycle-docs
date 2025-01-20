@@ -108,22 +108,18 @@ or the SDK is not able to make requests to the DevCycle API directly. The instal
 
 See the [SDK Proxy](../../sdk-proxy/index.md) section for more information.
 
-## Enabling Beta Realtime Updates
+## Realtime Updates
 
-:::warning
-This feature is in beta, and may not function as expected. Please ensure that you have the latest version of the SDK.
-:::
-
-This functionality will reduce the number of polling requests that are made to the DevCycle Config CDN, and instead will
+This feature reduces the number of polling requests that are made to the DevCycle Config CDN, and instead will
 use a long-lived HTTP connection (Server Sent Events) to receive updates when there is a new config available.
 This reduces outbound network traffic, as well as optimizes the SDK for efficiency.
 
-To enable Beta Realtime Updates, pass in the `enableBetaRealtimeUpdates` option to the SDK initialization:
+To disable realtime updates, pass in the `disable_realtime_updates` option to the SDK initialization:
 
 ```csharp
     client = new DevCycleLocalClientBuilder()
         .SetSDKKey("<DEVCYCLE_SERVER_SDK_KEY>")
-        .SetOptions(new DevCycleLocalOptions(enableBetaRealtimeUpdates: true))
+        .SetOptions(new DevCycleLocalOptions(disableRealtimeUpdates: true))
         .SetLogger(LoggerFactory.Create(builder => builder.AddConsole()))
         .Build();
 ```
