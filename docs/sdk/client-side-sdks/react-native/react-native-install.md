@@ -15,7 +15,7 @@ To get started, install the React Native SDK. For React Native Expo, see the [Ex
 
 The command to install the React Native SDK is:
 
-[//]: # 'wizard-install-start'
+[//]: # (wizard-install-start)
 
 ### npm
 
@@ -23,7 +23,7 @@ The command to install the React Native SDK is:
 npm install --save @devcycle/react-native-client-sdk
 ```
 
-[//]: # 'wizard-install-end'
+[//]: # (wizard-install-end)
 
 ### yarn
 
@@ -38,13 +38,13 @@ Install the SDK dependencies, run the following command
 ### npm
 
 ```bash
-npm install --save @react-native-async-storage/async-storage react-native-get-random-values react-native-device-info
+npm install --save @react-native-async-storage/async-storage react-native-get-random-values react-native-device-info react-native-sse
 ```
 
 ### yarn
 
 ```bash
-yarn add @react-native-async-storage/async-storage react-native-get-random-values react-native-device-info
+yarn add @react-native-async-storage/async-storage react-native-get-random-values react-native-device-info react-native-sse
 ```
 
 ## Install Pods
@@ -58,8 +58,9 @@ npx pod-install
 The [@react-native-async-storage/async-storage](https://www.npmjs.com/package/@react-native-async-storage/async-storage) package provides the ability to leverage on Device Storage that is used for caching by the SDK.
 The [react-native-get-random-values](https://www.npmjs.com/package/react-native-get-random-values) package provides a polyfill for cryptographic functionality used to generate random IDs.
 The [react-native-device-info](https://www.npmjs.com/package/react-native-device-info) package provides information about the current device running the SDK, which is required to correctly apply targeting rules.
+The [react-native-sse](https://www.npmjs.com/package/react-native-sse) package provides SSE connection functionality to enable real-time updates.
 
-[//]: # 'wizard-initialize-start'
+[//]: # (wizard-initialize-start)
 
 ## Import SDK Dependencies
 
@@ -89,7 +90,7 @@ export default withDevCycleProvider({ sdkKey: '<DEVCYCLE_CLIENT_SDK_KEY>' })(
 )
 ```
 
-[//]: # 'wizard-initialize-end'
+[//]: # (wizard-initialize-end)
 
 ## Example
 

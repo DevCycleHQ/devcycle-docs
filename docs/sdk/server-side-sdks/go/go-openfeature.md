@@ -134,6 +134,12 @@ openfeature.NewEvaluationContext(
 )
 ```
 
+:::caution
+
+Any number types passed must be a 64 bit wide type (int64, float64) to avoid any potential issues with floating point error.
+
+:::
+
 ### JSON Flag Limitations
 
 The OpenFeature spec for JSON flags allows for any type of valid JSON value to be set as the flag value.

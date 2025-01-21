@@ -40,7 +40,7 @@ To test it yourself, here is the data:
 
 Next, we need to supply the auth. Switch to the authorization tab and change the type to API Key. 
 
-For the “Value”, supply the server SDK key found in your [environments & keys tab.](/essentials/keys)
+For the “Value”, supply the server SDK key found in your [environments & keys tab.](/platform/account-management/keys)
 
 ![Untitled](/sept-6-2022-edge-flags-api-3.png)
 

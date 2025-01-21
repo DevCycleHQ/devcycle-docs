@@ -23,6 +23,12 @@ user := devcycle.User{
 }
 ```
 
+:::caution
+
+Any number types passed into `customData`, `privateCustomData` or `ClientCustomData` must be a 64 bit wide type (int64, float64)
+to avoid any potential issues with floating point error.
+
+:::
 ## Get and Use Variable by Key
 
 This method will fetch a specific variable value by key for a given user. It will return the variable
@@ -107,13 +113,20 @@ err = devcycleClient.SetClientCustomData(map[string]interface{}{
 ```
 
 :::caution
+
+Any number types passed into `customData`, `privateCustomData` or `ClientCustomData` must be a 64 bit wide type (int64, float64)
+to avoid any potential issues with floating point error.
+
+:::
+
+:::caution
 Client Custom Data is only available for the Local Bucketing SDK
 :::
 
 ## EdgeDB
 
 EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time
-you identify a user. Read more about [EdgeDB](/extras/edgedb).
+you identify a user. Read more about [EdgeDB](/platform/feature-flags/targeting/edgedb).
 
 To get started, contact us at support@devcycle.com to enable EdgeDB for your project.
 
@@ -145,23 +158,19 @@ In this example, the `Variable` call would make an API request and send along th
 That data would be used in combination with EdgeDB data to make correct bucketing decisions before returning the
 variable's value.
 
+## Realtime Updates
 
-## Enabling Beta Realtime Updates
-:::warning
-This feature is in beta, and may not function as expected. Please ensure that you have the latest version of the SDK.
-:::
+This feature reduces the number of polling requests that are made to the DevCycle Config CDN, and instead will
+use a long-lived HTTP connection (Server Sent Events) to receive updates when there is a new config available.
+This reduces outbound network traffic, as well as optimizes the SDK for efficiency.
 
-This functionality will reduce the number of polling requests that are made to the DevCycle Config CDN, and instead will
-use a long-lived HTTP connection (Server Sent Events) to receive updates when there is a new config available. 
-This reduces outbound network traffic, as well as optimizes the SDK for efficiency. 
+To disable realtime updates, pass in the `DisableRealtimeUpdates` option to the SDK initialization:
 
-To enable Beta Realtime Updates, pass in the `EnableBetaRealtimeUpdates` option to the SDK initialization:
 ```go
 options := devcycle.Options{
-    EnableBetaRealtimeUpdates:    true,
+    DisableRealtimeUpdates:    true,
     // other options omitted for this example
 }
 
 devcycleClient, err := devcycle.NewClient(sdkKey, &options)
 ```
-

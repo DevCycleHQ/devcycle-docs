@@ -137,7 +137,7 @@ Client Custom Data is only available for the Local Bucketing SDK
 ## EdgeDB
 
 EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user.
-Read more about [EdgeDB](/extras/edgedb).
+Read more about [EdgeDB](/platform/feature-flags/targeting/edgedb).
 
 To get started, contact us at support@devcycle.com to enable EdgeDB for your project.
 
@@ -163,3 +163,24 @@ This will send a request to our EdgeDB API to save the custom data under the use
 In the example, Email and Country are associated to the user `test_user`.
 In your next identify call for the same `user_id`, you may omit any of the data you've sent already as it will be pulled
 from the EdgeDB storage when segmenting to experiments and features.
+
+## Realtime Updates
+
+This feature reduces the number of polling requests that are made to the DevCycle Config CDN, and instead will
+use a long-lived HTTP connection (Server Sent Events) to receive updates when there is a new config available.
+This reduces outbound network traffic, as well as optimizes the SDK for efficiency.
+
+To disable realtime updates, pass in the `disable_realtime_updates` option to the SDK initialization:
+
+```ruby
+require 'devcycle-ruby-server-sdk'
+
+options = DevCycle::Options.new(disable_realtime_updates: true)
+
+devcycle_client = DevCycle::Client.new("dvc_server_token_hash", options, true)
+user = DevCycle::User.new({
+   user_id: 'test_user',
+   email: 'example@example.ca',
+   country: 'CA'
+ })
+```

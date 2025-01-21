@@ -37,16 +37,33 @@ const myVariable = useVariableValue('my-variable', 'default-value')
 ```
 
 ## Usage
+To use this enhanced type-safety, you can define a type containing the variable keys and their types
 
-To use this enhanced type-safety, you can use the CLI to generate a set of Typescript overrides which will
-increase the specificity of the SDK's hooks to check for keys and types specific to your project.
+```typescript
+type VariableTypes = {
+  'my-variable': string
+}
+````
 
-### CLI
+You can then use `declare module` interface merging to augment the types the SDK uses:
+```typescript
+declare module '@devcycle/types' {
+  interface CustomVariableDefinitions extends VariableTypes {}
+}
+```
+
+The keys of `VariableTypes` must match the keys of the variables defined in DevCycle, and the values must match the
+expected type of the variable.
+
+You can write this definition manually, but it's recommended to generate it automatically as part of your build process
+by using the CLI.
+
+### CLI Generator
 
 To generate the type definitions with the CLI, you can use the `generate types` command like so:
 
 ```shell
-dvc generate types --react
+dvc generate types
 ```
 
 See the [documentation](https://github.com/DevCycleHQ/cli/blob/main/docs/generate.md#dvc-generate-types) for this command
@@ -54,9 +71,13 @@ See the [documentation](https://github.com/DevCycleHQ/cli/blob/main/docs/generat
 Ensure that the CLI is properly setup and authenticated to your project before running this command. See the [CLI docs](https://docs.devcycle.com/tools-and-integrations/cli)
 for further instructions on setting up the CLI.
 
-This command will generate a file called `dvcVariableTypes.ts` in the configured output directory. This file contains
-new definitions for the `useVariable` and `useVariableValue` hooks which wrap the original SDK methods in more specific
-types. These wrapped methods should now be used in place of the original methods provided by the SDK.
+This command will generate a file called `dvcVariableTypes.ts` in the configured output directory. The generated output will contain the `declare module` statement to automatically augment the SDK's types.
 
 Consider configuring this command to run as part of your build process to keep your type definitions up to date with
 the latest configuration from DevCycle.
+
+:::info
+
+Any Variables that are a part of a [Completed Feature](https://docs.devcycle.com/platform/feature-flags/status-and-lifecycle#completing-a-feature) will be marked as deprecated in the types output. This is a powerful aid for Variable cleanup, because you can see which Variables need to be cleaned up right in your code.
+
+:::

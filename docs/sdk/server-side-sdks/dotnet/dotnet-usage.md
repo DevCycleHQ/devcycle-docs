@@ -10,7 +10,7 @@ sidebar_custom_props: { icon: material-symbols:toggle-on }
 [![Nuget Local](https://badgen.net/nuget/v/DevCycle.SDK.Server.Cloud)](https://www.nuget.org/packages/DevCycle.SDK.Server.Local/)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/dotnet-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/dotnet-server-sdk)
 
-[//]: # (wizard-evaluate-start)
+[//]: # 'wizard-evaluate-start'
 
 ## DevCycleUser Object
 
@@ -31,7 +31,8 @@ In that case it will return a variable value with the value set to whatever was 
 ```csharp
 bool result = await client.VariableValue(user, "your-variable-key", true);
 ```
-[//]: # (wizard-evaluate-end)
+
+[//]: # 'wizard-evaluate-end'
 
 The default value can be of type `String`, `Boolean`, `Number`, or `Object`.
 
@@ -50,7 +51,7 @@ Dictionary<string, ReadOnlyVariable<object>> result = await client.AllVariables(
 
 :::caution
 
-This method is intended to be used for debugging and analytics purposes, *not* as a method for retrieving the value of Variables to change code behaviour.
+This method is intended to be used for debugging and analytics purposes, _not_ as a method for retrieving the value of Variables to change code behaviour.
 For that purpose, we strongly recommend using the individual variable access method described in [Get and use Variable by key](#get-and-use-variable-by-key)
 Using this method instead will result in no evaluation events being tracked for individual variables, and will not allow the use
 of other DevCycle features such as [Code Usage detection](/integrations/github/feature-usage-action)
@@ -81,7 +82,7 @@ DevCycleResponse result = await client.Track(user, event);
 ## EdgeDB - Cloud Only
 
 EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user.
-Read more about [EdgeDB](/extras/edgedb).
+Read more about [EdgeDB](/platform/feature-flags/targeting/edgedb).
 
 To get started, contact us at support@devcycle.com to enable EdgeDB for your project.
 
@@ -107,3 +108,19 @@ To further enable various deployment configurations - we provide a background pr
 or the SDK is not able to make requests to the DevCycle API directly. The installation and setup process for the proxy can be found here: https://github.com/DevCycleHQ/sdk-proxy#readme.
 
 See the [SDK Proxy](../../sdk-proxy/index.md) section for more information.
+
+## Realtime Updates
+
+This feature reduces the number of polling requests that are made to the DevCycle Config CDN, and instead will
+use a long-lived HTTP connection (Server Sent Events) to receive updates when there is a new config available.
+This reduces outbound network traffic, as well as optimizes the SDK for efficiency.
+
+To disable realtime updates, pass in the `disableRealtimeUpdates` option to the SDK initialization:
+
+```csharp
+    client = new DevCycleLocalClientBuilder()
+        .SetSDKKey("<DEVCYCLE_SERVER_SDK_KEY>")
+        .SetOptions(new DevCycleLocalOptions(disableRealtimeUpdates: true))
+        .SetLogger(LoggerFactory.Create(builder => builder.AddConsole()))
+        .Build();
+```

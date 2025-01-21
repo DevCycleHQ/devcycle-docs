@@ -3,9 +3,9 @@ title: Importing
 sidebar_position: 10
 ---
 
-## DevCycle Feature Importer
+## DevCycle Feature Flag Importer
 
-DevCycle's Feature Importer is designed to import resources from other feature flag providers. The importer is intended to be run on a single project and will create or update a project with the same key containing Environments, Features, and Variables.
+DevCycle's Feature Flag Importer is designed to import resources from other feature flag providers. The importer is intended to be run on a single project and will create or update a project with the same key containing Environments, Features, and Variables.
 
 :::info
 The feature importer script is fully open-source. Check it out here: https://github.com/devcyclehq/feature-importer

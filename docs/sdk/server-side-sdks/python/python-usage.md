@@ -131,7 +131,7 @@ Client Custom Data is only available for the Local Bucketing SDK
 
 ## EdgeDB
 
-When utilizing the Cloud Bucketing Python SDK, EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user. Read more about [EdgeDB](/extras/edgedb).
+When utilizing the Cloud Bucketing Python SDK, EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user. Read more about [EdgeDB](/platform/feature-flags/targeting/edgedb).
 
 To get started, contact us at support@devcycle.com to enable EdgeDB for your project.
 
@@ -171,3 +171,17 @@ To further enable various deployment configurations - we provide a background pr
 or the SDK is not able to make requests to the DevCycle API directly. The installation and setup process for the proxy can be found here: https://github.com/DevCycleHQ/sdk-proxy#readme.
 
 See the [SDK Proxy](../../sdk-proxy/index.md) section for more information.
+
+## Realtime Updates
+
+This feature reduces the number of polling requests that are made to the DevCycle Config CDN, and instead will
+use a long-lived HTTP connection (Server Sent Events) to receive updates when there is a new config available.
+This reduces outbound network traffic, as well as optimizes the SDK for efficiency.
+
+To disable realtime updates, pass in the `disable_realtime_updates` option to the SDK initialization:
+
+```python
+options = DevCycleLocalOptions(disable_realtime_updates=True)
+
+devcycle_client = DevCycleLocalClient(os.environ["DEVCYCLE_SERVER_SDK_KEY"], options)
+```

@@ -11,7 +11,7 @@ The DevCycle .NET / C# SDK has two operation modes; Cloud Bucketing - which inte
 and Local Bucketing - which performs bucketing locally.
 
 We recommend using the Local Bucketing mode by default, as it performs fast local evaluations of your feature flags.
-If you need access to [EdgeDB](https://docs.devcycle.com/extras/edgedb) you will need to use the Cloud Bucketing mode of the SDK. 
+If you need access to [EdgeDB](https://docs.devcycle.com/platform/feature-flags/targeting/edgedb) you will need to use the Cloud Bucketing mode of the SDK. 
 See [Here](/sdk/#difference-between-local-and-cloud-bucketing) for more information. 
 
 <CustomDocCardList items={useCurrentSidebarCategory().items} columnWidth={6} />
