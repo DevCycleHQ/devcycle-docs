@@ -10,6 +10,7 @@ sidebar_custom_props: { icon: material-symbols:toggle-on }
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)
 
 ## DevCycle Client
+
 [//]: # (wizard-evaluate-start)
 
 With the DevCycleModule imported, the `DevCycleClient` can be injected into your controllers or providers.
@@ -20,34 +21,32 @@ The Nest.js SDK is a wrapper for DevCycle's Node.js SDK. For more information ab
 import { DevCycleClient } from '@devcycle/nestjs-server-sdk'
 
 export class MyController {
-    constructor(
-      private readonly devcycleClient: DevCycleClient
-    ) {}
+  constructor(private readonly devcycleClient: DevCycleClient) {}
 
-    async update() {
-      const user = {
-        user_id: 'user1@devcycle.com',
-        name: 'user 1 name',
-        customData: {
-          customKey: 'customValue',
-        },
-      }
-      const variable = this.devcycleClient.variable(user, 'test-variable', false)
+  async update() {
+    const user = {
+      user_id: 'user1@devcycle.com',
+      name: 'user 1 name',
+      customData: {
+        customKey: 'customValue',
+      },
     }
+    const variable = this.devcycleClient.variable(user, 'test-variable', false)
+  }
 }
 ```
+
 [//]: # (wizard-evaluate-end)
 
 ## DevCycle Service
+
 With the DevCycleModule imported, the `DevCycleService` can be injected into your controllers or providers. The DevCycleService methods evaluate variables with the user returned from your [userFactory](/sdk/server-side-sdks/nestjs/nestjs-gettingstarted#user-factory), so you don't need to specify a user each time a method is called.
 
 ```typescript
 import { DevCycleService } from '@devcycle/nestjs-server-sdk'
 
 export class MyService {
-  constructor(
-    private readonly devcycleService: DevCycleService,
-  ) {}
+  constructor(private readonly devcycleService: DevCycleService) {}
 
   async update() {
     const enabled = this.devcycleService.isEnabled('allow-feature-edits')
@@ -59,6 +58,7 @@ export class MyService {
 ```
 
 ### variableValue
+
 The `variableValue` method accepts a variable key and default value, and returns the served value.
 
 ```typescript
@@ -66,6 +66,7 @@ const value = this.devcycleService.variableValue('variable-key', 'hello world')
 ```
 
 ### isEnabled
+
 The `isEnabled` method accepts a key for a boolean variable. The default value is always `false` when using the `isEnabled` method.
 
 ```typescript
@@ -73,6 +74,7 @@ const enabled = this.devcycleService.isEnabled('boolean-variable')
 ```
 
 ### getUser
+
 The `getUser` method returns the user object from your [userFactory](/sdk/server-side-sdks/nestjs/nestjs-gettingstarted#user-factory).
 
 ```typescript
@@ -84,6 +86,7 @@ const devcycleUser = this.devcycleService.getUser()
 DevCycle decorators evaluate variables with the user returned from your [userFactory](/sdk/server-side-sdks/nestjs/nestjs-gettingstarted#user-factory), so you don't need to specify a user each time a decorator is used.
 
 ### VariableValue
+
 The `VariableValue` decorator can be used to access variable values directly in your route handlers.
 
 ```typescript
@@ -97,6 +100,7 @@ async findAll(
 ```
 
 ### RequireVariableValue
+
 The `RequireVariableValue` decorator can be used to guard an endpoint or controller.
 If the user is not served the specified value, the request will return a 404 NotFound as though the endpoint does not exist.
 
@@ -109,24 +113,21 @@ async findAll() {
 }
 ```
 
-## Enabling Beta Realtime Updates
-:::warning
-This feature is in beta, and may not function as expected. Please ensure that you have the latest version of the SDK.
-:::
+## Realtime Updates
 
-This functionality will reduce the number of polling requests that are made to the DevCycle Config CDN, and instead will
+This feature reduces the number of polling requests that are made to the DevCycle Config CDN, and instead will
 use a long-lived HTTP connection (Server Sent Events) to receive updates when there is a new config available.
 This reduces outbound network traffic, as well as optimizes the SDK for efficiency.
 
-To enable Beta Realtime Updates, pass in the `enableBetaRealtimeUpdates` option to the SDK initialization:
+To disable realtime updates, pass in the `disableRealtimeUpdates` option to the SDK initialization:
 
-```javascript
+```typescript
 import { DevCycleModule } from '@devcycle/nestjs-server-sdk'
 
 DevCycleModule.forRoot({
   key: '<DEVCYCLE_SERVER_SDK_KEY>',
   options: {
-    enableBetaRealtimeUpdates: true
-  }
+    disableRealtimeUpdates: true,
+  },
 })
 ```
