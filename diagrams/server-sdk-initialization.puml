@@ -44,9 +44,9 @@ group Constructor/Initialization
                 endif
             endif
             end fork
-            if (options.UseRealtimeUpdates) then (no)
+            if (options.DisableRealtimeUpdates) then (yes)
                 :Start Config Polling Thread;
-            else (yes)
+            else (no)
             endif
         else (no)
             if (options.ConfigEventHandler exists) then (yes)

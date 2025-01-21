@@ -3,9 +3,9 @@
 group Config Manager
 group Constructor/Initialization
 start
-    if (options.UseRealtimeUpdates) then (yes)
+    if (options.DisableRealtimeUpdates) then (no)
         :Start Config Consolidation Thread;
-    else (no)
+    else (yes)
     endif
 stop
 end group
