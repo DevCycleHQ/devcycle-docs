@@ -20,7 +20,7 @@ Example:
 import { DevCycleModule } from '@devcycle/nestjs-server-sdk'
 
 DevCycleModule.forRoot({
-  key: '<DEVCYCLE_SERVER_SDK_KEY>'
+  key: '<DEVCYCLE_SERVER_SDK_KEY>',
 })
 ```
 
@@ -58,9 +58,10 @@ DevCycleModule.forRoot({
       user_id: req.user.id,
       email: req.user.email,
     }
-  }
+  },
 })
 ```
+
 [//]: # (wizard-initialize-end)
 
 ## Initialization Options
@@ -73,8 +74,8 @@ import { DevCycleModule } from '@devcycle/nestjs-server-sdk'
 DevCycleModule.forRoot({
   key: '<DEVCYCLE_SERVER_SDK_KEY>',
   options: {
-    logLevel: 'debug'
-  }
+    // Insert Options
+  },
 })
 ```
 
@@ -82,6 +83,8 @@ DevCycleModule.forRoot({
 | ---------------------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | logger                       | DevCycleLogger | Logger override to replace default logger                                                                                                                                    |
 | logLevel                     | String         | Set log level of the default logger. Options are: `debug`, `info`, `warn`, `error`. Defaults to `info`.                                                                      |
+| enableCloudBucketing         | Boolean        | Switches the SDK to use Cloud Bucketing (via the DevCycle Bucketing API) instead of Local Bucketing.                                                                         |
+| enableEdgeDB                 | Boolean        | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle. <br />NOTE: This is only available with Cloud Bucketing.                                          |
 | configPollingIntervalMS      | Number         | Controls the polling interval in milliseconds to fetch new environment config changes, defaults to 10 seconds, minimum value is 1 second.                                    |
 | configPollingTimeoutMS       | Number         | Controls the request timeout to fetch new environment config changes, defaults to 5 seconds, must be less than the configPollingIntervalMS value, minimum value is 1 second. |
 | eventFlushIntervalMS         | Number         | Controls the interval between flushing events to the DevCycle servers, defaults to 30 seconds.                                                                               |
@@ -90,3 +93,4 @@ DevCycleModule.forRoot({
 | flushEventQueueSize          | Number         | Controls the maximum size the event queue can grow to until a flush is forced. Defaults to `1000`.                                                                           |
 | maxEventQueueSize            | Number         | Controls the maximum size the event queue can grow to until events are dropped. Defaults to `2000`.                                                                          |
 | apiProxyURL                  | String         | Allows the SDK to communicate with a proxy of DevCycle bucketing API / client SDK API.                                                                                       |
+| disableRealtimeUpdates       | Boolean        | Disables the usage of realtime updates SSE connections for DevCycle, will revert to polling against the config CDN.                                                          |

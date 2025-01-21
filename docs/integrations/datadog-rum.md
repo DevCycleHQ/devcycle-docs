@@ -1,5 +1,5 @@
 ---
-title: DataDog
+title: DataDog RUM
 sidebar_position: 3
 ---
 

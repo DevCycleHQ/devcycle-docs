@@ -2,7 +2,7 @@
 title: Usage
 ---
 
-## Running the Proxy
+## Running the SDK Proxy
 
 For a quick setup and test environment, the proxy only requires a single environment variable to be set; `DVC_LB_PROXY_SDK_KEY`. 
 This key is used to authenticate to the CDN and Events API.

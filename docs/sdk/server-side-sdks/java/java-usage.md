@@ -144,7 +144,7 @@ DevCycleLocalOptions options = DevCycleLocalOptions.builder().customLogger(loggi
 **NOTE: EdgeDB is only available with Cloud Bucketing.**
 
 EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user.
-Read more about [EdgeDB](/extras/edgedb).
+Read more about [EdgeDB](/platform/feature-flags/targeting/edgedb).
 
 To get started, contact us at support@devcycle.com to enable EdgeDB for your project.
 
@@ -186,3 +186,26 @@ This will send a request to our EdgeDB API to save the custom data under the use
 In the example, Email and Country are associated to the user `test_user`.
 In your next identify call for the same `userId`, you may omit any of the data you've sent already as it will be pulled
 from the EdgeDB storage when segmenting to experiments and features.
+
+## Realtime Updates
+
+This feature reduces the number of polling requests that are made to the DevCycle Config CDN, and instead will
+use a long-lived HTTP connection (Server Sent Events) to receive updates when there is a new config available.
+This reduces outbound network traffic, as well as optimizes the SDK for efficiency.
+
+To disable realtime updates, pass in the `disableRealtimeUpdates` option to the SDK initialization:
+
+```java
+public class MyClass {
+
+    private DevCycleLocalClient client;
+
+    public MyClass() {
+        DevCycleLocalOptions options = DevCycleLocalOptions.builder()
+            .disableRealtimeUpdates(true)
+            .build();
+
+        client = new DevCycleLocalClient(System.getenv("DEVCYCLE_SERVER_SDK_KEY"), options);
+    }
+}
+```

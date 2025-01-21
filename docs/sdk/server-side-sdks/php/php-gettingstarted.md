@@ -37,3 +37,24 @@ try {
 }
 ```
 [//]: # (wizard-initialize-end)
+
+## Initialization Options
+
+The SDK exposes various initialization options which can be set when creating a new DevCycleClient:
+
+```php
+$options = new DevCycleOptions();
+$devCycleClient = new DevCycleClient(
+    sdkKey: getenv("DEVCYCLE_SERVER_SDK_KEY"),
+    dvcOptions: ($options);
+$user_data = new DevCycleUser(array(
+  "user_id"=>"my-user"
+));
+```
+
+| DevCycle Option              | Type           | Description                                                                                                                                                                  |
+|------------------------------|----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| enableEdgeDB                 | bool        | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle. <br />NOTE: This is only available with Cloud Bucketing.                                          |
+| bucketingApiHostname    | string        | Contact support for usage instructions.                           |
+| unixSocketPath    | string        | Contact DevCycle support for instructions on how to configure this option.                           |
+| httpOptions    | array        | Contact DevCycle support for instructions on how to configure this option.                           |

@@ -37,15 +37,24 @@ const myVariable = devcycleClient.variable('my-variable', 'default-value')
 ```
 
 ## Usage
-
-To use this enhanced type-safety, you can pass a type definition containing the variable keys and types
-to the `initializeDevCycle` function:
+To use this enhanced type-safety, you can define a type containing the variable keys and their types
 
 ```typescript
 type VariableTypes = {
   'my-variable': string
 }
+````
 
+You can then use `declare module` interface merging to augment the types the SDK uses:
+```typescript
+declare module '@devcycle/types' {
+  interface CustomVariableDefinitions extends VariableTypes {}
+}
+```
+
+Alternatively, you can pass this type as a generic argument to the `initializeDevCycle` function:
+
+```typescript
 const user = { user_id: 'my_user' }
 const devcycleOptions = { logLevel: 'debug' }
 const devcycleClient = initializeDevCycle<VariableTypes>(
@@ -61,7 +70,7 @@ expected type of the variable.
 You can write this definition manually, but it's recommended to generate it automatically as part of your build process
 by using the CLI.
 
-### CLI
+### CLI Generator
 
 To generate the type definitions with the CLI, you can use the `generate types` command like so:
 
@@ -75,8 +84,13 @@ Ensure that the CLI is properly setup and authenticated to your project before r
 for further instructions on setting up the CLI.
 
 This command will generate a file called `dvcVariableTypes.ts` in the configured output directory.
-You can then import the generated types from this file, and pass them to the generic arg of the `initializeDevCycle` call as
-described above.
+The generated output will contain the `declare module` statement to automatically augment the SDK's types.
 
 Consider configuring this command to run as part of your build process to keep your type definitions up to date with
 the latest configuration from DevCycle.
+
+:::info
+
+Any Variables that are a part of a [Completed Feature](https://docs.devcycle.com/platform/feature-flags/status-and-lifecycle#completing-a-feature) will be marked as deprecated in the types output. This is a powerful aid for Variable cleanup, because you can see which Variables need to be cleaned up right in your code.
+
+:::

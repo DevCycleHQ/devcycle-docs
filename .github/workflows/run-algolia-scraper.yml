@@ -6,22 +6,28 @@ on:
 jobs:
   wait-for-vercel-deployment:
     runs-on: ubuntu-20.04
+    permissions:
+      contents: read
+      id-token: write
+    env:
+      VERCEL_DEPLOYMENT_URL: "devcycle-docs.vercel.app"
     steps:
-      - name: Set deployment URL
-        run: "echo VERCEL_DEPLOYMENT_URL=devcycle-docs.vercel.app >> $GITHUB_ENV"
-
+      - name: Set Secrets
+        uses: DevCycleHQ/aws-secrets-action@main
+        with:
+          secrets_map: '{"VERCEL_TOKEN":"DEVCYCLE_GITHUB_devcycle-docs_VERCEL_TOKEN", "ALGOLIA_APPLICATION_ID":"DEVCYCLE_GITHUB_devcycle-docs_ALGOLIA_APPLICATION_ID", "ALGOLIA_API_KEY":"DEVCYCLE_GITHUB_devcycle-docs_ALGOLIA_API_KEY"}'
+          aws_account_id: '134377926370'
       - uses: UnlyEd/github-action-await-vercel@v1.2.43
         name: Waits for Vercel deployment to finish
         id: await-vercel
         env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_TOKEN: ${{ env.VERCEL_TOKEN }}
         with:
           deployment-url: ${{ env.VERCEL_DEPLOYMENT_URL }}
           timeout: 10 # Wait for 10 seconds before failing
 
       - name: Displays the deployment name (example on how to read information about the deployment)
         run: "echo The deployment at ${{ fromJson(steps.await-vercel.outputs.deploymentDetails).url }} is ${{ fromJson(steps.await-vercel.outputs.deploymentDetails).readyState }}"
-
 
       - uses: actions/checkout@v4
 
@@ -32,6 +38,6 @@ jobs:
       - name: Push indices to Algolia
         uses: signcl/docsearch-scraper-action@master
         env:
-          APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
-          API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
+          APPLICATION_ID: ${{ env.ALGOLIA_APPLICATION_ID }}
+          API_KEY: ${{ env.ALGOLIA_API_KEY }}
           CONFIG: ${{ steps.algolia_config.outputs.config }}

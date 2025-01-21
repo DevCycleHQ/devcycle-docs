@@ -68,7 +68,7 @@ DevCycle APIs, as well as third party integrations to connect DevCycle to the to
     },
     {
       type: 'link',
-      href: '/extras/webhooks',
+      href: '/platform/extras/webhooks',
       description: 'Connect apps and services to DevCycle. ',
       label: 'Webhooks',
       icon: 'ph:webhooks-logo',
@@ -172,8 +172,15 @@ DevCycle APIs, as well as third party integrations to connect DevCycle to the to
     {
       type: 'link',
       href: '/integrations/datadog-rum',
-      label: 'DataDog Feature Tracking',
+      label: 'DataDog RUM Feature Tracking',
       description: 'Associate served feature flags with RUM sessions',
+      icon: 'simple-icons:datadog',
+    },
+    {
+      type: 'link',
+      href: '/integrations/datadog-apm',
+      label: 'DataDog APM Feature Tracking',
+      description: 'Associate served feature flags with APM logs and metrics',
       icon: 'simple-icons:datadog',
     },
     {
@@ -191,5 +198,14 @@ DevCycle APIs, as well as third party integrations to connect DevCycle to the to
         'Send DevCycle Feature/Variation data from Tag Manager to Google Analytics 4 for A/B test analysis',
       icon: 'simple-icons:googleanalytics',
     },
+    {
+      type: 'link',
+      href: '/integrations/rollbar',
+      label: 'Rollbar',
+      description:
+        'Enhance error logging with DevCycle Feature and Variable data',
+      icon: '',
+      customIconPath: '/integrations/rollbar/rollbar-icon.svg'
+    }
   ]}
 />

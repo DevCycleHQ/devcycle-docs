@@ -112,7 +112,7 @@ EdgeDB is only available with Cloud Bucketing and does not have any impact on Lo
 
 :::
 
-EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user. Read more about [EdgeDB](/extras/edgedb).
+EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user. Read more about [EdgeDB](/platform/feature-flags/targeting/edgedb).
 
 To get started, contact us at support@devcycle.com to enable EdgeDB for your project.
 
@@ -142,25 +142,22 @@ This will send a request to our EdgeDB API to save the custom data under the use
 
 In the example, Email and Country are associated to the user `test_user`. In your next variable call for the same `user_id`, you may omit any of the data you've sent already as it will be pulled from the EdgeDB storage when segmenting to experiments and features.
 
-## Enabling Beta Realtime Updates
-:::warning
-This feature is in beta, and may not function as expected. Please ensure that you have the latest version of the SDK.
-:::
+## Realtime Updates
 
-This functionality will reduce the number of polling requests that are made to the DevCycle Config CDN, and instead will
+This feature reduces the number of polling requests that are made to the DevCycle Config CDN, and instead will
 use a long-lived HTTP connection (Server Sent Events) to receive updates when there is a new config available.
 This reduces outbound network traffic, as well as optimizes the SDK for efficiency.
 
-To enable Beta Realtime Updates, pass in the `enableBetaRealtimeUpdates` option to the SDK initialization:
-```javascript
+To disable realtime updates, pass in the `disableRealtimeUpdates` option to the SDK initialization:
+
+```typescript
 const devcycleClient = DevCycle.initializeDevCycle(
   '<DEVCYCLE_SERVER_SDK_KEY>',
   {
-    enableBetaRealtimeUpdates: true,
+    disableRealtimeUpdates: true,
   },
 )
 ```
-
 
 ## Close Client
 

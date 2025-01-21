@@ -218,21 +218,20 @@ that is available from the user getter will be used to provide the values for De
 are received while someone is viewing a statically-rendered page will still trigger a re-render of the page with the
 new configuration data.
 
-If you wish to rebuild your static pages when a DevCycle configuration changes, consider setting up a [DevCycle Webhook](/extras/webhooks) to
+If you wish to rebuild your static pages when a DevCycle configuration changes, consider setting up a [DevCycle Webhook](/platform/extras/webhooks) to
 trigger your build process.
 
 ## Advanced
 ### Non-Blocking Initialization
-If you wish to render your page without waiting for the DevCycle configuration to be retrieved, you can use the
+If you wish to render your page without waiting for the DevCycle configuration to be retrieved, or your "user getter" to resolve, you can use the
 `enableStreaming` option. Doing so enables the following behaviour:
-- the `DevCycleClientsideProvider` will not block rendering of the rest of the server component tree and will trigger the
-nearest `Suspense` boundary while the config is being retrieved.
+- the `DevCycleClientsideProvider` will not block rendering of the rest of the component tree and will trigger the
+nearest `Suspense` boundary while the config is being retrieved or your user getter is being evaluated.
 - any calls to `getVariableValue` in server components or `useVariableValue` in client components
-  will trigger the nearest `Suspense` boundary while the config being retrieved. The component will then stream to
+  will trigger the nearest `Suspense` boundary while the config and user are being retrieved. The component will then stream to
   the client once the config is retrieved.
 
-Note: The DevCycle initialization process is normally very fast (less than 50ms, less than 1ms when cached).
-Only use this option if your application is very performance sensitive.
+This option is recommended if your user retrieval operation is slow enough to delay the page response. Retrieving the DevCycle configuration is normally very fast (less than 50ms) and is unlikely to contribute to delaying the response.
 
 ### Conditional Deferred Rendering (renderIfEnabled)
 When a user makes a request for your application, they are sent the client bundle containing source code for the whole

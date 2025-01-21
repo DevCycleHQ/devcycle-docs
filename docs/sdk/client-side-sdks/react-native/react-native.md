@@ -33,6 +33,12 @@ The React Native SDK is available as a package on npm. A separate React Native E
 
 This SDK is compatible with _React Native_ version 0.64.0 and above.
 
+:::warning
+
+If you are using [Flipper](https://fbflipper.com/) with React Native versions below `0.75.0`, SSE connections (which power real-time updates) will not work on Android unless Flipper is disabled. See [this issue](https://github.com/binaryminds/react-native-sse/issues/61) for more information.
+
+:::
+
 ## React Native Web
 
 To get your React Native Web working with DevCycle, you will need to change one of the rules in the webpack config to include `.cjs` files as one of the file types to be transpiled, e.g.:
