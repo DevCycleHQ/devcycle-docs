@@ -58,9 +58,10 @@
     "yaml": "^2.4.1"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^3.2.1",
-    "@docusaurus/tsconfig": "^3.2.1",
-    "@docusaurus/types": "^3.2.1",
+    "@docusaurus/module-type-aliases": "^3.7.0",
+    "@docusaurus/tsconfig": "^3.7.0",
+    "@docusaurus/types": "^3.7.0",
+    "@tsconfig/docusaurus": "^2.0.3",
     "@iconify-icon/react": "^1.0.8",
     "@types/react": "^18.2.29",
     "typescript": "~5.2.2",
