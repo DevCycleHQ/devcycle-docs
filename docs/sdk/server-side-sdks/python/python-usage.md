@@ -172,25 +172,16 @@ or the SDK is not able to make requests to the DevCycle API directly. The instal
 
 See the [SDK Proxy](../../sdk-proxy/index.md) section for more information.
 
-## Enabling Beta Realtime Updates
-:::warning
-This feature is in beta, and may not function as expected. Please ensure that you have the latest version of the SDK.
-:::
+## Realtime Updates
 
-This functionality will reduce the number of polling requests that are made to the DevCycle Config CDN, and instead will
+This feature reduces the number of polling requests that are made to the DevCycle Config CDN, and instead will
 use a long-lived HTTP connection (Server Sent Events) to receive updates when there is a new config available.
 This reduces outbound network traffic, as well as optimizes the SDK for efficiency.
 
-To enable Beta Realtime Updates, pass in the `enable_beta_realtime_updates` option to the SDK initialization:
+To disable realtime updates, pass in the `disable_realtime_updates` option to the SDK initialization:
 
 ```python
-from devcycle_python_sdk import DevCycleLocalClient, DevCycleLocalOptions
-from devcycle_python_sdk.models.user import DevCycleUser
-import os
+options = DevCycleLocalOptions(disable_realtime_updates=True)
 
-# Create an options object to do custom configurations, or use the defaults
-options = DevCycleLocalOptions(enable_beta_realtime_updates=True)
-
-# create an instance of the DevCycleLocalClient class
 devcycle_client = DevCycleLocalClient(os.environ["DEVCYCLE_SERVER_SDK_KEY"], options)
 ```
