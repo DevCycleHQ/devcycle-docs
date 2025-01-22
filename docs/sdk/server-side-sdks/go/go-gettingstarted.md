@@ -86,7 +86,7 @@ import (
 func main() {
 	sdkKey := os.Getenv("DEVCYCLE_SERVER_SDK_KEY")
 
-	options := devcycle.Options{ 
+	options := devcycle.Options{
 		// Insert Options
 	}
 
@@ -96,23 +96,22 @@ func main() {
 	}
 }
 ```
-```
 
-| DevCycle Option              | Type           | Description                                                                                                                                                                  |
-|------------------------------|----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Logger                       | util.Logger | Logger override to replace default logger                                                              |
-| EnableEdgeDB                 | bool        | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle. <br />NOTE: This is only available with Cloud Bucketing enabled.                                          |
-| EnableCloudBucketing         | bool        | Switches the SDK to use Cloud Bucketing (via the DevCycle Bucketing API) instead of Local Bucketing.                                                                         |
-| EventFlushIntervalMS         | time.Duration         | Controls the interval between flushing events to the DevCycle servers, defaults to 30 seconds.                                                                               |
-| ConfigPollingIntervalMS      | time.Duration         | Controls the polling interval in milliseconds to fetch new environment config changes, defaults to 10 seconds, minimum value is 1 second.                                    |
-| RequestTimeout       | time.Duration         | Controls the request timeout to fetch new environment config changes, defaults to 5 seconds, must be less than the configPollingIntervalMS value, minimum value is 1 second. |
-| DisableAutomaticEventLogging | bool        | Disables logging of sdk generated events (e.g. aggVariableEvaluated, aggVariableDefaulted) to DevCycle.                                                                      |
-| DisableCustomEventLogging    | bool        | Disables logging of custom events, from `track()` method, and user data to DevCycle.                                                                      |
-| DisableETagMatching    | bool        | Contact Support for usage instructions.                                                                      |
-| EnableBetaRealtimeUpdates    | bool        | Enables the usage of Beta Realtime Updates for DevCycle. This feature is currently in beta.                                                                                  |
-| MaxEventQueueSize            | int         | Controls the maximum size the event queue can grow to until events are dropped. Defaults to `2000`.                                                                          |
-| FlushEventQueueSize          | int         | Controls the maximum size the event queue can grow to until a flush is forced. Defaults to `1000`.                                                                           |
-| ConfigCDNURI                  | string         | Contact support for usage instructions.                                                                      |
-| EventsAPIURI                  | string         | Contact support for usage instructions.                                                                      |
-| ClientEventHandler                  | api.ClientEvent         | Async initialization callback handler.                                                                      |
-| BucketingAPIURI                  | string         | Contact support for usage instructions.                                                                      |
+| DevCycle Option              | Type            | Description                                                                                                                                                                  |
+| ---------------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Logger                       | util.Logger     | Logger override to replace default logger                                                                                                                                    |
+| EnableEdgeDB                 | bool            | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle. <br />NOTE: This is only available with Cloud Bucketing enabled.                                  |
+| EnableCloudBucketing         | bool            | Switches the SDK to use Cloud Bucketing (via the DevCycle Bucketing API) instead of Local Bucketing.                                                                         |
+| EventFlushIntervalMS         | time.Duration   | Controls the interval between flushing events to the DevCycle servers, defaults to 30 seconds.                                                                               |
+| ConfigPollingIntervalMS      | time.Duration   | Controls the polling interval in milliseconds to fetch new environment config changes, defaults to 10 seconds, minimum value is 1 second.                                    |
+| RequestTimeout               | time.Duration   | Controls the request timeout to fetch new environment config changes, defaults to 5 seconds, must be less than the configPollingIntervalMS value, minimum value is 1 second. |
+| DisableAutomaticEventLogging | bool            | Disables logging of sdk generated events (e.g. aggVariableEvaluated, aggVariableDefaulted) to DevCycle.                                                                      |
+| DisableCustomEventLogging    | bool            | Disables logging of custom events, from `track()` method, and user data to DevCycle.                                                                                         |
+| DisableETagMatching          | bool            | Contact Support for usage instructions.                                                                                                                                      |
+| DisableRealtimeUpdates       | bool            | Disables the usage of realtime updates SSE connections for DevCycle, will revert to polling against the config CDN.                                                          |
+| MaxEventQueueSize            | int             | Controls the maximum size the event queue can grow to until events are dropped. Defaults to `2000`.                                                                          |
+| FlushEventQueueSize          | int             | Controls the maximum size the event queue can grow to until a flush is forced. Defaults to `1000`.                                                                           |
+| ConfigCDNURI                 | string          | Contact support for usage instructions.                                                                                                                                      |
+| EventsAPIURI                 | string          | Contact support for usage instructions.                                                                                                                                      |
+| ClientEventHandler           | api.ClientEvent | Async initialization callback handler.                                                                                                                                       |
+| BucketingAPIURI              | string          | Contact support for usage instructions.                                                                                                                                      |
