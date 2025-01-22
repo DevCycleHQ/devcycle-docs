@@ -1,6 +1,6 @@
 ---
 title: Feature Obfuscation
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 Feature flags are often used to hide upcoming features before release. Normally, not showing the feature on a UI
