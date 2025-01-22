@@ -1,6 +1,6 @@
 ---
 title: Custom Property Schemas
-sidebar_position: 7
+sidebar_position: 3
 ---
 
 Similar to [Variable Schemas](/platform/security-and-guardrails/variable-schemas.md), Custom Property Schemas allow you to set up a schema and define a list of possible values for a Custom Property, which will appear in a dropdown when setting up Targeting Rules. Labels can be defined for each value to make selections more human-readable and easier to identify. This removes the need to remember valid inputs for a specific Custom Property.

@@ -278,6 +278,10 @@ html[data-theme="dark"] .DocSearch {
   background-image: url(../../static/sidebar/server.svg);
 }
 
+.section-title.sdk-proxy > div >a::before {
+  background-image: url(../../static/sidebar/sdk-proxy.svg);
+}
+
 .section-title.cli-guides > div >a::before{
   background-image: url(../../static/sidebar/cli.svg);
 }
