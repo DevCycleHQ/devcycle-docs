@@ -25,13 +25,15 @@ The benefits of self-hosting are generally understood, but there are also some i
 
 DevCycle's solution focuses on a hybrid approach, where we host the dashboard, but all of the feature flag decision logic can live within your servers and application. With this approach, you get the best of both worlds, maintaining privacy and compliance, while benefiting from our availability guarantees, upgrade cycle, high quality support and economies of scale to drive down total cost. Below we'll dig into the specifics of how we achieve this.
 
+### Core Components
+
 #### Local Bucketing
 
 DevCycle's Local Bucketing SDKs perform all targeting decisions locally inside the server running the SDK. Upon initialization of the SDK, it will download a DevCycle configuration, and all future SDK calls will determine flag values based on the downloaded data and any locally hosted user data, as opposed to other self-hosted solutions that require network requests in order to retrieve flag values. Accessing flag values through the downloaded DevCycle configuration does not require any network request. Instead, the evaluation will be performed locally on your server, allowing for instantaneous response times and guaranteed reliability on SDK calls to your DevCycle configuration.
 
 Local Bucketing is available on all DevCycle server-side SDKs. Find a list of [SDKs here](https://docs.devcycle.com/sdk/).
 
-Organizations that require strict enforcement of data privacy should consider running DevCycle through an SDK proxy and using private custom data on top of the Local Bucketing SDK. More info on those below.
+Organizations that require strict enforcement of data privacy should consider running DevCycle through an SDK proxy and using private custom data on top of the Local Bucketing SDK. If vendor lock-in or vendor flexibility is a big concern, consider using OpenFeature. More info on those below.
 
 #### SDK Proxy
 
@@ -43,7 +45,9 @@ Find out more on our [SDK proxy](https://docs.devcycle.com/sdk/sdk-proxy/) docs.
 
 #### OpenFeature 
 
-OpenFeature...
+DevCycle is part of the OpenFeature ecosystem which is an open standard that provides a vendor-agnostic, community-driven API for feature flagging. OpenFeature allows you to easily hook up your application to any supported Feature Flagging platform and just as easily migrate off of it. This is achieved through a unified API standard shared across all participating vendors in the ecosystem. An integration with DevCycle's OpenFeature provider gives you access to all of the benefits of running DevCycle standalone, while giving you the flexibility of being vendor independent.
+
+Check out the compatible [DevCycle providers here](https://docs.devcycle.com/integrations/openfeature).
 
 #### Private Data & Event Blocking
 
@@ -79,9 +83,9 @@ Using Cloudflare's cloud worker technology, DevCycle's architecture allows it to
 
 It may seem appealing at first to self-host, assuming that you can manage it in a more cost-effective manner. At DevCycle we aim to pass on the affordability that we get from our modern architecture as well as our economies of scale. We deliver trillions of flag evaluations daily, meaning, whether you're using our Local-Bucketing SDKs or making requests to our CDN we can provide those services in a highly cost-effective way.
 
-#### Vendor Independent
+#### Vendor Independence
 
-OpenFeature...
+Vendor lock-in can be frustrating as the cost and effort of moving off a Feature Flagging platform can be challenging. By adopting the OpenFeature standard, you can mitigate that risk and choose the platform that best suites your needs at any given time. OpenFeature SDKs share a universal API that works across all Feature Flagging platforms that have opted into the ecosystem, allowing you to easily switch between providers. DevCycle is part of the this ecosystem and are strong supporters of the OpenFeature movement boasting support for all stable versions of the OpenFeature SDKs. 
 
 ## Conclusion
 
