@@ -1,0 +1,66 @@
+@startuml
+'DevCycle Server SDK Initialization Sequence Diagram
+start
+:new DevCycleClient(sdkKey, options);
+group Constructor/Initialization
+    if (Valid Server SDK Key) then (yes)
+        if (options.UseLocalBucketing) then (yes)
+            fork
+            group Initialize Config Manager
+                :Initialize Config Manager;
+            end group
+            fork again
+            group Initialize Event Manager
+                :Initialize Event Manager;
+            end group
+            fork again
+            if (options.ConfigEventHandler exists) then (yes)
+                fork
+                group Initial Fetch Thread
+                    :Fetch Initial Config;
+                    if (Success) then (yes)
+                        :Initialize Config;
+                    else (no)
+                        if (Retryable Error) then (yes)
+                            :Retry Fetch;
+                        else (no)
+                            :return error to EventHandler;
+                        endif
+                    endif
+                    :Send Initialized Event;
+                end group
+                end fork
+            else (no)
+                :Fetch Initial Config;
+                if (Success) then (yes)
+                    :Initialize Config;
+                else (no)
+                    if (Retryable Error) then (yes)
+                        :Retry Fetch;
+                    else (no)
+                        :Throw error;
+                        kill
+                    endif
+                endif
+            endif
+            end fork
+            if (options.DisableRealtimeUpdates) then (yes)
+                :Start Config Polling Thread;
+            else (no)
+            endif
+        else (no)
+            if (options.ConfigEventHandler exists) then (yes)
+                :Send Initialized Event;
+            else (no)
+            endif
+        endif
+    else (no)
+        :SDK Key Validation Failed;
+        :Throw error;
+        kill
+    endif
+end group
+:Return DevCycleClient;
+stop
+
+@enduml

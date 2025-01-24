@@ -123,21 +123,21 @@ namespace Example {
 }
 ```
 
-| DevCycle Option              | Type           | Description                                                                                                                                                                  |
-|------------------------------|----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| enableEdgeDB                 | bool        | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle. <br />NOTE: This is only available with Cloud Bucketing enabled.                                          |
-| configPollingIntervalMs      | int         | Controls the polling interval in milliseconds to fetch new environment config changes, defaults to 10 seconds, minimum value is 1 second.                                    |
-| configPollingTimeoutMs       | int         | Controls the request timeout to fetch new environment config changes, defaults to 5 seconds, must be less than the configPollingIntervalMS value, minimum value is 1 second. |
-| disableAutomaticEvents | bool        | Disables logging of sdk generated events (e.g. aggVariableEvaluated, aggVariableDefaulted) to DevCycle.                                                                      |
-| disableCustomEvents    | bool        | Disables logging of custom events, from `track()` method, and user data to DevCycle.                                                                                         |
-| flushEventQueueSize          | int         | Controls the maximum size the event queue can grow to until a flush is forced. Defaults to `1000`.                                                                           |
-| maxEventsInQueue            | int         | Controls the maximum size the event queue can grow to until events are dropped. Defaults to `2000`.                                                                          |
-| eventRequestChunkSize            | int         | Count of events to chunk per event upload request. Defaults to `100`.                                                                          |
-| eventFlushIntervalMs            | int         | Controls the interval between flushing events to the DevCycle servers. Defaults to `10000`.                                                                          |
-| cdnUri                  | string         | Contact support for usage instructions.                                                                                       |
-| cdnSlug                  | string         | Contact support for usage instructions.                                                                                       |
-| eventsApiUri                  | string         | Contact support for usage instructions.                                                                                    |
-| eventsApiSlug                  | string         | Contact support for usage instructions.                                                                                     |
-| cdnCustomHeaders                  | Dictionary         | Contact support for usage instructions.                                                                                       |
-| eventsApiCustomHeaders                  | Dictionary         | Contact support for usage instructions.                                                                                       |
-| enableBetaRealtimeUpdates    | bool        | Enables the usage of Beta Realtime Updates for DevCycle. This feature is currently in beta.                                                                                  |
+| DevCycle Option         | Type       | Description                                                                                                                                                                  |
+| ----------------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| enableEdgeDB            | bool       | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle. <br />NOTE: This is only available with Cloud Bucketing enabled.                                  |
+| configPollingIntervalMs | int        | Controls the polling interval in milliseconds to fetch new environment config changes, defaults to 10 seconds, minimum value is 1 second.                                    |
+| configPollingTimeoutMs  | int        | Controls the request timeout to fetch new environment config changes, defaults to 5 seconds, must be less than the configPollingIntervalMS value, minimum value is 1 second. |
+| disableAutomaticEvents  | bool       | Disables logging of sdk generated events (e.g. aggVariableEvaluated, aggVariableDefaulted) to DevCycle.                                                                      |
+| disableCustomEvents     | bool       | Disables logging of custom events, from `track()` method, and user data to DevCycle.                                                                                         |
+| flushEventQueueSize     | int        | Controls the maximum size the event queue can grow to until a flush is forced. Defaults to `1000`.                                                                           |
+| maxEventsInQueue        | int        | Controls the maximum size the event queue can grow to until events are dropped. Defaults to `2000`.                                                                          |
+| eventRequestChunkSize   | int        | Count of events to chunk per event upload request. Defaults to `100`.                                                                                                        |
+| eventFlushIntervalMs    | int        | Controls the interval between flushing events to the DevCycle servers. Defaults to `10000`.                                                                                  |
+| cdnUri                  | string     | Contact support for usage instructions.                                                                                                                                      |
+| cdnSlug                 | string     | Contact support for usage instructions.                                                                                                                                      |
+| eventsApiUri            | string     | Contact support for usage instructions.                                                                                                                                      |
+| eventsApiSlug           | string     | Contact support for usage instructions.                                                                                                                                      |
+| cdnCustomHeaders        | Dictionary | Contact support for usage instructions.                                                                                                                                      |
+| eventsApiCustomHeaders  | Dictionary | Contact support for usage instructions.                                                                                                                                      |
+| disableRealtimeUpdates  | bool       | Disables realtime update SSE connections for DevCycle, reverts back to polling against the config CDN.                                                                       |
