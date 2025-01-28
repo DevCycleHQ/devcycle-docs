@@ -12,7 +12,7 @@ The benefits of self-hosting are generally understood, but there are also some i
 - Data privacy, security and compliance
 - Reliability and control
 - Flexibility
-- Vendor independence
+- Vendor Independence
 
 **Drawbacks of Self-Hosting**
 
