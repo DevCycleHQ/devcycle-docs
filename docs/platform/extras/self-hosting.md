@@ -1,6 +1,6 @@
 ---
 title: Self-Hosted Feature Flags with DevCycle
-sidebar_position: 7
+sidebar_position: 3
 ---
 
 If you are looking for a feature flagging solution there is a chance that you are looking for a solution that is completely self-hosted. Self-hosting is an important feature for many organizations as it provides full control over their infrastructure, typically ensuring enhanced data privacy and compliance, flexibility and control.
@@ -23,7 +23,7 @@ The benefits of self-hosting are generally understood, but there are also some i
 
 ## The Hybrid Approach
 
-DevCycle's solution focuses on a hybrid approach, where we host the dashboard, but all of the feature flag decision logic can live within your servers and application. With this approach, you get the best of both worlds, maintaining privacy and compliance, while benefiting from our availability guarantees, upgrade cycle, high quality support and economies of scale to drive down total cost. Below we'll dig into the specifics of how we achieve this.
+DevCycle's solution focuses on a hybrid approach, where we host the management dashboard, but all of the feature flag decision logic can live within your servers and application. With this approach, you get the best of both worlds, maintaining privacy and compliance, while benefiting from our availability guarantees, upgrade cycle, high quality support and economies of scale to drive down total cost. Below we'll dig into the specifics of how we achieve this.
 
 ### Core Components
 
@@ -85,7 +85,7 @@ It may seem appealing at first to self-host, assuming that you can manage it in 
 
 #### Vendor Independence
 
-Vendor lock-in can be frustrating as the cost and effort of moving off a Feature Flagging platform can be challenging. By adopting the OpenFeature standard, you can mitigate that risk and choose the platform that best suites your needs at any given time. OpenFeature SDKs share a universal API that works across all Feature Flagging platforms that have opted into the ecosystem, allowing you to easily switch between providers. DevCycle is part of the this ecosystem and are strong supporters of the OpenFeature movement boasting support for all stable versions of the OpenFeature SDKs. 
+Vendor lock-in can be frustrating as the cost and effort of moving off a Feature Flagging platform can be challenging. By adopting the OpenFeature standard, you can mitigate that risk and choose the platform that best suits your needs at any given time. OpenFeature SDKs share a universal API that works across all Feature Flagging platforms that have opted into the ecosystem, allowing you to easily switch between providers. DevCycle is part of the this ecosystem and are strong supporters of the OpenFeature movement boasting support for all stable versions of the OpenFeature SDKs. 
 
 ## Conclusion
 
