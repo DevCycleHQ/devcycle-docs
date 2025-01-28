@@ -1,0 +1,64 @@
+@startuml
+'DevCycle Config Manager
+group Config Manager
+group Constructor/Initialization
+start
+    if (options.DisableRealtimeUpdates) then (no)
+        :Start Config Consolidation Thread;
+    else (yes)
+    endif
+stop
+end group
+
+group Config Polling Thread
+start
+    repeat :Polling Interval;
+        if (Polling Enabled) then (yes)
+            :Fetch Config;
+            if (Success) then (yes)
+                :Update Config;
+                :Send Config Updated Event to EventHandler;
+        else (no)
+            repeat :Retry Fetch;
+            repeat while (Retryable Error) is (yes) not (no)
+            :Return error to EventHandler;
+            kill
+        endif
+        else (no)
+        :Cancel Polling;
+        kill
+        endif
+    repeat while (Polling Enabled) is (yes)
+stop
+end group
+
+
+group Config Consolidation Thread
+
+    while (Event Received)
+    switch (Event Type)
+        case ()
+            :New Config Available;
+            :Fetch Config with minimum Last-Modified timestamp;
+        case ()
+            :Config Updated;
+            if (SSE URL is different than existing?) then (yes)
+                :Disable SSE;
+                :Update SSE URL;
+                :Start SSE Connection;
+            else (no)
+            endif
+        case ()
+            :SSE Connection Error;
+            :Disable SSE;
+            :Start Polling Thread;
+        case ()
+            :SSE Connection Success;
+            :Disable Polling;
+    endswitch
+  endwhile
+  -[hidden]->
+  detach
+end group
+end group
+@enduml

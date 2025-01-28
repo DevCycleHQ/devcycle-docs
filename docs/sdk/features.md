@@ -347,3 +347,15 @@ extremely low latency.
 Cloud bucketing is required to use specific features such as [EdgeDB](/platform/feature-flags/targeting/edgedb) and
 [Feature Opt-In](/platform/extras/feature-opt-in). If you aren't using these features, then Local Bucketing
 is the recommended mode.
+
+## Server SDK Diagrams
+
+The following diagrams illustrate the initialization flow, and logical background processes created/managed by the SDKs.
+### Initialization Flow
+![Initialization Flow](/diagrams/server-sdk-initialization.svg)
+
+### Config Manager
+![Config Manager](/diagrams/config-manager.svg)
+
+### Event Manager
+![Event Manager](/diagrams/event-manager.svg)
