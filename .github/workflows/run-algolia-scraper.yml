@@ -5,7 +5,7 @@ on:
 
 jobs:
   wait-for-vercel-deployment:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     permissions:
       contents: read
       id-token: write
@@ -15,21 +15,10 @@ jobs:
       - name: Set Secrets
         uses: DevCycleHQ/aws-secrets-action@main
         with:
-          secrets_map: '{"VERCEL_TOKEN":"DEVCYCLE_GITHUB_devcycle-docs_VERCEL_TOKEN", "ALGOLIA_APPLICATION_ID":"DEVCYCLE_GITHUB_devcycle-docs_ALGOLIA_APPLICATION_ID", "ALGOLIA_API_KEY":"DEVCYCLE_GITHUB_devcycle-docs_ALGOLIA_API_KEY"}'
+          secrets_map: '{"ALGOLIA_APPLICATION_ID":"DEVCYCLE_GITHUB_devcycle-docs_ALGOLIA_APPLICATION_ID", "ALGOLIA_API_KEY":"DEVCYCLE_GITHUB_devcycle-docs_ALGOLIA_API_KEY"}'
           aws_account_id: '134377926370'
-      - uses: UnlyEd/github-action-await-vercel@v1.2.43
-        name: Waits for Vercel deployment to finish
-        id: await-vercel
-        env:
-          VERCEL_TOKEN: ${{ env.VERCEL_TOKEN }}
-        with:
-          deployment-url: ${{ env.VERCEL_DEPLOYMENT_URL }}
-          timeout: 10 # Wait for 10 seconds before failing
-
-      - name: Displays the deployment name (example on how to read information about the deployment)
-        run: "echo The deployment at ${{ fromJson(steps.await-vercel.outputs.deploymentDetails).url }} is ${{ fromJson(steps.await-vercel.outputs.deploymentDetails).readyState }}"
-
       - uses: actions/checkout@v4
+      - run: echo "Waiting for Cloudflare deployment to complete" && sleep 120
 
       - name: Get the content of algolia.json as config
         id: algolia_config

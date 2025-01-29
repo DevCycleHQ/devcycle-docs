@@ -5,8 +5,6 @@
   "private": true,
   "description": "DevCycle Developer Docs",
   "scripts": {
-    "pull:env": "vercel env pull .env",
-    "vercel": "vercel",
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
     "build": "docusaurus build",

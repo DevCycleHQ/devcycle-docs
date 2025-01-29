@@ -333,12 +333,7 @@ const config = {
     },
     DEVCYCLE_CLIENT_SDK_KEY: process.env.DEVCYCLE_CLIENT_SDK_KEY,
   },
-  url:
-    process.env.VERCEL_ENV === 'production'
-      ? 'https://docs.devcycle.com'
-      : process.env.VERCEL_URL
-      ? 'https://' + process.env.VERCEL_URL
-      : 'http://localhost:3000',
+  url: process.env.CF_PAGES_URL ? process.env.CF_PAGES_URL : 'http://localhost:3000',
   baseUrl: '/',
   favicon: 'devcycle_favicon.svg',
   scripts: [
