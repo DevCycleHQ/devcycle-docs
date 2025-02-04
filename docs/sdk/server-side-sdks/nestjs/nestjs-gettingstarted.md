@@ -1,5 +1,5 @@
 ---
-title: Nest.js SDK Getting Started
+title: NestJS SDK Getting Started
 sidebar_label: Getting Started
 sidebar_position: 2
 description: Initializing the SDK
