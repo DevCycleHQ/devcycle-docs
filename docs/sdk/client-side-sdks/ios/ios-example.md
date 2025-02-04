@@ -7,6 +7,6 @@ sidebar_custom_props: { icon: tabler:devices-code }
 ---
 
 
-- [iOS Objective C example](https://github.com/DevCycleHQ/ios-client-sdk/tree/main/Examples/DevCycle-iOS-Example-App-ObjC)
-- [iOS Swift example](https://github.com/DevCycleHQ/ios-client-sdk/tree/main/Examples/DevCycle-iOS-Example-App-Swift)
+- [DevCycle iOS Objective C example](https://github.com/DevCycleHQ/ios-client-sdk/tree/main/Examples/DevCycle-iOS-Example-App-ObjC)
+- [DevCycle iOS Swift example](https://github.com/DevCycleHQ/ios-client-sdk/tree/main/Examples/DevCycle-iOS-Example-App-Swift)
 

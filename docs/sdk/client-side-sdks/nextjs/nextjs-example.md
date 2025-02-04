@@ -7,6 +7,6 @@ sidebar_custom_props: { icon: tabler:devices-code }
 ---
 
 
-- [Next.js App Router example](https://github.com/DevCycleHQ-Labs/example-nextjs-app-router)
-- [Next.js Pages Router example](https://github.com/DevCycleHQ/js-sdks/tree/main/dev-apps/nextjs/pages-router)
+- [DevCycle Next.js App Router example](https://github.com/DevCycleHQ-Labs/example-nextjs-app-router)
+- [DevCycle Next.js Pages Router example](https://github.com/DevCycleHQ/js-sdks/tree/main/dev-apps/nextjs/pages-router)
 

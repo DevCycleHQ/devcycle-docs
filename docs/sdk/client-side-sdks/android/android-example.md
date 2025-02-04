@@ -7,6 +7,6 @@ sidebar_custom_props: { icon: tabler:devices-code }
 ---
 
 
-- [Android Java example](https://github.com/DevCycleHQ/android-client-sdk/tree/main/java-example)
-- [Android Kotlin example](https://github.com/DevCycleHQ/android-client-sdk/tree/main/kotlin-example)
+- [DevCycle Android Java example](https://github.com/DevCycleHQ/android-client-sdk/tree/main/java-example)
+- [DevCycle Android Kotlin example](https://github.com/DevCycleHQ/android-client-sdk/tree/main/kotlin-example)
 
