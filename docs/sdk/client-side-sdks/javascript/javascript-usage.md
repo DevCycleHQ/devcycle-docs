@@ -140,7 +140,7 @@ const features = devcycleClient.allFeatures()
 
 If the SDK has not finished initializing, these methods will return an empty object. Read [Waiting for Features](/sdk/client-side-sdks/javascript/javascript-usage#waiting-for-features) to mitigate this.
 
-See [getFeatures](https://docs.devcycle.com/bucketing-api/#operation/getFeatures) in the Bucketing API for detailed response formats.
+See [getFeatures](https://docs.devcycle.com/bucketing-api/#tag/Bucketing-API/operation/getFeatures) in the Bucketing API for detailed response formats.
 
 ## Get All Variables
 
@@ -152,7 +152,7 @@ const variables = devcycleClient.allVariables()
 
 If the SDK has not finished initializing, these methods will return an empty object. Read [Waiting for Features](/sdk/client-side-sdks/javascript/javascript-usage#waiting-for-features) to mitigate this.
 
-See [getVariables](https://docs.devcycle.com/bucketing-api/#operation/getVariables) in the Bucketing API for detailed response formats.
+See [getVariables](https://docs.devcycle.com/bucketing-api/#tag/Bucketing-API/operation/getVariables) in the Bucketing API for detailed response formats.
 
 :::caution
 

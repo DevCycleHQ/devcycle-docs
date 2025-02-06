@@ -23,7 +23,7 @@ The title of each modification card highlights the change that was made to the F
 
 Click the `View Details` button on each card for more information about each modification.
 
-Modifications are organized by Environment with each card. The color of each Environment tag corresponds to the [color selected for that Environment](/platform/account-management/environments#from-the-dashboard-1).
+Modifications are organized by Environment with each card. The color of each Environment tag corresponds to the [color selected for that Environment](/platform/account-management/environments#creating-a-new-environment).
 
 Items that are added to the Feature will be highlighted in green in the left-hand column of the modification card (see below), and removals or deletions of items will be highlighted in red.
 

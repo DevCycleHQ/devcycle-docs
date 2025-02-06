@@ -117,12 +117,12 @@ Be cautious when editing variable types as any code that is evaluating this vari
 
 To remove a Variable from a feature, simply click on the edit icon next to the variable key and select the option to remove the variable from the variable edit modal.
 
-Removing a Variable from this page does not completely remove the Variable from DevCycle. The Variable will still be visible in the [Variable Dashboard](#variables-dashboard), but it will not be associated with any features.
+Removing a Variable from this page does not completely remove the Variable from DevCycle. The Variable will still be visible in the [Variable Dashboard](#global-variables-dashboard), but it will not be associated with any features.
 
 Taking this action will cause all references to the Variable in any code usage to default only to the default value used in your codebase.
 
 :::info
-To fully delete a Variable you must do so via our [Management API](/management-api/#operation/VariablesController_remove).
+To fully delete a Variable you must do so via our [Management API](/management-api/#tag/Variables/operation/VariablesController_remove).
 :::
 
 

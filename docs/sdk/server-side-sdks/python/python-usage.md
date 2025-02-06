@@ -64,7 +64,7 @@ except Exception as e:
     print(f"Exception when calling DevCycleLocalClient->all_variables: {e}")
 ```
 
-See [getVariables](/bucketing-api/#operation/getVariables) on the Bucketing API for the variable response format.
+See [getVariables](/bucketing-api/#tag/Bucketing-API/operation/getVariables) on the Bucketing API for the variable response format.
 
 :::caution
 
@@ -88,7 +88,7 @@ except Exception as e:
     print(f"Exception when calling DevCycleLocalClient->all_features: {e}")
 ```
 
-See [getFeatures](/bucketing-api/#operation/getFeatures) on the Bucketing API for the feature response format.
+See [getFeatures](/bucketing-api/#tag/Bucketing-API/operation/getFeatures) on the Bucketing API for the feature response format.
 
 ## Track Event
 

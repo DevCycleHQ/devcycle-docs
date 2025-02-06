@@ -86,7 +86,7 @@ And then we want to target the “special” users as we set up above.
 
 ![Targeting Rule Setup](/sept-6-2022-edge-flags-api-8.png)
 
-Enable this feature for your environment, and save it, and now we can test for this user’s features using the [get variables feature in the Bucketing API](/bucketing-api/#operation/getVariables)
+Enable this feature for your environment, and save it, and now we can test for this user’s features using the [get variables feature in the Bucketing API](/bucketing-api/#tag/Bucketing-API/operation/getVariables)
 
 One thing to note is that there must be an `enableEdgeDB=true` flag
 

@@ -39,7 +39,7 @@ downloaded from DevCycle. The SDK makes a call to get the configuration for anon
 
 If you would like to defer initialization of the SDK until your user data is available, you can pass the
 `deferInitialization` option to the `intializeDevCycle` method. This will cause the SDK to not fetch a configuration until the
-[`devcycleClient.identifyUser`](/sdk/client-side-sdks/javascript/javascript-usage#identifying-users) method is called with the user data.
+[`devcycleClient.identifyUser`](/sdk/client-side-sdks/javascript/javascript-usage#identifying-user) method is called with the user data.
 Until that config is retrieved, all calls
 to retrieve variable values will return their default values.
 

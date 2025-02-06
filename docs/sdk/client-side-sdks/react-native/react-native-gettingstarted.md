@@ -20,7 +20,7 @@ To use these providers, you must grab the SDK Key from the DevCycle Dashboard.
 You can optionally pass in a user object to the provider to initialize the SDK.
 If you do not pass in a user to the provider, it will create an anonymous user and initialize the SDK with it.
 You can then call the `identifyUser` method on the client once the user has been authenticated.
-See [Identifying Users & Setting Properties](/sdk/features#identify) for more details.
+See [Identifying Users](/sdk/features#identifying-a-user-or-setting-properties) for more details.
 
 ## Non-Blocking
 

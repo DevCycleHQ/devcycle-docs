@@ -105,7 +105,7 @@ There are no limits to the number of Properties that can be used to define a sin
 
 ## SDK Usage
 
-See the [**Identify**](/sdk/features#identify) Documentation for the usage of properties within each SDK.
+See the [Identify](/sdk/features#identifying-a-user-or-setting-properties) Documentation for the usage of properties within each SDK.
 
 ## Managing / Deleting Custom Properties
 

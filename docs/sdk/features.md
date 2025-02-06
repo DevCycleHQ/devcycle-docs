@@ -233,7 +233,7 @@ identity must be changed during the application's lifecycle.
 :::info
 
 If a user id is not supplied, client-side SDKs will automatically generate a user id and assign it to the current user.
-This id will be cached and used between app sessions / website visits until a user id is supplied or [reset](#reset-user) is
+This id will be cached and used between app sessions / website visits until a user id is supplied or [reset](#resetting-a-user) is
 called. This will ensure you will not experience a rise in MAUs if the main experience of your application is in a logged-out or anonymous state.
 
 :::

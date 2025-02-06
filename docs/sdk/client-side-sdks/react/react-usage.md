@@ -136,7 +136,7 @@ The client object can be obtained from the [useDevCycleClient](#getting-the-devc
 
 If the SDK has not finished initializing, these methods will return an empty object.
 
-See [getVariables](https://docs.devcycle.com/bucketing-api/#operation/getVariables) and [getFeatures](https://docs.devcycle.com/bucketing-api/#operation/getFeatures) on the Bucketing API for the response formats.
+See [getVariables](https://docs.devcycle.com/bucketing-api/#tag/Bucketing-API/operation/getVariables) and [getFeatures](https://docs.devcycle.com/bucketing-api/#tag/Bucketing-API/operation/getFeatures) on the Bucketing API for the response formats.
 
 :::caution
 

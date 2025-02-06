@@ -82,7 +82,7 @@ global.DeviceInfo = DeviceInfo
 
 ## Wrap Application in HOC
 
-Wrap your application component tree in either the `withDevCycleProvider` or `asyncWithDVCProvider` higher-order component (HOC), as explained in the [Getting Started](#getting-started) section.
+Wrap your application component tree in either the `withDevCycleProvider` or `asyncWithDVCProvider` higher-order component (HOC), as explained in the [Getting Started](/sdk/client-side-sdks/react-native/react-native-gettingstarted) section.
 
 ```jsx
 export default withDevCycleProvider({ sdkKey: '<DEVCYCLE_CLIENT_SDK_KEY>' })(
