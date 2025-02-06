@@ -7,7 +7,7 @@ import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 
 # DevCycle Python Server SDK
 
-Welcome to the DevCycle Python Server SDK. There are two modes for the SDK, Local Bucketing (using the local bucketing engine) and Cloud bucketing (using the [DevCycle Bucketing API](/bucketing-api/#tag/devcycle)).
+Welcome to the DevCycle Python Server SDK. There are two modes for the SDK, Local Bucketing (using the local bucketing engine) and Cloud bucketing (using the [DevCycle Bucketing API](/bucketing-api/#tag/Bucketing-API)).
 
 We recommend using the Local Bucketing mode by default, as it performs fast local evaluations of your feature flags.
 If you need access to [EdgeDB](https://docs.devcycle.com/platform/feature-flags/targeting/edgedb) you will need to use the Cloud Bucketing mode of the SDK.

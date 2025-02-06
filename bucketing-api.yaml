@@ -142,6 +142,7 @@ paths:
       summary: Update EdgeDB data based on unique id and project id
       tags:
         - EdgeDB
+      operationId: 'updateEdgeDB'
       parameters:
         - in: path
           name: id
