@@ -1,5 +1,5 @@
 ---
-title: Nest.js SDK Usage
+title: NestJS SDK Usage
 sidebar_label: Usage
 sidebar_position: 3
 description: Using the SDK
@@ -15,7 +15,7 @@ sidebar_custom_props: { icon: material-symbols:toggle-on }
 
 With the DevCycleModule imported, the `DevCycleClient` can be injected into your controllers or providers.
 
-The Nest.js SDK is a wrapper for DevCycle's Node.js SDK. For more information about methods available on the DevCycleClient, see the [Node.js Usage documentation](/sdk/server-side-sdks/node/node-usage).
+The NestJS SDK is a wrapper for DevCycle's Node.js SDK. For more information about methods available on the DevCycleClient, see the [Node.js Usage documentation](/sdk/server-side-sdks/node/node-usage).
 
 ```typescript
 import { DevCycleClient } from '@devcycle/nestjs-server-sdk'
