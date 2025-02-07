@@ -87,7 +87,7 @@ The property _key_ is what will be used for matching while bucketing users.
 **DevCycle Key**
 
 This is an auto-generated field based on the property key.
-This is the key that can be used to reference the property in the [DevCycle Management API](/management-api/#tag/Custom-Properties).
+This is the key that can be used to reference the property in the [DevCycle Management API](https://docs.devcycle.com/management-api/#tag/Custom-Properties).
 
 ## Using an existing Property
 
