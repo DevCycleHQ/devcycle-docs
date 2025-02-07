@@ -1,7 +1,7 @@
 ---
 title: Next.js SDK Typescript Usage
 sidebar_label: Typescript
-sidebar_position: 5
+sidebar_position: 4
 description: SDK features for Typescript users
 sidebar_custom_props: {icon: cib:typescript}
 ---

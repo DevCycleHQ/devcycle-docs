@@ -1,5 +1,5 @@
 ---
-title: Nest.js SDK
+title: NestJS SDK
 ---
 
 import CustomDocCardList from '@site/src/components/CustomDocCardList'

@@ -1,5 +1,5 @@
 ---
-title: Nest.js SDK Typescript Usage
+title: NestJS SDK Typescript Usage
 sidebar_label: Typescript
 sidebar_position: 4
 description: SDK features for Typescript users
@@ -11,7 +11,7 @@ sidebar_custom_props: {icon: cib:typescript}
 
 # Typescript Usage
 
-The DevCycle Nest.js SDK is written in Typescript and includes a full Typescript interface.
+The DevCycle NestJS SDK is written in Typescript and includes a full Typescript interface.
 
 It is also possible to enhance the type safety of the SDK by using the
 [Devcycle CLI](https://docs.devcycle.com/tools-and-integrations/cli) to generate a type definition
