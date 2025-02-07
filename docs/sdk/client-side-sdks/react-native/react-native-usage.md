@@ -84,7 +84,7 @@ const user = {
 devcycleClient.identifyUser(user)
 ```
 
-The client object can be obtained from the [useDevCycleClient](#useDevCycleClient) hook.
+The client object can be obtained from the [useDevCycleClient](#usedevcycleclient) hook.
 
 To wait on Variables that will be returned from the `identify` call, you can pass in a callback or use the Promise returned if no callback is passed in:
 
@@ -106,7 +106,7 @@ To reset the user's identity, call `resetUser`. This will create a new anonymous
 devcycleClient.resetUser()
 ```
 
-The client object can be obtained from the [useDevCycleClient](#useDevCycleClient) hook.
+The client object can be obtained from the [useDevCycleClient](#usedevcycleclient) hook.
 
 To wait on the Features of the anonymous user, you can pass in a callback or use the Promise returned if no callback is passed in:
 
@@ -129,7 +129,7 @@ const features = devcycleClient.allFeatures()
 const variables = devcycleClient.allVariables()
 ```
 
-The client object can be obtained from the [useDevCycleClient](#useDevCycleClient) hook.
+The client object can be obtained from the [useDevCycleClient](#usedevcycleclient) hook.
 
 If the SDK has not finished initializing, these methods will return an empty object.
 
@@ -145,7 +145,7 @@ of other DevCycle features such as [Code Usage detection](/integrations/github/f
 ## Track Events
 
 Events can be tracked by calling the `track` method provided by the client object, which you can access with the
-[useDevCycleClient](#useDevCycleClient) hook. The track method takes an event type as well as other optional fields.
+[useDevCycleClient](#usedevcycleclient) hook. The track method takes an event type as well as other optional fields.
 
 ```js
 const event = {

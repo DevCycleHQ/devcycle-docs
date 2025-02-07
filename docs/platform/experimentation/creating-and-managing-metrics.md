@@ -27,8 +27,8 @@ This section will contain a list of all of the Metrics on the current project, a
 Below is a brief description of each column, with deeper explanations later in this document
 
 - **Name** - The name of the Metric. This name is the human-readable format of the Metric for easily discussing the Metrics. As explained later, the `key` is what will be used within the Management API.
-- **Type** - The "Type" of Metric represents the dimension or calculation used for the Metric. It may be a simple count, or a rate, or an average. These type definitions are described below in "Creating a Metric".
-- **Event** - This is the name of the event sent by the SDKs or APIs which is being used for this Metric.
+- **Type** - The "Type" of Metric which represents the dimension or calculation used for the Metric. It may be a simple count, or a rate, or an average. These type definitions are described below in "Creating a Metric".
+- **Event Type** - This is the name of the event sent by the SDKs or APIs which is being used for this Metric.
 - **Date Modified** - Simple date explaining the last time someone made any modifications to a Metric which may have changed anything significant to the calculated results.
 
 ## Creating a Metric
@@ -41,16 +41,16 @@ Metrics can also be created directly within any Feature from the Experimentation
 
 Upon clicking create, the following modal will show:
 
-![Image of empty creation modal](/june-2022-create-metric-modal.png)
+![Image of empty creation modal](/create-metric-modal.png)
 
 To set up a Metric, the following items are needed:
 
 - **Name** - This is the name of the Metric. It should be descriptive enough that any team member viewing it understands it and can both get the information necessary, and also decide if they would like to re-use the Metric for other Features.
 - **Key** - Like other DevCycle keys, this is how this Metric will be referenced in the Management API and all other non-dashboard interactions with this Metric.
 
-- **Event** - This is the **EXACT** event name that is sent by the [DevCycle Track](/sdk/features#track) methods of the SDKs or via the DevCycle APIs. This event will be used in all calculations of the Metric. How it is used specifically is described below in [How do Metrics get calculated?](/platform/experimentation/creating-and-managing-metrics#how-do-metrics-get-calculated)
+- **Event Type** - This is the **EXACT** event name that is sent by the [DevCycle Track](/sdk/features#tracking-custom-events) methods of the SDKs or via the DevCycle APIs. This event will be used in all calculations of the Metric. How it is used specifically is described below in [How do Metrics get calculated?](/platform/experimentation/creating-and-managing-metrics#how-do-metrics-get-calculated)
 
-- **"Optimize For"** - DevCycle represents Metrics as a positive or negative depending on the desired optimization. Often times, tools will always assume that an increase is beneficial. However, in most engineering applications, the opposite is true! Things such as latency, load times, server load, and processing times are Metrics that should be decreased. DevCycle will make obvious whether a Metric is improving in the desired direction, and will soon notify you if a significant impact in either direction has been made.
+- **Optimize For** - DevCycle represents Metrics as a positive or negative depending on the desired optimization. Often times, tools will always assume that an increase is beneficial. However, in most engineering applications, the opposite is true! Things such as latency, load times, server load, and processing times are Metrics that should be decreased. DevCycle will make obvious whether a Metric is improving in the desired direction, and will soon notify you if a significant impact in either direction has been made.
 
 - **Description** (optional) - A meaningful description explaining what this Metric is for and why it is being tracked. In conjunction with DevCycle's Jira Integration, this can be useful for managers to get a greater depth of information when understanding Metrics.
 
@@ -60,7 +60,7 @@ To set up a Metric, the following items are needed:
 
 When making a Metric, the types of Metrics will contain a small definition
 
-![Type Definitions](/june-2022-create-metric-descriptions.png)
+![Type Definitions](/create-metric-descriptions.png)
 
 **Count per Unique User** - This Metric type calculates the total number of times a unique user (or service) has sent this event. This can be something such as total number of clicks on a new feature, total number of API calls for a new service, total number of of views for a new advertisement, etc. This is also useful for error tracking -- A total count of specific errors is a great Metric to count when monitoring the rollout of a new release of a feature.
 
@@ -146,7 +146,7 @@ Here are some steps you can follow to track metrics within a feature:
 
 ### How do Metrics get calculated?
 
-To calculate Metrics, DevCycle uses [the custom events sent via its API or SDKs](/sdk/features#track). Each Event has the information of which user sent it and which Feature and Variation they were in at that time. For optimal experiments, use Features with variations [randomly distributed across users](/platform/feature-flags/targeting/random-variations).
+To calculate Metrics, DevCycle uses [the custom events sent via its API or SDKs](/sdk/features#tracking-custom-events). Each Event has the information of which user sent it and which Feature and Variation they were in at that time. For optimal experiments, use Features with variations [randomly distributed across users](/platform/feature-flags/targeting/random-variations).
 
 To read more on the queries behind the Metrics, see [How Metrics Are Calculated](/platform/experimentation/how-metrics-are-calculated)
 

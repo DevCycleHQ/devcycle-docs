@@ -43,7 +43,7 @@ try {
 
 The default value can be of type string, boolean, number, or object.
 
-If you would like to get the full Variable object defined by [getVariableByKey](/bucketing-api/#operation/getVariableByKey)
+If you would like to get the full Variable object defined by [getVariableByKey](/bucketing-api/#tag/Bucketing-API/operation/getVariableByKey)
 you can use `variable()` instead of `variableValue()`.
 
 ## Get all Variables
@@ -57,7 +57,7 @@ try {
 }
 ```
 
-See [getVariables](/bucketing-api/#operation/getVariables) on the Bucketing API for the variable response format.
+See [getVariables](/bucketing-api/#tag/Bucketing-API/operation/getVariables) on the Bucketing API for the variable response format.
 
 :::caution
 
@@ -79,7 +79,7 @@ try {
 }
 ```
 
-See [getFeatures](/bucketing-api/#operation/getFeatures) on the Bucketing API for the feature response format.
+See [getFeatures](/bucketing-api/#tag/Bucketing-API/operation/getFeatures) on the Bucketing API for the feature response format.
 
 ## Track Event
 
@@ -118,7 +118,7 @@ $devCycleClient = new DevCycleClient(
 
 ## Async Methods
 
-Each method in the [Usage](#Usage) section has a corresponding asynchronous method:
+Each method in this Usage document has a corresponding asynchronous method:
 
 ```php
 $result = $devcycleClient->allVariables($user_data);
