@@ -105,7 +105,7 @@ many helpful tools to assist with this.
 DevCycle's Code Usages feature allows our system to analyze your source code and automatically identify places
 where a given Variable is being used. 
 The Code Usages feature can be used locally with our CLI, or as part of an [integration with various source control
-systems such as Github and Bitbucket](/integrations#code-analysis).
+systems such as Github and Bitbucket](/integrations/#code-analysis).
 
 #### Locally
 To use it locally, make sure you have the CLI [installed and configured](https://docs.devcycle.com/cli/#setup)
@@ -130,12 +130,12 @@ You can also view usages information locally using the [VSCode Extension](/integ
 will allow you to see usages directly in your editor, and jump to the location in source code.
 
 #### Source Control Integration
-If you have the [Code Insights](/integrations#code-analysis) integration set up with your source control system, you can view the same information
+If you have the [Code Insights](/integrations/#code-analysis) integration set up with your source control system, you can view the same information
 directly in the DevCycle dashboard. 
 
 ![Usages in Dashboard](/code-usages/usage-in-dashboard.png)
 
-To set up the integration, follow the instructions for your source control provider in the [Integrations section](/integrations#code-analysis).
+To set up the integration, follow the instructions for your source control provider in the [Integrations section](/integrations/#code-analysis).
 
 ### CLI Cleanup
 

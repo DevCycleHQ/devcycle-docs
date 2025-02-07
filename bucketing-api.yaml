@@ -188,6 +188,7 @@ paths:
       description: Fetch a project config to display features available for Opt-in
       tags:
         - Feature Opt-in
+      operationId: 'getOptIn'
       parameters:
         - name: sdkKey
           in: query
@@ -221,6 +222,7 @@ paths:
       summary: Update opt-in preferences for a user
       tags:
         - Feature Opt-in
+      operationId: 'updateOptIn'
       parameters:
         - name: sdkKey
           in: query
@@ -258,6 +260,7 @@ paths:
         OFREP Single Flag Evaluation Request
       description:
         Return a single flag for a user context
+      operationId: 'openFeatureGetFlagByKey'
       parameters:
         - name: key
           in: path
@@ -317,6 +320,7 @@ paths:
         OFREP Bulk Evaluation Request
       description:
         Return all flag values for a user context.
+      operationId: 'openFeatureGetFlags'
       parameters:
         - in: header
           name: If-None-Match
