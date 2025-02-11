@@ -27,7 +27,7 @@ Install the OpenFeature React SDK and DevCycle Web Provider:
 
 #### NPM
 ```bash
-npm install @openfeature/react-sdk @devcycle/openfeature-web-provider 
+npm install @openfeature/react-sdk @devcycle/openfeature-react-provider 
 ```
 
 [//]: # (wizard-install-end)
@@ -36,7 +36,7 @@ npm install @openfeature/react-sdk @devcycle/openfeature-web-provider
 If using `yarn` you will need to install further peer-dependencies:
 
 ```bash
-yarn add @openfeature/react-sdk @openfeature/web-sdk @openfeature/core @devcycle/openfeature-web-provider
+yarn add @openfeature/react-sdk @devcycle/openfeature-react-provider @openfeature/web-sdk @openfeature/core 
 ```
 
 ### Getting Started
@@ -48,10 +48,10 @@ which will initialize the DevCycle JS Client SDK internally:
 
 ```typescript jsx
 import { OpenFeatureProvider, useBooleanFlagValue, OpenFeature } from '@openfeature/react-sdk'
-import DevCycleProvider from '@devcycle/openfeature-web-provider'
+import DevCycleReactProvider from '@devcycle/openfeature-react-provider'
 
 await OpenFeature.setContext({ user_id: 'user_id' })
-await OpenFeature.setProviderAndWait(new DevCycleProvider('<DEVCYCLE_CLIENT_SDK_KEY>'))
+await OpenFeature.setProviderAndWait(new DevCycleReactProvider('<DEVCYCLE_CLIENT_SDK_KEY>'))
 
 function App() {
   return (
@@ -93,7 +93,7 @@ Ensure that you pass any custom DevCycleOptions to the DevCycleProvider construc
 const user = { user_id: 'user_id' }
 
 const options = { logger: dvcDefaultLogger({ level: 'debug' }) }
-const devcycleProvider = new DevCycleProvider('<DEVCYCLE_CLIENT_SDK_KEY>', options)
+const devcycleProvider = new DevCycleReactProvider('<DEVCYCLE_CLIENT_SDK_KEY>', options)
 await OpenFeature.setProviderAndWait(devcycleProvider)
 ```
 
