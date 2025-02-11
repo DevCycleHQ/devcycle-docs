@@ -6,7 +6,7 @@ import { Icon } from '@iconify-icon/react'
 import {
   findFirstSidebarItemLink,
   useDocById,
-} from '@docusaurus/theme-common/internal'
+} from '@docusaurus/plugin-content-docs/client'
 import styles from './styles.module.css'
 
 function CardContainer({ href, children }) {
