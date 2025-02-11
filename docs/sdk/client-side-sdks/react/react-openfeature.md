@@ -12,9 +12,7 @@ sidebar_custom_props: { icon: material-symbols:toggle-off }
 
 DevCycle provides a Javascript implementation of the OpenFeature Web Provider interface, if you prefer to use the OpenFeature APIs to interface with DevCycle.
 
-**Note: The OpenFeature React SDK is still in beta, and is subject to change.**
-
-[![Npm package version](https://badgen.net/npm/v/@devcycle/openfeature-web-provider)](https://www.npmjs.com/package/@devcycle/openfeature-web-provider)
+[![Npm package version](https://badgen.net/npm/v/@devcycle/openfeature-react-provider)](https://www.npmjs.com/package/@devcycle/openfeature-react-provider)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/js-sdks/tree/main/examples/openfeature-web)
 
 ## Usage
