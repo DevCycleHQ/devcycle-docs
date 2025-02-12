@@ -16,7 +16,7 @@ DevCycle provides a Java implementation of the [OpenFeature](https://openfeature
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/java-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/java-server-sdk)
 
 ## Installation
-The Provider implementation is built into the Java SDK. 
+The Provider implementation is built into the Java SDK.
 
 [//]: # (wizard-install-start)
 
@@ -66,7 +66,7 @@ public class OpenFeatureExample {
 
         // Set the provider into the OpenFeature API
         OpenFeatureAPI api = OpenFeatureAPI.getInstance();
-        api.setProvider(devCycleClient.getOpenFeatureProvider());
+        api.setProviderAndWait(devCycleClient.getOpenFeatureProvider());
 
         // Get the OpenFeature client
         Client openFeatureClient = api.getClient();
