@@ -7,7 +7,7 @@ import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 
 # Angular OpenFeature SDK with DevCycle Provider
 
-DevCycle supports the [OpenFeature Angular SDK](https://openfeature.dev/docs/reference/technologies/client/web/angular). This SDK is a wrapper around the OpenFeature Web SDK that allows you to use DevCycle variables in your Angular application through the OpenFeature APIs.
+DevCycle supports the [OpenFeature Angular SDK](https://openfeature.dev/docs/reference/technologies/client/web/angular). This SDK is a wrapper around the OpenFeature Web SDK that allows you to use OpenFeature flags in your Angular application through the OpenFeature APIs powered by the [DevCycle Angular Provider](https://www.npmjs.com/package/@devcycle/openfeature-angular-provider).
 
 <CustomDocCardList items={useCurrentSidebarCategory().items} columnWidth={6} />
 
