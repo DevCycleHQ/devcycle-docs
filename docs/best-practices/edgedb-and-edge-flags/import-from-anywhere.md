@@ -9,7 +9,7 @@ Super Segments are collections of users that are targeted by data from any exter
 
 This means that users or their data can be “imported” into DevCycle for targeting in experiments or features by making use of EdgeDB. 
 
-While this can all be handled via the [EdgeDB API](/bucketing-api/#tag/EdgeDB), as outlined in [here](/platform/feature-flags/targeting/edgedb), DevCycle has created a Zapier integration which allows for easy sending of data directly to the desired EdgeDB environment in a project. This makes connecting any tools (like [Amplitude](https://amplitude.com/), [Segment](https://segment.com/) and others) with Zapier integrations directly to DevCycle extremely simple!
+While this can all be handled via the [EdgeDB API](https://docs.devcycle.com/bucketing-api/#tag/EdgeDB), as outlined in [here](/platform/feature-flags/targeting/edgedb), DevCycle has created a Zapier integration which allows for easy sending of data directly to the desired EdgeDB environment in a project. This makes connecting any tools (like [Amplitude](https://amplitude.com/), [Segment](https://segment.com/) and others) with Zapier integrations directly to DevCycle extremely simple!
 
 ## Salesforce Guide
 
