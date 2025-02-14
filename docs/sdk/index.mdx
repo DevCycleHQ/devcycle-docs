@@ -15,7 +15,7 @@ Explore our [SDK Features and Functionality](/sdk/features) to discover how to i
 
 <!--tabs-->
 
-### Client Side SDKs
+## Client Side SDKs
 
 DevCycle client-side SDKs are meant for single-user contexts, such as web browsers and mobile apps. These SDKs retrieve
 their configuration for the current user when they are initialized and any time the user is re-identified. They also
@@ -46,6 +46,13 @@ The current Client-Side SDKs are:
       label: 'Next.js SDK',
       description: 'hidden',
       icon: 'teenyicons:nextjs-solid',
+    },
+    {
+      type: 'link',
+      href: '/sdk/client-side-sdks/angular',
+      label: 'Angular SDK',
+      description: 'hidden',
+      icon: 'simple-icons:angular',
     },
     {
       type: 'link',
@@ -85,7 +92,7 @@ The current Client-Side SDKs are:
   ]}
 />
 
-### Server-Side SDKs
+## Server-Side SDKs
 
 Server-side SDKs are used in multi-user contexts such as backend services, where each call to the SDK will likely be
 for a different user. The user's ID and any other targeting information must be passed in on every SDK function call.
@@ -142,6 +149,89 @@ The current Server-Side SDKs are:
       href: '/sdk/server-side-sdks/dotnet',
       label: '.NET SDK',
       icon: 'simple-icons:dotnet',
+    },
+  ]}
+/>
+
+## OpenFeature Providers
+
+[OpenFeature](https://openfeature.dev/) is an open standard that provides a vendor-agnostic, community-driven SDKs for feature flagging that works natively with DevCycle.
+
+### Client-Side
+
+<CustomDocCardList
+  columnWidth={4}
+  items={[
+    {
+      type: 'link',
+      href: '/sdk/client-side-sdks/javascript/javascript-openfeature',
+      label: 'JavaScript',
+      description: 'hidden',
+      icon: 'simple-icons:javascript',
+    },
+    {
+      type: 'link',
+      href: '/sdk/client-side-sdks/react/react-openfeature',
+      label: 'React',
+      description: 'hidden',
+      icon: 'simple-icons:react',
+    },
+    {
+      type: 'link',
+      href: '/sdk/client-side-sdks/angular',
+      label: 'Angular',
+      description: 'hidden',
+      icon: 'simple-icons:angular',
+    },
+  ]}
+/>
+
+### Server-Side
+
+<CustomDocCardList
+  columnWidth={4}
+  items={[
+    {
+      type: 'link',
+      href: '/sdk/server-side-sdks/node/node-openfeature',
+      label: 'NodeJS',
+      description: 'hidden',
+      icon: 'simple-icons:nodedotjs',
+    },
+    {
+      type: 'link',
+      href: '/sdk/server-side-sdks/go/go-openfeature',
+      label: 'Go',
+      description: 'hidden',
+      icon: 'simple-icons:go',
+    },
+    {
+      type: 'link',
+      href: '/sdk/server-side-sdks/java/java-openfeature',
+      label: 'Java',
+      description: 'hidden',
+      icon: 'la:java',
+    },
+    {
+      type: 'link',
+      href: '/sdk/server-side-sdks/dotnet/dotnet-openfeature',
+      label: '.NET / C#',
+      description: 'hidden',
+      icon: 'simple-icons:dotnet',
+    },
+    {
+      type: 'link',
+      href: '/sdk/server-side-sdks/python/python-openfeature',
+      label: 'Python',
+      description: 'hidden',
+      icon: 'simple-icons:python',
+    },
+    {
+      type: 'link',
+      href: '/sdk/server-side-sdks/php/php-openfeature',
+      label: 'PHP',
+      description: 'hidden',
+      icon: 'simple-icons:php',
     },
   ]}
 />
