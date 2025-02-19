@@ -13,7 +13,7 @@ If a Feature is marked as stale, DevCycle encourages users to take action by upd
 
 ## Stale Feature Reasons 
 
-Features can belong to one of the following staleness reaons:
+Features can belong to one of the following staleness reasons:
 
 ### Unmodified 
 
