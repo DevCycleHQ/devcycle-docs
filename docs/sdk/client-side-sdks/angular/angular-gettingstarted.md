@@ -42,8 +42,9 @@ OpenFeature.setContext({
   bootstrap: [AppComponent],
 })
 export class AppModule {}
-
 ```
+
+[//]: # (wizard-initialize-end)
 
 :::info
 
@@ -55,7 +56,6 @@ It’s best to initialize DevCycle in your root module, so that it can be initia
 
 For DevCycle SDK to work we require either a `targetingKey` or `user_id` to be set on the OpenFeature context. This is used to identify the user as the user_id for a DevCycleUser in DevCycle.
 
-[//]: # (wizard-initialize-end)
 
 ### Context properties to DevCycleUser
 
