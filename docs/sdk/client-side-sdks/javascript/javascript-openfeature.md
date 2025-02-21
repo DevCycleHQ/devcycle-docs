@@ -113,7 +113,7 @@ This is used to identify the user as the `user_id` for a `DevCycleUser` in DevCy
 ### Context properties to DevCycleUser
 
 The provider will automatically translate known `DevCycleUser` properties from the OpenFeature context to the `DevCycleUser` object.
-[DevCycleUser TypeScript Interface](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/nodejs/src/models/user.ts#L16)
+[DevCycleUser TypeScript Interface](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L145-L201)
 
 For example all these properties will be set on the `DevCycleUser`:
 
