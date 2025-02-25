@@ -1,4 +1,5 @@
 ---
+id: key-features
 title: Key Features
 sidebar_position: 2
 ---
