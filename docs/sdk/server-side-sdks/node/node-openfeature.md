@@ -11,20 +11,20 @@ sidebar_custom_props: { icon: material-symbols:toggle-off }
 OpenFeature is an open standard that provides a vendor-agnostic, community-driven API for feature flagging that works with DevCycle.
 
 DevCycle provides a NodeJS implementation of the [OpenFeature](https://openfeature.dev/) Provider interface
-directly from the SDK using the `getOpenFeatureProvider()` method.
+directly from the SDK using the `DevCycleProvider` class.
 
 ## Usage
 
 ### Installation
 
-Install the DevCycle NodeJS Server SDK and the OpenFeature Server SDK peer dependencies:
+Install the DevCycle NodeJS Server SDK which includes the OpenFeature Server SDK as a dependency
 
 #### NPM
 
 [//]: # (wizard-install-start)
 
 ```bash
-npm install --save @devcycle/nodejs-server-sdk @openfeature/server-sdk @openfeature/core
+npm install --save @devcycle/nodejs-server-sdk
 ```
 
 [//]: # (wizard-install-end)
@@ -32,26 +32,26 @@ npm install --save @devcycle/nodejs-server-sdk @openfeature/server-sdk @openfeat
 #### Yarn
 
 ```bash
-yarn add @devcycle/nodejs-server-sdk @openfeature/server-sdk @openfeature/core
+yarn add @devcycle/nodejs-server-sdk
 ```
 
 ### Getting Started
 
 [//]: # (wizard-initialize-start)
 
-Initialize the DevCycle SDK and set the DevCycleProvider as the provider for OpenFeature:
+Create the DevCycleProvider and set it as the provider for OpenFeature:
 
 ```typescript
 import { OpenFeature, Client } from '@openfeature/server-sdk'
-import { initializeDevCycle } from '@devcycle/nodejs-server-sdk'
+import { DevCycleProvider } from '@devcycle/nodejs-server-sdk'
 
 const { DEVCYCLE_SERVER_SDK_KEY } = process.env
 ...
 
-// Initialize the DevCycle SDK
-const devcycleClient = initializeDevCycle(DEVCYCLE_SERVER_SDK_KEY)
-// Set the provider for OpenFeature from the DevCycleClient
-await OpenFeature.setProviderAndWait(await devcycleClient.getOpenFeatureProvider())
+// Create the DevCycleProvider
+const devcycleProvider = new DevCycleProvider(DEVCYCLE_SERVER_SDK_KEY)
+// Set the provider for OpenFeature
+await OpenFeature.setProviderAndWait(devcycleProvider)
 // Create the OpenFeature client
 openFeatureClient = OpenFeature.getClient()
 ```
@@ -91,14 +91,23 @@ To track custom events with OpenFeature you are required to set the first argume
 
 ### Passing DevCycleOptions to the DevCycleProvider
 
-Ensure that you pass any custom DevCycleOptions set on the `DevCycleClient` instance to the DevCycleProvider constructor
+Ensure that you pass any custom `DevCycleOptions` set on the `DevCycleClient` instance to the `DevCycleProvider` constructor
 
 ```typescript
 const options = { logger: dvcDefaultLogger({ level: 'debug' }) }
-const devcycleClient = initializeDevCycle(DEVCYCLE_SERVER_SDK_KEY, options)
-await OpenFeature.setProviderAndWait(
-  await devcycleClient.getOpenFeatureProvider(),
-)
+const devcycleProvider = new DevCycleProvider(DEVCYCLE_SERVER_SDK_KEY, options)
+await OpenFeature.setProviderAndWait(devcycleProvider)
+```
+
+### Accessing the DevCycleClient
+
+If you need to access the underlying `DevCycleClient` from the provider, it is exposed using `provider.devcycleClient`:
+
+```typescript
+const devcycleProvider = new DevCycleProvider(DEVCYCLE_SERVER_SDK_KEY)
+await OpenFeature.setProviderAndWait(devcycleProvider)
+...
+const allFeatures = devcycleProvider.devcycleClient.allFeatures(dvcUser)
 ```
 
 ### Required TargetingKey
