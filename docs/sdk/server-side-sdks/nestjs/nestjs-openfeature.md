@@ -1,5 +1,5 @@
 ---
-title: Node.js OpenFeature Provider
+title: NestJS OpenFeature Provider
 sidebar_label: OpenFeature
 sidebar_position: 4
 description: How to implement the OpenFeature Provider
