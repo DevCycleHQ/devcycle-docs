@@ -43,10 +43,10 @@ Create the `DevCycleProvider` and set it as the provider for OpenFeature NestJS 
 ```typescript
 import { Module, OnModuleInit } from '@nestjs/common';
 import { OpenFeatureModule } from '@openfeature/nestjs-sdk';
-import { DevCycleProvider } from '@devcycle/openfeature-nestjs-provider';
+import { DevCycleNestJSProvider } from '@devcycle/openfeature-nestjs-provider';
 import { OpenFeature } from '@openfeature/server-sdk';
 
-const provider = new DevCycleProvider(process.env.DEVCYCLE_SERVER_SDK_KEY);
+const provider = new DevCycleNestJSProvider(process.env.DEVCYCLE_SERVER_SDK_KEY);
 
 @Module({
   imports: [
