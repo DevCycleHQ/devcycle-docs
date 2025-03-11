@@ -122,15 +122,19 @@ The response is the following general format, with slight changes depending on t
 ```json
 {
   "your-cool-feature": {
-    "_id": "123456",
     "key": "your-cool-feature",
     "type": "release",
+    "variationKey": "variation-on",
+    "variationName": "Variation On",
+    "_id": "123456",
     "_variation": "333345"
   },
   "another-feature": {
-    "_id": "123456",
     "key": "another-feature",
     "type": "ops",
+    "variationKey": "enabled",
+    "variationName": "Enabled",
+    "_id": "123456",
     "_variation": "444123"
   }
 }
