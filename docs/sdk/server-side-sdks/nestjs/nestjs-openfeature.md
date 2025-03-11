@@ -1,17 +1,16 @@
 ---
-title: Node.js OpenFeature Provider
+title: NestJS OpenFeature Provider
 sidebar_label: OpenFeature
 sidebar_position: 4
 description: How to implement the OpenFeature Provider
 sidebar_custom_props: { icon: material-symbols:toggle-off }
 ---
 
-# OpenFeature Provider
+# OpenFeature NestJS Provider
 
-OpenFeature is an open standard that provides a vendor-agnostic, community-driven API for feature flagging that works with DevCycle.
+[OpenFeature](https://openfeature.dev/) is an open standard that provides a vendor-agnostic, community-driven API for feature flagging that works with DevCycle.
 
-DevCycle provides a NodeJS implementation of the [OpenFeature](https://openfeature.dev/) Provider interface
-directly from the SDK using the `DevCycleProvider` class.
+DevCycle provides a NodeJS implementation of the [OpenFeature](https://openfeature.dev/) Provider interface for the [OpenFeature NestJS SDK](https://openfeature.dev/docs/reference/technologies/server/javascript/nestjs/) using the `DevCycleProvider` class.
 
 ## Usage
 
@@ -24,7 +23,7 @@ Install the DevCycle NodeJS Server SDK which includes the OpenFeature Server SDK
 [//]: # (wizard-install-start)
 
 ```bash
-npm install --save @devcycle/nodejs-server-sdk
+npm install --save @devcycle/openfeature-nestjs-provider @openfeature/nestjs-sdk
 ```
 
 [//]: # (wizard-install-end)
@@ -32,28 +31,46 @@ npm install --save @devcycle/nodejs-server-sdk
 #### Yarn
 
 ```bash
-yarn add @devcycle/nodejs-server-sdk
+yarn add @devcycle/openfeature-nestjs-provider @openfeature/nestjs-sdk
 ```
 
 ### Getting Started
 
 [//]: # (wizard-initialize-start)
 
-Create the DevCycleProvider and set it as the provider for OpenFeature:
+Create the `DevCycleProvider` and set it as the provider for OpenFeature NestJS SDK:
 
 ```typescript
-import { OpenFeature, Client } from '@openfeature/server-sdk'
-import { DevCycleProvider } from '@devcycle/nodejs-server-sdk'
+import { Module, OnModuleInit } from '@nestjs/common';
+import { OpenFeatureModule } from '@openfeature/nestjs-sdk';
+import { DevCycleNestJSProvider } from '@devcycle/openfeature-nestjs-provider';
+import { OpenFeature } from '@openfeature/server-sdk';
 
-const { DEVCYCLE_SERVER_SDK_KEY } = process.env
-...
+const provider = new DevCycleNestJSProvider(process.env.DEVCYCLE_SERVER_SDK_KEY);
 
-// Create the DevCycleProvider
-const devcycleProvider = new DevCycleProvider(DEVCYCLE_SERVER_SDK_KEY)
-// Set the provider for OpenFeature
-await OpenFeature.setProviderAndWait(devcycleProvider)
-// Create the OpenFeature client
-openFeatureClient = OpenFeature.getClient()
+@Module({
+  imports: [
+    ...
+    OpenFeatureModule.forRoot({
+      contextFactory: () => ({
+        targetingKey: 'nestjs-test'
+      }),
+    }),
+  ],
+  controllers: [...],
+  providers: [
+    ...
+    {
+      provide: 'DVC_CLIENT',
+      useValue: provider.devcycleClient,
+    },
+  ],
+})
+export class AppModule implements OnModuleInit {
+  async onModuleInit() {
+    await OpenFeature.setProviderAndWait(provider);
+  }
+}
 ```
 
 [//]: # (wizard-initialize-end)
@@ -62,14 +79,29 @@ openFeatureClient = OpenFeature.getClient()
 
 [//]: # (wizard-evaluate-start)
 
-Use a Variable value by creating the EvaluationContext, then passing the Variable key, default value, and EvaluationContext to one of the OpenFeature flag evaluation methods.
+To use the OpenFeature NestJS SDK in a service first inject the OpenFeatureClient into the service.
+Then use a Variable value by creating the EvaluationContext, and pass the Variable key, default value, and EvaluationContext to one of the OpenFeature flag evaluation methods.
 
 ```typescript
-// Set the context for the OpenFeature client, you can use 'targetingKey' or 'user_id'
-const context = { targetingKey: 'node_sdk_test' }
+import { Injectable, Inject } from '@nestjs/common';
+import { OpenFeatureClient, Client } from '@openfeature/nestjs-sdk';
 
-// Retrieve a boolean flag from the OpenFeature client
-const boolFlag = await openFeatureClient.getBooleanValue('boolean-flag', false, context)
+const SERVICE_USER = { user_id: 'example-service' };
+
+@Injectable()
+export class ExampleService {
+  constructor(
+    @OpenFeatureClient() private ofClient: Client,
+  ) {}
+
+  async testFlag() {
+    const testFlag = await this.ofClient.getBooleanValue(
+      'test-flag',
+      false,
+      SERVICE_USER,
+    );
+  }
+}
 ```
 
 [//]: # (wizard-evaluate-end)
@@ -96,7 +128,6 @@ Ensure that you pass any custom `DevCycleOptions` set on the `DevCycleClient` in
 ```typescript
 const options = { logger: dvcDefaultLogger({ level: 'debug' }) }
 const devcycleProvider = new DevCycleProvider(DEVCYCLE_SERVER_SDK_KEY, options)
-await OpenFeature.setProviderAndWait(devcycleProvider)
 ```
 
 ### Accessing the DevCycleClient
@@ -105,7 +136,6 @@ If you need to access the underlying `DevCycleClient` from the provider, it is e
 
 ```typescript
 const devcycleProvider = new DevCycleProvider(DEVCYCLE_SERVER_SDK_KEY)
-await OpenFeature.setProviderAndWait(devcycleProvider)
 ...
 const allFeatures = devcycleProvider.devcycleClient.allFeatures(dvcUser)
 ```

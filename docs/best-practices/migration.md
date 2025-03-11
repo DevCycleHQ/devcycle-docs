@@ -61,13 +61,12 @@ npm install @openfeature/multi-provider
 ```tsx
 import { MultiProvider } from '@openfeature/multi-provider';
 import { OpenFeature } from '@openfeature/server-sdk';
-import { initializeDevCycle } from '@devcycle/nodejs-server-sdk';
+import { DevCycleProvider } from '@devcycle/nodejs-server-sdk';
 
 // DevCycle Provider Setup
 const { DEVCYCLE_SDK_KEY } = process.env;
 const user = { user_id: "user_id" };
-const devcycleClient = initializeDevCycle(DEVCYCLE_SDK_KEY);
-const devcycleProvider = await devcycleClient.getOpenFeatureProvider();
+const devcycleProvider = new DevCycleProvider(DEVCYCLE_SDK_KEY);
 
 // Existing Provider Setup
 const existingProvider = new ExistingProvider();
