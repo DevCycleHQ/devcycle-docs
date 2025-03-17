@@ -5,7 +5,7 @@ sidebar_position: 6
 
 DevCycle uses User ID as the primary key for delivering variations, rolling out a feature, and randomizing distribution. However, there are cases in which a User ID is not the primary identifier of the request to DVC, thus making the usage of DevCycle features, specifically Gradual Rollouts, difficult in these scenarios. 
 
-This functionality allows you to set a [Custom Property](docs/platform/feature-flags/targeting/custom-properties.md) as the key to rollout / distribute on rather than User ID. Account, Organization, Tenant or Store IDs are some commonly used examples.  At DevCycle, we use this feature to gradually roll out new functionality on an organization-by-organization basis rather than on a user-by-user basis to ensure all users in the same org see the same features.
+This functionality allows you to set a [Custom Property](docs/platform/feature-flags/targeting/custom-properties.md) as the key to rollout / distribute on rather than User ID. Account, Organization, Tenant or Store IDs are some commonly used examples.  At DevCycle, we use this feature to gradually roll out new functionality on an organization-by-organization basis rather than on a user-by-user basis to ensure all users in the same organization see the same features.
 
 ## Minimum Supported Server SDK Versions
 
@@ -65,6 +65,6 @@ If you want to ensure that you only rollout and/or distribute variants to users 
 
 ## Experimentation using a Custom Property for Randomization
 
-In terms of Experimentation, randomization based on Custom Properties allows you to distribute variants/treatments to a `Custom Property` rather than a `User ID`. This gives you more flexibility to Experiment and A/B test on groups of users that are defined by your custom properties, or by another identifier that is not the User ID.
+In terms of Experimentation, randomization based on Custom Properties allows you to rollout specific variations of your application to user groups that share the same `Custom Property`. This gives you more flexibility to Experiment and A/B test on groups of users that are defined by your custom properties, or by another identifier that is not the User ID.
 
 Learn more about Random Distribution within the context of Experimentation on the [Feature Experimentation](https://docs.devcycle.com/platform/experimentation/feature-experimentation/#experimentation-using-a-custom-property-for-randomization) page.
