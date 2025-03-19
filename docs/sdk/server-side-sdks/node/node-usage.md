@@ -18,8 +18,10 @@ The rest are optional and are used by the system for user segmentation into vari
 
 [DevCycleUser Typescript Schema](https://github.com/search?q=repo%3ADevCycleHQ%2Fjs-sdks+export+interface+DevCycleUser+language%3ATypeScript+path%3A*types.ts&type=code)
 
-```javascript
-const user = {
+```typescript
+import { DevCycleUser } from '@devcycle/nodejs-server-sdk'
+
+const user: DevCycleUser = {
   user_id: 'user1@devcycle.com',
   name: 'user 1 name',
   customData: {
@@ -36,7 +38,7 @@ variable `key`, coupled with a default value for the variable. The default varia
 the user is not segmented into a feature using that variable, or the project configuration is unavailable
 to be fetched from DevCycle's CDN.
 
-```javascript
+```typescript
 const value = devcycleClient.variableValue(user, '<YOUR_VARIABLE_KEY>', false)
 if (value) {
   // Feature Flag on
@@ -54,7 +56,7 @@ you can use `devcycleClient.variable()` instead. This contains fields such as:
 
 To grab all the segmented variables for a user:
 
-```javascript
+```typescript
 const variables = devcycleClient.allVariables(user)
 ```
 
@@ -75,13 +77,13 @@ You can fetch all segmented features for a user:
 
 [DVCFeature Typescript Schema](https://github.com/search?q=repo%3ADevCycleHQ%2Fjs-sdks+%22export+type+DVCFeature%22+language%3ATypeScript+path%3A*types.ts&type=code)
 
-```javascript
+```typescript
 const features = devcycleClient.allFeatures(user)
 ```
 
 See [getFeatures](/bucketing-api/#tag/Bucketing-API/operation/getFeatures) on the Bucketing API for the feature response format.
 
-## Tracking User Events
+## Track User Events
 
 Track a custom event for a user, pass in the user and event object.
 
@@ -90,6 +92,8 @@ Calling Track will queue the event, which will be sent in batches to the DevCycl
 [DevCycleEvent Typescript Schema](https://github.com/search?q=repo%3ADevCycleHQ%2Fjs-sdks+export+interface+DevCycleEvent+language%3ATypeScript+path%3A*types.ts&type=code)
 
 ```typescript
+import { DevCycleEvent } from '@devcycle/nodejs-server-sdk'
+
 const event: DevCycleEvent = {
   type: 'customType',
   target: 'new_subscription',
@@ -97,6 +101,20 @@ const event: DevCycleEvent = {
   date: Date.now(),
 }
 devcycleClient.track(user, event)
+```
+
+## Set Client Custom Data
+
+To assist with segmentation and bucketing you can set a custom data map that will be used for all variable and feature evaluations. User specific custom data will override client custom data.
+
+```typescript
+import { DVCCustomDataJSON } from '@devcycle/nodejs-server-sdk'
+
+const customData: DVCCustomDataJSON = {
+  'some-key': 'some-value'
+}
+
+await devcycleClient.setClientCustomData(customData)
 ```
 
 ## Flush Events
@@ -118,10 +136,10 @@ To get started, contact us at support@devcycle.com to enable EdgeDB for your pro
 
 Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to turn on EdgeDB mode for the SDK:
 
-```javascript
-const DevCycle = require('@devcycle/nodejs-server-sdk')
+```typescript
+import { initializeDevCycle, DevCycleUser } from '@devcycle/nodejs-server-sdk'
 
-const devcycleClient = DevCycle.initializeDevCycle(
+const devcycleClient = initializeDevCycle(
   '<DEVCYCLE_SERVER_SDK_KEY>',
   {
     enableCloudBucketing: true,
@@ -129,7 +147,7 @@ const devcycleClient = DevCycle.initializeDevCycle(
   },
 )
 
-const user = {
+const user: DevCycleUser = {
   user_id: 'test_user',
   email: 'example@example.ca',
   country: 'CA',
@@ -151,7 +169,9 @@ This reduces outbound network traffic, as well as optimizes the SDK for efficien
 To disable realtime updates, pass in the `disableRealtimeUpdates` option to the SDK initialization:
 
 ```typescript
-const devcycleClient = DevCycle.initializeDevCycle(
+import { initializeDevCycle } from '@devcycle/nodejs-server-sdk'
+
+const devcycleClient = initializeDevCycle(
   '<DEVCYCLE_SERVER_SDK_KEY>',
   {
     disableRealtimeUpdates: true,
