@@ -114,7 +114,7 @@ const customData: DVCCustomDataJSON = {
   'some-key': 'some-value'
 }
 
-await devcycleClient.setClientCustomData(customData)
+devcycleClient.setClientCustomData(customData)
 ```
 
 ## Flush Events
