@@ -92,7 +92,7 @@ client.track(user, event);
 
 ## Set Client Custom Data
 
-To assist with segmentation and bucketing you can set a custom data map that will be used for all variable and feature evaluations. User specific custom data will override client custom data.
+To assist with segmentation and bucketing you can set a custom data map that will be used for all variable and feature evaluations. User specific `customData` or `privateCustomData` will override client custom data.
 
 ```java
 // create a map of custom data
