@@ -122,7 +122,7 @@ Removing a Variable from this page does not completely remove the Variable from 
 Taking this action will cause all references to the Variable in any code usage to default only to the default value used in your codebase.
 
 :::info
-To fully delete a Variable you must do so via our [Management API](/management-api/#tag/Variables/operation/VariablesController_remove).
+To fully delete a Variable you must do so via our [Management API](https://docs.devcycle.com/management-api/#tag/Variables/operation/VariablesController_remove).
 :::
 
 

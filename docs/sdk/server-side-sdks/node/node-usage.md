@@ -60,7 +60,7 @@ To grab all the segmented variables for a user:
 const variables = devcycleClient.allVariables(user)
 ```
 
-See [getVariables](/bucketing-api/#tag/Bucketing-API/operation/getVariables) on the Bucketing API for the variable response format.
+See [getVariables](https://docs.devcycle.com/bucketing-api/#tag/Bucketing-API/operation/getVariables) on the Bucketing API for the variable response format.
 
 :::caution
 
@@ -81,7 +81,7 @@ You can fetch all segmented features for a user:
 const features = devcycleClient.allFeatures(user)
 ```
 
-See [getFeatures](/bucketing-api/#tag/Bucketing-API/operation/getFeatures) on the Bucketing API for the feature response format.
+See [getFeatures](https://docs.devcycle.com/bucketing-api/#tag/Bucketing-API/operation/getFeatures) on the Bucketing API for the feature response format.
 
 ## Track User Events
 
