@@ -95,19 +95,19 @@ Your billing info including current plan and the payment information associated 
 
 On this page you'll be presented with three sections.
 
-1. Your Plan
-2. Payment Method
-3. Cancel Subscription
+1. Current Plan
+2. Payment Settings
+3. Account Usage
 
-**1. Your Plan**
+**1. Current Plan**
 
 This section of the Billing & Plan page shows the currently active plan for your Organization. It provides a description of what's available on that plan and what capacity you can expect.
 
-From this section you can also review other plan tiers and upgrade by clicking the "Change Plan" button.
+From this section you can also review other plan tiers and upgrade by clicking the "Change Plan" button. 
 
-**2. Payment Method**
+**2. Payment Settings**
 
-This section allows you to add a credit card if you have not already done so.
+This section allows you to update the email where invoices will be sent to, and add or update your payment method.
 
 :::tip
 
@@ -115,8 +115,12 @@ If you are currently seeing a notification that you have time remaining in your 
 
 :::
 
-If your card has expired or if you would like to switch your payment method you can also update your payment method here.
+**3. Account Usage**
 
-**3. Cancel Subscription**
+This section charts the trailing number of client-side **Monthly Active Users (MAU)** and **Experimentation Events** that have accumulated over the billing period.
 
-If you need to cancel your subscription for any reason just use the "contact sales" button to send us a message and someone from our customer success team will help you.
+| Term | Definition |
+| - | - |
+| Monthly Active Users (MAU) | MAUs are unique users who initialize a client-side SDK at least once within a month. Users are identified by a `userId` which is set during SDK [initialization](/sdk/features#initialization) or via an [identify](/sdk/features#identifying-a-user-or-setting-properties) request. If no `userId` is provided during initialization, an [anonymous userId](/sdk/features#anonymous-users) is assigned automatically. Both identified and anonymous users are included in the MAU calculation. |
+| Experimentation Events | Experimentation events are [Custom Events](/sdk/features#tracking-custom-events) that are initiated via an SDK and serve as a foundation for tracking custom [Metrics](/platform/experimentation/creating-and-managing-metrics/). |
+
