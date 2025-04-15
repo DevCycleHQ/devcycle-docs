@@ -66,7 +66,6 @@ You can find a list of stale Features on the main landing page of DevCycle.
 ![image of home page](/nov-2024-stale-feat-home-page.png)
 
 On the **Feature List** page, stale Features are marked with an exclamation point next to their status label. Hover over the status to see the specific staleness reason.
-diff
 
 ![image of list page hover](/nov-2024-stale-feat-list-page-hover.png)
 
