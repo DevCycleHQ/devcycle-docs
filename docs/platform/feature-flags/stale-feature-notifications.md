@@ -54,7 +54,7 @@ Only **Organization Owners** can enable or disable these notifications.
 
 Use the dropdown to select **Enabled**. From there, choose which types of staleness you want DevCycle to monitor.
 
-*Note:* Feature Staleness checks are ran every 24 hours at midnight UTC.
+*Note:* Feature Staleness checks are run every 24 hours at midnight UTC.
 
 ![image of settings page](/apr-2025-stale-flag-settings-email.png)
 
