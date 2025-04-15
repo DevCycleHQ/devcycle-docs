@@ -4,7 +4,7 @@ sidebar_position: 5
 ---
 
 :::info
-Stale Feature Notifications are a Business feature. To learn more, read about our [pricing](https://devcycle.com/pricing). To upgrade your plan, please update your plan on your Billing Information page which can be found in your organization's Settings, or contact [Sales](mailto:sales@devcycle.com).
+Stale Feature Notifications are a **Business / Enterprise** feature. To learn more, read about our [pricing](https://devcycle.com/pricing). To upgrade your plan, please update your plan on your Billing Information page which can be found in your organization's Settings, or contact [Sales](mailto:sales@devcycle.com).
 :::
 
 Stale Features are identified based on specific conditions associated with their usage, modifications, and Feature type. DevCycle will alert you when a Feature has been qualified as potentially stale to help ensure that Features are surfaced for cleanup. 
@@ -54,8 +54,7 @@ Only **Organization Owners** can enable or disable these notifications.
 
 Use the dropdown to select **Enabled**. From there, choose which types of staleness you want DevCycle to monitor.
 
-
-Use the dropdown and select **Enabled**. From there, you can specify which types of staleness you want DevCycle to check for.
+*Note:* Feature Staleness checks are ran every 24 hours at midnight UTC.
 
 ![image of settings page](/apr-2025-stale-flag-settings-email.png)
 
