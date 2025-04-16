@@ -9,7 +9,7 @@ To view the current Organization (or change Organizations) click on your user av
 
 :::tip
 
-[Granular permissions](/platform/security-and-guardrails/permissions) are only available on business or enterprise plans, if you'd like to turn on permissions message us at support[at]devcycle.com
+[Granular permissions](/platform/security-and-guardrails/permissions) are only available on Business or Enterprise plans. If you'd like to turn on permissions, contact us at support[at]devcycle.com.
 
 :::
  
@@ -58,28 +58,27 @@ To remove a Team Members from your Organization, either allow your SAML provider
 
 ---
 
-## Organization Roles
+## Organization Roles 
 
 Roles within DevCycle determine what functionality specific Members in an organization may access. They can be used to ensure that certain users are entirely unable to make modifications to any Production environments.
 
 There are three main roles in DevCycle:
 
-| Role          | Description                                                                                                                                                                                                                                 |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Owner**     | This is the default role given to all users on the platform when not on an Enterprise or Business plan. All owners of an organization will be able to create/modify all items.                                                              |
-| **Publisher** | A publisher can create and modify all things in the platform except for other members' roles. They can modify items that are in production and can also fully delete features and archive variables even if in production.                  |
-| **Member**    | This role prevents any modification of any item that is enabled in production. This includes modifying targeting rules, variables, variations, or environments in any scenario where it would impact a feature in a Production environment. |
+### **Member**
+- Can configure Development and Staging environments
+- Can view Production environments
+- **Cannot** make any changes to features or variables in a Production environment
 
-The table below displays the built-in roles and their associated permissions:
+### **Publisher**
+- Inherits all Member permissions
+- Can enable/disable Production targeting
+- Can modify variables, variations, and features in Production
 
-| Permission                    | Owner | Publisher | Member |
-| ----------------------------- | :---: | :-------: | :----: |
-| Add Team Members              |  ✅   |    ✅     |   ✅   |
-| Remove Team Members           |  ✅   |           |        |
-| Edit Team Member Roles        |  ✅   |           |        |
-| Modify Features in Production |  ✅   |    ✅     |        |
+### **Owner**
+- Inherits all Publisher permissions
+- Can manage roles of all users in the Organization
 
-For more information, check out the [Permissions](/platform/security-and-guardrails/permissions) documentation.
+For a full breakdown of permissions—including project-level roles—refer to the [Roles & Permissions](/platform/security-and-guardrails/permissions) documentation.
 
 **Assigning Roles**
 
