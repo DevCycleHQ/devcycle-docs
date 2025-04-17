@@ -9,7 +9,7 @@ To view the current Organization (or change Organizations) click on your user av
 
 :::tip
 
-[Granular permissions](/platform/security-and-guardrails/permissions) are only available on Business or Enterprise plans. If you'd like to turn on permissions, contact us at support[at]devcycle.com.
+[Granular permissions](/platform/security-and-guardrails/permissions) are only available on Business or Enterprise plans. If you'd like to turn on permissions, contact [support](mailto:support@devcycle.com).
 
 :::
  
@@ -62,13 +62,7 @@ To remove a Team Members from your Organization, either allow your SAML provider
 
 DevCycle supports role-based access to help secure Production environments and manage user responsibilities at both the organization and project level.
 
-For a complete overview of available roles, permissions, and examples of what users can and cannot do, visit the [Roles & Permissions](/platform/security-and-guardrails/permissions) documentation.
-
-**Assigning Roles**
-
-To assign a role to a team member, simply navigate to their profile. If you have the requisite role, you will be able to assign a new role to the member by using the Role dropdown.
-
-After you have selected a role, click "save" and the team member's permissions will be automatically updated.
+For a complete overview of available roles, permissions, how to administer them and examples of what users can and cannot do, visit the [Roles & Permissions](/platform/security-and-guardrails/permissions) documentation.
 
 ---
 
