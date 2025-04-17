@@ -58,27 +58,11 @@ To remove a Team Members from your Organization, either allow your SAML provider
 
 ---
 
-## Organization Roles 
+## Organization Roles
 
-Roles within DevCycle determine what functionality specific Members in an organization may access. They can be used to ensure that certain users are entirely unable to make modifications to any Production environments.
+DevCycle supports role-based access to help secure Production environments and manage user responsibilities at both the organization and project level.
 
-There are three main roles in DevCycle:
-
-### **Member**
-- Can configure Development and Staging environments
-- Can view Production environments
-- **Cannot** make any changes to features or variables in a Production environment
-
-### **Publisher**
-- Inherits all Member permissions
-- Can enable/disable Production targeting
-- Can modify variables, variations, and features in Production
-
-### **Owner**
-- Inherits all Publisher permissions
-- Can manage roles of all users in the Organization
-
-For a full breakdown of permissions—including project-level roles—refer to the [Roles & Permissions](/platform/security-and-guardrails/permissions) documentation.
+For a complete overview of available roles, permissions, and examples of what users can and cannot do, visit the [Roles & Permissions](/platform/security-and-guardrails/permissions) documentation.
 
 **Assigning Roles**
 

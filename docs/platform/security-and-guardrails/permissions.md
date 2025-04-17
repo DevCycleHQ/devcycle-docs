@@ -17,7 +17,7 @@ Permissions enforcement will apply to all Projects and Production-type Environme
 
 DevCycle supports multiple levels of permission enforcement:
 
-- **Equal Permissions (default)**: All users have full access across all projects
+- **Flat Access(default)**: All users have full access across all projects
 - **Basic Permissions**: Org-wide roles that protect production environments
 - **Full Role-Based Access Control (RBAC)**: Fine-grained permissions managed at the project level (Enterprise only)
 
@@ -58,7 +58,6 @@ Everything Publishers can do, plus:
 #### Can ✅
 - Manage roles of all users in the organization
 
-For more information, check out the [Organization Roles](/platform/account-management/organizations#organization-roles) documentation.
 
 ---
 
@@ -69,9 +68,8 @@ For organizations managing multiple teams or business units, DevCycle offers **p
 With project-level roles, you can:
 
 - Scope access to individual projects
-- Prevent cross-project visibility
+- Prevent cross-project visibility and restrict access to only the projects a user is assigned
 - Align access with your SSO groups and SCIM-based provisioning
-- Enforce security boundaries without creating separate DevCycle organizations
 
 This enables centralized identity and access management with decentralized control, especially when integrated with providers like Azure AD or Okta.
 
@@ -87,38 +85,61 @@ The table below outlines actions available to each role across organization and 
 
 > **Note**: All actions affecting **Production Environments** are restricted by default for `Member` roles.
 
-|                                | Viewer | Member | Publisher | Project Admin | Org Admin | Org Owner |
-| ------------------------------ | ------ | ------ | --------- | ------------- | --------- | --------- |
-| `audience:delete`              |        |        |           | ✅             | ✅         |           |
-| `audience:read`                | ✅      | ✅      | ✅         | ✅             | ✅         |           |
-| `audience:write`               |        | ✅      | ✅         | ✅             | ✅         |           |
-| `environment:delete`           |        |        |           | ✅             | ✅         |           |
-| `environment:read`             | ✅      | ✅      | ✅         | ✅             | ✅         |           |
-| `environment:write`            |        | ✅      | ✅         | ✅             | ✅         |           |
-| `feature:delete`               |        |        |           | ✅             | ✅         |           |
-| `feature:publish`              |        |        | ✅         | ✅             | ✅         |           |
-| `feature:read`                 | ✅      | ✅      | ✅         | ✅             | ✅         |           |
-| `feature:write`                |        | ✅      | ✅         | ✅             | ✅         |           |
-| `organization:delete:members`  |        |        |           |               | ✅         | ✅         |
-| `organization:read`            | ✅      | ✅      | ✅         | ✅             | ✅         | ✅         |
-| `organization:read:billing`    |        |        |           | ✅             | ✅         | ✅         |
-| `organization:read:members`    | ✅      | ✅      | ✅         | ✅             | ✅         | ✅         |
-| `organization:read:projects`   |        |        |           |               | ✅         | ✅         |
-| `organization:write`           |        |        |           |               |           | ✅         |
-| `organization:write:billing`   |        |        |           |               |           | ✅         |
-| `organization:write:members`   |        |        |           |               | ✅         | ✅         |
-| `organization:write:settings`  |        |        |           |               | ✅         | ✅         |
-| `organization:write:tokens`    |        |        |           |               | ✅         |           |
-| `project:delete`               |        |        |           | ✅             | ✅         |           |
-| `project:read`                 | ✅      | ✅      | ✅         | ✅             | ✅         |           |
-| `project:write`                |        |        | ✅         | ✅             | ✅         |           |
-| `project:write:overrides`      |        |        |           | ✅             | ✅         |           |
-| `project:write:overrides:self` |        | ✅      | ✅         | ✅             | ✅         |           |
-| `project:write:settings`       |        |        |           | ✅             | ✅         |           |
-| `project:write:tokens`         |        |        |           | ✅             | ✅         |           |
-| `variable:delete`              |        |        |           | ✅             | ✅         |           |
-| `variable:read`                | ✅      | ✅      | ✅         | ✅             | ✅         |           |
-| `variable:write`               |        | ✅      | ✅         | ✅             | ✅         |           |
+| Action                        | Viewer   | Member                 | Publisher   | Project Admin   | Org Admin   | Org Owner   |
+|:------------------------------|:---------|:-----------------------|:------------|:----------------|:------------|:------------|
+| `organization:read:settings`  | ✅       | ✅                     | ✅          | ✅              | ✅          | ✅          |
+| `organization:write:settings` |          |                        |             |                 | ✅          | ✅          |
+| `organization:read:members`   | ✅       | ✅                     | ✅          | ✅              | ✅          | ✅          |
+| `organization:write:members`  |          |                        |             |                 | ✅          | ✅          |
+| `organization:read:billing`   | ✅       | ✅                     | ✅          | ✅              | ✅          | ✅          |
+| `organization:write:billing`  |          |                        |             |                 |             | ✅          |
+| `organization:read:projects`  |          |                        | ✅          |                 | ✅          | ✅          |
+| `project:read`                | ✅       | ✅                     | ✅          | ✅              | ✅          |             |
+| `project:write`               |          |                        |             |                 | ✅          |             |
+| `project:write:settings`      |          |                        |             | ✅              | ✅          |             |
+| `project:delete`              |          |                        |             |                 | ✅          |             |
+| `feature:read:staleness`      | ✅       |                        |             | ✅              | ✅          |             |
+| `feature:read`                | ✅       | ✅                     | ✅          | ✅              | ✅          |             |
+| `feature:write`               |          | ✅                     | ✅          | ✅              | ✅          |             |
+| `feature:publish`             |          |                        | ✅          | ✅              | ✅          |             |
+| `feature:delete`              |          |                        |             | ✅              | ✅          |             |
+| `feature:status:archive`      |          | ✅                     | ✅          | ✅              | ✅          |             |
+| `feature:status:complete`     |          |                        | ✅          | ✅              | ✅          |             |
+| `feature:read:config`         | ✅       | ✅                     | ✅          | ✅              | ✅          |             |
+| `feature:write:config`        |          | ✅ | ✅          | ✅              | ✅          |             |
+| `audience:write`              |          | ✅                     | ✅          | ✅              | ✅          |             |
+| `audience:read`               | ✅       | ✅                     | ✅          | ✅              | ✅          |             |
+| `audience:write:prod`         |          |                        | ✅          | ✅              | ✅          |             |
+| `audience:delete`             |          |                        |             | ✅              | ✅          |             |
+| `variable:read`               | ✅       | ✅                     | ✅          | ✅              | ✅          |             |
+| `variable:write`              |          | ✅                     | ✅          | ✅              | ✅          |             |
+| `variable:write:prod`         |          |                        | ✅          |                 | ✅          |             |
+| `environment:read`            | ✅       | ✅                     | ✅          | ✅              | ✅          |             |
+| `environment:write`           |          |  ✅  | ✅          | ✅              | ✅          |             |
+| `environment:delete`          |          |                        |             | ✅              | ✅          |             |
+| `variation:read`              | ✅       | ✅                     | ✅          | ✅              | ✅          |             |
+| `variation:write`             |          | ✅                     | ✅          | ✅              | ✅          |             |
+| `variation:delete`            |          | ✅                     | ✅          | ✅              | ✅          |             |
+| `results:read`                | ✅       | ✅                     | ✅          | ✅              | ✅          |             |
+| `user:read`                   | ✅       | ✅                     | ✅          | ✅              | ✅          |             |
+| `user:write`                  | ✅       | ✅                     | ✅          | ✅              | ✅          |             |
+| `auditlog:read`               | ✅       | ✅                     | ✅          | ✅              | ✅          |             |
+| `customproperty:read`         | ✅       | ✅                     | ✅          | ✅              | ✅          |             |
+| `customproperty:write`        |          | ✅                     | ✅          | ✅              | ✅          |             |
+| `customproperty:delete`       |          | ✅                     | ✅          | ✅              | ✅          |             |
+| `metric:read`                 | ✅       | ✅                     | ✅          | ✅              | ✅          |             |
+| `metric:write`                |          | ✅                     | ✅          | ✅              | ✅          |             |
+| `metric:delete`               |          | ✅                     | ✅          | ✅              | ✅          |             |
+| `metricassociation:read`      | ✅       | ✅                     | ✅          | ✅              | ✅          |             |
+| `metricassociation:write`     |          | ✅                     | ✅          | ✅              | ✅          |             |
+| `metricassociation:delete`    |          | ✅                     | ✅          | ✅              | ✅          |             |
+| `project:read:overrides`      | ✅       | ✅                     | ✅          | ✅              | ✅          |             |
+| `project:write:overrides`     | ✅       | ✅                     | ✅          | ✅              | ✅          |             |
+| `webhook:read`                | ✅       | ✅                     | ✅          | ✅              | ✅          |             |
+| `webhook:write`               |          | ✅                     | ✅          | ✅              | ✅          |             |
+| `webhook:delete`              |          |                        | ✅          | ✅              | ✅          |             |
+| `project:read:tokens`         | ✅       |                        |             |                 | ✅          |             |
+| `project:write:tokens`        |          |                        |             |                 | ✅          |             |
 
 ---
 
