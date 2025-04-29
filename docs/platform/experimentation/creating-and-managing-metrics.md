@@ -33,7 +33,13 @@ Below is a brief description of each column, with deeper explanations later in t
 
 ## Creating a Metric
 
-To create a Metric, navigate to the Metrics page as noted above, and click "Create a Metric"
+Follow the video below from our [DevCycle Experiment Setup series](/platform/experimentation/tutorial-experiment-setup#metric-setup) or read-along to find out how to create a metric on DevCycle.
+
+<div style={{marginBottom:"24px"}}>
+    https://youtu.be/7qUbt2QvhuI  
+</div>
+
+To create a Metric, navigate to the Metrics page as noted above, and click "Create a Metric".
 
 ![Image of Metrics page with arrow pointing towards create button and tab](/june-2022-metrics-section.png)
 
@@ -112,7 +118,13 @@ The results of this test will show the actual result which would be within a Fea
 
 Tracking metrics within a feature is an important aspect of data analysis, as it can provide valuable insights into the performance and behaviour of different features. Once a Metric has been created, it can be attached to any feature for use and analysis.
 
-Here are some steps you can follow to track metrics within a feature:
+Follow the video below from our [DevCycle Experiment Setup series](/platform/experimentation/tutorial-experiment-setup#adding-metrics-to-experiment-results) or read-along to find out how to add a metric to a Feature and view experiment results.
+
+<div style={{marginBottom:"24px"}}>
+    https://youtu.be/8mzwhfW5jyw
+</div>
+
+Here are the steps you can follow to track metrics within a feature:
 
 1.  **Select the feature you want to track**: Within that feature, navigate to the `Data & Results` section of the page and click on `Experiment Results`.
 
