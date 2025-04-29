@@ -118,7 +118,7 @@ The results of this test will show the actual result which would be within a Fea
 
 Tracking metrics within a feature is an important aspect of data analysis, as it can provide valuable insights into the performance and behaviour of different features. Once a Metric has been created, it can be attached to any feature for use and analysis.
 
-Follow the video below from our [DevCycle Experiment Setup series](/platform/experimentation/tutorial-experiment-setup#adding-metrics-to-experiment-results) or read-along to find out how to add a metric to a Feature and view Experiment results.
+Follow the video below from our [DevCycle Experiment Setup series](/platform/experimentation/tutorial-experiment-setup#adding-metrics-to-experiment-results) or read-along to find out how to add a metric to a Feature and view experiment results.
 
 <div style={{marginBottom:"24px"}}>
     https://youtu.be/8mzwhfW5jyw
