@@ -33,7 +33,7 @@ Below is a brief description of each column, with deeper explanations later in t
 
 ## Creating a Metric
 
-Follow the video below from our [DevCycle Experiment Setup series](/platform/experimentation/demo) or read-along to find out how to create a metric on DevCycle.
+Follow the video below from our [DevCycle Experiment Setup series](/platform/experimentation/tutorial-experiment-setup) or read-along to find out how to create a metric on DevCycle.
 
 https://youtu.be/7qUbt2QvhuI
 <br/>
