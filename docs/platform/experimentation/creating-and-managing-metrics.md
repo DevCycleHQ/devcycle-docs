@@ -35,8 +35,9 @@ Below is a brief description of each column, with deeper explanations later in t
 
 Follow the video below from our [DevCycle Experiment Setup series](/platform/experimentation/tutorial-experiment-setup#metric-setup) or read-along to find out how to create a metric on DevCycle.
 
-https://youtu.be/7qUbt2QvhuI
-<br/>
+<div style={{marginBottom:"24px"}}>
+    https://youtu.be/7qUbt2QvhuI  
+</div>
 
 To create a Metric, navigate to the Metrics page as noted above, and click "Create a Metric".
 
@@ -119,8 +120,9 @@ Tracking metrics within a feature is an important aspect of data analysis, as it
 
 Follow the video below from our [DevCycle Experiment Setup series](/platform/experimentation/tutorial-experiment-setup#adding-metrics-to-experiment-results) or read-along to find out how to add a metric to a Feature and view Experiment results.
 
-https://youtu.be/8mzwhfW5jyw
-<br/>
+<div style={{marginBottom:"24px"}}>
+    https://youtu.be/8mzwhfW5jyw
+</div>
 
 Here are the steps you can follow to track metrics within a feature:
 
