@@ -4,18 +4,20 @@ sidebar_position: 1
 pagination_next: essentials/key-features
 ---
 
-DevCycle is a feature flag platform built for engineering teams of any size, helping you easily create, rollout, and cleanup feature flags without disrupting your workflow.
-
-If you’re unfamiliar with the concepts of feature flagging we suggest checking out the post on the Martin Fowler site called [Feature Toggles (aka Feature Flags)](https://martinfowler.com/articles/feature-toggles.html) by Pete Hodgson.
-
-To help teams fit feature flagging into their development process we’ve taken a different approach than most. This page is a great starting point to understanding how we think about feature flagging and how you can get the most of out of DevCycle.
+DevCycle is a feature flag platform built for engineering teams of any size, helping you easily create, rollout, and cleanup feature flags without disrupting your workflow. To help teams fit feature flagging into their development process we’ve taken a different approach than most. This page is a great starting point to understanding how we think about feature flagging and how you can get the most of out of DevCycle.
 
 ## Getting Started
 
-If you just want to skip ahead and get started with DevCycle, all you need to do is:
+If you just want to skip ahead and get started with DevCycle, feel free to visit our [Quickstart Tutorial](/quickstart) or explore it yourself by:
 
-1. Create a new [DevCycle account](https://app.devcycle.com/signup)
-2. Implement a [DevCycle SDK](https://docs.devcycle.com/sdk/) on your platform
+1. Creating a [DevCycle account](https://app.devcycle.com/signup)
+2. Implementing a [DevCycle SDK](https://docs.devcycle.com/sdk/) on your platform
+
+## Feature Flagging
+
+Feature flagging, also known as feature toggling, is a software development technique that allows teams to turn features or configuration settings on or off without deploying new code. This approach gives developers greater control over how and when features are released, enabling strategies like advanced targeting, gradual rollouts, and experimentation.
+
+For a deeper dive into feature flagging, we recommend reading [Feature Toggles (aka Feature Flags)](https://martinfowler.com/articles/feature-toggles.html) by Pete Hodgson on Martin Fowler’s website.
 
 ## DevCycle Structure
 

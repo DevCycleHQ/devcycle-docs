@@ -4,7 +4,7 @@ title: Quickstart Tutorial
 
 In this tutorial, we'll be showcasing a great use case for feature flags, guiding you through the creation of a simple [React app](https://react.dev), connecting it to DevCycle, and implementing an [Ops feature flag](/essentials/feature-types#ops) to enable/disable a **Maintenance Mode** page. 
 
-You'll learn about some of the core features of DevCycle, while experiencing firsthand just how easy it is to implement feature flags to enhance your application's functionality and flexibility.
+You'll learn about some of the core features of DevCycle, while experiencing firsthand just how easy it is to implement feature flags to enhance your application's functionality and flexibility. You can also learn more about DevCycle's core features on the [DevCycle overview](/essentials/overview) page.
 
 https://www.youtube.com/watch?v=RHpoc9TTR8U
 
