@@ -126,17 +126,15 @@ Follow the video below from our [DevCycle Experiment Setup series](/platform/exp
 
 Here are the steps you can follow to track metrics within a feature:
 
-1.  **Select the feature you want to track**: Within that feature, navigate to the `Data & Results` section of the page and click on `Experiment Results`.
-
-    ![Comparative Analysis tab within a DevCycle feature's Data & Results view](/experiment-results-navigation-tab.png)
+1.  **Select the feature you want to track**: Within that feature, navigate to the `Data & Results` tab on the Feature Form of the page and click on `Experiment Results`.
 
 2.  **Choose the metric(s) associated with the feature**: Create new metrics or attach existing ones to the feature by navigating to the `Choose a Metric` dropdown.
 
-    ![Choose a Metric dropdown menu](/experiment-results-metrics-dropdown.png)
+    ![Comparative Analysis tab within a DevCycle feature's Data & Results view](/may-2025-data-results-metrics-add.png)
 
 3.  **Attach the metric(s)**: Attach the metric from the dropdown menu by selecting it. For our example, let's use the metric `Metric Testing`, which has already been setup within our project.
 
-    !["Metric Testing" metric selected from the metrics dropdown](/experiment-results-metrics-testing.png)
+    !["Metric Testing" metric selected from the metrics dropdown](/may-2025-data-results-metrics-explain.png)
 
     While the setup has some default values, the Metric requires the following fields to be filled:
 
@@ -147,8 +145,6 @@ Here are the steps you can follow to track metrics within a feature:
     - **Environment** - This will calculate the Metric using events from the specified environments.
 
 4.  **Calculate results**: Once one or more metrics have been selected, we can then run the metric calculation to generate insight into how the feature is doing.
-
-    ![Feature metrics ready to be calcuated](/experiment-results-metrics-calculate.png)
 
 5. **View your results**: Once calculated, if there is available data for the Feature, the results data will populate within the dashboard.
 
