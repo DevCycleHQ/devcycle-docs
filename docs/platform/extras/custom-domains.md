@@ -14,13 +14,16 @@ recognized domain. A DNS CNAME needs to be created to leverage this feature.
 
 **Setting Up Custom Domains:**
 
-Custom Domains is a business and enterprise feature and requires manual setup on both your end as well as DevCycle's. If you are interested in getting set up these docs will guide you through the steps, but please reach out to support@devcycle.com for assistance.
+Custom Domains is a business and enterprise feature and requires manual setup on both your end as well as DevCycle's.
 
+These docs cannot be taken as a step-by-step guide to set up custom domains and are more intended as an outline of the process as it requires setup from DevCycle's end as well prior to starting.
+
+Please reach out to your account representative or reach out to support@devcycle.com to get started with this process with the following information:
+
+- Desired CNAME domain (e.g. api-alias.your-domain.com)
+- Your desired SSL certificate provider (SSL.com, Google Trust Services, Let's Encrypt.)
+- Which Services to use the CNAME (e.g. Client SDKs, Server SDKs, Mobile SDKs)
 :::
-
-#### Custom Certificate
-
-If you'd like to have a custom certificate for the endpoint to be used, please contact your account representative. This requires additional steps that change the flow of this process.
 
 #### Setup Steps
 
