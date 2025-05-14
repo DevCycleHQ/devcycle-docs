@@ -171,7 +171,7 @@ Saving this Feature will then cause the next evaluation of a variable for all us
 
 ---
 
-## Copying A Targeting Rule
+## Copying a Targeting Rule
 
 A lot of teams use Staging Environments to not only QA features, but to also validate a Feature Flag's targeting. For teams that do this, you want to be able to "promote" Targeting Rules as-is between Environments, so you can be confident that what was validated in Staging is what will be defined in Production.
 
@@ -181,7 +181,7 @@ Once confirmed the new Targeting Rule will be added to the environment, with all
 
 ---
 
-## Creating an Audience from A Targeting Rule
+## Creating an Audience from a Targeting Rule
 
 Audiences are designed to make the creation and management of Targeting Rules easier by making complex filter structures reusable. Sometimes though Targeting Rules can get more complex over time unexpectedly. If you find that a rule definition has gotten complex and you want to make it an Audience so it can be easily reused elsewhere you can just create an Audience right from the rule.
 
