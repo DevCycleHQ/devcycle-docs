@@ -5,13 +5,11 @@ sidebar_position: 2
 
 The Audit Log tracks all modifications made to a Feature. DevCycle captures the DevCycle user who made the change, a time stamp, and what was modified on each Feature save.
 
-The Audit Log is located at the bottom of the Feature form in the Data & Results section.
+The Audit Log is located on the **Audit Log tab** on every Feature Form. 
 
-![Audit Log on Feature Page](/nov2023-audit-log-sidebar.png)
+![Audit Log Tab on Feature Page](/may-2025-feature-audit-log-tab.png)
 
 You can filter modfications by environment, DevCycle user, and for a particular date range.
-
-![Audit Log](/nov2023-audit-log-summary.png)
 
 :::info
 
