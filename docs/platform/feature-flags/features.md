@@ -171,11 +171,8 @@ To learn more about each section, explore the following resources:
 
 To change the **Feature settings** including name, key, and type, description, tags, and Maintainer, navigate to the bottom of the Manage Feature Tab to the Settings section. 
 
-Features can be assigned one or more **Maintainers** to indicate who is responsible in the Feature settings. By default, the creator of the Feature is set as the initial Maintainer. This is useful for clarifying accountability—for example, assigning both a product manager and a technical lead.
+Features can be assigned one or more **Maintainers** to indicate who is responsible for the Feature in the settings panel. By default, the creator of the Feature is set as the initial Maintainer. This is useful for clarifying accountability—for example, assigning both a product manager and a technical lead makes it clear who team members should go to if they have questions about the Feature.
 
-:::note
-Features created before this functionality was released will not have a Maintainer assigned by default.
-:::
 
 ### Data & Results Tab 
 
