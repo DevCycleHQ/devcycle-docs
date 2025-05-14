@@ -15,7 +15,7 @@ If a Feature is marked as stale, DevCycle encourages users to take action by upd
 ## Stale Feature Reasons 
 
 :::note
-Stale Feature detection relies on Variable evaluations triggered through the `.variable()` or `variableValue` SDK call. If your implementation uses `.allVariables()` or `.allFeatures()`, these calls do **not** generate evaluation data. As a result, Features may appear **Unused** and be marked stale even if they are actively used in your code.
+Stale Feature detection relies on Variable evaluations triggered through the `.variable()` or `.variableValue()` SDK call. If your implementation uses `.allVariables()` or `.allFeatures()`, these calls do **not** generate evaluation data. As a result, Features may appear **Unused** and be marked stale even if they are actively used in your code.
 If you know the Feature is active and used via `.variable()` or `variableValue` you can choose to:
 - **[Snooze or Disable](/platform/feature-flags/stale-feature-notifications#snoozing--disabling-stale-feature-notifications)** the staleness check for that Feature.
 - **Uncheck "Unused"** as a staleness check type in your Project Settings to prevent similar cases.
