@@ -121,7 +121,7 @@ Each Feature includes a Feature Summary Markdown section on the Overview Tab tha
 ![Feature Summary Section Example](/may-2025-feature-overview-summary-section-edit.png)
 
 :::note  
-Links and images are not supported in this Markdown section.  
+For security reasons, links and images are not supported in this Markdown section.  
 :::
 
 The content is editable directly from the Overview Tab by users with **Member-level permissions or higher**, allowing teams to store relevant notes directly alongside the Feature rather than relying on external documentation tools.
@@ -130,7 +130,7 @@ The content is editable directly from the Overview Tab by users with **Member-le
 
 #### Reach 
 
- The Reach section displays a version of the Feature Reach graph the chart shows the aggregated count of evaluations of ALL variables across ALL environments and ALL SDKS. You can filter the evaluation data for different Environments and time ranges. For more granular filtering, click on the arrow on the top right of the section. This will take you to the Data & Results tab which houses the 
+The Reach section displays a version of the Feature Reach graph. The chart shows the aggregated count of evaluations of ALL variables across ALL environments and ALL SDKS. You can filter the evaluation data for different Environments and time ranges. For more granular filtering, click on the arrow on the top right of the section. 
  
 ![Feature Reach Section Example](/may-2025-feature-overview-reach-section.png)
 
