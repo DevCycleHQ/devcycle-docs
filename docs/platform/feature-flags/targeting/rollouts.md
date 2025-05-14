@@ -60,6 +60,16 @@ Here is how you'd set up the phased rollout example described above:
 
 ![Multi-step Rollout Example](/apr-2024-multi-step-rollout.png)
 
+### Stopping a Rollout
+
+While the easiest way to end a rollout is to remove the targeting rule or disable the targeting for an environment dropping everyone to default values, there are times when you may want to stop a rollout, holding the percentage steady. This is relevant if you are seeing small issues that are easily resolved, where you may not want to add more users and exacerbate the issue, but you also don't want to take away a feature from users that already have received it. This may also be relevant in scenarios where you can't rollback a feature and regardless of the issue happening you are just trying to limit the blast radius to users who have already received the feature.
+
+Regardless of the scenario you find yourself in, both Gradual and Multi-Step Rollouts can be stopped at their current rollout percentage and held there indefinitely.
+
+To stop a rollout, just click the Stop button next to the Current Rollout Percentage indicator. You will be asked to confirm the change. Once confirmed the rollout will be modified from whatever it was to a Multi-Step Rollout with the last step being the current time and current rollout percentage. This edit can still be reviewed and discarded if you would like. When you are ready to accept the change, just save the Feature.
+
+When you are ready to continue the rollout, all you have to do is add more steps.
+
 ## FAQ about Rollouts
 
 **How often are rollouts evaluated? / When does the rollout % update?**
