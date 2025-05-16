@@ -41,7 +41,7 @@ Then add `DevCycleOpenFeatureProvider` to your target's dependencies:
 )
 ```
 
-This package automatically includes the DevCycle and OpenFeature SDKs as a dependency.
+This package automatically includes the DevCycle and OpenFeature SDKs as dependencies.
 
 ## Getting Started
 
@@ -52,7 +52,7 @@ import OpenFeature
 import DevCycle
 import DevCycleOpenFeatureProvider
 
-// Configure the DevCycle provider
+// Configure the DevCycle provider (you can also pass DevCycleOptions if needed)
 let provider = DevCycleProvider(sdkKey: "<DEVCYCLE_MOBILE_SDK_KEY>")
 
 // Set up the evaluation context
@@ -196,7 +196,7 @@ let nullVar = ofClient.getObjectValue(
 
 However, these are not valid types for the DevCycle SDK, the DevCycle SDK only supports JSON Objects:
 
-```typescript
+```swift
 // Valid JSON Object as the default value, will be evaluated by the DevCycle SDK
 let objVar = ofClient.getObjectValue(
     key: "objVar",
