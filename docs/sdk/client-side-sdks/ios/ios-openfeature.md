@@ -164,13 +164,13 @@ let newContext = MutableContext(
 
 The OpenFeature spec for JSON flags allows for any type of valid JSON value to be set as the flag value.
 
-For example the following are all valid default value types to use with OpenFeature:
+For example, the following are all valid default value types to use with OpenFeature:
 
 ```swift
 // Invalid JSON values for the DevCycle SDK, will return defaults
 let arrVar = ofClient.getObjectValue(
     key: "json-flag",
-    defaultValue: .list([.string("arry")])
+    defaultValue: .list([.string("array")])
 )
 
 let numVar = ofClient.getObjectValue(
@@ -208,9 +208,9 @@ let objVar = ofClient.getObjectValue(
 
 ### Tracking Events
 
-The OpenFeature doesn't currently support the `track` method, you will need to use the underlying DevCycle iOS SDK from the provider to track events: 
+The OpenFeature iOS SDK doesn't currently support the `track` method. You will need to use the underlying DevCycle iOS SDK from the provider to track events:
 
-```swift 
+```swift
 let client = dvcProvider?.devcycleClient
 
 let event = try! DevCycleEvent.builder()
