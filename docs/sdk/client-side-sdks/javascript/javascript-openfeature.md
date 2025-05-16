@@ -12,8 +12,6 @@ sidebar_custom_props: { icon: material-symbols:toggle-off }
 
 DevCycle provides a Javascript implementation of the OpenFeature Web Provider interface, if you prefer to use the OpenFeature APIs to interface with DevCycle.
 
-**Note: The OpenFeature Web SDK is still in beta, and is subject to change.**
-
 [![Npm package version](https://badgen.net/npm/v/@devcycle/openfeature-web-provider)](https://www.npmjs.com/package/@devcycle/openfeature-web-provider)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/js-sdks/tree/main/examples/openfeature-web)
 
@@ -95,7 +93,7 @@ To track custom events with OpenFeature you are required to set the first argume
 
 ### Passing DevCycleOptions to the DevCycleProvider
 
-Ensure that you pass any custom DevCycleOptions to the DevCycleProvider constructor
+Ensure that you pass any custom `DevCycleOptions` to the `DevCycleProvider` constructor
 
 ```typescript
 const user = { user_id: 'user_id' }
@@ -115,7 +113,7 @@ This is used to identify the user as the `user_id` for a `DevCycleUser` in DevCy
 The provider will automatically translate known `DevCycleUser` properties from the OpenFeature context to the `DevCycleUser` object.
 [DevCycleUser TypeScript Interface](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L145-L201)
 
-For example all these properties will be set on the `DevCycleUser`:
+For example all these context properties will be set on the `DevCycleUser`:
 
 ```typescript
 openFeatureClient.setContext({
