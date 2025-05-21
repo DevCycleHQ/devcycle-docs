@@ -31,7 +31,7 @@ To use the library with Swift Package Manager, include it as a dependency in you
 ```swift
 ...
     dependencies: [
-        .package(url: "https://github.com/DevCycleHQ/ios-client-sdk.git", .upToNextMajor("1.18.1")),
+        .package(url: "https://github.com/DevCycleHQ/ios-client-sdk.git", .upToNextMajor("1.19.0")),
     ],
     targets: [
         .target(
