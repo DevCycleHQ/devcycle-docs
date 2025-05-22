@@ -124,7 +124,7 @@ The SDK exposes various initialization options which can be used by passing a `D
 
 ## Notifying when DevCycle features are available
 
-In the initialize call there is an optional `onInitialized` parameter you can use to determine when your features have been loaded:
+In the initialize call there is an optional `onInitialized` callback parameter you can use to determine when your features have been loaded:
 
 ### Swift
 
@@ -140,6 +140,16 @@ self.devcycleClient = try? DevCycleClient.builder()
                 // initialized successfully
             }
         })
+```
+
+you can also await the `.build()` method:
+
+```swift
+self.devcycleClient = try? await DevCycleClient.builder()
+        .sdkKey("<DEVCYCLE_MOBILE_SDK_KEY>")
+        .user(user)
+        .options(options)
+        .build()
 ```
 
 ### Objective-C
