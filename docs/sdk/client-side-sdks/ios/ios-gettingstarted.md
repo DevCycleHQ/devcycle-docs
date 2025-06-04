@@ -116,7 +116,7 @@ The SDK exposes various initialization options which can be used by passing a `D
 | disableAutomaticEventLogging | Boolean   | false     | Disables logging of SDK generated events (e.g. variableEvaluated, variableDefaulted) to DevCycle.              |
 | logLevel                     | LogLevel  | error     | Set log level of the default logger. Defaults to `error`                                                       |
 | enableEdgeDB                 | Boolean   | false     | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle.                                     |
-| configCacheTTL               | Int       | 604800000 | The maximum allowed age of a cached config in milliseconds, defaults to 7 days                                 |
+| configCacheTTL               | Int       | 2592000000 | The maximum allowed age of a cached config in milliseconds, defaults to 30 days                                 |
 | disableConfigCache           | Bool      | false     | Disable the use of cached configs                                                                              |
 | disableRealtimeUpdates       | Bool      | false     | Disable Realtime Updates                                                                                       |
 | apiProxyURL                  | String    | nil       | Allows the SDK to communicate with a proxy of DevCycle Client SDK API.                                         |
