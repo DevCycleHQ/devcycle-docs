@@ -143,6 +143,24 @@ let newContext = MutableContext(
 )
 ```
 
+### Required Context Properties
+
+For the DevCycle SDK to work properly, the `Context` must contain one of the following:
+
+- A `targetingKey` or `user_id` to identify the user
+- Set `isAnonymous` to `true` for an anonymous user
+- An empty `Context` will default to an anonymous user, but it is recommended to set `targetingKey` or `isAnonymous = true`.
+
+For anonymous users, you can create the context like this:
+
+```swift
+let userContext = MutableContext(
+    structure: MutableStructure(attributes: [
+        "isAnonymous": .boolean(true)
+    ])
+)
+```
+
 ### Context Limitations
 
 DevCycle only supports flat JSON Object properties used in the Context. Non-flat properties will be ignored.
