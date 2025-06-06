@@ -31,7 +31,7 @@ On this page, you’ll see a list of all Organizations associated with your doma
 Only **Owners** can see and manage membership requests that come in via this method.
 :::
 
-If you prefer to explicitly control who joins your Organization, you can disable Organization Discoverability from the Organization settings page. This ensures users can only be added via direct invitation, rather than discovering and requesting to join your Organization.
+If you prefer that Organization access be invite only, you can disable Organization Discoverability from the Organization settings page. This ensures users can only be added via direct invitation, rather than discovering and requesting to join your Organization.
 
 If your team is using **SSO and [Role-Based Access Control (RBAC)](/platform/security-and-guardrails/permissions#full-role-based-access-control-project-level-roles--enterprise-only)**, this setting does not apply—user access is handled entirely through your identity provider, and Organization Discoverability is effectively bypassed.
 
