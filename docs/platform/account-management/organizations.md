@@ -19,7 +19,7 @@ Please note that organizational settings cannot currently be viewed or changed t
  
 ## Discovering Other Organizations
 
-If **Organization Discoverability** is enabled (it is by default), DevCycle will automatically check if any existing Organizations were created by others within your company or domain when a new user signs up. If a match is found, the user will be presented with the option to request access to an existing Organization or create a new one.
+If **Organization Discoverability** is enabled (it is by default), DevCycle will automatically check if any existing Organizations were created by other users with the same email domain when a new user signs up. If a match is found, the user will be presented with the option to request access to an existing Organization or create a new one.
 
 To manually explore other Organizations within your domain, go to the [Discovery page](https://app.devcycle.com/organizationDiscovery) by selecting Find and Create Orgs from the avatar dropdown in the top-right corner of the Dashboard.
 
