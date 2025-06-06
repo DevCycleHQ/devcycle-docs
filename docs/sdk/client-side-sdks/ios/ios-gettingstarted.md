@@ -44,7 +44,15 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 }
 ```
 
-The user object needs either a `user_id`, or `isAnonymous` set to `true` for an anonymous user.
+The user object needs either a `user_id` set, or `isAnonymous = true` for an anonymous user.
+An empty `DevCycleUser` will default to an anonymous user, but it is recommended to set the `user_id` or `isAnonymous = true`.
+
+```swift
+// example anonymous user
+let user = try DevCycleUser.builder()
+                    .isAnonymous(true)
+                    .build()
+```
 
 [//]: # (wizard-initialize-end)
 
