@@ -171,6 +171,30 @@ Saving this Feature will then cause the next evaluation of a variable for all us
 
 ---
 
+## Copying a Targeting Rule
+
+A lot of teams use Staging Environments to not only QA features, but to also validate a Feature Flag's targeting. For teams that do this, you want to be able to "promote" Targeting Rules as-is between Environments, so you can be confident that what was validated in Staging is what will be defined in Production.
+
+To copy a Targeting Rule, just click the Copy Targeting Rule button at the top right of the Targeting Rule you want to copy. This opens a confirmation modal where you can select the Environment you want to copy that Targeting Rule to.
+
+Once confirmed, the new Targeting Rule will be added to the environment, with all aspects identical to the copied rule other than the name which will be appended with (Copy). Once copied you can make edits to the name or re-order the priority of rules as needed and save the Feature when you are ready.
+
+---
+
+## Creating an Audience from a Targeting Rule
+
+Audiences are designed to make the creation and management of Targeting Rules easier by making complex filters reusable. Sometimes Targeting Rules can get complex over time before you think to use an audience. If you find that a rule definition has gotten complex and you want to make it an Audience so it can be easily reused elsewhere you can just create an Audience right from the rule.
+
+To create an Audience, just click the Create An Audience button at the top right of the Targeting Rule in question. This opens a modal where you can confirm the details such as name, key and description. When you confirm, the new Audience will be opened in a new tab where you can edit it further, as needed.
+
+:::note
+
+The new Audience will not automatically replace the definition in the Targeting Rule it was created from.
+
+:::
+
+---
+
 ## Deleting a Targeting Rule
 
 Select the trash can icon on the right-hand side of the relevant environment targeting rules to delete the rule and click `Save` to apply the changes.

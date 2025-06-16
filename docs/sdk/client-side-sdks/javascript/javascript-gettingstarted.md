@@ -11,8 +11,8 @@ sidebar_custom_props: { icon: material-symbols:rocket }
 
 [//]: # (wizard-initialize-start)
 
-- If the JS SDK is installed using NPM, call `initializeDevCycle` with your client key, a user object, and an optional options object.
-- Otherwise, If you’re using the CDN to install the JS SDK, call `DevCycle.initializeDevCycle` with your client key, a user object, and an optional options object.
+- If the JS SDK is installed using NPM, call `initializeDevCycle` with your client key, a user object, and an optional options object.
+- Otherwise, If you're using the CDN to install the JS SDK, call `DevCycle.initializeDevCycle` with your client key, a user object, and an optional options object.
 
 The user object needs either a `user_id`, or `isAnonymous` set to `true` for an anonymous user. The options object is optional,
 but can passed a `logWriter` for a custom logging solution and a `logLevel`, which must be one of `info`, `debug`, `warn` or `error`.
@@ -84,7 +84,7 @@ The SDK exposes various initialization options which can be set on the `initiali
 | flushEventQueueSize          | Number                                                                                                   | Controls the maximum size the event queue can grow to until a flush is forced. Defaults to `100`.              |
 | maxEventQueueSize            | Number                                                                                                   | Controls the maximum size the event queue can grow to until events are dropped. Defaults to `1000`.            |
 | apiProxyURL                  | String                                                                                                   | Allows the SDK to communicate with a proxy of DevCycle bucketing API / client SDK API.                         |
-| configCacheTTL               | Number                                                                                                   | The maximum allowed age of a cached config in milliseconds, defaults to 7 days                                 |
+| configCacheTTL               | Number                                                                                                   | The maximum allowed age of a cached config in milliseconds, defaults to 30 days                                 |
 | disableConfigCache           | Boolean                                                                                                  | Disable the use of cached configs                                                                              |
 | disableRealtimeUpdates       | Boolean                                                                                                  | Disable Realtime Updates                                                                                       |
 | deferInitialization          | Boolean                                                                                                       | Defer initialization (fetching configuration from DevCycle) until user is identified with `identifyUser` call  |

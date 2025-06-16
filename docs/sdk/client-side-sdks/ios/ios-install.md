@@ -6,9 +6,9 @@ description: Installing the SDK
 sidebar_custom_props: { icon: material-symbols:install-desktop }
 ---
 
+[![SwiftPM compatible](https://img.shields.io/badge/SwiftPM-compatible-4BC51D.svg?style=flat)](https://swift.org/package-manager/)
 [![CocoaPods compatible](https://img.shields.io/cocoapods/v/DevCycle.svg)](https://cocoapods.org/pods/DevCycle)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![SwiftPM compatible](https://img.shields.io/badge/SwiftPM-compatible-4BC51D.svg?style=flat)](https://swift.org/package-manager/)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/ios-client-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/ios-client-sdk)
 
 ## Requirements
@@ -24,48 +24,14 @@ This version of the DevCycle Client SDK supports the following platforms:
 
 [//]: # (wizard-install-start)
 
-### CocoaPods
-
-The SDK can be installed into your iOS project by adding the following to your cocoapod spec:
-
-```swift
-pod 'DevCycle'
-```
-
-Then, run `pod install`.
-
-[//]: # (wizard-install-end)
-
-### Carthage
-
-:::caution
-
-Carthage support for MacOS development with the DevCycle iOS SDK is currently not supported. Please contact us for more info.
-
-:::
-
-Include the following in your `Cartfile` to integrate DevCycle as a dependency to your project:
-
-```swift
-github "DevCycleHQ/ios-client-sdk"
-```
-
-Then, run `carthage update --platform <platform> --use-xcframeworks` where `platform` is the platform you are using the SDK on: `iOS | macOS | watchOS | tvOS`.
-
-Drag the built .xcframework bundles from Carthage/Build into the "Frameworks and Libraries" section of your application’s Xcode project.
-
 ### Swift Package Manager
-
-:::info
-**Package URL Conflicts:** If you have a package that conflicts with the naming of the `ios-client-sdk`, then you can use https://github.com/DevCycleHQ/devcycle-ios-client-sdk.git.
-:::
 
 To use the library with Swift Package Manager, include it as a dependency in your `Package.swift` file like so:
 
-```
+```swift
 ...
     dependencies: [
-        .package(url: "https://github.com/DevCycleHQ/ios-client-sdk.git", .upToNextMajor("1.11.2")),
+        .package(url: "https://github.com/DevCycleHQ/ios-client-sdk.git", .upToNextMajor("1.19.0")),
     ],
     targets: [
         .target(
@@ -77,3 +43,38 @@ To use the library with Swift Package Manager, include it as a dependency in you
 ```
 
 You can also add it through Xcode, i.e. `File > Swift Packages > Add Package Dependency`, then enter the repository clone URL.
+
+[//]: # (wizard-install-end)
+
+:::info
+**Package URL Conflicts:** If you have a package that conflicts with the naming of the `ios-client-sdk`, then you can use https://github.com/DevCycleHQ/devcycle-ios-client-sdk.git.
+:::
+
+### CocoaPods
+
+The SDK can be installed into your iOS project by adding the following to your cocoapod spec:
+
+```swift
+pod 'DevCycle'
+```
+
+Then, run `pod install`.
+
+
+### Carthage
+
+Include the following in your `Cartfile` to integrate DevCycle as a dependency to your project:
+
+```swift
+github "DevCycleHQ/ios-client-sdk"
+```
+
+Then, run `carthage update --platform <platform> --use-xcframeworks` where `platform` is the platform you are using the SDK on: `iOS | macOS | watchOS | tvOS`.
+
+Drag the built .xcframework bundles from Carthage/Build into the "Frameworks and Libraries" section of your application’s Xcode project.
+
+:::caution
+
+Carthage support for MacOS development with the DevCycle iOS SDK is currently not supported. Please contact us for more info.
+
+:::
