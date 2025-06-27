@@ -1,179 +1,56 @@
-/sdk/sdk-types /sdk/ 301
+# DevCycle Docs - Strategic Redirects
+# Only for external URLs we can't control and major structural changes
+
+# Major site restructure - most likely to be bookmarked/indexed
 /docs/* /:splat 301
 /docs/*/ /:splat 301
 
-# Legacy app domain redirects
-/best-practices/sample-apps/getting-started-guide /home/demos/react 301
-/best-practices/sample-apps/realtime-demo /home/demos/realtime 301
+# Home page consolidation 
+/home /  301
+/home/ /  301
+/home/introduction /  301
 
-# Home page redirects
-/home/introduction / 301
-/home / 301
-/home/ / 301
-
-# CLI redirects
+# Major section moves - high-traffic paths
 /tools-and-integrations/cli /cli 301
-
-# Quickstart redirects
-/:path*/getting-started/:path* /quickstart 301
-
-# Feature Management reorganization redirects
-/home/feature-management/features-and-variables/targeting-users /platform/feature-flags/targeting/targeting-overview 301
-/home/feature-management/features-and-variables/variables-and-variations /platform/feature-flags/variables-and-variations/variables 301
-/home/feature-management/features-and-variables/custom-properties /platform/feature-flags/targeting/custom-properties 301
-/home/feature-management/features-and-variables/sdk-visibility /platform/security-and-guardrails/sdk-visibility 301
-/home/feature-management/features-and-variables/metrics-and-analysis/* /platform/metrics/:splat 301
-/home/feature-management/organizing-your-flags-and-variables/feature-dashboard /platform/feature-flags/features 301
-/home/feature-management/organizing-your-flags-and-variables/environments /platform/account-management/environments 301
-/home/feature-management/organizing-your-flags-and-variables/api-and-sdk-keys /platform/account-management/keys 301
-/home/feature-management/organizing-your-flags-and-variables/variable-dashboard /platform/feature-flags/variables-and-variations/variables 301
-/home/feature-management/organizing-your-flags-and-variables/organizations-projects /platform/account-management/organizations 301
-/home/your-organization/* /platform/account-management/organizations 301
-
-# Demo redirects
-/home/demos/:path* /examples 301
-
-# EdgeDB redirects
-/home/feature-management/edgedb/:path* /platform/feature-flags/targeting/edgedb 301
-
-# Feature opt-in redirects
-/home/feature-management/feature-opt-in/:path* /platform/extras/feature-opt-in 301
-
-# Tools and integrations redirects
-/tools-and-integrations/* /integrations/:splat 301
-/tools-and-integrations/*/ /integrations/:splat 301
-
-# Extras redirects
-/extras/* /platform/:splat 301
-/extras/*/ /platform/:splat 301
-
-# Introduction section redirects
 /introduction/quickstart /quickstart 301
 /introduction/key-features /essentials/key-features 301
 /introduction/architecture /essentials/architecture 301
 
-# Essentials reorganization
+# Core feature management restructure (likely external links)
+/home/feature-management/features-and-variables/targeting-users /platform/feature-flags/targeting/targeting-overview 301
+/home/feature-management/features-and-variables/variables-and-variations /platform/feature-flags/variables-and-variations/variables 301
+/home/feature-management/features-and-variables/custom-properties /platform/feature-flags/targeting/custom-properties 301
+/home/feature-management/organizing-your-flags-and-variables/environments /platform/account-management/environments 301
+/home/feature-management/organizing-your-flags-and-variables/api-and-sdk-keys /platform/account-management/keys 301
+
+# Tools and integrations consolidation
+/tools-and-integrations/* /integrations/:splat 301
+/tools-and-integrations/*/ /integrations/:splat 301
+
+# Platform reorganization - broad categories only
+/extras/* /platform/:splat 301
+/extras/*/ /platform/:splat 301
+
+# Essentials moves - structural changes
 /essentials/features /platform/feature-flags/features 301
-/essentials/status-and-lifecycle /platform/feature-flags/status-and-lifecycle 301
-/essentials/targeting /platform/feature-flags/targeting/targeting-overview 301
-
-# Advanced targeting redirects
-/platform/advanced-targeting/audiences /platform/feature-flags/targeting/audiences 301
-/platform/advanced-targeting/custom-properties /platform/feature-flags/targeting/custom-properties 301
-/platform/advanced-targeting/random-variations /platform/feature-flags/targeting/random-variations 301
-/platform/advanced-targeting/randomize-using-custom-property /platform/feature-flags/targeting/randomize-using-custom-property 301
-/platform/advanced-targeting/rollouts /platform/feature-flags/targeting/rollouts 301
-/platform/edgedb /platform/feature-flags/targeting/edgedb 301
-
-# Variables and variations redirects
-/essentials/variables /platform/feature-flags/variables-and-variations/variables 301
-/essentials/variations /platform/feature-flags/variables-and-variations/variations 301
-/platform/advanced-variables/variable-defaults /platform/feature-flags/variables-and-variations/variable-defaults 301
-/platform/metrics/feature-flag-reach /platform/feature-flags/variables-and-variations/feature-flag-reach 301
-
-# Account management redirects
 /essentials/organizations /platform/account-management/organizations 301
 /essentials/projects /platform/account-management/projects 301
 /essentials/environments /platform/account-management/environments 301
 /essentials/keys /platform/account-management/keys 301
 
-# Experimentation redirects
-/platform/metrics/creating-and-managing-metrics /platform/experimentation/creating-and-managing-metrics 301
-/platform/metrics/how-metrics-are-calculated /platform/experimentation/how-metrics-are-calculated 301
-/essentials/feature-experimentation /platform/experimentation/feature-experimentation 301
+# Demo/examples consolidation
+/home/demos/:path* /examples 301
+/best-practices/sample-apps/getting-started-guide /examples 301
+/best-practices/sample-apps/realtime-demo /examples 301
 
-# Core concepts redirects
-/introduction/core-concepts/feature-hierarchy /essentials/feature-hierarchy 301
-/introduction/core-concepts/feature-types /essentials/feature-types 301
+# Common entry points (likely from external sites)
+/:path*/getting-started/:path* /quickstart 301
 
-# Security and guardrails redirects
-/platform/approval-workflows /platform/security-and-guardrails/approval-workflows 301
-/platform/audit-log /platform/security-and-guardrails/audit-log 301
-/platform/feature-obfuscation /platform/security-and-guardrails/feature-obfuscation 301
-/platform/permissions /platform/security-and-guardrails/permissions 301
-/platform/sdk-visibility /platform/security-and-guardrails/sdk-visibility 301
-/platform/advanced-variables/variable-schemas /platform/security-and-guardrails/variable-schemas 301
-
-# Testing and QA redirects
-/platform/web-debugger /platform/testing-and-qa/web-debugger 301
-/platform/advanced-targeting/self-targeting /platform/testing-and-qa/self-targeting 301
-
-# Extras redirects
-/platform/custom-domains /platform/extras/custom-domains 301
-/platform/webhooks /platform/extras/webhooks 301
-/platform/advanced-targeting/feature-opt-in /platform/extras/feature-opt-in 301
-
-# Common trailing slash issues - redirect with trailing slash to without
-/quickstart/ /quickstart 301
-/sdk/ /sdk 301
-/platform/ /platform 301
-/essentials/ /essentials 301
-/integrations/ /integrations 301
-/examples/ /examples 301
-/cli/ /cli 301
-/best-practices/ /best-practices 301
-
-# SDK-specific redirects that might be missing
-/sdk/client-side-sdks/ /sdk/client-side-sdks 301
-/sdk/server-side-sdks/ /sdk/server-side-sdks 301
-/sdk/sdk-proxy/ /sdk/sdk-proxy 301
-
-# API documentation redirects (common 404s)
+# API access patterns (external tools/scripts might use these)
 /api /management-api/ 301
-/api/ /management-api/ 301
 /api/* /management-api/:splat 301
-/bucketing-api/ /bucketing-api 301
 
-# Common typos and alternative spellings
-/integeration/* /integrations/:splat 301
-/intergration/* /integrations/:splat 301
-/sdk-guides/* /sdk/:splat 301
-/feature-flags/* /platform/feature-flags/:splat 301
-
-# Case sensitivity redirects (lowercase versions)
-/SDK/* /sdk/:splat 301
-/CLI/* /cli/:splat 301
-/API/* /management-api/:splat 301
-/DOCS/* /:splat 301
-
-# Legacy management API paths
-/management-api/v1/* /management-api/:splat 301
-/v1/* /management-api/:splat 301
-
-# EdgeDB specific redirects (seems to be a major feature)
-/edgedb /platform/feature-flags/targeting/edgedb 301
-/edgedb/ /platform/feature-flags/targeting/edgedb 301
-/edgedb/* /platform/feature-flags/targeting/edgedb 301
-
-# OpenFeature redirects (growing in popularity)
-/openfeature /sdk/ 301
-/openfeature/ /sdk/ 301
-/open-feature /sdk/ 301
-/open-feature/ /sdk/ 301
-
-# Common developer paths
-/getting-started /quickstart 301
-/getting-started/ /quickstart 301
-/get-started /quickstart 301
-/get-started/ /quickstart 301
-/setup /quickstart 301
-/setup/ /quickstart 301
-
-# Webhook and integration specific redirects
-/webhook/* /platform/extras/webhooks 301
-/webhooks/* /platform/extras/webhooks 301
-
-# Metrics and analytics redirects
-/analytics/* /platform/experimentation/:splat 301
-/metrics/* /platform/experimentation/:splat 301
-
-# Common support and help redirects
-/support /quickstart 301
-/help /quickstart 301
-/documentation / 301
-/docs-site / 301
-
-# Catch-all for old structure patterns not covered above
+# Major catch-alls for restructured sections (only broad patterns)
 /home/feature-management/* /platform/feature-flags/ 301
-/home/account-management/* /platform/account-management/ 301
+/home/your-organization/* /platform/account-management/ 301
 /introduction/* /essentials/ 301

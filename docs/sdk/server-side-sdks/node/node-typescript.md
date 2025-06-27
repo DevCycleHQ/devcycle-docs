@@ -14,7 +14,7 @@ sidebar_custom_props: {icon: cib:typescript}
 The DevCycle Node.js SDK is written in Typescript and includes a full Typescript interface.
 
 It is also possible to enhance the type safety of the SDK by using the
-[Devcycle CLI](https://docs.devcycle.com/tools-and-integrations/cli) to generate a type definition
+[Devcycle CLI](/cli) to generate a type definition
 based on the complete set of variables defined in your project. Using this method, you can ensure that your code
 cannot access a variable key that is not defined in DevCycle, or treat a variable as a different type.
 
@@ -80,7 +80,7 @@ dvc generate types
 
 See the [documentation](https://github.com/DevCycleHQ/cli/blob/main/docs/generate.md#dvc-generate-types) for this command
 
-Ensure that the CLI is properly setup and authenticated to your project before running this command. See the [CLI docs](https://docs.devcycle.com/tools-and-integrations/cli)
+Ensure that the CLI is properly setup and authenticated to your project before running this command. See the [CLI docs](/cli)
 for further instructions on setting up the CLI.
 
 This command will generate a file called `dvcVariableTypes.ts` in the configured output directory.
