@@ -62,6 +62,21 @@ DevCycleModule.forRoot({
 })
 ```
 
+The `userFactory` also supports using async methods to fetch additional data:
+
+```typescript
+DevCycleModule.forRoot({
+  key: '<DEVCYCLE_SERVER_SDK_KEY>',
+  userFactory: async (context: ExecutionContext) => {
+    const userData = await fetchUserData(context)
+    return {
+      user_id: req.user.id,
+      email: req.user.email,
+    }
+  },
+})
+```
+
 [//]: # (wizard-initialize-end)
 
 ## Initialization Options
