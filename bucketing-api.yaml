@@ -2,8 +2,7 @@ openapi: 3.1.0
 info:
   title: DevCycle Bucketing API
   description:
-    Documents the DevCycle Bucketing API (https://bucketing-api.devcycle.com/) which provides an API interface to
-    User Bucketing and for generated SDKs.
+    Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.
 
 servers:
   - url: https://bucketing-api.devcycle.com/
@@ -142,7 +141,6 @@ paths:
       summary: Update EdgeDB data based on unique id and project id
       tags:
         - EdgeDB
-      operationId: 'updateEdgeDB'
       parameters:
         - in: path
           name: id
@@ -188,7 +186,6 @@ paths:
       description: Fetch a project config to display features available for Opt-in
       tags:
         - Feature Opt-in
-      operationId: 'getOptIn'
       parameters:
         - name: sdkKey
           in: query
@@ -222,7 +219,6 @@ paths:
       summary: Update opt-in preferences for a user
       tags:
         - Feature Opt-in
-      operationId: 'updateOptIn'
       parameters:
         - name: sdkKey
           in: query
@@ -260,7 +256,6 @@ paths:
         OFREP Single Flag Evaluation Request
       description:
         Return a single flag for a user context
-      operationId: 'openFeatureGetFlagByKey'
       parameters:
         - name: key
           in: path
@@ -320,7 +315,6 @@ paths:
         OFREP Bulk Evaluation Request
       description:
         Return all flag values for a user context.
-      operationId: 'openFeatureGetFlags'
       parameters:
         - in: header
           name: If-None-Match
@@ -517,9 +511,9 @@ components:
         variationKey:
           type: string
           description: Bucketed feature variation Key
-        evalReason:
-          type: string
-          description: Evaluation reasoning
+        eval:
+          type: object
+          description: The reason the User was Served this particular value
       required:
         - _id
         - key
@@ -542,6 +536,9 @@ components:
         value:
           type: object
           description: Variable value can be a string, number, boolean, or JSON
+        eval:
+          type: object
+          description: The reason the User was Served this particular value
       required:
         - _id
         - key
