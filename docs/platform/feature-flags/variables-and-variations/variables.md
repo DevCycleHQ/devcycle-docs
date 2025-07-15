@@ -132,13 +132,13 @@ To fully delete a Variable you must do so via our [Management API](/management-a
 
 Archiving Variables is a good way to clean up the DevCycle dashboard and ensure that it is easy to understand which Variables are available for use and which should no longer be leveraged going forward.
 
-To archive a Variable it must first be [removed from any active features](#removing-a-variable). Variables can be archived at the same time as removing from a feature. When the option to remove has been selected the confirmation modal will also provide the option to archive the Variable.
+To archive a Variable it must also be [removed from any active features](#removing-a-variable). Variables can be archived and removed from a feature at the same time. When you've selected to remove the variable, the confirmation modal will also provide the option to archive the Variable.
 
-If a Variable is not archived when it is removed from a feature it will remain active, but it won't be associated with any features and the default value will be delivered whenever the Variable is evaluated in code. If you are archiving a Variable from the Variable list or Variable details page, the Variable must be in this unassociated state.
+If a Variable is not archived when it is removed from a feature, it will remain active, but it won't be associated with any features, and the default value will be delivered whenever the Variable is evaluated in code. If you are archiving a Variable from the Variable list or Variable details page, the Variable must be in this unassociated state.
 
 When archiving a Variable from the Variable list or details page you will need to confirm your desire to archive by entering the Variable's key in the archive confirmation modal.
 
-Once archived, Variables can be viewed by toggling the Variable status filter to either All or Archived Variables on the Variable list page. From here Variables can also be unarchived if desired.
+Once archived, Variables can still be viewed by toggling the Variable status filter to either All or Archived Variables on the Variable list page. From here, Variables can also be unarchived if desired.
 
 ---
 
@@ -158,4 +158,14 @@ To use it, click the hyperlinked "**variable**" text, and you'll be directed to 
 If you want to move a variable between features, you must first remove it from the previous feature, making it unassociated.
 :::
 
+## Cleaning up Variables
 
+A Feature can be marked as [Completed](/platform/feature-flags/status-and-lifecycle#completed) which typically indicates that the Feature has been fully released and adopted by your userbase. Once marked as completed, DevCycle will display cleanup checklists for each variable associated with the Feature. You’ll then have the option to either **keep** or **archive** a variable:
+
+**Keep:** Marks the variable as permanent, indicating that the it should be kept active. DevCycle will not prompt you toward archiving or removing the variable from your code, and the variable will always serve the configured value.
+
+**Archive (Cleanup):** Cleanup the variable by removing (un-associating) the variable from the Feature and archiving it. The intention is that the variable is no longer needed and it has been removed from the codebase.
+
+With code references, variables will also be marked as deprecated in code if the variable was not made permanent.
+
+A Feature can revert is "completed" status at any time, and variables can be un-archived or re-associated as needed. Learn more about Feature cleanup on the Feature [Status and Lifecycle](/platform/feature-flags/status-and-lifecycle) page.

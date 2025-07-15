@@ -13,7 +13,7 @@ Features in DevCycle can exist in one of three Statuses to indicate their curren
 
 - **In Progress**
 - **Completed**
-- **Coming Soon: Archived**
+- **Archived**
 
 Each status comes with its unique properties, affecting how a Feature behaves, can be interacted with, or is displayed in the dashboard.
 
@@ -57,11 +57,13 @@ When a Feature is marked as "Completed," the following changes are implemented:
 
 ### Cleanup Checklist for Variables
 
-Upon completing a Feature, you will see cleanup checklists for each Variable. You can choose to keep or cleanup a Variable.
+Upon completing a Feature, you will see cleanup checklists for each Variable and you can choose to **keep** or **cleanup** a Variable.
 
-- **Keep**: Marks the Variable as permanent, which will make sure DevCycle does not guide you toward archiving or removing the Variable from your code, and the Variable will always serve the chosen value. 
+- **Keep**: Marks the variable as permanent, indicating that the it should be kept active. DevCycle will not prompt you toward archiving or removing the variable from your code, and the variable will always serve the configured value.
 
-- **Mark for Cleanup**: Provides a checklist to help you know when it's safe to remove the Variable from the Feature or archive the Variable. If the Variable is still seen in code, or if evaluations are still seen in production, removing this Variable from the Feature could result in the Variable serving default values to Users. If Code References are enabled, this will also help inform where to remove this Variable from your code. 
+- **Archive (Cleanup):** Cleanup the variable by removing (un-associating) the variable from the Feature and archiving it. The intention is that the variable is no longer needed and it has been removed from the codebase.
+
+The details in checklist will help you know when it's safe to remove the Variable from the Feature, or archive the Variable. If the Variable is still seen in code, or if evaluations are still seen in production, removing this Variable from the Feature could result in the Variable serving default values to Users. If Code References are enabled, additional details will be shown to inform you of where to remove the Variable from code, and variables will be marked as deprecated in code.
 
 #### Reverting to In Progress
 
