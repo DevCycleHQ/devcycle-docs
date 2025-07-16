@@ -234,10 +234,8 @@ identity must be changed during the application's lifecycle.
 
 #### Anonymous Users
 
-:::info
-
-If a user id is not supplied, client-side SDKs will automatically generate a user id and assign it to the current user. This id will be cached and used between app sessions / website visits until a user id is supplied or [reset](#resetting-a-user) is called. This ensures that you will not experience a rise in MAUs if the main experience of your application is in a logged-out or anonymous state.
-
+:::info 
+If a user id is not supplied, client-side SDKs will automatically generate an anonymous user id and assign it to the current user. Anonymous users count towards your MAUs for the month. This id will be cached and used between app sessions / website visits until a user id is supplied or [reset](#resetting-a-user) is called. This ensures that you will not experience a rise in MAUs if the main experience of your application is in a logged-out or anonymous state.
 :::
 
 #### Resetting a User
