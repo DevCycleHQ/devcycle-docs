@@ -99,7 +99,7 @@ First, select your property to use it like any other targeting definition as out
 
 Then, finish your Targeting Rule by filling out the comparator and the value fields. 
 
-There are no limits to the number of Properties that can be used to define a single Targeting Rule! Use as many custom properties as necessary to accurately target your users for your features. 
+There are no limits to the number of Properties that can be used to define a single Targeting Rule! Use as many custom properties as necessary to accurately target your users for your Features. 
 
 ![property type open](/feb-2022-custom-properties-in-targeting-rules.png)
 
@@ -107,31 +107,44 @@ There are no limits to the number of Properties that can be used to define a sin
 
 See the [Identify](/sdk/features#identifying-a-user-or-setting-properties) Documentation for the usage of properties within each SDK.
 
-## Managing / Deleting Custom Properties
+## Managing Custom Properties
 
-To rename, modify, or edit the Custom Properties in a project, navigate to the Settings page and click on "Custom Properties"
+To manage the Custom Properties in a project, navigate to the Settings page and click on "Custom Properties". This will display a list of Custom Properties that you've created for the project where you can filter by project or custom property type.
 
-![image of custom properties settings](/nov-2022-custom-properties-settings.png)
+![image of custom properties settings](/custom-properties-settings.png)
 
-In this section, you will be able to see all custom properties in your organization, with the ability to filter by type and by project.
+To make edits to a Custom Property, click into the Custom Property or "View Info". You can edit the Custom Properties attributes, setup a schema, gain insight into where it's being used, and delete the Custom Property on this page.
 
-To make edits to a Custom Property, click "View Info" and you will be able to modify the name, keys, and description of a Custom Property
-
-![image of custom properties info page](/nov-2022-custom-properties-info.png)
-
+![image of custom properties info page](/custom-properties-manage-page.png)
 
 :::caution
 
 If the **Property Key** is changed, any Identify calls or user objects which are using the previous key will no longer apply to this custom property.
 
-:::
-
-:::caution
-
-If a Custom Property is **Deleted** while in use in a Targeting Rule, the targeting rule will continue to function as normal. 
+If a Custom Property is **deleted** while in use in a Targeting Rule, the targeting rule will continue to function as normal. 
 This custom property will no longer be selectable for new targeting rule definitions.
 
 :::
+
+### Custom Property Schemas
+
+Custom Property Schemas let you to define allowable values for your Custom Properties when adding them to Targeting Rules. They ensure that only values that are acceptable are added to Targeting Rules, minimizing the risk of setting up a Feature or a Targeting Rule incorrectly.
+
+![image of custom property schemas](/custom-properties-schema.png)
+
+Custom Properties may only define Schemas as an `Enum` type (String or Number). Click on Add Value to set acceptables values for your Property. The "Label" is your readable name for the property while the "Value" is the value that you'll have to send via the SDK or API. You may allow users to add Additional Values when editing Targeting Rules, or limit them to only the values you've setup in the Schema.
+
+Once Schemas are setup for your Custom Property, you'll be able to select it's values using a dropdown menu populated with your schema.
+
+![image of selecting a custom property value](/custom-properties-targeting-schema.png)
+
+### Feature and Audience Usage
+
+Feature Usage and Audience Usage displays where the Custom Property is actively being used. Adding a Custom Property in an Audience is very similar to using it within a Feature, you can find out how to create an Audience in our [Audiences](/platform/feature-flags/targeting/audiences) page. 
+
+Click on "View On Feature" or "View on Audience" to be brought to the Feature or Audience that you've selected.
+
+![image of custom property usages](/custom-properties-usages.png)
 
 ## Common Use Cases for Custom Properties
 
@@ -141,6 +154,6 @@ You can target users in numerous ways using Custom Properties. The following lis
 
 **Geographic Location**. DevCycle has a built-in “Country” property, but you can target other forms of location by creating Custom Properties such as `storeLocation` `province` `state` `city` `school` etc.
 
-**Special Users**. Sometimes organizations want to release a feature to special users only, such as users with a paid membership, those with a free trial, or those who have made large contributions to the company. In this case, some property name suggestions are `accountType` `pricingPlan` `isSubscriber` `isTrialUser` `amountContributed` etc.
+**Special Users**. Sometimes organizations want to release a Feature to special users only, such as users with a paid membership, those with a free trial, or those who have made large contributions to the company. In this case, some property name suggestions are `accountType` `pricingPlan` `isSubscriber` `isTrialUser` `amountContributed` etc.
 
 **User Behaviour or Preferences.** You can experiment on users based on their behaviour or preferences. Some examples include `numberOfPageVisits` `gaveConsent` `preferredColor` etc.

@@ -250,7 +250,7 @@ to represent the user.
 
 User data can also contain "custom data", which is a key-value map of any arbitrary data you want to use for targeting.
 The provided data can be used in Targeting Rules by creating Custom Properties in the DevCycle dashboard. Learn more
-about [Custom Property Targeting](/platform/feature-flags/targeting/custom-properties)
+about [Custom Property Targeting](/platform/feature-flags/targeting/custom-properties).
 
 When setting custom properties you have a choice between keeping that data completely private or allowing
 for the data to be logged back to DevCycle's events database. Both options allow for the same targeting capabilities,
