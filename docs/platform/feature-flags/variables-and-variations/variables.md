@@ -9,8 +9,8 @@ Variables are the elements that can change within a Feature.
 
 By default, upon creation of a Feature, a `Boolean Variable` will be created which has the same name as the Feature's key for easier reference. 
 
-:::tip Already understand the variable essentials?
-Be sure to check out our advanced variable documentation which covers topics like:
+:::tip Already understand the Variable essentials?
+Be sure to check out our advanced Variable documentation which covers topics like:
 - [Variable Schemas](/platform/security-and-guardrails/variable-schemas)
 :::
 ---
@@ -26,13 +26,13 @@ On the Feature page, there are indicators for each Variable that inform you of t
 - if a Variable has been seen in code (if [Code References](/integrations/github/feature-usage-action) have been enabled)
 - if evaluations have been seen 
 
-These indicators are helpful when setting up features. They help to confirm proper setup, and aid in Variable cleanup once a Feature has completed it's [lifecycle](/platform/feature-flags/status-and-lifecycle).
+These indicators are helpful when setting up Features. They help to confirm proper setup, and aid in Variable cleanup once a Feature has completed it's [lifecycle](/platform/feature-flags/status-and-lifecycle).
 
 Hover over these indicators for more detail about a Variable's code references & evaluation information. 
 
 ![Variable Status Indicator](/nov-2023-var-status-found-eval-rec.png)
 
-Depending on the Feature type, the default Variations will be pre-set. For example, the most common feature type is a Release Flag, and it will have two variations - "Variation OFF" and "Variation ON", with the boolean Variable being set to false and true, respectively.
+Depending on the Feature type, the default Variations will be pre-set. For example, the most common Feature type is a Release Flag, and it will have two variations - "Variation OFF" and "Variation ON", with the boolean Variable being set to false and true, respectively.
 
 :::info
 For more information on variations please visit the [variations section](/essentials/overview#variations) of the documentation.
@@ -40,21 +40,21 @@ For more information on variations please visit the [variations section](/essent
 
 #### Global Variables Dashboard
 
-You can also view variables through the Variables dashboard, a collection of all Variables used within a project on a single list. In more complex or longer running projects, the Variables dashboard is useful to quickly find exactly what Feature is controlling a Variable (if any). 
+You can also view Variables through the Variables dashboard, a collection of all Variables used within a project on a single list. In more complex or longer running projects, the Variables dashboard is useful to quickly find exactly what Feature is controlling a Variable (if any). 
 
 To navigate to this page, use the `Variables` button on DevCycle dashboard's top bar, which will lead you to the Variables list which will show:
 
 |        |                            |
 |--------|----------------------------|
 | **Variable Name** | The name given to the Variable upon its creation |
-| **Feature** | The name of the Feature that is currently managing a variable. **Note** that Variables can only be managed by a single Feature at a time. If you wish to change what Feature is managing a Variable, first remove that Variable from a feature as outlined in [Creating Variables and Variations](/platform/feature-flags/variables-and-variations/variables). If the Variable is NOT being managed by a Feature, this column will note the lack of Feature. **Click on a Feature name to navigate directly to the Feature managing this Variable** |
-| **Type** | The type of the feature flag. This type can one of: Boolean, JSON, Number, Boolean, or String. |
+| **Feature** | The name of the Feature that is currently managing a Variable. **Note** that Variables can only be managed by a single Feature at a time. If you wish to change what Feature is managing a Variable, first remove that Variable from a Feature as outlined in [Creating Variables and Variations](/platform/feature-flags/variables-and-variations/variables). If the Variable is NOT being managed by a Feature, this column will note the lack of Feature. **Click on a Feature name to navigate directly to the Feature managing this Variable** |
+| **Type** | The type of the Feature flag. This type can one of: Boolean, JSON, Number, Boolean, or String. |
 | **Created At** | The time this Variable was first created. |
 
 
 ##### Variable Details
 
-To access variable details, click "View Info" on the Variables list page for your Desired Variable. This page contains two sections:
+To access Variable details, click "View Info" on the Variables list page for your Desired Variable. This page contains two sections:
 
 | Section | Description |
 |---------|-------------|
@@ -91,33 +91,33 @@ Variables may be the following types:
 The Variable **Values** for each **Variation** will be what the Variable's value will be in SDK and API responses if a targeting rule is targeting those specific Variations. 
 
 :::caution
-For JSON variables, the only allowable **Values** are JSON objects with key-value pairs. 
+For JSON Variables, the only allowable **Values** are JSON objects with key-value pairs. 
 :::
 
 ---
 
 ## Updating a Variable
 
-DevCycle allows users to edit the Variable Type of existing variables. We understand the importance of type-safety in variable management in addition to having flexibility when creating & editing variables. As such, editing unassociated variable versus associated variables differs slightly so you have as much context as possible on the ramifications of changing a variable type & its impact on your code.
+DevCycle allows users to edit the Variable Type of existing Variables. We understand the importance of type-safety in Variable management in addition to having flexibility when creating & editing Variables. As such, editing unassociated Variable versus associated Variables differs slightly so you have as much context as possible on the ramifications of changing a Variable type & its impact on your code.
 
 #### Unassociated Variables
 
-To edit an unassociated Variable, navigate to the Variable Details page of the variable you want to edit and select the new type from the dropdown.
+To edit an unassociated Variable, navigate to the Variable Details page of the Variable you want to edit and select the new type from the dropdown.
 
 #### Associated Variables
-If a variable is currently associated with a feature, changes to the Variable Type must be done on the associated feature page. Once on the feature page, click on the edit icon next to the variable key and select a new Variable Type from the dropdown and click Update. 
+If a Variable is currently associated with a Feature, changes to the Variable Type must be done on the associated Feature page. Once on the Feature page, click on the edit icon next to the Variable key and select a new Variable Type from the dropdown and click Update. 
 
 :::caution
-Be cautious when editing variable types as any code that is evaluating this variable must also be updated to expect the new type. A mismatch in variable types between the dashboard and your code will result in your code always returning the default value. 
+Be cautious when editing Variable types as any code that is evaluating this Variable must also be updated to expect the new type. A mismatch in Variable types between the dashboard and your code will result in your code always returning the default value. 
 :::
 
 ---
 
 ## Removing a Variable
 
-To remove a Variable from a feature, simply click on the edit icon next to the variable key and select the option to remove the variable from the variable edit modal.
+To remove a Variable from a Feature, simply click on the edit icon next to the Variable key and select the option to remove the Variable from the Variable edit modal.
 
-Removing a Variable from this page does not completely remove the Variable from DevCycle. The Variable will still be visible in the [Variable Dashboard](#global-variables-dashboard), but it will not be associated with any features.
+Removing a Variable from this page does not completely remove the Variable from DevCycle. The Variable will still be visible in the [Variable Dashboard](#global-variables-dashboard), but it will not be associated with any Features.
 
 Taking this action will cause all references to the Variable in any code usage to default only to the default value used in your codebase.
 
@@ -132,30 +132,40 @@ To fully delete a Variable you must do so via our [Management API](/management-a
 
 Archiving Variables is a good way to clean up the DevCycle dashboard and ensure that it is easy to understand which Variables are available for use and which should no longer be leveraged going forward.
 
-To archive a Variable it must first be [removed from any active features](#removing-a-variable). Variables can be archived at the same time as removing from a feature. When the option to remove has been selected the confirmation modal will also provide the option to archive the Variable.
+To archive a Variable it must also be [removed from any active Features](#removing-a-variable). Variables can be archived and removed from a Feature at the same time. When you've selected to remove the Variable, the confirmation modal will also provide the option to archive the Variable.
 
-If a Variable is not archived when it is removed from a feature it will remain active, but it won't be associated with any features and the default value will be delivered whenever the Variable is evaluated in code. If you are archiving a Variable from the Variable list or Variable details page, the Variable must be in this unassociated state.
+If a Variable is not archived when it is removed from a Feature, it will remain active, but it won't be associated with any Features, and the default value will be delivered whenever the Variable is evaluated in code. If you are archiving a Variable from the Variable list or Variable details page, the Variable must be in this unassociated state.
 
 When archiving a Variable from the Variable list or details page you will need to confirm your desire to archive by entering the Variable's key in the archive confirmation modal.
 
-Once archived, Variables can be viewed by toggling the Variable status filter to either All or Archived Variables on the Variable list page. From here Variables can also be unarchived if desired.
+Once archived, Variables can still be viewed by toggling the Variable status filter to either All or Archived Variables on the Variable list page. From here, Variables can also be unarchived if desired.
 
 ---
 
 ## Re-associating a Variable
 
-DevCycle has the ability to re-use existing variables and re-associate them to different features. 
+DevCycle has the ability to re-use existing Variables and re-associate them to different Features. 
 
-In the Variable Key input field, a drop down will display all **unassociated, unarchived** variables that can be re-associated to your feature while also providing you the option to add a net new variable.
+In the Variable Key input field, a drop down will display all **unassociated, unarchived** Variables that can be re-associated to your Feature while also providing you the option to add a net new Variable.
 
-If you select an existing, unassociated variable from the dropdown, the Variable type will be populated with the type of the selected variable and cannot be changed. 
+If you select an existing, unassociated Variable from the dropdown, the Variable type will be populated with the type of the selected Variable and cannot be changed. 
 
-If you input a variable key that matches an existing archived variable, the error below will appear, as you must first unarchive the variable.
+If you input a Variable key that matches an existing archived Variable, the error below will appear, as you must first unarchive the Variable.
 
-To use it, click the hyperlinked "**variable**" text, and you'll be directed to the archived variable page where you can unarchive it.
+To use it, click the hyperlinked "**Variable**" text, and you'll be directed to the archived Variable page where you can unarchive it.
 
 :::info
-If you want to move a variable between features, you must first remove it from the previous feature, making it unassociated.
+If you want to move a Variable between Features, you must first remove it from the previous Feature, making it unassociated.
 :::
 
+## Cleaning up Variables
 
+DevCycle will display the option to either **keep** or **archive** a Variable once a Feature has been [Completed](/platform/feature-flags/status-and-lifecycle#completed):
+
+**Keep:** Marks the Variable as permanent, indicating that the it should be kept active. DevCycle will not prompt you toward archiving or removing the Variable from your code, and the Variable will always serve the configured value.
+
+**Archive (Cleanup):** Cleanup the Variable by removing (un-associating) the Variable from the Feature and archiving it. The intention is that the Variable is no longer needed and it has been removed from the codebase.
+
+With code references, Variables will also be marked as deprecated in code if it was not made permanent.
+
+A Feature can revert is "completed" status at any time, and Variables can be un-archived or re-associated as needed. Learn more about Feature cleanup on the Feature [Status and Lifecycle](/platform/feature-flags/status-and-lifecycle) page.
