@@ -159,7 +159,7 @@ See [getVariables](https://docs.devcycle.com/bucketing-api/#tag/Bucketing-API/op
 This method is intended to be used for debugging and analytics purposes, *not* as a method for retrieving the value of Variables to change code behaviour.
 For that purpose, we strongly recommend using the individual variable access method described in [Using Variable Values](#using-variable-values)
 Using this method instead will result in no evaluation events being tracked for individual variables, and will not allow the use
-of other DevCycle features such as [Code Usage detection](/integrations/github/feature-usage-action)
+of other DevCycle features such as [Feature Reach](/platform/feature-flags/variables-and-variations/feature-flag-reach.md), [Metrics](docs/platform/experimentation/creating-and-managing-metrics.md), [Code Usage detection](/integrations/github/feature-usage-action), and [Stale Feature detection](/platform/feature-flags/stale-feature-notifications.md). 
 
 :::
 

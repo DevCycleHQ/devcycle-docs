@@ -13,7 +13,7 @@ Features in DevCycle can exist in one of three Statuses to indicate their curren
 
 - **In Progress**
 - **Completed**
-- **Coming Soon: Archived**
+- **Archived**
 
 Each status comes with its unique properties, affecting how a Feature behaves, can be interacted with, or is displayed in the dashboard.
 
@@ -57,11 +57,9 @@ When a Feature is marked as "Completed," the following changes are implemented:
 
 ### Cleanup Checklist for Variables
 
-Upon completing a Feature, you will see cleanup checklists for each Variable. You can choose to keep or cleanup a Variable.
+Upon completing a Feature, you will see a cleanup checklist for each Variable associated with the Feature. You’ll have the option of [Cleaning up Variables](/platform/feature-flags/variables-and-variations/variables#cleaning-up-variables) which allows you archive or keep them permanently.
 
-- **Keep**: Marks the Variable as permanent, which will make sure DevCycle does not guide you toward archiving or removing the Variable from your code, and the Variable will always serve the chosen value. 
-
-- **Mark for Cleanup**: Provides a checklist to help you know when it's safe to remove the Variable from the Feature or archive the Variable. If the Variable is still seen in code, or if evaluations are still seen in production, removing this Variable from the Feature could result in the Variable serving default values to Users. If Code References are enabled, this will also help inform where to remove this Variable from your code. 
+The details in the checklist will help you know when it's safe to remove the Variable from the Feature, or archive the Variable. If the Variable is still seen in code, or if evaluations are still seen in production, removing this Variable from the Feature could result in the Variable serving default values to Users. If Code References are enabled, additional details will be shown to inform you of where to remove the Variable from code, and variables will be marked as deprecated in code.
 
 #### Reverting to In Progress
 

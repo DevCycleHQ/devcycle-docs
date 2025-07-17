@@ -44,7 +44,15 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 }
 ```
 
-The user object needs either a `user_id`, or `isAnonymous` set to `true` for an anonymous user.
+The user object needs either a `user_id` set, or `isAnonymous = true` for an anonymous user.
+An empty `DevCycleUser` will default to an anonymous user, but it is recommended to set the `user_id` or `isAnonymous = true`.
+
+```swift
+// example anonymous user
+let user = try DevCycleUser.builder()
+                    .isAnonymous(true)
+                    .build()
+```
 
 [//]: # (wizard-initialize-end)
 
@@ -116,7 +124,7 @@ The SDK exposes various initialization options which can be used by passing a `D
 | disableAutomaticEventLogging | Boolean   | false     | Disables logging of SDK generated events (e.g. variableEvaluated, variableDefaulted) to DevCycle.              |
 | logLevel                     | LogLevel  | error     | Set log level of the default logger. Defaults to `error`                                                       |
 | enableEdgeDB                 | Boolean   | false     | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle.                                     |
-| configCacheTTL               | Int       | 604800000 | The maximum allowed age of a cached config in milliseconds, defaults to 7 days                                 |
+| configCacheTTL               | Int       | 2592000000 | The maximum allowed age of a cached config in milliseconds, defaults to 30 days                                 |
 | disableConfigCache           | Bool      | false     | Disable the use of cached configs                                                                              |
 | disableRealtimeUpdates       | Bool      | false     | Disable Realtime Updates                                                                                       |
 | apiProxyURL                  | String    | nil       | Allows the SDK to communicate with a proxy of DevCycle Client SDK API.                                         |
@@ -124,7 +132,7 @@ The SDK exposes various initialization options which can be used by passing a `D
 
 ## Notifying when DevCycle features are available
 
-In the initialize call there is an optional `onInitialized` parameter you can use to determine when your features have been loaded:
+In the initialize call there is an optional `onInitialized` callback parameter you can use to determine when your features have been loaded:
 
 ### Swift
 
@@ -140,6 +148,16 @@ self.devcycleClient = try? DevCycleClient.builder()
                 // initialized successfully
             }
         })
+```
+
+you can also await the `.build()` method:
+
+```swift
+self.devcycleClient = try? await DevCycleClient.builder()
+        .sdkKey("<DEVCYCLE_MOBILE_SDK_KEY>")
+        .user(user)
+        .options(options)
+        .build()
 ```
 
 ### Objective-C

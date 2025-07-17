@@ -40,7 +40,7 @@ This Metric type calculates the total number of times a unique user (or service)
 
 **% Difference** - This is a simple calculation of the difference between the Events/Denominator of the variation and the Control variation. 
 
-**Statistical Significance** - An icon that indicates whether the Feature has reached statistical significance or not at a 95% confidence interval.
+**Statistical Significance** - An icon that indicates whether the Feature has reached statistical significance or not at a 95% confidence interval or 0.05 significance level. A checkmark indicates a positive significant result, a cross indicates negative significant result and ellipses indicate that the result is non-significant.
 
 ## Value Optimization Metrics (Numerical Metrics)
 
@@ -64,4 +64,16 @@ Similar to the sum per user, the average for user also uses the numerical value 
 
 **% Difference** - Simple difference check against the Control value.
 
-**Statistical Significance** - An icon that indicates whether the Feature has reached statistical significance or not at a 95% confidence interval.
+**Statistical Significance** - An icon that indicates whether the Feature has reached statistical significance or not at a 95% confidence interval or 0.05 significance level. A checkmark indicates a positive significant result, a cross indicates negative significant result and ellipses indicate that the result is non-significant.
+
+## Interpreting Experiment Outcomes
+
+With any controlled experiment, you should anticipate three possible outcomes:
+
+- Accurate results – There's a genuine difference between baseline and the variation, the data reflects a winner or a loser accordingly. Conversely, when there's no significant difference, the data shows an inconclusive result.
+- False-positive (Type I Error) – Your test data shows a significant difference between your original and variation, but it’s merely random noise in the data; there's no real difference between your original and your variation.
+- False-negative (Type II Error) – Your test shows an inconclusive result, but your variation is genuinely different from your baseline whether that may be positive or negative.
+
+DevCycle ensures an optimal balance between experiment sensitivity and reliability. We enable product and engineering teams to make informed, data-driven decisions, and ultimately, empower them to continuously improve and enhance user experience based on trustworthy insights.
+
+Remember, the statistical tests used in A/B testing in general, provide a mathematical framework to make informed decisions. However, like all statistical tests, they are not infallible and are based on certain assumptions. Violations of these assumptions can lead to misleading results. It's crucial to understand the conditions of the tests and ensure that your data meets those conditions as closely as possible to draw valid conclusions from your A/B tests.

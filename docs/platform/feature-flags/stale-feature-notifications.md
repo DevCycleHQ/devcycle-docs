@@ -11,7 +11,16 @@ Stale Features are identified based on specific conditions associated with their
 
 If a Feature is marked as stale, DevCycle encourages users to take action by updating its status to Complete or Archived. This indicates that a Feature is ready to be cleaned up and removed from your codebase. 
 
+
 ## Stale Feature Reasons 
+
+:::note
+Stale Feature detection relies on Variable evaluations triggered through the `.variable()` or `.variableValue()` SDK call. If your implementation uses `.allVariables()` or `.allFeatures()`, these calls do **not** generate evaluation data. As a result, Features may appear **Unused** and be marked stale even if they are actively used in your code.
+If you know the Feature is active and used via `.variable()` or `.variableValue()` you can choose to:
+- **[Snooze or Disable](/platform/feature-flags/stale-feature-notifications#snoozing--disabling-stale-feature-notifications)** the staleness check for that Feature.
+- **Uncheck "Unused"** as a staleness check type in your Project Settings to prevent similar cases.
+If you're unsure whether evaluations are occurring, contact Support with the Variable key name so we can investigate further.
+::: 
 
 Features can belong to one of the following staleness reasons:
 
@@ -45,6 +54,7 @@ An **Unused** Feature is one where there are no evaluations or defaults for any 
 :::info
 Staleness Feature checks are ONLY conducted on Features that have an `In Progress` status. Features marked as `Complete` are not checked for staleness, as they should already be considered ready for cleanup given their status. 
 :::
+
 
 ## Enabling Stale Feature Notifications for your Project
 

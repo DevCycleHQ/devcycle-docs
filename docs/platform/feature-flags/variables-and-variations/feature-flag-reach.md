@@ -7,11 +7,9 @@ When a Feature is running, DevCycle automatically provides a quick way to view h
 
 ### Accessing Feature Reach
 
-There are two ways to find the Feature Flag Reach section. The first way is via your Feature Management page. On the very right of each feature is an “Insights” button which will navigate you to the feature’s reach section. 
-
-The second way is from a Feature’s dashboard. On the navigation to the left, click “Reach” under ”Data & Results”.
-
-![Reach button from a feature's dashboard](/june-2022-reach-feature-dashboard.png)
+There are two ways to find the Feature Flag Reach section. 
+1. On the [Feature Overview Tab in the Reach section](/platform/feature-flags/features#reach) on the Feature Form.
+2. On the [Data & Results Tab ](/platform/feature-flags/features##data--results-tab). 
 
 ### Feature Reach Details
 
@@ -19,7 +17,7 @@ The second way is from a Feature’s dashboard. On the navigation to the left, c
 
  An evaluation is only counted when an SDK or API actively accesses a specific variable. For more information on evaluating variables, see [the SDK Documentation on evaluations](/sdk/features.md)
  
-![Feature Flag Reach Example](/oct-2022-reach.png)
+![Feature Flag Reach Example](/may-2025-feature-data-results-tab.png)
 
 By default, the chart will show the aggregated count of evaluations of ALL variables across ALL environments and ALL SDKS.
 

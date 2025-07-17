@@ -3,6 +3,8 @@ on:
     - cron: 0 0 1 * * # run monthly
   workflow_dispatch:
 name: Broken Link Check
+permissions:
+  contents: read
 jobs:
   check:
     name: Broken Link Check

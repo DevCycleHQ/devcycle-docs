@@ -234,10 +234,8 @@ identity must be changed during the application's lifecycle.
 
 #### Anonymous Users
 
-:::info
-
-If a user id is not supplied, client-side SDKs will automatically generate a user id and assign it to the current user. This id will be cached and used between app sessions / website visits until a user id is supplied or [reset](#resetting-a-user) is called. This ensures that you will not experience a rise in MAUs if the main experience of your application is in a logged-out or anonymous state.
-
+:::info 
+If a user id is not supplied, client-side SDKs will automatically generate an anonymous user id and assign it to the current user. Anonymous users count towards your MAUs for the month. This id will be cached and used between app sessions / website visits until a user id is supplied or [reset](#resetting-a-user) is called. This ensures that you will not experience a rise in MAUs if the main experience of your application is in a logged-out or anonymous state.
 :::
 
 #### Resetting a User
@@ -250,7 +248,7 @@ to represent the user.
 
 User data can also contain "custom data", which is a key-value map of any arbitrary data you want to use for targeting.
 The provided data can be used in Targeting Rules by creating Custom Properties in the DevCycle dashboard. Learn more
-about [Custom Property Targeting](/platform/feature-flags/targeting/custom-properties)
+about [Custom Property Targeting](/platform/feature-flags/targeting/custom-properties).
 
 When setting custom properties you have a choice between keeping that data completely private or allowing
 for the data to be logged back to DevCycle's events database. Both options allow for the same targeting capabilities,

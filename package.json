@@ -88,6 +88,7 @@
     "webpack-dev-server@^4.15.1": "^4.15.2",
     "path-to-regexp@0.1.10": "^0.1.12",
     "undici@5.28.4": "^5.28.5",
-    "redoc@2.1.5": "^2.4.0"
+    "redoc@2.1.5": "^2.4.0",
+    "http-proxy-middleware@^2.0.7": "^2.0.9"
   }
 }
