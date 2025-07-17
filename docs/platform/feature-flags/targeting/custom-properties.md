@@ -113,7 +113,7 @@ To manage the Custom Properties in a project, navigate to the Settings page and 
 
 ![image of custom properties settings](/custom-properties-settings.png)
 
-To make edits to a Custom Property, click into the Custom Property or "View Info". You can edit the Custom Properties attributes, setup a schema, gain insight into where it's being used, and delete the Custom Property on this page.
+To make edits to a Custom Property, click into the Custom Property or "View Info". You can edit the Custom Property's attributes, setup a schema, gain insight into where it's being used, and delete the Custom Property on this page.
 
 ![image of custom properties info page](/custom-properties-manage-page.png)
 
@@ -128,7 +128,7 @@ This custom property will no longer be selectable for new targeting rule definit
 
 ### Custom Property Schemas
 
-Custom Property Schemas let you to define allowable values for your Custom Properties when adding them to Targeting Rules. They ensure that only values that are acceptable are added to Targeting Rules, minimizing the risk of setting up a Feature or a Targeting Rule incorrectly.
+Custom Property Schemas let you define allowable values for your Custom Properties when using them in Targeting Rules. Schemas ensure that only values that are acceptable are added to Targeting Rules, minimizing the risk of setting up a Feature or a Targeting Rule incorrectly.
 
 ![image of custom property schemas](/custom-properties-schema.png)
 
