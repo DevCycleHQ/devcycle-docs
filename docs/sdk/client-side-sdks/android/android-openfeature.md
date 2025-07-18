@@ -16,7 +16,7 @@ DevCycle provides an Android implementation of the OpenFeature Provider interfac
 
 ### Requirements
 
-This integration requires Android API version 23+ and is available starting from DevCycle Android SDK version 2.6.0.
+This integration requires **Android API version 23+** and is available starting from DevCycle Android SDK version `>= 2.6.0`.
 
 ## Installation
 
@@ -110,6 +110,8 @@ DevCycleProvider provider = new DevCycleProvider(
 OpenFeatureAPI.setProvider(provider);
 ```
 
+### Using Variable Value
+
 Use a variable value by passing the variable key and default value to one of the OpenFeature flag evaluation methods:
 
 ```kotlin
@@ -127,6 +129,8 @@ println("String flag value: $stringValue")
 println("Int flag value: $intValue")
 println("Double flag value: $doubleValue")
 ```
+
+### Setting User Context
 
 When the user's context is updated use `OpenFeatureAPI.setEvaluationContext()`:
 
