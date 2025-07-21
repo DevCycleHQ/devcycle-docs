@@ -9,7 +9,7 @@ sidebar_custom_props: { icon: material-symbols:toggle-on }
 [![Maven](https://badgen.net/maven/v/maven-central/com.devcycle/java-server-sdk)](https://search.maven.org/artifact/com.devcycle/java-server-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/java-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/java-server-sdk)
 
-[//]: # (wizard-evaluate-start)
+[//]: # 'wizard-evaluate-start'
 
 ## DevCycleUser Object
 
@@ -40,7 +40,8 @@ if (variableValue.booleanValue()) {
     // Old code here
 }
 ```
-[//]: # (wizard-evaluate-end)
+
+[//]: # 'wizard-evaluate-end'
 
 The default value can be of type `String`, `Boolean`, `Number`, or `Object`.
 
@@ -48,7 +49,8 @@ If you would like to get the full Variable Object you can use `variable()` inste
 `key`, `value`, `type`, `defaultValue`, `isDefaulted`.
 
 ## Getting All Variables
-This method will fetch all variables for a given user and return as Map&lt;String, Variable&gt;. 
+
+This method will fetch all variables for a given user and return as Map&lt;String, Variable&gt;.
 If the project configuration is unavailable, this will return an empty map.
 
 To get values from your Variables, the `value` field inside the variable object can be accessed.
@@ -58,14 +60,16 @@ import com.devcycle.sdk.server.common.model.BaseVariable;
 
 Map<String, BaseVariable> variables = client.allVariables(user);
 ```
+
 :::caution
 
-This method is intended to be used for debugging and analytics purposes, *not* as a method for retrieving the value of Variables to change code behaviour.
+This method is intended to be used for debugging and analytics purposes, _not_ as a method for retrieving the value of Variables to change code behaviour.
 For that purpose, we strongly recommend using the individual variable access method described in [Get and use Variable by key](#get-and-use-variable-by-key)
 Using this method instead will result in no evaluation events being tracked for individual variables, and will not allow the use
 of other DevCycle features such as [Code Usage detection](/integrations/github/feature-usage-action)
 
 :::
+
 ## Getting All Features
 
 This method will fetch all features for a given user and return them as Map&lt;String, Feature&gt;.
@@ -208,4 +212,45 @@ public class MyClass {
         client = new DevCycleLocalClient(System.getenv("DEVCYCLE_SERVER_SDK_KEY"), options);
     }
 }
+```
+
+## Evaluation Hooks
+
+Using evaluation hooks, you can hook into the lifecycle of a variable evaluation to execute code before and after execution of the evaluation.
+
+**Note**: Each evaluation will wait for all hooks before returning the variable evaluation, which depending on the complexity of the hooks will cause slower function call times. This also may lead to blocking variable evaluations in the future until all hooks return depending on the volume of calls to `.variable`.
+
+> [!WARNING]
+> Do not call any variable evaluation functions (.variable/variableValue) in any of the hooks, as it may cause infinite recursion.
+
+To add a hook:
+
+```java
+client.addHook(new EvalHook<String>() {
+    @Override
+    public Optional<HookContext<String>> before(HookContext<String> ctx) {
+        // before hook
+    }
+
+    @Override
+    public void after(HookContext<String> ctx, Variable<String> variable) {
+        // after hook
+    }
+
+    @Override
+    public void error(HookContext<String> ctx, Throwable error) {
+        // error hook
+    }
+
+    @Override
+    public void onFinally(HookContext<String> ctx, Optional<Variable<String>> variable) {
+        // finally hook
+    }
+});
+```
+
+You can also clear the hooks:
+
+```
+client.clearHooks()
 ```

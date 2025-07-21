@@ -9,7 +9,7 @@ sidebar_custom_props: { icon: material-symbols:toggle-on }
 [![PyPI](https://badgen.net/pypi/v/devcycle-python-server-sdk)](https://pypi.org/project/devcycle-python-server-sdk/)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/python-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/python-server-sdk)
 
-[//]: # (wizard-evaluate-start)
+[//]: # 'wizard-evaluate-start'
 
 ## DevCycleUser Object
 
@@ -44,7 +44,8 @@ try:
 except Exception as e:
      print(f"Exception when calling DevCycleLocalClient->variable_value: {e}")
 ```
-[//]: # (wizard-evaluate-end)
+
+[//]: # 'wizard-evaluate-end'
 
 The default value can be of type string, boolean, number, or dictionary.
 
@@ -68,7 +69,7 @@ See [getVariables](https://docs.devcycle.com/bucketing-api/#tag/Bucketing-API/op
 
 :::caution
 
-This method is intended to be used for debugging and analytics purposes, *not* as a method for retrieving the value of Variables to change code behaviour.
+This method is intended to be used for debugging and analytics purposes, _not_ as a method for retrieving the value of Variables to change code behaviour.
 For that purpose, we strongly recommend using the individual variable access method described in [Get and use Variable by key](#get-and-use-variable-by-key)
 Using this method instead will result in no evaluation events being tracked for individual variables, and will not allow the use
 of other DevCycle features such as [Code Usage detection](/integrations/github/feature-usage-action)
@@ -184,4 +185,43 @@ To disable realtime updates, pass in the `disable_realtime_updates` option to th
 options = DevCycleLocalOptions(disable_realtime_updates=True)
 
 devcycle_client = DevCycleLocalClient(os.environ["DEVCYCLE_SERVER_SDK_KEY"], options)
+```
+
+## Evaluation Hooks
+
+Using evaluation hooks, you can hook into the lifecycle of a variable evaluation to execute code before and after execution of the evaluation.
+
+**Note**: Each evaluation will wait for all hooks before returning the variable evaluation, which depending on the complexity of the hooks will cause slower function call times. This also may lead to blocking variable evaluations in the future until all hooks return depending on the volume of calls to `.variable`.
+
+> [!WARNING]
+> Do not call any variable evaluation functions (.variable/variableValue) in any of the hooks, as it may cause infinite recursion.
+
+To add a hook:
+
+```python
+def before_hook(context):
+    # before hook
+    return context
+
+def after_hook(context, variable):
+    # after hook
+    return context, variable
+
+def finally_hook(context, variable):
+    # finally hook
+    return context, variable
+
+def error_hook(context, error):
+    # error hook
+    return context, error
+
+self.client.add_hook(
+    EvalHook(before_hook, after_hook, finally_hook, error_hook)
+)
+```
+
+You can also clear the hooks:
+
+```python
+self.client.clear_hooks()
 ```
