@@ -219,7 +219,7 @@ val userContext = ImmutableContext(
 
 DevCycle only supports flat JSON Object properties used in the Context. Non-flat properties will be ignored.
 
-For example `obj` will be ignored:
+For example `obj` will be ignored in the following structure:
 
 ```kotlin
 val newContext = ImmutableContext(
