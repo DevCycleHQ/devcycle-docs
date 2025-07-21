@@ -24,7 +24,7 @@ The DevCycle OpenFeature Provider is included in the main Android SDK. To add it
 
 ### Gradle
 
-```yaml
+```gradle
 implementation("com.devcycle:android-client-sdk:2.6.0+")
 implementation("dev.openfeature:android-sdk:0.4.1+")
 ```
@@ -172,7 +172,7 @@ val provider = DevCycleProvider(
 
 ## Evaluation Context
 
-The evaluation context is used to provide user information for targeting. You can set properties such as `targetingKey`, `userId`, `email`, `name`, and custom attributes. These are mapped to DevCycle user properties automatically.
+The evaluation context is used to provide user information for targeting. You can set properties such as `targetingKey`, `userId`, `email`, `name`, and custom attributes. These are mapped to `DevCycleUser` properties automatically.
 
 The provider will automatically translate known `DevCycleUser` properties from the OpenFeature context to the `DevCycleUser` object. For example these context properties will be set on the `DevCycleUser`:
 
