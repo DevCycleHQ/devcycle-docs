@@ -124,3 +124,53 @@ To disable realtime updates, pass in the `disableRealtimeUpdates` option to the 
         .SetLogger(LoggerFactory.Create(builder => builder.AddConsole()))
         .Build();
 ```
+
+## Evaluation Hooks
+
+Using evaluation hooks, you can hook into the lifecycle of a variable evaluation to execute code before and after execution of the evaluation.
+
+**Note**: Each evaluation will wait for all hooks before returning the variable evaluation, which depending on the complexity of the hooks will cause slower function call times. This also may lead to blocking variable evaluations in the future until all hooks return depending on the volume of calls to `.variable`.
+
+> [!WARNING]
+> Do not call any variable evaluation functions (.variable/variableValue) in any of the hooks, as it may cause infinite recursion.
+
+To add a hook:
+
+```csharp
+public class TestEvalHook : EvalHook
+{
+    public override async Task<HookContext<T>> BeforeAsync<T>(HookContext<T> context, CancellationToken cancellationToken = default)
+    {
+        // before hook
+        return await base.BeforeAsync(context, cancellationToken);
+    }
+
+    public override async Task AfterAsync<T>(HookContext<T> context, Variable<T> details, CancellationToken cancellationToken = default)
+    {
+        // after hook
+        await base.AfterAsync(context, details, cancellationToken);
+    }
+
+    public override async Task ErrorAsync<T>(HookContext<T> context, Exception error, CancellationToken cancellationToken = default)
+    {
+        // error hook
+        await base.ErrorAsync(context, error, cancellationToken);
+    }
+
+    public override async Task FinallyAsync<T>(HookContext<T> context, Variable<T> evaluationDetails, CancellationToken cancellationToken = default)
+    {
+        // finally hook
+        await base.FinallyAsync(context, evaluationDetails, cancellationToken);
+    }
+}
+
+
+TestEvalHook hook = new TestEvalHook() { ThrowBefore = true };
+client.AddEvalHook(hook);
+```
+
+You can also clear the hooks:
+
+```csharp
+client.ClearEvalHooks();
+```

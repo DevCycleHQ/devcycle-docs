@@ -9,7 +9,7 @@ sidebar_custom_props: { icon: material-symbols:toggle-on }
 [![Npm package version](https://badgen.net/npm/v/@devcycle/nodejs-server-sdk)](https://www.npmjs.com/package/@devcycle/nodejs-server-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)
 
-[//]: # (wizard-evaluate-start)
+[//]: # 'wizard-evaluate-start'
 
 ## User Object
 
@@ -44,7 +44,8 @@ if (value) {
   // Feature Flag on
 }
 ```
-[//]: # (wizard-evaluate-end)
+
+[//]: # 'wizard-evaluate-end'
 
 The default value can be of type string, boolean, number, or object.
 
@@ -64,7 +65,7 @@ See [getVariables](/bucketing-api/#tag/Bucketing-API/operation/getVariables) on 
 
 :::caution
 
-This method is intended to be used for debugging and analytics purposes, *not* as a method for retrieving the value of Variables to change code behaviour.
+This method is intended to be used for debugging and analytics purposes, _not_ as a method for retrieving the value of Variables to change code behaviour.
 For that purpose, we strongly recommend using the individual variable access method described in [Get and use Variable by key](#get-and-use-variable-by-key)
 Using this method instead will result in no evaluation events being tracked for individual variables, and will not allow the use
 of other DevCycle features such as [Code Usage detection](/integrations/github/feature-usage-action)
@@ -111,7 +112,7 @@ To assist with segmentation and bucketing you can set a custom data map that wil
 import { DVCCustomDataJSON } from '@devcycle/nodejs-server-sdk'
 
 const customData: DVCCustomDataJSON = {
-  'some-key': 'some-value'
+  'some-key': 'some-value',
 }
 
 devcycleClient.setClientCustomData(customData)
@@ -139,13 +140,10 @@ Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to
 ```typescript
 import { initializeDevCycle, DevCycleUser } from '@devcycle/nodejs-server-sdk'
 
-const devcycleClient = initializeDevCycle(
-  '<DEVCYCLE_SERVER_SDK_KEY>',
-  {
-    enableCloudBucketing: true,
-    enableEdgeDB: true,
-  },
-)
+const devcycleClient = initializeDevCycle('<DEVCYCLE_SERVER_SDK_KEY>', {
+  enableCloudBucketing: true,
+  enableEdgeDB: true,
+})
 
 const user: DevCycleUser = {
   user_id: 'test_user',
@@ -171,12 +169,47 @@ To disable realtime updates, pass in the `disableRealtimeUpdates` option to the 
 ```typescript
 import { initializeDevCycle } from '@devcycle/nodejs-server-sdk'
 
-const devcycleClient = initializeDevCycle(
-  '<DEVCYCLE_SERVER_SDK_KEY>',
-  {
-    disableRealtimeUpdates: true,
-  },
+const devcycleClient = initializeDevCycle('<DEVCYCLE_SERVER_SDK_KEY>', {
+  disableRealtimeUpdates: true,
+})
+```
+
+## Evaluation Hooks
+
+Using evaluation hooks, you can hook into the lifecycle of a variable evaluation to execute code before and after execution of the evaluation.
+
+**Note**: Each evaluation will wait for all hooks before returning the variable evaluation, which depending on the complexity of the hooks will cause slower function call times. This also may lead to blocking variable evaluations in the future until all hooks return depending on the volume of calls to `.variable`.
+
+> [!WARNING]
+> Do not call any variable evaluation functions (.variable/variableValue) in any of the hooks, as it may cause infinite recursion.
+
+To add a hook:
+
+```typescript
+const client = new DevCycleClient('token')
+client.addHook(
+  new EvalHook(
+    (context) => {
+      // before hook
+    },
+    (context, variableDetails) => {
+      // after hook
+    },
+    (context, variableDetails) => {
+      // onFinally hook
+    },
+    (context, variableDetails) => {
+      // error hook
+    },
+  ),
 )
+```
+
+You can also clear the hooks:
+
+```typescript
+const client = new DevCycleClient('token')
+client.clearHooks()
 ```
 
 ## Close Client
