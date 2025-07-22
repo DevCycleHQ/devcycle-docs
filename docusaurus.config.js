@@ -450,10 +450,6 @@ const config = {
           position: 'left',
           items: [
             {
-              label: 'Calendar',
-              to: '/community/calendar',
-            },
-            {
               href: 'https://blog.devcycle.com',
               label: 'Blog',
               target: '_blank',
