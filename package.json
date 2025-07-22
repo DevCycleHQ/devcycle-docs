@@ -79,7 +79,7 @@
       "last 1 safari version"
     ]
   },
-  "packageManager": "yarn@4.2.1",
+  "packageManager": "yarn@4.9.2",
   "resolutions": {
     "path-to-regexp@6.2.1": "^6.3.0",
     "path-to-regexp@6.1.0": "^6.3.0",
