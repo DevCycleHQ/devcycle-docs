@@ -128,10 +128,6 @@ DevCycle extends the [OpenFeature Evaluation Details](https://openfeature.dev/sp
   "details": "optional string",
   "target_id": "optional string"
 }
-"reason": "REASON_ENUM",
-"details": "optional string",
-"target_id": "optional string"
-}
 ```
 
 | Field       | Type   | Description                                                              |
@@ -144,15 +140,14 @@ DevCycle extends the [OpenFeature Evaluation Details](https://openfeature.dev/sp
 
 The reason field reflects the primary reason a particular value was served. Here are the possible values:
 
-| Reason            | Description                                                                                                                                        | Examples of Details Property                                                                                                                         |
+| Reason            | Description                                                                                                                                        | Examples of `details` Property                                                                                                   |
 | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `DEFAULT`         | Returned when the default value was used. This may occur due to a type mismatch, a missing configuration, or an error in evaluation logic.         | `type mismatch`, _(no details if unknown)_                                                                                       |
-| `TARGETING_MATCH` | Indicates the user matched a targeting rule or audience and was served the corresponding variation.                                                | `Audience Match → Country AND Email AND App Version`<br/>`Custom Data → full_country`<br/>`Country AND Custom Data → isBetaUser` |
-| `SPLIT`           | The user matched targeting rules and was bucketed into a variation using a percentage rollout or random distribution. Implies a `TARGETING_MATCH`. | `Rollout \| Custom Data → full_country`<br/>`Random Distribution \| isBetaUser`                                                  |
-| `CACHED`          | Returned when the SDK serves a value from a cached configuration, typically in client-side environments when fresh config cannot be retrieved.     | _(no details provided)_                                                                                                          |
-| `OVERRIDE`        | The result was manually overridden via developer override or self-targeting, typically in local development or QA.                                 | `Override`                                                                                                                       |
-| `OPT_IN`          | The user explicitly opted into (or out of) a specific variation using DevCycle’s Opt-In feature.                                                   | `Opt-In`, `Not Opt-In`                                                                                                           |
-| `ERROR`           | An error occurred during evaluation, resulting in the default value being served.                                                                  | `Missing environment config`<br/>`SDK not initialized`<br/>`Invalid custom property`                                             |
+| `DEFAULT`         | Returned when the default value was used. This may occur due to a type mismatch, a missing configuration, or an error in evaluation logic.         | - type mismatch<br/>- _(no details if unknown)_                                                                                  |
+| `TARGETING_MATCH` | Indicates the user matched a targeting rule or audience and was served the corresponding variation.                                                | - Audience Match → Country AND Email AND App Version<br/>- Custom Data → full_country<br/>- Country AND Custom Data → isBetaUser |
+| `SPLIT`           | The user matched targeting rules and was bucketed into a variation using a percentage rollout or random distribution. Implies a `TARGETING_MATCH`. | - Rollout \| Custom Data → full_country<br/>- Random Distribution \| isBetaUser                                                  |
+| `OVERRIDE`        | The result was manually overridden via developer override or self-targeting, typically in local development or QA.                                 | - Override                                                                                                                       |
+| `OPT_IN`          | The user explicitly opted into (or out of) a specific variation using DevCycle’s Opt-In feature.                                                   | - Opt-In<br/>- Not Opt-In                                                                                                        |
+| `ERROR`           | An error occurred during evaluation, resulting in the default value being served.                                                                  | - Missing environment config<br/>- SDK not initialized<br/>- Invalid custom property                                             |
 
 #### Additional Notes
 
