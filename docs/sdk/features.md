@@ -124,6 +124,10 @@ DevCycle extends the [OpenFeature Evaluation Details](https://openfeature.dev/sp
 
 ```json
 "eval": {
+  "reason": "REASON_ENUM",
+  "details": "optional string",
+  "target_id": "optional string"
+}
 "reason": "REASON_ENUM",
 "details": "optional string",
 "target_id": "optional string"
