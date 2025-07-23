@@ -116,7 +116,7 @@ For more information on how the default value is used, see [Variable Defaults](/
 
 ## Evaluation Reasons
 
-When a variable is evaluated in DevCycle, the response includes metadata explaining **why** a specific variation was returned. This is captured in the `eval` object, which helps teams debug and understand feature flag decisions more effectively.
+When a Variable is evaluated in DevCycle, the response includes metadata explaining **why** a specific Variation's value was returned. This is captured in the `eval` object, which helps teams debug and understand feature flag decisions more effectively.
 
 DevCycle extends the [OpenFeature Evaluation Details](https://openfeature.dev/specification/types/#evaluation-details) structure with additional reason types and optional fields for richer context.
 
