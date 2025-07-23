@@ -9,7 +9,7 @@ sidebar_custom_props: { icon: material-symbols:toggle-on }
 [![Pub](https://img.shields.io/pub/v/devcycle_flutter_client_sdk)](https://img.shields.io/pub/v/devcycle_flutter_client_sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/flutter-client-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/flutter-client-sdk)
 
-[//]: # (wizard-evaluate-start)
+[//]: # 'wizard-evaluate-start'
 
 ## Using Variable Values
 
@@ -23,8 +23,8 @@ final strValue = _devcycleClient.variableValue(key: "string_key", defaultValue: 
 final numValue = _devcycleClient.variableValue(key: "num_key", defaultValue: 4);
 final jsonValue = _devcycleClient.variableValue(key: "json_key", defaultValue: { "key": "value" });
 ```
-[//]: # (wizard-evaluate-end)
 
+[//]: # 'wizard-evaluate-end'
 
 If you would like to get the full `Variable` object using the `variable()` method it also contains the following params:
 
@@ -33,7 +33,7 @@ If you would like to get the full `Variable` object using the `variable()` metho
 - `value`: the Variable's value
 - `defaultValue`: the Variable's default value
 - `isDefaulted`: if the Variable is using the `defaultValue`
-- `evalReason`: evaluation reason for why the variable was bucketed into its value
+- `eval`: evaluation object containing reason, details, and targetId for why the variable was bucketed into its value (see [Evaluation Reasons](/sdk/features#evaluation-reasons))
 
 If the value is not ready, it will return the default value passed in the creation of the variable.
 
@@ -64,7 +64,7 @@ If the SDK has not finished initializing, these methods will return an empty obj
 
 :::caution
 
-This method is intended to be used for debugging and analytics purposes, *not* as a method for retrieving the value of Variables to change code behaviour.
+This method is intended to be used for debugging and analytics purposes, _not_ as a method for retrieving the value of Variables to change code behaviour.
 For that purpose, we strongly recommend using the individual variable access method described in [Using Variable Values](#using-variable-values)
 Using this method instead will result in no evaluation events being tracked for individual variables, and will not allow the use
 of other DevCycle features such as [Code Usage detection](/integrations/github/feature-usage-action)

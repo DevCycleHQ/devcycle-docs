@@ -9,7 +9,7 @@ sidebar_custom_props: { icon: material-symbols:toggle-on }
 [![Packagist](https://badgen.net/packagist/v/devcycle/php-server-sdk/latest)](https://packagist.org/packages/devcycle/php-server-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/php-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/php-server-sdk)
 
-[//]: # (wizard-evaluate-start)
+[//]: # 'wizard-evaluate-start'
 
 ## User Object
 
@@ -39,7 +39,8 @@ try {
     echo 'Exception when calling DevCycleClient->variableValue: ', $e->getMessage(), PHP_EOL;
 }
 ```
-[//]: # (wizard-evaluate-end)
+
+[//]: # 'wizard-evaluate-end'
 
 The default value can be of type string, boolean, number, or object.
 
@@ -61,7 +62,7 @@ See [getVariables](/bucketing-api/#tag/Bucketing-API/operation/getVariables) on 
 
 :::caution
 
-This method is intended to be used for debugging and analytics purposes, *not* as a method for retrieving the value of Variables to change code behaviour.
+This method is intended to be used for debugging and analytics purposes, _not_ as a method for retrieving the value of Variables to change code behaviour.
 For that purpose, we strongly recommend using the individual variable access method described in [Get and use Variable by key](#get-and-use-variable-by-key)
 Using this method instead will result in no evaluation events being tracked for individual variables, and will not allow the use
 of other DevCycle features such as [Code Usage detection](/integrations/github/feature-usage-action)
