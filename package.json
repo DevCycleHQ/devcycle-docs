@@ -23,11 +23,6 @@
     "@docusaurus/theme-common": "^3.7.0",
     "@docusaurus/utils": "^3.7.0",
     "@docusaurus/utils-validation": "^3.7.0",
-    "@fortawesome/fontawesome-svg-core": "^6.7.2",
-    "@fortawesome/free-brands-svg-icons": "^6.7.2",
-    "@fortawesome/free-regular-svg-icons": "^6.7.2",
-    "@fortawesome/free-solid-svg-icons": "^6.7.2",
-    "@fortawesome/react-fontawesome": "^0.2.2",
     "@heroicons/react": "^2.2.0",
     "@mdx-js/react": "^3.1.0",
     "@remark-embedder/core": "^3.0.3",
@@ -38,7 +33,6 @@
     "docusaurus-plugin-remote-content": "^4.0.0",
     "dotenv": "^16.4.7",
     "fast-safe-stringify": "^2.1.1",
-    "mixpanel-browser": "^2.61.2",
     "mobx": "^6.13.7",
     "path-browserify": "^1.0.1",
     "postcss": "^8.5.3",
@@ -50,9 +44,8 @@
     "react-dom": "^18.3.1",
     "redocusaurus": "^2.2.2",
     "remark-docusaurus-tabs": "^0.2.0",
-    "styled-components": "^6.1.16",
+    "styled-components": "^6.1.19",
     "tailwindcss": "^3.4.17",
-    "vercel": "^41.4.1",
     "yaml": "^2.7.0"
   },
   "devDependencies": {
@@ -61,8 +54,7 @@
     "@docusaurus/types": "^3.7.0",
     "@iconify-icon/react": "^1.0.8",
     "@types/react": "^18.3.20",
-    "typescript": "~5.8.2",
-    "webpack": "^5.98.0"
+    "typescript": "~5.8.2"
   },
   "engines": {
     "node": "^22.13"
@@ -79,16 +71,8 @@
       "last 1 safari version"
     ]
   },
-  "packageManager": "yarn@4.2.1",
+  "packageManager": "yarn@4.9.2",
   "resolutions": {
-    "path-to-regexp@6.2.1": "^6.3.0",
-    "path-to-regexp@6.1.0": "^6.3.0",
-    "path-to-regexp@2.2.1": "^3.3.0",
-    "send@0.18.0": "^0.19.0",
-    "webpack-dev-server@^4.15.1": "^4.15.2",
-    "path-to-regexp@0.1.10": "^0.1.12",
-    "undici@5.28.4": "^5.28.5",
-    "redoc@2.1.5": "^2.4.0",
-    "http-proxy-middleware@^2.0.7": "^2.0.9"
+    "send@0.18.0": "^0.19.0"
   }
 }

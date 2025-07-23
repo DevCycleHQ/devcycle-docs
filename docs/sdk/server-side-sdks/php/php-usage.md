@@ -128,6 +128,41 @@ $devcycleClient->allVariablesAsync($user_data)->then(function($result) {
 });
 ```
 
+## Evaluation Hooks
+
+Using evaluation hooks, you can hook into the lifecycle of a variable evaluation to execute code before and after execution of the evaluation.
+
+**Note**: Each evaluation will wait for all hooks before returning the variable evaluation, which depending on the complexity of the hooks will cause slower function call times. This also may lead to blocking variable evaluations in the future until all hooks return depending on the volume of calls to `.variable`.
+
+> [!WARNING]
+> Do not call any variable evaluation functions (.variable/variableValue) in any of the hooks, as it may cause infinite recursion.
+
+To add a hook:
+
+```php
+$hook = new EvalHook(
+    before: function (HookContext $context) use (&$beforeCalled) {
+        // before hook
+    },
+    after: function (HookContext $context) use (&$afterCalled) {
+        // after hook
+    },
+    onFinally: function (HookContext $context) use (&$onFinallyCalled) {
+        // onFinally hook
+    },
+    error: function (HookContext $context, \Exception $error) use (&$errorCalled) {
+        // error hook
+    }
+);
+$this->client->addHook($hook);
+```
+
+You can also clear the hooks:
+
+```php
+$this->client->clearHooks();
+```
+
 ## Models
 
 ### User
