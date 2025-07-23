@@ -21,35 +21,43 @@ DevCycle provides a Javascript implementation of the OpenFeature Web Provider in
 
 Install the OpenFeature React SDK and DevCycle Web Provider:
 
-[//]: # (wizard-install-start)
+[//]: # 'wizard-install-start'
 
 #### NPM
+
 ```bash
-npm install @openfeature/react-sdk @devcycle/openfeature-react-provider 
+npm install @openfeature/react-sdk @devcycle/openfeature-react-provider
 ```
 
-[//]: # (wizard-install-end)
+[//]: # 'wizard-install-end'
 
 #### Yarn
+
 If using `yarn` you will need to install further peer-dependencies:
 
 ```bash
-yarn add @openfeature/react-sdk @devcycle/openfeature-react-provider @openfeature/web-sdk @openfeature/core 
+yarn add @openfeature/react-sdk @devcycle/openfeature-react-provider @openfeature/web-sdk @openfeature/core
 ```
 
 ### Getting Started
 
-[//]: # (wizard-initialize-start)
+[//]: # 'wizard-initialize-start'
 
 Initialize the DevCycleProvider and set it as the provider for OpenFeature,
 which will initialize the DevCycle JS Client SDK internally:
 
 ```typescript jsx
-import { OpenFeatureProvider, useBooleanFlagValue, OpenFeature } from '@openfeature/react-sdk'
+import {
+  OpenFeatureProvider,
+  useBooleanFlagValue,
+  OpenFeature,
+} from '@openfeature/react-sdk'
 import DevCycleReactProvider from '@devcycle/openfeature-react-provider'
 
 await OpenFeature.setContext({ user_id: 'user_id' })
-await OpenFeature.setProviderAndWait(new DevCycleReactProvider('<DEVCYCLE_CLIENT_SDK_KEY>'))
+await OpenFeature.setProviderAndWait(
+  new DevCycleReactProvider('<DEVCYCLE_CLIENT_SDK_KEY>'),
+)
 
 function App() {
   return (
@@ -59,10 +67,12 @@ function App() {
   )
 }
 ```
-[//]: # (wizard-initialize-end)
+
+[//]: # 'wizard-initialize-end'
 
 ### Evaluating a Variable
-[//]: # (wizard-evaluate-start)
+
+[//]: # 'wizard-evaluate-start'
 
 Use a Variable value by passing the Variable key and default value to one of the OpenFeature flag evaluation hooks
 
@@ -72,7 +82,11 @@ function Page() {
   return (
     <div className="App">
       <header className="App-header">
-        {newMessage ? <p>Welcome to this OpenFeature-enabled React app!</p> : <p>Welcome to this React app.</p>}
+        {newMessage ? (
+          <p>Welcome to this OpenFeature-enabled React app!</p>
+        ) : (
+          <p>Welcome to this React app.</p>
+        )}
       </header>
     </div>
   )
@@ -80,8 +94,8 @@ function Page() {
 
 export default App
 ```
-[//]: # (wizard-evaluate-end)
 
+[//]: # 'wizard-evaluate-end'
 
 ### Passing DevCycleOptions to the DevCycleProvider
 
@@ -91,7 +105,10 @@ Ensure that you pass any custom DevCycleOptions to the DevCycleProvider construc
 const user = { user_id: 'user_id' }
 
 const options = { logger: dvcDefaultLogger({ level: 'debug' }) }
-const devcycleProvider = new DevCycleReactProvider('<DEVCYCLE_CLIENT_SDK_KEY>', options)
+const devcycleProvider = new DevCycleReactProvider(
+  '<DEVCYCLE_CLIENT_SDK_KEY>',
+  options,
+)
 await OpenFeature.setProviderAndWait(devcycleProvider)
 ```
 

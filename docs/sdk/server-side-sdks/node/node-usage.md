@@ -172,6 +172,7 @@ import { initializeDevCycle } from '@devcycle/nodejs-server-sdk'
 const devcycleClient = initializeDevCycle('<DEVCYCLE_SERVER_SDK_KEY>', {
   disableRealtimeUpdates: true,
 })
+
 ```
 
 ## Evaluation Hooks

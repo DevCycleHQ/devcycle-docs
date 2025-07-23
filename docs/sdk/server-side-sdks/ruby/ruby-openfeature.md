@@ -17,7 +17,8 @@ DevCycle provides a Ruby implementation of the [OpenFeature](https://openfeature
 ## Usage
 
 ### Installation
-[//]: # (wizard-install-start)
+
+[//]: # 'wizard-install-start'
 
 Install the OpenFeature Ruby SDK and DevCycle Provider:
 
@@ -25,17 +26,17 @@ Install the OpenFeature Ruby SDK and DevCycle Provider:
 gem install devcycle-ruby-server-sdk
 ```
 
-or 
+or
 
 ```shell
 bundler add devcycle-ruby-server-sdk
 ```
 
-
-[//]: # (wizard-install-end)
+[//]: # 'wizard-install-end'
 
 ### Getting Started
-[//]: # (wizard-initialize-start)
+
+[//]: # 'wizard-initialize-start'
 
 Initialize the DevCycle SDK and set the DevCycleProvider as the provider for OpenFeature:
 
@@ -49,18 +50,21 @@ OpenFeature::SDK.configure do |config|
 end
 @open_feature_client = OpenFeature::SDK.build_client
 ```
-[//]: # (wizard-initialize-end)
+
+[//]: # 'wizard-initialize-end'
 
 ### Evaluate a Variable
+
 Use a Variable value by setting the EvaluationContext, then passing the Variable key and default value to one of the OpenFeature flag evaluation methods.
 
-[//]: # (wizard-evaluate-start)
+[//]: # 'wizard-evaluate-start'
 
 ```ruby
 context = OpenFeature::SDK::EvaluationContext.new(user_id:'user_id')
 flag_value = @open_feature_client.fetch_integer_value(flag_key: 'flag_key', default_value: 1, evaluation_context: context)
 ```
-[//]: # (wizard-evaluate-end)
+
+[//]: # 'wizard-evaluate-end'
 
 ### Required Targeting Key
 

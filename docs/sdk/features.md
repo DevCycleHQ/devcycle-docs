@@ -114,6 +114,46 @@ The default value will be returned in the following scenarios:
 
 For more information on how the default value is used, see [Variable Defaults](/platform/feature-flags/variables-and-variations/variable-defaults).
 
+## Evaluation Reasons
+
+When a Variable is evaluated in DevCycle, the response includes metadata explaining **why** a specific Variation's value was returned. This is captured in the `eval` object, which helps teams debug and understand feature flag decisions more effectively.
+
+DevCycle extends the [OpenFeature Evaluation Details](https://openfeature.dev/specification/types/#evaluation-details) structure with additional reason types and optional fields for richer context.
+
+### Evaluation Object Format
+
+```json
+"eval": {
+  "reason": "REASON_ENUM",
+  "details": "optional string",
+  "target_id": "optional string"
+}
+```
+
+| Field       | Type   | Description                                                              |
+| ----------- | ------ | ------------------------------------------------------------------------ |
+| `reason`    | string | A required enum value indicating why a specific value was returned.      |
+| `details`   | string | An optional string providing extra context about the evaluation outcome. |
+| `target_id` | string | An optional identifier for the matched targeting rule or audience.       |
+
+### Reason Types
+
+The reason field reflects the primary reason a particular value was served. Here are the possible values:
+
+| Reason            | Description                                                                                                                                        | Examples of `details` Property                                                                                                   |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `DEFAULT`         | Returned when the default value was used. This may occur due to a type mismatch, a missing configuration, or an error in evaluation logic.         | - Type Mismatch<br/>- User Not Targeted<br/>- _(no details if unknown)_                                                          |
+| `TARGETING_MATCH` | Indicates the user matched a targeting rule or audience and was served the corresponding variation.                                                | - Audience Match → Country AND Email AND App Version<br/>- Custom Data → full_country<br/>- Country AND Custom Data → isBetaUser |
+| `SPLIT`           | The user matched targeting rules and was bucketed into a variation using a percentage rollout or random distribution. Implies a `TARGETING_MATCH`. | - Rollout \| Custom Data → full_country<br/>- Random Distribution \| isBetaUser                                                  |
+| `OVERRIDE`        | The result was manually overridden via API/CLI override or self-targeting, typically in local development or QA.                                   | - Override                                                                                                                       |
+| `OPT_IN`          | The user explicitly opted into (or out of) a specific variation using DevCycle’s Opt-In feature.                                                   | - Opt-In                                                                                                                         |
+| `ERROR`           | An error occurred during evaluation, resulting in the default value being served.                                                                  | - Missing environment config<br/>- SDK not initialized                                                                           |
+
+#### Additional Notes
+
+- The details and target_id fields are included only when relevant.
+- Not all reasons will include these fields—if no helpful context is available, they will be omitted.
+
 ## Getting All Features
 
 The "Get All Features" function in an SDK will return a map of all the features that the user is currently receiving.
@@ -234,7 +274,7 @@ identity must be changed during the application's lifecycle.
 
 #### Anonymous Users
 
-:::info 
+:::info
 If a user id is not supplied, client-side SDKs will automatically generate an anonymous user id and assign it to the current user. Anonymous users count towards your MAUs for the month. This id will be cached and used between app sessions / website visits until a user id is supplied or [reset](#resetting-a-user) is called. This ensures that you will not experience a rise in MAUs if the main experience of your application is in a logged-out or anonymous state.
 :::
 
@@ -363,11 +403,15 @@ is the recommended mode.
 ## Server SDK Diagrams
 
 The following diagrams illustrate the initialization flow, and logical background processes created/managed by the SDKs.
+
 ### Initialization Flow
+
 ![Initialization Flow](/diagrams/server-sdk-initialization.svg)
 
 ### Config Manager
+
 ![Config Manager](/diagrams/config-manager.svg)
 
 ### Event Manager
+
 ![Event Manager](/diagrams/event-manager.svg)

@@ -20,13 +20,13 @@ Install the DevCycle NodeJS Server SDK which includes the OpenFeature Server SDK
 
 #### NPM
 
-[//]: # (wizard-install-start)
+[//]: # 'wizard-install-start'
 
 ```bash
 npm install --save @devcycle/openfeature-nestjs-provider @openfeature/nestjs-sdk
 ```
 
-[//]: # (wizard-install-end)
+[//]: # 'wizard-install-end'
 
 #### Yarn
 
@@ -36,7 +36,7 @@ yarn add @devcycle/openfeature-nestjs-provider @openfeature/nestjs-sdk
 
 ### Getting Started
 
-[//]: # (wizard-initialize-start)
+[//]: # 'wizard-initialize-start'
 
 Create the `DevCycleProvider` and set it as the provider for OpenFeature NestJS SDK:
 
@@ -73,38 +73,36 @@ export class AppModule implements OnModuleInit {
 }
 ```
 
-[//]: # (wizard-initialize-end)
+[//]: # 'wizard-initialize-end'
 
 ### Evaluate a Variable
 
-[//]: # (wizard-evaluate-start)
+[//]: # 'wizard-evaluate-start'
 
 To use the OpenFeature NestJS SDK in a service first inject the OpenFeatureClient into the service.
 Then use a Variable value by creating the EvaluationContext, and pass the Variable key, default value, and EvaluationContext to one of the OpenFeature flag evaluation methods.
 
 ```typescript
-import { Injectable, Inject } from '@nestjs/common';
-import { OpenFeatureClient, Client } from '@openfeature/nestjs-sdk';
+import { Injectable, Inject } from '@nestjs/common'
+import { OpenFeatureClient, Client } from '@openfeature/nestjs-sdk'
 
-const SERVICE_USER = { user_id: 'example-service' };
+const SERVICE_USER = { user_id: 'example-service' }
 
 @Injectable()
 export class ExampleService {
-  constructor(
-    @OpenFeatureClient() private ofClient: Client,
-  ) {}
+  constructor(@OpenFeatureClient() private ofClient: Client) {}
 
   async testFlag() {
     const testFlag = await this.ofClient.getBooleanValue(
       'test-flag',
       false,
       SERVICE_USER,
-    );
+    )
   }
 }
 ```
 
-[//]: # (wizard-evaluate-end)
+[//]: # 'wizard-evaluate-end'
 
 ### Tracking Events
 
