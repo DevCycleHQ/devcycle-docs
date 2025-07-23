@@ -147,7 +147,7 @@ The reason field reflects the primary reason a particular value was served. Here
 | `SPLIT`           | The user matched targeting rules and was bucketed into a variation using a percentage rollout or random distribution. Implies a `TARGETING_MATCH`. | - Rollout \| Custom Data → full_country<br/>- Random Distribution \| isBetaUser                                                  |
 | `OVERRIDE`        | The result was manually overridden via developer override or self-targeting, typically in local development or QA.                                 | - Override                                                                                                                       |
 | `OPT_IN`          | The user explicitly opted into (or out of) a specific variation using DevCycle’s Opt-In feature.                                                   | - Opt-In<br/>- Not Opt-In                                                                                                        |
-| `ERROR`           | An error occurred during evaluation, resulting in the default value being served.                                                                  | - Missing environment config<br/>- SDK not initialized<br/>- Invalid custom property                                             |
+| `ERROR`           | An error occurred during evaluation, resulting in the default value being served.                                                                  | - Missing environment config<br/>- SDK not initialized                                                                           |
 
 #### Additional Notes
 
