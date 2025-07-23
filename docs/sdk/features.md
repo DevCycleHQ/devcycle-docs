@@ -140,7 +140,7 @@ DevCycle extends the [OpenFeature Evaluation Details](https://openfeature.dev/sp
 
 The reason field reflects the primary reason a particular value was served. Here are the possible values:
 
-| Reason            | Description                                                                                                                                        | Examples                                                                                                                         |
+| Reason            | Description                                                                                                                                        | Examples of Details Property                                                                                                                         |
 | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | `DEFAULT`         | Returned when the default value was used. This may occur due to a type mismatch, a missing configuration, or an error in evaluation logic.         | `type mismatch`, _(no details if unknown)_                                                                                       |
 | `TARGETING_MATCH` | Indicates the user matched a targeting rule or audience and was served the corresponding variation.                                                | `Audience Match → Country AND Email AND App Version`<br/>`Custom Data → full_country`<br/>`Country AND Custom Data → isBetaUser` |
