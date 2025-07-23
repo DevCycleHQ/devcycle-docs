@@ -22,7 +22,7 @@ This version of the DevCycle Client SDK supports the following platforms:
 
 ## Installation
 
-[//]: # (wizard-install-start)
+[//]: # 'wizard-install-start'
 
 ### Swift Package Manager
 
@@ -44,7 +44,7 @@ To use the library with Swift Package Manager, include it as a dependency in you
 
 You can also add it through Xcode, i.e. `File > Swift Packages > Add Package Dependency`, then enter the repository clone URL.
 
-[//]: # (wizard-install-end)
+[//]: # 'wizard-install-end'
 
 :::info
 **Package URL Conflicts:** If you have a package that conflicts with the naming of the `ios-client-sdk`, then you can use https://github.com/DevCycleHQ/devcycle-ios-client-sdk.git.

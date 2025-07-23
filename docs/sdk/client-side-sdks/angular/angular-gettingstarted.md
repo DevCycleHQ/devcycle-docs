@@ -11,7 +11,7 @@ sidebar_custom_props: { icon: material-symbols:rocket }
 
 ## Installation
 
-[//]: # (wizard-initialize-start)
+[//]: # 'wizard-initialize-start'
 
 To install the Angular OpenFeature SDK into your application, you need to import the `OpenFeatureModule` as part of your root module. You will need to configure the `DevCycleAngularProvider` with your DevCycle Client SDK Key and any other options you need, and set the provider as part of the `OpenFeatureModule.forRoot()` method.
 
@@ -44,7 +44,7 @@ OpenFeature.setContext({
 export class AppModule {}
 ```
 
-[//]: # (wizard-initialize-end)
+[//]: # 'wizard-initialize-end'
 
 :::info
 

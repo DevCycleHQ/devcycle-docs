@@ -18,18 +18,18 @@ DevCycle provides a Go implementation of the [OpenFeature](https://openfeature.d
 
 ### Installation
 
-[//]: # (wizard-install-start)
+[//]: # 'wizard-install-start'
 
 Install the OpenFeature Go SDK and DevCycle Provider:
 
 ```bash
 go get "github.com/devcyclehq/go-server-sdk/v2"
 ```
-[//]: # (wizard-install-end)
+[//]: # 'wizard-install-end'
 
 ### Getting Started
 
-[//]: # (wizard-initialize-start)
+[//]: # 'wizard-initialize-start'
 
 Initialize the DevCycle SDK and set the DevCycleProvider as the provider for OpenFeature:
 
@@ -69,12 +69,12 @@ func main() {
 	client := openfeature.NewClient("devcycle")
 }
 ```
-[//]: # (wizard-initialize-end)
+[//]: # 'wizard-initialize-end'
 
 ### Evaluate a Variable
 Use a Variable value by passing the Variable key, default value, and EvaluationContext to one of the OpenFeature flag evaluation methods
 
-[//]: # (wizard-evaluate-start)
+[//]: # 'wizard-evaluate-start'
 
 ```go
 	evalCtx := openfeature.NewEvaluationContext("user_id", map[string]interface{}{})
@@ -82,7 +82,7 @@ Use a Variable value by passing the Variable key, default value, and EvaluationC
 
 	log.Printf("The boolean variable value is: %v", booleanVar)
 ```
-[//]: # (wizard-evaluate-end)
+[//]: # 'wizard-evaluate-end'
 
 ### Required TargetingKey
 

@@ -12,7 +12,7 @@ sidebar_custom_props: { icon: material-symbols:install-desktop }
 
 ## Local Bucketing
 
-[//]: # (wizard-install-start)
+[//]: # 'wizard-install-start'
 
 Use the following command to install the NuGet package:
 ```bash
@@ -25,7 +25,7 @@ and use the namespaces:
 
 `using DevCycle.SDK.Server.Local.Api;`
 
-[//]: # (wizard-install-end)
+[//]: # 'wizard-install-end'
 
 ## Cloud Bucketing
 

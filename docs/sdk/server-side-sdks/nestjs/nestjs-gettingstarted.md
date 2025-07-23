@@ -9,7 +9,7 @@ sidebar_custom_props: { icon: material-symbols:rocket }
 [![Npm package version](https://badgen.net/npm/v/@devcycle/nestjs-server-sdk)](https://www.npmjs.com/package/@devcycle/nestjs-server-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)
 
-[//]: # (wizard-initialize-start)
+[//]: # 'wizard-initialize-start'
 
 To use the DevCycle Server SDK in your project, import the `DevCycleModule` from the `@devcycle/nestjs-server-sdk`.
 We recommend adding the module to the imports of your root app module, so that the DevCycle client is available globally within your application.
@@ -77,7 +77,7 @@ DevCycleModule.forRoot({
 })
 ```
 
-[//]: # (wizard-initialize-end)
+[//]: # 'wizard-initialize-end'
 
 ## Initialization Options
 

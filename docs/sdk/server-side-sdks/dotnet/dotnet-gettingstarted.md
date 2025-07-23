@@ -34,7 +34,7 @@ namespace Example {
 ```
 
 ## Local Bucketing - Initializing SDK
-[//]: # (wizard-initialize-start)
+[//]: # 'wizard-initialize-start'
 
 To start, initialize a client using the SDK key.
 
@@ -54,7 +54,7 @@ namespace Example {
     }
 }
 ```
-[//]: # (wizard-initialize-end)
+[//]: # 'wizard-initialize-end'
 
 ### Initialization with Callback
 You can also setup a callback to be notified when the client is fully initialized and use `DevCycleLocalOptions` to further configure the client.

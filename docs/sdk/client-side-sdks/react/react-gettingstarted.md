@@ -27,7 +27,7 @@ It's best to initialize DevCycle in your root component (App.jsx or App.tsx), so
 
 :::
 
-[//]: # (wizard-initialize-start)
+[//]: # 'wizard-initialize-start'
 
 ## Non-Blocking
 
@@ -66,7 +66,7 @@ export default withDevCycleProvider({ sdkKey: '<DEVCYCLE_CLIENT_SDK_KEY>' })(
   App,
 )
 ```
-[//]: # (wizard-initialize-end)
+[//]: # 'wizard-initialize-end'
 
 ## Deferred Initialization
 

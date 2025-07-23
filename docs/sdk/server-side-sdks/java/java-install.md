@@ -37,7 +37,7 @@ ldd --version
 
 :::
 
-[//]: # (wizard-install-start)
+[//]: # 'wizard-install-start'
 
 ### Maven
 
@@ -65,7 +65,7 @@ Alternatively you can use the SDK in your Gradle project by adding the following
 ```yaml
 implementation("com.devcycle:java-server-sdk:+")
 ```
-[//]: # (wizard-install-end)
+[//]: # 'wizard-install-end'
 
 ## DNS Caching
 

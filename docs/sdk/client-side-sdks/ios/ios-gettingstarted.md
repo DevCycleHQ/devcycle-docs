@@ -11,7 +11,7 @@ sidebar_custom_props: { icon: material-symbols:rocket }
 [![SwiftPM compatible](https://img.shields.io/badge/SwiftPM-compatible-4BC51D.svg?style=flat)](https://swift.org/package-manager/)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/ios-client-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/ios-client-sdk)
 
-[//]: # (wizard-initialize-start)
+[//]: # 'wizard-initialize-start'
 
 ## Initializing the SDK
 
@@ -54,7 +54,7 @@ let user = try DevCycleUser.builder()
                     .build()
 ```
 
-[//]: # (wizard-initialize-end)
+[//]: # 'wizard-initialize-end'
 
 ### Objective-C
 

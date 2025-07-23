@@ -12,7 +12,7 @@ sidebar_custom_props: { icon: material-symbols:rocket }
 ## Initializing Local Bucketing SDK
 
 Code sample for importing and setting up the DevCycleLocalClient.
-[//]: # (wizard-initialize-start)
+[//]: # 'wizard-initialize-start'
 
 ```python
 from devcycle_python_sdk import DevCycleLocalClient, DevCycleLocalOptions
@@ -32,7 +32,7 @@ user = DevCycleUser(
     country='CA'
 )
 ```
-[//]: # (wizard-initialize-end)
+[//]: # 'wizard-initialize-end'
 
 ## Initializing Cloud Bucketing SDK
 
