@@ -62,7 +62,7 @@ If you would like to get the full `Variable` object using the `variable()` metho
 - `value`: the Variable's value
 - `defaultValue`: the Variable's default value
 - `isDefaulted`: if the Variable is using the `defaultValue`
-- `eval`: evaluation object containing reason, details, and targetId for why the variable was bucketed into its value (see [Evaluation Reasons](/sdk/features#evaluation-reasons))
+- `eval`: evaluation object containing reason, details, and targetId for why the Variable was bucketed into its value (see [Evaluation Reasons](/sdk/features#evaluation-reasons))
 
 The `DVCVariable` type interface can be found [here](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L242).
 

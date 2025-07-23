@@ -52,7 +52,7 @@ If you would like to get the full `Variable` object using the `variable()` metho
 - `value`: the Variable's value
 - `defaultValue`: the Variable's default value
 - `isDefaulted`: if the Variable is using the `defaultValue`
-- `eval`: evaluation object containing reason, details, and targetId for why the variable was bucketed into its value (see [Evaluation Reasons](/sdk/features#evaluation-reasons))
+- `eval`: evaluation object containing reason, details, and targetId for why the Variable was bucketed into its value (see [Evaluation Reasons](/sdk/features#evaluation-reasons))
 
 If the value is not ready, it will return the default value passed in the creation of the variable.
 
