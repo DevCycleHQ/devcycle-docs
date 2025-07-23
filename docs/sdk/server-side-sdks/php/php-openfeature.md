@@ -21,7 +21,7 @@ to use the OpenFeature API.
 The OpenFeature Provider is included in the DevCycle SDK for PHP natively. It's compatible with both Cloud, and SDK
 proxy modes.
 
-[//]: # (wizard-install-start)
+[//]: # 'wizard-install-start'
 
 To install the bindings via [Composer](https://getcomposer.org/), add the following to `composer.json`:
 
@@ -40,11 +40,11 @@ Once the composer install is complete, a `vendor` folder should be generated at 
 ```php
 require_once(__DIR__ . '/vendor/autoload.php');
 ```
-[//]: # (wizard-install-end)
+[//]: # 'wizard-install-end'
 
 
 ### Getting Started
-[//]: # (wizard-initialize-start)
+[//]: # 'wizard-initialize-start'
 
 Initialize the DevCycle SDK and set the DevCycleProvider as the provider for OpenFeature:
 
@@ -58,10 +58,10 @@ $api = OpenFeatureAPI::getInstance();
 $api->setProvider($devCycleClient->getOpenFeatureProvider());
 $openFeatureClient = $api->getClient();
 ```
-[//]: # (wizard-initialize-end)
+[//]: # 'wizard-initialize-end'
 
 ### Evaluate a Variable
-[//]: # (wizard-evaluate-start)
+[//]: # 'wizard-evaluate-start'
 
 Use a Variable value by setting the EvaluationContext, then passing the Variable key and default value to one of the OpenFeature flag evaluation methods.
 
@@ -76,7 +76,7 @@ $openfeature_context = new EvaluationContext(attributes: $user_attributes);
 $flag_value = $openfeature_client->getStringValue("string-flag", "default", $openfeature_context);
 
 ```
-[//]: # (wizard-evaluate-end)
+[//]: # 'wizard-evaluate-end'
 
 
 ### Required TargetingKey

@@ -17,13 +17,13 @@ This version of the DevCycle Flutter Client SDK requires a minimum of version of
 
 Checkout [DevCycle Flutter Client SDK Releases](https://github.com/DevCycleHQ/flutter-client-sdk/releases) for the latest versions of the SDKs.
 
-[//]: # (wizard-install-start)
+[//]: # 'wizard-install-start'
 
 ### Flutter CLI
 
 The SDK can be installed into your Flutter project by running `flutter pub add devcycle_flutter_client_sdk`.
 
-[//]: # (wizard-install-end)
+[//]: # 'wizard-install-end'
 
 ### Pub Spec
 
