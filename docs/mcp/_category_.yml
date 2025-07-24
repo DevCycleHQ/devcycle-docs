@@ -1,0 +1,5 @@
+label: 'MCP'
+position: 5
+link:
+  type: generated-index
+  description: DevCycle Model Context Protocol (MCP) Server documentation

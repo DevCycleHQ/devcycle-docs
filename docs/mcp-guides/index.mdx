@@ -1,0 +1,223 @@
+---
+title: MCP User Guides
+hide_table_of_contents: true
+---
+
+import CustomDocCardList from '@site/src/components/CustomDocCardList'
+
+# DevCycle MCP User Guides
+
+Learn how to use the DevCycle Model Context Protocol (MCP) Server to manage feature flags through AI assistants like Claude Desktop, Cursor, and other MCP-compatible clients.
+
+## Getting Started
+
+The DevCycle MCP Server enables AI assistants to directly interact with your DevCycle feature flags, environments, and projects. Whether you're debugging issues, creating new features, or optimizing your development workflow, MCP provides a natural language interface to DevCycle's powerful feature management platform.
+
+<CustomDocCardList
+  items={[
+    {
+      type: 'link',
+      href: '/mcp-guides/setup',
+      label: 'Setup & Configuration',
+      description: 'Set up the DevCycle MCP server with your AI client',
+      icon: 'material-symbols:settings',
+    },
+    {
+      type: 'link',
+      href: '/mcp-guides/feature-management',
+      label: 'Feature Management',
+      description: 'Create, update, and manage feature flags through AI',
+      icon: 'material-symbols:flag',
+    },
+    {
+      type: 'link',
+      href: '/mcp-guides/targeting',
+      label: 'Targeting & Rollouts',
+      description: 'Configure user targeting and gradual rollouts',
+      icon: 'material-symbols:target',
+    },
+    {
+      type: 'link',
+      href: '/mcp-guides/environments',
+      label: 'Environment Management',
+      description: 'Manage features across different environments',
+      icon: 'material-symbols:environment',
+    },
+  ]}
+/>
+
+## What You Can Do
+
+### 🚀 **Feature Flag Operations**
+
+- Create new feature flags with intelligent defaults
+- Update existing flags with natural language descriptions
+- Enable/disable features across environments
+- Generate feature flag implementation code
+
+### 🎯 **Smart Targeting**
+
+- Set up user segments and targeting rules
+- Configure percentage-based rollouts
+- A/B testing setup and management
+- Audience analysis and optimization
+
+### 🔧 **Development Workflow**
+
+- Debug feature flag issues with context
+- Generate SDK implementation code
+- Environment-specific configuration
+- Integration with your codebase
+
+### 📊 **Analytics & Insights**
+
+- Feature flag usage analytics
+- Performance impact analysis
+- User behavior insights
+- Flag health monitoring
+
+## Supported AI Clients
+
+The DevCycle MCP Server works with these AI platforms:
+
+| Platform              | Status            | Notes                              |
+| --------------------- | ----------------- | ---------------------------------- |
+| **Claude Desktop**    | ✅ Full Support   | Production ready                   |
+| **Cursor IDE**        | ✅ Full Support   | Works with Claude model            |
+| **VS Code**           | ✅ Via Extensions | Community MCP extensions           |
+| **Windsurf**          | ✅ Full Support   | Native MCP support                 |
+| **Other MCP Clients** | ✅ Compatible     | Any client supporting MCP protocol |
+
+## Quick Examples
+
+### Creating a Feature Flag
+
+```
+You: "Create a feature flag for the new dashboard layout"
+
+AI: I'll create a feature flag called 'new-dashboard-layout' with:
+- Boolean variable 'enabled' (default: false)
+- Available in all environments
+- Targeting disabled initially
+- Ready for gradual rollout
+```
+
+### Managing Environments
+
+```
+You: "Enable the mobile-redesign flag in staging with 50% rollout"
+
+AI: I've enabled 'mobile-redesign' in staging environment:
+- Targeting: 50% of users
+- Status: Active
+- Ready to test with your team
+```
+
+### Debugging Issues
+
+```
+You: "Why isn't the new-feature flag working in production?"
+
+AI: Analyzing 'new-feature' flag in production:
+- Status: Active ✅
+- Targeting: Only users with email ending in @company.com
+- Issue: Your test user doesn't match the targeting rules
+```
+
+## Best Practices
+
+### 1. **Use Descriptive Requests**
+
+Be specific about what you want to achieve:
+
+- ❌ "Create a flag"
+- ✅ "Create a feature flag for the new checkout flow with a boolean toggle"
+
+### 2. **Specify Environments**
+
+Always mention which environment when making changes:
+
+- ❌ "Enable the flag"
+- ✅ "Enable the checkout-redesign flag in staging"
+
+### 3. **Confirm Production Changes**
+
+The AI will ask for confirmation before making production changes:
+
+- Production flag modifications require explicit approval
+- Staging and development changes are immediate
+
+### 4. **Use Natural Language**
+
+Describe your intent rather than technical specifics:
+
+- ✅ "Set up A/B testing for 20% of mobile users"
+- ✅ "Gradually roll out to premium customers first"
+- ✅ "Turn off the experimental feature for everyone"
+
+## Advanced Usage
+
+### Code Generation
+
+The MCP server can generate implementation code:
+
+````
+You: "Generate React code for the new-header-design flag"
+
+AI: Here's the React implementation:
+```jsx
+import { useVariableValue } from '@devcycle/react-client-sdk'
+
+function Header() {
+  const newDesign = useVariableValue('new-header-design', false)
+
+  return newDesign ? <NewHeader /> : <OldHeader />
+}
+````
+
+### Analytics Integration
+
+Get insights about flag performance:
+
+```
+You: "How is the mobile-checkout flag performing?"
+
+AI: Mobile-checkout flag analytics:
+- Active users: 15,420
+- Conversion rate: +12% vs control
+- Performance impact: No significant change
+- Recommendation: Safe to increase rollout
+```
+
+## Troubleshooting
+
+### Common Issues
+
+**"I don't have access to DevCycle tools"**
+
+- Verify MCP server is running: `dvc mcp status`
+- Check client configuration includes DevCycle server
+- Restart your AI client after configuration changes
+
+**"Permission denied when updating flags"**
+
+- Verify API key has required permissions
+- Check if you have access to the target environment
+- Production changes may require additional permissions
+
+**"Flag changes aren't taking effect"**
+
+- Check the environment you're targeting
+- Verify targeting rules are configured correctly
+- Allow up to 1 minute for changes to propagate
+
+### Getting Help
+
+- Browse these user guides for detailed examples
+- Check the [MCP Reference](/mcp/) for technical details
+- Contact support through DevCycle dashboard
+- Join our Discord community for real-time help
+
+---
+
+Ready to get started? Check out the [Setup & Configuration](/mcp-guides/setup) guide to connect DevCycle MCP with your AI client.
