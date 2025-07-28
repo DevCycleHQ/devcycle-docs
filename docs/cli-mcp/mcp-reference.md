@@ -6,7 +6,7 @@ description: Complete reference for the DevCycle Model Context Protocol Server
 
 # DevCycle MCP Reference
 
-The DevCycle Model Context Protocol (MCP) Server enables AI assistants to manage feature flags, environments, and projects through natural language interactions.
+The DevCycle Model Context Protocol (MCP) Server is based off of the [DevCycle CLI](https://docs.devcycle.com/cli) and enables AI assistants to manage feature flags, environments, and projects through natural language interactions.
 
 ## Quick Setup
 
@@ -32,15 +32,15 @@ dvc login sso
 
 3. **Select Project**:
 
+You should be automatically prompted to select an Organization and Project to associate the CLI session with, but if you aren't, run the following command.
+
 ```bash
 dvc projects select
 ```
 
 ### AI Client Configuration
 
-#### Cursor
-
-Add to `.cursor/mcp_settings.json`:
+To add the DevCycle MCP Server to your favourite AI coding tool insert the following configuration in the relevant MCP settings:
 
 ```json
 {
@@ -52,6 +52,10 @@ Add to `.cursor/mcp_settings.json`:
   }
 }
 ```
+
+#### Cursor
+
+Add to `.cursor/mcp_settings.json`:
 
 #### Claude Desktop
 
@@ -60,35 +64,21 @@ Add to `claude_desktop_config.json`:
 - **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
 - **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
 
-```json
-{
-  "mcpServers": {
-    "devcycle": {
-      "command": "dvc-mcp",
-      "args": []
-    }
-  }
-}
-```
-
 #### VS Code with Continue
 
 Add to `.continue/config.json`:
 
-```json
-{
-  "mcpServers": {
-    "devcycle": {
-      "command": "dvc-mcp",
-      "args": []
-    }
-  }
-}
-```
-
 ## Available Tools
 
 The DevCycle MCP Server provides comprehensive feature flag management capabilities through **35+ tools** organized into **7 categories**:
+
+- [Feature Management](#feature-management)
+- [Environment Management](#environment-management)
+- [Variable Management](#variable-management)
+- [Targeting Rules](#targeting-rules)
+- [Self-Targeting](#self-targeting)
+- [Analytics & Monitoring](#analytics-and-monitoring)
+- [Error Handling](#error-handling)
 
 ### Feature Management
 
