@@ -1,6 +1,7 @@
 ---
 title: Features
 sidebar_position: 4
+displayed_sidebar: cli_mcp
 ---
 
 # CLI: Features
@@ -13,7 +14,7 @@ To retrieve all features for a project from the management API run:
 
 ```bash
 dvc features get
-```  
+```
 
 You should be presented with something which looks like the following which represents a project with two features: `feature-a` with three variations (`variation-on`, `variation-off` and `variation-new`) and two associated variables (`variable-alpha` and `variation-beta`) and `feature-b` with two variations (`variation-on`, `variation-off`) no associated variables).
 
@@ -94,7 +95,7 @@ You should be presented with something which looks like the following which repr
         "variables": {
           "variable-alpha": false
         }
-      },
+      }
     ],
     "controlVariation": "variation-on",
     "variables": [
@@ -152,23 +153,20 @@ dvc features list
 You should be presented with something which looks like the following:
 
 ```json
-[
-  "feature-b",
-  "feature-a"
-]
+["feature-b", "feature-a"]
 ```
 
 ---
 
 ## Create
 
-Once you have installed and authorized the CLI, select your relevant organization and project then run one the following commands: 
+Once you have installed and authorized the CLI, select your relevant organization and project then run one the following commands:
 
 ```bash
 dvc features create
-```  
+```
 
-You will be prompted to choose a Name, Key and Description. 
+You will be prompted to choose a Name, Key and Description.
 
 If successful you will receive something which resembles the following (which demonstrates creating a new feature called `Feature C` with a key of `feature-c` and no description):
 
@@ -229,7 +227,7 @@ If successful you will receive something which resembles the following (which de
 
 Feature "Feature C" successfully created!
 
-To update the targeting rules, use: 
+To update the targeting rules, use:
 
     dvc targeting update feature-c
 ```
@@ -243,6 +241,7 @@ Once you have installed and authorized the CLI, select your relevant organizatio
 ```bash
 dvc features update
 ```
+
 You will be prompted to select a feature you would like to update, and can update the `name`, `key`, `description`, `sdkVisibility`, `variables` and `variations`, then will receive a response which resembles something like is found below (which demonstrates removing all variables from feature named `feature-a`):
 
 ```json
@@ -275,7 +274,7 @@ You will be prompted to select a feature you would like to update, and can updat
       "key": "new-variation",
       "name": "New Variation",
       "variables": {}
-    },
+    }
   ],
   "controlVariation": "variation-on",
   "variables": [],

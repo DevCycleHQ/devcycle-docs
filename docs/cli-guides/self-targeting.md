@@ -1,6 +1,7 @@
 ---
 title: Self-Targeting
 sidebar_position: 8
+displayed_sidebar: cli_mcp
 ---
 
 # CLI: Self Targeting

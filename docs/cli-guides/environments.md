@@ -1,6 +1,7 @@
 ---
 title: Environments
 sidebar_position: 2
+displayed_sidebar: cli_mcp
 ---
 
 # CLI: Environments
@@ -13,10 +14,9 @@ To retrieve all environment information for a project from the management API.
 
 ```bash
 dvc environments get
-```  
+```
 
 You will be prompted to select an existing environment and should be presented with something which looks like the following (which represents the development environment for project):
-
 
 ```json
 {
@@ -67,11 +67,7 @@ dvc environments list
 You should be presented with something which looks like the following:
 
 ```json
-[
-  "development",
-  "production",
-  "staging"
-]
+["development", "production", "staging"]
 ```
 
 ---
@@ -83,7 +79,8 @@ Once you have installed and authorized the CLI, select your relevant organizatio
 ```bash
 dvc environments create
 ```
-You will be prompted to set a Name, Key, Description (Optional), and the type of environment (Development, Staging, Production or Disaster Recovery). 
+
+You will be prompted to set a Name, Key, Description (Optional), and the type of environment (Development, Staging, Production or Disaster Recovery).
 
 If successful you will receive something which resembles the following (which demonstrates creating a new `disaster_recovery` environment called `Disaster Recovery Environment`):
 
@@ -137,6 +134,7 @@ Once you have installed and authorized the CLI, select your relevant organizatio
 ```bash
 dvc environments update
 ```
+
 You will be prompted to select an environment you would like to update, and can update the `name`,and `description`. If the change is successful you should receive a response which resembles something like is found below (which demonstrates changing the name of `Disaster Recovery Environment` to `Disaster Recovery`):
 
 ```json

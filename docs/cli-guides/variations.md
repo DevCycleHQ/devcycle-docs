@@ -1,6 +1,7 @@
 ---
 title: Variations
 sidebar_position: 6
+displayed_sidebar: cli_mcp
 ---
 
 # CLI: Variations
@@ -13,7 +14,8 @@ To retrieve variations for a feature from the management API
 
 ```bash
 dvc variations get
-```  
+```
+
 You will be prompted to select the relevant feature, and should be presented with something which looks like the following (for a feature with two variations of `variation-on` and `variation-off`):
 
 ```json
@@ -35,7 +37,6 @@ You will be prompted to select the relevant feature, and should be presented wit
     }
   }
 ]
-
 ```
 
 To list the keys of all variations in a feature run:
@@ -47,10 +48,7 @@ dvc variations list
 You will be prompted to select the relevant feature, and should be presented with something which looks like the following (for a feature with two variations of `variation-on` and `variation-off`):
 
 ```json
-[
-  "variation-on",
-  "variation-off"
-]
+["variation-on", "variation-off"]
 ```
 
 ---
@@ -62,11 +60,11 @@ Once you have installed and authorized the CLI, select your relevant organizatio
 ```bash
 dvc variations create
 ```
+
 You will be prompted to set a Name, Key and Variable Value for the selected feature and will receive something which resembles the following (which demonstrates creating a new variation called `new-variation` and setting the value to `true` for the variable named `variable-alpha`):
 
 ```json
 {
-
   "_id": "q1w2e3r4t5y6u7i",
   "_project": "p0o9i8u7y6t5",
   "source": "dashboard",
@@ -83,7 +81,7 @@ You will be prompted to set a Name, Key and Variable Value for the selected feat
       "key": "variation-on",
       "name": "Variation On",
       "variables": {
-                "variable-alpha": true
+        "variable-alpha": true
       }
     },
     {
@@ -91,7 +89,7 @@ You will be prompted to set a Name, Key and Variable Value for the selected feat
       "key": "variation-off",
       "name": "Variation Off",
       "variables": {
-                "variable-alpha": true
+        "variable-alpha": true
       }
     },
     {
@@ -99,7 +97,7 @@ You will be prompted to set a Name, Key and Variable Value for the selected feat
       "key": "new-variation",
       "name": "New Variation",
       "variables": {
-                "variable-alpha": true
+        "variable-alpha": true
       }
     }
   ],
@@ -143,6 +141,7 @@ Once you have installed and authorized the CLI, select your relevant organizatio
 ```bash
 dvc variations update
 ```
+
 You will be prompted to select a feature and variation you would like to update, and can update the name, key or variable, then will receive a response which resembles something like is found below (which demonstrates changing the value of `new-variation` for `variable-alpha` from `true` to `false`):
 
 ```json
@@ -163,7 +162,7 @@ You will be prompted to select a feature and variation you would like to update,
       "key": "variation-on",
       "name": "Variation On",
       "variables": {
-                "variable-alpha": true
+        "variable-alpha": true
       }
     },
     {
@@ -171,7 +170,7 @@ You will be prompted to select a feature and variation you would like to update,
       "key": "variation-off",
       "name": "Variation Off",
       "variables": {
-                "variable-alpha": true
+        "variable-alpha": true
       }
     },
     {
@@ -179,11 +178,11 @@ You will be prompted to select a feature and variation you would like to update,
       "key": "new-variation",
       "name": "New Variation",
       "variables": {
-                "variable-alpha": true
+        "variable-alpha": true
       }
     }
   ],
-   "controlVariation": "variation-on",
+  "controlVariation": "variation-on",
   "variables": [
     {
       "_id": "q1w2e3r4t5y6u7i",
