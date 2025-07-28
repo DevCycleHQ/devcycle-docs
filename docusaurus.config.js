@@ -429,10 +429,10 @@ const config = {
         },
         {
           type: 'docSidebar',
-          sidebarId: 'mcp_cli',
+          sidebarId: 'cli_mcp',
           position: 'left',
           collapse: 'false',
-          label: 'MCP / CLI',
+          label: 'CLI / MCP',
         },
         {
           label: 'Best Practices',
