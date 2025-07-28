@@ -4,91 +4,59 @@ sidebar_position: 1
 description: DevCycle Command Line Interface and Model Context Protocol Server
 ---
 
-# DevCycle CLI / MCP Overview
+# CLI / MCP Overview
 
-DevCycle provides two powerful tools to help you manage feature flags and integrate with your development workflow:
+## Powerful feature flag management for developers and AI assistants.
 
-## 🛠️ Command Line Interface (CLI)
+DevCycle provides two complementary tools for managing feature flags: a command-line interface for developers and an AI-powered protocol for assistants.
 
-The DevCycle CLI is a traditional command-line tool that provides direct access to DevCycle's features and functionality through terminal commands. Perfect for scripting, CI/CD pipelines, and developers who prefer command-line workflows.
+## DevCycle CLI
 
-### Key Features
+The [DevCycle CLI](/cli/) is a comprehensive command-line tool for feature flag management.
 
-- **Feature Flag Management**: Create, update, and delete feature flags
-- **Environment Control**: Manage targeting across different environments
-- **Project Administration**: Switch between projects and manage settings
-- **Integration Ready**: Perfect for automation and CI/CD workflows
-- **Local Development**: Test and validate flags locally
+**Key capabilities:**
 
-### Quick Start
+- Manage features, variables, and targeting rules
+- Detect variable usage in your codebase
+- Generate type definitions for TypeScript
+- Self-targeting for testing
 
-1. Install: `npm install -g @devcycle/cli`
-2. Login: `dvc login sso`
-3. Select project: `dvc projects select`
-4. Start using CLI commands: `dvc features list`
+**Quick start:**
 
-[**→ Browse CLI Reference**](/cli/) | [**→ View CLI User Guides**](/cli-guides/)
+```bash
+npm install -g @devcycle/cli
+dvc login sso
+```
 
----
+**[Explore CLI Reference →](/cli/)** | **[View CLI User Guides →](/cli-guides/)**
 
-## 🤖 Model Context Protocol (MCP) Server
+## DevCycle MCP Server
 
-The DevCycle MCP Server is based on our CLI and enables AI assistants like Claude Desktop, Cursor, and other MCP-compatible clients to directly interact with your DevCycle feature flags, environments, and projects through natural language.
+The [DevCycle MCP Server](/cli-mcp/mcp-getting-started) enables AI assistants to manage your feature flags through natural language.
 
-### What is MCP?
+**Supported AI clients:**
 
-The Model Context Protocol (MCP) is an open standard that enables AI applications to securely connect to data sources and tools. DevCycle's MCP server acts as a bridge between AI assistants and your feature flag management, allowing you to:
+- Cursor, VS Code, Claude Desktop, Windsurf
 
-- **Create and manage feature flags** using natural language
-- **Configure targeting rules** without writing complex queries
-- **Test features safely** using self-targeting and overrides
-- **Get real-time insights** about your feature flag usage
+**Example interactions:**
 
-### Key Benefits
+- _"Create a new feature flag called 'new-checkout-flow'"_
+- _"Enable targeting for my-feature in production"_
+- _"Show me analytics for the last week"_
 
-- **Natural Language Interface**: Use commands like "Create a feature flag for the new checkout flow"
-- **Production Safety**: Built-in warnings and confirmations for destructive actions
-- **Comprehensive Coverage**: 35+ tools across all DevCycle operations
+**[Get Started with MCP →](/cli-mcp/mcp-getting-started)** | **[MCP Reference →](/cli-mcp/mcp-reference)**
 
-### Quick Start
+## Choose Your Workflow
 
-1. Install the DevCycle CLI: `npm install -g @devcycle/cli`
-2. Authenticate: `dvc login sso`
-3. [Configure your AI client](./mcp-reference#ai-client-configuration) (Cursor, Claude Desktop, etc.)
-4. Start managing feature flags with natural language!
+| Tool    | Best For                                                  |
+| ------- | --------------------------------------------------------- |
+| **CLI** | Direct command-line control, scripting, CI/CD integration |
+| **MCP** | Natural language interactions, AI-assisted development    |
 
-[**→ Explore MCP Reference**](./mcp-reference) | [**→ Browse MCP User Guides**](./mcp-guides)
-
----
-
-## 🤔 Which Tool Should I Use?
-
-### Choose **CLI** if you:
-
-- Prefer traditional command-line interfaces
-- Need to script or automate feature flag operations
-- Work primarily in terminal-based environments
-- Want direct, precise control over API calls
-- Need to integrate with existing CLI-based workflows
-
-### Choose **MCP Server** if you:
-
-- Want to use AI assistants for feature flag management
-- Prefer natural language over command syntax
-- Work primarily in AI-powered development environments (Cursor, Claude Desktop)
-- Want guided workflows with built-in safety checks
-
-### Can I Use Both?
-
-Absolutely! Both tools interact with the same DevCycle APIs and can be used together and you can switch between then based on your needs in the moment.
-
----
+Both tools use the same DevCycle APIs and can be used together seamlessly.
 
 ## Getting Help
 
-- **CLI Questions**: Browse [CLI User Guides](/cli-guides/) and [CLI Reference](/cli/)
-- **MCP Questions**: Check the [MCP User Guides](./mcp-guides) and [MCP Reference](./mcp-reference)
-- **General Support**: [Contact support](mailto:support@devcycle.com)
-- **Community**: Join our [Discord community](https://discord.gg/8uEqSsRKy5)
-
-Both tools are actively maintained and regularly updated with new features. Choose the approach that best fits your development style and workflow!
+- **Community**: [Discord](https://discord.gg/8uEqSsRKy5)
+- **Issues**: [GitHub](https://github.com/DevCycleHQ/cli/issues)
+- **Support**: [Contact Us](mailto:support@devcycle.com)

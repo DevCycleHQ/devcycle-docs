@@ -134,6 +134,11 @@ module.exports = {
       items: [
         {
           type: 'doc',
+          label: 'MCP Getting Started',
+          id: 'cli-mcp/mcp-getting-started',
+        },
+        {
+          type: 'doc',
           label: 'MCP Reference',
           id: 'cli-mcp/mcp-reference',
         },
