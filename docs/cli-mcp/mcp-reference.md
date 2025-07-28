@@ -88,77 +88,401 @@ Add to `.continue/config.json`:
 
 ## Available Tools
 
-The DevCycle MCP Server includes **35+ tools** organized into **7 categories**:
+The DevCycle MCP Server provides comprehensive feature flag management capabilities through **35+ tools** organized into **7 categories**:
 
-### Feature Management (9 tools)
+### Feature Management
 
-- `list_features` - List all features with search and pagination
-- `create_feature` ⚠️ - Create new feature flags
-- `update_feature` ⚠️ - Update existing feature flags
-- `update_feature_status` ⚠️ - Change feature status (active/complete/archived)
-- `delete_feature` ⚠️⚠️ - Delete feature from ALL environments
-- `fetch_feature_variations` - Get all variations for a feature
-- `create_feature_variation` ⚠️ - Add new variations to features
-- `update_feature_variation` ⚠️ - Modify existing variation properties
-- `get_feature_audit_log_history` - Get timeline of feature changes
+#### `list_features`
 
-### Feature Targeting (4 tools)
+List all features in the current project with optional search and pagination.
 
-- `enable_feature_targeting` ⚠️ - Enable targeting in environment
-- `disable_feature_targeting` ⚠️ - Disable targeting in environment
-- `list_feature_targeting` - View targeting configurations
-- `update_feature_targeting` ⚠️ - Configure complex targeting rules
+**Parameters:**
 
-### Variable Management (3 tools)
+- `search` (optional): Search query to filter features
+- `page` (optional): Page number (default: 1)
+- `per_page` (optional): Items per page (default: 100, max: 1000)
 
-- `list_variables` - List all variables with filtering
-- `create_variable` ⚠️ - Create new variables
-- `update_variable` ⚠️ - Update variable properties
-- `delete_variable` ⚠️⚠️ - Remove variables from all environments
+#### `create_feature` ⚠️
 
-### Environment Management (3 tools)
+Create a new feature flag.
 
-- `list_environments` - List all environments
-- `get_sdk_keys` - Retrieve SDK keys for environments
-- `create_environment` ⚠️ - Create new environments
-- `update_environment` ⚠️ - Update environment settings
+**Parameters:**
 
-### Project Management (3 tools)
+- `key`: Unique feature key (pattern: `^[a-z0-9-_.]+$`)
+- `name`: Human-readable name (max 100 chars)
+- `description` (optional): Feature description (max 1000 chars)
+- `type` (optional): Feature type (`release`, `experiment`, `permission`, `ops`)
+- `tags` (optional): Array of tags for organization
+- `variations` (optional): Array of variations with key, name, and variables
+- `configurations` (optional): Environment-specific configurations
+- `sdkVisibility` (optional): SDK visibility settings
 
-- `list_projects` - List all available projects
-- `get_current_project` - Get currently selected project
-- `create_project` ⚠️ - Create new projects
-- `update_project` ⚠️ - Update project settings
+#### `update_feature` ⚠️
 
-### Custom Properties Management (4 tools)
+Update an existing feature flag.
 
-- `list_custom_properties` - List user segmentation properties
-- `create_custom_property` ⚠️ - Create new custom property
-- `update_custom_property` ⚠️ - Update custom property
-- `delete_custom_property` ⚠️⚠️ - Delete custom property
+**Parameters:**
 
-### Self-Targeting & Overrides (6 tools)
+- `key`: Feature key to update
+- `name` (optional): New name
+- `description` (optional): New description
+- `type` (optional): New type
+- `tags` (optional): New tags
+- `variations` (optional): Updated variations
 
-- `get_self_targeting_identity` - Get current DevCycle identity
-- `update_self_targeting_identity` - Set identity for testing
-- `list_self_targeting_overrides` - View your current overrides
-- `set_self_targeting_override` ⚠️ - Override feature variations
-- `clear_feature_self_targeting_overrides` ⚠️ - Clear feature-specific overrides
-- `clear_all_self_targeting_overrides` ⚠️ - Clear all project overrides
+#### `update_feature_status` ⚠️
 
-### Results & Analytics (2 tools)
+Update the status of a feature flag.
 
-- `get_feature_total_evaluations` - Get evaluation metrics for feature
-- `get_project_total_evaluations` - Get evaluation metrics for project
+**Parameters:**
 
-## Production Safety
+- `key`: Feature key
+- `status`: New status (`active`, `complete`, `archived`)
+- `staticVariation` (optional): Variation to serve if status is `complete`
 
-The AI assistant will always:
+#### `delete_feature` ⚠️⚠️
 
-- Confirm before making changes to production environments
-- Warn about destructive operations
-- Use ⚠️ for tools that can affect production
-- Use ⚠️⚠️ for destructive operations (delete actions)
+Delete a feature flag from ALL environments.
+
+**Parameters:**
+
+- `key`: Feature key to delete
+
+#### `fetch_feature_variations`
+
+Get all variations for a feature.
+
+**Parameters:**
+
+- `feature_key`: Feature key
+
+#### `create_feature_variation` ⚠️
+
+Create a new variation within a feature.
+
+**Parameters:**
+
+- `feature_key`: Feature key
+- `key`: Unique variation key
+- `name`: Variation name
+- `variables` (optional): Variable values for this variation
+
+#### `update_feature_variation` ⚠️
+
+Update an existing variation by key.
+
+**Parameters:**
+
+- `feature_key`: Feature key
+- `variation_key`: Variation to update
+- `_id` (optional): MongoDB ID for the variation
+- `key` (optional): New variation key
+- `name` (optional): New variation name
+- `variables` (optional): Updated variable values
+
+#### `get_feature_audit_log_history`
+
+Get timeline of feature flag changes from audit log.
+
+**Parameters:**
+
+- `feature_key`: Feature key
+- `days_back` (optional): Days to look back (default: 30, max: 365)
+
+### Feature Targeting
+
+#### `enable_feature_targeting` ⚠️
+
+Enable targeting for a feature in an environment.
+
+**Parameters:**
+
+- `feature_key`: Feature key
+- `environment_key`: Environment key
+
+#### `disable_feature_targeting` ⚠️
+
+Disable targeting for a feature in an environment.
+
+**Parameters:**
+
+- `feature_key`: Feature key
+- `environment_key`: Environment key
+
+#### `list_feature_targeting`
+
+List targeting rules for a feature.
+
+**Parameters:**
+
+- `feature_key`: Feature key
+- `environment_key` (optional): Specific environment (returns all if omitted)
+
+#### `update_feature_targeting` ⚠️
+
+Update targeting rules for a feature in an environment.
+
+**Parameters:**
+
+- `feature_key`: Feature key
+- `environment_key`: Environment key
+- `status` (optional): Targeting status (`active`, `inactive`, `archived`)
+- `targets` (optional): Array of targeting rules with audience filters and distributions
+
+### Variable Management
+
+#### `list_variables`
+
+List all variables in the current project.
+
+**Parameters:**
+
+- `search` (optional): Search query
+- `page` (optional): Page number
+- `per_page` (optional): Items per page
+
+#### `create_variable` ⚠️
+
+Create a new variable.
+
+**Parameters:**
+
+- `key`: Unique variable key (pattern: `^[a-z0-9-_.]+$`)
+- `type`: Variable type (`String`, `Boolean`, `Number`, `JSON`)
+- `name` (optional): Variable name
+- `description` (optional): Variable description
+- `defaultValue` (optional): Default value
+- `_feature` (optional): Associated feature key
+- `validationSchema` (optional): Validation rules
+
+#### `update_variable` ⚠️
+
+Update an existing variable.
+
+**Parameters:**
+
+- `key`: Variable key to update
+- `name` (optional): New name
+- `description` (optional): New description
+- `type` (optional): New type
+- `validationSchema` (optional): New validation rules
+
+#### `delete_variable` ⚠️⚠️
+
+Delete a variable from ALL environments.
+
+**Parameters:**
+
+- `key`: Variable key to delete
+
+### Environment Management
+
+#### `list_environments`
+
+List all environments in the current project.
+
+**Parameters:**
+
+- `search` (optional): Search query (min 3 chars)
+- `page` (optional): Page number
+- `perPage` (optional): Items per page
+- `sortBy` (optional): Sort field
+- `sortOrder` (optional): Sort order (`asc`, `desc`)
+
+#### `get_sdk_keys`
+
+Get SDK keys for an environment.
+
+**Parameters:**
+
+- `environmentKey`: Environment key
+- `keyType` (optional): Specific key type (`mobile`, `server`, `client`)
+
+#### `create_environment` ⚠️
+
+Create a new environment.
+
+**Parameters:**
+
+- `key`: Unique environment key
+- `name`: Environment name
+- `description` (optional): Environment description
+- `color` (optional): Environment color
+
+#### `update_environment` ⚠️
+
+Update an existing environment.
+
+**Parameters:**
+
+- `key`: Environment key to update
+- `name` (optional): New name
+- `description` (optional): New description
+- `color` (optional): New color
+
+### Project Management
+
+#### `list_projects`
+
+List all projects in the current organization.
+
+**Parameters:**
+
+- `search` (optional): Search query
+- `page` (optional): Page number
+- `perPage` (optional): Items per page
+- `sortBy` (optional): Sort field
+- `sortOrder` (optional): Sort order (`asc`, `desc`)
+
+#### `get_current_project`
+
+Get the currently selected project.
+
+**Parameters:** None
+
+#### `create_project` ⚠️
+
+Create a new project.
+
+**Parameters:**
+
+- `key`: Unique project key
+- `name`: Project name
+- `description` (optional): Project description
+- `color` (optional): Project color
+
+#### `update_project` ⚠️
+
+Update an existing project.
+
+**Parameters:**
+
+- `key`: Project key to update
+- `name` (optional): New name
+- `description` (optional): New description
+- `color` (optional): New color
+
+### Custom Properties Management
+
+#### `list_custom_properties`
+
+List all custom properties in the current project.
+
+**Parameters:**
+
+- `search` (optional): Search query
+- `page` (optional): Page number
+- `perPage` (optional): Items per page
+
+#### `create_custom_property` ⚠️
+
+Create a new custom property for user segmentation.
+
+**Parameters:**
+
+- `key`: Unique property key
+- `name`: Property name
+- `type`: Property type (`String`, `Boolean`, `Number`)
+- `propertyKey`: Property key used to identify the custom property in user data
+- `schema` (optional): Schema definition with validation rules
+
+#### `update_custom_property` ⚠️
+
+Update an existing custom property.
+
+**Parameters:**
+
+- `key`: Property key to update
+- `name` (optional): New name
+- `type` (optional): New type
+- `propertyKey` (optional): New property key
+- `schema` (optional): New schema definition
+
+#### `delete_custom_property` ⚠️⚠️
+
+Delete a custom property from ALL environments.
+
+**Parameters:**
+
+- `key`: Property key to delete
+
+### Self-Targeting & Overrides
+
+#### `get_self_targeting_identity`
+
+Get current DevCycle identity for self-targeting.
+
+**Parameters:** None
+
+#### `update_self_targeting_identity`
+
+Update DevCycle identity for testing.
+
+**Parameters:**
+
+- `dvc_user_id`: DevCycle User ID (use empty string to clear)
+
+#### `list_self_targeting_overrides`
+
+List all active overrides for the current project.
+
+**Parameters:** None
+
+#### `set_self_targeting_override` ⚠️
+
+Set an override to test a specific variation.
+
+**Parameters:**
+
+- `feature_key`: Feature key
+- `environment_key`: Environment key
+- `variation_key`: Variation to serve
+
+#### `clear_feature_self_targeting_overrides` ⚠️
+
+Clear overrides for a specific feature/environment.
+
+**Parameters:**
+
+- `feature_key`: Feature key
+- `environment_key`: Environment key
+
+#### `clear_all_self_targeting_overrides` ⚠️
+
+Clear all overrides for the current project.
+
+**Parameters:** None
+
+### Results & Analytics
+
+#### `get_feature_total_evaluations`
+
+Get total variable evaluations per time period for a specific feature.
+
+**Parameters:**
+
+- `featureKey`: Feature key
+- `startDate` (optional): Start date as Unix timestamp (milliseconds since epoch)
+- `endDate` (optional): End date as Unix timestamp (milliseconds since epoch)
+- `platform` (optional): Platform filter for evaluation results
+- `variable` (optional): Variable key filter for evaluation results
+- `environment` (optional): Environment key to filter results
+- `period` (optional): Time aggregation period (`day`, `hour`, `month`)
+- `sdkType` (optional): Filter by SDK type (`client`, `server`, `mobile`, `api`)
+
+#### `get_project_total_evaluations`
+
+Get total variable evaluations per time period for the entire project.
+
+**Parameters:**
+
+- `startDate` (optional): Start date as Unix timestamp (milliseconds since epoch)
+- `endDate` (optional): End date as Unix timestamp (milliseconds since epoch)
+- `platform` (optional): Platform filter for evaluation results
+- `variable` (optional): Variable key filter for evaluation results
+- `environment` (optional): Environment key to filter results
+- `period` (optional): Time aggregation period (`day`, `hour`, `month`)
+- `sdkType` (optional): Filter by SDK type (`client`, `server`, `mobile`, `api`)
 
 ## Authentication Methods
 
@@ -266,11 +590,21 @@ The MCP server returns structured error responses with:
 - Tool name that failed
 - Suggested fixes
 
+```json
+{
+  "error": true,
+  "message": "Detailed error message",
+  "tool": "tool_name",
+  "timestamp": "2024-01-01T00:00:00.000Z"
+}
+```
+
 Common error scenarios:
 
 - **Authentication failures**: Check credentials and project configuration
-- **API rate limits**: Implement retry logic
-- **Invalid parameters**: Review tool parameters and schemas
+- **API rate limits**: Implement retry logic in your automation
+- **Validation errors**: Ensure parameters meet requirements (patterns, lengths, etc.)
+- **Permission errors**: Verify your API key has necessary permissions
 
 ## Current Limitations
 
@@ -279,8 +613,10 @@ The MCP server does **NOT** currently support:
 - Code analysis tools (usage scanning, cleanup)
 - Git integration features
 - Type generation
-- Advanced analytics and metrics
-- File system operations
+- MCP Resources (read-only data access)
+- MCP Prompts (guided workflows)
+
+These features are planned for future releases.
 
 ## Best Practices
 
@@ -313,30 +649,55 @@ The MCP server does **NOT** currently support:
 ### Running from Source
 
 ```bash
+# Clone the repository
 git clone https://github.com/DevCycleHQ/cli.git
 cd cli
-npm install
-npm run build
-npm link
-dvc-mcp
+
+# Install dependencies
+yarn install
+
+# Build the project
+yarn build
+
+# Run the MCP server
+node dist/mcp/index.js
+```
+
+### Testing with AI Assistants
+
+For local testing, update your AI assistant configuration to point to the local build:
+
+```json
+{
+  "mcpServers": {
+    "devcycle": {
+      "command": "node",
+      "args": ["/path/to/cli/dist/mcp/index.js"]
+    }
+  }
+}
 ```
 
 ### Debug Logging
-
-```bash
-export DEBUG=1
-dvc-mcp
-```
-
-## Getting Help
-
-- **Issues**: [GitHub Issues](https://github.com/DevCycleHQ/cli/issues)
-- **Documentation**: [DevCycle Docs](https://docs.devcycle.com)
-- **Community**: [Discord](https://discord.gg/devcycle)
-- **Support**: [Contact Support](https://devcycle.com/contact)
 
 The MCP server logs all operations to stderr, which can be viewed in:
 
 - Cursor: Developer Tools console
 - Claude Desktop: Log files in the application support directory
-- Other clients: Check client-specific logging locations
+
+### Environment Variables for Development
+
+```bash
+# Enable verbose logging
+export DEBUG=1
+
+# Use specific DevCycle API endpoint
+export DEVCYCLE_API_URL="https://api.devcycle.com"
+```
+
+## Getting Help
+
+- **GitHub Issues**: [GitHub Issues](https://github.com/DevCycleHQ/cli/issues)
+- **General Documentation**: [DevCycle Docs](https://docs.devcycle.com)
+- **DevCycle Community**: [Discord](https://discord.gg/8uEqSsRKy5)
+- **Support**: [Contact Support](mailto:support@devcycle.com)
