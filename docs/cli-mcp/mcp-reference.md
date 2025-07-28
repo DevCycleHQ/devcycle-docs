@@ -13,12 +13,13 @@ This page provides comprehensive documentation for all 35+ DevCycle MCP tools. F
 The DevCycle MCP Server provides comprehensive feature flag management capabilities through **35+ tools** organized into **7 categories**:
 
 - [Feature Management](#feature-management)
-- [Environment Management](#environment-management)
+- [Feature Targeting](#feature-targeting)
 - [Variable Management](#variable-management)
-- [Targeting Rules](#targeting-rules)
-- [Self-Targeting](#self-targeting)
-- [Analytics & Monitoring](#analytics-and-monitoring)
-- [Error Handling](#error-handling)
+- [Environment Management](#environment-management)
+- [Project Management](#project-management)
+- [Custom Properties Management](#custom-properties-management)
+- [Self-Targeting & Overrides](#self-targeting--overrides)
+- [Results & Analytics](#results--analytics)
 
 :::info
 **Production Safety**
