@@ -6,7 +6,7 @@ description: Complete reference for the DevCycle Model Context Protocol Server
 
 # DevCycle MCP Reference
 
-The DevCycle Model Context Protocol (MCP) Server is based off of the [DevCycle CLI](https://docs.devcycle.com/cli) and enables AI assistants to manage feature flags, environments, and projects through natural language interactions.
+The DevCycle Model Context Protocol (MCP) Server is based off of the [DevCycle CLI](/cli/) and enables AI assistants to manage feature flags, environments, and projects through natural language interactions.
 
 ## Quick Setup
 
