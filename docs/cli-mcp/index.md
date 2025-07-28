@@ -32,17 +32,28 @@ dvc login sso
 
 ## DevCycle MCP Server
 
-The [DevCycle MCP Server](/cli-mcp/mcp-getting-started) enables AI assistants to manage your feature flags through natural language.
-
-**Supported AI clients:**
-
-- Cursor, VS Code, Claude Desktop, Windsurf
+The [DevCycle MCP Server](/cli-mcp/mcp-getting-started) is based on our CLI and enables AI assistants like Claude Desktop, Cursor, and other MCP-compatible clients to directly interact with your DevCycle feature flags, environments, and projects through natural language.
 
 **Example interactions:**
 
 - _"Create a new feature flag called 'new-checkout-flow'"_
 - _"Enable targeting for my-feature in production"_
-- _"Show me analytics for the last week"_
+- _"An incident occurred at 5pm today, show me what changes happened within the hour before the incident"_
+
+### What is MCP?
+
+The Model Context Protocol (MCP) is an open standard that enables AI applications to securely connect to data sources and tools. DevCycle's MCP server acts as a bridge between AI assistants and your feature flag management, allowing you to:
+
+- **Create and manage feature flags** using natural language
+- **Configure targeting rules** without writing complex queries
+- **Test features safely** using self-targeting and overrides
+- **Get real-time insights** about your feature flag usage
+
+### Key Benefits
+
+- **Natural Language Interface**: Use commands like "Create a feature flag for the new checkout flow"
+- **Production Safety**: Built-in warnings and confirmations for destructive actions
+- **Comprehensive Coverage**: 35+ tools across all DevCycle operations
 
 **[Get Started with MCP →](/cli-mcp/mcp-getting-started)** | **[MCP Reference →](/cli-mcp/mcp-reference)**
 
