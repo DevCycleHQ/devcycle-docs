@@ -6,27 +6,26 @@ description: DevCycle Command Line Interface and Model Context Protocol Server
 
 # CLI / MCP Overview
 
-## Powerful feature flag management for developers and AI assistants.
-
-DevCycle provides two complementary tools for managing feature flags: a command-line interface for developers and an AI-powered protocol for assistants.
+DevCycle provides two complementary tools for managing feature flags: a command-line interface for developers and an MCP server for use with AI assistants.
 
 ## DevCycle CLI
 
 The [DevCycle CLI](/cli/) is a comprehensive command-line tool for feature flag management.
 
-**Key capabilities:**
+### Key Features
 
-- Manage features, variables, and targeting rules
-- Detect variable usage in your codebase
-- Generate type definitions for TypeScript
-- Self-targeting for testing
+- **Feature Flag Management**: Create, update, and delete feature flags
+- **Environment Control**: Manage targeting across different environments
+- **Project Administration**: Switch between projects and manage settings
+- **Integration Ready**: Perfect for automation and CI/CD workflows
+- **Local Development**: Test and validate flags locally
 
-**Quick start:**
+### Quick Start
 
-```bash
-npm install -g @devcycle/cli
-dvc login sso
-```
+1. Install: `npm install -g @devcycle/cli`
+2. Login: `dvc login sso`
+3. Select project: `dvc projects select`
+4. Start using CLI commands like: `dvc features list`
 
 **[Explore CLI Reference →](/cli/)** | **[View CLI User Guides →](/cli-guides/)**
 

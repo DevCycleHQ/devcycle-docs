@@ -20,6 +20,14 @@ The DevCycle MCP Server provides comprehensive feature flag management capabilit
 - [Analytics & Monitoring](#analytics-and-monitoring)
 - [Error Handling](#error-handling)
 
+:::info
+**Production Safety**
+
+- Tools marked ⚠️ can affect production - confirm before proceeding
+- Tools marked ⚠️⚠️ are destructive - require extra confirmation
+
+:::
+
 ### Feature Management
 
 #### `list_features`
@@ -471,47 +479,6 @@ export DEVCYCLE_PROJECT_KEY="your-project-key"
 }
 ```
 
-## Example Usage
-
-### Creating Feature Flags
-
-```
-You: "Create a feature flag for the new header design"
-AI: I'll create a feature flag called 'new-header-design' with:
-- Boolean variable 'enabled' (default: false)
-- Available in all environments (development, staging, production)
-- Targeting disabled initially
-- Ready for gradual rollout when you're ready
-```
-
-### Managing Targeting
-
-```
-You: "Enable the checkout-optimization flag for 25% of users in production"
-AI: ✅ Updated 'checkout-optimization' targeting in production:
-- Audience: All users
-- Rollout: 25% of matching users
-- Environment: production
-- Monitoring enabled for performance metrics
-```
-
-### Self-Targeting for Testing
-
-```
-You: "Set up my identity to test the premium user experience"
-AI: I'll configure your DevCycle identity and set overrides so you see the premium variations...
-```
-
-### Analytics and Monitoring
-
-```
-You: "Show me evaluation metrics for the mobile-redesign feature over the last week"
-AI: 📊 mobile-redesign Evaluation Metrics (Last 7 Days):
-- Total Evaluations: 45,230
-- Desktop: 28,450 (63%)
-- Mobile: 16,780 (37%)
-```
-
 ## Error Handling
 
 The MCP server returns structured error responses with:
@@ -547,32 +514,6 @@ The MCP server does **NOT** currently support:
 - MCP Prompts (guided workflows)
 
 These features are planned for future releases.
-
-## Best Practices
-
-### 1. Production Safety
-
-- Tools marked ⚠️ can affect production - confirm before proceeding
-- Tools marked ⚠️⚠️ are destructive - require extra confirmation
-- Test in development/staging environments first
-
-### 2. Naming Conventions
-
-- Use `lowercase-kebab-case` for feature and variable keys
-- Pattern: `^[a-z0-9-_.]+$` (max 100 characters)
-- Be descriptive: `checkout-optimization` vs `flag1`
-
-### 3. Self-Targeting Best Practices
-
-- Clear overrides after testing sessions
-- Use meaningful user IDs for team collaboration
-- Document override purposes
-
-### 4. Audit and Compliance
-
-- Use `get_feature_audit_log_history` for compliance tracking
-- Tag features appropriately for organization
-- Review changes regularly through audit logs
 
 ## Development & Local Testing
 
