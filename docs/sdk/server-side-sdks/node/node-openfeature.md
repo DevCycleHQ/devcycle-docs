@@ -21,13 +21,13 @@ Install the DevCycle NodeJS Server SDK which includes the OpenFeature Server SDK
 
 #### NPM
 
-[//]: # (wizard-install-start)
+[//]: # 'wizard-install-start'
 
 ```bash
 npm install --save @devcycle/nodejs-server-sdk
 ```
 
-[//]: # (wizard-install-end)
+[//]: # 'wizard-install-end'
 
 #### Yarn
 
@@ -37,7 +37,7 @@ yarn add @devcycle/nodejs-server-sdk
 
 ### Getting Started
 
-[//]: # (wizard-initialize-start)
+[//]: # 'wizard-initialize-start'
 
 Create the DevCycleProvider and set it as the provider for OpenFeature:
 
@@ -56,11 +56,11 @@ await OpenFeature.setProviderAndWait(devcycleProvider)
 openFeatureClient = OpenFeature.getClient()
 ```
 
-[//]: # (wizard-initialize-end)
+[//]: # 'wizard-initialize-end'
 
 ### Evaluate a Variable
 
-[//]: # (wizard-evaluate-start)
+[//]: # 'wizard-evaluate-start'
 
 Use a Variable value by creating the EvaluationContext, then passing the Variable key, default value, and EvaluationContext to one of the OpenFeature flag evaluation methods.
 
@@ -69,10 +69,14 @@ Use a Variable value by creating the EvaluationContext, then passing the Variabl
 const context = { targetingKey: 'node_sdk_test' }
 
 // Retrieve a boolean flag from the OpenFeature client
-const boolFlag = await openFeatureClient.getBooleanValue('boolean-flag', false, context)
+const boolFlag = await openFeatureClient.getBooleanValue(
+  'boolean-flag',
+  false,
+  context,
+)
 ```
 
-[//]: # (wizard-evaluate-end)
+[//]: # 'wizard-evaluate-end'
 
 ### Tracking Events
 

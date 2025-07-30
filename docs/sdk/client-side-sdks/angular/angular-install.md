@@ -17,13 +17,13 @@ The OpenFeature Angular SDK is compatible Angular versions 16 and above.
 
 To install the SDK, run the following command:
 
-[//]: # (wizard-install-start)
+[//]: # 'wizard-install-start'
 ### npm
 
 ```bash
 npm install --save @openfeature/angular-sdk @devcycle/openfeature-angular-provider
 ```
-[//]: # (wizard-install-end)
+[//]: # 'wizard-install-end'
 
 ### yarn
 

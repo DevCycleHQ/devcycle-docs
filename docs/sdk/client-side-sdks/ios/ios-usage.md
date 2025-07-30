@@ -11,7 +11,7 @@ sidebar_custom_props: { icon: material-symbols:toggle-on }
 [![SwiftPM compatible](https://img.shields.io/badge/SwiftPM-compatible-4BC51D.svg?style=flat)](https://swift.org/package-manager/)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/ios-client-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/ios-client-sdk)
 
-[//]: # (wizard-evaluate-start)
+[//]: # 'wizard-evaluate-start'
 
 ## Using Variable Values
 
@@ -31,7 +31,7 @@ let numValue = devcycleClient.variableValue(key: "num_key", defaultValue: 4)
 let jsonValue = devcycleClient.variableValue(key: "json_key", defaultValue: [:])
 ```
 
-[//]: # (wizard-evaluate-end)
+[//]: # 'wizard-evaluate-end'
 
 **Objective-C**
 
@@ -52,7 +52,7 @@ If you would like to get the full `Variable` object using the `variable()` metho
 - `value`: the Variable's value
 - `defaultValue`: the Variable's default value
 - `isDefaulted`: if the Variable is using the `defaultValue`
-- `evalReason`: evaluation reason for why the variable was bucketed into its value
+- `eval`: evaluation object containing reason, details, and targetId for why the Variable was bucketed into its value (see [Evaluation Reasons](/sdk/features#evaluation-reasons))
 
 If the value is not ready, it will return the default value passed in the creation of the variable.
 
@@ -301,7 +301,7 @@ If the SDK has not finished initializing, these methods will return an empty obj
 
 :::caution
 
-This method is intended to be used for debugging and analytics purposes, *not* as a method for retrieving the value of Variables to change code behaviour.
+This method is intended to be used for debugging and analytics purposes, _not_ as a method for retrieving the value of Variables to change code behaviour.
 For that purpose, we strongly recommend using the individual variable access method described in [Using Variable Values](#using-variable-values)
 Using this method instead will result in no evaluation events being tracked for individual variables, and will not allow the use
 of other DevCycle features such as [Code Usage detection](/integrations/github/feature-usage-action)

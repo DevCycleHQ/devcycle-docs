@@ -18,7 +18,7 @@ DevCycle provides a Java implementation of the [OpenFeature](https://openfeature
 ## Installation
 The Provider implementation is built into the Java SDK.
 
-[//]: # (wizard-install-start)
+[//]: # 'wizard-install-start'
 
 ### Maven
 
@@ -46,10 +46,10 @@ Alternatively you can use the SDK in your Gradle project by adding the following
 ```yaml
 implementation("com.devcycle:java-server-sdk:+")
 ```
-[//]: # (wizard-install-end)
+[//]: # 'wizard-install-end'
 
 ## Usage
-[//]: # (wizard-initialize-start)
+[//]: # 'wizard-initialize-start'
 
 Start by creating and configuring the `DevCycleLocalClient`. Once the DevCycle client is configured, call the `getOpenFeatureProvider()` function to obtain the OpenFeature provider and set it into the OpenFeature API.
 
@@ -74,10 +74,10 @@ public class OpenFeatureExample {
 }
 ```
 
-[//]: # (wizard-initialize-end)
+[//]: # 'wizard-initialize-end'
 
 ## Evaluate a Variable
-[//]: # (wizard-evaluate-start)
+[//]: # 'wizard-evaluate-start'
 
 Use a Variable value by passing the Variable key, default value, and EvaluationContext to one of the OpenFeature flag evaluation methods.
 
@@ -85,7 +85,7 @@ Use a Variable value by passing the Variable key, default value, and EvaluationC
 // Retrieve a boolean flag from the OpenFeature client
 Boolean variableValue = openFeatureClient.getBooleanValue("boolean-flag", false, new MutableContext("user-1234"));
 ```
-[//]: # (wizard-evaluate-end)
+[//]: # 'wizard-evaluate-end'
 
 **NOTE: use `DevCycleCloudClient` \ `DevCycleCloudOptions` for Cloud Bucketing mode.**
 

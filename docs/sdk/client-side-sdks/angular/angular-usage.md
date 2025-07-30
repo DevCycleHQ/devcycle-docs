@@ -29,7 +29,7 @@ You can also use the standard [OpenFeature Web SDK](https://openfeature.dev/docs
 
 ## Getting a Variable
 
-[//]: # (wizard-evaluate-start)
+[//]: # 'wizard-evaluate-start'
 
 ### Boolean Feature Flag Directive
 
@@ -51,7 +51,7 @@ The OpenFeature SDK provides a `booleanFeatureFlag` directive to get the value o
 </ng-template>
 ```
 
-[//]: # (wizard-evaluate-end)
+[//]: # 'wizard-evaluate-end'
 
 ### Number Feature Flag Directive
 

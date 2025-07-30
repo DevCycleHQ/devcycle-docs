@@ -21,7 +21,7 @@ DevCycle provides a Javascript implementation of the OpenFeature Web Provider in
 
 Install the OpenFeature Web SDK and DevCycle Web Provider:
 
-[//]: # (wizard-install-start)
+[//]: # 'wizard-install-start'
 
 #### NPM
 
@@ -29,7 +29,7 @@ Install the OpenFeature Web SDK and DevCycle Web Provider:
 npm install --save @devcycle/openfeature-web-provider
 ```
 
-[//]: # (wizard-install-end)
+[//]: # 'wizard-install-end'
 
 #### Yarn
 
@@ -41,7 +41,7 @@ yarn add @openfeature/web-sdk @openfeature/core @devcycle/openfeature-web-provid
 
 ### Getting Started
 
-[//]: # (wizard-initialize-start)
+[//]: # 'wizard-initialize-start'
 
 Initialize the DevCycleProvider and set it as the provider for OpenFeature,
 which will initialize the DevCycle JS Client SDK internally:
@@ -64,9 +64,9 @@ await OpenFeature.setProviderAndWait(devcycleProvider)
 const openFeatureClient = OpenFeature.getClient()
 ```
 
-[//]: # (wizard-initialize-end)
+[//]: # 'wizard-initialize-end'
 
-[//]: # (wizard-evaluate-start)
+[//]: # 'wizard-evaluate-start'
 
 Use a Variable value by passing the Variable key and default value to one of the OpenFeature flag evaluation methods
 
@@ -75,7 +75,7 @@ Use a Variable value by passing the Variable key and default value to one of the
 const boolFlag = openFeatureClient.getBooleanValue('boolean-flag', false)
 ```
 
-[//]: # (wizard-evaluate-end)
+[//]: # 'wizard-evaluate-end'
 
 ### Tracking Events
 

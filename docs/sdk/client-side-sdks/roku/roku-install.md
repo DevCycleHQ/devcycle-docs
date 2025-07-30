@@ -16,7 +16,7 @@ This version of the DevCycle Client SDK supports the following platforms:
 
 ## Installation
 
-[//]: # (wizard-install-start)
+[//]: # 'wizard-install-start'
 
 ### Github
 
@@ -24,4 +24,4 @@ Download the latest release from [Github Releases](https://github.com/DevCycleHQ
 
 For SceneGraph usage, add a `DevCycleTask` node to your scene.
 
-[//]: # (wizard-install-end)
+[//]: # 'wizard-install-end'

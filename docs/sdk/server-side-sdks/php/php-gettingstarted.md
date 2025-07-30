@@ -12,7 +12,7 @@ sidebar_custom_props: { icon: material-symbols:rocket }
 Please follow the [installation procedure](/sdk/server-side-sdks/php/php-install) and then run the following:
 
 ## Initializing SDK
-[//]: # (wizard-initialize-start)
+[//]: # 'wizard-initialize-start'
 
 ```php
 require_once(__DIR__ . '/vendor/autoload.php');
@@ -36,7 +36,7 @@ try {
     echo 'Exception when calling DevCycleClient->allFeatures: ', $e->getMessage(), PHP_EOL;
 }
 ```
-[//]: # (wizard-initialize-end)
+[//]: # 'wizard-initialize-end'
 
 ## Initialization Options
 
