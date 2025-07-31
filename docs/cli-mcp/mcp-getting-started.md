@@ -11,9 +11,7 @@ The DevCycle Model Context Protocol (MCP) Server is based on the DevCycle CLI, i
 
 The DevCycle MCP is hosted so there is no need to set up a local server. We'll walk you through installation and authentication with your preferred AI tools.
 
-### Direct Connection
-
-For clients that natively support the MCP specification with OAuth authentication, you can connect directly to our hosted server:
+**Direct Connection:** For clients that natively support the MCP specification with OAuth authentication, you can connect directly to our hosted server:
 
 ```
 https://mcp.devcycle.com/mcp
@@ -26,6 +24,8 @@ https://mcp.devcycle.com/mcp
 ```
 https://mcp.devcycle.com/sse
 ```
+
+<br></br>
 
 ### Configure Your AI Client
 
@@ -196,6 +196,8 @@ For more details, see the [Claude Code MCP documentation](https://docs.anthropic
 
 </TabItem>
 </Tabs>
+
+<br></br>
 
 ## Available Tools
 
