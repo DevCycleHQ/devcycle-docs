@@ -142,11 +142,6 @@ module.exports = {
           label: 'MCP Reference',
           id: 'cli-mcp/mcp-reference',
         },
-        {
-          type: 'doc',
-          label: 'MCP User Guides',
-          id: 'cli-mcp/mcp-guides',
-        },
       ],
     },
   ],
