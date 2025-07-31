@@ -1,5 +1,5 @@
 ---
-title: "Video Tutorials: Experiment Setup"
+title: "Video Tutorial: Experiment Setup"
 sidebar_position: 4
 ---
 
