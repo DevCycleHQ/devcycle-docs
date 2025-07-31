@@ -87,9 +87,10 @@ To open VS Code and automatically add the DevCycle MCP, click the install button
 8. You'll be redirected back to VS Code with the server now active
 
 </TabItem>
-<!-- <TabItem value="claude" label="Claude Desktop">
+<TabItem value="claude" label="Claude Desktop">
 
 **Step 1: Access MCP Configuration**
+
 **Option 1: Through Claude Desktop Settings (Recommended)**
 
 1. Open Claude Desktop and go to **Settings**
@@ -108,8 +109,9 @@ Add or merge the following configuration:
 ```json
 {
   "mcpServers": {
-    "DevCycle": {
-      "url": "https://mcp.devcycle.com/mcp"
+    "devcycle": {
+      "command": "npx",
+      "args": ["mcp-remote", "https://mcp.devcycle.com/mcp"]
     }
   }
 }
@@ -126,7 +128,7 @@ Close and reopen Claude Desktop for the changes to take effect.
 4. If you have multiple organizations, select your desired organization at `auth.devcycle.com`
 5. Return to Claude Desktop where the MCP tools will be active
 
-</TabItem> -->
+</TabItem>
 <TabItem value="claude-code" label="Claude Code">
 
 **Step 1: Open Terminal**
