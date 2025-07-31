@@ -13,13 +13,12 @@ This page provides comprehensive documentation for all 35+ DevCycle MCP tools. F
 The DevCycle MCP Server provides comprehensive feature flag management capabilities through **35+ tools** organized into **7 categories**:
 
 - [Feature Management](#feature-management)
-- [Feature Targeting](#feature-targeting)
 - [Variable Management](#variable-management)
 - [Environment Management](#environment-management)
 - [Project Management](#project-management)
 - [Custom Properties Management](#custom-properties-management)
 - [Self-Targeting & Overrides](#self-targeting--overrides)
-- [Results & Analytics](#results--analytics)
+- [Evaluation Data](#evaluation-data)
 
 :::info
 **Production Safety**
@@ -127,8 +126,6 @@ Get timeline of feature flag changes from audit log.
 
 - `feature_key`: Feature key
 - `days_back` (optional): Days to look back (default: 30, max: 365)
-
-### Feature Targeting
 
 #### `enable_feature_targeting` ⚠️
 
@@ -392,7 +389,7 @@ Clear all overrides for the current project.
 
 **Parameters:** None
 
-### Results & Analytics
+### Evaluation Data
 
 #### `get_feature_total_evaluations`
 
