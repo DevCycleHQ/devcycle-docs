@@ -25,6 +25,12 @@ https://mcp.devcycle.com/mcp
 https://mcp.devcycle.com/sse
 ```
 
+:::info
+
+The following installation instructions go through our recommended installation, using the remote MCP server. If you would prefer to run the DevCycle MCP server locally, you can follow the [installation instructions](/cli-mcp/mcp-reference#local-mcp-server-installation) in our reference docs.
+
+:::
+
 <br></br>
 
 ### Configure Your AI Client
@@ -201,18 +207,16 @@ For more details, see the [Claude Code MCP documentation](https://docs.anthropic
 
 ## Available Tools
 
-The DevCycle MCP Server provides **35+ tools** for comprehensive feature flag management:
+The DevCycle MCP Server provides comprehensive feature flag management tools organized into **6 categories**:
 
-| Category               | Tools                                                                                                         | Description                     |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------- |
-| **Feature Management** | `list_features`, `create_feature`, `update_feature`, `delete_feature`                                         | Create and manage feature flags |
-| **Variations**         | `fetch_feature_variations`, `create_feature_variation`, `update_feature_variation`                            | Manage feature variations       |
-| **Targeting**          | `enable_feature_targeting`, `disable_feature_targeting`, `list_feature_targeting`, `update_feature_targeting` | Configure targeting rules       |
-| **Variables**          | `list_variables`, `create_variable`, `update_variable`, `delete_variable`                                     | Manage feature variables        |
-| **Environments**       | `list_environments`, `create_environment`, `update_environment`, `get_sdk_keys`                               | Environment configuration       |
-| **Projects**           | `list_projects`, `get_current_project`, `create_project`, `update_project`                                    | Project management              |
-| **Self-Targeting**     | `get_self_targeting_identity`, `set_self_targeting_override`, `clear_all_self_targeting_overrides`            | Testing and overrides           |
-| **Analytics**          | `get_feature_total_evaluations`, `get_project_total_evaluations`                                              | Usage analytics                 |
+| Category                       | Tools                                                                                                                                                                                                                                                                                              | Description                                                |
+| ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| **Feature Management**         | `list_features`, `create_feature`, `update_feature`, `update_feature_status`, `delete_feature`, `fetch_feature_variations`, `create_feature_variation`, `update_feature_variation`, `set_feature_targeting`, `list_feature_targeting`, `update_feature_targeting`, `get_feature_audit_log_history` | Create and manage feature flags, variations, and targeting |
+| **Variable Management**        | `list_variables`, `create_variable`, `update_variable`, `delete_variable`                                                                                                                                                                                                                          | Manage feature variables                                   |
+| **Environment Management**     | `list_environments`, `get_sdk_keys`                                                                                                                                                                                                                                                                | Environment configuration                                  |
+| **Project Management**         | `list_projects`, `get_current_project`                                                                                                                                                                                                                                                             | Project management                                         |
+| **Self-Targeting & Overrides** | `get_self_targeting_identity`, `update_self_targeting_identity`, `list_self_targeting_overrides`, `set_self_targeting_override`, `clear_feature_self_targeting_overrides`                                                                                                                          | Testing and overrides                                      |
+| **Results & Analytics**        | `get_feature_total_evaluations`, `get_project_total_evaluations`                                                                                                                                                                                                                                   | Usage analytics                                            |
 
 ## Try It Out
 

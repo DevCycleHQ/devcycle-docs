@@ -6,19 +6,18 @@ description: Complete reference for the DevCycle Model Context Protocol Server
 
 # DevCycle MCP Reference
 
-This page provides comprehensive documentation for all 35+ DevCycle MCP tools. For setup instructions, see [MCP Getting Started](/cli-mcp/mcp-getting-started).
+This page provides comprehensive documentation for all DevCycle MCP tools. For setup instructions, see [MCP Getting Started](/cli-mcp/mcp-getting-started).
 
 ## Available Tools
 
-The DevCycle MCP Server provides comprehensive feature flag management capabilities through **35+ tools** organized into **7 categories**:
+The DevCycle MCP Server provides comprehensive feature flag management capabilities through tools organized into **6 categories**:
 
 - [Feature Management](#feature-management)
 - [Variable Management](#variable-management)
 - [Environment Management](#environment-management)
 - [Project Management](#project-management)
-- [Custom Properties Management](#custom-properties-management)
 - [Self-Targeting & Overrides](#self-targeting--overrides)
-- [Evaluation Data](#evaluation-data)
+- [Results & Analytics](#results--analytics)
 
 :::info
 **Production Safety**
@@ -118,32 +117,32 @@ Update an existing variation by key.
 - `name` (optional): New variation name
 - `variables` (optional): Updated variable values
 
+#### `set_feature_targeting` ⚠️
+
+Set targeting status (enable or disable) for a feature in an environment.
+
+**Parameters:**
+
+- `feature_key`: Feature key
+- `environment_key`: Environment key
+- `enabled`: Boolean - true to enable targeting, false to disable
+
 #### `get_feature_audit_log_history`
 
-Get timeline of feature flag changes from audit log.
+Get feature flag audit log history from DevCycle. Returns audit log entities matching the DevCycle API schema with date, a0_user, and changes fields.
 
 **Parameters:**
 
 - `feature_key`: Feature key
-- `days_back` (optional): Days to look back (default: 30, max: 365)
-
-#### `enable_feature_targeting` ⚠️
-
-Enable targeting for a feature in an environment.
-
-**Parameters:**
-
-- `feature_key`: Feature key
-- `environment_key`: Environment key
-
-#### `disable_feature_targeting` ⚠️
-
-Disable targeting for a feature in an environment.
-
-**Parameters:**
-
-- `feature_key`: Feature key
-- `environment_key`: Environment key
+- `page` (optional): Page number for pagination (default: 1)
+- `perPage` (optional): Number of items per page (default: 100, max: 1000)
+- `sortBy` (optional): Field to sort by (`createdAt`, `updatedAt`, `action`, `user`) (default: `createdAt`)
+- `sortOrder` (optional): Sort order (`asc`, `desc`) (default: `desc`)
+- `startDate` (optional): Start date for filtering (ISO 8601 format)
+- `endDate` (optional): End date for filtering (ISO 8601 format)
+- `environment` (optional): Environment key to filter by
+- `user` (optional): User ID to filter by
+- `action` (optional): Action type to filter by
 
 #### `list_feature_targeting`
 
@@ -234,113 +233,26 @@ Get SDK keys for an environment.
 - `environmentKey`: Environment key
 - `keyType` (optional): Specific key type (`mobile`, `server`, `client`)
 
-#### `create_environment` ⚠️
-
-Create a new environment.
-
-**Parameters:**
-
-- `key`: Unique environment key
-- `name`: Environment name
-- `description` (optional): Environment description
-- `color` (optional): Environment color
-
-#### `update_environment` ⚠️
-
-Update an existing environment.
-
-**Parameters:**
-
-- `key`: Environment key to update
-- `name` (optional): New name
-- `description` (optional): New description
-- `color` (optional): New color
-
 ### Project Management
 
 #### `list_projects`
 
-List all projects in the current organization.
+List all projects in the organization.
 
 **Parameters:**
 
 - `search` (optional): Search query
-- `page` (optional): Page number
-- `perPage` (optional): Items per page
-- `sortBy` (optional): Sort field
+- `page` (optional): Page number (default: 1)
+- `perPage` (optional): Items per page (default: 100, max: 1000)
+- `sortBy` (optional): Sort field (`createdAt`, `updatedAt`, `name`, `key`, `createdBy`)
 - `sortOrder` (optional): Sort order (`asc`, `desc`)
+- `createdBy` (optional): Filter by creator user ID
 
 #### `get_current_project`
 
-Get the currently selected project.
+Get details of the currently selected project.
 
 **Parameters:** None
-
-#### `create_project` ⚠️
-
-Create a new project.
-
-**Parameters:**
-
-- `key`: Unique project key
-- `name`: Project name
-- `description` (optional): Project description
-- `color` (optional): Project color
-
-#### `update_project` ⚠️
-
-Update an existing project.
-
-**Parameters:**
-
-- `key`: Project key to update
-- `name` (optional): New name
-- `description` (optional): New description
-- `color` (optional): New color
-
-### Custom Properties Management
-
-#### `list_custom_properties`
-
-List all custom properties in the current project.
-
-**Parameters:**
-
-- `search` (optional): Search query
-- `page` (optional): Page number
-- `perPage` (optional): Items per page
-
-#### `create_custom_property` ⚠️
-
-Create a new custom property for user segmentation.
-
-**Parameters:**
-
-- `key`: Unique property key
-- `name`: Property name
-- `type`: Property type (`String`, `Boolean`, `Number`)
-- `propertyKey`: Property key used to identify the custom property in user data
-- `schema` (optional): Schema definition with validation rules
-
-#### `update_custom_property` ⚠️
-
-Update an existing custom property.
-
-**Parameters:**
-
-- `key`: Property key to update
-- `name` (optional): New name
-- `type` (optional): New type
-- `propertyKey` (optional): New property key
-- `schema` (optional): New schema definition
-
-#### `delete_custom_property` ⚠️⚠️
-
-Delete a custom property from ALL environments.
-
-**Parameters:**
-
-- `key`: Property key to delete
 
 ### Self-Targeting & Overrides
 
@@ -383,13 +295,7 @@ Clear overrides for a specific feature/environment.
 - `feature_key`: Feature key
 - `environment_key`: Environment key
 
-#### `clear_all_self_targeting_overrides` ⚠️
-
-Clear all overrides for the current project.
-
-**Parameters:** None
-
-### Evaluation Data
+### Results & Analytics
 
 #### `get_feature_total_evaluations`
 
@@ -439,39 +345,102 @@ export DEVCYCLE_PROJECT_KEY="your-project-key"
 
 ## Advanced Configuration
 
-### Using Environment Variables with AI Clients
+### Local MCP Server Installation
 
-#### Cursor with Environment Variables
+For users who prefer to run the DevCycle MCP server locally rather than using the hosted version, you can install and configure the local server:
+
+#### Prerequisites
+
+- Node.js 16+ installed
+- DevCycle CLI installed globally: `npm install -g @devcycle/cli`
+- DevCycle account with API credentials or SSO authentication
+
+#### Installation
+
+Install the DevCycle CLI which includes the local MCP server:
+
+```bash
+npm install -g @devcycle/cli
+```
+
+#### Authentication
+
+Choose one of the following authentication methods:
+
+**Option 1: CLI Authentication (Recommended for local development)**
+
+```bash
+# Authenticate via SSO
+dvc login sso
+
+# Select your project
+dvc projects select
+```
+
+**Option 2: Environment Variables (Recommended for CI/CD)**
+
+```bash
+export DEVCYCLE_CLIENT_ID="your-client-id"
+export DEVCYCLE_CLIENT_SECRET="your-client-secret"
+export DEVCYCLE_PROJECT_KEY="your-project-key"
+```
+
+#### Configuration
+
+**For Cursor** (`.cursor/mcp_settings.json`):
 
 ```json
 {
   "mcpServers": {
-    "devcycle": {
-      "command": "dvc-mcp",
-      "args": [],
-      "env": {
-        "DEVCYCLE_CLIENT_ID": "your-client-id",
-        "DEVCYCLE_CLIENT_SECRET": "your-client-secret",
-        "DEVCYCLE_PROJECT_KEY": "your-project-key"
-      }
+    "DevCycle": {
+      "command": "dvc-mcp"
     }
   }
 }
 ```
 
-#### Claude Desktop with Environment Variables
+**For Claude Desktop:**
+
+- macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- Windows: `%APPDATA%\Claude\claude_desktop_config.json`
 
 ```json
 {
   "mcpServers": {
+    "DevCycle": {
+      "command": "dvc-mcp"
+    }
+  }
+}
+```
+
+**For VS Code** (`settings.json`):
+
+```json
+{
+  "mcp.servers": {
     "devcycle": {
-      "command": "dvc-mcp",
-      "args": [],
-      "env": {
-        "DEVCYCLE_CLIENT_ID": "your-client-id",
-        "DEVCYCLE_CLIENT_SECRET": "your-client-secret",
-        "DEVCYCLE_PROJECT_KEY": "your-project-key"
-      }
+      "command": "dvc-mcp"
+    }
+  }
+}
+```
+
+**For Claude Code:**
+
+```bash
+claude mcp add --transport stdio devcycle dvc-mcp
+```
+
+**For Windsurf:**
+
+In Windsurf Settings → Cascade → Manage MCPs → View raw config:
+
+```json
+{
+  "mcpServers": {
+    "DevCycle": {
+      "command": "dvc-mcp"
     }
   }
 }
