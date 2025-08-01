@@ -27,7 +27,7 @@ https://mcp.devcycle.com/sse
 
 :::info
 
-The following installation instructions go through our recommended installation, using the remote MCP server. If you would prefer to run the DevCycle MCP server locally, you can follow the [installation instructions](/cli-mcp/mcp-reference#local-mcp-server-installation) in our reference docs.
+These instructions use the remote DevCycle MCP server. For installation of the local MCP server, see the [reference docs](/cli-mcp/mcp-reference#local-mcp-server-installation).
 
 :::
 
