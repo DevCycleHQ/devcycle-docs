@@ -1,6 +1,7 @@
 ---
 title: Variables
 sidebar_position: 5
+displayed_sidebar: cli_mcp
 ---
 
 # CLI: Variables
@@ -13,11 +14,11 @@ To retrieve all variables for a project from the management API.
 
 ```bash
 dvc variables get
-```  
+```
+
 You should be presented with something which looks like the following (which represents three existing variables named `variable-alpha`, `variable-beta` and `feature-b` with the first two active and the final archived.):
 
 ```json
-
 [
   {
     "_id": "q1w2e3r4t5y6u7i",
@@ -64,16 +65,15 @@ You should be presented with something which looks like the following (which rep
 ```
 
 To list the keys of all variable in a project enter:
+
 ```bash
 dvc variations list
 ```
+
 You should be presented with something which looks like the following:
+
 ```json
-[
-  "feature-b",
-  "variable-beta",
-  "variable-alpha",
-]
+["feature-b", "variable-beta", "variable-alpha"]
 ```
 
 ---
@@ -85,7 +85,8 @@ Once you have installed and authorized the CLI, select your relevant organizatio
 ```bash
 dvc variables create
 ```
-You will be prompted to set a Name, Key, Description (Optional), Type of Variable (String, Boolean, Number or JSON) and the feature to which you would like to assign the variable. 
+
+You will be prompted to set a Name, Key, Description (Optional), Type of Variable (String, Boolean, Number or JSON) and the feature to which you would like to assign the variable.
 
 If successful you will receive something which resembles the following (which demonstrates creating a new `string` variable called `variable-beta` and adding it to the feature named `feature-a`):
 
@@ -115,11 +116,12 @@ Once you have installed and authorized the CLI, select your relevant organizatio
 ```bash
 dvc variable update
 ```
+
 You will be prompted to select a variable you would like to update, and can update the name, description or associated feature (not current working), then will receive a response which resembles something like is found below (which demonstrates changing the name of a variable named `Variable Beta` to `Variable Beta (Renamed)`):
 
 ```json
 {
- "_id": "q1w2e3r4t5y6u7i",
+  "_id": "q1w2e3r4t5y6u7i",
   "_project": "p0o9i8u7y6t5",
   "_feature": "e3r4t5y6u7u7",
   "name": "Variable Beta (Renamed)",

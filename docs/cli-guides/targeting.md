@@ -1,6 +1,7 @@
 ---
 title: Targeting Rules
 sidebar_position: 7
+displayed_sidebar: cli_mcp
 ---
 
 # CLI: Targeting Rules
@@ -12,7 +13,8 @@ Once you have installed and authorized the CLI, select your relevant organizatio
 ```bash
 dvc targeting get
 ```
-You will be prompted to select a feature and environment. 
+
+You will be prompted to select a feature and environment.
 
 If successful you will receive a response which resembles the following (which selected a feature named `feature-a` and the `Development` environment):
 
@@ -22,10 +24,10 @@ If successful you will receive a response which resembles the following (which s
       └─ enabled
 ```
 
-To enable a targeting rule for a Feature, you will follow a similar process to above but using the command 
+To enable a targeting rule for a Feature, you will follow a similar process to above but using the command
 
 ```bash
-dvc targeting enable 
+dvc targeting enable
 ```
 
 If successful you will receive a response which resembles the following (for enabling the targeting rules for the `Staging` environment of a feature):
@@ -42,11 +44,10 @@ If successful you will receive a response which resembles the following (for ena
             └─ Variation On
 ```
 
-
-To disable a targeting rule for a Feature, you will follow a similar process to above but using the command 
+To disable a targeting rule for a Feature, you will follow a similar process to above but using the command
 
 ```bash
-dvc targeting disable 
+dvc targeting disable
 ```
 
 If successful you will receive a response which resembles the following (for disabling the targeting rules for the `Staging` environment of a feature):
@@ -72,7 +73,8 @@ Once you have installed and authorized the CLI, select your relevant organizatio
 ```bash
 dvc targeting update
 ```
-You will be prompted to select a feature, environment and what you would like to update (status or targets). For this case you should select only `targets`. 
+
+You will be prompted to select a feature, environment and what you would like to update (status or targets). For this case you should select only `targets`.
 
 You should then select `Add Targeting Rule` and will be prompted to define a Name, Variations to serve and a filter. For this case, if you have not yet created any filters, you should select `Add Filter`.
 
@@ -186,10 +188,10 @@ Once you have chosen your relevant definition select `Continue` (twice) when pro
             └─ New Variation
 ```
 
-To enable a targeting rule for a Feature, you will follow a similar process to above but using the command 
+To enable a targeting rule for a Feature, you will follow a similar process to above but using the command
 
 ```bash
-dvc targeting enable 
+dvc targeting enable
 ```
 
 If successful you will receive a response which resembles the following (for enabling the targeting rules for the `Staging` environment of a feature):
@@ -259,7 +261,7 @@ If successful you will receive a response which resembles the following (which r
 
 ? Select an action: Edit Filter
 ? Which Filter would you like to edit? {"type":"user","subType":"email","comparator":"contain","values":["devcycle"]}
-? Which fields are you updating 
+? Which fields are you updating
 
 🤖 Manage your filters
 🤖 Current Filters:
@@ -331,6 +333,7 @@ If successful you will receive a response which resembles the following (which r
 ```
 
 Other update actions from the CLI include:
+
 - Reordering a Targeting Rule
 - Reordering a Filter (known as definition in the CLI)
 
@@ -442,4 +445,3 @@ If successful you will receive a response which resembles the following (which r
 ```
 
 > A similar process should be applied for removing filters/definitions
-

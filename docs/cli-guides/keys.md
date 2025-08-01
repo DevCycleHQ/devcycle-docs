@@ -1,6 +1,7 @@
 ---
 title: SDK Keys
 sidebar_position: 3
+displayed_sidebar: cli_mcp
 ---
 
 # CLI: SDK Keys
