@@ -333,7 +333,9 @@ const config = {
     },
     DEVCYCLE_CLIENT_SDK_KEY: process.env.DEVCYCLE_CLIENT_SDK_KEY,
   },
-  url: process.env.CF_PAGES ? 'https://docs.devcycle.com' : 'http://localhost:3000',
+  url: process.env.CF_PAGES
+    ? 'https://docs.devcycle.com'
+    : 'http://localhost:3000',
   baseUrl: '/',
   favicon: 'devcycle_favicon.svg',
   scripts: [
@@ -426,19 +428,11 @@ const config = {
           label: 'Integrations',
         },
         {
-          type: 'dropdown',
-          label: 'CLI',
+          type: 'docSidebar',
+          sidebarId: 'cli_mcp',
           position: 'left',
-          items: [
-            {
-              label: 'Reference Docs',
-              to: '/cli/'
-            },
-            {
-              label: 'User Guides',
-              to: '/cli-guides/'
-            }
-          ]
+          collapse: 'false',
+          label: 'CLI / MCP',
         },
         {
           label: 'Best Practices',
