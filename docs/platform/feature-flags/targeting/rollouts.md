@@ -23,9 +23,9 @@ If a user qualifies for a target that has a schedule, and the schedule has not y
 
 ### Gradual Rollouts
 
-To roll out a Feature to a Target at specific times, open the "Schedule" dropdown and select "Gradual Rollout". 
+To roll out or roll back a Feature to a Target at specific times, open the "Schedule" dropdown and select "Gradual Rollout". 
 
-This will give you the option to create a rollout, from a start percentage to an end percentage at specific dates. Use this option to gradually roll out the feature to users and monitor the impact over time without creating an instant switch of users.
+This will give you the option to create a rollout, from a start percentage to an end percentage at specific dates. Use this option to gradually roll out or roll back the feature to users and monitor the impact over time without creating an instant switch of users.
 
 While a feature is active and a rollout has been set, you can view the current % of rollout at any time:
 
@@ -118,21 +118,21 @@ For modifications  to or additions of a gradual roll-out, entries in the [Audit 
 
 ## Passthrough Rollouts (*effective for ALL DevCycle Projects - Date TBD*)
 
-We have made Passthrough Rollouts for Environment Targeting available for opt-in in Project Settings. 
+Passthrough Rollouts will be the default behaviour for Targeting Rules moving forward. Projects created after May 22, 2024 will already have this enabled. For projects created on or before this date, we have made Passthrough Rollouts for Environment Targeting available for **opt-in**, in Project Settings ahead of the switchover.
 
-If your team is actively using the Scheduled Rollouts functionality for Targeting Rules,  this change may affect Targeting Rules for your Features, so we've put together resources to make this transition as smooth as possible for you.
+If your team is actively using Scheduled Rollouts in your Targeting Rules, this change may affect how your Targeting Rules behave for your Features. We've put together resources to make this transition as smooth as possible for you.
 
-### *What are Passthrough Rollouts?*
+### What are Passthrough Rollouts?
 
-Currently, any user that qualifies for the rule will be held on the rule and receive default values until the schedule or rollout has triggered.
+Currently, any user that qualifies for a rule that contains a Scheduled Rollout, will be held on the rule and receive default values until the schedule or rollout has triggered.
 
-With **Passthrough Rollouts**, if a rollout or schedule hasn't been hit for a Targeting Rule, the platform will behave as if the rule doesn't exist, regardless if the user qualifies for the rule or not. Essentially, users will not be "stuck" on the first rule and be served the default value until the Targeting Rule's schedule is live. 
+With **Passthrough Rollouts**, if a rollout or schedule hasn't been hit for a Targeting Rule, the platform will treat the rule as if it doesn't exist, regardless of whether the user qualifies for the rule or not. Essentially, users will not be "stuck" on the rule, and instead, will bypass the rule and continue evaluating the next rule(s). This is especially useful when you want users to receive a different Variation of your Feature until the rollout or schedule applies to them.
 
 Here is an example scenario of Passthrough Rollouts' expected behaviour:
 
 - Let's pretend today's date is April 18th. 
 
-- In the screenshot below, given the scheduled date for the Targeting Rule #1 is in the future and has not happened yet, all users will pass through that rule and be evaluated against Targeting Rule #2 - `Promotion` and receive the Spin variation for the next week. 
+- In the screenshot below, given the scheduled date for the Targeting Rule #1 - `Fall-through Example` is in the future and has not happened yet, all users will pass through that rule and be evaluated against Targeting Rule #2 - `Promotion` and receive the Spin variation for the next week. 
 
 - Once April 26th arrives, users will now be evaluated against the first rule and be served the Base variation. 
 
@@ -141,16 +141,16 @@ Here is an example scenario of Passthrough Rollouts' expected behaviour:
 ![Example Passthrough Rollouts](/may-2024-example-passthrough-scenario.png)
 
 
-### *What do you need to know?*
+### What do you need to know?
 
 - **May 22, 2024:** Starting today, all existing projects will have a Passthrough Rollouts section in each Project's settings page. This will give you an option to enable this setting ahead of the switchover date. All new Projects created from this date forward, will have passthrough rollouts as the default behaviour.
-- **DATE TBD:** All projects will switch to Passthrough Rollouts enabled by default, and will no longer be available as an option on the Project settings page. If your team is leveraging a server-side SDK, your team must upgrade your SDK before this date, as Passthrough Rollouts require specific DevCycle Server SDK Versions to be deployed.
+- **DATE TBD:** All projects remaining will switchover to Passthrough Rollouts. If your team is leveraging a server-side SDK, your team must upgrade your SDK before this date, as Passthrough Rollouts require specific DevCycle Server SDK Versions to be deployed.
 
-### *What do you need to do?*
+### What do you need to do?
 
-If your team is leveraging a server-side SDK, your team should upgrade your SDK as Passthrough Rollouts require specific DevCycle Server SDK Versions to be deployed (with the exception of the PHP SDK, which does not require an SDK update).
+If your team is leveraging a **server-side SDK**, your team must upgrade your SDK as Passthrough Rollouts require specific DevCycle Server SDK Versions to be deployed (with the exception of the PHP SDK, which does not require an SDK update).
 
-
+Minimum versions:
 - Python: **3.5.0** [![PyPI](https://badgen.net/pypi/v/devcycle-python-server-sdk)](https://pypi.org/project/devcycle-python-server-sdk/) 
 - Java: **2.2.0** [![Maven](https://badgen.net/maven/v/maven-central/com.devcycle/java-server-sdk)](https://search.maven.org/artifact/com.devcycle/java-server-sdk)
 - Dotnet (Local): **3.1.0** [![Nuget Local](https://badgen.net/nuget/v/DevCycle.SDK.Server.Cloud)](https://www.nuget.org/packages/DevCycle.SDK.Server.Local/)
