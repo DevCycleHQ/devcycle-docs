@@ -5,17 +5,17 @@ sidebar_position: 5
 
 ## Scheduling a Feature
 
-By default, all Targeting Rules will not have a Schedule, and Features will be delivered immediately to any users who are in the target audience, once an Environment is enabled.
+By default, all Targeting Rules do not have a Schedule, and Features will be delivered immediately to any users who match the Targeting Rule definition once an Environment is enabled.
 
-To schedule specifically when a target should receive a Feature, change the Schedule option to "Specific Date and Time". Once selected, you may input a date and time to release your Feature. 
+To schedule a specific release time for your Feature, change the Schedule option to "Specific Date and Time". You may then input a date and time for when you release your Feature. 
 
-**Note:** Dates in the past may be selected, and will be treated as if there is no schedule. Users in such a target will receive the served Variation if the Feature is enabled in that environment.
+**Note:** Dates in the past may be selected, and will be treated as if there is no schedule. Users who match the Targeting Rule will receive the served Variation if the Feature is enabled in that environment.
 
 The timezone is set to the DevCycle user's timezone.
 
 :::info
 
-With Passthrough Rollouts enabled, if a user qualifies for a Targeting Rule that has a schedule, but the schedule has not yet been reached, the user will bypass that target and move onto the next Targeting Rule. See [Passthrough Rollouts](/platform/feature-flags/targeting/rollouts#passthrough-rollouts-effective-for-all-devcycle-projects---date-tbd) for more details.
+With Passthrough Rollouts enabled, if a user qualifies for a Targeting Rule that has a schedule, but the schedule has not yet been reached, the user will bypass that Targeting Rule and move onto the next Targeting Rule. See [Passthrough Rollouts](/platform/feature-flags/targeting/rollouts#passthrough-rollouts-effective-for-all-devcycle-projects---date-tbd) for more details.
 
 :::
 
@@ -23,7 +23,7 @@ With Passthrough Rollouts enabled, if a user qualifies for a Targeting Rule that
 
 ### Gradual Rollouts
 
-To roll out or roll back a Feature to a Target at specific times, open the "Schedule" dropdown and select "Gradual Rollout". 
+To roll out or roll back a Feature to your users at a specific time, open the "Schedule" dropdown and select "Gradual Rollout". 
 
 This will give you the option to create a rollout, from a start percentage to an end percentage at specific dates. Use this option to gradually roll out or roll back the Feature to users and monitor the impact over time without creating an instant switch of users.
 
@@ -62,11 +62,11 @@ Here is how you'd set up the phased rollout example described above:
 
 ### Stopping a Rollout
 
-While the easiest way to end a rollout is to remove the targeting rule or disable the targeting for an environment dropping everyone to default values, there are times when you may want to stop a rollout, holding the percentage steady. This is relevant if you are seeing small issues that are easily resolved, where you may not want to add more users and exacerbate the issue, but you also don't want to take away a Feature from users that already have received it. This may also be relevant in scenarios where you can't rollback a Feature and regardless of the issue happening you are just trying to limit the blast radius to users who have already received the Feature.
+While the easiest way to end a rollout is to remove the Targeting Rule or disable the targeting for an environment dropping everyone to default values, there are times when you may want to stop a rollout, holding the percentage steady. This is relevant if you are seeing small issues that are easily resolved, where you may not want to add more users and exacerbate the issue, but you also don't want to take away a Feature from users that already have received it. This may also be relevant in scenarios where you can't rollback a Feature and regardless of the issue happening you are just trying to limit the blast radius to users who have already received the Feature.
 
 Regardless of the scenario you find yourself in, both Gradual and Multi-Step Rollouts can be stopped at their current rollout percentage and held there indefinitely.
 
-To stop a rollout, just click the Stop button next to the Current Rollout Percentage indicator. You will be asked to confirm the change. Once confirmed the rollout will be modified from whatever it was to a Multi-Step Rollout with the last step being the current time and current rollout percentage. This edit can still be reviewed and discarded if you would like. When you are ready to accept the change, just save the Feature.
+To stop a rollout, just click the Stop button next to the Current Rollout Percentage indicator. You will be asked to confirm the change. Once confirmed the rollout will be modified from whatever it was originally, to a Multi-Step Rollout with the last step being the current time and current rollout percentage. This edit can still be reviewed and discarded if you would like. When you are ready to accept the change, just save the Feature.
 
 When you are ready to continue the rollout, all you have to do is add more steps.
 
@@ -78,7 +78,7 @@ Rollouts are calculated in real-time -- meaning that the rate of increase of the
 
 **How do rollouts actually work?**
 
-The rollout of the targeting rule is deterministic based on an algorithm leveraging the User, Feature and Target IDs. This effectively means that a user will be guaranteed to receive a Feature at a specific percentage point for that targeting rule. If the rollout is higher than that percentage point, the user will receive the Feature, and if the rollout is lower than that percentage point, then the user will not receive the Feature. It doesn't matter how often the rollout changes. This logic applies to all users and where each user's "percentage point" is randomly distributed.
+The rollout of the Targeting Rule is deterministic based on an algorithm leveraging the User, Feature and Targeting Rule IDs. This effectively means that a user will be guaranteed to receive a Feature at a specific percentage point for a given Targeting Rule. If the rollout is higher than that percentage point, the user will receive the Feature, and if the rollout is lower than that percentage point, then the user will not receive the Feature. It doesn't matter how often the rollout changes. This logic applies to all users, and where each user's "percentage point" is randomly distributed.
 
 *Example:*
 Your Production environment is targeting all users and the rollout is at 30% but you find out that you have to rollback to 0% because of an issue. Once you roll out again to 30%, the 30% of users that were originally targeted are guaranteed to receive the Feature again.
@@ -89,12 +89,12 @@ A User will qualify for the Feature on the first config request after they are p
 
 **If a User meets the Targeting Rule's definition but does not qualify for the Feature by rollout, will they proceed to evaluate the next Targeting Rule?**
 
-If a user qualifies for a target that has a rollout, and they have  _not yet_  received the rollout, the user **may or may not** proceed to the next target depending on whether you have [Passthrough Rollouts](/platform/feature-flags/targeting/rollouts#passthrough-rollouts-effective-for-all-devcycle-projects---date-tbd)  enabled.
+If a user qualifies for a Targeting Rule that has a rollout, and they have  _not yet_  received the rollout, the user **may or may not** proceed to the next Targeting Rule depending on whether you have [Passthrough Rollouts](/platform/feature-flags/targeting/rollouts#passthrough-rollouts-effective-for-all-devcycle-projects---date-tbd)  enabled.
 
 
 ## Passthrough Rollouts (*effective for ALL DevCycle Projects - Date TBD*)
 
-Passthrough Rollouts will be the default behaviour for Targeting Rules moving forward. Projects created after May 22, 2024 will already have this enabled. For projects created on or before this date, we have made Passthrough Rollouts for Environment Targeting available for **opt-in**, in Project Settings ahead of the switchover.
+Passthrough Rollouts will be the default behaviour for Targeting Rules moving forward. Projects created after May 22, 2024 will already have this enabled. For Projects created on or before this date, we have made Passthrough Rollouts for Targeting Rules available for **opt-in**, in Project Settings ahead of the switchover.
 
 If your team is actively using Scheduled Rollouts in your Targeting Rules, this change may affect how your Targeting Rules behave for your Features. We've put together resources to make this transition as smooth as possible for you.
 
