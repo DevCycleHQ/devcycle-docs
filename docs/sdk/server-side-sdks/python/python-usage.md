@@ -50,7 +50,7 @@ except Exception as e:
 The default value can be of type string, boolean, number, or dictionary.
 
 If you would like to get the full Variable you can use `variable()` instead. This contains fields such as:
-`key`, `value`, `type`, `defaultValue`, `isDefaulted`.
+`key`, `value`, `type`, `defaultValue`, `isDefaulted`, `eval`: evaluation object containing reason, details, and targetId for why the Variable was bucketed into its value (see [Evaluation Reasons](/sdk/features#evaluation-reasons)).
 
 ## Getting All Variables
 

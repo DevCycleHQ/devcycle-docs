@@ -45,7 +45,8 @@ try {
 The default value can be of type string, boolean, number, or object.
 
 If you would like to get the full Variable object defined by [getVariableByKey](/bucketing-api/#tag/Bucketing-API/operation/getVariableByKey)
-you can use `variable()` instead of `variableValue()`.
+you can use `variable()` instead of `variableValue()`. This contains fields such as:
+`key`, `value`, `type`, `defaultValue`, `isDefaulted`, `eval`: evaluation object containing reason, details, and targetId for why the Variable was bucketed into its value (see [Evaluation Reasons](/sdk/features#evaluation-reasons)).
 
 ## Get all Variables
 

@@ -37,7 +37,7 @@ bool result = await client.VariableValue(user, "your-variable-key", true);
 The default value can be of type `String`, `Boolean`, `Number`, or `Object`.
 
 If you would like to get the full Variable object you can use `Variable()` instead. This contains properties such as:
-`Key`, `Value`, `Type`, `DefaultValue`, `IsDefaulted`.
+`Key`, `Value`, `Type`, `DefaultValue`, `IsDefaulted`, `Eval`: evaluation object containing reason, details, and targetId for why the Variable was bucketed into its value (see [Evaluation Reasons](/sdk/features#evaluation-reasons)).
 
 ## Getting All Variables
 

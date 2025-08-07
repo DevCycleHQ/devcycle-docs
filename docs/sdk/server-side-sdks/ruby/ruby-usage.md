@@ -45,7 +45,7 @@ end
 The default value can be of type string, boolean, number, or object.
 
 If you would like to get the full Variable you can use `devcycle_client.variable()` instead. This contains fields such as:
-`key`, `value`, `type`, `defaultValue`, `isDefaulted`.
+`key`, `value`, `type`, `defaultValue`, `isDefaulted`, `eval`: evaluation object containing reason, details, and targetId for why the Variable was bucketed into its value (see [Evaluation Reasons](/sdk/features#evaluation-reasons)).
 
 ## Getting all Features
 
