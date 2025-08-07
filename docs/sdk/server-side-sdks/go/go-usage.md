@@ -51,7 +51,7 @@ This helps to protect your code against unexpected types being returned from the
 To avoid confusion when testing new variables, make sure you're using the correct type for the defaultValue parameter.
 
 To access the full Variable Object use `devcycleClient.Variable(user, "my-variable-key", "test")` instead.
-This will return a `Variable` object containing the `key`, `value`, `type`, `defaultValue`, `isDefaulted` fields.
+This will return a `Variable` object containing the `key`, `value`, `type`, `defaultValue`, `isDefaulted`, `eval`: evaluation object containing reason, details, and targetId for why the Variable was bucketed into its value (see [Evaluation Reasons](/sdk/features#evaluation-reasons)) fields.
 The same rules apply for the `value` field as above for `VariableValue`.
 
 ## Track Event

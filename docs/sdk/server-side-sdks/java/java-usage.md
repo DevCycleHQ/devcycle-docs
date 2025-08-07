@@ -46,7 +46,7 @@ if (variableValue.booleanValue()) {
 The default value can be of type `String`, `Boolean`, `Number`, or `Object`.
 
 If you would like to get the full Variable Object you can use `variable()` instead. This contains fields such as:
-`key`, `value`, `type`, `defaultValue`, `isDefaulted`.
+`key`, `value`, `type`, `defaultValue`, `isDefaulted`, `eval`: evaluation object containing reason, details, and targetId for why the Variable was bucketed into its value (see [Evaluation Reasons](/sdk/features#evaluation-reasons)).
 
 ## Getting All Variables
 

@@ -51,7 +51,7 @@ The default value can be of type string, boolean, number, or object.
 
 If you would like to get the full Variable object defined by [DVCVariable Typescript Schema](https://github.com/search?q=repo%3ADevCycleHQ%2Fjs-sdks+export+interface+DVCVariable%3C+language%3ATypeScript+path%3A*types.ts&type=code)
 you can use `devcycleClient.variable()` instead. This contains fields such as:
-`key`, `value`, `type`, `defaultValue`, `isDefaulted`.
+`key`, `value`, `type`, `defaultValue`, `isDefaulted`, `eval`: evaluation object containing reason, details, and targetId for why the Variable was bucketed into its value (see [Evaluation Reasons](/sdk/features#evaluation-reasons)).
 
 ## Getting All Variables
 
@@ -172,7 +172,6 @@ import { initializeDevCycle } from '@devcycle/nodejs-server-sdk'
 const devcycleClient = initializeDevCycle('<DEVCYCLE_SERVER_SDK_KEY>', {
   disableRealtimeUpdates: true,
 })
-
 ```
 
 ## Evaluation Hooks
