@@ -41,7 +41,7 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="mcp-clients">
 <TabItem value="cursor" label="Cursor" default>
 
-<a href="https://cursor.com/install-mcp?name=DevCycle&config=eyJ1cmwiOiAiaHR0cHM6Ly9tY3AuZGV2Y3ljbGUuY29tL21jcCJ9Cg==" className="mcp-install-button" target="_blank" rel="noopener noreferrer">📦 Install in Cursor</a>
+<a href="cursor://anysphere.cursor-deeplink/mcp/install?name=DevCycle&config=eyJ1cmwiOiAiaHR0cHM6Ly9tY3AuZGV2Y3ljbGUuY29tL21jcCJ9Cg==" className="mcp-install-button" target="_blank" rel="noopener noreferrer">📦 Install in Cursor</a>
 
 To open Cursor and automatically add the DevCycle MCP, click the install button above. Alternatively, add the following to your `~/.cursor/mcp_settings.json` file. To learn more, see the [Cursor documentation](https://docs.cursor.com/advanced/mcp).
 
