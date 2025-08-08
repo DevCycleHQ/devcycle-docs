@@ -74,7 +74,11 @@ Targeting Rules are made up of a few different fields that will allow you define
 
     This is what defines the Variation that a user who fulfills the rule will receive. Different rules may receive different Variations. Additionally, a random distribution for A/B testing of Variations can be set. 
 
+<<<<<<< HEAD
 4. **A Rollout Schedule for the Feature.**
+=======
+4. **A Rollout Schedule for the Feature.***
+>>>>>>> 075589e (Include rollbacks and update Targeting overview)
 
     When the Schedule is set to the default (None), the Targeting Rule will be enabled once the Environment is enabled. Using Schedule, a specific date/time can be set to release your Feature at a certain time, additionally providing the option to include a Gradual or Phased Rollout of the Feature. More details can be found in [Schedules and Rollouts](/platform/feature-flags/targeting/rollouts).
 
@@ -122,7 +126,7 @@ In either case, this section will help you ensure that you understand the order 
 
 #### Evaluation Order
 
-Targeting Rules are evaluated in a **top-down** order. A User may match the definition of multiple Targeting Rules, however, they will only receive the first Targeting Rule that they match for in the given Environment. 
+Targeting Rules are evaluated in a **top-down** order. A User may match the definition of multiple Targeting Rules, however, they will only receive the first Targeting Rule that they match for in the given Environment.
 
 This situation allows you to group specific users into seeing a Variation, for example:
 1. Meet our user Victor, he lives in Canada and has a `@devcycle.com` email address. We do not want him, or other `@devcycle.com` users, to see our Secret Getaway Feature.
