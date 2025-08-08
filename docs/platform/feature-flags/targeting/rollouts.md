@@ -73,6 +73,14 @@ To stop a rollout, just click the Stop button next to the Current Rollout Percen
 
 When you are ready to continue the rollout, all you have to do is add more steps.
 
+### Disable a Rule (Kill Switch)
+
+In some cases, you may want to disable a Feature entirely for all users as quickly as possible, regardless of rollout status, schedule, or Targeting Rules. This is where a killswitch comes in. A killswitch immediately turns off a Feature, sending all users to the default values, without requiring any code changes or deployments.
+
+This is particularly useful if you encounter a critical issue in production, such as a bug, performance problem, or negative user experience, and need to prevent further impact right away. Unlike stopping a rollout, which simply freezes the current percentage, a killswitch removes the Feature from all users currently receiving it.
+
+To use a killswitch, you can simply disable the Targeting Rule for the Environment from the dashboard and save your changes. The change will take effect immediately, overriding all Targeting Rules, schedules, and rollouts, and users will receive code defaults. You can re-enable the Feature at any time by turning the Targeting Rule back on.
+
 ## FAQ about Rollouts
 
 **How often are rollouts evaluated / When does the rollout % update?**
