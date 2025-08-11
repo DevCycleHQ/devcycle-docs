@@ -22,17 +22,17 @@ SDK. The properties available on a user are a combination of ones that are autom
 that you set yourself in the SDK but are built into the platform, and custom properties that you define to extend
 the built-in Targeting properties.
 
-Below is a summary of the properties built into the platform, and how to specify them in the SDK:
+Below is a summary of the properties built-in to the platform, and how to specify them in the SDK:
 
 | Property Name    | Purpose                                                                                | How to Set                |
 |------------------|----------------------------------------------------------------------------------------|---------------------------|
 | User ID          | Unique identifier for this user. Also used for distribution and rollout randomization. | Set "user_id" property    |
 | User Email       | Email associated to this user                                                          | Set "email" property      |
-| App Version      | Version of the application currently in use.                                           | Set "appVersion" property |
+| App Version      | Version of the application currently in use.                                           | Set "appVersion" property or automatically set by Mobile SDK |
 | Platform         | Platform type (eg. Android, Web, C# etc.)                                              | Automatically set by SDK  |
 | Platform Version | Platform version specific to the current platform (eg. Android OS versio)              | Automatically set by SDK  |
-| Device Model     | Device model specific to the current device (eg. iPhone 12)                            | Automatically set by SDK  |
-| Country          | Country the user is located in. Must be a valid 2 letter [ISO-3166 country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)      | Set "country" property    |
+| Device Model     | Device model specific to the current device (eg. iPhone 12)                            | Automatically set by Client-side SDK  |
+| Country          | Country the user is located in. Must be a valid 2 letter [ISO-3166 country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)      | Set "country" property or automatically set by Android SDK    |
 
 In addition to these built-in properties, you can specify any other property that suits your needs using the
 [Custom Properties](/platform/feature-flags/targeting/custom-properties) Feature. 
