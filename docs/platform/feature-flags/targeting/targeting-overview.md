@@ -32,7 +32,7 @@ Below is a summary of the properties built-in to the platform, and how to specif
 | Platform         | Platform type (eg. Android, Web, C# etc.)                                              | Automatically set by SDK  |
 | Platform Version | Platform version specific to the current platform (eg. Android OS versio)              | Automatically set by SDK  |
 | Device Model     | Device model specific to the current device (eg. iPhone 12)                            | Automatically set by Client-side SDK  |
-| Country          | Country the user is located in. Must be a valid 2 letter [ISO-3166 country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)      | Set "country" property or automatically set by Android SDK    |
+| Country          | Country the user is located in. Must be a valid 2 letter [ISO-3166 country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)      | Set "country" property    |
 
 In addition to these built-in properties, you can specify any other property that suits your needs using the
 [Custom Properties](/platform/feature-flags/targeting/custom-properties) Feature. 

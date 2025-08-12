@@ -92,7 +92,7 @@ The `withDevCycleProvider` function accepts a Provider Config object:
 | privateCustomData | DVCJSON | Key/value map of properties to be used for targeting. Private properties will not be included in event logging. | No             |
 | platform          | String  | Platform/OS                                                                                                     | Yes            |
 | platformVersion   | String  | Platform/OS Version                                                                                             | Yes            |
-| deviceModel       | String  | User Agent                                                                                                      | Yes            |
+| deviceModel       | String  | Device Machine Code or Build Model                                                                              | Yes            |
 
 ## Initialization Options
 
