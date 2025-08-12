@@ -8,7 +8,7 @@ displayed_sidebar: cli_mcp
 
 ## DevCycle Identity
 
-Once you have installed and authorized the [CLI](/cli), select your relevant organization and project.
+Once you have installed and authorized the [CLI](/cli/cli-reference), select your relevant organization and project.
 
 ### Get
 

@@ -230,7 +230,7 @@ Once configured, try asking your AI assistant:
 ## Next Steps
 
 - **[MCP Reference](/cli-mcp/mcp-reference)** - Complete tool documentation with all parameters
-- **[CLI Reference](/cli/)** - Learn about the underlying CLI commands
+- **[CLI Reference](/cli/cli-reference)** - Learn about the underlying CLI commands
 
 ## Getting Help
 

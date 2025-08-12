@@ -10,7 +10,7 @@ DevCycle provides two complementary tools for managing feature flags: a command-
 
 ## DevCycle CLI
 
-The [DevCycle CLI](/cli/) is a comprehensive command-line tool for feature flag management.
+The [DevCycle CLI](/cli/cli-reference) is a comprehensive command-line tool for feature flag management.
 
 ### Key Features
 
@@ -27,7 +27,7 @@ The [DevCycle CLI](/cli/) is a comprehensive command-line tool for feature flag 
 3. Select project: `dvc projects select`
 4. Start using CLI commands like: `dvc features list`
 
-**[Explore CLI Reference →](/cli/)** | **[View CLI User Guides →](/cli-guides/)**
+**[Explore CLI Reference →](/cli/cli-reference)** | **[View CLI User Guides →](/cli-guides/)**
 
 ## DevCycle MCP Server
 

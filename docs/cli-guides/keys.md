@@ -8,7 +8,7 @@ displayed_sidebar: cli_mcp
 
 ## Manage
 
-Once you have installed and authorized the [CLI](/cli), select your relevant organization and project then
+Once you have installed and authorized the [CLI](/cli/cli-reference), select your relevant organization and project then
 run one of the following commands depending on your use case:
 
 ```bash
