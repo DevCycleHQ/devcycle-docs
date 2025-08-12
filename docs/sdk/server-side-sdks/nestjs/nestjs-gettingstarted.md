@@ -41,7 +41,7 @@ DevCycleModule.forRootAsync({
 
 To use the [decorators](/sdk/server-side-sdks/nestjs/nestjs-usage#decorators) provided by the SDK, you will need to define a `userFactory` when registering the `DevCycleModule`.
 The `userFactory` is a function which accepts the current `ExecutionContext` as a parameter and returns a DevCycle User object.
-The user factory will be evaluated as a global interceptor, and the resulting user will be used when evaluating variables with the `@VariableValue` and `@RequireVariableValue` decorators.
+The user factory will be evaluated as a global interceptor, and the resulting user will be used when evaluating Variables with the `@VariableValue` and `@RequireVariableValue` decorators.
 
 [DevCycleUser Typescript Schema](https://github.com/search?q=repo%3ADevCycleHQ%2Fjs-sdks+export+interface+DevCycleUser+language%3ATypeScript+path%3A*types.ts&type=code)
 
@@ -78,6 +78,13 @@ DevCycleModule.forRoot({
 ```
 
 [//]: # 'wizard-initialize-end'
+
+In addition to the properties you set on the `userFactory` yourself, these properties are automatically set by the SDK and are ready for segmentation:
+
+| Property          | Type    | Description            |
+| ----------------- | ------- | ---------------------- |
+| platform          | String  | Platform/OS            |
+| platformVersion   | String  | Platform/OS Version    |
 
 ## Initialization Options
 

@@ -13,9 +13,9 @@ sidebar_custom_props: { icon: material-symbols:toggle-on }
 ## User Object
 
 The user object is required for all methods. This is the basis of how segmentation and bucketing decisions are made.
-The only required field in the user object is UserId
+The only required field in the user object is `UserId`. The rest are optional and are used by the system for user segmentation into Variables and Features.
 
-See the UserData class in `model_user_data.go` for all accepted fields.
+See the UserData class in [model_user_data.go](https://github.com/DevCycleHQ/go-server-sdk/blob/main/api/model_user_data.go) for all accepted fields.
 
 ```go
 user := devcycle.User{
@@ -29,6 +29,13 @@ Any number types passed into `customData`, `privateCustomData` or `ClientCustomD
 to avoid any potential issues with floating point error.
 
 :::
+
+In addition to the properties you set on the `devcycle.User` yourself, these properties are automatically set by the SDK and are ready for segmentation:
+
+| Property          | Type    | Description            |
+| ----------------- | ------- | ---------------------- |
+| platform          | String  | Platform/OS            |
+| platformVersion   | String  | Platform/OS Version    |
 
 ## Get and Use Variable by Key
 
