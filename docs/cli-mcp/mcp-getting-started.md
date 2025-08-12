@@ -93,6 +93,37 @@ To open VS Code and automatically add the DevCycle MCP, click the install button
 8. You'll be redirected back to VS Code with the server now active
 
 </TabItem>
+<TabItem value="claude-code" label="Claude Code">
+
+**Step 1: Open Terminal**
+Open your terminal to access the Claude CLI.
+
+**Step 2: Add DevCycle MCP Server**
+
+```bash
+claude mcp add --transport http devcycle https://mcp.devcycle.com/mcp
+```
+
+**Step 3: Manage MCP Connection**
+In the Claude CLI, enter the MCP management interface:
+
+```bash
+/mcp
+```
+
+**Step 4: Authentication**
+You'll see the DevCycle server listed as "disconnected • Enter to login":
+
+1. Select the DevCycle server and press Enter to login
+2. Follow the CLI prompts to initiate the Authentication process
+3. This will open a browser page at `mcp.devcycle.com` for authorization
+4. Review and click **"Allow Access"** to grant permissions
+5. If you have multiple organizations, select your desired organization at `auth.devcycle.com`
+6. Return to Claude Code where the server will show as connected
+
+For more details, see the [Claude Code MCP documentation](https://docs.anthropic.com/claude/docs/mcp).
+
+</TabItem>
 <TabItem value="claude" label="Claude Desktop">
 
 **Step 1: Access MCP Configuration**
@@ -133,37 +164,6 @@ Close and reopen Claude Desktop for the changes to take effect.
 3. Review and click **"Allow Access"** to grant permissions
 4. If you have multiple organizations, select your desired organization at `auth.devcycle.com`
 5. Return to Claude Desktop where the MCP tools will be active
-
-</TabItem>
-<TabItem value="claude-code" label="Claude Code">
-
-**Step 1: Open Terminal**
-Open your terminal to access the Claude CLI.
-
-**Step 2: Add DevCycle MCP Server**
-
-```bash
-claude mcp add --transport http devcycle https://mcp.devcycle.com/mcp
-```
-
-**Step 3: Manage MCP Connection**
-In the Claude CLI, enter the MCP management interface:
-
-```bash
-/mcp
-```
-
-**Step 4: Authentication**
-You'll see the DevCycle server listed as "disconnected • Enter to login":
-
-1. Select the DevCycle server and press Enter to login
-2. Follow the CLI prompts to initiate the Authentication process
-3. This will open a browser page at `mcp.devcycle.com` for authorization
-4. Review and click **"Allow Access"** to grant permissions
-5. If you have multiple organizations, select your desired organization at `auth.devcycle.com`
-6. Return to Claude Code where the server will show as connected
-
-For more details, see the [Claude Code MCP documentation](https://docs.anthropic.com/claude/docs/mcp).
 
 </TabItem>
 <TabItem value="windsurf" label="Windsurf">

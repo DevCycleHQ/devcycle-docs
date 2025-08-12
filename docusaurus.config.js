@@ -132,6 +132,7 @@ const config = {
         modifyContent: (filename, content) => {
           if (filename.includes('README')) {
             return {
+              filename: 'cli-reference.md',
               // reduce headers to use with table of contents
               content: content.replace(/#\s/g, '## '),
             }
