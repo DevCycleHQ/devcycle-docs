@@ -55,7 +55,7 @@ You must select how you would like your rollout to transition between steps by c
 - **Step**: Transition immediately between steps. 
 - **Gradual**: Transition gradually between steps. 
 
-While a Feature is active and a rollout has been set, you can view the current % of rollout or rollback at any time from it's Targeting Rules section.
+While a Feature is active and a rollout has been set, you can view the current % of rollout or rollback at any time from its Targeting Rules section.
 
 #### Example
 
