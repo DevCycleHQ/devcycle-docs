@@ -24,7 +24,7 @@ Here's how:
 Excellent developer tools reduce context-switching away from code as much as possible. Each user has a core set of tools that they use to do their work, it is our job to make those tools better. So we've built a set of tools to help you stay in the flow regardless of how you work.
 
 Here's how:
-- Use the [CLI](/cli/cli-reference) and [Editor Plugins](/integrations/#ide-plugins) to manage flags without interrupting your work. 
+- Use the [CLI](/cli) and [Editor Plugins](/integrations/#ide-plugins) to manage flags without interrupting your work. 
 - Detect and jump to flag usages in code, and quickly see whether flags are enabled in each environment. 
 - [Override](/platform/testing-and-qa/self-targeting) your own flag values for development or testing in production.
 
@@ -59,4 +59,4 @@ Feature flagging is better when integrated into the rest of your critical tools.
 See how to integrate your own tools:
 - Notify external systems of changes to your flags using [Outbound Webhooks](/platform/extras/webhooks). 
 - See changes in your [monitoring systems](/integrations/#observability) and alert on potential issues.
-- A complete [API](/management-api) and [CLI](/cli/cli-reference) are available to run automations or scripts as necessary.
+- A complete [API](/management-api) and [CLI](/cli) are available to run automations or scripts as necessary.

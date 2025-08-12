@@ -108,14 +108,14 @@ module.exports = {
       type: 'category',
       label: 'CLI',
       className: 'section-title cli',
-      link: { type: 'doc', id: 'cli/cli-reference' },
+      link: { type: 'doc', id: 'cli/README' },
       collapsible: true,
       collapsed: true,
       items: [
         {
           type: 'doc',
           label: 'CLI Reference',
-          id: 'cli/cli-reference',
+          id: 'cli/README',
         },
         {
           type: 'category',
