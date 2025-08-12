@@ -19,15 +19,13 @@ With Passthrough Rollouts enabled, if a user qualifies for a Targeting Rule that
 
 :::
 
-## Rollouts
+## Rollouts & Rollbacks
 
 ### Gradual Rollouts
 
-To roll out or roll back a Feature to your users at a specific time, open the "Schedule" dropdown and select "Gradual Rollout". 
+To **roll out** or **roll back** a Feature to your users at a specific time, open the "Schedule" dropdown and select "Gradual Rollout". 
 
 This will give you the option to create a rollout, from a start percentage to an end percentage at specific dates. Use this option to gradually roll out or roll back the Feature to users and monitor the impact over time without creating an instant switch of users.
-
-While a Feature is active and a rollout has been set, you can view the current % of rollout at any time:
 
 :::tip
 
@@ -35,13 +33,16 @@ To **gradually rollout** a Feature, select a start percentage that's lower than 
 
 To **gradually rollback** a Feature, select an end percentage that is lower than your start percentage, and an end date that's later than the start date.
 
-To **instantly rollout or rollback** a Feature to a specfic percentage of users at once, select the same start and end percentage, and the same start and end date. The dates chosen can be in the past.
+To **instantly rollout or rollback** a Feature to a specific percentage of users at once, select the same start and end percentage, and the same start and end date. The dates chosen can be in the past.
 
 :::
 
+While a Feature is active and a rollout has been set, you can view the current % of rollout or rollback at any time from it's Targeting Rules section.
+
+
 ### Multi-Step Rollouts
 
-This rollout option allows you to setup a stepped or phased rollout for your Feature. For example, you can use the Multi-Step rollout functionality to setup a rollout schedule with certain percentage milestones, e.g. rollout to 25% of users on X date, rollout to 50% of users at Y date, and then gradually rollout to the rest of users (100%) by Z date. 
+This rollout option allows you to setup a stepped or phased rollout or rollback for your Feature. For example, you can use the Multi-Step rollout functionality to setup a rollout schedule with certain percentage milestones, e.g. rollout to 25% of users on X date, rollout to 50% of users at Y date, and then gradually rollout to the rest of users (100%) by Z date. 
 
 To set up a Multi-Step Rollout in your Targeting Rule, open the "Schedule" dropdown and select "Multi-step Rollout". 
 
@@ -54,9 +55,11 @@ You must select how you would like your rollout to transition between steps by c
 - **Step**: Transition immediately between steps. 
 - **Gradual**: Transition gradually between steps. 
 
-While a Feature is active and a rollout has been set, you can view the current % of rollout at any time. 
+While a Feature is active and a rollout has been set, you can view the current % of rollout or rollback at any time from its Targeting Rules section.
 
-Here is how you'd set up the phased rollout example described above: 
+#### Example
+
+Here is how you'd set up the phased rollout example described above. The same can be done for rollbacks with the ordering of the percentages in reverse:
 
 ![Multi-step Rollout Example](/apr-2024-multi-step-rollout.png)
 
@@ -70,6 +73,14 @@ To stop a rollout, just click the Stop button next to the Current Rollout Percen
 
 When you are ready to continue the rollout, all you have to do is add more steps.
 
+### Disable a Rule (Kill Switch)
+
+In some cases, you may want to disable a Feature entirely for all users as quickly as possible, regardless of rollout status, schedule, or Targeting Rules. This is where a killswitch comes in. A killswitch immediately turns off a Feature, sending all users to the default values, without requiring any code changes or deployments.
+
+This is particularly useful if you encounter a critical issue in production, such as a bug, performance problem, or negative user experience, and need to prevent further impact right away. Unlike stopping a rollout, which simply freezes the current percentage, a killswitch removes the Feature from all users currently receiving it.
+
+To use a killswitch, you can simply disable the Targeting Rule for the Environment from the dashboard and save your changes. The change will take effect immediately, overriding all Targeting Rules, schedules, and rollouts, and users will receive code defaults. You can re-enable the Feature at any time by turning the Targeting Rule back on.
+
 ## FAQ about Rollouts
 
 **How often are rollouts evaluated / When does the rollout % update?**
@@ -82,6 +93,10 @@ The rollout of the Targeting Rule is deterministic based on an algorithm leverag
 
 *Example:*
 Your Production environment is targeting all users and the rollout is at 30% but you find out that you have to rollback to 0% because of an issue. Once you roll out again to 30%, the 30% of users that were originally targeted are guaranteed to receive the Feature again.
+
+**How do rollbacks actually work?**
+
+Rollbacks work exactly the same way that rollouts work. The only difference being the start and end percentages that you set. Typically, you'd start with 100% of users and gradually rollback to 0% to phase out a Feature.
 
 **Will a user receive a Feature right away once they qualify for the rollout?**
 
