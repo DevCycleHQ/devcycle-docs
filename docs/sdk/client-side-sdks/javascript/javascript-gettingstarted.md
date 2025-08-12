@@ -58,7 +58,7 @@ const devcycleClient = initializeDevCycle(
 
 | Property          | Type    | Description                                                                                                     | Auto-Populated |
 | ----------------- | ------- | --------------------------------------------------------------------------------------------------------------- | -------------- |
-| isAnonymous       | Boolean | Boolean to indicate if the user is anonymous. Automatically `true` if user_id is not provided.                                                                    | Yes             |
+| isAnonymous       | Boolean | Boolean to indicate if the user is anonymous. Automatically `true` if user_id is not provided.                  | -              |
 | user_id           | String  | Unique user ID                                                                                                  | No             |
 | email             | String  | User's email                                                                                                    | No             |
 | name              | String  | User's name                                                                                                     | No             |
