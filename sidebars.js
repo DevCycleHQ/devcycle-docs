@@ -108,6 +108,7 @@ module.exports = {
       type: 'category',
       label: 'CLI',
       className: 'section-title cli',
+      link: { type: 'doc', id: 'cli/README' },
       collapsible: true,
       collapsed: true,
       items: [
@@ -129,6 +130,7 @@ module.exports = {
       type: 'category',
       label: 'MCP',
       className: 'section-title mcp',
+      link: { type: 'doc', id: 'cli-mcp/mcp-getting-started' },
       collapsible: true,
       collapsed: true,
       items: [
