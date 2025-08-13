@@ -118,6 +118,7 @@ const config = {
           'docs/keys.md',
           'docs/login.md',
           'docs/logout.md',
+          'docs/mcp.md',
           'docs/organizations.md',
           'docs/overrides.md',
           'docs/projects.md',
@@ -127,6 +128,7 @@ const config = {
           'docs/usages.md',
           'docs/variables.md',
           'docs/variations.md',
+          'mcp-worker/README.md',
         ],
         performCleanup: true,
         modifyContent: (filename, content) => {
