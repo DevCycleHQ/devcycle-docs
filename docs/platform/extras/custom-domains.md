@@ -30,7 +30,7 @@ Once DevCycle receives this information, we can provide you with next steps. A b
 
 ## Setup Process
 
-1. **Identifying a Hostname**: The first step involves **identifying** a hostname to use as the CNAME for DevCycle's endpoint. Provide this to DevCycle on your request to enable Custom Domains. The hostname should look something like this `https://api-alias.your-domain.com`. We do not support two or more subdomains in the hostname.
+1. **Identifying a Hostname**: The first step involves **identifying** a hostname to use as the CNAME for DevCycle's endpoint. Provide this to DevCycle on your request to enable Custom Domains. The hostname should look something like this `https://api-alias.your-domain.com`. We do not support two or more subdomains in the hostname (e.g. `a.b.c.com` is not supported).
     - If there is more than one service in use, each service will need a unique CNAME. This is also true for using DevCycle on multiple domains. Each domain needs its own CNAME.
 
 2. **DNS Validation**: Once the setup is complete, two DNS records will be provided by DevCycle and you will need to add those records to your DNS provider (TXT validation records).
