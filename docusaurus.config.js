@@ -49,7 +49,7 @@ const YouTubeTransformer = {
  * Pinned version of the CLI to use for docs
  * When bumping the version, add any new commands to the documents array
  */
-const DVC_CLI_VERSION = 'v5.21.2' // auto updated by dvc cli release workflow
+const DVC_CLI_VERSION = 'v6.0.0' // auto updated by dvc cli release workflow
 
 const VSCODE_EXTENSION_VERSION = 'v1.4.10' // auto updated by extension release workflow
 
@@ -118,6 +118,7 @@ const config = {
           'docs/keys.md',
           'docs/login.md',
           'docs/logout.md',
+          'docs/mcp.md',
           'docs/organizations.md',
           'docs/overrides.md',
           'docs/projects.md',
@@ -127,6 +128,7 @@ const config = {
           'docs/usages.md',
           'docs/variables.md',
           'docs/variations.md',
+          'mcp-worker/README.md',
         ],
         performCleanup: true,
         modifyContent: (filename, content) => {
