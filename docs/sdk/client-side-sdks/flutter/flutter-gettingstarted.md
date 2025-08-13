@@ -70,16 +70,20 @@ The DevCycleUser can be built using the following methods:
 
 [DevCycleUserBuilder class](https://github.com/DevCycleHQ/flutter-client-sdk/blob/main/lib/devcycle_user.dart#L43)
 
-| Method            | Parameter     | Description                                                                                                     |
-| ----------------- | ------------- | --------------------------------------------------------------------------------------------------------------- |
-| userId            | String        | Unique user ID                                                                                                  |
-| isAnonymous       | Bool          | Boolean to indicate if the user is anonymous                                                                    |
-| email             | String        | User's email                                                                                                    |
-| name              | String        | User's name                                                                                                     |
-| language          | String        | User's language                                                                                                 |
-| country           | String        | User's country                                                                                                  |
-| customData        | [String: Any] | Key/value map of properties to be used for targeting                                                            |
-| privateCustomData | [String: Any] | Key/value map of properties to be used for targeting. Private properties will not be included in event logging. |
+| Method            | Parameter     | Description                                                                                                     | Auto-Populated |
+| ----------------- | ------------- | --------------------------------------------------------------------------------------------------------------- | -------------- |
+| userId            | String        | Unique user ID                                                                                                  | No             |
+| isAnonymous       | Bool          | Boolean to indicate if the user is anonymous                                                                    | No             |
+| email             | String        | User's email                                                                                                    | No             |
+| name              | String        | User's name                                                                                                     | No             |
+| language          | String        | User's language                                                                                                 | No             |
+| country           | String        | User's country                                                                                                  | No             |
+| appVersion        | String        | App version                                                                                                     | Yes            |
+| customData        | [String: Any] | Key/value map of properties to be used for targeting                                                            | No             |
+| privateCustomData | [String: Any] | Key/value map of properties to be used for targeting. Private properties will not be included in event logging. | No             |
+| platform          | String        | Platform/OS                                                                                                     | Yes            |
+| platformVersion   | String        | Platform/OS Version                                                                                             | Yes            |
+| deviceModel       | String        | Device Machine Code or Build Model                                                                              | Yes            |
 
 ## DevCycleOptions Builder
 

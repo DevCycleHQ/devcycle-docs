@@ -14,7 +14,7 @@ sidebar_custom_props: { icon: material-symbols:toggle-on }
 ## User Object
 
 The full user data must be passed into every method. The only required field is the `user_id`.
-The rest are optional and are used by the system for user segmentation into variables and features.
+The rest are optional and are used by the system for user segmentation into Variables and Features.
 
 [DevCycleUser Typescript Schema](https://github.com/search?q=repo%3ADevCycleHQ%2Fjs-sdks+export+interface+DevCycleUser+language%3ATypeScript+path%3A*types.ts&type=code)
 
@@ -30,6 +30,13 @@ const user: DevCycleUser = {
 }
 const variable = devcycleClient.variable(user, 'test-feature', false)
 ```
+
+In addition to the properties you set on the `DevCycleUser` yourself, these properties are automatically set by the SDK and are ready for segmentation:
+
+| Property          | Type    | Description            |
+| ----------------- | ------- | ---------------------- |
+| platform          | String  | Platform/OS            |
+| platformVersion   | String  | Platform/OS Version    |
 
 ## Get and Use Variable by Key
 

@@ -74,6 +74,26 @@ The `withDevCycleProvider` function accepts a Provider Config object:
 | user     | [DevCycleUser](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L55)    | DevCycleUser object    |
 | options  | [DevCycleOptions](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/js/src/types.ts#L44) | DevCycleOptions object |
 
+## DevCycleUser Object
+
+[DevCycleUser Typescript Schema](https://github.com/search?q=repo%3ADevCycleHQ%2Fjs-sdks+export+interface+DevCycleUser+language%3ATypeScript+path%3A*types.ts&type=code)
+
+| Property          | Type    | Description                                                                                                     | Auto-Populated |
+| ----------------- | ------- | --------------------------------------------------------------------------------------------------------------- | -------------- |
+| isAnonymous       | Boolean | Boolean to indicate if the user is anonymous. Automatically `true` if user_id is not provided.                  | -              |
+| user_id           | String  | Unique user ID                                                                                                  | No             |
+| email             | String  | User's email                                                                                                    | No             |
+| name              | String  | User's name                                                                                                     | No             |
+| language          | String  | User's language                                                                                                 | No             |
+| country           | String  | User's country                                                                                                  | No             |
+| appVersion        | String  | App version                                                                                                     | No             |
+| appBuild          | Number  | App build                                                                                                       | No             |
+| customData        | DVCJSON | Key/value map of properties to be used for targeting                                                            | No             |
+| privateCustomData | DVCJSON | Key/value map of properties to be used for targeting. Private properties will not be included in event logging. | No             |
+| platform          | String  | Platform/OS                                                                                                     | Yes            |
+| platformVersion   | String  | Platform/OS Version                                                                                             | Yes            |
+| deviceModel       | String  | Device Machine Code or Build Model                                                                              | Yes            |
+
 ## Initialization Options
 
 The SDK exposes various initialization options which can be set by passing a `DevCycleOptions` object in the Provider Config:

@@ -14,7 +14,7 @@ sidebar_custom_props: { icon: material-symbols:toggle-on }
 ## DevCycleUser Object
 
 The full user data must be passed into every method. The only required field is `user_id`.
-The rest are optional and are used by the system for user segmentation into variables and features.
+The rest are optional and are used by the system for user segmentation into Variables and Features.
 
 See the DevCycleUser model in the [Python user model doc](https://github.com/DevCycleHQ/python-server-sdk/blob/main/devcycle_python_sdk/models/user.py)
 for all accepted fields including custom fields.
@@ -26,6 +26,13 @@ user = DevCycleUser(
     country='CA'
 )
 ```
+
+In addition to the properties you set on the `DevCycleUser` yourself, these properties are automatically set by the SDK and are ready for segmentation:
+
+| Property          | Type    | Description            |
+| ----------------- | ------- | ---------------------- |
+| platform          | String  | Platform/OS            |
+| platformVersion   | String  | Platform/OS Version    |
 
 ## Get and Use Variable by Key
 

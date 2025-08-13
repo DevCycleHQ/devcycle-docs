@@ -59,10 +59,10 @@ For DevCycle SDK to work we require either a `targetingKey` or `user_id` to be s
 
 ### Context properties to DevCycleUser
 
-The provider will automatically translate known `DevCycleUser` properties from the OpenFeature context to the `DevCycleUser` object.
-[DevCycleUser TypeScript Interface](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/nodejs/src/models/user.ts#L16)
+The provider will automatically translate **known** `DevCycleUser` properties from the OpenFeature context to the `DevCycleUser` object.
+[DevCycleUser TypeScript Interface](https://github.com/DevCycleHQ/js-sdks/blob/main/sdk/nodejs/src/models/populatedUserHelpers.ts)
 
-For example all these properties will be set on the `DevCycleUser`:
+For example all these properties can be set on the `DevCycleUser`:
 
 ```typescript
 openFeatureClient.setContext({
@@ -78,19 +78,27 @@ openFeatureClient.setContext({
 })
 ```
 
-Context properties that are not known `DevCycleUser` properties will be automatically
-added to the `customData` property of the `DevCycleUser`.
+The following properties will **automatically** be populated by the SDK so you won't need to manually set them:
+
+| Property          | Type    | Description            |
+| ----------------- | ------- | ---------------------- |
+| platform          | String  | Platform/OS            |
+| platformVersion   | String  | Platform/OS Version    |
+| deviceModel       | String  | User Agent             |
+
+Context properties that are **not known** `DevCycleUser` properties will be added as `customData` properties of the `DevCycleUser`.
 
 ### Context Limitations
 
 DevCycle only supports flat JSON Object properties used in the Context. Non-flat properties will be ignored.
 
-For example `obj` will be ignored:
+For example `name` and `obj` will be ignored:
 
 ```typescript
 openFeatureClient.setContext({
   user_id: 'user_id',
-  obj: { key: 'value' },
+  name: { key: 'value' }
+  customData: {obj: { key: 'value' }},
 })
 ```
 

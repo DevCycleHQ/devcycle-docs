@@ -14,7 +14,7 @@ sidebar_custom_props: { icon: simple-icons:ruby }
 ## User Object
 
 The full user data must be passed into every method. The only required field is `user_id`.
-The rest are optional and are used by the system for user segmentation into variables and features.
+The rest are optional and are used by the system for user segmentation into Variables and Features.
 
 See the User model in the [Ruby user model doc](https://github.com/DevCycleHQ/ruby-server-sdk/blob/main/lib/devcycle-ruby-server-sdk/models/user.rb)
 for all accepted fields including custom fields.
@@ -22,6 +22,13 @@ for all accepted fields including custom fields.
 ```ruby
 user = DevCycle::User.new({ user_id: 'user_id_example' })
 ```
+
+In addition to the properties you set on the `DevCycle::User` yourself, these properties are automatically set by the SDK and are ready for segmentation:
+
+| Property          | Type    | Description            |
+| ----------------- | ------- | ---------------------- |
+| platform          | String  | Platform/OS            |
+| platformVersion   | String  | Platform/OS Version    |
 
 ## Get and use Variable by key
 

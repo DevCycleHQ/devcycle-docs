@@ -13,7 +13,7 @@ sidebar_custom_props: { icon: material-symbols:toggle-on }
 
 ## DevCycleUser Object
 
-The user object is required for all methods. The only required field in the user object is userId.
+The user object is required for all methods. The only required field in the user object is `userId`. The rest are optional and are used by the system for user segmentation into Variables and Features.
 
 See the DevCycleUser class in [Java DevCycleUser model doc](https://github.com/DevCycleHQ/java-server-sdk/blob/main/docs/DevCycleUser.md) for all accepted fields.
 
@@ -25,6 +25,13 @@ DevCycleUser user = DevCycleUser.builder()
         .country("US")
         .build();
 ```
+
+In addition to the properties you set on the `DevCycleUser` yourself, these properties are automatically set by the SDK and are ready for segmentation:
+
+| Property          | Type    | Description            |
+| ----------------- | ------- | ---------------------- |
+| platform          | String  | Platform/OS            |
+| platformVersion   | String  | Platform/OS Version    |
 
 ## Get and use Variable by key
 

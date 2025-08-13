@@ -90,15 +90,19 @@ A DevCycleUser can be built using the following methods:
 
 [DevCycleUser Builder class](https://github.com/DevCycleHQ/android-client-sdk/blob/main/android-client-sdk/src/main/java/com/devcycle/sdk/android/model/DevCycleUser.kt#L15)
 
-| Method                | Parameter          | Description                                                                                                     |
-| --------------------- | ------------------ | --------------------------------------------------------------------------------------------------------------- |
-| withUserId            | String             | Unique user ID                                                                                                  |
-| withIsAnonymous       | Boolean            | Boolean to indicate if the user is anonymous                                                                    |
-| withEmail             | String             | User's email                                                                                                    |
-| withName              | String             | User's name                                                                                                     |
-| withCountry           | String             | User's country                                                                                                  |
-| withCustomData        | `Map<String, Any>` | Key/value map of properties to be used for targeting                                                            |
-| withPrivateCustomData | `Map<String, Any>` | Key/value map of properties to be used for targeting. Private properties will not be included in event logging. |
+| Method                | Parameter          | Description                                                                                                     | Auto-Populated |
+| --------------------- | ------------------ | --------------------------------------------------------------------------------------------------------------- | -------------- |
+| withUserId            | String             | Unique user ID                                                                                                  | No             |
+| withIsAnonymous       | Boolean            | Boolean to indicate if the user is anonymous                                                                    | No             |
+| withEmail             | String             | User's email                                                                                                    | No             |
+| withName              | String             | User's name                                                                                                     | No             |
+| withCountry           | String             | User's country                                                                                                  | No             |
+| withCustomData        | `Map<String, Any>` | Key/value map of properties to be used for targeting                                                            | No             |
+| withPrivateCustomData | `Map<String, Any>` | Key/value map of properties to be used for targeting. Private properties will not be included in event logging. | No             |
+| appVersion            | String             | App version                                                                                                     | Yes            |
+| platform              | String             | Platform/OS                                                                                                     | Yes            |
+| platformVersion       | String             | Platform/OS Version                                                                                             | Yes            |
+| deviceModel           | String             | Device Build Model (ex: SM-S928U)                                                                               | Yes            |
 
 ## DevCycleOptions Builder
 
