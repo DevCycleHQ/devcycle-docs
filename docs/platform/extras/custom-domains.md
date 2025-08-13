@@ -8,49 +8,48 @@ sidebar_position: 1
 When using client-side SDKs, particularly web client SDKs, there is the potential for ad blockers
 and browser privacy features to block requests and third-party cookies. Custom Domains with DevCycle ensures
 all cookies and requests used are first-party and will not be blocked by ensuring requests are sent through your
-recognized domain. A DNS CNAME needs to be created to leverage this feature.
+recognized domain.
 
 :::info
 
-**Setting Up Custom Domains:**
+Custom Domains are a business and enterprise feature. To learn more, read about our [pricing](https://devcycle.com/pricing). To upgrade your plan, please contact your Account Manager or our [Sales](mailto:sales@devcycle.com) team.
 
-Custom Domains is a business and enterprise feature and requires manual setup on both your end as well as DevCycle's.
-
-These docs cannot be taken as a step-by-step guide to set up custom domains and are more intended as an outline of the process as it requires setup from DevCycle's end as well prior to starting.
-
-Please reach out to your account representative or reach out to support@devcycle.com to get started with this process with the following information:
-
-- Desired CNAME domain (e.g. api-alias.your-domain.com)
-- Your desired SSL certificate provider (SSL.com, Google Trust Services, Let's Encrypt.)
-- Which Services to use the CNAME (e.g. Client SDKs, Server SDKs, Mobile SDKs)
 :::
 
-#### Setup Steps
+## Requirements
 
-1. **Identifying a Hostname**
+Custom Domains will require some back and forth setup on both your end as well as DevCycle's. A DNS CNAME needs to be created to leverage this feature.
 
-- The first step involves **identifying** a hostname to use as the CNAME for DevCycle's endpoint. Provide this to DevCycle upon requesting to enable this feature. The hostname should look something like this `https://api-alias.your-domain.com`.
-    - If there is more than one service in use, each one will need a unique CNAME. This is also true for using DevCycle on multiple domains. Each domain needs its own CNAME.
+To start the setup process, please reach out to your account representative or to support@devcycle.com and provide the following information:
 
-2. **DNS Validation**
-   Once the setup is complete, two DNS records will be provided by DevCycle and you will need to add those records to your DNS provider (TXT validation records).
+- Your desired **CNAME domain** with a maximum of one subdomain (e.g. api-alias.your-domain.com). Avoid text that may be blocked by adblockers.
+- Your desired **SSL certificate provider** from one of the three providers if required - SSL.com, Google Trust Services, Let's Encrypt. We will select one at random if you do not require a specific provider.
+- Your **DevCycle Services** that will use the CNAME (e.g. Client SDKs, Server SDKs, Mobile SDKs)
 
-- The first DNS record will be a TXT verification record to ensure that you own the domain that you are asking DevCycle to use as a custom hostname.
-- The second DNS record will be a TXT verification record to ensure that you have permission to create an SSL certificate for said domain. This record will conflict with any existing A/AAAA or CNAME records on the hostname and require them to be removed before adding the verification record.
+Once DevCycle receives this information, we can provide you with next steps. A brief outline of the process is shown below and requires involvement from both parties. Please continue to refer to our communications for the correct next steps.
 
-Once these records have been added, please let DevCycle know.
+## Setup Process
 
-3. **Additional Setup Step**
-   Once validation is complete and DevCycle has confirmed the records are set properly, there may be an extra step involved here with DevCycle depending on your SDK configuration. DevCycle will let you know if this is needed.
+1. **Identifying a Hostname**: The first step involves **identifying** a hostname to use as the CNAME for DevCycle's endpoint. Provide this to DevCycle on your request to enable Custom Domains. The hostname should look something like this `https://api-alias.your-domain.com`. We do not support two or more subdomains in the hostname (e.g. `a.b.c.com` is not supported).
+    - If there is more than one service in use, each service will need a unique CNAME. This is also true for using DevCycle on multiple domains. Each domain needs its own CNAME.
 
-4. **Creating a CNAME**
-   Once all steps are complete, DevCycle will send the details for the DNS CNAME. Once added, the service will be immediately available at the given hostname.
+2. **DNS Validation**: Once the setup is complete, two DNS records will be provided by DevCycle and you will need to add those records to your DNS provider (TXT validation records).
+   - The first DNS record will be a TXT verification record to ensure that you own the domain that you are asking DevCycle to use as a custom hostname.
+   - The second DNS record will be a TXT verification record to ensure that you have permission to create an SSL certificate for said domain. This record will conflict with any existing A/AAAA or CNAME records on the hostname and require them to be removed before adding the verification record.
 
-#### SDK Implementation
+   Once these records have been added, please let DevCycle know.
 
-Once you have completed the above setup to create a CNAME, proceed in modifying your existing SDK initialization to include the `apiProxyURL` initialization option.
+3. **DevCycle Additional Setup**: Once validation is complete and DevCycle has confirmed the records are set properly, there may be an extra step involved here with DevCycle depending on your SDK configuration. DevCycle will let you know if this is needed.
 
-**JS SDK Initialization Update**
+4. **Creating a CNAME**: Once all steps are complete, DevCycle will send the details for the DNS CNAME. Once added, the service will be immediately available at the given hostname.
+
+5. **SDK Implementation**: Once you have completed the steps above to create a CNAME, modify your existing SDK initialization to include the `apiProxyURL` initialization option. See below.
+
+## SDK Implementation
+
+In order to use the Custom Domain, you'll have to point the SDK requests to the newly created CNAME domain.
+
+### JavaScript SDK
 
 Add the `apiProxyURL` option and your CNAME domains as per the [JS SDK Initialization Options](https://docs.devcycle.com/sdk/client-side-sdks/javascript/javascript-gettingstarted#initialization-options).
 
@@ -60,7 +59,7 @@ const devcycleClient = initializeDevCycle('<DEVCYCLE_CLIENT_SDK_KEY>', user, {
 })
 ```
 
-**iOS SDK Initialization Update**
+### iOS SDK
 
 Add the `apiProxyURL` option and your CNAME domains as per the [iOS SDK DevCycle Options Builder](https://docs.devcycle.com/sdk/client-side-sdks/ios/ios-gettingstarted#devcycleoptions-builder).
 

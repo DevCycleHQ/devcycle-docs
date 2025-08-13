@@ -6,7 +6,7 @@ sidebar_position: 1
 # Approval Workflows
 
 :::info
-Approval Workflows are an Enterprise feature. To learn more, read about our [pricing](https://devcycle.com/pricing). To upgrade your plan, please contact [Sales](mailto:sales@devcycle.com) or your Account Manager. 
+Approval Workflows are an Enterprise feature. To learn more, read about our [pricing](https://devcycle.com/pricing). To upgrade your plan, please contact your Account Manager or our [Sales](mailto:sales@devcycle.com) team. 
 :::
 
 With Approval Workflows, when a DevCycle user wants to change a Feature, they must request a review and approval from a Publisher within their DevCycle organization. Approval Workflows give people greater visibility on Feature changes and act as a safeguard for your team. These review-style approvals mirror common code review workflows, such as pull request (PR) reviews in GitHub. 
