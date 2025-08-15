@@ -56,6 +56,13 @@ Now consider a test that expects to find `retrieveDataFromServer()` to have been
 
 To fix the test, make sure to identify a user with the proper email, such as `test@devcycle.com`. Similarly, if you have a feature that uses custom properties for targeting, make sure to pass in the corresponding properties when you identify the user. Providing user data within the tests ensures that the SDK receives the correct feature and variable information based on the targeting rules, even when the tests are run automatically through CircleCI.
 
+### Bootstrapping for Testing
+
+DevCycle Web SDKs - JavaScript, React, and Next.js - have the ability to bootstrap its configuration during initialization, which allows you to pass in a well-formatted test config to test specific configurations of DevCycle Features and Variables within your App.
+
+Read more about Bootstapping and Server-Side Rendering in our [JavaScript SDK](/sdk/client-side-sdks/javascript/javascript-usage#bootstrapping-and-server-side-rendering) or [React SDK](/sdk/client-side-sdks/react/react-usage#bootstrapping-and-server-side-rendering) docs.
+
+
 ## Summary
 
 In this guide, we covered the following topics:
