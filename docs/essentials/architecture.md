@@ -109,6 +109,13 @@ However, the cloud-bucketing SDKs can make integration easier for specific use c
 
 5. Event data is sent at intervals to our Events API.
 
+## Latency vs. Data Storage
+
+DevCycle was designed and built for **performance** and **reliability** first. To enable Feature Flags to evaluate quickly and be served from as close to the end user as possible, we chose to not store user data to our servers by default. This means that all Feature and Variable evaluations happens using the user information provided at the time of the request, avoiding database lookups and keeping latency extremely low. 
+
+For teams that **do** need to persist user attributes for targeting or other advanced use cases, DevCycle offers **EdgeDB**: a globally distributed, edge-based data store that allows you to save and retrieve user data with minimal latency. Read more about it at [EdgeDB and Stored Properties](/platform/feature-flags/targeting/edgedb).
+
+
 ## SDK Test Harness
 
 Our [SDK Test Harness](https://github.com/DevCycleHQ/test-harness) aims to define a set of standardized end-to-end tests
