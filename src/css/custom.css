@@ -385,3 +385,12 @@ html[data-theme='dark'] .DocSearch {
   background-color: #334155;
   color: #3b82f6 !important;
 }
+
+/* Architecture diagram dark mode fixes */
+[data-theme='dark'] img[src*="architecture-docs-diagrams"],
+[data-theme='dark'] img[src*="architexture-api-diagram"] {
+  background-color: white;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 16px;
+}
