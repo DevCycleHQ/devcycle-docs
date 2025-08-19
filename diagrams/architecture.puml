@@ -1,7 +1,6 @@
 @startuml
 'https://plantuml.com/deployment-diagram
 
-!theme aws-orange
 skinparam backgroundColor #f8f9fa
 skinparam roundCorner 10
 skinparam defaultFontColor #2c3e50
