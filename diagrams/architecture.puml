@@ -1,0 +1,220 @@
+@startuml
+'https://plantuml.com/deployment-diagram
+
+!theme aws-orange
+skinparam backgroundColor #f8f9fa
+skinparam roundCorner 10
+skinparam defaultFontColor #2c3e50
+skinparam defaultFontSize 11
+
+' ================================
+' STYLING CLASSES
+' ================================
+
+' Customer Infrastructure Styling
+skinparam cloud<<customer>> {
+    BackgroundColor #4a90e2
+}
+
+skinparam collections<<sdk>> {
+    BackgroundColor #6bb6ff
+}
+
+' External Integrations Styling
+skinparam cloud<<external>> {
+    BackgroundColor #50c878
+}
+
+skinparam node<<integration>> {
+    BackgroundColor #7ed321
+}
+
+' Cloudflare Styling
+skinparam rectangle<<cloudflare>> {
+    BackgroundColor #ff6b35
+}
+
+skinparam portin<<cf_port>> {
+    BackgroundColor #ff8c42
+}
+
+skinparam portout<<cf_port_out>> {
+    BackgroundColor #d84315
+}
+
+skinparam cloud<<waf>> {
+    BackgroundColor #bf360c
+}
+
+skinparam rectangle<<workers>> {
+    BackgroundColor #dd2c00
+}
+
+skinparam frame<<api>> {
+    BackgroundColor #ff5722
+}
+
+skinparam database<<storage>> {
+    BackgroundColor #ffa000
+}
+
+skinparam queue<<events>> {
+    BackgroundColor #ff8f00
+}
+
+' AWS Infrastructure Styling
+skinparam rectangle<<aws>> {
+    BackgroundColor #e74c3c
+}
+
+skinparam portin<<aws_port>> {
+    BackgroundColor #c0392b
+}
+
+skinparam queue<<kinesis>> {
+    BackgroundColor #e67e22
+}
+
+skinparam node<<management>> {
+    BackgroundColor #f39c12
+}
+
+skinparam rectangle<<mongodb>> {
+    BackgroundColor #8e44ad
+}
+
+skinparam database<<mongo>> {
+    BackgroundColor #9b59b6
+}
+
+skinparam node<<snowflake>> {
+    BackgroundColor #3498db
+}
+
+' EdgeDB Styling
+skinparam database<<edgedb>> {
+    BackgroundColor #27ae60
+}
+
+skinparam portin<<edge_port>> {
+    BackgroundColor #2ecc71
+}
+
+skinparam collections<<georep>> {
+    BackgroundColor #58d68d
+}
+
+' ================================
+' ARROW STYLING
+' ================================
+
+skinparam arrow {
+    Color #2c3e50
+    FontColor #2c3e50
+    FontSize 10
+    Thickness 2
+}
+
+skinparam class {
+    ArrowColor #2c3e50
+    ArrowFontColor #2c3e50
+    ArrowThickness 2
+}
+
+' ================================
+' ARCHITECTURE COMPONENTS
+' ================================
+
+cloud "Customer Infrastructure" as customer_infra <<customer>> {
+    collections "DevCycle Cloud Bucketing SDKs" as customer_cloud_sdks <<sdk>>
+    collections "DevCycle Local Bucketing SDKs" as customer_local_sdks <<sdk>>
+    collections "DevCycle Mobile/Web SDKs" as customer_mobile_web_sdks <<sdk>>
+    collections "Management API Clients" as management_api_clients <<sdk>>
+}
+
+cloud "External Integrations" <<external>> {
+    node "GitHub Actions" as github_actions <<integration>>
+    node "GitLab CI/CD" as gitlab_ci <<integration>>
+    node "Atlassian Bitbucket Pipelines" as bitbucket_pipelines <<integration>>
+    node "Atlassian JIRA" as jira <<integration>>
+    node "Slack" as slack <<integration>>
+}
+
+rectangle "Cloudflare" <<cloudflare>> {
+    portin "Events API" as event_api_in <<cf_port>>
+    portin "SDK API" as sdk_api_in <<cf_port>>
+    portin "Cloud Bucketing API" as cloud_bucketing_api_in <<cf_port>>
+    portin "Config CDN" as config_cdn_in <<cf_port>>
+    portin "Management API" as management_api_cf_in <<cf_port>>
+    portout "Events Firehose" as events_firehose_out <<cf_port_out>>
+    portout "Management API" as management_api_cf_out <<cf_port_out>>
+
+    cloud "Cloudflare WAF" as cf_waf <<waf>> {
+        rectangle "Cloudflare Workers" as cloudflare_workers <<workers>> {
+            frame "Bucketing API" as bucketing_api <<api>>
+            frame "Events API" as event_api <<api>>
+            frame "SDK API" as sdk_api <<api>>
+        }
+    }
+
+    database "Config R2 Buckets" as config_cdn <<storage>>
+    queue "Events Firehose" as events_firehose <<events>>
+
+    ' Internal Cloudflare connections
+    config_cdn_in --> config_cdn
+    event_api_in --> event_api
+    sdk_api_in --> sdk_api
+    cloud_bucketing_api_in --> bucketing_api
+    management_api_cf_in --> cf_waf
+    cf_waf --> management_api_cf_out
+    sdk_api --> events_firehose
+    bucketing_api --> events_firehose
+    event_api --> events_firehose
+    events_firehose --> events_firehose_out
+}
+
+rectangle "AWS Infrastructure" <<aws>> {
+    portin "Events Firehose" as events_firehose_in <<aws_port>>
+    portin "Management API" as management_api_in <<aws_port>>
+    queue "Kinesis Firehose" as events_firehose_aws <<kinesis>>
+    node "DevCycle Management API" as mgmt_api <<management>>
+
+    rectangle "MongoDB Cloud" <<mongodb>> {
+        database "MongoDB Atlas" as mongodb_db <<mongo>>
+    }
+
+    node "Snowflake Data Warehouse" as snowflake <<snowflake>>
+
+    ' Internal AWS connections
+    events_firehose_in --> events_firehose_aws
+    events_firehose_aws --> snowflake
+    management_api_in --> mgmt_api
+    mgmt_api --> mongodb_db
+}
+
+database "EdgeDB" as edgedb <<edgedb>> {
+    portin "Update/Queries" as edgedb_in <<edge_port>>
+}
+
+' Customer to Cloudflare connections
+customer_cloud_sdks --> cloud_bucketing_api_in
+customer_mobile_web_sdks --> sdk_api_in
+customer_local_sdks --> config_cdn_in
+customer_local_sdks --> event_api_in
+
+' Management API connections through Cloudflare protection
+management_api_clients --> management_api_cf_in
+
+' External integrations to Management API through Cloudflare protection
+github_actions --> management_api_cf_in
+gitlab_ci --> management_api_cf_in
+bitbucket_pipelines --> management_api_cf_in
+
+' Cloudflare to AWS connections
+events_firehose_out --> events_firehose_in
+management_api_cf_out --> management_api_in
+
+' Cloudflare Workers to EdgeDB
+cloudflare_workers --> edgedb_in
+
+@enduml
