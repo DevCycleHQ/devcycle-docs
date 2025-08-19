@@ -1,10 +1,12 @@
 @startuml
 'https://plantuml.com/deployment-diagram
 
+!define DIRECTION top to bottom direction
 skinparam backgroundColor #f8f9fa
 skinparam roundCorner 10
 skinparam defaultFontColor #2c3e50
 skinparam defaultFontSize 11
+skinparam linetype ortho
 
 ' ================================
 ' STYLING CLASSES
@@ -99,10 +101,6 @@ skinparam portin<<edge_port>> {
     BackgroundColor #2ecc71
 }
 
-skinparam collections<<georep>> {
-    BackgroundColor #58d68d
-}
-
 ' ================================
 ' ARROW STYLING
 ' ================================
@@ -124,96 +122,121 @@ skinparam class {
 ' ARCHITECTURE COMPONENTS
 ' ================================
 
-cloud "Customer Infrastructure" as customer_infra <<customer>> {
-    collections "DevCycle Cloud Bucketing SDKs" as customer_cloud_sdks <<sdk>>
-    collections "DevCycle Local Bucketing SDKs" as customer_local_sdks <<sdk>>
-    collections "DevCycle Mobile/Web SDKs" as customer_mobile_web_sdks <<sdk>>
-    collections "Management API Clients" as management_api_clients <<sdk>>
+' Top Layer - Customer and External
+together {
+    cloud "Customer Infrastructure" as customer_infra <<customer>> {
+        collections "Cloud Bucketing SDKs" as customer_cloud_sdks <<sdk>>
+        collections "Local Bucketing SDKs" as customer_local_sdks <<sdk>>
+        collections "Mobile/Web SDKs" as customer_mobile_web_sdks <<sdk>>
+        collections "Management API Clients" as management_api_clients <<sdk>>
+    }
+
+    cloud "External Integrations" <<external>> {
+        node "GitHub Actions" as github_actions <<integration>>
+        node "GitLab CI/CD" as gitlab_ci <<integration>>
+        node "Bitbucket Pipelines" as bitbucket_pipelines <<integration>>
+        node "JIRA" as jira <<integration>>
+        node "Slack" as slack <<integration>>
+    }
 }
 
-cloud "External Integrations" <<external>> {
-    node "GitHub Actions" as github_actions <<integration>>
-    node "GitLab CI/CD" as gitlab_ci <<integration>>
-    node "Atlassian Bitbucket Pipelines" as bitbucket_pipelines <<integration>>
-    node "Atlassian JIRA" as jira <<integration>>
-    node "Slack" as slack <<integration>>
-}
-
-rectangle "Cloudflare" <<cloudflare>> {
-    portin "Events API" as event_api_in <<cf_port>>
-    portin "SDK API" as sdk_api_in <<cf_port>>
-    portin "Cloud Bucketing API" as cloud_bucketing_api_in <<cf_port>>
-    portin "Config CDN" as config_cdn_in <<cf_port>>
-    portin "Management API" as management_api_cf_in <<cf_port>>
-    portout "Events Firehose" as events_firehose_out <<cf_port_out>>
-    portout "Management API" as management_api_cf_out <<cf_port_out>>
+' Middle Layer - Cloudflare Edge
+rectangle "Cloudflare Edge Layer" <<cloudflare>> {
+    together {
+        portin "Events API" as event_api_in <<cf_port>>
+        portin "SDK API" as sdk_api_in <<cf_port>>
+        portin "Cloud Bucketing API" as cloud_bucketing_api_in <<cf_port>>
+        portin "Config CDN" as config_cdn_in <<cf_port>>
+        portin "Management API" as management_api_cf_in <<cf_port>>
+    }
 
     cloud "Cloudflare WAF" as cf_waf <<waf>> {
-        rectangle "Cloudflare Workers" as cloudflare_workers <<workers>> {
+        rectangle "Core Worker APIs" as cloudflare_workers <<workers>> {
             frame "Bucketing API" as bucketing_api <<api>>
             frame "Events API" as event_api <<api>>
             frame "SDK API" as sdk_api <<api>>
         }
     }
 
-    database "Config R2 Buckets" as config_cdn <<storage>>
-    queue "Events Firehose" as events_firehose <<events>>
+    together {
+        database "Config R2 Buckets" as config_cdn <<storage>>
+        queue "Events Firehose" as events_firehose <<events>>
+    }
 
-    ' Internal Cloudflare connections
-    config_cdn_in --> config_cdn
-    event_api_in --> event_api
-    sdk_api_in --> sdk_api
-    cloud_bucketing_api_in --> bucketing_api
-    management_api_cf_in --> cf_waf
-    cf_waf --> management_api_cf_out
-    sdk_api --> events_firehose
-    bucketing_api --> events_firehose
-    event_api --> events_firehose
-    events_firehose --> events_firehose_out
+    together {
+        portout "Events Out" as events_firehose_out <<cf_port_out>>
+        portout "Management Out" as management_api_cf_out <<cf_port_out>>
+    }
 }
 
-rectangle "AWS Infrastructure" <<aws>> {
-    portin "Events Firehose" as events_firehose_in <<aws_port>>
-    portin "Management API" as management_api_in <<aws_port>>
-    queue "Kinesis Firehose" as events_firehose_aws <<kinesis>>
-    node "DevCycle Management API" as mgmt_api <<management>>
+' Database Layer
+database "EdgeDB" as edgedb <<edgedb>> {
+    portin "Updates/Queries" as edgedb_in <<edge_port>>
+}
+
+' Backend Layer - AWS
+rectangle "AWS Backend" <<aws>> {
+    together {
+        portin "Events In" as events_firehose_in <<aws_port>>
+        portin "Management In" as management_api_in <<aws_port>>
+    }
+
+    together {
+        queue "Kinesis Firehose" as events_firehose_aws <<kinesis>>
+        node "Snowflake Warehouse" as snowflake <<snowflake>>
+    }
+
+    node "Management API" as mgmt_api <<management>>
 
     rectangle "MongoDB Cloud" <<mongodb>> {
         database "MongoDB Atlas" as mongodb_db <<mongo>>
     }
-
-    node "Snowflake Data Warehouse" as snowflake <<snowflake>>
-
-    ' Internal AWS connections
-    events_firehose_in --> events_firehose_aws
-    events_firehose_aws --> snowflake
-    management_api_in --> mgmt_api
-    mgmt_api --> mongodb_db
 }
 
-database "EdgeDB" as edgedb <<edgedb>> {
-    portin "Update/Queries" as edgedb_in <<edge_port>>
-}
+' ================================
+' CONNECTIONS - Organized by Layer
+' ================================
 
-' Customer to Cloudflare connections
-customer_cloud_sdks --> cloud_bucketing_api_in
-customer_mobile_web_sdks --> sdk_api_in
-customer_local_sdks --> config_cdn_in
-customer_local_sdks --> event_api_in
+' Customer/External to Cloudflare Entry
+customer_cloud_sdks -down-> cloud_bucketing_api_in
+customer_mobile_web_sdks -down-> sdk_api_in
+customer_local_sdks -down-> config_cdn_in
+customer_local_sdks -down-> event_api_in
+management_api_clients -down-> management_api_cf_in
+jira -down-> management_api_cf_in
+slack -down-> management_api_cf_in
 
-' Management API connections through Cloudflare protection
-management_api_clients --> management_api_cf_in
+github_actions -down-> management_api_cf_in
+gitlab_ci -down-> management_api_cf_in
+bitbucket_pipelines -down-> management_api_cf_in
 
-' External integrations to Management API through Cloudflare protection
-github_actions --> management_api_cf_in
-gitlab_ci --> management_api_cf_in
-bitbucket_pipelines --> management_api_cf_in
+' Cloudflare Entry Points to Core APIs
+config_cdn_in -down-> config_cdn
+event_api_in -down-> event_api
+sdk_api_in -down-> sdk_api
+cloud_bucketing_api_in -down-> bucketing_api
+management_api_cf_in -down-> cf_waf
 
-' Cloudflare to AWS connections
-events_firehose_out --> events_firehose_in
-management_api_cf_out --> management_api_in
+' Core API to Storage/Events
+sdk_api -down-> events_firehose
+bucketing_api -down-> events_firehose
+event_api -down-> events_firehose
 
-' Cloudflare Workers to EdgeDB
-cloudflare_workers --> edgedb_in
+' Core API to EdgeDB
+cloudflare_workers -down-> edgedb_in
+
+' Events and Management Flow
+events_firehose -down-> events_firehose_out
+cf_waf -down-> management_api_cf_out
+
+' Cloudflare to AWS
+events_firehose_out -down-> events_firehose_in
+management_api_cf_out -down-> management_api_in
+
+' AWS Internal Flow
+events_firehose_in -down-> events_firehose_aws
+events_firehose_aws -down-> snowflake
+management_api_in -down-> mgmt_api
+mgmt_api -down-> mongodb_db
 
 @enduml
