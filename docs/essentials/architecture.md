@@ -17,7 +17,7 @@ various SDK architectures have generally been fully implemented.
 
 ## How our APIs build Configuration data
 
-![architexture-api-diagram.svg](/architexture-api-diagram.svg)
+![architecture-api-diagram.svg](/architecture-api-diagram.svg)
 
 1. Features created in the Dashboard interact directly with our public **[Management API](/management-api/)**,
    to create and manage various models like Audiences / Features / Variables / Variations / etc.
