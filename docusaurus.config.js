@@ -381,9 +381,9 @@ const config = {
       ],
     },
     algolia: {
-      appId: '6TW93YPS4X',
-      apiKey: '2a9dbde35586f5ae29571b19dacc71c6', // Public API key: it is safe to commit it
-      indexName: 'prod_DEVCYCLE_DOCS',
+      appId: 'JGOR5DGG3D',
+      apiKey: 'da4a01ced1f7fb787b8a39cc7a719adf', // Public API key: it is safe to commit it
+      indexName: 'DevCycle Documentation',
       contextualSearch: true,
     },
     navbar: {
