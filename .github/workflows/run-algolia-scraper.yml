@@ -1,7 +1,9 @@
+name: Algolia DocSearch Scraper
+
 on:
   push:
     branches:
-     - 'main'
+      - 'main'
 
 jobs:
   wait-for-vercel-deployment:
@@ -10,7 +12,7 @@ jobs:
       contents: read
       id-token: write
     env:
-      VERCEL_DEPLOYMENT_URL: "devcycle-docs.vercel.app"
+      VERCEL_DEPLOYMENT_URL: 'devcycle-docs.vercel.app'
     steps:
       - name: Set Secrets
         uses: DevCycleHQ/aws-secrets-action@main
@@ -25,7 +27,7 @@ jobs:
         run: echo "::set-output name=config::$(cat algolia.json | jq -r tostring)"
 
       - name: Push indices to Algolia
-        uses: signcl/docsearch-scraper-action@master
+        uses: signcl/docsearch-scraper-action@504242b8a087c976da66eaad64a95d98ff90dab5
         env:
           APPLICATION_ID: ${{ env.ALGOLIA_APPLICATION_ID }}
           API_KEY: ${{ env.ALGOLIA_API_KEY }}
