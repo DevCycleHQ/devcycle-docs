@@ -7,7 +7,9 @@ Variable Schemas is a new DevCycle feature that lets you define allowable values
 
 ## Defining a Variable Schema
 
-To define a Variable Schema for a Variable, navigate to the Schema section of the Variable Details page to select and define a schema for that particular Variable. Variable Schemas can be added to both associated or unassociated Variables. 
+To define a Variable Schema for a Variable, navigate to the Schema section of the Variable Details page to select and define a schema for that particular Variable. Variable Schemas can be defined [manually](/platform/security-and-guardrails/variable-schemas#manual-entry), or you may want [AI](/platform/security-and-guardrails/variable-schemas#ai-generated) to generate a Schema automatically instead. More on those options later.
+
+### Schema Types
 
 There are three different types of schemas that you can define for your Variable: 
 
@@ -23,23 +25,23 @@ You also must set an **Example Value**. The example value will be used as the in
 You will be unable to define or edit a Schema that makes the associated Feature’s values invalid.
 :::
 
-### Enum Schema
+#### Enum Schema
 
 An **Enum** schema will allow you to input allowable values for a string or number Variable. 
 
 If “Enum” type is selected, users must define the allowable values in the **Enum Values** input field.
 
 *Enum Example:*
-![Enum Schema Example](/june-2023-enum-schema-example.png)
+![Enum Schema Example](/enum-schema-edit-schema.png)
 
-### Regex Schema
+#### Regex Schema
 
 A **Regex** schema allows you to define a regex pattern. Variation values for a Variable with a Regex schema type must match the pattern defined in the schema.
 
 *Regex Example:* 
-![Regex Schema Example](/june-2023-regex-schema-example.png)
+![Regex Schema Example](/regex-schema-edit-schema.png)
 
-### JSON Schema
+#### JSON Schema
 
 A **JSON** schema will allow DVC users to define a JSON schema that Variation values must follow. If the “JSON schema” type is selected, users can define a schema themselves in a JSON editor under the **Manual Entry** tab or have AI define a schema for you under the **AI Generated** tab. 
 
@@ -48,25 +50,29 @@ Examples of JSON Schemas and more information about them can be found [here](htt
 *JSON Example:* 
 ![Image of generated JSON Schema ](/json-schema-ai-gen-example-complete.png)
 
+### Schema Creation
+
+Variables Schemas can be created automatically via our AI Generated Schemas, or manually, by inputting the details yourself. You may find out more about creating Schemas and it’s proper syntax from this page [here](https://json-schema.org/learn/miscellaneous-examples#basic).
+
 #### Manual Entry
 
-JSON Schemas can be created manually by providing it with a Description, the Schema and an example of an acceptable value for your schema. You may find out more about creating Schemas and it’s proper syntax from this page [here](https://json-schema.org/learn/miscellaneous-examples#basic).
+Schemas can be created manually by providing it with a Description, the Schema and an example of an acceptable value for your schema. Variable Schemas can be manually added to both associated or unassociated Variables.
 
 ![Image of manual entry Schema tab](/json-schema-manual-entry-example.png)
 
-#### AI Generated Schema
+#### AI Generated
 
-JSON Schemas can be created automatically by using DevCycle’s AI Generated Schemas. It works by analyzing the Variable, and it’s values within the Feature it’s used in, and generating a schema based on it’s assumption of what the Variable represents.
+Schemas can also be created automatically by using DevCycle’s AI Generated Schemas. It works by analyzing the Variable, and it’s values within the Feature it’s used in, and generating a schema based on it’s assumption of what the Variable represents. AI Generated Schemas rely on existing Variables that are associated to a Feature.
 
 To start, you can select to Add or Edit the Variable’s Schema and navigate to the AI Generated tab. Here you can select “Generate with AI” to create a new schema, or “Regenerate with AI” to replace your existing one. 
 
 ![Image of AI generated JSON Schema tab](/json-schema-ai-gen-tab.png)
 
-After that, you’ll be asked to select a Variation to choose as a example. This example is shown when you’re creating a new Variation and will pre-populate your Variable value for the new Variation.
+After that, you’ll be asked to select a Variation to choose as a example. This example is shown when you’re creating a new Variation and will pre-populate your Variable value for the new Variation. When you've selected an example, have AI generate the Schema.
 
 ![Image of AI generated JSON Schema example value](/json-schema-ai-gen-example-value.png)
 
-AI will now create the Variable Schema for you and all you have to do is hit “Save” to apply your changes. You may also edit the Schema further before saving as you may want to include more possible values or allow/do not allow additional properties to be added via a Feature.
+AI will create the Variable Schema for you and all you have to do is hit “Save” to apply your changes. You may also edit the Schema further before saving as you may want to include more possible values or allow/do not allow additional properties to be added via a Feature.
 
 ## Adding a Variable with a Defined Schema
 
