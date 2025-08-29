@@ -388,7 +388,9 @@ html[data-theme='dark'] .DocSearch {
 
 /* Architecture diagram dark mode fixes */
 [data-theme='dark'] img[src*="architecture-docs-diagrams"],
-[data-theme='dark'] img[src*="architexture-api-diagram"] {
+[data-theme='dark'] img[src*="architecture-api-diagram"],
+[data-theme='dark'] img[src*="server-sdk-topology"],
+[data-theme='dark'] img[src*="sdk-proxy-topology"] {
   background-color: white;
   border: 1px solid #d1d5db;
   border-radius: 8px;
