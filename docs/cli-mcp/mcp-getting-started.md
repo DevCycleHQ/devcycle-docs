@@ -148,7 +148,7 @@ Add or merge the following configuration:
   "mcpServers": {
     "devcycle": {
       "command": "npx",
-      "args": ["mcp-remote", "https://mcp.devcycle.com/mcp"]
+      "args": ["mcp-remote@0.1.18", "https://mcp.devcycle.com/mcp"]
     }
   }
 }
