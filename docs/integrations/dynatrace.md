@@ -30,6 +30,7 @@ Because feature flags can change independently of deployments, they often don't 
 > Note: If Permissions are enabled for your Organization, please note that only **Organization Admins** can perform this step.
 
 1. Go to your **DevCycle Organization Settings** → **Dynatrace** in the left navigation.
+   ![Dynatrace Settings](/aug2025-dynatrace-settings.png)
 2. Click **Add Dynatrace Environment** and enter the following details:
 
    - **Environment ID**
@@ -122,4 +123,4 @@ You will have to import the Workflow and Dashboard into your Dynatrace instance 
 1. Download the dashboard JSON: [Feature Flag Observability.json](https://github.com/DevCycleHQ-Labs/dynatrace-integration/blob/main/Feature%20Flag%20Observability.json)
 2. In Dynatrace, go to **Dashboards** → **Upload**, and import the file.
 
-![Dynatrace Dashboards Upload](/aug2025-dynatrace-dashboard-import.png)
+![Dynatrace Dashboard](/aug2025-dynatrace-dashboard.png)
