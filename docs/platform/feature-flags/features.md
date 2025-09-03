@@ -117,13 +117,13 @@ Each Feature includes a Feature Summary Markdown section on the Overview Tab tha
 
 ![Feature Summary Section Example](/may-2025-feature-overview-summary-section-edit.png)
 
-:::note  
+:::note
 For security reasons, links and images are not supported in this Markdown section.  
 :::
 
 The content is editable directly from the Overview Tab by users with **Member-level permissions or higher**, allowing teams to store relevant notes directly alongside the Feature rather than relying on external documentation tools.
 
-To make the creation and editing of a useful Feature Summary easier, you also have the option to generate a Summary via AI. Next to the edit button there is a "Generate AI Summary" button that adds the details of your Feature to a prompt and uses AI to pull out relevant details.
+To make the creation and editing of a useful Feature Summary easier, you also have the option to generate a Summary via **AI**. Next to the edit button there is a **"Generate AI Summary"** button that adds the details of your Feature to a prompt and uses AI to pull out relevant details.
 
 The goal with the AI generation is to make it easier to create and keep Summaries updated, because a quality Feature Summary helps to keep your team informed of your Feature's purpose, who it's targeting and other important details that may be lost with time.
 
