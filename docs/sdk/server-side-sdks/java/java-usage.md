@@ -35,8 +35,8 @@ In addition to the properties you set on the `DevCycleUser` yourself, these prop
 
 ## Get and use Variable by key
 
-This method will fetch a specific variable value by key for a given user. The default value will be used in cases where
-the user is not segmented into a feature using that variable, or the project configuration is unavailable
+This method will fetch a specific Variable value by key for a given user. The default value will be used in cases where
+the user is not segmented into a Feature using that Variable, or the Project configuration is unavailable
 to be fetched from DevCycle's CDN.
 
 ```java
@@ -57,10 +57,10 @@ If you would like to get the full Variable Object you can use `variable()` inste
 
 ## Getting All Variables
 
-This method will fetch all variables for a given user and return as Map&lt;String, Variable&gt;.
-If the project configuration is unavailable, this will return an empty map.
+This method will fetch all Variables for a given user and return as Map&lt;String, Variable&gt;.
+If the Project configuration is unavailable, this will return an empty map.
 
-To get values from your Variables, the `value` field inside the variable object can be accessed.
+To get values from your Variables, the `value` field inside the Variable object can be accessed.
 
 ```java
 import com.devcycle.sdk.server.common.model.BaseVariable;
@@ -71,16 +71,16 @@ Map<String, BaseVariable> variables = client.allVariables(user);
 :::caution
 
 This method is intended to be used for debugging and analytics purposes, _not_ as a method for retrieving the value of Variables to change code behaviour.
-For that purpose, we strongly recommend using the individual variable access method described in [Get and use Variable by key](#get-and-use-variable-by-key)
-Using this method instead will result in no evaluation events being tracked for individual variables, and will not allow the use
+For that purpose, we strongly recommend using the individual Variable access method described in [Get and use Variable by key](#get-and-use-variable-by-key)
+Using this method instead will result in no evaluation events being tracked for individual Variables, and will not allow the use
 of other DevCycle features such as [Code Usage detection](/integrations/github/feature-usage-action)
 
 :::
 
 ## Getting All Features
 
-This method will fetch all features for a given user and return them as Map&lt;String, Feature&gt;.
-If the project configuration is unavailable, this will return an empty map.
+This method will fetch all Features for a given user and return them as Map&lt;String, Feature&gt;.
+If the Project configuration is unavailable, this will return an empty map.
 
 ```java
 Map<String, Feature> features = client.allFeatures(user);
@@ -103,7 +103,7 @@ client.track(user, event);
 
 ## Set Client Custom Data
 
-To assist with segmentation and bucketing you can set a custom data map that will be used for all variable and feature evaluations. User specific `customData` or `privateCustomData` will override client custom data.
+To assist with segmentation and bucketing you can set a custom data map that will be used for all Variable and Feature evaluations. User specific `customData` or `privateCustomData` will override client custom data.
 
 ```java
 // create a map of custom data
@@ -157,9 +157,9 @@ DevCycleLocalOptions options = DevCycleLocalOptions.builder().customLogger(loggi
 EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user.
 Read more about [EdgeDB](/platform/feature-flags/targeting/edgedb).
 
-To get started, contact us at support@devcycle.com to enable EdgeDB for your project.
+To get started, contact us at support@devcycle.com to enable EdgeDB for your Project.
 
-Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to turn on EdgeDB mode for the SDK:
+Once you have EdgeDB enabled in your Project, pass in the enableEdgeDB option to turn on EdgeDB mode for the SDK:
 
 ```java
 import com.devcycle.sdk.server.cloud.api.DevCycleCloudClient;
@@ -196,7 +196,7 @@ This will send a request to our EdgeDB API to save the custom data under the use
 
 In the example, Email and Country are associated to the user `test_user`.
 In your next identify call for the same `userId`, you may omit any of the data you've sent already as it will be pulled
-from the EdgeDB storage when segmenting to experiments and features.
+from the EdgeDB storage when segmenting to Experiments and Features.
 
 ## Realtime Updates
 
@@ -223,12 +223,12 @@ public class MyClass {
 
 ## Evaluation Hooks
 
-Using evaluation hooks, you can hook into the lifecycle of a variable evaluation to execute code before and after execution of the evaluation.
+Using evaluation hooks, you can hook into the lifecycle of a Variable evaluation to execute code before and after execution of the evaluation.
 
-**Note**: Each evaluation will wait for all hooks before returning the variable evaluation, which depending on the complexity of the hooks will cause slower function call times. This also may lead to blocking variable evaluations in the future until all hooks return depending on the volume of calls to `.variable`.
+**Note**: Each evaluation will wait for all hooks before returning the Variable evaluation, which depending on the complexity of the hooks will cause slower function call times. This also may lead to blocking Variable evaluations in the future until all hooks return depending on the volume of calls to `.variable`.
 
 :::warning
-    Do not call any variable evaluation functions (.variable/.variableValue) in any of the hooks, as it may cause infinite recursion.
+    Do not call any Variable evaluation functions (.variable/.variableValue) in any of the hooks, as it may cause infinite recursion.
 :::
 
 To add a hook:
