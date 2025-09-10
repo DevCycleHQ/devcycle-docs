@@ -1,21 +1,35 @@
 ---
-title: Quickstart Tutorial
+title: Getting Started
 ---
 
-In this tutorial, we'll be showcasing a great use case for feature flags, guiding you through the creation of a simple [React app](https://react.dev), connecting it to DevCycle, and implementing an [Ops feature flag](/essentials/feature-types#ops) to enable/disable a **Maintenance Mode** page. 
+**Getting started with DevCycle is simple.** In just minutes, you can integrate DevCycle into your app using an AI assistant, which connects to DevCycle’s [MCP server](/cli-mcp/mcp-getting-started) to install an SDK and set up your first feature flag.
 
-You'll learn about some of the core features of DevCycle, while experiencing firsthand just how easy it is to implement feature flags to enhance your application's functionality and flexibility. You can also learn more about DevCycle's core features on the [DevCycle overview](/essentials/overview) page.
+**Prefer a hands-on approach?** Follow our step-by-step walkthrough instead. Along the way, you'll get familiar with some of the DevCycle's core features, while experiencing firsthand just how easy it is to implement feature flags to enhance your application's functionality and flexibility. Learn more about DevCycle's core features on the [DevCycle Overview](/essentials/overview) page.
+
+## Quickstart with AI
+
+If you've just created a DevCycle account or will be creating a DevCycle account, DevCycle's 2-minute onboarding guides you through installing the DevCycle MCP Server and using an AI assistant to install and implement DevCycle on your application.
+
+For users that have skipped or completed the onboarding, you can still leverage AI and connect to DevCycle's MCP server to simplify creating, editing and releasing Features. Take a look at our [MCP docs](/cli-mcp/mcp-getting-started) for more info.
+
+https://www.youtube.com/watch?v=xaycENMzs00&ab_channel=DevCycleHQ
+
+
+## Quickstart Tutorial
+
+This tutorial will go through the creation of a simple [React app](https://react.dev), connecting it to DevCycle, and implementing an [Ops Feature Flag](/essentials/feature-types#ops) to enable/disable a Maintenance Mode page.
+
+:::info
+
+This guided onboarding to core DevCycle functionality assumes you already have an account. If not you can [create one for free here](https://app.devcycle.com/?isSignUp=true). We offer an **always free** tier to start, with [pricing that scales](https://devcycle.com/pricing) with usage as needed.
+
+:::
 
 https://www.youtube.com/watch?v=RHpoc9TTR8U
 
 ---
 
-## Step 1. Create a Feature
-
-:::info
-
-This guided onboarding to core DevCycle functionality assumes you already have an account. If not you can [create one for free here](https://app.devcycle.com/?isSignUp=true). We offer an **always free** tier to start, with [pricing that scales](https://devcycle.com/pricing) with usage as needed.
-:::
+### Step 1. Create a Feature
 
 On the DevCycle Dashboard, access the "Feature Management" page via the `Features` button on the top navbar. Click the blue `+ Create New Feature` button (or select the "+" button in the main navbar) to begin the Feature creation process.
 
@@ -34,7 +48,7 @@ Congratulations! You have now created the `Maintenance Mode` Ops Feature within 
 
 ---
 
-## Step 2. Create a New React App
+### Step 2. Create a New React App
 
 In your terminal, run the following commands to spin up a new React app.
 
@@ -55,7 +69,7 @@ And if you visit `localhost:3000`, you should see the default React app page:
 
 ---
 
-## Step 3. Implement the DevCycle SDK
+### Step 3. Implement the DevCycle SDK
 
 With a Maintenance Mode Feature created over on the DevCycle platform, its time to install the SDK and implement the actual maintenance mode logic in the React application:
 
@@ -175,7 +189,7 @@ function App() {
 
 ---
 
-## Step 4. Modify Targeting
+### Step 4. Modify Targeting
 
 Variables deliver different values to different users via Targeting Rules. During the creation process for our "Maintenance Mode" feature, some initial Targeting Rules were set up to serve `Configuration 1` or `true` for your personal email address in the development environment. 
 
@@ -196,7 +210,7 @@ For more information on targeting based on user data, see the documentation on [
 
 ---
 
-## Step 5. Toggle Variations
+### Step 5. Toggle Variations
 
 The final step is to toggle between different Variations. 
 
