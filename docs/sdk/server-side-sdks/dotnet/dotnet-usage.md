@@ -67,7 +67,7 @@ of other DevCycle features such as [Code Usage detection](/integrations/github/f
 
 ## Getting All Features
 
-This method will fetch all features for a given user and return them as `Dictionary<String, Feature>`
+This method will fetch all Features for a given user and return them as `Dictionary<String, Feature>`
 
 ```csharp
 Dictionary<string, Feature> result = await client.AllFeatures(user);
@@ -107,7 +107,7 @@ var edgeDBUser = new DevCycleUser("test_user") { Email = "example@example.com" }
 This will send a request to our EdgeDB API to save the custom data (in this case, email) under the user `test_user`.
 
 In the example, email is associated to the user `test_user`. In your next identify call for the same `userId`,
-you may omit any of the data you've sent already as it will be pulled from the EdgeDB storage when segmenting to experiments and features.
+you may omit any of the data you've sent already as it will be pulled from the EdgeDB storage when segmenting to Experiments and Features.
 
 ## SDK Proxy
 
@@ -138,8 +138,9 @@ Using evaluation hooks, you can hook into the lifecycle of a variable evaluation
 
 **Note**: Each evaluation will wait for all hooks before returning the variable evaluation, which depending on the complexity of the hooks will cause slower function call times. This also may lead to blocking variable evaluations in the future until all hooks return depending on the volume of calls to `.variable`.
 
-> [!WARNING]
-> Do not call any variable evaluation functions (.variable/variableValue) in any of the hooks, as it may cause infinite recursion.
+:::warning
+    Do not call any variable evaluation functions (.variable/.variableValue) in any of the hooks, as it may cause infinite recursion.
+:::
 
 To add a hook:
 
