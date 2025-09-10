@@ -8,7 +8,7 @@ title: Getting Started
 
 ## Quickstart with AI
 
-If you've just created a DevCycle account or will be creating a DevCycle account, DevCycle's 2-minute onboarding guides you through installing the DevCycle MCP Server and using an AI assistant to install and implement DevCycle on your application.
+If you've just created a DevCycle account or will be creating a DevCycle account, DevCycle's 2-minute onboarding guides you through installing the DevCycle MCP Server and using an AI assistant to install and implement DevCycle in your application.
 
 For users that have skipped or completed the onboarding, you can still leverage AI and connect to DevCycle's MCP server to simplify creating, editing and releasing Features. Take a look at our [MCP docs](/cli-mcp/mcp-getting-started) for more info.
 
