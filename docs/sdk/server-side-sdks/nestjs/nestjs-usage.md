@@ -40,7 +40,7 @@ export class MyController {
 
 ## DevCycle Service
 
-With the DevCycleModule imported, the `DevCycleService` can be injected into your controllers or providers. The DevCycleService methods evaluate variables with the user returned from your [userFactory](/sdk/server-side-sdks/nestjs/nestjs-gettingstarted#user-factory), so you don't need to specify a user each time a method is called.
+With the DevCycleModule imported, the `DevCycleService` can be injected into your controllers or providers. The DevCycleService methods evaluate Variables with the user returned from your [userFactory](/sdk/server-side-sdks/nestjs/nestjs-gettingstarted#user-factory), so you don't need to specify a user each time a method is called.
 
 ```typescript
 import { DevCycleService } from '@devcycle/nestjs-server-sdk'
@@ -59,7 +59,7 @@ export class MyService {
 
 ### variableValue
 
-The `variableValue` method accepts a variable key and default value, and returns the served value.
+The `variableValue` method accepts a Variable key and default value, and returns the served value.
 
 ```typescript
 const value = this.devcycleService.variableValue('variable-key', 'hello world')
@@ -67,7 +67,7 @@ const value = this.devcycleService.variableValue('variable-key', 'hello world')
 
 ### isEnabled
 
-The `isEnabled` method accepts a key for a boolean variable. The default value is always `false` when using the `isEnabled` method.
+The `isEnabled` method accepts a key for a boolean Variable. The default value is always `false` when using the `isEnabled` method.
 
 ```typescript
 const enabled = this.devcycleService.isEnabled('boolean-variable')
@@ -83,11 +83,11 @@ const devcycleUser = this.devcycleService.getUser()
 
 ## Decorators
 
-DevCycle decorators evaluate variables with the user returned from your [userFactory](/sdk/server-side-sdks/nestjs/nestjs-gettingstarted#user-factory), so you don't need to specify a user each time a decorator is used.
+DevCycle decorators evaluate Variables with the user returned from your [userFactory](/sdk/server-side-sdks/nestjs/nestjs-gettingstarted#user-factory), so you don't need to specify a user each time a decorator is used.
 
 ### VariableValue
 
-The `VariableValue` decorator can be used to access variable values directly in your route handlers.
+The `VariableValue` decorator can be used to access Variable values directly in your route handlers.
 
 ```typescript
 async findAll(

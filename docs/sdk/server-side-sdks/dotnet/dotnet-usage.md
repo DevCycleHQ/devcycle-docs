@@ -31,9 +31,9 @@ In addition to the properties you set on the `DevCycleUser` yourself, these prop
 
 ## Get and use Variable by key
 
-This method will fetch a specific variable value by key for a given user. It will return the variable
+This method will fetch a specific Variable value by key for a given user. It will return the Variable
 value from the server unless an error occurs or the server has no response.
-In that case it will return a variable value with the value set to whatever was passed in as the `defaultValue` parameter.
+In that case it will return a Variable value with the value set to whatever was passed in as the `defaultValue` parameter.
 
 ```csharp
 bool result = await client.VariableValue(user, "your-variable-key", true);
@@ -48,9 +48,9 @@ If you would like to get the full Variable object you can use `Variable()` inste
 
 ## Getting All Variables
 
-To get values from your Variables, the `Value` field inside the variable object can be accessed.
+To get values from your Variables, the `Value` field inside the Variable object can be accessed.
 
-This method will fetch all variables for a given user and return as `Dictionary<string, ReadOnlyVariable<object>>;`
+This method will fetch all Variables for a given user and return as `Dictionary<string, ReadOnlyVariable<object>>;`
 
 ```csharp
 Dictionary<string, ReadOnlyVariable<object>> result = await client.AllVariables(user);
@@ -59,15 +59,15 @@ Dictionary<string, ReadOnlyVariable<object>> result = await client.AllVariables(
 :::caution
 
 This method is intended to be used for debugging and analytics purposes, _not_ as a method for retrieving the value of Variables to change code behaviour.
-For that purpose, we strongly recommend using the individual variable access method described in [Get and use Variable by key](#get-and-use-variable-by-key)
-Using this method instead will result in no evaluation events being tracked for individual variables, and will not allow the use
+For that purpose, we strongly recommend using the individual Variable access method described in [Get and use Variable by key](#get-and-use-variable-by-key)
+Using this method instead will result in no evaluation events being tracked for individual Variables, and will not allow the use
 of other DevCycle features such as [Code Usage detection](/integrations/github/feature-usage-action)
 
 :::
 
 ## Getting All Features
 
-This method will fetch all features for a given user and return them as `Dictionary<String, Feature>`
+This method will fetch all Features for a given user and return them as `Dictionary<String, Feature>`
 
 ```csharp
 Dictionary<string, Feature> result = await client.AllFeatures(user);
@@ -91,9 +91,9 @@ DevCycleResponse result = await client.Track(user, event);
 EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user.
 Read more about [EdgeDB](/platform/feature-flags/targeting/edgedb).
 
-To get started, contact us at support@devcycle.com to enable EdgeDB for your project.
+To get started, contact us at support@devcycle.com to enable EdgeDB for your Project.
 
-Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to turn on EdgeDB mode for the SDK:
+Once you have EdgeDB enabled in your Project, pass in the enableEdgeDB option to turn on EdgeDB mode for the SDK:
 
 ```csharp
 DevCycleCloudOptions options = new DevCycleCloudOptions(true);
@@ -107,7 +107,7 @@ var edgeDBUser = new DevCycleUser("test_user") { Email = "example@example.com" }
 This will send a request to our EdgeDB API to save the custom data (in this case, email) under the user `test_user`.
 
 In the example, email is associated to the user `test_user`. In your next identify call for the same `userId`,
-you may omit any of the data you've sent already as it will be pulled from the EdgeDB storage when segmenting to experiments and features.
+you may omit any of the data you've sent already as it will be pulled from the EdgeDB storage when segmenting to Experiments and Features.
 
 ## SDK Proxy
 
@@ -134,12 +134,13 @@ To disable realtime updates, pass in the `disableRealtimeUpdates` option to the 
 
 ## Evaluation Hooks
 
-Using evaluation hooks, you can hook into the lifecycle of a variable evaluation to execute code before and after execution of the evaluation.
+Using evaluation hooks, you can hook into the lifecycle of a Variable evaluation to execute code before and after execution of the evaluation.
 
-**Note**: Each evaluation will wait for all hooks before returning the variable evaluation, which depending on the complexity of the hooks will cause slower function call times. This also may lead to blocking variable evaluations in the future until all hooks return depending on the volume of calls to `.variable`.
+**Note**: Each evaluation will wait for all hooks before returning the Variable evaluation, which depending on the complexity of the hooks will cause slower function call times. This also may lead to blocking Variable evaluations in the future until all hooks return depending on the volume of calls to `.variable`.
 
-> [!WARNING]
-> Do not call any variable evaluation functions (.variable/variableValue) in any of the hooks, as it may cause infinite recursion.
+:::warning
+    Do not call any Variable evaluation functions (.variable/.variableValue) in any of the hooks, as it may cause infinite recursion.
+:::
 
 To add a hook:
 
