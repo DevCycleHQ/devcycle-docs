@@ -12,29 +12,35 @@ sidebar_custom_props: { icon: material-symbols:install-desktop }
 ## AI-Powered Install
 
 <details>
-<summary>MCP Install</summary>
+<summary>**MCP Install**</summary>
 
-Follow the MCP Getting Started guide to quickly set up the DevCycle MCP server and connect your AI tool.
+Follow the [MCP Getting Started](/cli-mcp/mcp-getting-started) guide to quickly set up the DevCycle MCP server and connect your AI tool.
 
-- See: [MCP Getting Started](/cli-mcp/mcp-getting-started)
 - Run this prompt: `"Install DevCycle into this app"`
+
+<a href="cursor://anysphere.cursor-deeplink/mcp/install?name=DevCycle&config=eyJ1cmwiOiAiaHR0cHM6Ly9tY3AuZGV2Y3ljbGUuY29tL21jcCJ9Cg==" className="mcp-install-button" target="_blank" rel="noopener noreferrer">📦 Install in Cursor</a>
+<a href="https://vscode.dev/redirect/mcp/install?name=DevCycle&config=%7B%22url%22%3A%20%22https%3A%2F%2Fmcp.devcycle.com%2Fmcp%22%7D" className="mcp-install-button" target="_blank" rel="noopener noreferrer">📦 Install in VS Code</a>
+```bash
+claude mcp add --transport http devcycle https://mcp.devcycle.com/mcp
+```
 </details>
 
-<details>
-<summary>AI Prompt</summary>
-
-Copy this pre-built prompt in your AI powered IDE:
-
-import CodeBlock from '@theme/CodeBlock';
 import JavaScriptPrompt from '!!raw-loader!../../../ai-prompts/install-prompts/javascript.md';
 
-<div style={{maxHeight: '300px', overflow: 'auto'}}>
-  <CodeBlock language="text">
-    {JavaScriptPrompt}
-  </CodeBlock>
+<div className="aiPromptRow alert alert--info">
+  <div className="aiPromptSummary">
+    <span><strong>AI Prompt</strong></span>
+    <a
+      href="#"
+      onClick={(e) => { e.preventDefault(); navigator.clipboard.writeText(JavaScriptPrompt); }}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="navbar__item navbar__link header-signup-link"
+    >
+      <span>Copy Prompt</span>
+    </a>
+  </div>
 </div>
-
-</details>
 
 ## NPM Module
 
