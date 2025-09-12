@@ -18,7 +18,6 @@ import PromptContent from '!!raw-loader!@site/static/ai-prompts/go.md'
 
 <AIPromptCopyButton promptContent={PromptContent} />
 
-
 [//]: # 'wizard-install-start'
 ## Go Install
 
