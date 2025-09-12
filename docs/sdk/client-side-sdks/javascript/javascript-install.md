@@ -13,7 +13,7 @@ sidebar_custom_props: { icon: material-symbols:install-desktop }
 
 import MCPInstall from '@site/docs/_partials/mcpInstall.mdx'
 import AIPoweredInstall from '@site/src/components/AIPoweredInstall'
-import JavaScriptPrompt from '!!raw-loader!@site/docs/ai-prompts/install-prompts/javascript.md'
+import JavaScriptPrompt from '!!raw-loader!@site/static/ai-prompts/javascript.md'
 
 <MCPInstall />
 
