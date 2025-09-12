@@ -401,7 +401,7 @@ html[data-theme='dark'] .DocSearch {
 .aiPromptRow {
   border: 1px solid var(--ifm-alert-border-color);
   border-radius: 8px;
-  margin: 0 0 20px 0;
+  margin: 20px 0 20px 0;
 }
 
 .aiPromptSummary {
