@@ -8,6 +8,16 @@ sidebar_custom_props: { icon: material-symbols:toggle-off }
 
 # OpenFeature Provider
 
+## AI-Powered Install
+
+import MCPInstall from '@site/docs/_partials/mcpInstall.mdx'
+import AIPoweredInstall from '@site/src/components/AIPoweredInstall'
+import PromptContent from '!!raw-loader!@site/static/ai-prompts/nodejs-openfeature.md'
+
+<MCPInstall />
+
+<AIPoweredInstall promptContent={PromptContent} />
+
 OpenFeature is an open standard that provides a vendor-agnostic, community-driven API for feature flagging that works with DevCycle.
 
 DevCycle provides a NodeJS implementation of the [OpenFeature](https://openfeature.dev/) Provider interface

@@ -8,6 +8,16 @@ sidebar_custom_props: { icon: material-symbols:toggle-off }
 
 # OpenFeature NestJS Provider
 
+## AI-Powered Install
+
+import MCPInstall from '@site/docs/_partials/mcpInstall.mdx'
+import AIPoweredInstall from '@site/src/components/AIPoweredInstall'
+import PromptContent from '!!raw-loader!@site/static/ai-prompts/nestjs-openfeature.md'
+
+<MCPInstall />
+
+<AIPoweredInstall promptContent={PromptContent} />
+
 [OpenFeature](https://openfeature.dev/) is an open standard that provides a vendor-agnostic, community-driven API for feature flagging that works with DevCycle.
 
 DevCycle provides a NodeJS implementation of the [OpenFeature](https://openfeature.dev/) Provider interface for the [OpenFeature NestJS SDK](https://openfeature.dev/docs/reference/technologies/server/javascript/nestjs/) using the `DevCycleProvider` class.

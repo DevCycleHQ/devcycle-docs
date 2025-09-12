@@ -28,7 +28,6 @@ packages/docusaurus-*/lib-next/
 docs/tools-and-integrations/cli/docs/*.md
 docs/tools-and-integrations/cli/*.md
 docs/cli/
-docs/ai-prompts/
 docs/integrations/vscode-extension/*.md
 docs/integrations/*/feature-usage-action
 docs/integrations/*/pr-insights-action
