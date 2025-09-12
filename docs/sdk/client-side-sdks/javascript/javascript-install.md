@@ -9,6 +9,33 @@ sidebar_custom_props: { icon: material-symbols:install-desktop }
 [![Npm package version](https://badgen.net/npm/v/@devcycle/js-client-sdk)](https://www.npmjs.com/package/@devcycle/js-client-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)
 
+## AI-Powered Install
+
+<details>
+<summary>MCP Install</summary>
+
+Follow the MCP Getting Started guide to quickly set up the DevCycle MCP server and connect your AI tool.
+
+- See: [MCP Getting Started](/cli-mcp/mcp-getting-started)
+- Run this prompt: `"Install DevCycle into this app"`
+</details>
+
+<details>
+<summary>AI Prompt</summary>
+
+Copy this pre-built prompt in your AI powered IDE:
+
+import CodeBlock from '@theme/CodeBlock';
+import JavaScriptPrompt from '!!raw-loader!../../../ai-prompts/install-prompts/javascript.md';
+
+<div style={{maxHeight: '300px', overflow: 'auto'}}>
+  <CodeBlock language="text">
+    {JavaScriptPrompt}
+  </CodeBlock>
+</div>
+
+</details>
+
 ## NPM Module
 
 [//]: # 'wizard-install-start'

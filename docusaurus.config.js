@@ -53,6 +53,8 @@ const DVC_CLI_VERSION = 'v6.0.1' // auto updated by dvc cli release workflow
 
 const VSCODE_EXTENSION_VERSION = 'v1.4.10' // auto updated by extension release workflow
 
+const AI_PROMPTS_VERSION = 'main' // AI prompts repository branch
+
 const removeDocsSections = (content, sectionNames, headerIdentifier = '##') => {
   let result = content
   for (const sectionName of sectionNames) {
@@ -269,6 +271,16 @@ const config = {
             'Get the integration here: https://gitlab.com/devcycle/devcycle-pr-insights-ci-cd\n' +
             content,
         }),
+      },
+    ],
+    [
+      'docusaurus-plugin-remote-content',
+      {
+        name: 'ai-prompts',
+        sourceBaseUrl: `https://raw.githubusercontent.com/DevCycleHQ/AI-Prompts-And-Rules/${AI_PROMPTS_VERSION}`,
+        outDir: 'docs/ai-prompts',
+        documents: ['install-prompts/javascript.md'],
+        performCleanup: true,
       },
     ],
   ],
