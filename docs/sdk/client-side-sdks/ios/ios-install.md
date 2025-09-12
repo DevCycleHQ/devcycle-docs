@@ -11,6 +11,16 @@ sidebar_custom_props: { icon: material-symbols:install-desktop }
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/ios-client-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/ios-client-sdk)
 
+## AI-Powered Install
+
+import MCPInstall from '@site/docs/_partials/mcpInstall.mdx'
+import AIPoweredInstall from '@site/src/components/AIPoweredInstall'
+import PromptContent from '!!raw-loader!@site/static/ai-prompts/ios.md'
+
+<MCPInstall />
+
+<AIPoweredInstall promptContent={PromptContent} />
+
 ## Requirements
 
 This version of the DevCycle Client SDK supports the following platforms:

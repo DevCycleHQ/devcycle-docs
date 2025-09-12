@@ -9,6 +9,16 @@ sidebar_custom_props: { icon: material-symbols:install-desktop }
 [![Npm package version](https://badgen.net/npm/v/@devcycle/nextjs-sdk)](https://www.npmjs.com/package/@devcycle/nextjs-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/js-sdks/tree/main/sdk/nextjs)
 
+## AI-Powered Install
+
+import MCPInstall from '@site/docs/_partials/mcpInstall.mdx'
+import AIPoweredInstall from '@site/src/components/AIPoweredInstall'
+import PromptContent from '!!raw-loader!@site/static/ai-prompts/nextjs.md'
+
+<MCPInstall />
+
+<AIPoweredInstall promptContent={PromptContent} />
+
 ## Requirements
 
 - Minimum Next.js version: 14.1

@@ -9,6 +9,16 @@ sidebar_custom_props: { icon: material-symbols:install-desktop }
 [![Npm package version](https://badgen.net/npm/v/@devcycle/react-client-sdk)](https://www.npmjs.com/package/@devcycle/react-client-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)
 
+## AI-Powered Install
+
+import MCPInstall from '@site/docs/_partials/mcpInstall.mdx'
+import AIPoweredInstall from '@site/src/components/AIPoweredInstall'
+import PromptContent from '!!raw-loader!@site/static/ai-prompts/react.md'
+
+<MCPInstall />
+
+<AIPoweredInstall promptContent={PromptContent} />
+
 ## Requirements
 
 This SDK is compatible with React versions 16.8.0 and above.

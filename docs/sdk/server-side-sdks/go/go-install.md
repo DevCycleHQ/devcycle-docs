@@ -8,7 +8,19 @@ sidebar_custom_props: { icon: material-symbols:install-desktop }
 
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/go-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/go-server-sdk)
 
+## AI-Powered Install
+
+import MCPInstall from '@site/docs/_partials/mcpInstall.mdx'
+import AIPoweredInstall from '@site/src/components/AIPoweredInstall'
+import PromptContent from '!!raw-loader!@site/static/ai-prompts/go.md'
+
+<MCPInstall />
+
+<AIPoweredInstall promptContent={PromptContent} />
+
+
 [//]: # 'wizard-install-start'
+## Go Install
 
 ```bash
 go get "github.com/devcyclehq/go-server-sdk/v2"
