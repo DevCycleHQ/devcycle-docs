@@ -12,12 +12,12 @@ sidebar_custom_props: { icon: material-symbols:install-desktop }
 ## AI-Powered Install
 
 import MCPInstall from '@site/docs/_partials/mcpInstall.mdx'
-import AIPoweredInstall from '@site/src/components/AIPoweredInstall'
+import AIPromptCopyButton from '@site/src/components/AIPromptCopyButton'
 import JavaScriptPrompt from '!!raw-loader!@site/static/ai-prompts/javascript.md'
 
 <MCPInstall />
 
-<AIPoweredInstall promptContent={JavaScriptPrompt} />
+<AIPromptCopyButton promptContent={JavaScriptPrompt} />
 
 ## NPM Module
 

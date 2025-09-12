@@ -12,12 +12,12 @@ sidebar_custom_props: { icon: material-symbols:install-desktop }
 ## AI-Powered Install
 
 import MCPInstall from '@site/docs/_partials/mcpInstall.mdx'
-import AIPoweredInstall from '@site/src/components/AIPoweredInstall'
+import AIPromptCopyButton from '@site/src/components/AIPromptCopyButton'
 import PromptContent from '!!raw-loader!@site/static/ai-prompts/react-native.md'
 
 <MCPInstall />
 
-<AIPoweredInstall promptContent={PromptContent} />
+<AIPromptCopyButton promptContent={PromptContent} />
 
 To get started, install the React Native SDK. For React Native Expo, see the [Expo SDK Installation](/sdk/client-side-sdks/react-native/react-native-expo-install) guide.
 

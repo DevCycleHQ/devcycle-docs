@@ -1,12 +1,11 @@
 import React from 'react'
-import CodeBlock from '@theme/CodeBlock'
 
-type AIPoweredInstallProps = {
+type AIPromptCopyButtonProps = {
   promptContent: string
 }
 
-export default function AIPoweredInstall(
-  { promptContent }: AIPoweredInstallProps,
+export default function AIPromptCopyButton(
+  { promptContent }: AIPromptCopyButtonProps,
 ): JSX.Element {
   const onCopy = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
@@ -27,8 +26,6 @@ export default function AIPoweredInstall(
           <a
             href="#"
             onClick={onCopy}
-            target="_blank"
-            rel="noopener noreferrer"
             className="navbar__item navbar__link header-signup-link"
           >
             <span>Copy Prompt</span>
@@ -38,5 +35,6 @@ export default function AIPoweredInstall(
     </>
   )
 }
+
 
 

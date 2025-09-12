@@ -17,12 +17,12 @@ DevCycle provides an Android implementation of the OpenFeature Provider interfac
 ## AI-Powered Install
 
 import MCPInstall from '@site/docs/_partials/mcpInstall.mdx'
-import AIPoweredInstall from '@site/src/components/AIPoweredInstall'
+import AIPromptCopyButton from '@site/src/components/AIPromptCopyButton'
 import PromptContent from '!!raw-loader!@site/static/ai-prompts/android-openfeature.md'
 
 <MCPInstall />
 
-<AIPoweredInstall promptContent={PromptContent} />
+<AIPromptCopyButton promptContent={PromptContent} />
 
 ### Requirements
 

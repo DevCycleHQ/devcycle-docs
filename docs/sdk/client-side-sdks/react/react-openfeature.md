@@ -18,12 +18,12 @@ DevCycle provides a Javascript implementation of the OpenFeature Web Provider in
 ## AI-Powered Install
 
 import MCPInstall from '@site/docs/_partials/mcpInstall.mdx'
-import AIPoweredInstall from '@site/src/components/AIPoweredInstall'
+import AIPromptCopyButton from '@site/src/components/AIPromptCopyButton'
 import PromptContent from '!!raw-loader!@site/static/ai-prompts/react-openfeature.md'
 
 <MCPInstall />
 
-<AIPoweredInstall promptContent={PromptContent} />
+<AIPromptCopyButton promptContent={PromptContent} />
 
 ## Usage
 
