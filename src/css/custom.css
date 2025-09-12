@@ -396,3 +396,25 @@ html[data-theme='dark'] .DocSearch {
   border-radius: 8px;
   padding: 16px;
 }
+
+/* AI Prompt row styles to match details summary visuals */
+.aiPromptRow {
+  border: 1px solid var(--ifm-alert-border-color);
+  border-radius: 8px;
+  margin: 20px 0 20px 0;
+}
+
+.aiPromptSummary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: default;
+}
+
+.aiPromptSummary > span {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+}

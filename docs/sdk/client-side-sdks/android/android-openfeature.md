@@ -14,6 +14,16 @@ DevCycle provides an Android implementation of the OpenFeature Provider interfac
 
 [![GitHub](https://img.shields.io/github/stars/DevCycleHQ/android-client-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/android-client-sdk)
 
+## AI-Powered Install
+
+import MCPInstall from '@site/docs/_partials/mcpInstall.mdx'
+import AIPromptCopyButton from '@site/src/components/AIPromptCopyButton'
+import PromptContent from '!!raw-loader!@site/static/ai-prompts/android-openfeature.md'
+
+<MCPInstall />
+
+<AIPromptCopyButton promptContent={PromptContent} />
+
 ### Requirements
 
 This integration requires **Android API version 23+** and is available starting from DevCycle Android SDK version `>= 2.6.0`.
