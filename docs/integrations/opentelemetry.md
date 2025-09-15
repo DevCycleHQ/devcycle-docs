@@ -9,6 +9,8 @@ DevCycle's OpenTelemetry integration allows you to send feature flag evaluation 
 - .NET
 - Java
 
+If you require support for a different SDK, please contact us at [support@devcycle.com](mailto:support@devcycle.com).
+
 ## Send Flag Evaluations from Your App
 
 To capture flag evaluations in OpenTelemetry traces, DevCycle SDKs now support **Evaluation Hooks**.
