@@ -13,7 +13,7 @@ The DevCycle MCP is hosted so there is no need to set up a local server. We'll w
 
 **Direct Connection:** For clients that natively support the MCP specification with OAuth authentication, you can connect directly to our hosted server:
 
-```
+```bash
 https://mcp.devcycle.com/mcp
 ```
 
@@ -21,7 +21,7 @@ https://mcp.devcycle.com/mcp
 
 **Alternative Endpoint**: If your client has issues with protocol negotiation, use the SSE-only endpoint:
 
-```
+```bash
 https://mcp.devcycle.com/sse
 ```
 
@@ -209,14 +209,14 @@ Close and reopen Claude Desktop for the changes to take effect.
 
 The DevCycle MCP Server provides comprehensive feature flag management tools organized into **6 categories**:
 
-| Category                       | Tools                                                                                                                                                                                                                                                                                              | Description                                                |
-| ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
-| **Feature Management**         | `list_features`, `create_feature`, `update_feature`, `update_feature_status`, `delete_feature`, `fetch_feature_variations`, `create_feature_variation`, `update_feature_variation`, `set_feature_targeting`, `list_feature_targeting`, `update_feature_targeting`, `get_feature_audit_log_history` | Create and manage feature flags, variations, and targeting |
-| **Variable Management**        | `list_variables`, `create_variable`, `update_variable`, `delete_variable`                                                                                                                                                                                                                          | Manage feature variables                                   |
-| **Environment Management**     | `list_environments`, `get_sdk_keys`                                                                                                                                                                                                                                                                | Environment configuration                                  |
-| **Project Management**         | `list_projects`, `get_current_project`                                                                                                                                                                                                                                                             | Project management                                         |
-| **Self-Targeting & Overrides** | `get_self_targeting_identity`, `update_self_targeting_identity`, `list_self_targeting_overrides`, `set_self_targeting_override`, `clear_feature_self_targeting_overrides`                                                                                                                          | Testing and overrides                                      |
-| **Results & Analytics**        | `get_feature_total_evaluations`, `get_project_total_evaluations`                                                                                                                                                                                                                                   | Usage analytics                                            |
+| Category                       | Tools                                                                                                                                                                                                                               | Description                                 |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
+| **Feature Management**         | `list_features`, `create_feature`, `update_feature`, `update_feature_status`, `delete_feature`, `cleanup_feature`, `get_feature_audit_log_history`                                                                                     | Create and manage feature flags             |
+| **Variable Management**        | `list_variables`, `create_variable`, `update_variable`, `delete_variable`                                                                                                                                                             | Manage feature variables                    |
+| **Project Management**         | `list_projects`, `get_current_project`, `select_project`                                                                                                                                                                             | Project selection and details               |
+| **Self-Targeting & Overrides** | `get_self_targeting_identity`, `update_self_targeting_identity`, `list_self_targeting_overrides`, `set_self_targeting_override`, `clear_feature_self_targeting_overrides`                                                           | Testing and overrides                       |
+| **Results & Analytics**        | `get_feature_total_evaluations`, `get_project_total_evaluations`                                                                                                                                                                      | Usage analytics                             |
+| **SDK Installation**           | `install_devcycle_sdk`                                                                                                                                                                                                                | SDK install guides and examples             |
 
 ## Try It Out
 
