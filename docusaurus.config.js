@@ -49,7 +49,7 @@ const YouTubeTransformer = {
  * Pinned version of the CLI to use for docs
  * When bumping the version, add any new commands to the documents array
  */
-const DVC_CLI_VERSION = 'v6.0.1' // auto updated by dvc cli release workflow
+const DVC_CLI_VERSION = 'v6.1.0' // auto updated by dvc cli release workflow
 
 const VSCODE_EXTENSION_VERSION = 'v1.4.10' // auto updated by extension release workflow
 
