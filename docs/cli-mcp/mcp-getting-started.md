@@ -13,7 +13,7 @@ The DevCycle MCP is hosted so there is no need to set up a local server. We'll w
 
 **Direct Connection:** For clients that natively support the MCP specification with OAuth authentication, you can connect directly to our hosted server:
 
-```
+```bash
 https://mcp.devcycle.com/mcp
 ```
 
@@ -21,7 +21,7 @@ https://mcp.devcycle.com/mcp
 
 **Alternative Endpoint**: If your client has issues with protocol negotiation, use the SSE-only endpoint:
 
-```
+```bash
 https://mcp.devcycle.com/sse
 ```
 
