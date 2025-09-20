@@ -21,7 +21,7 @@ jobs:
           echo "::set-output name=files::$(git diff --name-only HEAD^ HEAD | grep .puml | xargs)"
 
       - name: Generate SVG Diagrams
-        uses: holowinski/plantuml-github-action@main
+        uses: holowinski/plantuml-github-action@2e381afb2bae7e169b76bfb068e8d8b2089106ee
         with:
           args: -v -tsvg "diagrams/**.puml" -o "../static/diagrams"
 
