@@ -144,7 +144,7 @@ The Debugger provides three main areas of functionality:
 
 ### Self-Targeting
 
-The Debugger allows you to quickly change your [Self-Targeting Overrides](/platform/testing-and-qa/self-targeting) and see the changes reflected immediately on the current page. If you don't currently have Self-Targeting set up, the Debugger will present an option to quickly set your "DevCycle Identity" to the currently identified user on the page.
+The Debugger allows you to quickly change your [Self-Targeting Overrides](https://docs.devcycle.com/platform/testing-and-qa/self-targeting) and see the changes reflected immediately on the current page. If you don't currently have Self-Targeting set up, the Debugger will present an option to quickly set your "DevCycle Identity" to the currently identified user on the page.
 
 Once set, you can now view and modify your Overrides for any Feature in your project.
 
