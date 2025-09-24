@@ -120,6 +120,29 @@ When a Variable is evaluated in DevCycle, the response includes metadata explain
 
 DevCycle extends the [OpenFeature Evaluation Details](https://openfeature.dev/specification/types/#evaluation-details) structure with additional reason types and optional fields for richer context.
 
+### Supported SDKs
+
+| SDK / Platform            | Package                                  | Minimum Version with `eval` metadata |
+| ------------------------- | ---------------------------------------- | ------------------------------------ |
+| JavaScript (Web)          | `@devcycle/js-client-sdk`                | `1.41.0`                             |
+| React                     | `@devcycle/react-client-sdk`             | `1.39.0`                             |
+| React Native              | `@devcycle/react-native-client-sdk`      | `2.16.0`                             |
+| React Native (Expo)       | `@devcycle/react-native-expo-client-sdk` | `2.16.0`                             |
+| Next.js                   | `@devcycle/nextjs-sdk`                   | `2.17.0`                             |
+| NestJS                    | `@devcycle/nestjs-server-sdk`            | `0.26.0`                             |
+| Android                   | `com.devcycle:android-client-sdk`        | `2.5.0`                              |
+| iOS                       | `DevCycle` (CocoaPods)                   | `1.24.0`                             |
+| Flutter                   | `devcycle_flutter_client_sdk`            | `1.11.0`                             |
+| JavaScript Server (Cloud) | `@devcycle/js-cloud-server-sdk`          | `1.27.0`                             |
+| Node.js Server (Local)    | `@devcycle/nodejs-server-sdk`            | `1.41.0`                             |
+| Go Server                 | `github.com/devcyclehq/go-server-sdk/v2` | `v2.23.0`                            |
+| Java Server               | `com.devcycle:java-server-sdk`           | `2.8.0`                              |
+| .NET Server (Cloud)       | `DevCycle.SDK.Server.Cloud`              | `3.6.0`                              |
+| .NET Server (Local)       | `DevCycle.SDK.Server.Local`              | `4.6.0`                              |
+| Python Server             | `devcycle-python-server-sdk`             | `3.12.0`                             |
+| PHP Server                | `devcycle-php-server-sdk`                | `2.2.0`                              |
+| Ruby Server               | `devcycle-ruby-server-sdk`               | `3.7.0`                              |
+
 ### Evaluation Object Format
 
 ```json
