@@ -17,14 +17,14 @@ To capture flag evaluations in OpenTelemetry traces, DevCycle SDKs now support *
 
 Ensure you're using a supported SDK version:
 
-```jsx
-dotnet DevCycle.SDK.Server.Local 4.8.1
-java com.devcycle:java-server-sdk:2.9.0
-python devcycle-python-server-sdk 3.13.0
-go github.com/devcyclehq/go-server-sdk/v2 2.24.0
-js @devcycle/nodejs-server-sdk 1.55.0
-ruby devcycle-ruby-server-sdk 3.6.2
-```
+| SDK / Platform                         | Minimum Version hook support |
+| -------------------------------------- | ---------------------------- |
+| [.NET](/sdk/server-side-sdks/dotnet)   | 4.8.1                        |
+| [Java](/sdk/server-side-sdks/java)     | 2.9.0                        |
+| [Python](/sdk/server-side-sdks/python) | 3.13.0                       |
+| [Go](/sdk/server-side-sdks/go)         | v2.24.0                      |
+| [Node.js](/sdk/server-side-sdks/node)  | 1.55.0                       |
+| [Ruby](/sdk/server-side-sdks/ruby)     | 3.6.2                        |
 
 We provide ready-made integration hooks in this repo [(DevCycle Integration Hooks](https://github.com/DevCycleHQ-Sandbox/devcycle-integration-hooks) for you to copy into your codebase.
 

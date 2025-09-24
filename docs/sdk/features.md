@@ -122,26 +122,26 @@ DevCycle extends the [OpenFeature Evaluation Details](https://openfeature.dev/sp
 
 ### Supported SDKs
 
-| SDK / Platform            | Package                                  | Minimum Version with `eval` metadata |
-| ------------------------- | ---------------------------------------- | ------------------------------------ |
-| JavaScript (Web)          | `@devcycle/js-client-sdk`                | `1.41.0`                             |
-| React                     | `@devcycle/react-client-sdk`             | `1.39.0`                             |
-| React Native              | `@devcycle/react-native-client-sdk`      | `2.16.0`                             |
-| React Native (Expo)       | `@devcycle/react-native-expo-client-sdk` | `2.16.0`                             |
-| Next.js                   | `@devcycle/nextjs-sdk`                   | `2.17.0`                             |
-| NestJS                    | `@devcycle/nestjs-server-sdk`            | `0.26.0`                             |
-| Android                   | `com.devcycle:android-client-sdk`        | `2.5.0`                              |
-| iOS                       | `DevCycle` (CocoaPods)                   | `1.24.0`                             |
-| Flutter                   | `devcycle_flutter_client_sdk`            | `1.11.0`                             |
-| JavaScript Server (Cloud) | `@devcycle/js-cloud-server-sdk`          | `1.27.0`                             |
-| Node.js Server (Local)    | `@devcycle/nodejs-server-sdk`            | `1.41.0`                             |
-| Go Server                 | `github.com/devcyclehq/go-server-sdk/v2` | `v2.23.0`                            |
-| Java Server               | `com.devcycle:java-server-sdk`           | `2.8.0`                              |
-| .NET Server (Cloud)       | `DevCycle.SDK.Server.Cloud`              | `3.6.0`                              |
-| .NET Server (Local)       | `DevCycle.SDK.Server.Local`              | `4.6.0`                              |
-| Python Server             | `devcycle-python-server-sdk`             | `3.12.0`                             |
-| PHP Server                | `devcycle-php-server-sdk`                | `2.2.0`                              |
-| Ruby Server               | `devcycle-ruby-server-sdk`               | `3.7.0`                              |
+| SDK / Platform                                            | Minimum Version with `eval` metadata |
+| --------------------------------------------------------- | ------------------------------------ |
+| [JavaScript (Web)](/sdk/client-side-sdks/javascript)      | 1.41.0                               |
+| [React](/sdk/client-side-sdks/react)                      | 1.39.0                               |
+| [React Native](/sdk/client-side-sdks/react-native)        | 2.16.0                               |
+| [React Native (Expo)](/sdk/client-side-sdks/react-native) | 2.16.0                               |
+| [Next.js](/sdk/client-side-sdks/nextjs)                   | 2.17.0                               |
+| [NestJS](/sdk/server-side-sdks/nestjs)                    | 0.26.0                               |
+| [Android](/sdk/client-side-sdks/android)                  | 2.5.0                                |
+| [iOS](/sdk/client-side-sdks/ios)                          | 1.24.0                               |
+| [Flutter](/sdk/client-side-sdks/flutter)                  | 1.11.0                               |
+| [JavaScript Server (Cloud)](/sdk/server-side-sdks/node)   | 1.27.0                               |
+| [Node.js Server (Local)](/sdk/server-side-sdks/node)      | 1.41.0                               |
+| [Go Server](/sdk/server-side-sdks/go)                     | v2.23.0                              |
+| [Java Server](/sdk/server-side-sdks/java)                 | 2.8.0                                |
+| [.NET Server (Cloud)](/sdk/server-side-sdks/dotnet)       | 3.6.0                                |
+| [.NET Server (Local)](/sdk/server-side-sdks/dotnet)       | 4.6.0                                |
+| [Python Server](/sdk/server-side-sdks/python)             | 3.12.0                               |
+| [PHP Server](/sdk/server-side-sdks/php)                   | 2.2.0                                |
+| [Ruby Server](/sdk/server-side-sdks/ruby)                 | 3.7.0                                |
 
 ### Evaluation Object Format
 
