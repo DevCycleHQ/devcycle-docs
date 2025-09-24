@@ -22,7 +22,7 @@ Ensure you're using a supported SDK version:
 | [.NET](/sdk/server-side-sdks/dotnet)   | 4.8.1                        |
 | [Java](/sdk/server-side-sdks/java)     | 2.9.0                        |
 | [Python](/sdk/server-side-sdks/python) | 3.13.0                       |
-| [Go](/sdk/server-side-sdks/go)         | v2.24.0                      |
+| [Go](/sdk/server-side-sdks/go)         | 2.24.0                       |
 | [Node.js](/sdk/server-side-sdks/node)  | 1.55.0                       |
 | [Ruby](/sdk/server-side-sdks/ruby)     | 3.6.2                        |
 
