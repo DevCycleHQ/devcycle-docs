@@ -120,6 +120,29 @@ When a Variable is evaluated in DevCycle, the response includes metadata explain
 
 DevCycle extends the [OpenFeature Evaluation Details](https://openfeature.dev/specification/types/#evaluation-details) structure with additional reason types and optional fields for richer context.
 
+### Supported SDKs
+
+| SDK / Platform                                            | Minimum Version with `eval` metadata |
+| --------------------------------------------------------- | ------------------------------------ |
+| [Android](/sdk/client-side-sdks/android)                  | 2.5.0                                |
+| [Flutter](/sdk/client-side-sdks/flutter)                  | 1.11.0                               |
+| [iOS](/sdk/client-side-sdks/ios)                          | 1.24.0                               |
+| [JavaScript (Web)](/sdk/client-side-sdks/javascript)      | 1.41.0                               |
+| [Next.js](/sdk/client-side-sdks/nextjs)                   | 2.17.0                               |
+| [NestJS](/sdk/server-side-sdks/nestjs)                    | 0.26.0                               |
+| [React](/sdk/client-side-sdks/react)                      | 1.39.0                               |
+| [React Native](/sdk/client-side-sdks/react-native)        | 2.16.0                               |
+| [React Native (Expo)](/sdk/client-side-sdks/react-native) | 2.16.0                               |
+| [Go Server](/sdk/server-side-sdks/go)                     | v2.23.0                              |
+| [Java Server](/sdk/server-side-sdks/java)                 | 2.8.0                                |
+| [JavaScript Server (Cloud)](/sdk/server-side-sdks/node)   | 1.27.0                               |
+| [Node.js Server (Local)](/sdk/server-side-sdks/node)      | 1.41.0                               |
+| [.NET Server (Cloud)](/sdk/server-side-sdks/dotnet)       | 3.6.0                                |
+| [.NET Server (Local)](/sdk/server-side-sdks/dotnet)       | 4.6.0                                |
+| [PHP Server](/sdk/server-side-sdks/php)                   | 2.2.0                                |
+| [Python Server](/sdk/server-side-sdks/python)             | 3.12.0                               |
+| [Ruby Server](/sdk/server-side-sdks/ruby)                 | 3.7.0                                |
+
 ### Evaluation Object Format
 
 ```json
