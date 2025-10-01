@@ -1,9 +1,7 @@
 ---
 title: Incident Investigation with MCP
-sidebar_label: Incident Investigation with MCP
-sidebar_position: 12
-description: How to use DevCycle's MCP server for incident investigation and mitigation.
-sidebar_custom_props: { icon: material-symbols:troubleshoot }
+sidebar_label: Incident Investigation
+sidebar_position: 1
 ---
 
 DevCycle’s MCP server makes it easier to investigate and mitigate incidents by giving you real-time access to Feature Flag data in the context of your codebase, combined with natural language communication through AI. To get started on your own, check out our [MCP Getting Started](/cli-mcp/mcp-getting-started) guide for setup instructions and a list of available MCP tools.
