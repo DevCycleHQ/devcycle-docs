@@ -39,8 +39,8 @@ In addition to the properties you set on the `devcycle.User` yourself, these pro
 
 ## Get and Use Variable by Key
 
-This method will fetch a specific variable value by key for a given user. It will return the variable
-value unless an error occurs. In that case it will return a variable value set to whatever was passed in as the `defaultValue` parameter.
+This method will fetch a specific Variable value by key for a given user. It will return the Variable
+value unless an error occurs. In that case it will return a Variable value set to whatever was passed in as the `defaultValue` parameter.
 
 ```go
 variableValue, err := devcycleClient.VariableValue(user, "my-variable-key", "test")
@@ -48,14 +48,14 @@ variableValue, err := devcycleClient.VariableValue(user, "my-variable-key", "tes
 
 [//]: # 'wizard-evaluate-end'
 
-`variableValue` is an `interface{}` - so you'll need to cast it to your proper variable type.
-When using `JSON` as the variable type, you'll have to have JSON to unmarshal it to a proper type instead of accessing it raw.
+`variableValue` is an `interface{}` - so you'll need to cast it to your proper Variable type.
+When using `JSON` as the Variable type, you'll have to have JSON to unmarshal it to a proper type instead of accessing it raw.
 
 eg. `variableValue.(string)` for the above example
 
-If the variable value returned does not match the type of the defaultValue parameter, the `defaultValue` will be returned instead.
+If the Variable value returned does not match the type of the defaultValue parameter, the `defaultValue` will be returned instead.
 This helps to protect your code against unexpected types being returned from the server.
-To avoid confusion when testing new variables, make sure you're using the correct type for the defaultValue parameter.
+To avoid confusion when testing new Variables, make sure you're using the correct type for the defaultValue parameter.
 
 To access the full Variable Object use `devcycleClient.Variable(user, "my-variable-key", "test")` instead.
 This will return a `Variable` object containing the `key`, `value`, `type`, `defaultValue`, `isDefaulted`, `eval`: evaluation object containing reason, details, and targetId for why the Variable was bucketed into its value (see [Evaluation Reasons](/sdk/features#evaluation-reasons)) fields.
@@ -78,7 +78,7 @@ response, err := devcycleClient.Track(user, event)
 
 ## Getting All Features
 
-This method will fetch all features for a given user and return them in a map of `key: feature_object`
+This method will fetch all Features for a given user and return them in a map of `key: feature_object`
 
 ```go
 features, err := devcycleClient.AllFeatures(user)
@@ -86,9 +86,9 @@ features, err := devcycleClient.AllFeatures(user)
 
 ## Getting All Variables
 
-To get values from your Variables, the `value` field inside the variable object can be accessed.
+To get values from your Variables, the `value` field inside the Variable object can be accessed.
 
-This method will fetch all variables for a given user and return them in a map of `key: variable_object`
+This method will fetch all Variables for a given user and return them in a map of `key: variable_object`
 
 ```go
 variables, err := devcycleClient.AllVariables(user)
@@ -97,8 +97,8 @@ variables, err := devcycleClient.AllVariables(user)
 :::caution
 
 This method is intended to be used for debugging and analytics purposes, _not_ as a method for retrieving the value of Variables to change code behaviour.
-For that purpose, we strongly recommend using the individual variable access method described in [Get and use Variable by key](#get-and-use-variable-by-key)
-Using this method instead will result in no evaluation events being tracked for individual variables, and will not allow the use
+For that purpose, we strongly recommend using the individual Variable access method described in [Get and use Variable by key](#get-and-use-variable-by-key)
+Using this method instead will result in no evaluation events being tracked for individual Variables, and will not allow the use
 of other DevCycle features such as [Code Usage detection](/integrations/github/feature-usage-action)
 
 :::
@@ -113,7 +113,7 @@ err := devcycleClient.Close()
 
 ## Set Client Custom Data
 
-To assist with segmentation and bucketing you can set a custom data map that will be used for all variable and feature evaluations. User specific custom data will override this client custom data.
+To assist with segmentation and bucketing you can set a custom data map that will be used for all Variable and Feature evaluations. User specific custom data will override this client custom data.
 
 ```go
 err = devcycleClient.SetClientCustomData(map[string]interface{}{
@@ -137,11 +137,11 @@ Client Custom Data is only available for the Local Bucketing SDK
 EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time
 you identify a user. Read more about [EdgeDB](/platform/feature-flags/targeting/edgedb).
 
-To get started, contact us at support@devcycle.com to enable EdgeDB for your project.
+To get started, contact us at support@devcycle.com to enable EdgeDB for your Project.
 
 Note: This feature is only available in cloud mode.
 
-Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to turn on EdgeDB mode for the SDK:
+Once you have EdgeDB enabled in your Project, pass in the enableEdgeDB option to turn on EdgeDB mode for the SDK:
 
 ```go
 import (
@@ -165,7 +165,7 @@ making bucketing decisions.
 
 In this example, the `Variable` call would make an API request and send along the user data specified by the call.
 That data would be used in combination with EdgeDB data to make correct bucketing decisions before returning the
-variable's value.
+Variable's value.
 
 ## Realtime Updates
 
@@ -186,12 +186,13 @@ devcycleClient, err := devcycle.NewClient(sdkKey, &options)
 
 ## Evaluation Hooks
 
-Using evaluation hooks, you can hook into the lifecycle of a variable evaluation to execute code before and after execution of the evaluation.
+Using evaluation hooks, you can hook into the lifecycle of a Variable evaluation to execute code before and after execution of the evaluation.
 
-**Note**: Each evaluation will wait for all hooks before returning the variable evaluation, which depending on the complexity of the hooks will cause slower function call times. This also may lead to blocking variable evaluations in the future until all hooks return depending on the volume of calls to `.variable`.
+**Note**: Each evaluation will wait for all hooks before returning the Variable evaluation, which depending on the complexity of the hooks will cause slower function call times. This also may lead to blocking Variable evaluations in the future until all hooks return depending on the volume of calls to `.variable`.
 
-> [!WARNING]
-> Do not call any variable evaluation functions (.variable/variableValue) in any of the hooks, as it may cause infinite recursion.
+:::warning
+    Do not call any Variable evaluation functions (.variable/.variableValue) in any of the hooks, as it may cause infinite recursion.
+:::
 
 To add a hook:
 

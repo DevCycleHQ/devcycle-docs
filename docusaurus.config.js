@@ -53,6 +53,8 @@ const DVC_CLI_VERSION = 'v6.0.1' // auto updated by dvc cli release workflow
 
 const VSCODE_EXTENSION_VERSION = 'v1.4.10' // auto updated by extension release workflow
 
+const AI_PROMPTS_VERSION = 'main' // AI prompts repository branch
+
 const removeDocsSections = (content, sectionNames, headerIdentifier = '##') => {
   let result = content
   for (const sectionName of sectionNames) {
@@ -271,6 +273,47 @@ const config = {
         }),
       },
     ],
+    [
+      'docusaurus-plugin-remote-content',
+      {
+        name: 'ai-prompts',
+        sourceBaseUrl: `https://raw.githubusercontent.com/DevCycleHQ/AI-Prompts-And-Rules/${AI_PROMPTS_VERSION}/install-prompts/`,
+        // Output into static so we can import via raw-loader and not compile as docs
+        outDir: 'static/ai-prompts',
+        documents: [
+          'android-openfeature.md',
+          'android.md',
+          'angular.md',
+          'dotnet-openfeature.md',
+          'dotnet.md',
+          'flutter.md',
+          'go-openfeature.md',
+          'go.md',
+          'ios-openfeature.md',
+          'ios.md',
+          'java-openfeature.md',
+          'java.md',
+          'javascript-openfeature.md',
+          'javascript.md',
+          'nestjs-openfeature.md',
+          'nestjs.md',
+          'nextjs.md',
+          'nodejs-openfeature.md',
+          'nodejs.md',
+          'php-openfeature.md',
+          'php.md',
+          'python-openfeature.md',
+          'python.md',
+          'react-native.md',
+          'react-openfeature.md',
+          'react.md',
+          'roku.md',
+          'ruby-openfeature.md',
+          'ruby.md',
+        ],
+        performCleanup: true,
+      },
+    ],
   ],
 
   presets: [
@@ -381,9 +424,9 @@ const config = {
       ],
     },
     algolia: {
-      appId: '6TW93YPS4X',
-      apiKey: '2a9dbde35586f5ae29571b19dacc71c6', // Public API key: it is safe to commit it
-      indexName: 'prod_DEVCYCLE_DOCS',
+      appId: 'JGOR5DGG3D',
+      apiKey: 'da4a01ced1f7fb787b8a39cc7a719adf', // Public API key: it is safe to commit it
+      indexName: 'DevCycle Documentation',
       contextualSearch: true,
     },
     navbar: {

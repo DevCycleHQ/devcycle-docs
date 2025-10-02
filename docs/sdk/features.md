@@ -26,7 +26,7 @@ functionality that DevCycle supports across the SDKs.
 ### Client-Side SDKs
 
 For most client-side SDKs, the only required parameters to initialize the SDK are the SDK Key and the current user.
-The SDK key is unique to each project and environment and can be found in the DevCycle dashboard.
+The SDK key is unique to each Project and Environment and can be found in the DevCycle dashboard.
 The current user is determined by you, and should contain any details about the user that you require for your targeting
 logic.
 
@@ -37,7 +37,7 @@ const devcycleClient = initializeDevCycle('<DEVCYCLE_CLIENT_SDK_KEY>', user)
 ```
 
 SDKs also offer a way to wait for initialization to finish, meaning that the DevCycle configuration has been obtained
-and the SDK is ready to return the correct variable values for the given user.
+and the SDK is ready to return the correct Variable values for the given user.
 
 Here is a Javascript example:
 
@@ -53,16 +53,16 @@ When initialized, each client-side SDK will cache the retrieved configuration fo
 This cache will be used in scenarios where on subsequent initializations a new configuration is not available.
 This may be due to a lack of internet connection or a lack of connection to DevCycle.
 
-Additionally, if the SDK is interacted with before any initialization (such as attempting to read a variable far
+Additionally, if the SDK is interacted with before any initialization (such as attempting to read a Variable far
 early on in an application before initialization), the cached value will be read.
 
-If a variable is first read from the cache and has a listener for [realtime updates](#realtime-updates), if a
-new value is retrieved after initialization, the `onUpdate` function will be triggered.
+If a Variable is first read from the cache and you've implemented a listener for [realtime updates](#realtime-updates), once a
+new value is retrieved after initialization, the `onUpdate` function on the Variable will be triggered and return updated values.
 
 ### Server-Side SDKs
 
 For most server-side SDKs, the only required parameter to initialize the SDK is the SDK Key.
-The SDK key is unique to each project and environment and can be found in the DevCycle dashboard.
+The SDK key is unique to each Project and Environment and can be found in the DevCycle dashboard.
 
 A typical initialization call looks like this
 
@@ -71,7 +71,7 @@ const devcycleClient = initializeDevCycle('<DEVCYCLE_SERVER_SDK_KEY>')
 ```
 
 SDKs also offer a way to wait for initialization to finish, meaning that the DevCycle configuration has been obtained
-and the SDK is ready to return the correct variable values for the given user.
+and the SDK is ready to return the correct Variable values for the given user.
 
 Here is a Javascript example:
 
@@ -106,9 +106,9 @@ The default value will be returned in the following scenarios:
 
 - The SDK has not yet finished initializing and obtaining a configuration from DevCycle
 - There was an error reaching the DevCycle servers and the configuration could not be obtained
-- The variable does not exist in DevCycle
-- The default value's type does not align with the type of the variable being served from DevCycle. For example, a Boolean default value
-  will be used if the DevCycle configuration is trying to set this variable to a String value. This preserves type safety and prevents the remote
+- The Variable does not exist in DevCycle
+- The default value's type does not align with the type of the Variable being served from DevCycle. For example, a Boolean default value
+  will be used if the DevCycle configuration is trying to set this Variable to a String value. This preserves type safety and prevents the remote
   configuration from breaking your application at runtime.
 - The SDK has finished initializing, but the user has not been targeted for a Feature that controls this Variable
 
@@ -116,9 +116,32 @@ For more information on how the default value is used, see [Variable Defaults](/
 
 ## Evaluation Reasons
 
-When a Variable is evaluated in DevCycle, the response includes metadata explaining **why** a specific Variation's value was returned. This is captured in the `eval` object, which helps teams debug and understand feature flag decisions more effectively.
+When a Variable is evaluated in DevCycle, the response includes metadata explaining **why** a specific Variation's value was returned. This is captured in the `eval` object, which helps teams debug and understand Feature Flag decisions more effectively.
 
 DevCycle extends the [OpenFeature Evaluation Details](https://openfeature.dev/specification/types/#evaluation-details) structure with additional reason types and optional fields for richer context.
+
+### Supported SDKs
+
+| SDK / Platform                                            | Minimum Version with `eval` metadata |
+| --------------------------------------------------------- | ------------------------------------ |
+| [Android](/sdk/client-side-sdks/android)                  | 2.5.0                                |
+| [Flutter](/sdk/client-side-sdks/flutter)                  | 1.11.0                               |
+| [iOS](/sdk/client-side-sdks/ios)                          | 1.24.0                               |
+| [JavaScript (Web)](/sdk/client-side-sdks/javascript)      | 1.41.0                               |
+| [Next.js](/sdk/client-side-sdks/nextjs)                   | 2.17.0                               |
+| [NestJS](/sdk/server-side-sdks/nestjs)                    | 0.26.0                               |
+| [React](/sdk/client-side-sdks/react)                      | 1.39.0                               |
+| [React Native](/sdk/client-side-sdks/react-native)        | 2.16.0                               |
+| [React Native (Expo)](/sdk/client-side-sdks/react-native) | 2.16.0                               |
+| [Go Server](/sdk/server-side-sdks/go)                     | v2.23.0                              |
+| [Java Server](/sdk/server-side-sdks/java)                 | 2.8.0                                |
+| [JavaScript Server (Cloud)](/sdk/server-side-sdks/node)   | 1.27.0                               |
+| [Node.js Server (Local)](/sdk/server-side-sdks/node)      | 1.41.0                               |
+| [.NET Server (Cloud)](/sdk/server-side-sdks/dotnet)       | 3.6.0                                |
+| [.NET Server (Local)](/sdk/server-side-sdks/dotnet)       | 4.6.0                                |
+| [PHP Server](/sdk/server-side-sdks/php)                   | 2.2.0                                |
+| [Python Server](/sdk/server-side-sdks/python)             | 3.12.0                               |
+| [Ruby Server](/sdk/server-side-sdks/ruby)                 | 3.7.0                                |
 
 ### Evaluation Object Format
 
@@ -143,11 +166,11 @@ The reason field reflects the primary reason a particular value was served. Here
 | Reason            | Description                                                                                                                                        | Examples of `details` Property                                                                                                   |
 | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | `DEFAULT`         | Returned when the default value was used. This may occur due to a type mismatch, a missing configuration, or an error in evaluation logic.         | - Type Mismatch<br/>- User Not Targeted<br/>- _(no details if unknown)_                                                          |
-| `TARGETING_MATCH` | Indicates the user matched a targeting rule or audience and was served the corresponding variation.                                                | - Audience Match → Country AND Email AND App Version<br/>- Custom Data → full_country<br/>- Country AND Custom Data → isBetaUser |
-| `SPLIT`           | The user matched targeting rules and was bucketed into a variation using a percentage rollout or random distribution. Implies a `TARGETING_MATCH`. | - Rollout \| Custom Data → full_country<br/>- Random Distribution \| isBetaUser                                                  |
+| `TARGETING_MATCH` | Indicates the user matched a targeting rule or audience and was served the corresponding Variation.                                                | - Audience Match → Country AND Email AND App Version<br/>- Custom Data → full_country<br/>- Country AND Custom Data → isBetaUser |
+| `SPLIT`           | The user matched targeting rules and was bucketed into a Variation using a percentage rollout or random distribution. Implies a `TARGETING_MATCH`. | - Rollout \| Custom Data → full_country<br/>- Random Distribution \| isBetaUser                                                  |
 | `OVERRIDE`        | The result was manually overridden via API/CLI override or self-targeting, typically in local development or QA.                                   | - Override                                                                                                                       |
-| `OPT_IN`          | The user explicitly opted into (or out of) a specific variation using DevCycle’s Opt-In feature.                                                   | - Opt-In                                                                                                                         |
-| `ERROR`           | An error occurred during evaluation, resulting in the default value being served.                                                                  | - Missing environment config<br/>- SDK not initialized                                                                           |
+| `OPT_IN`          | The user explicitly opted into (or out of) a specific Variation using DevCycle’s Opt-In feature.                                                   | - Opt-In                                                                                                                         |
+| `ERROR`           | An error occurred during evaluation, resulting in the default value being served.                                                                  | - Missing Environment config<br/>- SDK not initialized                                                                           |
 
 #### Additional Notes
 
@@ -156,7 +179,7 @@ The reason field reflects the primary reason a particular value was served. Here
 
 ## Getting All Features
 
-The "Get All Features" function in an SDK will return a map of all the features that the user is currently receiving.
+The "Get All Features" function in an SDK will return a map of all the Features that the user is currently receiving.
 The response is the following general format, with slight changes depending on the specifics of the SDK:
 
 ```json
@@ -180,14 +203,12 @@ The response is the following general format, with slight changes depending on t
 }
 ```
 
-Only Features that the User has satisfied [targeting rules](/platform/feature-flags/targeting/targeting-overview) for will be returned by this function.
-The feature must also be **enabled** for that environment.
+Only Features that the User has satisfied [Targeting Rules](/platform/feature-flags/targeting/targeting-overview) for will be returned by this function.
+The Feature must also be **enabled** for that Environment.
 
 ## Getting all Variables
 
-The "Get All Variables" function in an SDK will return a map of all the Variables that the user is receiving.
-
-The response is the following general format, with slight changes depending on the specifics of the SDK:
+The "Get All Variables" function in an SDK will return a map of all the Variables that the user is receiving. The response is the following general format, with slight changes depending on the specifics of the SDK:
 
 ```json
 {
@@ -206,22 +227,21 @@ The response is the following general format, with slight changes depending on t
 }
 ```
 
-Only Variables in Features that the user has satisfied [targeting rules](/platform/feature-flags/targeting/targeting-overview) for will be part of the response in this method.
-The Feature must also be **enabled** for the environment this SDK is being called on.
+Only Variables in Features that the user has satisfied [Targeting Rules](/platform/feature-flags/targeting/targeting-overview) for will be part of the response in this method.
+The Feature must also be **enabled** for the Environment this SDK is being called on.
 
 :::caution
 
 This method is intended to be used for debugging and analytics purposes, _not_ as a method for retrieving the value of Variables to change code behaviour.
-For that purpose, we strongly recommend using the individual variable access method described in [Evaluating Features & Using Variables](#evaluating-features--using-variables)
-Using this method instead will result in no evaluation events being tracked for individual variables, and will not allow the use
-of other DevCycle features such as [Code Usage detection](/integrations/github/feature-usage-action)
+For that purpose, we strongly recommend using the individual Variable access method described in [Evaluating Features & Using Variables](#evaluating-features--using-variables).
+Using the "Get All Variables" method instead will result in no evaluation events being tracked for individual Variables, which will not allow the use of other DevCycle Features such as [Code Usage detection](/integrations/github/feature-usage-action).
 
 :::
 
 ## Identifying a User or Setting Properties
 
-All SDKs have the concept of a user "identity" to be used for evaluating feature targeting rules. The Features
-that are served to a user will be a function of the targeting rules and the user data you provide to the SDK.
+All SDKs have the concept of a user "identity" to be used for evaluating Feature Targeting Rules. The Features
+that are served to a user will be a function of the Targeting Rules and the user data you provide to the SDK.
 
 :::tip
 
@@ -246,7 +266,7 @@ The user data object that you should use across SDKs should look something like 
 }
 ```
 
-The identification of users functions differently on Client SDKs vs. Server SDKs
+The identification of users functions differently on Client SDKs vs. Server SDKs.
 
 ### Client SDK Identification
 
@@ -304,7 +324,7 @@ it can be used for debugging purposes or providing guidance on evaluation reason
 
 Unlike the Client-Side SDKs, Server-Side SDKs work in a multi-user context.
 Because of this, a single Identify function does not make sense.
-Instead, you must provide the user data to each function call when evaluating variables. For example:
+Instead, you must provide the user data to each function call when evaluating Variables. For example:
 
 ```typescript
 const user = {
@@ -321,7 +341,7 @@ const myVariableValue = devcycleClient.variableValue(
 )
 ```
 
-In [Local Bucketing](#local-bucketing) mode (the default), these calls will quickly compute the variable value locally using the currently
+In [Local Bucketing](#local-bucketing) mode (the default), these calls will quickly compute the Variable value locally using the currently
 stored DevCycle configuration, and no network calls will be made.
 
 ## Tracking Custom Events
@@ -348,22 +368,18 @@ and browser privacy features to block requests and third-party cookies. Custom D
 all cookies and requests used are first-party and will not be blocked by ensuring requests are sent through your
 recognized domain. A DNS CNAME needs to be created to leverage this feature.
 
-:::info
+:::info Setting Up Custom Domains
 
-**Setting Up Custom Domains:**
-
-Custom Domains are available to those on a business or enterprise plan and require manual setup on both your end as well as DevCycle's. If you are interested in getting set up, please reach out to support@devcycle.com and take a look at the following doc which will guide you through the steps required.
+Custom Domains are available to those on a business or enterprise plan and require manual setup on both your end as well as DevCycle's. If you are interested in getting set up, please read more on our **[Custom Domains](/platform/extras/custom-domains)** page, and reach out to support@devcycle.com with the required details.
 
 :::
-
-For instructions on setting up a custom domain, see [Custom Domains](/platform/extras/custom-domains).
 
 ## Realtime Updates
 
 All DevCycle SDKs are capable of being notified in realtime that new configuration changes have been made in the DevCycle platform.
-DevCycle leverages Server-Sent Events (SSE) to notify the SDKs that a feature (targeting rules, variable values, etc.)
+DevCycle leverages Server-Sent Events (SSE) to notify the SDKs that a Feature (Targeting Rules, Variable values, etc.)
 has been updated and that they should fetch the new configuration. A connection URL is included in the config that the SDK fetches,
-triggering the SDK to open a connection with our SSE provider and listen for any changes in the given environment.
+triggering the SDK to open a connection with our SSE provider and listen for any changes in the given Environment.
 
 ### SDK Specifics
 
@@ -377,11 +393,11 @@ If the user backgrounds the application for some period of time, the SDK will di
 
 #### Server-Side SDKs
 
-If the server loses its connection it will be re-opened it will be re-opened automatically after a configurable interval.
+If the server loses its connection it will be re-opened automatically after a configurable interval.
 
 ## Local and Cloud Bucketing
 
-Server SDKs have two modes, "Local Bucketing" and "Cloud Bucketing":
+Server SDKs have two modes, "Local Bucketing" and "Cloud Bucketing".
 
 ### Local Bucketing
 
@@ -402,7 +418,7 @@ is the recommended mode.
 
 ## Server SDK Diagrams
 
-The following diagrams illustrate the initialization flow, and logical background processes created/managed by the SDKs.
+The following diagrams illustrate the initialization flow, and logical background processes created/managed by the SDKs. For more information on the architecture of DevCycle services and SDKs, visit the [System Architecture](/essentials/architecture) page.
 
 ### Initialization Flow
 
