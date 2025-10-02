@@ -209,21 +209,15 @@ Close and reopen Claude Desktop for the changes to take effect.
 
 Locate and edit your OpenAI Codex CLI configuration file:
 
-- **macOS/Linux**: `~/.config/codex/config.json`
-- **Windows**: `%APPDATA%\codex\config.json`
+- **All platforms**: `~/.codex/config.toml`
 
 **Step 2: Add DevCycle MCP Server**
 
-Add or merge the following configuration to enable the DevCycle MCP server:
+Add the following TOML configuration to enable the DevCycle MCP server:
 
-```json
-{
-  "mcpServers": {
-    "devcycle": {
-      "url": "https://mcp.devcycle.com/mcp"
-    }
-  }
-}
+```toml
+[mcp_servers.devcycle]
+url = "https://mcp.devcycle.com/mcp"
 ```
 
 **Step 3: Restart Codex CLI**
@@ -239,6 +233,43 @@ Restart your Codex CLI session for the changes to take effect.
 5. Return to the Codex CLI where the DevCycle MCP tools will be active
 
 For more details, see the [OpenAI Codex MCP documentation](https://github.com/openai/codex/blob/main/docs/config.md#mcp-servers).
+
+</TabItem>
+<TabItem value="gemini" label="Gemini CLI">
+
+**Step 1: Access MCP Configuration**
+
+Locate and edit your Gemini CLI settings file:
+
+- **All platforms**: `~/.gemini/settings.json`
+
+**Step 2: Add DevCycle MCP Server**
+
+Add or merge the following configuration to enable the DevCycle MCP server:
+
+```json
+{
+  "mcpServers": {
+    "devcycle": {
+      "url": "https://mcp.devcycle.com/mcp"
+    }
+  }
+}
+```
+
+**Step 3: Restart Gemini CLI**
+
+Restart your Gemini CLI session for the changes to take effect.
+
+**Step 4: Authentication**
+
+1. When you first use DevCycle MCP tools, the Gemini CLI will prompt for authentication
+2. This will open a browser page at `mcp.devcycle.com` for authorization
+3. Review and click **"Allow Access"** to grant permissions
+4. If you have multiple organizations, select your desired organization at `auth.devcycle.com`
+5. Return to the Gemini CLI where the DevCycle MCP tools will be active
+
+For more details, see the [Gemini CLI MCP documentation](https://github.com/google-gemini/gemini-cli/blob/main/docs/tools/mcp-server.md#how-to-set-up-your-mcp-server).
 
 </TabItem>
 </Tabs>
