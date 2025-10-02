@@ -25,6 +25,8 @@ https://mcp.devcycle.com/mcp
 https://mcp.devcycle.com/sse
 ```
 
+**MCP Registry**: If you're using [registry.modelcontextprotocol.io](https://registry.modelcontextprotocol.io), the DevCycle MCP is listed as: `com.devcycle/mcp`
+
 :::info
 
 These instructions use the remote DevCycle MCP server. For installation of the local MCP server, see the [reference docs](/cli-mcp/mcp-reference#local-mcp-server-installation).
