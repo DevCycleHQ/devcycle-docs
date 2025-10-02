@@ -203,6 +203,44 @@ Close and reopen Claude Desktop for the changes to take effect.
    - Return to Windsurf where DevCycle will show as "Enabled" with all tools available which can be configured independently
 
 </TabItem>
+<TabItem value="codex" label="Codex CLI">
+
+**Step 1: Access MCP Configuration**
+
+Locate and edit your OpenAI Codex CLI configuration file:
+
+- **macOS/Linux**: `~/.config/codex/config.json`
+- **Windows**: `%APPDATA%\codex\config.json`
+
+**Step 2: Add DevCycle MCP Server**
+
+Add or merge the following configuration to enable the DevCycle MCP server:
+
+```json
+{
+  "mcpServers": {
+    "devcycle": {
+      "url": "https://mcp.devcycle.com/mcp"
+    }
+  }
+}
+```
+
+**Step 3: Restart Codex CLI**
+
+Restart your Codex CLI session for the changes to take effect.
+
+**Step 4: Authentication**
+
+1. When you first use DevCycle MCP tools, the Codex CLI will prompt for authentication
+2. This will open a browser page at `mcp.devcycle.com` for authorization
+3. Review and click **"Allow Access"** to grant permissions
+4. If you have multiple organizations, select your desired organization at `auth.devcycle.com`
+5. Return to the Codex CLI where the DevCycle MCP tools will be active
+
+For more details, see the [OpenAI Codex MCP documentation](https://github.com/openai/codex/blob/main/docs/config.md#mcp-servers).
+
+</TabItem>
 </Tabs>
 
 <br></br>
