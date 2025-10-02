@@ -339,24 +339,15 @@ export DEVCYCLE_CLIENT_SECRET="your-client-secret"
 export DEVCYCLE_PROJECT_KEY="your-project-key"
 ```
 
-#### Configuration
+#### AI Editor Configuration
 
-**For Cursor (Local MCP Server)** (`.cursor/mcp_settings.json`):
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-```json
-{
-  "mcpServers": {
-    "devcycle": {
-      "command": "dvc-mcp"
-    }
-  }
-}
-```
+<Tabs groupId="mcp-clients">
+<TabItem value="cursor" label="Cursor" default>
 
-**For Claude Desktop (Local MCP Server):**
-
-- macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
-- Windows: `%APPDATA%\Claude\claude_desktop_config.json`
+Add the following to your `~/.cursor/mcp_settings.json` file:
 
 ```json
 {
@@ -368,7 +359,10 @@ export DEVCYCLE_PROJECT_KEY="your-project-key"
 }
 ```
 
-**For VS Code** (`settings.json`):
+</TabItem>
+<TabItem value="vscode" label="VS Code">
+
+Add the following to your `settings.json` file:
 
 ```json
 {
@@ -380,13 +374,37 @@ export DEVCYCLE_PROJECT_KEY="your-project-key"
 }
 ```
 
-**For Claude Code:**
+</TabItem>
+<TabItem value="claude-code" label="Claude Code">
+
+Run the following command:
 
 ```bash
 claude mcp add --transport stdio devcycle dvc-mcp
 ```
 
-**For Windsurf:**
+</TabItem>
+<TabItem value="claude" label="Claude Desktop">
+
+Locate and edit your Claude Desktop configuration file:
+
+- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+
+Add the following configuration:
+
+```json
+{
+  "mcpServers": {
+    "devcycle": {
+      "command": "dvc-mcp"
+    }
+  }
+}
+```
+
+</TabItem>
+<TabItem value="windsurf" label="Windsurf">
 
 In Windsurf Settings → Cascade → Manage MCPs → View raw config:
 
@@ -399,6 +417,38 @@ In Windsurf Settings → Cascade → Manage MCPs → View raw config:
   }
 }
 ```
+
+</TabItem>
+<TabItem value="codex" label="Codex CLI">
+
+Locate and edit your configuration file at `~/.codex/config.toml`:
+
+```toml
+[mcp_servers.devcycle]
+command = "dvc-mcp"
+```
+
+For more details, see the [OpenAI Codex MCP documentation](https://github.com/openai/codex/blob/main/docs/config.md#mcp-servers).
+
+</TabItem>
+<TabItem value="gemini" label="Gemini CLI">
+
+Locate and edit your configuration file at `~/.gemini/settings.json`:
+
+```json
+{
+  "mcpServers": {
+    "devcycle": {
+      "command": "dvc-mcp"
+    }
+  }
+}
+```
+
+For more details, see the [Gemini CLI MCP documentation](https://github.com/google-gemini/gemini-cli/blob/main/docs/tools/mcp-server.md#how-to-set-up-your-mcp-server).
+
+</TabItem>
+</Tabs>
 
 ## Error Handling
 
