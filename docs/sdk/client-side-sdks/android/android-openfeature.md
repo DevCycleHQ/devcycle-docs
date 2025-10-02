@@ -51,7 +51,7 @@ implementation("dev.openfeature:kotlin-sdk:0.6.2+")
 <dependency>
     <groupId>dev.openfeature</groupId>
     <artifactId>kotlin-sdk</artifactId>
-    <version>0.4.1+</version>
+    <version>0.6.2+</version>
     <scope>compile</scope>
 </dependency>
 ```
