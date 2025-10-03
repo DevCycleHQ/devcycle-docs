@@ -14,4 +14,4 @@ https://www.youtube.com/watch?v=CA83Ea2JB3o&ab_channel=DevCycleHQ
 
 ## Reference
 
-For a list of all available DevCycle MCP tools, visit our [MCP References](/cli-mcp/mcp-reference) page.
+For a list of all available DevCycle MCP tools, visit our [MCP Reference](/cli-mcp/mcp-reference) page.
