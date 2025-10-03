@@ -56,11 +56,11 @@ implementation("dev.openfeature:kotlin-sdk:0.6.2+")
 </dependency>
 ```
 
-This package automatically includes the OpenFeature Android SDK as a dependency.
+This package automatically includes the OpenFeature Android Kotlin SDK as a dependency.
 
 ## Getting Started
 
-Initialize the `DevCycleProvider` with your `<DEVCYCLE_MOBILE_SDK_KEY>` and set it as the provider for OpenFeature, which will initialize the DevCycle Android SDK internally:
+Initialize the `DevCycleProvider` with your `<DEVCYCLE_MOBILE_SDK_KEY>` and set it as the provider for OpenFeature, which will initialize the DevCycle Android Kotlin SDK internally:
 
 ### Kotlin Example
 
@@ -290,7 +290,7 @@ val objVar = ofClient.getObjectValue(
 
 ### Tracking Events
 
-The OpenFeature Android SDK supports tracking events through the `track` method. You can track custom events with optional numeric values and metadata:
+The OpenFeature Android Kotlin SDK supports tracking events through the `track` method. You can track custom events with optional numeric values and metadata:
 
 ```kotlin
 val client = OpenFeatureAPI.getClient()
