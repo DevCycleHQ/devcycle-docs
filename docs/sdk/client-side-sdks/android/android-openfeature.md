@@ -35,8 +35,8 @@ The DevCycle OpenFeature Provider is included in the main Android SDK. To add it
 ### Gradle
 
 ```gradle
-implementation("com.devcycle:android-client-sdk:2.6.0+")
-implementation("dev.openfeature:android-sdk:0.4.1+")
+implementation("com.devcycle:android-client-sdk:2.7.0+")
+implementation("dev.openfeature:kotlin-sdk:0.6.2+")
 ```
 
 ### Maven
@@ -45,13 +45,13 @@ implementation("dev.openfeature:android-sdk:0.4.1+")
 <dependency>
     <groupId>com.devcycle</groupId>
     <artifactId>android-client-sdk</artifactId>
-    <version>2.6.0+</version>
+    <version>2.7.0+</version>
     <scope>compile</scope>
 </dependency>
 <dependency>
     <groupId>dev.openfeature</groupId>
-    <artifactId>android-sdk</artifactId>
-    <version>0.4.1+</version>
+    <artifactId>kotlin-sdk</artifactId>
+    <version>0.6.2+</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -66,7 +66,7 @@ Initialize the `DevCycleProvider` with your `<DEVCYCLE_MOBILE_SDK_KEY>` and set 
 
 ```kotlin
 import com.devcycle.sdk.android.openfeature.DevCycleProvider
-import dev.openfeature.sdk.*
+import dev.openfeature.kotlin.sdk.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -102,7 +102,7 @@ coroutineScope.launch(Dispatchers.IO) {
 
 ```java
 import com.devcycle.sdk.android.openfeature.DevCycleProvider;
-import dev.openfeature.sdk.*;
+import dev.openfeature.kotlin.sdk.*;
 
 // Create evaluation context
 Map<String, Value> attributes = new HashMap<>();
