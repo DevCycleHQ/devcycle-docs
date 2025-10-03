@@ -35,7 +35,7 @@ The DevCycle OpenFeature Provider is included in the main Android SDK. To add it
 ### Gradle
 
 ```gradle
-implementation("com.devcycle:android-client-sdk:2.7.0+")
+implementation("com.devcycle:android-client-sdk:2.6.3+")
 implementation("dev.openfeature:kotlin-sdk:0.6.2+")
 ```
 
