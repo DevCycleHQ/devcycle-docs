@@ -22,3 +22,12 @@ The results shown are the type of event, the environment it was triggered in, th
 You can click `View Details` to see the full user object.
 
 ![image of slideover](/live-events-slideover.png)
+
+### Event Types
+
+| Event Type        | Description                                                                                                                                                                                              |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| variableEvaluated | Triggered when a variable is successfully evaluated. Shows which variable key and value were returned, along with the evaluation reason.                                                                 |
+| variableDefaulted | Triggered when a variable evaluation fails and a default value is returned. Useful for identifying misconfigurations or missing SDK contexts.                                                            |
+| customEvent       | Triggered when a custom event is tracked by the SDK (e.g., clicks, conversions, or other user actions) - [Learn more about Custom Events](https://docs.devcycle.com/sdk/features#tracking-custom-events) |
+| userConfig        | The SDK fetched a config for the user. This could be due to a real-time update or a change in user properties.                                                                                           |
