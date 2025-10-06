@@ -5,6 +5,10 @@ sidebar_position: 1
 
 The **Evaluation Lookup** debugging tool lets you view historical Variable Evaluation data for your users. It shows which Features and Variables a user received at a given point in time, along with the reasoning behind that configuration.
 
+:::warning
+Ad blockers may prevent you from seeing events sent to DevCycle, as such the Debug Tools may not show the full picture of events.
+:::
+
 Why use it?
 
 - Verify that a user received a specific Feature, Variable or Variation.
