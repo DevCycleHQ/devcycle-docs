@@ -5,27 +5,31 @@ sidebar_position: 5
 
 # Roles & Permissions
 
-At DevCycle, our permission model is designed to protect production while supporting secure and scalable team collaboration. We offer flexible, role-based access controls that can be applied both at the organization and project level—allowing you to tailor access based on how your teams operate.
+At DevCycle, our permissions model is designed to protect production while supporting secure and scalable team collaboration. We offer flexible, role-based access controls that can be applied both at the Organization and Project level—allowing you to tailor access based on how your teams operate.
 
-Permissions can be enabled for Organizations on our **Business** or **Enterprise** plans. Please contact our [support](mailto:support@devcycle.com) team to get started.
-
-:::info
-Permissions enforcement will apply to all Projects and Production-type Environments within your Organization.
-:::
+Permissions are available for Organizations on our **Business** or **Enterprise** plans. You can visit our [pricing](https://devcycle.com/pricing) page or contact our [support](mailto:support@devcycle.com) team to learn more about our plans.
 
 ## Permission Levels Overview
 
 DevCycle supports multiple levels of permission enforcement:
 
-- **Flat Access (default)**: All users have full access across all projects
-- **Basic Permissions**: Org-wide roles that protect production environments (Business and Enterprise plans)
-- **Full Role-Based Access Control (RBAC)**: Fine-grained permissions managed at the project level (Enterprise plans only)
+- **Flat Access (default)**: All users have full access across all Projects
+- **Basic Permissions**: Org-wide roles that protect production Environments (Business and Enterprise plans)
+- **Full Role-Based Access Control (RBAC)**: Fine-grained permissions managed at the Project level (Enterprise plans only)
+
+:::info
+Permissions enforcement will apply to all Projects and Production-type Environments within your Organization.
+:::
 
 ---
 
 ## Basic Permissions (Organization-Wide Roles)
 
-Basic permissions apply at the **organization level** and are available to all Business and Enterprise customers. The principle behind basic permissions is to protect Production environments while keeping permissions and their management as lightweight as possible. This level is perfect for teams that want to be able to move fast but still require some governance protections to be in place.
+Basic permissions apply at the **Organization level** and are available to all Business and Enterprise customers. The principle behind basic permissions is to protect Production Environments while keeping permissions and their management as lightweight as possible. This level is perfect for teams that want to be able to move fast but still require some governance protections to be in place.
+
+:::info
+To enable basic permissions, navigate to your Organization Settings page and enable it under the permissions dropdown.
+:::
 
 The roles available with Basic Permissions are:
 
@@ -61,7 +65,7 @@ Everything Members can do, plus:
 Everything Publishers can do, plus:
 
 #### Can ✅
-- Manage roles of all users in the organization
+- Manage roles of all users in the Organization
 - Administer billing
 
 ### Assigning Roles
@@ -74,25 +78,27 @@ For the user to have the new permission level available to them they will need t
 
 ## Full Role-Based Access Control (Project-Level Roles – Enterprise Only)
 
-For organizations managing multiple teams or business units, DevCycle offers **project-level RBAC** on Enterprise plans. This allows you to manage roles granularly, granting access only to the specific workspaces your team members need with the requisite roles they need in each of those workspaces.
+For Organizations managing multiple teams or business units, DevCycle offers **Project-level RBAC** on Enterprise plans. This allows you to manage roles granularly, granting access only to the specific workspaces your team members need with the requisite roles they need in each of those workspaces.
 
 With Role-Based Access Control, you can:
 
-- Scope access to individual projects
-- Prevent cross-project visibility and restrict access to only the projects a user is assigned
+- Scope access to individual Projects
+- Prevent cross-project visibility and restrict access to only the Projects a user is assigned
 - Align access with your SSO groups and SCIM-based provisioning
 
 This enables centralized identity and access management with decentralized control, especially when integrated with providers like Azure AD or Okta.
 
 :::info
-To configure SSO and SCIM-based provisioning, please contact [support](mailto:support@devcycle.com).
+To enable and configure SSO and SCIM-based provisioning, please contact our [support](mailto:support@devcycle.com) team.
 :::
 
 ### Role Matrix
 
-The table below outlines actions available to each role across organization and project levels.
+The table below outlines actions available to each role across Organization and Project levels.
 
-> **Note**: All actions affecting **Production Environments** are restricted for roles below `Publisher`.
+:::note 
+All actions affecting **Production Environments** are restricted for roles below `Publisher`.
+:::
 
 | Action                        | Viewer   | Member                 | Publisher   | Project Admin   | Org Admin   | Org Owner   |
 |:------------------------------|:---------|:-----------------------|:------------|:----------------|:------------|:------------|
@@ -160,6 +166,6 @@ For Enterprise customers using identity providers (IdPs) like Azure AD or Okta, 
 - Users are automatically assigned the correct roles upon login
 - Centralized IT control, local team autonomy
 
-This streamlines onboarding/offboarding and ensures the principle of least privilege is maintained.
+This streamlines onboarding and offboarding, and ensures the principle of least privilege is maintained.
 
-To get started with Role-Based Access Control, contact [support](mailto:support@devcycle.com).
+To get started with Role-Based Access Control, contact our [support](mailto:support@devcycle.com) team.
