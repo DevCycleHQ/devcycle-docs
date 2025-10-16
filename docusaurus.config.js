@@ -351,12 +351,12 @@ const config = {
         specs: [
           {
             id: 'management-api',
-            spec: 'https://api.devcycle.com/swagger.json',
+            spec: 'https://api.devcycle.com/openapi.json',
             route: '/management-api/',
           },
           {
             id: 'bucketing-api',
-            spec: 'bucketing-api.yaml',
+            spec: 'https://bucketing-api.devcycle.com/openapi.yaml',
             route: '/bucketing-api/',
           },
         ],
