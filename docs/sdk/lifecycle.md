@@ -41,7 +41,7 @@ assist with the upgrade process.
 
 ## End of Support (EOS)
 
-SDK versions automatically transition to EOS status 6 months after a new major version is released
+SDK versions automatically transition to EOS status 6 months after a new major version is released.
 When an SDK version reaches its end of support, we cannot guarantee technical support for that
 version.
 
