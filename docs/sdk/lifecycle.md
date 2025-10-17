@@ -16,7 +16,7 @@ of `MAJOR.MINOR.PATCH`, where:
 
 - **MAJOR** version is incremented for incompatible API changes,
 - **MINOR** version is incremented for adding functionality in a backwards-compatible manner, and
-- **PATCH** version is incremented for optional bug-fixes and security updates.
+- **PATCH** version is incremented for optional bug fixes and security updates.
 
 For our SDKs, the latest version is defined as the highest MAJOR.MINOR version available. To see the latest version of
 each SDK, visit the respective SDK GitHub repository or package manager page in the case of JS/Node SDKs.
