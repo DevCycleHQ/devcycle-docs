@@ -5,7 +5,7 @@ sidebar_position: 2
 
 # SDK Release Lifecycle
 
-DevCycle Supports each SDK version according to the policies outlined below. If an SDK is out of support, we recommend
+DevCycle supports each SDK version according to the policies outlined below. If an SDK is out of support, we recommend
 upgrading to a supported version to ensure you have access to the latest features, improvements, and security updates.
 
 We only backport critical bug fixes and security patches to previous major versions of our SDKs. New features and
