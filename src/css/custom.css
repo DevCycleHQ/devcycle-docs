@@ -299,6 +299,10 @@ html[data-theme='dark'] .DocSearch {
   background-image: url(../../static/sidebar/best-practices.svg);
 }
 
+.section-title.lifecycle > div > a::before {
+  background-image: url(../../static/sidebar/roadmap.svg);
+}
+
 .responsiveCal {
   position: relative;
   padding-bottom: 75%;
