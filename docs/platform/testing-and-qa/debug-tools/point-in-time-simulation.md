@@ -11,7 +11,7 @@ This is only a simulation, the results are not a historical record of what they 
 To check what users actually received, use the Evaluation Lookup tab.
 :::
 
-### Why use it?
+#### Why use it?
 
 - Determine what Features and Variables were active for a given user at a particular date in the past
 - Mock user or device data to test which Feature configurations a user should receive at a certain point in time
