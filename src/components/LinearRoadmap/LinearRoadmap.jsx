@@ -16,7 +16,7 @@ const LinearRoadmap = () => {
   const fetchInitiatives = async () => {
     if (!LINEAR_API_KEY) {
       setError(
-        'An error occurred while fetching the roadmap projects. Please try again later.',
+        'An error occurred while fetching the roadmap projects. Please try again sooner or later.',
       )
       setLoading(false)
       return
