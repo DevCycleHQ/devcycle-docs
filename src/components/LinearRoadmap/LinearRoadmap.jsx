@@ -16,7 +16,7 @@ const LinearRoadmap = () => {
   const fetchInitiatives = async () => {
     if (!LINEAR_API_KEY) {
       setError(
-        'Linear API key not found. Please set LINEAR_API_KEY environment variable.',
+        'An error occurred while fetching the roadmap projects. Please try again later.',
       )
       setLoading(false)
       return
