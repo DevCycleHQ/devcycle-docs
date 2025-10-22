@@ -9,7 +9,7 @@ The **Evaluation Lookup** debugging tool lets you view historical Variable Evalu
 Ad blockers may prevent you from seeing events sent to DevCycle, as such the Debug Tools may not show the full picture of events.
 :::
 
-Why use it?
+#### Why use it?
 
 - Verify that a user received a specific Feature, Variable or Variation.
 - Understand the reason behind why a user did or did not receive a Feature, Variable, or Variation.
