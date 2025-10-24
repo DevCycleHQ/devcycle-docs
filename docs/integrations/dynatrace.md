@@ -2,18 +2,18 @@
 title: Dynatrace
 ---
 
-The DevCycle Dynatrace integration allows you to correlate feature flag changes and flag evaluations with your Dynatrace instance. This provides visibility into feature flag states alongside other service monitoring data, making it easier to investigate and resolve issues.
+The DevCycle Dynatrace integration allows you to correlate Feature Flag changes and Flag evaluations with your Dynatrace instance. This provides visibility into Feature Flag states alongside other service monitoring data, making it easier to investigate and resolve issues.
 
 The setup has two parts:
 
-1. **Connect DevCycle to Dynatrace**, so that **feature flag change events** appear in Dynatrace.
-2. **Configure your application** to send **flag evaluations** as part of the traces to Dynatrace
+1. **Connect DevCycle to Dynatrace**, so that **Feature Flag change events** appear in Dynatrace.
+2. **Configure your application** to send **Flag Evaluations** as part of the traces to Dynatrace
 
 ---
 
-## Part A: Setting up Dynatrace Integration on DevCycle to receive flag change updates
+## Part A: Setting up Dynatrace Integration on DevCycle to receive Flag change updates
 
-Because feature flags can change independently of deployments, they often don't show up in your observability tools. Setting up this connection ensures that feature flag changes are logged in Dynatrace.
+Because Feature Flags can change independently of deployments, they often don't show up in your observability tools. Setting up this connection ensures that Feature Flag changes are logged in Dynatrace.
 
 ### Step 1: Create a Dynatrace Access Token
 
@@ -27,7 +27,9 @@ Because feature flags can change independently of deployments, they often don't 
 
 ### Step 2: Add Dynatrace Environment in DevCycle
 
-> Note: If Permissions are enabled for your Organization, please note that only **Organization Admins** can perform this step.
+:::note
+Note: If Permissions are enabled for your Organization, only **Organization Admins** can perform this step.
+:::
 
 1. Go to your **DevCycle Organization Settings** → **Dynatrace** in the left navigation.
    ![Dynatrace Settings](/aug2025-dynatrace-settings.png)
@@ -39,11 +41,11 @@ Because feature flags can change independently of deployments, they often don't 
 
 ![Add Dynatrace Environment Modal](/aug2025-add-dynatrace-enc.png)
 
-3. Assign the Dynatrace environment in the **Project Settings** for each project you want to enable.
+3. Assign the Dynatrace Environment in the **Project Settings** for each Project you want to enable.
 
 4. In Project Settings, you'll see the **Dynatrace Integration** card.
 
-5. Enable the integration and manage environment mapping.
+5. Enable the integration and manage Environment mapping.
 
 ![Dynatrace Integration Configuration](/aug2025-dynatrace-project-settings.png)
 
@@ -53,7 +55,7 @@ Because feature flags can change independently of deployments, they often don't 
 
 ## Part B: Send Flag Evaluations from Your App
 
-To capture flag evaluations in Dynatrace traces, DevCycle SDKs now support **Evaluation Hooks**.
+To capture Flag Evaluations in Dynatrace traces, DevCycle SDKs now support **Evaluation Hooks**.
 
 Ensure you're using a supported SDK version:
 
@@ -98,16 +100,16 @@ var hook = new DynatraceOneAgentHook(new ActivitySource("DevCycle.FlagEvaluation
 client.AddEvalHook(hook);
 ```
 
-When enabled, feature flag evaluations generate spans named: `feature_flag_evaluation.{feature_key}` which will have the attributes for the evaluation.
+When enabled, Feature Flag evaluations generate spans named: `feature_flag_evaluation.{feature_key}` which will have the attributes for the evaluation.
 
 ---
 
 ## Workflows & Dashboard Setup in Dynatrace
 
-We provide a Dynatrace **workflow** and **dashboard** to help visualize and investigate feature flag data.
+We provide a Dynatrace **workflow** and **dashboard** to help visualize and investigate Feature Flag data.
 
-- **Workflow**: Automatically creates a feature flag update event for services sending spans (no need to manually map services to flags).
-- **Dashboard**: Displays flag state changes over time, including response rates, throughput, and error rates in regards to a specific feature flag for a service.
+- **Workflow**: Automatically creates a Feature Flag update event for services sending spans (no need to manually map services to Flags).
+- **Dashboard**: Displays Flag state changes over time, including response rates, throughput, and error rates in regards to a specific Feature Flag for a service.
 
 You will have to import the Workflow and Dashboard into your Dynatrace instance through the following steps.
 

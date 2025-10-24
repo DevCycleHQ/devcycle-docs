@@ -38,15 +38,15 @@ Hover over these indicators for more detail about a Variable's code references &
 
 ![Variable Status Indicator](/nov-2023-var-status-found-eval-rec.png)
 
-Depending on the Feature type, the default Variations will be pre-set. For example, the most common Feature type is a Release Flag, and it will have two variations - "Variation OFF" and "Variation ON", with the boolean Variable being set to false and true, respectively.
+Depending on the Feature type, the default Variations will be pre-set. For example, the most common Feature type is a Release Flag, and it will have two Variations - "Variation OFF" and "Variation ON", with the boolean Variable being set to false and true, respectively.
 
 :::info
-For more information on variations please visit the [variations section](/essentials/overview#variations) of the documentation.
+For more information on Variations please visit the [Variations section](/essentials/overview#variations) of the documentation.
 :::
 
 #### Global Variables Dashboard
 
-You can also view Variables through the Variables dashboard, a collection of all Variables used within a project on a single list. In more complex or longer running projects, the Variables dashboard is useful to quickly find exactly what Feature is controlling a Variable (if any).
+You can also view Variables through the Variables dashboard, a collection of all Variables used within a Project on a single list. In more complex or longer running Projects, the Variables dashboard is useful to quickly find exactly what Feature is controlling a Variable (if any).
 
 To navigate to this page, use the `Variables` button on DevCycle dashboard's top bar, which will lead you to the Variables list which will show:
 

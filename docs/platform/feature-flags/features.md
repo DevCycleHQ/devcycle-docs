@@ -3,19 +3,17 @@ title: Features
 sidebar_position: 1
 ---
 
-> Features are the main elements that you want to control or experiment with in your application. They can be anything from a new UI element to a backend algorithm.
+Features are the main elements that you want to control or experiment with in your application. They can be anything from a new UI element to a backend algorithm.
 
 :::info
 When creating a Feature in DevCycle, you will be able to choose a [Feature Type](/essentials/feature-types) which will pre-fill some options in the Feature and help kick-start your usage of the Feature.
 :::
 
----
-
 ## Managing All Features on the Feature List Page
 
 ![image of list page](/may-2025-feature-list-page.png)
 
-The Feature List Page is where all of your features can be viewed, edited, and filtered for search. This page will show all features within the current Project. The features list (sorted by created date ascending) has the following columns:
+The Feature List Page is where all of your Features can be viewed, edited, and filtered for search. This page will show all Features within the current Project. The Features list (sorted by created date ascending) has the following columns:
 
 | Column       | Description                                                                                                                                                                                               |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -23,14 +21,16 @@ The Feature List Page is where all of your features can be viewed, edited, and f
 | Feature type | The selected type of the Feature. Use this to organize your Features.                                                                                                                                     |
 | Status       | The Feature's Current [Status](/platform/feature-flags/status-and-lifecycle). This indicates the Feature's current position in the Development [LifeCycle](/platform/feature-flags/status-and-lifecycle). |
 | Name         | The Feature's name. This can be changed at any time by editing the Feature.                                                                                                                               |
-| Key          | This is the feature's Key. Use this key to reference the Feature in the SDKs or APIs.                                                                                                                     |
-| Environments | This displays which environments have Targeting Enabled. If targeting is enabled in multiple environments for a Feature, you can hover over the tag to see which environments are active.                 |
+| Key          | This is the Feature's Key. Use this key to reference the Feature in the SDKs or APIs.                                                                                                                     |
+| Environments | This displays which Environments have Targeting Enabled. If targeting is enabled in multiple Environments for a Feature, you can hover over the tag to see which Environments are active.                 |
 | Tags         | Tags are customizable labels that help you categorize Features.                                                                                                                                           |
 | Edit         | Click this to edit on the row the Feature.                                                                                                                                                                |
 
 Use the search input to search by Name, Key, Tag, or Description. The filters can be used to filter by Creator, Status, Type, or [Staleness](/platform/feature-flags/stale-feature-notifications). Each column header can be clicked to sort the column.
 
-> To view another Project's features, use the Project dropdown on the top of the Dashboard.
+:::info
+To view another Project's Features, use the Project dropdown on the top of the Dashboard.
+:::
 
 ---
 
@@ -38,44 +38,44 @@ Use the search input to search by Name, Key, Tag, or Description. The filters ca
 
 From this page, you can create a Feature Flag by clicking "Create New Feature" or the `+` in the top bar.
 
-A screen for deciding your Feature Type will now appear. To read more about the feature types and their uses, read [DevCycle Feature Types](/essentials/feature-types).
+A screen for deciding your Feature Type will now appear. To read more about the Feature types and their uses, read [DevCycle Feature Types](/essentials/feature-types).
 
 After choosing a type, the information modal will appear prompting you to enter the following information:
 
 - **Feature Name**
-  Enter a descriptive feature name.
+  Enter a descriptive Feature name.
 
 - **Feature Key**
-  This key is how the feature and its variables will be referenced in code. (A key will be automatically suggested based on the entered name.)
+  This key is how the Feature and its Variables will be referenced in code. (A key will be automatically suggested based on the entered name.)
 
 - **Description**
-  Optionally, you may choose to provide a detailed description of the feature.
+  Optionally, you may choose to provide a detailed description of the Feature.
 
 - **Tags**
   Tags are customizable labels that help you categorize Features.
 
 - **Jira Ticket ID(s)**
-  If your team has setup the [DevCycle integration for Jira](/integrations/jira), you can link Jira tickets directly to Features within DevCycle, making the feature status easily viewable within Jira.
+  If your team has setup the [DevCycle integration for Jira](/integrations/jira), you can link Jira tickets directly to Features within DevCycle, making the Feature status easily viewable within Jira.
 
 - **Initial Variable Key**
-  Initial Variable Key allows you to define an initial variable key that can differ from the new feature key name. As you type in the Feature Name, the feature Key and the Initial Variable Key will mimic whatever input is entered in the Feature Name field formatted in kebab case.
+  Initial Variable Key allows you to define an initial Variable key that can differ from the new Feature key name. As you type in the Feature Name, the Feature Key and the Initial Variable Key will mimic whatever input is entered in the Feature Name field formatted in kebab case.
 
 - **Initial Variable Type**
-  Initial Variable Type allows you to select the type of variable for the initial variable created along with your feature (Boolean, JSON, String, or Number).
+  Initial Variable Type allows you to select the type of Variable for the initial Variable created along with your Feature (Boolean, JSON, String, or Number).
 
 ### Creating a New Feature with a Duplicate Initial Variable Key
 
-If a duplicate variable key belonging to an unassociated variable is submitted when creating a new feature, this modal will appear that will allow you to re-associate the variable to your new feature.
+If a duplicate Variable key belonging to an unassociated Variable is submitted when creating a new Feature, this modal will appear that will allow you to re-associate the Variable to your new Feature.
 
 ![Duplicate Variable Key Reassociation](/feature-duplicate-initial-variable-key-modal.png)
 
-If the unassociated variable key submitted is archived, a similar modal will appear with the option to unarchive the variable & re-associate it to the new feature.
+If the unassociated Variable key submitted is archived, a similar modal will appear with the option to unarchive the Variable & re-associate it to the new Feature.
 
 If you wish to unarchive & re-associate, click on the toggle and click `Yes, Proceed`.
 
-The feature will be created along with the newly re-associated variable. The variations and corresponding variable values will be populated depending on the [Feature Type](/platform/feature-flags/features) selected.
+The Feature will be created along with the newly re-associated Variable. The Variations and corresponding Variable values will be populated depending on the [Feature Type](/platform/feature-flags/features) selected.
 
-If you attempt to use a duplicate variable key belonging to a variable that's associated with an existing feature, the dashboard will return an error.
+If you attempt to use a duplicate Variable key belonging to a Variable that's associated with an existing Feature, the dashboard will return an error.
 
 ---
 
@@ -133,7 +133,7 @@ The goal with the AI generation is to make it easier to create and keep Summarie
 
 #### Reach
 
-The Reach section displays a version of the Feature Reach graph. The chart shows the aggregated count of evaluations of ALL variables across ALL environments and ALL SDKS. You can filter the evaluation data for different Environments and time ranges. For more granular filtering, click on the arrow on the top right of the section.
+The Reach section displays a version of the Feature Reach graph. The chart shows the aggregated count of evaluations of ALL Variables across ALL Environments and ALL SDKS. You can filter the evaluation data for different Environments and time ranges. For more granular filtering, click on the arrow on the top right of the section.
 
 ![Feature Reach Section Example](/may-2025-feature-overview-reach-section.png)
 
@@ -153,7 +153,7 @@ Edits can be made by users with **Member-level permissions or higher**.
 
 ![Variables Snapshot](/may-2025-feature-overview-variables-section.png)
 
-A read-only snapshot of all variables associated with the Feature is displayed at the bottom of the Overview Tab. It includes the Variable status indicator, name, type, description, and any applied tags. This allows users to quickly audit how a Feature is structured without navigating to the full Feature form.
+A read-only snapshot of all Variables associated with the Feature is displayed at the bottom of the Overview Tab. It includes the Variable status indicator, name, type, description, and any applied tags. This allows users to quickly audit how a Feature is structured without navigating to the full Feature form.
 
 ---
 
@@ -207,4 +207,4 @@ We recommended that Feature deletion only be used for mistakes, as deletion perm
 
 This action cannot be undone.
 
-To delete, a feature scroll to the very bottom of the Manage Feature tab and click the red `Delete` button. You will be prompted to confirm deletion.
+To delete, a Feature scroll to the very bottom of the Manage Feature tab and click the red `Delete` button. You will be prompted to confirm deletion.

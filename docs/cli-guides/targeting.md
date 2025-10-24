@@ -444,4 +444,4 @@ If successful you will receive a response which resembles the following (which r
             └─ Variation On
 ```
 
-> A similar process should be applied for removing filters/definitions
+A similar process should be applied for removing filters/definitions
