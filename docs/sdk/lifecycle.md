@@ -23,7 +23,7 @@ each SDK, visit the respective SDK GitHub repository or package manager page in 
 
 ## Support Timeline
 
-We actively support the most recent 2 releases (major, minor) of each SDK. Support includes:
+We actively support the 2 most recent minor versions of each SDK. For example, if the latest versions are 2.1.0 and 2.0.0, both are supported, but 1.9.0 is not. Support includes:
 
 - Bug fixes
 - Security patches
