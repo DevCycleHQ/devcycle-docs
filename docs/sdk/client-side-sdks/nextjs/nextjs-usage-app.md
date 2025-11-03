@@ -299,9 +299,18 @@ There are some restrictions to this approach that you should be aware of:
 
 ## EdgeDB
 
+:::note
+EdgeDB support requires Next.js SDK version 2.23.4 or higher.
+:::
 EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user.
 
-To get started, enable EdgeDB on your project by following the guide [here](/platform/feature-flags/targeting/edgedb)
+To get started, enable EdgeDB on your project by following the guide [here](/platform/feature-flags/targeting/edgedb).
+
+:::info
+
+Enabling EdgeDB will switch the SDK to use client-side bucketing instead of local server-side bucketing. This may result in a slightly increased latency for variable evaluations.
+
+:::
 
 Once you have EdgeDB enabled in your project, pass in the `enableEdgeDB` option to turn on EdgeDB mode for the SDK:
 
