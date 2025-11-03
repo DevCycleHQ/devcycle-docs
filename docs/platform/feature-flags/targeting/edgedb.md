@@ -5,14 +5,14 @@ sidebar_position: 7
 
 # EdgeDB and Stored Custom Properties
 
-EdgeDB is a lightning-fast, globally replicated edge storage tool that allows you to store information about your users for future use in Targeting Rules. For example, you can set a custom property when a user performs a key action in your application, and then target based on that property in the future without having to 
-continuously provide that data in the SDK. 
+EdgeDB is a lightning-fast, globally replicated edge storage tool that allows you to store information about your users for future use in Targeting Rules. For example, you can set a custom property when a user performs a key action in your application, and then target based on that property in the future without having to continuously provide that data in the SDK.
 
 EdgeDB is also a powerful tool for cross-platform feature flagging, where you may only have the user data available in one platform, but need to target the same user in another platform.
 
 To learn more about EdgeDB check out the documentation for the features powered by EdgeDB below.
 
 # Stored Custom Properties
+
 This guide will explain how to set up and use EdgeDB to target users using Stored Custom Properties. It will also discuss some use cases to help you determine where to implement EdgeDB in your project.
 
 ### Prerequisites
@@ -33,18 +33,17 @@ Once EdgeDB is enabled in your project, you must turn on EdgeDB mode for the SDK
 
 ## Example Usage
 
-Let’s say you have set a Targeting Rule that targets users by a custom property called `pricingPlan`. We can use EdgeDB to store the user's plan for future use. To set the `pricingPlan`, pass in the custom property when identifying the user, in addition to the `enableEdgeDB` option. *Note: The following example uses the JavaScript SDK.*
+Let’s say you have set a Targeting Rule that targets users by a custom property called `pricingPlan`. We can use EdgeDB to store the user's plan for future use. To set the `pricingPlan`, pass in the custom property when identifying the user, in addition to the `enableEdgeDB` option. _Note: The following example uses the JavaScript SDK._
 
 ```jsx
 const user = {
   user_id: 'demo_user',
   customData: {
-    'pricingPlan': 'premium'
-  
-  }
+    pricingPlan: 'premium',
+  },
 }
 const options = {
-	enableEdgeDB: true
+  enableEdgeDB: true,
 }
 const devcycleClient = initialize('ENV_KEY', user, options)
 ```
@@ -53,7 +52,7 @@ Once the data is sent to EdgeDB, you no longer need to specify it the next time 
 
 ```jsx
 const user = {
-	user_id: 'demo_user'
+  user_id: 'demo_user',
 }
 devcycleClient.identifyUser(user)
 ```
@@ -85,13 +84,16 @@ This will make the custom data `amountSpent` available to segment on when identi
 For specific documentation on how to use Edge Flags with each SDK
 
 #### Client SDKs
+
 - [JS SDK](/sdk/client-side-sdks/javascript/javascript-usage#edgedb)
 - [iOS SDK](/sdk/client-side-sdks/ios/ios-usage#edgedb)
 - [Android SDK](/sdk/client-side-sdks/android/android-usage#edgedb)
 - [React SDK](/sdk/client-side-sdks/react/react-usage#edgedb)
 - [React Native](/sdk/client-side-sdks/react-native/react-native-usage#edgedb)
+- [Next.js SDK](/sdk/client-side-sdks/nextjs/nextjs-usage-app#edgedb)
 
 #### Server SDKs
+
 - [Go SDK](/sdk/server-side-sdks/go/go-usage#edgedb)
 - [Java SDK](/sdk/server-side-sdks/java/java-usage#edgedb)
 - [Node.js SDK](/sdk/server-side-sdks/node/node-usage#edgedb)
@@ -119,7 +121,7 @@ an action in real time. EdgeDB allows you to store this information when it is a
 
 **Improving customer profiles in a microservices environment.** In a microservices environment, many different services are used to gather customer information. As a result, getting a complete picture of the customer may require complex data pipelines. In contrast, EdgeDB allows you to store information all in one place, no matter the source of the data.
 
-**Maintaining sessions in a serverless environment.** Serverless environments can make it difficult to store session information, as data is transient. With DevCycle, you can send session information to EdgeDB and use it as targeting data whenever you need it. 
+**Maintaining sessions in a serverless environment.** Serverless environments can make it difficult to store session information, as data is transient. With DevCycle, you can send session information to EdgeDB and use it as targeting data whenever you need it.
 
 **Keeping Personal Identifiable Information (PII) safe from the client-side application**. With EdgeDB, you no longer need to repeatedly send customer data from web apps, providing an added layer of security.
 

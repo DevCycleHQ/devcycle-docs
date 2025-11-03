@@ -297,6 +297,63 @@ There are some restrictions to this approach that you should be aware of:
   but the component will not be interactive until the client-side code is loaded. See the [Next.js lazy loading docs](https://nextjs.org/docs/app/building-your-application/optimizing/lazy-loading)
   for more details.
 
+## EdgeDB
+
+:::note
+EdgeDB support requires Next.js SDK version 2.23.4 or higher.
+:::
+EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user.
+
+To get started, enable EdgeDB on your project by following the guide [here](/platform/feature-flags/targeting/edgedb).
+
+:::info
+
+Enabling EdgeDB will switch the SDK to use client-side bucketing instead of local server-side bucketing. This may result in a slightly increased latency for variable evaluations.
+
+:::
+
+Once you have EdgeDB enabled in your project, pass in the `enableEdgeDB` option to turn on EdgeDB mode for the SDK:
+
+```typescript jsx
+const getUserIdentity = async () => {
+  return {
+    user_id: 'test_user',
+    customData: {
+      amountSpent: 50,
+    },
+  }
+}
+
+export const { getVariableValue, getClientContext } = setupDevCycle({
+  serverSDKKey: process.env.DEVCYCLE_SERVER_SDK_KEY ?? '',
+  clientSDKKey: process.env.NEXT_PUBLIC_DEVCYCLE_CLIENT_SDK_KEY ?? '',
+  userGetter: getUserIdentity,
+  options: {
+    enableEdgeDB: true,
+  },
+})
+```
+
+This will send a request to our EdgeDB API to save the custom data under the user `test_user`.
+
+In the example, `amountSpent` is associated to the user `test_user`. In your subsequent requests for the same `user_id`, you may omit any of the data you've sent already as it will be pulled from the EdgeDB storage when segmenting to experiments and features:
+
+```typescript jsx
+const getUserIdentity = async () => {
+  return {
+    user_id: 'test_user', // no need to pass in "amountSpent" anymore!
+  }
+}
+export const { getVariableValue, getClientContext } = setupDevCycle({
+  serverSDKKey: process.env.DEVCYCLE_SERVER_SDK_KEY ?? '',
+  clientSDKKey: process.env.NEXT_PUBLIC_DEVCYCLE_CLIENT_SDK_KEY ?? '',
+  userGetter: getUserIdentity,
+  options: {
+    enableEdgeDB: true,
+  },
+})
+```
+
 ## DevCycleUser Object
 
 [DevCycleUser Typescript Schema](https://github.com/search?q=repo%3ADevCycleHQ%2Fjs-sdks+export+interface+DevCycleUser+language%3ATypeScript+path%3A*types.ts&type=code)
@@ -334,3 +391,4 @@ The SDK exposes various initialization options which can be set by passing a `De
 | disableRealtimeUpdates       | Boolean | Disable Realtime Updates                                                                                       |
 | disableAutomaticEventLogging | Boolean | Disables logging of sdk generated events (e.g. variableEvaluated, variableDefaulted) to DevCycle.              |
 | disableCustomEventLogging    | Boolean | Disables logging of custom events, from `track()` method, and user data to DevCycle.                           |
+| enableEdgeDB                 | Boolean | Enables EdgeDB to save and retrieve user data from EdgeDB storage                                              |
