@@ -98,7 +98,7 @@ export const getStaticProps: GetStaticProps = async () => {
 }
 ```
 
-The static version of the helper still retrieves the DevCycle configuration and allows for client boostrapping.
+The static version of the helper still retrieves the DevCycle configuration and allows for client bootstrapping.
 However, it omits features that rely on the dynamic request information to work. This includes:
 
 - automatic determination of the platform version based on the user agent of the request. Targeting by
