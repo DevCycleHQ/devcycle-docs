@@ -5,8 +5,7 @@ sidebar_position: 7
 
 # EdgeDB and Stored Custom Properties
 
-EdgeDB is a lightning-fast, globally replicated edge storage tool that allows you to store information about your users for future use in Targeting Rules. For example, you can set a custom property when a user performs a key action in your application, and then target based on that property in the future without having to
-continuously provide that data in the SDK.
+EdgeDB is a lightning-fast, globally replicated edge storage tool that allows you to store information about your users for future use in Targeting Rules. For example, you can set a custom property when a user performs a key action in your application, and then target based on that property in the future without having to continuously provide that data in the SDK.
 
 EdgeDB is also a powerful tool for cross-platform feature flagging, where you may only have the user data available in one platform, but need to target the same user in another platform.
 
