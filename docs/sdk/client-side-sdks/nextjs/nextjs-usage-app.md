@@ -360,7 +360,7 @@ export const { getVariableValue, getClientContext } = setupDevCycle({
 Feature Opt-In support requires Next.js SDK version 2.24.0 or higher.
 :::
 
-Feature Opt-In gives your end-users the ability to turn on/off Features for themselves. Learn more on how to turn on Feature Opt-In [here](https://docs.devcycle.com/platform/extras/feature-opt-in/).
+Feature Opt-In gives your end-users the ability to try out specific Features for themselves. Learn more on how to enable Feature Opt-In [here](https://docs.devcycle.com/platform/extras/feature-opt-in/).
 
 Once Feature Opt-In is enabled, the DevCycle Next.js SDK will fetch from the Client SDK API instead of fetching a static config from our CDN. It only does this if a user is found to have Feature Opt-In records already. Because of this, _users that have Opt-In records will see a slight increase in latency in getting a config_.
 
