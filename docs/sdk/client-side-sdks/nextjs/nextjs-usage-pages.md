@@ -168,6 +168,16 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 }
 ```
 
+## Feature Opt-In
+
+:::note
+Feature Opt-In support requires Next.js SDK version 2.25.0 or higher.
+:::
+
+Feature Opt-In gives your end-users the ability to turn on/off Features for themselves. Learn more on how to turn on Feature Opt-In [here](https://docs.devcycle.com/platform/extras/feature-opt-in/).
+
+Once Feature Opt-In is enabled, the DevCycle Next.js SDK will fetch from the Client SDK API instead of fetching a static config from our CDN. It only does this if a user is found to have Feature Opt-In records already. Because of this, _users that have Opt-In records will see slight increase latency in getting a config_.
+
 ## DevCycleUser Object
 
 [DevCycleUser Typescript Schema](https://github.com/search?q=repo%3ADevCycleHQ%2Fjs-sdks+export+interface+DevCycleUser+language%3ATypeScript+path%3A*types.ts&type=code)
