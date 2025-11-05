@@ -27,6 +27,5 @@ This SDK depends on the [fetch](https://github.com/BuilderIO/this-package-uses-f
 - exclude component code from client bundle when feature is disabled
 
 ## Limitations
-- Minimum Next.js version: 14.1
+- Minimum Next.js version: 15.1.0
 - Minimum React version: 18.2
-- Variable evaluations and custom events are only tracked in client components in App Router.
