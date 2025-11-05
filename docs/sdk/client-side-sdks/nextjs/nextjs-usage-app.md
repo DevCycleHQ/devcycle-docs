@@ -173,7 +173,7 @@ export const MyServerComponent = async function () {
 :::caution 
 If you are not hosting your Next.js application on Vercel, 
 you might see runtime errors if `waitUntil` is not supported by the platform and will be 
-required to set `disableCustomEventLogging` and  `disableAutomaticEventLogging` options to `true`:
+required to set `disableCustomEventLogging` and `disableAutomaticEventLogging` options to `true`:
 
 ```typescript
 export const { getVariableValue, getClientContext } = setupDevCycle({
