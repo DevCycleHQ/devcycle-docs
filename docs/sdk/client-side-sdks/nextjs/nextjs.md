@@ -26,6 +26,9 @@ This SDK depends on the [fetch](https://github.com/BuilderIO/this-package-uses-f
 - support for static page rendering
 - exclude component code from client bundle when feature is disabled
 
-## Limitations
-- Minimum Next.js version: 15.1.0
-- Minimum React version: 18.2
+## Requirements
+
+| SDK Version | Minimum Next.js Version | Minimum React Version |
+|-------------|-------------------------|----------------------|
+| 3.0.0+      | 15.1.0                  | 18.2                 |
+| 2.0.0+      | 14.1.0                  | 18.2                 |

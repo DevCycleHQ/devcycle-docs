@@ -161,6 +161,7 @@ Event tracking in server components requires Next.js SDK version >= 3.0.0 and Ne
 
 ```typescript tsx
 import * as React from 'react'
+import { MyComponent } from './components'
 import { track } from './devcycle'
 
 export const MyServerComponent = async function () {
@@ -171,8 +172,8 @@ export const MyServerComponent = async function () {
 
 :::caution 
 If you are not hosting your Next.js application on Vercel, 
-your runtime will need to support `waitUntil` to enable server event tracking.
-If it doesn't, you will need to disable event tracking in your initialization function to prevent errors:
+you might see runtime errors if `waitUntil` is not supported by the platform and will be 
+required to set `disableCustomEventLogging` and  `disableAutomaticEventLogging` options to `true`:
 
 ```typescript
 export const { getVariableValue, getClientContext } = setupDevCycle({
