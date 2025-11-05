@@ -155,8 +155,38 @@ export default MyComponent = function () {
 
 #### Server Component
 
-Currently, tracking events in server components is not supported due to limitations in Next.js.
-Please trigger any event tracking from client components.
+:::note
+Event tracking in server components requires Next.js SDK version >= 3.0.0 and Next.js >= 15.1.0.
+:::
+
+```typescript tsx
+import * as React from 'react'
+import { track } from './devcycle'
+
+export const MyServerComponent = async function () {
+  await track({ type: 'myEvent' })
+  return <MyComponent />
+}
+```
+
+:::caution 
+If you are not hosting your Next.js application on Vercel, 
+your runtime will need to support `waitUntil` to enable server event tracking.
+If it doesn't, you will need to disable event tracking in your initialization function to prevent errors:
+
+```typescript
+export const { getVariableValue, getClientContext } = setupDevCycle({
+  serverSDKKey: process.env.DEVCYCLE_SERVER_SDK_KEY ?? '',
+  clientSDKKey: process.env.NEXT_PUBLIC_DEVCYCLE_CLIENT_SDK_KEY ?? '',
+  userGetter: getUserIdentity,
+  options: {
+    disableAutomaticEventLogging: true,
+    disableCustomEventLogging: true,
+  },
+})
+```
+See [Next.js docs](https://nextjs.org/docs/app/api-reference/functions/after) and your provider's docs for more info.
+:::
 
 ### Getting all Variables
 
