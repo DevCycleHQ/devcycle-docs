@@ -377,6 +377,7 @@ const config = {
         'The DevCycle documentation site includes guides and API documentation for the complete platform including the management dashboard, management APIs, SDKs, and more. If you need help along the way feel free to reach out to support and if you don’t have an account yet, you can create a free account now.',
     },
     DEVCYCLE_CLIENT_SDK_KEY: process.env.DEVCYCLE_CLIENT_SDK_KEY,
+    LINEAR_API_KEY: process.env.LINEAR_API_KEY,
   },
   url: process.env.CF_PAGES
     ? 'https://docs.devcycle.com'
