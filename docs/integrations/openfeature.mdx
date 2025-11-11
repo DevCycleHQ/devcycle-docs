@@ -5,9 +5,17 @@ sidebar_position: 6
 
 import CustomDocCardList from '@site/src/components/CustomDocCardList'
 
-[OpenFeature](https://openfeature.dev/) is an open standard that provides a vendor-agnostic, community-driven SDKs for feature flagging that works natively with DevCycle.
+[OpenFeature](https://openfeature.dev/) is an open standard that provides a vendor-agnostic, community-driven SDKs for Feature Flagging that works natively with DevCycle. DevCycle supports a wide range of [OpenFeature Compatible SDKs](/integrations/openfeature#openfeature-compatible-sdks), all of which have native integrations with OpenFeature.
 
-## Current OpenFeature Compatible SDKs
+## What is OpenFeature?
+
+OpenFeature is a standardization initiative that creates a common interface for Feature Flag operations across different platforms and vendors. Think of it as a universal adapter for Feature Flags. You can write your code once using OpenFeature's specifications, and switch between different Feature Flag providers (like DevCycle) without rewriting your code.
+
+This standardization is particularly valuable if you're working in a multi-vendor environment, migrating between Feature Flag platforms, or want to future-proof your codebase against vendor changes. DevCycle provides fully-featured OpenFeature providers for both client-side and server-side applications, giving you the flexibility of the OpenFeature standard combined with DevCycle's advanced feature management capabilities.
+
+---
+
+## OpenFeature Compatible SDKs
 
 ### Client-Side
 
@@ -115,6 +123,106 @@ import CustomDocCardList from '@site/src/components/CustomDocCardList'
     },
   ]}
 />
+
+---
+
+## Core Concepts
+
+OpenFeature's architecture is built around several key components that work together to provide a flexible and extensible feature flagging system.
+
+### Evaluation API
+
+The Evaluation API is your primary interface for retrieving Features Flags in your application. It's the backbone of all SDKs and provides standard methods for retrieving Feature, Variable and Variation data from your Feature Flag Provider. These APIs and methods abstracts away the complexity of communicating with your underlying Feature Flag service(s).
+
+When you integrate DevCycle through OpenFeature, your application code will use OpenFeature's standardized methods and DevCycle will handle the logic of Flag resolution, user targeting, and configuration management.
+
+### Providers
+
+Providers act as the bridge between OpenFeature's SDKs and Feature Flag platforms. Providers can wrap around an existing vendor's SDK, interact directly with OpenFeature's REST APIs, or parse a locally stored file to obtain Flag evaluations. They will translate arguments supplied via OpenFeature to the vendor's SDK and vice versa.
+
+**Example:**
+```javascript
+import DevCycleProvider from '@devcycle/openfeature-web-provider'
+import { OpenFeature } from '@openfeature/web-sdk'
+
+// Initialize the DevCycle Provider
+const devcycleProvider = new DevCycleProvider('<DEVCYCLE_CLIENT_SDK_KEY>')
+// Set the DevCycleProvider for OpenFeature
+await OpenFeature.setProviderAndWait(devcycleProvider)
+// Get the OpenFeature client
+const openFeatureClient = OpenFeature.getClient()
+```
+
+DevCycle's OpenFeature provider is built on top of our native SDKs, giving you access to all of DevCycle's capabilities including Realtime Updates, EdgeDB, and Advanced Targeting, through the OpenFeature standard interface.
+
+### Evaluation Context
+
+Evaluation Context represents the user and environmental information that influences which Features and Variations a user receives. This may includes user identifiers, device data, and any other custom properties relevant to your target audience. You can set context globally for your entire application or pass it dynamically with each Flag evaluation.
+
+OpenFeature's context model maps directly to DevCycle's [User Properties](/sdk/features#identifying-a-user-or-setting-propertie), enabling granular audience segmentation based on user or device-based properties as well as other environmental factors. This ensures your [Targeting Rules](/platform/feature-flags/targeting/targeting-overview) work identically whether you're using DevCycle's native SDKs or the OpenFeature interface.
+
+**Example:**
+```javascript
+// Get the OpenFeature client
+const openFeatureClient = OpenFeature.getClient()
+
+// Set the OpenFeature evaluation context
+openFeatureClient.setContext({
+  user_id: 'your_unique_id',
+  email: 'email@devcycle.com',
+  name: 'name',
+  language: 'en',
+  country: 'CA',
+  appVersion: '1.0.11',
+  appBuild: 1000,
+  customData: { key: 'value' },
+  privateCustomData: { key: 'value' },
+})
+```
+
+### Hooks
+
+Hooks provide extension points throughout the Flag (Variable) Evaluation lifecycle, allowing you to inject custom logic before, during, or after Flag Evaluations. Common use cases include adding telemetry, enriching evaluation context with additional data, implementing custom caching strategies, or validating Flag values before they're returned to your application.
+
+DevCycle [Server SDKs](/sdk/#server-side-sdks) support hooks, allowing you to hook into the lifecycle of a [Variable Evaluation](/sdk/features#evaluating-features--using-variables) to execute code and build custom integrations before and after execution of the evaluation.
+
+**Example:**
+```typescript
+const client = new DevCycleClient('token')
+client.addHook(
+  new EvalHook(
+    (context) => {
+      // before hook
+    },
+    (context, variableDetails) => {
+      // after hook
+    },
+    (context, variableDetails) => {
+      // onFinally hook
+    },
+    (context, variableDetails) => {
+      // error hook
+    },
+  ),
+)
+```
+
+### Tracking 
+
+Tracking in OpenFeature links Metrics or Key Performance Indicators (KPIs) to Feature Flag Evaluation contexts. This connection allows teams to assess how feature releases affect their organization, whether it's making a positive or negative impact and if they can iterate off of it. Tracking Metrics are crucial to [Feature Experimentation](/platform/experimentation/feature-experimentation) and A/B testing.
+
+Implementing Tracking in DevCycle can be done by adding [Custom Events](/sdk/features#tracking-custom-events) to your application in order to capture specific events that you'd want to measure, and setting up [Metrics](/platform/experimentation/creating-and-managing-metrics) on your Feature in order to view, compare and analyze the results of your Feature releases.
+
+**Example:**
+```javascript
+openFeatureClient.track('custom-event', {
+  target: 'event-target',
+  value: 100,
+  metaDataField: 'value',
+})
+```
+
+---
 
 ## OpenFeature Remote Evaluation API
 
