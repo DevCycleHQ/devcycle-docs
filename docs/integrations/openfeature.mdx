@@ -161,7 +161,8 @@ Evaluation Context represents the user and environmental information that influe
 
 OpenFeature's context model maps directly to DevCycle's [User Properties](/sdk/features#identifying-a-user-or-setting-propertie), enabling granular audience segmentation based on user or device-based properties as well as other environmental factors. This ensures your [Targeting Rules](/platform/feature-flags/targeting/targeting-overview) work identically whether you're using DevCycle's native SDKs or the OpenFeature interface.
 
-**Example:**
+**Example:** Setting the Evaluation Context on the JavaScript OpenFeature SDK.
+
 ```javascript
 // Get the OpenFeature client
 const openFeatureClient = OpenFeature.getClient()
@@ -179,6 +180,23 @@ openFeatureClient.setContext({
   privateCustomData: { key: 'value' },
 })
 ```
+
+OpenFeature's `setContext` method maps to `identifyUser` on DevCycle.
+
+```javascript
+await devCycleClient.identifyUser({
+  user_id: 'your_unique_id',
+  email: 'email@devcycle.com',
+  name: 'name',
+  language: 'en',
+  country: 'CA',
+  appVersion: '1.0.11',
+  appBuild: 1000,
+  customData: { key: 'value' },
+  privateCustomData: { key: 'value' },
+})
+```
+
 
 ### Hooks
 
@@ -213,12 +231,26 @@ Tracking in OpenFeature links Metrics or Key Performance Indicators (KPIs) to Fe
 
 Implementing Tracking in DevCycle can be done by adding [Custom Events](/sdk/features#tracking-custom-events) to your application in order to capture specific events that you'd want to measure, and setting up [Metrics](/platform/experimentation/creating-and-managing-metrics) on your Feature in order to view, compare and analyze the results of your Feature releases.
 
-**Example:**
+**Example:** Implementing a Track event on the JavaScript OpenFeature SDK.
+
 ```javascript
 openFeatureClient.track('custom-event', {
   target: 'event-target',
   value: 100,
   metaDataField: 'value',
+})
+```
+
+OpenFeature's `track` method maps to DevCycle's `track` method.
+
+```javascript
+devcycleClient.track({
+  type: 'custom-event'
+  target: 'event-target',
+  value: 100,
+  metaData: {
+    metaDataField: 'value',
+  },
 })
 ```
 
