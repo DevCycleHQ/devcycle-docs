@@ -11,7 +11,7 @@ import CustomDocCardList from '@site/src/components/CustomDocCardList'
 
 OpenFeature is a standardization initiative that creates a common interface for Feature Flag operations across different platforms and vendors. Think of it as a universal adapter for Feature Flags. You can write your code once using OpenFeature's specifications, and switch between different Feature Flag providers (like DevCycle) without rewriting your code.
 
-This standardization is particularly valuable if you're working in a multi-vendor environment, migrating between Feature Flag platforms, or want to future-proof your codebase against vendor changes. DevCycle provides fully-featured OpenFeature providers for both client-side and server-side applications, giving you the flexibility of the OpenFeature standard combined with DevCycle's advanced feature management capabilities.
+This standardization is particularly valuable if you're working in a multi-vendor environment, migrating between Feature Flag platforms, or want to future-proof your codebase against vendor changes. DevCycle provides fully-featured OpenFeature providers for both client-side and server-side applications, giving you the flexibility of the OpenFeature standard combined with DevCycle's advanced Feature management capabilities.
 
 ---
 
@@ -128,11 +128,11 @@ This standardization is particularly valuable if you're working in a multi-vendo
 
 ## Core Concepts
 
-OpenFeature's architecture is built around several key components that work together to provide a flexible and extensible feature flagging system.
+OpenFeature's architecture is built around several key components that work together to provide a flexible and extensible Feature Flagging system.
 
 ### Evaluation API
 
-The Evaluation API is your primary interface for retrieving Features Flags in your application. It's the backbone of all SDKs and provides standard methods for retrieving Feature, Variable and Variation data from your Feature Flag Provider. These APIs and methods abstracts away the complexity of communicating with your underlying Feature Flag service(s).
+The Evaluation API is your primary interface for retrieving Feature Flags in your application. It's the backbone of all SDKs and provides standard methods for retrieving Feature, Variable and Variation data from your Feature Flag Provider. These APIs and methods abstracts away the complexity of communicating with your underlying Feature Flag service(s).
 
 When you integrate DevCycle through OpenFeature, your application code will use OpenFeature's standardized methods and DevCycle will handle the logic of Flag resolution, user targeting, and configuration management.
 
@@ -157,9 +157,9 @@ DevCycle's OpenFeature provider is built on top of our native SDKs, giving you a
 
 ### Evaluation Context
 
-Evaluation Context represents the user and environmental information that influences which Features and Variations a user receives. This may includes user identifiers, device data, and any other custom properties relevant to your target audience. You can set context globally for your entire application or pass it dynamically with each Flag evaluation.
+Evaluation Context represents the user and environmental information that influences which Features and Variations a user receives. This may include user identifiers, device data, and any other custom properties relevant to your target audience. You can set context globally for your entire application or pass it dynamically with each Flag evaluation.
 
-OpenFeature's context model maps directly to DevCycle's [User Properties](/sdk/features#identifying-a-user-or-setting-propertie), enabling granular audience segmentation based on user or device-based properties as well as other environmental factors. This ensures your [Targeting Rules](/platform/feature-flags/targeting/targeting-overview) work identically whether you're using DevCycle's native SDKs or the OpenFeature interface.
+OpenFeature's context model maps directly to DevCycle's [User Properties](/sdk/features#identifying-a-user-or-setting-properties), enabling granular audience segmentation based on user or device-based properties as well as other environmental factors. This ensures your [Targeting Rules](/platform/feature-flags/targeting/targeting-overview) work identically whether you're using DevCycle's native SDKs or the OpenFeature interface.
 
 **Example:** Setting the Evaluation Context on the JavaScript OpenFeature SDK.
 
@@ -225,9 +225,9 @@ client.addHook(
 )
 ```
 
-### Tracking 
+### Tracking
 
-Tracking in OpenFeature links Metrics or Key Performance Indicators (KPIs) to Feature Flag Evaluation contexts. This connection allows teams to assess how feature releases affect their organization, whether it's making a positive or negative impact and if they can iterate off of it. Tracking Metrics are crucial to [Feature Experimentation](/platform/experimentation/feature-experimentation) and A/B testing.
+Tracking in OpenFeature links Metrics or Key Performance Indicators (KPIs) to Feature Flag Evaluation contexts. This connection allows teams to assess how Feature releases affect their Organization, whether it's making a positive or negative impact and if they can iterate off of it. Tracking Metrics are crucial to [Feature Experimentation](/platform/experimentation/feature-experimentation) and A/B testing.
 
 Implementing Tracking in DevCycle can be done by adding [Custom Events](/sdk/features#tracking-custom-events) to your application in order to capture specific events that you'd want to measure, and setting up [Metrics](/platform/experimentation/creating-and-managing-metrics) on your Feature in order to view, compare and analyze the results of your Feature releases.
 
@@ -259,8 +259,8 @@ devcycleClient.track({
 ## OpenFeature Remote Evaluation API
 
 The [OpenFeature Remote Evaluation API (OFREP)](https://github.com/open-feature/protocol) is a new open standard
-API interface for feature flagging that allows the use of generic providers to connect to any
-feature flag management systems that supports the protocol.
+API interface for Feature Flagging that allows the use of generic providers to connect to any
+Feature Flag management systems that supports the protocol.
 
 **Note: the standard is in its very early stages and is subject to change.**
 
