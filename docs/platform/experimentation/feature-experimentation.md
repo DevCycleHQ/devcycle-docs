@@ -125,6 +125,6 @@ There are several risks to be aware of when randomizing your Experiments in this
 
 3. **Fewer User-Level Insights:** Custom Property-targeted Experiments provide insights at an aggregate level, potentially obscuring user-level behaviors and preferences. For example, a new feature might increase overall usage within a company, but it might not reveal which specific roles or user types are most engaged with the feature.
 
-4. **Randomization Collisions:** Our random distritution system works on a murmurhash, where we purposely limit User IDs to less than 200 characters to reduce the risk of collisions. If you randomize off of a Custom Property where the values are over 200 characters there is a potential for collisions that could impact randomization.
+4. **Randomization Collisions:** Our random distribution system works on a murmurhash, where we purposely limit User IDs to less than 200 characters to reduce the risk of collisions. If you randomize off of a Custom Property where the values are over 200 characters there is a potential for collisions that could impact randomization.
 
 Regardless of the type of risk, if you are worried about the statistical validity of your Experiment you should make sure that there is both a significant number of groups as well as good balanced stratification across the groups that you're testing against. These two factors protect you against the most substantial risks.
