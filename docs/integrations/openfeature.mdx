@@ -140,7 +140,8 @@ When you integrate DevCycle through OpenFeature, your application code will use 
 
 Providers act as the bridge between OpenFeature's SDKs and Feature Flag platforms. Providers can wrap around an existing vendor's SDK, interact directly with OpenFeature's REST APIs, or parse a locally stored file to obtain Flag evaluations. They will translate arguments supplied via OpenFeature to the vendor's SDK and vice versa.
 
-**Example:**
+**Example:** Using `setProvider` / `setProviderAndWait` to set up the `DevCycleProvider` on the JavaScript OpenFeature SDK.
+
 ```javascript
 import DevCycleProvider from '@devcycle/openfeature-web-provider'
 import { OpenFeature } from '@openfeature/web-sdk'
