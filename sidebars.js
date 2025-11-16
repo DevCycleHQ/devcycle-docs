@@ -57,6 +57,12 @@ module.exports = {
     },
     {
       type: 'doc',
+      label: 'SDK Lifecycle',
+      className: 'section-title lifecycle',
+      id: 'sdk/lifecycle',
+    },
+    {
+      type: 'doc',
       label: 'SDK Features',
       className: 'toggle-right section-title sdk-features',
       id: 'sdk/features', // The internal path
