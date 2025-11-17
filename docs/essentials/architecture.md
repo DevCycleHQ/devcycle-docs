@@ -132,7 +132,7 @@ latency. Read more about it at [EdgeDB and Stored Properties](/platform/feature-
 ### SDK Performance Summary
 
 Our SDKs are designed to fit into a variety of use cases, balancing performance, reliability, and data privacy. Below is
-a summary of the expected performance characteristics
+a summary of the expected performance characteristics.
 of each SDK type and configuration. These numbers are approximate and can vary based on network conditions, geographic
 deployment, and specific implementation details in various configurations.
 
