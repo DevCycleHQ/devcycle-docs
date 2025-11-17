@@ -3,8 +3,7 @@ title: System Architecture
 sidebar_position: 3
 ---
 
-When building DevCycle, we decided on a couple of core design goals from our experience of building global services and
-SDKs:
+When building DevCycle, we decided on a couple of core design goals from our experience of building global services and SDKs:
 
 - SDKs should be easy to understand and have consistent functionality across platforms.
 - Feature Flags should evaluate quickly and be served from as close to the end user as possible.
