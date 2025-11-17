@@ -122,7 +122,7 @@ is needed.
 
 DevCycle was designed and built for **performance** and **reliability** first. To enable Feature Flags to evaluate
 quickly and be served from as close to the end user as possible, we chose to not store user data to our servers by
-default. This means that all Feature and Variable evaluations happens using the user information provided at the time of
+default. This means that all Feature and Variable evaluations happen using the user information provided at the time of
 the request, avoiding database lookups and keeping latency extremely low.
 
 For teams that **do** need to persist user attributes for targeting or other advanced use cases, DevCycle offers
