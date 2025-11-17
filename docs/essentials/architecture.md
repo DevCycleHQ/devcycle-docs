@@ -163,6 +163,6 @@ an outage, traffic can be routed to another healthy region. The Dashboard is ser
 architecture,
 which provides automatic failover and load balancing across regions.
 
-We have a hot-hot architecture for our failover systems; ensuring that our Management API can maintain high
+We have a hot-hot architecture for our failover systems, ensuring that our Management API can maintain high
 availability.
 
