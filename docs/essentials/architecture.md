@@ -157,7 +157,7 @@ returns the same results, or throws the same errors for each test.
 ## Management API / Dashboard
 
 DevCycle's Management API and Dashboard are designed using high availability principles to ensure that users can manage
-their feature flags and configurations without interruption. The Management API is multi-region; ensuring that if one
+their feature flags and configurations without interruption. The Management API is multi-region, ensuring that if one
 region experiences
 an outage, traffic can be routed to another healthy region. The Dashboard is served via Vercel's multi-region
 architecture,
