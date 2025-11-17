@@ -125,8 +125,8 @@ quickly and be served from as close to the end user as possible, we chose to not
 default. This means that all Feature and Variable evaluations happens using the user information provided at the time of
 the request, avoiding database lookups and keeping latency extremely low.
 
-For teams that **do** need to persist user attributes for targeting or other advanced use cases, DevCycle offers *
-*EdgeDB**: a globally distributed, edge-based data store that allows you to save and retrieve user data with minimal
+For teams that **do** need to persist user attributes for targeting or other advanced use cases, DevCycle offers
+**EdgeDB**: a globally distributed, edge-based data store that allows you to save and retrieve user data with minimal
 latency. Read more about it at [EdgeDB and Stored Properties](/platform/feature-flags/targeting/edgedb).
 
 ### SDK Performance Summary
