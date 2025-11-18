@@ -1,0 +1,6 @@
+label: 'Observability'
+position: 4
+collapsed: true
+customProps:
+  icon: oui:ws-observability
+  description: Observability Best Practices using DevCycle and your favorite Observability tools.
