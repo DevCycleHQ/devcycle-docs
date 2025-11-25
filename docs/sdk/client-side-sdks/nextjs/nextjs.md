@@ -26,7 +26,9 @@ This SDK depends on the [fetch](https://github.com/BuilderIO/this-package-uses-f
 - support for static page rendering
 - exclude component code from client bundle when feature is disabled
 
-## Limitations
-- Minimum Next.js version: 14.1
-- Minimum React version: 18.2
-- Variable evaluations and custom events are only tracked in client components in App Router.
+## Requirements
+
+| SDK Version | Minimum Next.js Version | Minimum React Version |
+|-------------|-------------------------|----------------------|
+| 3.0.0+      | 15.1.0                  | 18.2                 |
+| 2.0.0+      | 14.1.0                  | 18.2                 |

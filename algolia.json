@@ -1,7 +1,19 @@
 {
   "index_name": "prod_DEVCYCLE_DOCS",
   "start_urls": [
-    "https://docs.devcycle.com/"
+    "https://docs.devcycle.com/",
+    "https://docs.devcycle.com/platform/",
+    "https://docs.devcycle.com/essentials/",
+    "https://docs.devcycle.com/best-practices/",
+    "https://docs.devcycle.com/integrations/",
+    "https://docs.devcycle.com/cli/",
+    "https://docs.devcycle.com/cli-guides/",
+    "https://docs.devcycle.com/cli-mcp/",
+    "https://docs.devcycle.com/tools-and-integrations/",
+    "https://docs.devcycle.com/sdk/",
+    "https://docs.devcycle.com/product-roadmap/",
+    "https://docs.devcycle.com/quickstart/",
+    "https://docs.devcycle.com/examples/"
   ],
   "sitemap_urls": [
     "https://docs.devcycle.com/sitemap.xml"

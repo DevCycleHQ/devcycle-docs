@@ -14,6 +14,16 @@ DevCycle provides an iOS implementation of the OpenFeature Provider interface, a
 
 [![GitHub](https://img.shields.io/github/stars/DevCycleHQ/ios-openfeature-provider.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/ios-openfeature-provider)
 
+## AI-Powered Install
+
+import MCPInstall from '@site/docs/_partials/mcpInstall.mdx'
+import AIPromptCopyButton from '@site/src/components/AIPromptCopyButton'
+import PromptContent from '!!raw-loader!@site/static/ai-prompts/ios-openfeature.md'
+
+<MCPInstall />
+
+<AIPromptCopyButton promptContent={PromptContent} />
+
 ### Requirements
 
 OpenFeature currently only supports Swift Package Manager (SPM), and has higher platform requirements than the base DevCycle SDK:

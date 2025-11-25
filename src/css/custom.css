@@ -388,9 +388,33 @@ html[data-theme='dark'] .DocSearch {
 
 /* Architecture diagram dark mode fixes */
 [data-theme='dark'] img[src*="architecture-docs-diagrams"],
-[data-theme='dark'] img[src*="architexture-api-diagram"] {
+[data-theme='dark'] img[src*="architecture-api-diagram"],
+[data-theme='dark'] img[src*="server-sdk-topology"],
+[data-theme='dark'] img[src*="sdk-proxy-topology"] {
   background-color: white;
   border: 1px solid #d1d5db;
   border-radius: 8px;
   padding: 16px;
+}
+
+/* AI Prompt row styles to match details summary visuals */
+.aiPromptRow {
+  border: 1px solid var(--ifm-alert-border-color);
+  border-radius: 8px;
+  margin: 20px 0 20px 0;
+}
+
+.aiPromptSummary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: default;
+}
+
+.aiPromptSummary > span {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.1rem;
 }

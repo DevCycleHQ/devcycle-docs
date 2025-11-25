@@ -14,6 +14,16 @@ DevCycle provides an Android implementation of the OpenFeature Provider interfac
 
 [![GitHub](https://img.shields.io/github/stars/DevCycleHQ/android-client-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/android-client-sdk)
 
+## AI-Powered Install
+
+import MCPInstall from '@site/docs/_partials/mcpInstall.mdx'
+import AIPromptCopyButton from '@site/src/components/AIPromptCopyButton'
+import PromptContent from '!!raw-loader!@site/static/ai-prompts/android-openfeature.md'
+
+<MCPInstall />
+
+<AIPromptCopyButton promptContent={PromptContent} />
+
 ### Requirements
 
 This integration requires **Android API version 23+** and is available starting from DevCycle Android SDK version `>= 2.6.0`.
@@ -25,8 +35,8 @@ The DevCycle OpenFeature Provider is included in the main Android SDK. To add it
 ### Gradle
 
 ```gradle
-implementation("com.devcycle:android-client-sdk:2.6.0+")
-implementation("dev.openfeature:android-sdk:0.4.1+")
+implementation("com.devcycle:android-client-sdk:2.6.3+")
+implementation("dev.openfeature:kotlin-sdk:0.6.2+")
 ```
 
 ### Maven
@@ -35,28 +45,28 @@ implementation("dev.openfeature:android-sdk:0.4.1+")
 <dependency>
     <groupId>com.devcycle</groupId>
     <artifactId>android-client-sdk</artifactId>
-    <version>2.6.0+</version>
+    <version>2.6.3+</version>
     <scope>compile</scope>
 </dependency>
 <dependency>
     <groupId>dev.openfeature</groupId>
-    <artifactId>android-sdk</artifactId>
-    <version>0.4.1+</version>
+    <artifactId>kotlin-sdk</artifactId>
+    <version>0.6.2+</version>
     <scope>compile</scope>
 </dependency>
 ```
 
-This package automatically includes the OpenFeature Android SDK as a dependency.
+This package automatically includes the OpenFeature Android Kotlin SDK as a dependency.
 
 ## Getting Started
 
-Initialize the `DevCycleProvider` with your `<DEVCYCLE_MOBILE_SDK_KEY>` and set it as the provider for OpenFeature, which will initialize the DevCycle Android SDK internally:
+Initialize the `DevCycleProvider` with your `<DEVCYCLE_MOBILE_SDK_KEY>` and set it as the provider for OpenFeature, which will initialize the DevCycle Android Kotlin SDK internally:
 
 ### Kotlin Example
 
 ```kotlin
 import com.devcycle.sdk.android.openfeature.DevCycleProvider
-import dev.openfeature.sdk.*
+import dev.openfeature.kotlin.sdk.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -92,7 +102,7 @@ coroutineScope.launch(Dispatchers.IO) {
 
 ```java
 import com.devcycle.sdk.android.openfeature.DevCycleProvider;
-import dev.openfeature.sdk.*;
+import dev.openfeature.kotlin.sdk.*;
 
 // Create evaluation context
 Map<String, Value> attributes = new HashMap<>();
@@ -280,7 +290,7 @@ val objVar = ofClient.getObjectValue(
 
 ### Tracking Events
 
-The OpenFeature Android SDK supports tracking events through the `track` method. You can track custom events with optional numeric values and metadata:
+The OpenFeature Android Kotlin SDK supports tracking events through the `track` method. You can track custom events with optional numeric values and metadata:
 
 ```kotlin
 val client = OpenFeatureAPI.getClient()

@@ -2,7 +2,7 @@
 title: Managing Tech Debt by Cleaning Up Unused Flags
 sidebar_label: Managing Tech Debt
 description: Practices to help minimize technical debt from feature flags
-sidebar_position: 6
+sidebar_position: 8
 sidebar_custom_props: { icon: material-symbols:cleaning-services }
 ---
 

@@ -14,10 +14,10 @@ The DevCycle MCP Server provides comprehensive feature flag management capabilit
 
 - [Feature Management](#feature-management)
 - [Variable Management](#variable-management)
-- [Environment Management](#environment-management)
 - [Project Management](#project-management)
 - [Self-Targeting & Overrides](#self-targeting--overrides)
 - [Results & Analytics](#results--analytics)
+- [SDK Installation](#sdk-installation)
 
 :::info
 **Production Safety**
@@ -35,9 +35,15 @@ List all features in the current project with optional search and pagination.
 
 **Parameters:**
 
-- `search` (optional): Search query to filter features
+- `search` (optional): Search query to filter features (minimum 3 characters)
 - `page` (optional): Page number (default: 1)
-- `per_page` (optional): Items per page (default: 100, max: 1000)
+- `perPage` (optional): Items per page (default: 100, max: 1000)
+- `sortBy` (optional): Sort field (`createdAt`, `updatedAt`, `name`, `key`, `createdBy`, `propertyKey`)
+- `sortOrder` (optional): Sort order (`asc`, `desc`)
+- `staleness` (optional): Filter by staleness (`all`, `unused`, `released`, `unmodified`, `notStale`)
+- `createdBy` (optional): Filter by creator user ID
+- `type` (optional): Feature type (`release`, `experiment`, `permission`, `ops`)
+- `status` (optional): Feature status (`active`, `complete`, `archived`)
 
 #### `create_feature` ⚠️
 
@@ -53,6 +59,9 @@ Create a new feature flag.
 - `variations` (optional): Array of variations with key, name, and variables
 - `configurations` (optional): Environment-specific configurations
 - `sdkVisibility` (optional): SDK visibility settings
+- `variables` (optional): Array of variables to create or reassociate with this feature
+- `controlVariation` (optional): The key of the variation that is used as the control for Metrics
+- `settings` (optional): Feature-level settings configuration
 
 #### `update_feature` ⚠️
 
@@ -66,6 +75,10 @@ Update an existing feature flag.
 - `type` (optional): New type
 - `tags` (optional): New tags
 - `variations` (optional): Updated variations
+- `variables` (optional): Updated array of variables for this feature
+- `settings` (optional): Updated feature-level settings configuration
+- `sdkVisibility` (optional): Updated SDK visibility settings
+- `controlVariation` (optional): Updated control variation key for Metrics
 
 #### `update_feature_status` ⚠️
 
@@ -85,47 +98,13 @@ Delete a feature flag from ALL environments.
 
 - `key`: Feature key to delete
 
-#### `fetch_feature_variations`
+#### `cleanup_feature`
 
-Get all variations for a feature.
-
-**Parameters:**
-
-- `feature_key`: Feature key
-
-#### `create_feature_variation` ⚠️
-
-Create a new variation within a feature.
+Fetch the DevCycle Feature Cleanup prompt and return its markdown content to guide safe cleanup of a completed feature and its variables in codebases.
 
 **Parameters:**
 
-- `feature_key`: Feature key
-- `key`: Unique variation key
-- `name`: Variation name
-- `variables` (optional): Variable values for this variation
-
-#### `update_feature_variation` ⚠️
-
-Update an existing variation by key.
-
-**Parameters:**
-
-- `feature_key`: Feature key
-- `variation_key`: Variation to update
-- `_id` (optional): MongoDB ID for the variation
-- `key` (optional): New variation key
-- `name` (optional): New variation name
-- `variables` (optional): Updated variable values
-
-#### `set_feature_targeting` ⚠️
-
-Set targeting status (enable or disable) for a feature in an environment.
-
-**Parameters:**
-
-- `feature_key`: Feature key
-- `environment_key`: Environment key
-- `enabled`: Boolean - true to enable targeting, false to disable
+- `featureKey`: The feature key you plan to clean up (used for context in the prompt)
 
 #### `get_feature_audit_log_history`
 
@@ -144,26 +123,6 @@ Get feature flag audit log history from DevCycle. Returns audit log entities mat
 - `user` (optional): User ID to filter by
 - `action` (optional): Action type to filter by
 
-#### `list_feature_targeting`
-
-List targeting rules for a feature.
-
-**Parameters:**
-
-- `feature_key`: Feature key
-- `environment_key` (optional): Specific environment (returns all if omitted)
-
-#### `update_feature_targeting` ⚠️
-
-Update targeting rules for a feature in an environment.
-
-**Parameters:**
-
-- `feature_key`: Feature key
-- `environment_key`: Environment key
-- `status` (optional): Targeting status (`active`, `inactive`, `archived`)
-- `targets` (optional): Array of targeting rules with audience filters and distributions
-
 ### Variable Management
 
 #### `list_variables`
@@ -174,7 +133,7 @@ List all variables in the current project.
 
 - `search` (optional): Search query
 - `page` (optional): Page number
-- `per_page` (optional): Items per page
+- `perPage` (optional): Items per page
 
 #### `create_variable` ⚠️
 
@@ -210,28 +169,15 @@ Delete a variable from ALL environments.
 
 - `key`: Variable key to delete
 
-### Environment Management
+### SDK Installation
 
-#### `list_environments`
+#### `install_devcycle_sdk`
 
-List all environments in the current project.
-
-**Parameters:**
-
-- `search` (optional): Search query (min 3 chars)
-- `page` (optional): Page number
-- `perPage` (optional): Items per page
-- `sortBy` (optional): Sort field
-- `sortOrder` (optional): Sort order (`asc`, `desc`)
-
-#### `get_sdk_keys`
-
-Get SDK keys for an environment.
+Fetch DevCycle SDK installation instructions and follow the guide to install the SDK. Includes documentation and examples for using the SDK in your application.
 
 **Parameters:**
 
-- `environmentKey`: Environment key
-- `keyType` (optional): Specific key type (`mobile`, `server`, `client`)
+- `guide`: One of `android`, `android-openfeature`, `angular`, `dotnet`, `dotnet-openfeature`, `flutter`, `go`, `go-openfeature`, `ios`, `ios-openfeature`, `java`, `java-openfeature`, `javascript`, `javascript-openfeature`, `nestjs`, `nestjs-openfeature`, `nextjs`, `nodejs`, `nodejs-openfeature`, `php`, `php-openfeature`, `python`, `python-openfeature`, `react`, `react-native`, `react-openfeature`, `roku`, `ruby`, `ruby-openfeature`
 
 ### Project Management
 
@@ -253,6 +199,14 @@ List all projects in the organization.
 Get details of the currently selected project.
 
 **Parameters:** None
+
+#### `select_project`
+
+Select a project to use for subsequent MCP operations. Returns the current project, its environments, and SDK keys.
+
+**Parameters:**
+
+- `projectKey` (optional): Project key to select (if omitted, lists available projects to choose from)
 
 ### Self-Targeting & Overrides
 
@@ -351,7 +305,7 @@ For users who prefer to run the DevCycle MCP server locally rather than using th
 
 #### Prerequisites
 
-- Node.js 16+ installed
+- Node.js 18+ installed
 - DevCycle CLI installed globally: `npm install -g @devcycle/cli`
 - DevCycle account with API credentials or SSO authentication
 
@@ -385,36 +339,30 @@ export DEVCYCLE_CLIENT_SECRET="your-client-secret"
 export DEVCYCLE_PROJECT_KEY="your-project-key"
 ```
 
-#### Configuration
+#### AI Editor Configuration
 
-**For Cursor** (`.cursor/mcp_settings.json`):
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="mcp-clients">
+<TabItem value="cursor" label="Cursor" default>
+
+Add the following to your `~/.cursor/mcp_settings.json` file:
 
 ```json
 {
   "mcpServers": {
-    "DevCycle": {
+    "devcycle": {
       "command": "dvc-mcp"
     }
   }
 }
 ```
 
-**For Claude Desktop:**
+</TabItem>
+<TabItem value="vscode" label="VS Code">
 
-- macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
-- Windows: `%APPDATA%\Claude\claude_desktop_config.json`
-
-```json
-{
-  "mcpServers": {
-    "DevCycle": {
-      "command": "dvc-mcp"
-    }
-  }
-}
-```
-
-**For VS Code** (`settings.json`):
+Add the following to your `settings.json` file:
 
 ```json
 {
@@ -426,42 +374,107 @@ export DEVCYCLE_PROJECT_KEY="your-project-key"
 }
 ```
 
-**For Claude Code:**
+</TabItem>
+<TabItem value="claude-code" label="Claude Code">
+
+Run the following command:
 
 ```bash
 claude mcp add --transport stdio devcycle dvc-mcp
 ```
 
-**For Windsurf:**
+</TabItem>
+<TabItem value="claude" label="Claude Desktop">
 
-In Windsurf Settings → Cascade → Manage MCPs → View raw config:
+Locate and edit your Claude Desktop configuration file:
+
+- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+
+Add the following configuration:
 
 ```json
 {
   "mcpServers": {
-    "DevCycle": {
+    "devcycle": {
       "command": "dvc-mcp"
     }
   }
 }
 ```
 
-## Error Handling
+</TabItem>
+<TabItem value="windsurf" label="Windsurf">
 
-The MCP server returns structured error responses with:
-
-- Detailed error messages
-- Tool name that failed
-- Suggested fixes
+In Windsurf Settings → Cascade → Manage MCPs → View raw config:
 
 ```json
 {
-  "error": true,
-  "message": "Detailed error message",
-  "tool": "tool_name",
-  "timestamp": "2024-01-01T00:00:00.000Z"
+  "mcpServers": {
+    "devcycle": {
+      "command": "dvc-mcp"
+    }
+  }
 }
 ```
+
+</TabItem>
+<TabItem value="codex" label="Codex CLI">
+
+Locate and edit your configuration file at `~/.codex/config.toml`:
+
+```toml
+[mcp_servers.devcycle]
+command = "dvc-mcp"
+```
+
+For more details, see the [OpenAI Codex MCP documentation](https://github.com/openai/codex/blob/main/docs/config.md#mcp-servers).
+
+</TabItem>
+<TabItem value="gemini" label="Gemini CLI">
+
+Locate and edit your configuration file at `~/.gemini/settings.json`:
+
+```json
+{
+  "mcpServers": {
+    "devcycle": {
+      "command": "dvc-mcp"
+    }
+  }
+}
+```
+
+For more details, see the [Gemini CLI MCP documentation](https://github.com/google-gemini/gemini-cli/blob/main/docs/tools/mcp-server.md#how-to-set-up-your-mcp-server).
+
+</TabItem>
+</Tabs>
+
+## Error Handling
+
+The MCP server returns structured error responses:
+
+```json
+{
+  "errorType": "AUTHENTICATION_ERROR",
+  "errorMessage": "401 Unauthorized",
+  "toolName": "list_features",
+  "suggestions": [
+    "Re-authenticate with DevCycle (run \"dvc login sso\" for CLI for local MCP or re-login through OAuth for remote MCP)",
+    "Verify your API credentials are correct",
+    "Check if your token has expired"
+  ],
+  "timestamp": "2025-07-01T00:00:00.000Z"
+}
+```
+
+Fields:
+
+- `errorType`: One of `AUTHENTICATION_ERROR`, `PERMISSION_ERROR`, `RESOURCE_NOT_FOUND`, `VALIDATION_ERROR`, `SCHEMA_VALIDATION_ERROR`, `RATE_LIMIT_ERROR`, `NETWORK_ERROR`, `PROJECT_ERROR`, `UNKNOWN_ERROR`.
+- `errorMessage`: Human-readable error description.
+- `toolName`: The MCP tool that produced the error.
+- `suggestions`: Remediation steps tailored to the error type.
+- `timestamp`: ISO 8601 timestamp when the error was generated.
 
 Common error scenarios:
 
@@ -469,18 +482,6 @@ Common error scenarios:
 - **API rate limits**: Implement retry logic in your automation
 - **Validation errors**: Ensure parameters meet requirements (patterns, lengths, etc.)
 - **Permission errors**: Verify your API key has necessary permissions
-
-## Current Limitations
-
-The MCP server does **NOT** currently support:
-
-- Code analysis tools (usage scanning, cleanup)
-- Git integration features
-- Type generation
-- MCP Resources (read-only data access)
-- MCP Prompts (guided workflows)
-
-These features are planned for future releases.
 
 ## Development & Local Testing
 
