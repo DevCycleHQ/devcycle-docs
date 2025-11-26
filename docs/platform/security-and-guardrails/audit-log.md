@@ -31,7 +31,7 @@ Items that are added to the Feature will be highlighted in green on the modifica
 
 ![Audit Log Change](/nov2025-audit-log-change-serve-variation.png)
 
-For modifications to values, each card will show the orignal value on the left-hand column of the card and the updated value of on the right. If a value was added or modified, the change will be highlighted in green. If a value was deleted or removed, the change will be highlighted in red.
+For modifications to values, each card will show the orignal value on the left-hand column of the card and the updated value on the right. If a value was added or modified, the change will be highlighted in green. If a value was deleted or removed, the change will be highlighted in red.
 
 :::info
 
