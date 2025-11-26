@@ -41,6 +41,6 @@ Please note that [Self-Targeting](/platform/testing-and-qa/self-targeting) actio
 
 ### Feature Created Modification Cards
 
-When a Feature is created, you will see a "Feature Created" card populate in the Audit Log. This is the first modification card in the Audit Log, and it'll outline the initial Feature configuration (initial Variable, Variations, Status, Settings, etc.). The initial Feature configuration can change depending on the [Feature Type](/essentials/feature-types) selected when creating a new Feature. See an example below for an Experiment Feature Type.
+When a Feature is created, you will see a "Feature Created" card populate in the Audit Log. This is the first modification card in the Audit Log, and it will outline the initial Feature configuration (initial Variable, Variations, Status, Settings, etc.). The initial Feature configuration can change depending on the [Feature Type](/essentials/feature-types) selected when creating a new Feature. See an example below for an Experiment Feature Type.
 
 ![Audit Log Experiment Feature Type](/nov2025-audit-log-experiment-feature-type.png)
