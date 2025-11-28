@@ -38,7 +38,7 @@ various SDK architectures have generally been fully implemented.
 DevCycle's feature flag evaluation path is completely separate from the Management API and Dashboard used to manage
 those feature flags. This separation ensures that even if the Management API or Dashboard experiences an outage,
 feature flag evaluations can continue uninterrupted.
-This provides us the ability to provide our highest level of SLA uptime guarantees for feature flag evaluations; the
+This allows us to provide our highest level of SLA uptime guarantees for feature flag evaluations—the
 most critical part of our service.
 
 ## Shared Bucketing and Segmentation Library
