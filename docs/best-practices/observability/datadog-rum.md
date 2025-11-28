@@ -1,24 +1,24 @@
 ---
-title: Observability
-sidebar_label: Observability
-sidebar_position: 11
-description: Observability Best Practices Using DevCycle with Datadog's RUM Feature Flag Tracking
+title: Datadog RUM Feature Flag Tracking
+sidebar_label: Datadog RUM Feature Flag Tracking
+sidebar_position: 1
+description: Observability Best Practices using DevCycle with Datadog's RUM Feature Flag Tracking
 sidebar_custom_props: { icon: simple-icons:datadog }
 ---
 
-# Observability Best Practices Using DevCycle with Datadog's RUM Feature Flag Tracking
+# Observability with Datadog's RUM Feature Flag Tracking
 
 ## Introduction
 
 [Datadog](https://www.Datadoghq.com/) is a prominent cloud observability and security platform, offering insights into metrics, traces, and logs across your entire tech stack. One of Datadog's key features is Real User Monitoring (RUM), which allows you to visualize and analyze real-time performance and user journeys for individual users in your application. To collect events, Datadog provides an easy-to-configure RUM Browser SDK.
 
-DevCycle offers clientside Javascript SDKs, including JS and React, which can be seamlessly integrated with Datadog RUM Feature Flag Tracking. This integration enables the enrichment of RUM data with DevCycle's variable data, giving you more granular control over data collection and event tracking based on user-specific configurations.
+DevCycle offers clientside Javascript SDKs, including JS and React, which can be seamlessly integrated with Datadog RUM Feature Flag Tracking. This integration enables the enrichment of RUM data with DevCycle's Variable data, giving you more granular control over data collection and event tracking based on user-specific configurations.
 
 In this article, we'll explore best practices for setting up an integration between DevCycle's SDK and Datadog's RUM.
 
 ### 1. Configuration
 
-To start, enable the experimental feature in your DatadogRum.init configuration by adding the enableExperimentalFeatures parameter:
+To start, enable the experimental feature in your `DatadogRum.init` configuration by adding the enableExperimentalFeatures parameter:
 
 ```javascript
 datadogRum.init({
@@ -28,11 +28,11 @@ datadogRum.init({
 });
 ```
 
-Next, call DatadogRum.addFeatureFlagEvaluation(key, value) whenever a variable is evaluated. Since the JavaScript and React SDKs emit an event on every variable evaluation, this code should run within the subscription callback.
+Next, call `DatadogRum.addFeatureFlagEvaluation(key, value)` whenever a Variable is evaluated. Since the JavaScript and React SDKs emit an event on every Variable evaluation, this code should run within the subscription callback.
 
 ### 2. JavaScript Integration
 
-To track all variable evaluations, initialize the DevCycle client with your SDK key and user information. Then, subscribe to the variableEvaluated:\* event and use the DatadogRum.addFeatureFlagEvaluation(key, variable.value) function within the callback:
+To track all Variable evaluations, initialize the DevCycle client with your SDK key and user information. Then, subscribe to the `variableEvaluated:\*` event and use the `DatadogRum.addFeatureFlagEvaluation(key, variable.value)` function within the callback:
 
 ```javascript
 const user = { user_id: "my_user" };
@@ -47,7 +47,7 @@ devcycleClient.subscribe(
 )
 ```
 
-To track a specific variable evaluation, subscribe to the variableEvaluated:my-variable-key event:
+To track a specific Variable evaluation, subscribe to the `variableEvaluated:my-variable-key` event:
 
 ```javascript
 devcycleClient.subscribe(
@@ -92,7 +92,7 @@ export const useDatadogRum = () => {
 export default useDatadogRum;
 ```
 
-Now, simply call the useDatadogRum() hook from your root component:
+Now, simply call the `useDatadogRum()` hook from your root component:
 
 ```javascript
 export const App = () => {
@@ -106,7 +106,7 @@ export const App = () => {
 
 ### 4. Test and Monitor Your Integration
 
-Once you have implemented the integration, test it thoroughly to ensure that Datadog RUM is receiving the appropriate feature flag evaluations from DevCycle. Monitor the Datadog RUM dashboard for any anomalies or unexpected behaviors. Regularly review the data collected and adjust your feature flag configurations as needed to optimize performance and user experience.
+Once you have implemented the integration, test it thoroughly to ensure that Datadog RUM is receiving the appropriate Feature Flag evaluations from DevCycle. Monitor the Datadog RUM dashboard for any anomalies or unexpected behaviors. Regularly review the data collected and adjust your Feature Flag configurations as needed to optimize performance and user experience.
 
 ### 5. Segment Users for More Granular Control
 
