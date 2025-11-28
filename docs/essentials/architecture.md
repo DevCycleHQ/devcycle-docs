@@ -35,6 +35,12 @@ various SDK architectures have generally been fully implemented.
 6. Finally, an update notification is pushed to all connected SDKs via a server-sent event (SSE) connection
    that informs them that new configuration data updates are available.
 
+DevCycle's feature flag evaluation path is completely separate from the Management API and Dashboard used to manage
+those feature flags. This separation ensures that even if the Management API or Dashboard experiences an outage,
+feature flag evaluations can continue uninterrupted.
+This allows us to provide our highest level of SLA uptime guarantees for feature flag evaluations—the
+most critical part of our service.
+
 ## Shared Bucketing and Segmentation Library
 
 The shared bucketing and segmentation library is the core of our SDKs and API logic. It combines configuration data
@@ -67,10 +73,12 @@ we have built a native implementation, for example, in our [GO SDK](https://gith
 
 1. On initialization, the Server SDK retrieves the configuration data from the CDN and stores it locally.
 
-2. On each `variableValue()` / `variable()` call, the bucketing and segmentation library combines user data, device data,
+2. On each `variableValue()` / `variable()` call, the bucketing and segmentation library combines user data, device
+   data,
    and configuration data locally to bucket users into features and variations to determine variable values.
 
-3. Configuration updates are received through a real-time server-sent event (SSE) connection or as a backup via polling against the CDN.
+3. Configuration updates are received through a real-time server-sent event (SSE) connection or as a backup via polling
+   against the CDN.
 
 4. Event data is aggregated within the SDK and sent to the Events API on an interval.
 
@@ -80,7 +88,8 @@ we have built a native implementation, for example, in our [GO SDK](https://gith
 
 For most use cases, local bucketing SDKs provide superior performance and reliability.
 However, the cloud-bucketing SDKs can make integration easier for specific use cases where access to
-[EdgeDB](/platform/feature-flags/targeting/edgedb) to integrate user data between client-side and backend applications is needed.
+[EdgeDB](/platform/feature-flags/targeting/edgedb) to integrate user data between client-side and backend applications
+is needed.
 
 1. On each `variableValue()` / `variable()` call, the Cloud Bucketing Server SDKs fetch data from the
    [Bucketing API](/bucketing-api/) served by Cloudflare Workers at the edge.
@@ -111,10 +120,28 @@ However, the cloud-bucketing SDKs can make integration easier for specific use c
 
 ## Latency vs. Data Storage
 
-DevCycle was designed and built for **performance** and **reliability** first. To enable Feature Flags to evaluate quickly and be served from as close to the end user as possible, we chose to not store user data to our servers by default. This means that all Feature and Variable evaluations happens using the user information provided at the time of the request, avoiding database lookups and keeping latency extremely low. 
+DevCycle was designed and built for **performance** and **reliability** first. To enable Feature Flags to evaluate
+quickly and be served from as close to the end user as possible, we chose to not store user data to our servers by
+default. This means that all Feature and Variable evaluations happen using the user information provided at the time of
+the request, avoiding database lookups and keeping latency extremely low.
 
-For teams that **do** need to persist user attributes for targeting or other advanced use cases, DevCycle offers **EdgeDB**: a globally distributed, edge-based data store that allows you to save and retrieve user data with minimal latency. Read more about it at [EdgeDB and Stored Properties](/platform/feature-flags/targeting/edgedb).
+For teams that **do** need to persist user attributes for targeting or other advanced use cases, DevCycle offers
+**EdgeDB**: a globally distributed, edge-based data store that allows you to save and retrieve user data with minimal
+latency. Read more about it at [EdgeDB and Stored Properties](/platform/feature-flags/targeting/edgedb).
 
+### SDK Performance Summary
+
+Our SDKs are designed to fit into a variety of use cases, balancing performance, reliability, and data privacy. Below is a summary of the expected performance characteristics of each SDK type and configuration:
+These numbers are approximate and can vary based on network conditions, geographic
+deployment, and specific implementation details in various configurations.
+
+| SDK                        | Local Bucketing                                                             | Cloud Bucketing                                                                    | SDK Proxy                                                                                                                                                 |
+|----------------------------|-----------------------------------------------------------------------------|------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **All Client/Mobile SDKs** | N/A                                                                         | 20-50ms initialization. Sub-ms Variable evaluations post-initialization.                    | N/A                                                                                                                                                       |
+| **Go Server SDK**          | 20-50ms initialization. 100-200 nanosecond evaluations post-initialization. | 20-50ms per evaluation. Latency is relative to the distance to the nearest Cloudflare PoP. | Depends on customer deployment architecture. Evaluation times within the SDK proxy are measured in nanoseconds, with HTTP responses given in microseconds. |
+| **PHP Server SDK**         | N/A                                                                         | 20-50ms per evaluation. Latency is relative to the distance to the nearest Cloudflare PoP. | Depends on customer deployment architecture. Evaluation times within the SDK proxy are measured in nanoseconds, with HTTP responses given in microseconds. |
+| **All Other Server SDK**   | 20-50ms initialization. Sub-ms Variable evaluations post-initialization.             | 20-50ms per evaluation. Latency is relative to the distance to the nearest Cloudflare PoP. | Depends on customer deployment architecture. Evaluation times within the SDK proxy are measured in nanoseconds, with HTTP responses given in microseconds. |
+| **SDK Proxy**              | 20-50ms initialization. 100-200 nanosecond evaluations post-initialization. | While possible, this is not a supported configuration of the SDK Proxy.            | Exact performance depends on customer deployment specifics. Evaluations as fast as hundreds of nanoseconds. HTTP responses as fast as microseconds.        |
 
 ## SDK Test Harness
 
@@ -125,3 +152,16 @@ a set of HTTP requests made to a series of locally run proxy servers for each SD
 These proxy servers then take the commands from the requests made from the tests to set up the SDKs in different ways,
 execute all the core SDK methods, and measure their responses. They ensure that each SDK behaves the same way,
 returns the same results, or throws the same errors for each test.
+
+## Management API / Dashboard
+
+DevCycle's Management API and Dashboard are designed using high availability principles to ensure that users can manage
+their feature flags and configurations without interruption. The Management API is multi-region, ensuring that if one
+region experiences
+an outage, traffic can be routed to another healthy region. The Dashboard is served via Vercel's multi-region
+architecture,
+which provides automatic failover and load balancing across regions.
+
+We use an active-active architecture for our failover systems, meaning that multiple regions are running simultaneously and can handle traffic at any time, ensuring that our Management API can maintain high
+availability.
+
