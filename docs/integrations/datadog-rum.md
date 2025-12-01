@@ -107,7 +107,7 @@ export const App = () => {
 ```
 ### Best Practices
 
-In our ["Observability Best Practices Using DevCycle with Datadog's RUM Feature Flag Tracking"](/best-practices/datadog-rum) article, we explore best practices for enriching RUM data with DevCycle's variable data, giving you more granular control over data collection and event tracking based on user-specific configurations.
+In our ["Observability Best Practices Using DevCycle with Datadog's RUM Feature Flag Tracking"](/best-practices/observability/datadog-rum) article, we explore best practices for enriching RUM data with DevCycle's variable data, giving you more granular control over data collection and event tracking based on user-specific configurations.
 
 
 ### Coming Soon

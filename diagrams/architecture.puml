@@ -1,0 +1,242 @@
+@startuml
+'https://plantuml.com/deployment-diagram
+
+!define DIRECTION top to bottom direction
+skinparam backgroundColor #f8f9fa
+skinparam roundCorner 10
+skinparam defaultFontColor #2c3e50
+skinparam defaultFontSize 11
+skinparam linetype ortho
+
+' ================================
+' STYLING CLASSES
+' ================================
+
+' Customer Infrastructure Styling
+skinparam cloud<<customer>> {
+    BackgroundColor #4a90e2
+}
+
+skinparam collections<<sdk>> {
+    BackgroundColor #6bb6ff
+}
+
+' External Integrations Styling
+skinparam cloud<<external>> {
+    BackgroundColor #50c878
+}
+
+skinparam node<<integration>> {
+    BackgroundColor #7ed321
+}
+
+' Cloudflare Styling
+skinparam rectangle<<cloudflare>> {
+    BackgroundColor #ff6b35
+}
+
+skinparam portin<<cf_port>> {
+    BackgroundColor #ff8c42
+}
+
+skinparam portout<<cf_port_out>> {
+    BackgroundColor #d84315
+}
+
+skinparam cloud<<waf>> {
+    BackgroundColor #bf360c
+}
+
+skinparam rectangle<<workers>> {
+    BackgroundColor #dd2c00
+}
+
+skinparam frame<<api>> {
+    BackgroundColor #ff5722
+}
+
+skinparam database<<storage>> {
+    BackgroundColor #ffa000
+}
+
+skinparam queue<<events>> {
+    BackgroundColor #ff8f00
+}
+
+' AWS Infrastructure Styling
+skinparam rectangle<<aws>> {
+    BackgroundColor #e74c3c
+}
+
+skinparam portin<<aws_port>> {
+    BackgroundColor #c0392b
+}
+
+skinparam queue<<kinesis>> {
+    BackgroundColor #e67e22
+}
+
+skinparam node<<management>> {
+    BackgroundColor #f39c12
+}
+
+skinparam rectangle<<mongodb>> {
+    BackgroundColor #8e44ad
+}
+
+skinparam database<<mongo>> {
+    BackgroundColor #9b59b6
+}
+
+skinparam node<<snowflake>> {
+    BackgroundColor #3498db
+}
+
+' EdgeDB Styling
+skinparam database<<edgedb>> {
+    BackgroundColor #27ae60
+}
+
+skinparam portin<<edge_port>> {
+    BackgroundColor #2ecc71
+}
+
+' ================================
+' ARROW STYLING
+' ================================
+
+skinparam arrow {
+    Color #2c3e50
+    FontColor #2c3e50
+    FontSize 10
+    Thickness 2
+}
+
+skinparam class {
+    ArrowColor #2c3e50
+    ArrowFontColor #2c3e50
+    ArrowThickness 2
+}
+
+' ================================
+' ARCHITECTURE COMPONENTS
+' ================================
+
+' Top Layer - Customer and External
+together {
+    cloud "Customer Infrastructure" as customer_infra <<customer>> {
+        collections "Cloud Bucketing SDKs" as customer_cloud_sdks <<sdk>>
+        collections "Local Bucketing SDKs" as customer_local_sdks <<sdk>>
+        collections "Mobile/Web SDKs" as customer_mobile_web_sdks <<sdk>>
+        collections "Management API Clients" as management_api_clients <<sdk>>
+    }
+
+    cloud "External Integrations" <<external>> {
+        node "GitHub Actions" as github_actions <<integration>>
+        node "GitLab CI/CD" as gitlab_ci <<integration>>
+        node "Bitbucket Pipelines" as bitbucket_pipelines <<integration>>
+        node "JIRA" as jira <<integration>>
+        node "Slack" as slack <<integration>>
+    }
+}
+
+' Middle Layer - Cloudflare Edge
+rectangle "Cloudflare Edge Layer" <<cloudflare>> {
+    together {
+        portin "Events API" as event_api_in <<cf_port>>
+        portin "SDK API" as sdk_api_in <<cf_port>>
+        portin "Cloud Bucketing API" as cloud_bucketing_api_in <<cf_port>>
+        portin "Config CDN" as config_cdn_in <<cf_port>>
+        portin "Management API" as management_api_cf_in <<cf_port>>
+    }
+
+    cloud "Cloudflare WAF" as cf_waf <<waf>> {
+        rectangle "Core Worker APIs" as cloudflare_workers <<workers>> {
+            frame "Bucketing API" as bucketing_api <<api>>
+            frame "Events API" as event_api <<api>>
+            frame "SDK API" as sdk_api <<api>>
+        }
+    }
+
+    together {
+        database "Config R2 Buckets" as config_cdn <<storage>>
+        queue "Events Firehose" as events_firehose <<events>>
+    }
+
+    together {
+        portout "Events Out" as events_firehose_out <<cf_port_out>>
+        portout "Management Out" as management_api_cf_out <<cf_port_out>>
+    }
+}
+
+' Database Layer
+database "EdgeDB" as edgedb <<edgedb>> {
+    portin "Updates/Queries" as edgedb_in <<edge_port>>
+}
+
+' Backend Layer - AWS
+rectangle "AWS Backend" <<aws>> {
+    together {
+        portin "Events In" as events_firehose_in <<aws_port>>
+        portin "Management In" as management_api_in <<aws_port>>
+    }
+
+    together {
+        queue "Kinesis Firehose" as events_firehose_aws <<kinesis>>
+        node "Snowflake Warehouse" as snowflake <<snowflake>>
+    }
+
+    node "Management API" as mgmt_api <<management>>
+
+    rectangle "MongoDB Cloud" <<mongodb>> {
+        database "MongoDB Atlas" as mongodb_db <<mongo>>
+    }
+}
+
+' ================================
+' CONNECTIONS - Organized by Layer
+' ================================
+
+' Customer/External to Cloudflare Entry
+customer_cloud_sdks -down-> cloud_bucketing_api_in
+customer_mobile_web_sdks -down-> sdk_api_in
+customer_local_sdks -down-> config_cdn_in
+customer_local_sdks -down-> event_api_in
+management_api_clients -down-> management_api_cf_in
+jira -down-> management_api_cf_in
+slack -down-> management_api_cf_in
+
+github_actions -down-> management_api_cf_in
+gitlab_ci -down-> management_api_cf_in
+bitbucket_pipelines -down-> management_api_cf_in
+
+' Cloudflare Entry Points to Core APIs
+config_cdn_in -down-> config_cdn
+event_api_in -down-> event_api
+sdk_api_in -down-> sdk_api
+cloud_bucketing_api_in -down-> bucketing_api
+management_api_cf_in -down-> cf_waf
+
+' Core API to Storage/Events
+sdk_api -down-> events_firehose
+bucketing_api -down-> events_firehose
+event_api -down-> events_firehose
+
+' Core API to EdgeDB
+cloudflare_workers -down-> edgedb_in
+
+' Events and Management Flow
+events_firehose -down-> events_firehose_out
+cf_waf -down-> management_api_cf_out
+
+' Cloudflare to AWS
+events_firehose_out -down-> events_firehose_in
+management_api_cf_out -down-> management_api_in
+
+' AWS Internal Flow
+events_firehose_in -down-> events_firehose_aws
+events_firehose_aws -down-> snowflake
+management_api_in -down-> mgmt_api
+mgmt_api -down-> mongodb_db
+
+@enduml

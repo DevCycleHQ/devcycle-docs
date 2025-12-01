@@ -64,3 +64,4 @@
 /platform/advanced-targeting/feature-opt-in /platform/extras/feature-opt-in 301
 /platform/testing-and-qa/debug-tools /platform/testing-and-qa/debug-tools/evaluation-lookup 301
 /platform/testing-and-qa/web-debugger /platform/testing-and-qa/debug-tools/web-debugger 301
+/best-practices/datadog-rum /best-practices/observability/datadog-rum 301

@@ -1,7 +1,7 @@
 ---
 title: Continuous Integration & Continuous Deployment
 sidebar_label: CI/CD
-sidebar_position: 7
+sidebar_position: 9
 description: Feature flag guidelines that optimize continuous integration and deployment
 sidebar_custom_props: { icon: carbon:continuous-deployment }
 ---
