@@ -303,6 +303,10 @@ html[data-theme='dark'] .DocSearch {
   background-image: url(../../static/sidebar/roadmap.svg);
 }
 
+.section-title.mock-testing > a::before {
+  background-image: url(../../static/sidebar/mock-testing.svg);
+}
+
 .responsiveCal {
   position: relative;
   padding-bottom: 75%;

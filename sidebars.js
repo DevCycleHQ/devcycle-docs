@@ -57,12 +57,6 @@ module.exports = {
     },
     {
       type: 'doc',
-      label: 'SDK Lifecycle',
-      className: 'section-title lifecycle',
-      id: 'sdk/lifecycle',
-    },
-    {
-      type: 'doc',
       label: 'SDK Features',
       className: 'toggle-right section-title sdk-features',
       id: 'sdk/features', // The internal path
@@ -90,6 +84,18 @@ module.exports = {
       className: 'section-title sdk-proxy',
       collapsible: true,
       collapsed: true,
+    },
+    {
+      type: 'doc',
+      label: 'SDK Mock Testing',
+      className: 'section-title mock-testing',
+      id: 'sdk/mock-testing',
+    },
+    {
+      type: 'doc',
+      label: 'SDK Lifecycle',
+      className: 'section-title lifecycle',
+      id: 'sdk/lifecycle',
     },
   ],
   bestPractices: [
