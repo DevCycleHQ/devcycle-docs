@@ -1,6 +1,5 @@
 ---
 title: SDK Release Lifecycle
-sidebar_position: 2
 ---
 
 # SDK Release Lifecycle
