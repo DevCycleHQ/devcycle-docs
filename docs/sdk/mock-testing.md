@@ -65,14 +65,14 @@ Test retrieving a Variable value through the `.variable()` or `.variableValue()`
       responses.POST,
       self._get_variable_url(variable_key),
       json={
-        "_id": "600000000000000000000000",
+        "_id": "12345",
         "key": variable_key,
         "type": "String",
         "value": expected_value,
         "eval": {
           "reason": "TARGETING_MATCH",
           "details": "All Users",
-          "target_id": "500000000000000000000000"
+          "target_id": "54321"
         }
       },
       status=200,
@@ -103,25 +103,25 @@ Test retrieving all active Variables through the `.allVariable()` method.
       self._get_variables_url(),
       json={
         "string-test-var": {
-          "_id": "636d3da931a842d858e84990",
+          "_id": "123456",
           "key": "string-test-var",
           "type": "String",
           "value": "var-on",
           "eval": {
             "reason": "TARGETING_MATCH",
             "details": "All Users",
-            "target_id": "636d39a231a842d858e8474d"
+            "target_id": "654321"
           }
         },
         "bool-test-var": {
-          "_id": "636d39a2e013f54685049e34",
+          "_id": "123456",
           "key": "bool-test-var",
           "type": "Boolean",
           "value": True,
           "eval": {
             "reason": "TARGETING_MATCH",
             "details": "All Users",
-            "target_id": "636d39a231a842d858e8474d"
+            "target_id": "654321"
           }
         }
       },
