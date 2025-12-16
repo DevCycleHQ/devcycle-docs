@@ -146,4 +146,3 @@ Custom Statuses:
 - Cannot change the behavior of the Archived category
 
 All Statuses within the Completed category follow the same completion flow and require selection of a final Variation.
-
