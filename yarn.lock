@@ -4168,36 +4168,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/analytics@npm:^1.5.0":
-  version: 1.5.0
-  resolution: "@vercel/analytics@npm:1.5.0"
-  peerDependencies:
-    "@remix-run/react": ^2
-    "@sveltejs/kit": ^1 || ^2
-    next: ">= 13"
-    react: ^18 || ^19 || ^19.0.0-rc
-    svelte: ">= 4"
-    vue: ^3
-    vue-router: ^4
-  peerDependenciesMeta:
-    "@remix-run/react":
-      optional: true
-    "@sveltejs/kit":
-      optional: true
-    next:
-      optional: true
-    react:
-      optional: true
-    svelte:
-      optional: true
-    vue:
-      optional: true
-    vue-router:
-      optional: true
-  checksum: 10/ae13f10585ffd458e2e00b7e3711f62fc5806447b119e3a6bc19cb1e8a1971527b434343e63207155bef5e4a170b7be6b83822ab94f4716df243cbc2a3fff3b4
-  languageName: node
-  linkType: hard
-
 "@webassemblyjs/ast@npm:1.14.1, @webassemblyjs/ast@npm:^1.14.1":
   version: 1.14.1
   resolution: "@webassemblyjs/ast@npm:1.14.1"
@@ -6077,7 +6047,6 @@ __metadata:
     "@remark-embedder/core": "npm:^3.0.3"
     "@tailwindcss/aspect-ratio": "npm:^0.4.2"
     "@types/react": "npm:^18.3.20"
-    "@vercel/analytics": "npm:^1.5.0"
     call-me-maybe: "npm:^1.0.2"
     clsx: "npm:^2.1.1"
     docusaurus-plugin-remote-content: "npm:^4.0.0"
