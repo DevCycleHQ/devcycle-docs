@@ -7,96 +7,148 @@ import TabItem from '@theme/TabItem';
 
 Mock testing allows you to test your application's behavior with specific Feature and Variable configurations without making API calls to DevCycle. This enables faster, more reliable tests that don't depend on external services.
 
-## Methods for Mock Testing
+## Mock Testing Strategy
 
-### DevCycleUser
+The general testing strategy we'd recommend is to mock DevCycle's Variable and Variable value calls as opposed to mocking the full DevCycle client. To achieve this, you'd want to perform network level mocking to intercept the Variables or Variable by key requests to provide your own Variable response.
 
-```
-mockUser = DevCycleUser(
-  user_id='test_user',
-  email='test@example.com',
-  country='CA',
-  customData={
-    customKey='value'
-  } 
-)
-```
+## Server-Side SDKs: Cloud Bucketing
 
-### Variable and VariableValue
+DevCycle's Server-side SDKs can operate on Cloud or Local Bucketing modes. We'd recommend using Cloud Bucketing for mock testing. Cloud Bucketing uses the [DevCycle Bucketing API](/bucketing-api/#tag/Bucketing-API) behind the scenes to fetch and retrive Variable values. You may mock the response of the `Get Variable by Key` or `Get Variables` endpoints in order to replicate the output of your Server-side SDK.
+
+### Setup
+
+The SDK Key does not need to be a valid SDK key, but it needs to be in a correctly formatted starting with `dvc_server` or `server`.
+
+<Tabs>
+  <TabItem value="python" label="Python (unittest)">
+
+  ```python
+  def setUp(self):
+    self.sdk_key = "dvc_server_test_key_12345678"
+    self.bucketing_api_base = "https://bucketing-api.devcycle.com"
+    self.options = DevCycleCloudOptions(
+      bucketing_api_uri=self.bucketing_api_base,
+      request_timeout=5,
+      request_retries=0,
+    )
+    self.client = DevCycleCloudClient(self.sdk_key, self.options)
+
+  def tearDown(self):
+    if self.client:
+      self.client.close()
+    responses.reset()
+
+  def _get_variable_url(self, key: str) -> str:
+    """Get the URL for a single variable request"""
+    return f"{self.bucketing_api_base}/v1/variables/{key}"
+
+  def _get_variables_url(self) -> str:
+    """Get the URL for all variables request"""
+    return f"{self.bucketing_api_base}/v1/variables"
+  ```
+  </TabItem>
+</Tabs>
+
+### Variable and VariableValue Test
 
 Test retrieving a Variable value through the `.variable()` or `.variableValue()` method.
 <Tabs>
   <TabItem value="python" label="Python (unittest)">
 
   ```python
-  def test_variable_string(self, mock_client):
-    """Test getting a string variable value"""
-
-    mock_variable = Variable(
-        _id='var_str',
-        key='example-text',
-        type='String',
-        value='step-1'
+  def test_variable_value_string(self):
+    """Test variable_value() with a string variable"""
+    variable_key = "string-test-var"
+    expected_value = "var-on"
+    
+    responses.add(
+      responses.POST,
+      self._get_variable_url(variable_key),
+      json={
+        "_id": "600000000000000000000000",
+        "key": variable_key,
+        "type": "String",
+        "value": expected_value,
+        "eval": {
+          "reason": "TARGETING_MATCH",
+          "details": "All Users",
+          "target_id": "500000000000000000000000"
+        }
+      },
+      status=200,
     )
-    
-    mock_client.variable.return_value = mock_variable
-    
-    result = mock_client.variable(self.mock_user, 'example-text', 'default')
-    
-    # Assertions
-    self.assertEqual(result.value, 'step-1')
-    self.assertEqual(result.key, 'example-text')
-    self.assertEqual(result.type, 'String')
+
+    user = DevCycleUser(user_id="test-user-123")
+    result = self.client.variable_value(user, variable_key, "default-value")
+
+    self.assertEqual(result, expected_value)
+    # Verify the request was made
+    self.assertEqual(len(responses.calls), 1)
+    self.assertEqual(responses.calls[0].request.method, "POST")
   ```
   </TabItem>
 </Tabs>
 
-### AllVariables
+### AllVariables Test
 
-Test retrieving all active Variables through the `allVariable()` or `all_variables()` method.
+Test retrieving all active Variables through the `.allVariable()` method.
 <Tabs>
   <TabItem value="python" label="Python (unittest)">
 
   ```python
-  def test_all_variables(self, mock_client):
-    """Test retrieving all variables for a user"""
+  def test_all_variables(self):
+    """Test retrieving all variables using all_variables()"""
+    responses.add(
+      responses.POST,
+      self._get_variables_url(),
+      json={
+        "string-test-var": {
+          "_id": "636d3da931a842d858e84990",
+          "key": "string-test-var",
+          "type": "String",
+          "value": "var-on",
+          "eval": {
+            "reason": "TARGETING_MATCH",
+            "details": "All Users",
+            "target_id": "636d39a231a842d858e8474d"
+          }
+        },
+        "bool-test-var": {
+          "_id": "636d39a2e013f54685049e34",
+          "key": "bool-test-var",
+          "type": "Boolean",
+          "value": True,
+          "eval": {
+            "reason": "TARGETING_MATCH",
+            "details": "All Users",
+            "target_id": "636d39a231a842d858e8474d"
+          }
+        }
+      },
+      status=200,
+    )
 
-    mock_variables = {
-      'feature-flag-1': Variable(
-        _id='var1',
-        key='feature-flag-1',
-        type='Boolean',
-        value=True,
-        eval=EvalReason(
-            reason='TARGETING_MATCH',
-            details='ALL USERS',
-            target_id='targeting_rule1'
-        )
-      ),
-      'feature-flag-2': Variable(
-        _id='var2',
-        key='feature-flag-2',
-        type='String',
-        value='variant-a',
-        eval=EvalReason(
-            reason='SPLIT',
-            details='Random Distribution | Audience Match',
-            target_id='targeting_rule2'
-        )
-      ),
-    }
+    user = DevCycleUser(user_id="test-user-123")
+    result = self.client.all_variables(user)
 
-    mock_client.all_variables.return_value = mock_variables
-    mock_client.is_initialized.return_value = True
+    # Verify the response structure
+    self.assertIsInstance(result, dict)
+    self.assertIn("string-test-var", result)
+    self.assertIn("bool-test-var", result)
     
-    # Call the method
-    result = mock_client.all_variables(self.mock_user)
+    # Verify variable values
+    self.assertEqual(result["string-test-var"].value, "var-on")
+    self.assertEqual(result["string-test-var"].key, "string-test-var")
+    self.assertEqual(result["string-test-var"].type, "String")
     
-    # Assertions
-    self.assertEqual(len(result), 2)
-    self.assertTrue(result['feature-flag-1'].value)
-    self.assertEqual(result['feature-flag-2'].value, 'variant-a')
-    mock_client.all_variables.assert_called_once_with(self.mock_user)
+    self.assertTrue(result["bool-test-var"].value)
+    self.assertEqual(result["bool-test-var"].key, "bool-test-var")
+    self.assertEqual(result["bool-test-var"].type, "Boolean")
+    
+    # Verify the request was made to the correct URL
+    self.assertEqual(len(responses.calls), 1)
+    self.assertEqual(responses.calls[0].request.method, "POST")
+    self.assertEqual(responses.calls[0].request.url, self._get_variables_url())
   ```
   </TabItem>
 </Tabs>
@@ -114,21 +166,6 @@ const devcycleClient = initializeDevCycle(
   '<DEVCYCLE_CLIENT_SDK_KEY>',
   user,
   { bootstrapConfig }
-)
-```
-
-## Server-Side SDKs: Local Bucketing
-
-Server-side SDKs with Local Bucketing mode enabled, will allow you to provide the SDK a local configuration file or mock data.
-
-```javascript
-// Example for Node.js SDK
-const devcycleClient = initializeDevCycle(
-  '<DEVCYCLE_SERVER_SDK_KEY>',
-  {
-    configCDN: 'https://your-test-config.com/config.json',
-    // or use local file
-  }
 )
 ```
 
