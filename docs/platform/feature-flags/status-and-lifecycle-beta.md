@@ -132,6 +132,48 @@ When reverting:
 
 ---
 
+## Managing Statuses
+
+Statuses are managed at the **Project level** and apply to all Features within that Project.
+
+Each Project starts with a default set of Statuses aligned to DevCycle’s lifecycle categories. Teams may customize these Statuses to better reflect their internal workflows.
+
+### Project Settings
+
+Statuses can be viewed and managed from the **Project Settings** page under the **Feature Statuses** section.
+
+From this page, users can:
+
+- View all Statuses grouped by Category
+- Create new custom Statuses within supported Categories
+- Edit existing Status labels
+- Reorder Statuses within a Category
+- Assign colors to Statuses for quick visual identification
+- Select the default Status applied when a new Feature is created
+
+Changes made in Project Settings take effect immediately and apply across the Project.
+
+#### Status Categories and Rules
+
+Statuses must belong to one of DevCycle’s predefined Categories.
+
+The following rules apply:
+
+- New Categories cannot be created
+- Each Category must contain at least one Status
+- The last remaining Status in a Category cannot be deleted
+- Status labels and ordering within a Category can be modified
+
+### Permissions for Status Changes
+
+#### Permissions
+
+When permissions are enabled:
+
+- Statuses in the **Development** and **Live** Categories can be applied by any user with access to the Project
+- Statuses in the **Completed** and **Archived** Categories can only be applied by users with the **Publisher** permission
+- Only **Publishers** can create, and modify Feature Statuses in the Project Settings
+
 ## Custom Statuses
 
 In addition to the default Statuses, teams can define **custom Statuses** within their Project settings.
