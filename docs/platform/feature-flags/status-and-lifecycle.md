@@ -196,7 +196,7 @@ The following rules apply:
 
 ### Permissions for Status Changes
 
-#### Permissions
+#### Permission Rules
 
 When permissions are enabled:
 
