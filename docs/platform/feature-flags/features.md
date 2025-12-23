@@ -38,7 +38,7 @@ In this view:
 
 - Each column represents a Feature Status
 - Each column header includes a total count of Features in each Status
-- Features appear as cards within the column matching their current Status, and can be sorted differently by selection
+- Features appear as cards within the column matching their current Status, and can be sorted within each column according to the selected sort option (for example, by name or last updated date)
 - Columns are ordered based on the Status order defined in Project Settings
 - Status colors are reflected in the column headers for quick visual scanning
 
