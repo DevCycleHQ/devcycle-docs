@@ -110,6 +110,7 @@ When a Feature is Archived:
 - It becomes fully read-only
 - It is hidden from standard dashboard views
 - Audit Logs remain accessible for historical reference
+- Metrics & Reach data will not be visible on the dashboard for Archived features
 
 Archiving Features helps keep both your dashboard and codebase clean while preserving valuable lifecycle history.
 
