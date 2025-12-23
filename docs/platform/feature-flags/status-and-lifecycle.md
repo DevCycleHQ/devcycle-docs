@@ -175,7 +175,7 @@ From this page, users can:
 
 - View all Statuses grouped by Category
 - Create new custom Statuses within supported Categories
-- Edit existing Status names (\*Note: each Status must have a unique key)
+- Edit existing Status names (Note: each Status must have a unique key)
 - Reorder Statuses within a Category
 - Assign colors to Statuses for quick visual identification
 - Add a description to provide context behind what a Status represents
