@@ -21,7 +21,7 @@ The default Statuses are:
 - **Completed**
 - **Archived**
 
-In addition to the default Statuses, teams can define **custom Statuses** within their Project settings. This allow teams to better align Feature lifecycle tracking with their internal development and release processes while preserving DevCycle's lifecycle guarantees. Each custom Status inherits the behavior of their Category.
+In addition to the default Statuses, teams can define **custom Statuses** within their Project settings. This allows teams to better align Feature lifecycle tracking with their internal development and release processes while preserving DevCycle's lifecycle guarantees. Each custom Status inherits the behavior of their Category.
 
 Status changes are **not automatic** and are always managed explicitly by the user.
 
