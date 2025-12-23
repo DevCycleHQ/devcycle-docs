@@ -27,7 +27,6 @@
     "@mdx-js/react": "^3.1.0",
     "@remark-embedder/core": "^3.0.3",
     "@tailwindcss/aspect-ratio": "^0.4.2",
-    "@vercel/analytics": "^1.5.0",
     "call-me-maybe": "^1.0.2",
     "clsx": "^2.1.1",
     "docusaurus-plugin-remote-content": "^4.0.0",
