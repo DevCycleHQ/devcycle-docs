@@ -41,7 +41,7 @@ While a Feature is in Development, all Targeting rules and Variations remain edi
 
 This stage is typically used while work is ongoing and before a Feature is considered ready for broad release.
 
-Below are some examples of different Statuses that would make sense in the Live Category:
+Below are some examples of different Statuses that would make sense in the Development Category:
 
 - _In Development_
 - _Pending Design_
