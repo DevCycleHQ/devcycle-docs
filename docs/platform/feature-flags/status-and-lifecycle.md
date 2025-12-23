@@ -71,7 +71,7 @@ The Completed Category represents Features that have reached the end of active d
 
 A Feature may be considered Completed once it has been tested, approved, and is fully released, or when no further targeting changes are expected.
 
-When a Feature is moved into a Status within the **Completed** Category, it enters a **semi–read-only state**:
+When a Feature is moved into a Status within the **Completed** Category, it enters a **semi-read-only state**:
 
 - A single **final (release) Variation** must be selected
 - All Environments will serve this Variation to all users
