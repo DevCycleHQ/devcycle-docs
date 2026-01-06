@@ -35,12 +35,6 @@ module.exports = {
       className: 'section-title examples',
       id: 'examples', // The internal path
     },
-    {
-      type: 'doc',
-      label: 'Roadmap',
-      className: 'section-title roadmap',
-      id: 'product-roadmap', // The internal path
-    },
     // {
     //   type: 'doc',
     //   label: 'Release Notes',
