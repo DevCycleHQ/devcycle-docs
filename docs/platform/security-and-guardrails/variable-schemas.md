@@ -3,62 +3,93 @@ title: Variable Schemas
 sidebar_position: 7
 ---
 
-Variable Schemas is a new DevCycle feature that lets you define allowable values for your variables when creating feature variations. Variable Schemas help developers ensure that team members can easily select allowable inputs for variable values without being nervous that a certain value might cause an application crash or negatively impact end user experience. 
+Variable Schemas is a new DevCycle feature that lets you define allowable values for your Variables when creating Feature Variations. Variable Schemas help developers ensure that team members can easily select allowable inputs for Variable values without being nervous that a certain value might cause an application crash or negatively impact end user experience. 
 
 ## Defining a Variable Schema
 
-To define a Variable Schema for a variable, navigate to the Schema section of the Variable Details page to select and define a schema for that particular variable. Variable Schemas can be added to both associated or unassociated variables. 
+To define a Variable Schema for a Variable, navigate to the Schema section of the Variable Details page to select and define a schema for that particular Variable. Variable Schemas can be defined [manually](/platform/security-and-guardrails/variable-schemas#manual-entry), or you may want [AI](/platform/security-and-guardrails/variable-schemas#ai-generated) to generate a Schema automatically instead. More on those options later.
 
-There are three different types of schemas that you can define for your variable: 
+### Schema Types
+
+There are three different types of schemas that you can define for your Variable: 
 
 - Enum (*String or Number Variable*)
 - Regex (*String Variable*)
 - JSON (*JSON Variable*)
 
-Each schema type requires a **Brief Description**. For example, when defining an Enum schema for a String variable that's meant for a greeting message on a sign up page, a sample description could be “Greeting options for sign-up page.” 
+Each schema type requires a **Brief Description**. For example, when defining an Enum schema for a String Variable that's meant for a greeting message on a sign up page, a sample description could be “Greeting options for sign-up page.” 
 
-You also must set an **Example Value**. The example value will be used as the initial value for each variation when adding this variable to a feature.
+You also must set an **Example Value**. The example value will be used as the initial value for each Variation when adding this Variable to a Feature.
 
 :::caution
 You will be unable to define or edit a Schema that makes the associated Feature’s values invalid.
 :::
 
-An **Enum** schema will allow you to input allowable values for a string or number variable. 
+#### Enum Schema
+
+An **Enum** schema will allow you to input allowable values for a string or number Variable. 
 
 If “Enum” type is selected, users must define the allowable values in the **Enum Values** input field.
 
 *Enum Example:*
-![Enum Schema Example](/june-2023-enum-schema-example.png)
+![Enum Schema Example](/enum-schema-edit-schema.png)
 
+#### Regex Schema
 
-A **Regex** schema allows you to define a regex pattern. Variation values for a variable with a Regex schema type must match the pattern defined in the schema.
+A **Regex** schema allows you to define a regex pattern. Variation values for a Variable with a Regex schema type must match the pattern defined in the schema.
 
 *Regex Example:* 
-![Regex Schema Example](/june-2023-regex-schema-example.png)
+![Regex Schema Example](/regex-schema-edit-schema.png)
 
-A **JSON** schema will allow DVC users to define a JSON schema that variation values must follow. If “JSON schema” type is selected, users can define the schema below in a JSON editor. Example JSON Schemas and more information about them can be found [here](https://json-schema.org/learn/miscellaneous-examples.html#basic).
+#### JSON Schema
+
+A **JSON** schema will allow DVC users to define a JSON schema that Variation values must follow. If the “JSON schema” type is selected, users can define a schema themselves in a JSON editor under the **Manual Entry** tab or have AI define a schema for you under the **AI Generated** tab. 
+
+Examples of JSON Schemas and more information about them can be found [here](https://json-schema.org/learn/miscellaneous-examples.html#basic).
 
 *JSON Example:* 
-![JSON Schema Example](/june-2023-json-schema-example.png)
+![Image of generated JSON Schema ](/json-schema-ai-gen-example-complete.png)
 
-Once a variable is created and schema has been defined, click save and then you can add this variable to a feature. 
+### Schema Creation
+
+Variables Schemas can be created automatically via our AI Generated Schemas, or manually, by inputting the details yourself. You may find out more about creating Schemas and it’s proper syntax from this page [here](https://json-schema.org/learn/miscellaneous-examples#basic).
+
+#### Manual Entry
+
+Schemas can be created manually by providing it with a Description, the Schema and an example of an acceptable value for your schema. Variable Schemas can be manually added to both associated or unassociated Variables.
+
+![Image of manual entry Schema tab](/json-schema-manual-entry-example.png)
+
+#### AI Generated
+
+Schemas can also be created automatically by using DevCycle’s AI Generated Schemas. It works by analyzing the Variable, and it’s values within the Feature it’s used in, and generating a schema based on it’s assumption of what the Variable represents. AI Generated Schemas rely on existing Variables that are associated to a Feature.
+
+To start, you can select to Add or Edit the Variable’s Schema and navigate to the AI Generated tab. Here you can select “Generate with AI” to create a new schema, or “Regenerate with AI” to replace your existing one. 
+
+![Image of AI generated JSON Schema tab](/json-schema-ai-gen-tab.png)
+
+After that, you’ll be asked to select a Variation to choose as a example. This example is shown when you’re creating a new Variation and will pre-populate your Variable value for the new Variation. When you've selected an example, have AI generate the Schema.
+
+![Image of AI generated JSON Schema example value](/json-schema-ai-gen-example-value.png)
+
+AI will create the Variable Schema for you and all you have to do is hit “Save” to apply your changes. You may also edit the Schema further before saving as you may want to include more possible values or allow/do not allow additional properties to be added via a Feature.
 
 ## Adding a Variable with a Defined Schema
 
-Once the variable is created and a schema has been defined, you can add it to a feature like any other unassociated variable and select it from the dropdown in the Add New Variable modal within a feature. 
+Once the Variable is created and a schema has been defined, you can add it to a Feature like any other unassociated Variable and select it from the dropdown in the Add New Variable modal within a Feature. 
 
 ![Add Variable Modal with Schema Example](/june-2023-adding-variable-with-schema-modal.png)
 
-If a variable that has a schema is selected, an info box will appear that outlines the schema type and has the Brief Description of the schema defined on the Variable details page. 
+If a Variable that has a schema is selected, an info box will appear that outlines the schema type and has the Brief Description of the schema defined on the Variable details page. 
 
-You can also click on the word *"here”* to open a side panel which displays the schema definition along with other details about the variable. 
+You can also click on the word *"here”* to open a side panel which displays the schema definition along with other details about the Variable. 
 
 ![Add New Variable JSON Schema Selected](/june-2023-add-new-variable-json-schema-selected.png)
 
 
 ## Adding a New Variation for Variables with a Defined Schema 
 
-When adding a new variation for a variable with a schema, you can click on the variable name (e.g. *inline-search* in this example) to open a side panel which displays the schema definition along with other details about the variable. 
+When adding a new Variation for a Variable with a schema, you can click on the Variable name (e.g. *inline-search* in this example) to open a side panel which displays the schema definition along with other details about the Variable. 
 
 ![Add New Variable JSON Schema Selected](/june-2023-add-new-variation-with-schema.png)
 

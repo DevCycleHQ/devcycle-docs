@@ -3,6 +3,7 @@ info:
   title: DevCycle Bucketing API
   description:
     Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.
+  version: 1.3.0
 
 servers:
   - url: https://bucketing-api.devcycle.com/
@@ -31,6 +32,8 @@ paths:
           required: true
           schema:
             type: string
+            pattern: '^[a-z0-9-_.]+$'
+            example: "my-variable-key"
 
       requestBody:
         $ref: '#/components/requestBodies/UserRequestBody'
@@ -42,6 +45,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Variable'
+              example:
+                _id: "614ef6ea475129459160721a"
+                _feature: "614ef6aa473928459060721a"
+                key: "my-variable-key"
+                type: "String"
+                value: "feature-enabled"
         400:
           $ref: '#/components/responses/BadRequest'
         401:
@@ -63,13 +72,26 @@ paths:
         $ref: '#/components/requestBodies/UserRequestBody'
       responses:
         200:
-          description: Variables response
+          description: Variables response (map of variable keys to Variable objects)
           content:
             application/json:
               schema:
                 type: object
                 additionalProperties:
                   $ref: '#/components/schemas/Variable'
+              example:
+                "my-string-var":
+                  _id: "614ef6ea475129459160721a"
+                  _feature: "614ef6aa473928459060721a"
+                  key: "my-string-var"
+                  type: "String"
+                  value: "enabled"
+                "my-boolean-var":
+                  _id: "614ef6ea475139459160721b"
+                  _feature: "614ef6aa473928459060721b"
+                  key: "my-boolean-var"
+                  type: "Boolean"
+                  value: true
         400:
           $ref: '#/components/responses/BadRequest'
         401:
@@ -91,13 +113,21 @@ paths:
         $ref: '#/components/requestBodies/UserRequestBody'
       responses:
         200:
-          description: Feature response
+          description: Features response (map of Feature keys to Feature objects)
           content:
             application/json:
               schema:
                 type: object
                 additionalProperties:
                   $ref: '#/components/schemas/Feature'
+              example:
+                "new-dashboard":
+                  _id: "614ef6aa473928459060721a"
+                  key: "new-dashboard"
+                  type: "release"
+                  _variation: "614ef6ea4753284590607216"
+                  variationName: "Variation On"
+                  variationKey: "variation-on"
         400:
           $ref: '#/components/responses/BadRequest'
         401:
@@ -119,7 +149,7 @@ paths:
         $ref: '#/components/requestBodies/TrackRequestBody'
       responses:
         201:
-          description: Feature response
+          description: Events received successfully
           content:
             application/json:
               schema:
@@ -127,6 +157,7 @@ paths:
                 properties:
                   message:
                     type: string
+                    example: "Successfully received 2 events."
         400:
           $ref: '#/components/responses/BadRequest'
         401:
@@ -136,14 +167,14 @@ paths:
         500:
           $ref: '#/components/responses/InternalServerError'
 
-  /v1/edgedb/{id}:
+  /v1/edgedb/{user_id}:
     patch:
       summary: Update EdgeDB data based on unique id and project id
       tags:
         - EdgeDB
       parameters:
         - in: path
-          name: id
+          name: user_id
           schema:
             type: string
           required: true
@@ -207,6 +238,28 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/OptInConfigResponse'
+              example:
+                settings:
+                  _project: "614df3aa473928459060721a"
+                  enabled: true
+                  title: "Feature Preview"
+                  description: "Opt in to preview upcoming features"
+                  imageURL: "https://example.com/preview.png"
+                  colors:
+                    primary: "#0066ff"
+                    secondary: "#ffffff"
+                  poweredByAlignment: "center"
+                features:
+                  - id: "614ef6aa473928459060721a"
+                    name: "New Dashboard"
+                    description: "Try our redesigned dashboard interface"
+                    resolution: "explicit"
+                    status: true
+                  - id: "614ef6aa473928459060721b"
+                    name: "Beta Analytics"
+                    description: "Access to new analytics features"
+                    resolution: "implicit"
+                    status: false
         400:
           $ref: '#/components/responses/BadRequest'
         401:
@@ -214,12 +267,18 @@ paths:
         500:
           $ref: '#/components/responses/InternalServerError'
 
-  /v1/optIns/:user_id:
+  /v1/optIns/{user_id}:
     put:
       summary: Update opt-in preferences for a user
       tags:
         - Feature Opt-in
       parameters:
+        - name: user_id
+          in: path
+          description: Unique user_id to identify the user
+          required: true
+          schema:
+            type: string
         - name: sdkKey
           in: query
           description: SDK Key as defined in the dashboard for your DevCycle environment.
@@ -234,17 +293,26 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/UserOptInData'
+            example:
+              "614ef6aa473928459060721a": true
+              "614ef6aa473928459060721b": false
       responses:
         200:
-          description: Opt-in Config Response
+          description: Opt-in update success response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OptInConfigResponse'
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Successfully updated user opt-in data for environment with key 'production'."
         400:
           $ref: '#/components/responses/BadRequest'
         401:
           $ref: '#/components/responses/UnauthorizedError'
+        403:
+          $ref: '#/components/responses/ForbiddenError'
         500:
           $ref: '#/components/responses/InternalServerError'
 
@@ -262,6 +330,7 @@ paths:
           required: true
           schema:
             type: string
+            pattern: '^[a-z0-9-_.]+$'
       requestBody:
         content:
           application/json:
@@ -466,7 +535,7 @@ components:
         sdkType:
           type: string
           description: DevCycle SDK type
-          enum: [api, server]
+          enum: [api, server, client, mobile]
         sdkVersion:
           type: string
           description: DevCycle SDK Version
@@ -488,6 +557,22 @@ components:
       additionalProperties:
         type: boolean
 
+    EvalReason:
+      type: object
+      description: The reason the User was Served this particular value
+      properties:
+        reason:
+          type: string
+          description: Evaluation reason
+          enum: [TARGETING_MATCH, DEFAULT, STATIC]
+        details:
+          type: string
+          description: Detailed description of evaluation
+        target_id:
+          type: string
+          description: ID of the targeting rule that matched
+      required:
+        - reason
 
     Feature:
       type: object
@@ -497,6 +582,7 @@ components:
           description: unique database id
         key:
           type: string
+          pattern: '^[a-z0-9-_.]+$'
           description: Unique key by Project, can be used in the SDK / API to reference by 'key' rather than _id.
         type:
           type: string
@@ -512,8 +598,7 @@ components:
           type: string
           description: Bucketed feature variation Key
         eval:
-          type: object
-          description: The reason the User was Served this particular value
+          $ref: '#/components/schemas/EvalReason'
       required:
         - _id
         - key
@@ -526,19 +611,26 @@ components:
         _id:
           type: string
           description: unique database id
+        _feature:
+          type: string
+          description: Feature ID that this variable belongs to
         key:
           type: string
+          pattern: '^[a-z0-9-_.]+$'
           description: Unique key by Project, can be used in the SDK / API to reference by 'key' rather than _id.
         type:
           type: string
           description: Variable type
           enum: [ 'String', 'Boolean', 'Number', 'JSON' ]
         value:
-          type: object
           description: Variable value can be a string, number, boolean, or JSON
+          oneOf:
+            - type: string
+            - type: number
+            - type: boolean
+            - type: object
         eval:
-          type: object
-          description: The reason the User was Served this particular value
+          $ref: '#/components/schemas/EvalReason'
       required:
         - _id
         - key
@@ -578,11 +670,61 @@ components:
     OptInConfigResponse:
       type: object
       properties:
-        message:
-          description: Response message of the request
-          type: string
+        settings:
+          type: object
+          properties:
+            _project:
+              type: string
+              description: Project ID
+            enabled:
+              type: boolean
+              description: Whether opt-in is enabled for this project
+            title:
+              type: string
+              description: Title for the opt-in UI
+            description:
+              type: string
+              description: Description for the opt-in UI
+            imageURL:
+              type: string
+              description: Image URL for the opt-in UI
+            colors:
+              type: object
+              properties:
+                primary:
+                  type: string
+                  description: Primary color hex code
+                secondary:
+                  type: string
+                  description: Secondary color hex code
+            poweredByAlignment:
+              type: string
+              description: Alignment for "powered by" text
+              enum: [left, center, right]
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: Feature ID
+              name:
+                type: string
+                description: Public name of the feature
+              description:
+                type: string
+                description: Public description of the feature
+              resolution:
+                type: string
+                enum: [explicit, implicit]
+                description: Whether the opt-in status was explicitly set by the user or implicitly defaulted
+              status:
+                type: boolean
+                description: Current opt-in status for this feature
       required:
-        - message
+        - settings
+        - features
 
     ErrorResponse:
       type: object
@@ -694,6 +836,7 @@ components:
 
     ofrep-key:
       type: string
+      pattern: '^[a-z0-9-_.]+$'
       description: Feature flag key
       examples:
         - my-flag
@@ -764,6 +907,14 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/UserData'
+          example:
+            user_id: "user_123456"
+            email: "user@example.com"
+            name: "John Doe"
+            country: "US"
+            customData:
+              plan: "premium"
+              signupDate: "2024-01-01"
 
     TrackRequestBody:
       required: true
@@ -771,6 +922,20 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/UserDataAndEventsBody'
+          example:
+            user:
+              user_id: "user_123456"
+              email: "user@example.com"
+              customData:
+                plan: "premium"
+            events:
+              - type: "purchase"
+                value: 99.99
+                metaData:
+                  item: "subscription"
+                  currency: "USD"
+              - type: "feature_click"
+                target: "new-dashboard-button"
 
   responses:
     # 400
@@ -784,6 +949,14 @@ components:
     # 401
     UnauthorizedError:
       description: Missing 'sdkKey' query parameter or 'Authorization' header
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+
+    # 403
+    ForbiddenError:
+      description: Forbidden - Feature not enabled or insufficient permissions
       content:
         application/json:
           schema:

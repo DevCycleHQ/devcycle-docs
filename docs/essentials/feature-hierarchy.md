@@ -2,11 +2,11 @@
 title: Feature Hierarchy
 sidebar_position: 4
 ---
-In a traditional feature flagging platform, there is only one type of entity to worry about: a `feature flag`! In these 
-platforms, a `feature flag` contains the targeting rules and possible values for its respective key, all rolled into one.
+In a traditional Feature Flagging platform, there is only one type of entity to worry about: a `Feature Flag`! In these 
+platforms, a `Feature Flag` contains the Targeting rules and possible values for its respective key, all rolled into one.
 
-DevCycle does things differently. Rather than restricting you to one `feature flag` per set of targeting rules, we allow
-multiple `flags` to be governed by a single set of rules. In our platform, a value that you retrieve in your code is
+DevCycle does things differently. Rather than restricting you to one `Feature Flag` per set of Targeting rules, we allow
+multiple `Flags` to be governed by a single set of rules. In our platform, a value that you retrieve in your code is
 referred to as a `Variable`. For example, this line of code obtains a `Variable` from DevCycle using the unique key `headerText`:
 ```typescript
 const headerText = devCycleClient.variable('headerText', 'Welcome to My Website!')
@@ -32,7 +32,7 @@ together
 - You can easily experiment with different `Variations` of several variables. 
 - Various components of both the back-end and front-end can be controlled together without having to use the same `Variable`
 across each code base.
-- You can re-use a `Variable` in the future even after a feature has been released or an experiment concluded.
+- You can re-use a `Variable` in the future even after a Feature has been released or an Experiment concluded.
 
 For more detail on each of these concepts, see below.
 
@@ -42,7 +42,9 @@ Variables are the main "primitive" that you interact with using the DevCycle SDK
 `key`, has a particular data type, and can optionally be defined with a 
 more specific [schema](/platform/security-and-guardrails/variable-schemas) of possible allowed values.
 
-> Variables may be the following types: `Boolean`, `JSON`, `Number`, or `String`.
+:::info 
+Variables may be the following types: `Boolean`, `JSON`, `Number`, or `String`.
+:::
 
 A `Variable` is accessed from an SDK using the `variable` method, which looks something like this:
 ```typescript
@@ -69,7 +71,9 @@ A `Feature` can most simply be thought of as a "new product feature", but could 
 - enabling or disabling a set of optional features that are known to degrade performance during a high-traffic event
 - experimenting with multiple variations of a redesign
 
-> By default, upon creation of a Feature, a Boolean Variable will be created which has the same name as the Feature's key for easier reference. Variables cannot be used in multiple existing Features, so their keys must be unique. The Variable Type helps enforce consistent usage across the team to avoid type mismatches in different use cases.
+:::info 
+By default, upon creation of a Feature, a Boolean Variable will be created which has the same name as the Feature's key for easier reference. Variables cannot be used in multiple existing Features, so their keys must be unique. The Variable Type helps enforce consistent usage across the team to avoid type mismatches in different use cases.
+:::
 
 When creating a Feature in the DevCycle, you will be able to choose a [Feature Type](/essentials/feature-types) which will pre-fill some options in the Feature and help kick-start your usage of the Feature. 
 
@@ -80,7 +84,7 @@ Variations are different sets of `Variable` values defined in a Feature. `Variat
 certain permutations of multiple `Variables` can be served by DevCycle. They are also useful for experimentation, where
 different `Variations` can be tested against each other to determine which one performs better.
 
-> For example, if you have a Feature that controls a new UI element and a Variable that controls the color of that element, you could have one Variation where the color is blue and another Variation where the color is red.
+For example, if you have a Feature that controls a new UI element and a Variable that controls the color of that element, you could have one Variation where the color is blue and another Variation where the color is red.
 
 When a user is "Served" a Variation based on the Targeting Rules, the Variable Values the user receives will be the values for the served Variation.
 

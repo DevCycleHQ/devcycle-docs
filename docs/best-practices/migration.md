@@ -2,7 +2,7 @@
 title: Migrating to DevCycle with OpenFeature
 sidebar_label: Migrating to DevCycle
 description: Best Practices for Migrating to DevCycle with OpenFeature
-sidebar_position: 6
+sidebar_position: 7
 sidebar_custom_props: { icon: carbon:migrate }
 ---
 # Best Practices for Migrating to DevCycle with OpenFeature

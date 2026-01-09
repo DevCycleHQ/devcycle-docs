@@ -49,9 +49,11 @@ const YouTubeTransformer = {
  * Pinned version of the CLI to use for docs
  * When bumping the version, add any new commands to the documents array
  */
-const DVC_CLI_VERSION = 'v6.0.1' // auto updated by dvc cli release workflow
+const DVC_CLI_VERSION = 'v6.2.1' // auto updated by dvc cli release workflow
 
 const VSCODE_EXTENSION_VERSION = 'v1.4.10' // auto updated by extension release workflow
+
+const AI_PROMPTS_VERSION = 'main' // AI prompts repository branch
 
 const removeDocsSections = (content, sectionNames, headerIdentifier = '##') => {
   let result = content
@@ -97,7 +99,6 @@ const config = {
       }
     },
     path.resolve(__dirname, 'plugins', 'custom-gtm'),
-    path.resolve(__dirname, 'plugins', 'custom-beamer'),
     [
       'docusaurus-plugin-remote-content',
       {
@@ -271,6 +272,47 @@ const config = {
         }),
       },
     ],
+    [
+      'docusaurus-plugin-remote-content',
+      {
+        name: 'ai-prompts',
+        sourceBaseUrl: `https://raw.githubusercontent.com/DevCycleHQ/AI-Prompts-And-Rules/${AI_PROMPTS_VERSION}/install-prompts/`,
+        // Output into static so we can import via raw-loader and not compile as docs
+        outDir: 'static/ai-prompts',
+        documents: [
+          'android-openfeature.md',
+          'android.md',
+          'angular.md',
+          'dotnet-openfeature.md',
+          'dotnet.md',
+          'flutter.md',
+          'go-openfeature.md',
+          'go.md',
+          'ios-openfeature.md',
+          'ios.md',
+          'java-openfeature.md',
+          'java.md',
+          'javascript-openfeature.md',
+          'javascript.md',
+          'nestjs-openfeature.md',
+          'nestjs.md',
+          'nextjs.md',
+          'nodejs-openfeature.md',
+          'nodejs.md',
+          'php-openfeature.md',
+          'php.md',
+          'python-openfeature.md',
+          'python.md',
+          'react-native.md',
+          'react-openfeature.md',
+          'react.md',
+          'roku.md',
+          'ruby-openfeature.md',
+          'ruby.md',
+        ],
+        performCleanup: true,
+      },
+    ],
   ],
 
   presets: [
@@ -308,12 +350,12 @@ const config = {
         specs: [
           {
             id: 'management-api',
-            spec: 'https://api.devcycle.com/swagger.json',
+            spec: 'https://api.devcycle.com/openapi.json',
             route: '/management-api/',
           },
           {
             id: 'bucketing-api',
-            spec: 'bucketing-api.yaml',
+            spec: 'https://bucketing-api.devcycle.com/openapi.yaml',
             route: '/bucketing-api/',
           },
         ],
@@ -480,12 +522,6 @@ const config = {
           position: 'right',
           className: 'header-discord-link',
           'aria-label': 'Discord',
-        },
-        {
-          href: '#',
-          position: 'right',
-          className: 'header-beamer-link',
-          'aria-label': 'Beamer',
         },
       ],
     },

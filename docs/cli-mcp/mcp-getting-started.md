@@ -13,7 +13,7 @@ The DevCycle MCP is hosted so there is no need to set up a local server. We'll w
 
 **Direct Connection:** For clients that natively support the MCP specification with OAuth authentication, you can connect directly to our hosted server:
 
-```
+```bash
 https://mcp.devcycle.com/mcp
 ```
 
@@ -21,9 +21,11 @@ https://mcp.devcycle.com/mcp
 
 **Alternative Endpoint**: If your client has issues with protocol negotiation, use the SSE-only endpoint:
 
-```
+```bash
 https://mcp.devcycle.com/sse
 ```
+
+**MCP Registry**: If you're using [registry.modelcontextprotocol.io](https://registry.modelcontextprotocol.io), the DevCycle MCP is listed as: `com.devcycle/mcp`
 
 :::info
 
@@ -148,7 +150,7 @@ Add or merge the following configuration:
   "mcpServers": {
     "devcycle": {
       "command": "npx",
-      "args": ["mcp-remote", "https://mcp.devcycle.com/mcp"]
+      "args": ["mcp-remote@0.1.18", "https://mcp.devcycle.com/mcp"]
     }
   }
 }
@@ -201,6 +203,75 @@ Close and reopen Claude Desktop for the changes to take effect.
    - Return to Windsurf where DevCycle will show as "Enabled" with all tools available which can be configured independently
 
 </TabItem>
+<TabItem value="codex" label="Codex CLI">
+
+**Step 1: Access MCP Configuration**
+
+Locate and edit your OpenAI Codex CLI configuration file:
+
+- **All platforms**: `~/.codex/config.toml`
+
+**Step 2: Add DevCycle MCP Server**
+
+Add the following TOML configuration to enable the DevCycle MCP server:
+
+```toml
+[mcp_servers.devcycle]
+url = "https://mcp.devcycle.com/mcp"
+```
+
+**Step 3: Restart Codex CLI**
+
+Restart your Codex CLI session for the changes to take effect.
+
+**Step 4: Authentication**
+
+1. When you first use DevCycle MCP tools, the Codex CLI will prompt for authentication
+2. This will open a browser page at `mcp.devcycle.com` for authorization
+3. Review and click **"Allow Access"** to grant permissions
+4. If you have multiple organizations, select your desired organization at `auth.devcycle.com`
+5. Return to the Codex CLI where the DevCycle MCP tools will be active
+
+For more details, see the [OpenAI Codex MCP documentation](https://github.com/openai/codex/blob/main/docs/config.md#mcp-servers).
+
+</TabItem>
+<TabItem value="gemini" label="Gemini CLI">
+
+**Step 1: Access MCP Configuration**
+
+Locate and edit your Gemini CLI settings file:
+
+- **All platforms**: `~/.gemini/settings.json`
+
+**Step 2: Add DevCycle MCP Server**
+
+Add or merge the following configuration to enable the DevCycle MCP server:
+
+```json
+{
+  "mcpServers": {
+    "devcycle": {
+      "url": "https://mcp.devcycle.com/mcp"
+    }
+  }
+}
+```
+
+**Step 3: Restart Gemini CLI**
+
+Restart your Gemini CLI session for the changes to take effect.
+
+**Step 4: Authentication**
+
+1. When you first use DevCycle MCP tools, the Gemini CLI will prompt for authentication
+2. This will open a browser page at `mcp.devcycle.com` for authorization
+3. Review and click **"Allow Access"** to grant permissions
+4. If you have multiple organizations, select your desired organization at `auth.devcycle.com`
+5. Return to the Gemini CLI where the DevCycle MCP tools will be active
+
+For more details, see the [Gemini CLI MCP documentation](https://github.com/google-gemini/gemini-cli/blob/main/docs/tools/mcp-server.md#how-to-set-up-your-mcp-server).
+
+</TabItem>
 </Tabs>
 
 <br></br>
@@ -209,14 +280,14 @@ Close and reopen Claude Desktop for the changes to take effect.
 
 The DevCycle MCP Server provides comprehensive feature flag management tools organized into **6 categories**:
 
-| Category                       | Tools                                                                                                                                                                                                                                                                                              | Description                                                |
-| ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
-| **Feature Management**         | `list_features`, `create_feature`, `update_feature`, `update_feature_status`, `delete_feature`, `fetch_feature_variations`, `create_feature_variation`, `update_feature_variation`, `set_feature_targeting`, `list_feature_targeting`, `update_feature_targeting`, `get_feature_audit_log_history` | Create and manage feature flags, variations, and targeting |
-| **Variable Management**        | `list_variables`, `create_variable`, `update_variable`, `delete_variable`                                                                                                                                                                                                                          | Manage feature variables                                   |
-| **Environment Management**     | `list_environments`, `get_sdk_keys`                                                                                                                                                                                                                                                                | Environment configuration                                  |
-| **Project Management**         | `list_projects`, `get_current_project`                                                                                                                                                                                                                                                             | Project management                                         |
-| **Self-Targeting & Overrides** | `get_self_targeting_identity`, `update_self_targeting_identity`, `list_self_targeting_overrides`, `set_self_targeting_override`, `clear_feature_self_targeting_overrides`                                                                                                                          | Testing and overrides                                      |
-| **Results & Analytics**        | `get_feature_total_evaluations`, `get_project_total_evaluations`                                                                                                                                                                                                                                   | Usage analytics                                            |
+| Category                       | Tools                                                                                                                                                                                                                               | Description                                 |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
+| **Feature Management**         | `list_features`, `create_feature`, `update_feature`, `update_feature_status`, `delete_feature`, `cleanup_feature`, `get_feature_audit_log_history`                                                                                     | Create and manage feature flags             |
+| **Variable Management**        | `list_variables`, `create_variable`, `update_variable`, `delete_variable`                                                                                                                                                             | Manage feature variables                    |
+| **Project Management**         | `list_projects`, `get_current_project`, `select_project`                                                                                                                                                                             | Project selection and details               |
+| **Self-Targeting & Overrides** | `get_self_targeting_identity`, `update_self_targeting_identity`, `list_self_targeting_overrides`, `set_self_targeting_override`, `clear_feature_self_targeting_overrides`                                                           | Testing and overrides                       |
+| **Results & Analytics**        | `get_feature_total_evaluations`, `get_project_total_evaluations`                                                                                                                                                                      | Usage analytics                             |
+| **SDK Installation**           | `install_devcycle_sdk`                                                                                                                                                                                                                | SDK install guides and examples             |
 
 ## Try It Out
 

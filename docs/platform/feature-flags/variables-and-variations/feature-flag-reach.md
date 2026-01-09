@@ -9,7 +9,7 @@ When a Feature is running, DevCycle automatically provides a quick way to view h
 
 There are two ways to find the Feature Flag Reach section. 
 1. On the [Feature Overview Tab in the Reach section](/platform/feature-flags/features#reach) on the Feature Form.
-2. On the [Data & Results Tab ](/platform/feature-flags/features##data--results-tab). 
+2. On the [Data & Results Tab ](/platform/feature-flags/features#data--results-tab). 
 
 ### Feature Reach Details
 

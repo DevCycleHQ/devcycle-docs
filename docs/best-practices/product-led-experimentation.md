@@ -1,7 +1,7 @@
 ---
 title: Product-Led Experimentation
 sidebar_label: Product-Led Experimentation
-sidebar_position: 10
+sidebar_position: 11
 description: How product managers and engineers can collaborate effectively within DevCycle to conduct experiments, optimize software, and enhance user experiences. 
 sidebar_custom_props: { icon: material-symbols:experiment }
 ---

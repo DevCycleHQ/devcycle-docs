@@ -11,17 +11,12 @@
     "https://docs.devcycle.com/cli-mcp/",
     "https://docs.devcycle.com/tools-and-integrations/",
     "https://docs.devcycle.com/sdk/",
-    "https://docs.devcycle.com/product-roadmap/",
     "https://docs.devcycle.com/quickstart/",
     "https://docs.devcycle.com/examples/"
   ],
-  "sitemap_urls": [
-    "https://docs.devcycle.com/sitemap.xml"
-  ],
+  "sitemap_urls": ["https://docs.devcycle.com/sitemap.xml"],
   "sitemap_alternate_links": true,
-  "stop_urls": [
-    "/tests"
-  ],
+  "stop_urls": ["/tests"],
   "selectors": {
     "lvl0": {
       "selector": "(//ul[contains(@class,'menu__list')]//a[contains(@class, 'menu__link menu__link--sublist menu__link--active')]/text() | //nav[contains(@class, 'navbar')]//a[contains(@class, 'navbar__link--active')]/text())[last()]",
@@ -40,12 +35,7 @@
   "strip_chars": " .,;:#",
   "custom_settings": {
     "separatorsToIndex": "_",
-    "attributesForFaceting": [
-      "language",
-      "version",
-      "type",
-      "docusaurus_tag"
-    ],
+    "attributesForFaceting": ["language", "version", "type", "docusaurus_tag"],
     "attributesToRetrieve": [
       "hierarchy",
       "content",
@@ -57,4 +47,3 @@
   },
   "nb_hits": false
 }
-

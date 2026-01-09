@@ -5,16 +5,14 @@ sidebar_position: 2
 ---
 
 :::info
-Metrics rely on custom events.
-
-Metrics are available to all customers on any plan. However, to run Metrics, custom events must be sent to DevCycle. Every organization receives 5 million free events to start with. Additional events will incur costs, which will be added to your existing plan. To learn more, read about our [pricing](https://devcycle.com/pricing), or [contact us](mailto:support@devcycle.com).
+Metrics are available to all customers on any plan and rely on **Custom Events** that must be sent to DevCycle. All plans come with an included amount of free events. When exceeded, additional costs will be incurred. To learn more, read about our [pricing](https://devcycle.com/pricing), or [contact us](mailto:support@devcycle.com).
 :::
 
-This article explains how to create, define, and manage all of the Metrics in a project.
+This article explains how to create, define, and manage all of the Metrics in a Project.
 
-Metrics provide a broad overview of your system. They may be used to quickly assess the health of your features across environments, visualize how quickly people are visiting your applications, or how much memory is being used by your servers as a feature rolls out. Metrics may be known as "Goals" on other platforms.
+Metrics provide a broad overview of your system. They may be used to quickly assess the health of your Features across environments, visualize how quickly people are visiting your applications, or how much memory is being used by your servers as a Feature rolls out. Metrics may be known as "Goals" on other platforms.
 
-Within DevCycle, Metrics are their own items outside of a Feature and thus can be defined once and applied to as many features as desired. This gives the opportunity to attach and test Metrics with seemingly unrelated features and find unintended or hidden impacts.
+Within DevCycle, Metrics are their own items outside of a Feature and thus can be defined once and applied to as many Features as desired. This gives the opportunity to attach and test Metrics with seemingly unrelated Features and find unintended or hidden impacts.
 
 ### Metrics Section
 
@@ -22,7 +20,7 @@ To view and create Metrics, first navigate to the Metrics section of the Dashboa
 
 ![Metrics Section no Arrow](/june-2022-metrics-section-tab.png)
 
-This section will contain a list of all of the Metrics on the current project, all of which are re-usable across any number of features at any time. This list contains some simple base info.
+This section will contain a list of all of the Metrics on the current Project, all of which are re-usable across any number of Features at any time. This list contains some simple base info.
 
 Below is a brief description of each column, with deeper explanations later in this document
 
@@ -33,7 +31,7 @@ Below is a brief description of each column, with deeper explanations later in t
 
 ## Creating a Metric
 
-Follow the video below from our [DevCycle Experiment Setup series](/platform/experimentation/tutorial-experiment-setup#metric-setup) or read-along to find out how to create a metric on DevCycle.
+Follow the video below from our [DevCycle Experiment Setup series](/platform/experimentation/tutorial-experiment-setup#metric-setup) or read-along to find out how to create a Metric on DevCycle.
 
 <div style={{marginBottom:"24px"}}>
     https://youtu.be/7qUbt2QvhuI  
@@ -68,15 +66,15 @@ When making a Metric, the types of Metrics will contain a small definition
 
 ![Type Definitions](/create-metric-descriptions.png)
 
-**Count per Unique User** - This Metric type calculates the total number of times a unique user (or service) has sent this event. This can be something such as total number of clicks on a new feature, total number of API calls for a new service, total number of of views for a new advertisement, etc. This is also useful for error tracking -- A total count of specific errors is a great Metric to count when monitoring the rollout of a new release of a feature.
+**Count per Unique User** - This Metric type calculates the total number of times a unique user (or service) has sent this event. This can be something such as total number of clicks on a new feature, total number of API calls for a new service, total number of of views for a new advertisement, etc. This is also useful for error tracking -- A total count of specific errors is a great Metric to count when monitoring the rollout of a new release of a Feature.
 
-**Count per Variable Evaluation** - This type counts the total number of times this event has been seen ONLY when the actual related variable has been evaluated. This is a very useful case, as there may be evens which already exist within your system which could potentially also be impacted by this variable. In this case, this type of Metric represents the exact number of times that event has been sent ONLY after the related variable has since been evaluated for use.
+**Count per Variable Evaluation** - This type counts the total number of times this event has been seen ONLY when the actual related Variable has been evaluated. This is a very useful case, as there may be events which already exist within your system which could potentially also be impacted by this Variable. In this case, this type of Metric represents the exact number of times that event has been sent ONLY after the related Variable has since been evaluated for use.
 
 **Sum per User (numerical)** - Each event can carry a numerical value with it, and this Metric will sum up the total number sent with the events per unique user. This type of Metric is great for tracking things such as Revenue, or number of total items purchased or interacted with. From an engineering view, things such as a total number of api calls per unique user may be something intended to decrease (for optimizations) or increase (for increased interaction).
 
-**Average per User (numerical)** - Similar to the sum per user, the average for user also uses the numerical value on each event. This type of Metric is extremely useful for tracking things such as the average latency per API call, or average size of an API call, hoping for a decrease. Load times, server load, api latency, or even your own internal build time can be candidates for a Metric which is re-used across every single feature for viewing the impact and reacting accordingly.
+**Average per User (numerical)** - Similar to the sum per user, the average for user also uses the numerical value on each event. This type of Metric is extremely useful for tracking things such as the average latency per API call, or average size of an API call, hoping for a decrease. Load times, server load, api latency, or even your own internal build time can be candidates for a Metric which is re-used across every single Feature for viewing the impact and reacting accordingly.
 
-**Future Types** - If there are any types of Metric you'd like to see, or if your team would like a more flexible view into all of your data, do not hesitate to reach out to `support@devcycle.com`. We will be increasing the number of types, as well as providing direct calculation control in the future. If such things are desired now, contact us to discuss direct data access, which will provide full access to all events and data for each of your projects.
+**Future Types** - If there are any types of Metric you'd like to see, or if your team would like a more flexible view into all of your data, do not hesitate to reach out to `support@devcycle.com`. We will be increasing the number of types, as well as providing direct calculation control in the future. If such things are desired now, contact us to discuss direct data access, which will provide full access to all events and data for each of your Projects.
 
 ### Metric Details Page
 
@@ -88,7 +86,7 @@ The Metric definition allows for modifying the Metric Name, Type, Definition, an
 
 #### Metric Testing
 
-This section provides the ability to test a Metric against any feature in any environment and ensure it is working as intended.
+This section provides the ability to test a Metric against any Feature in any environment and ensure it is working as intended.
 
 It is also useful to use this testing section to quickly check a Metric against any given Feature to potentially find any unintended impacts if the Metric is not associated with a specific Feature.
 
@@ -98,9 +96,9 @@ When testing a Metric, navigate to the Testing section.
 
 To run a test, the following fields must be set:
 
-**Feature** - This is the specific feature this Metric should be applied to. Any event that has been sent since the creation of this Metric from a user receiving any variation of this feature will be part of this Metric. In the event that an error is shown, this means the event has not been seen from this feature yet.
+**Feature** - This is the specific Feature this Metric should be applied to. Any event that has been sent since the creation of this Metric from a user receiving any Variation of this Feature will be part of this Metric. In the event that an error is shown, this means the event has not been seen from this Feature yet.
 
-**Control** - After selecting a Feature, a "control" variation must be selected. This is what will be used to show a comparative analysis against all other variations in a feature. Typically, an "off" or "Baseline" variation would act as the control. For more information on this, please refer to the [Feature Experimentation documentation](/platform/experimentation/feature-experimentation).
+**Control** - After selecting a Feature, a "control" Variation must be selected. This is what will be used to show a comparative analysis against all other Variations in a Feature. Typically, an "off" or "Baseline" Variation would act as the control. For more information on this, please refer to the [Feature Experimentation documentation](/platform/experimentation/feature-experimentation).
 
 **Date Range** - Select a date range of up to the last 30 days to display results for. This range will default to the last 30 days or to the Feature creation date if the Feature was created within 30 days. 
 
@@ -116,50 +114,50 @@ The results of this test will show the actual result which would be within a Fea
 
 ## Attaching Metrics to Features
 
-Tracking metrics within a feature is an important aspect of data analysis, as it can provide valuable insights into the performance and behaviour of different features. Once a Metric has been created, it can be attached to any feature for use and analysis.
+Tracking Metrics within a Feature is an important aspect of data analysis, as it can provide valuable insights into the performance and behaviour of different Features. Once a Metric has been created, it can be attached to any Feature for use and analysis.
 
-Follow the video below from our [DevCycle Experiment Setup series](/platform/experimentation/tutorial-experiment-setup#adding-metrics-to-experiment-results) or read-along to find out how to add a metric to a Feature and view experiment results.
+Follow the video below from our [DevCycle Experiment Setup series](/platform/experimentation/tutorial-experiment-setup#adding-metrics-to-experiment-results) or read-along to find out how to add a Metric to a Feature and view Experiment results.
 
 <div style={{marginBottom:"24px"}}>
     https://youtu.be/8mzwhfW5jyw
 </div>
 
-Here are the steps you can follow to track metrics within a feature:
+Here are the steps you can follow to track Metrics within a Feature:
 
-1.  **Select the feature you want to track**: Within that feature, navigate to the `Data & Results` tab on the Feature Form of the page and click on `Experiment Results`.
+1.  **Select the Feature you want to track**: Within that Feature, navigate to the `Data & Results` tab on the Feature Form of the page and click on `Experiment Results`.
 
-2.  **Choose the metric(s) associated with the feature**: Create new metrics or attach existing ones to the feature by navigating to the `Choose a Metric` dropdown.
+2.  **Choose the Metric(s) associated with the Feature**: Create new Metrics or attach existing ones to the Feature by navigating to the `Choose a Metric` dropdown.
 
-    ![Comparative Analysis tab within a DevCycle feature's Data & Results view](/may-2025-data-results-metrics-add.png)
+    ![Comparative Analysis tab within a DevCycle Feature's Data & Results view](/may-2025-data-results-metrics-add.png)
 
-3.  **Attach the metric(s)**: Attach the metric from the dropdown menu by selecting it. For our example, let's use the metric `Metric Testing`, which has already been setup within our project.
+3.  **Attach the Metric(s)**: Attach the Metric from the dropdown menu by selecting it. For our example, let's use the Metric `Metric Testing`, which has already been setup within our Project.
 
-    !["Metric Testing" metric selected from the metrics dropdown](/may-2025-data-results-metrics-explain.png)
+    !["Metric Testing" Metric selected from the Metrics dropdown](/may-2025-data-results-metrics-explain.png)
 
     While the setup has some default values, the Metric requires the following fields to be filled:
 
-    - **Control** - This is what will be used to show a comparative analysis against all other variations in a feature. Typically, an "off" or "Baseline" variation would act as the control. For more information on this, please refer to the [Feature Experimentation documentation](/platform/experimentation/feature-experimentation).
+    - **Control** - This is what will be used to show a comparative analysis against all other Variations in a Feature. Typically, an "off" or "Baseline" Variation would act as the control. For more information on this, please refer to the [Feature Experimentation documentation](/platform/experimentation/feature-experimentation).
 
     - **Date Range** - Select a date range of up to the last 30 days to display results for. This range will default to the last 30 days or to the Feature creation date if the Feature was created within 30 days.
 
     - **Environment** - This will calculate the Metric using events from the specified environments.
 
-4.  **Calculate results**: Once one or more metrics have been selected, we can then run the metric calculation to generate insight into how the feature is doing.
+4.  **Calculate results**: Once one or more Metrics have been selected, we can then run the Metric calculation to generate insight into how the Feature is doing.
 
 5. **View your results**: Once calculated, if there is available data for the Feature, the results data will populate within the dashboard.
 
     ![Calculation results](/feature-experiment-full-results.png)
 
-    From here, useful information such as trends and patterns in the data can be used to make informed decisions about how to optimize the feature for performance improvements.
+    From here, useful information such as trends and patterns in the data can be used to make informed decisions about how to optimize the Feature for performance improvements.
 
 ### How do Metrics get calculated?
 
-To calculate Metrics, DevCycle uses [the custom events sent via its API or SDKs](/sdk/features#tracking-custom-events). Each Event has the information of which user sent it and which Feature and Variation they were in at that time. For optimal experiments, use Features with variations [randomly distributed across users](/platform/feature-flags/targeting/random-variations).
+To calculate Metrics, DevCycle uses [the custom events sent via its API or SDKs](/sdk/features#tracking-custom-events). Each Event has the information of which user sent it and which Feature and Variation they were in at that time. For optimal Experiments, use Features with Variations [randomly distributed across users](/platform/feature-flags/targeting/random-variations).
 
 To read more on the queries behind the Metrics, see [How Metrics Are Calculated](/platform/experimentation/how-metrics-are-calculated)
 
 ### Running Experiments
 
-With Metrics on a feature, experimentation can be easily executed on any Feature. At DevCycle we believe that experimentation should be a part of the natural lifecycle of all features. So no matter the [feature type](/platform/feature-flags/features) selected, experimentation will always be available for use.
+With Metrics on a Feature, Experimentation can be easily executed on any Feature. At DevCycle we believe that Experimentation should be a part of the natural lifecycle of all Features. So no matter the [Feature type](/platform/feature-flags/features) selected, Experimentation will always be available for use.
 
-To learn more on how to run experiments with DevCycle, read [Feature Experimentation](/platform/experimentation/feature-experimentation)
+To learn more on how to run Experiments with DevCycle, read [Feature Experimentation](/platform/experimentation/feature-experimentation)
