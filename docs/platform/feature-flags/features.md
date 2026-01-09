@@ -28,6 +28,22 @@ The Feature List Page is where all of your Features can be viewed, edited, and f
 
 Use the search input to search by Name, Key, Tag, or Description. The filters can be used to filter by Creator, Status, Type, or [Staleness](/platform/feature-flags/stale-feature-notifications). Each column header can be clicked to sort the column.
 
+### Kanban View
+
+On the Feature list page, users can switch between a List view and a **Kanban-style view** that displays Features grouped by their current [Status](/platform/feature-flags/status-and-lifecycle), allowing teams to quickly visualize progress across the Feature lifecycle.
+
+![image of kanban view](/dec-2025-kanban-view.png)
+
+In this view:
+
+- Each column represents a Feature Status
+- Each column header includes a total count of Features in each Status
+- Features appear as cards within the column matching their current Status, and can be sorted within each column according to the selected sort option (for example, by name or last updated date)
+- Columns are ordered based on the Status order defined in Project Settings
+- Status colors are reflected in the column headers for quick visual scanning
+
+This view is intended for high-level lifecycle tracking and workflow management. Selecting a Feature card opens the Feature detail view for configuration, targeting, and Variable management.
+
 :::info
 To view another Project's Features, use the Project dropdown on the top of the Dashboard.
 :::

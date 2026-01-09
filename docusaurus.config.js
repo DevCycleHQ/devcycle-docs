@@ -49,7 +49,7 @@ const YouTubeTransformer = {
  * Pinned version of the CLI to use for docs
  * When bumping the version, add any new commands to the documents array
  */
-const DVC_CLI_VERSION = 'v6.1.4' // auto updated by dvc cli release workflow
+const DVC_CLI_VERSION = 'v6.2.1' // auto updated by dvc cli release workflow
 
 const VSCODE_EXTENSION_VERSION = 'v1.4.10' // auto updated by extension release workflow
 
@@ -99,7 +99,6 @@ const config = {
       }
     },
     path.resolve(__dirname, 'plugins', 'custom-gtm'),
-    path.resolve(__dirname, 'plugins', 'custom-beamer'),
     [
       'docusaurus-plugin-remote-content',
       {
@@ -523,12 +522,6 @@ const config = {
           position: 'right',
           className: 'header-discord-link',
           'aria-label': 'Discord',
-        },
-        {
-          href: '#',
-          position: 'right',
-          className: 'header-beamer-link',
-          'aria-label': 'Beamer',
         },
       ],
     },
