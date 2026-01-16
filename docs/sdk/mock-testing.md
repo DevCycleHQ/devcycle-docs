@@ -294,9 +294,11 @@ Test retrieving all Variables through the `.allVariables()` method.
   </TabItem>
 </Tabs>
 
-## Client-Side SDKs: Bootstrapping
+## Bootstrapping
 
-Client-side Web SDKs (JavaScript, React, Next.js) support bootstrapping, which allows you to pass a pre-configured DevCycle configuration during initialization. This is particularly useful for testing scenarios where you want to avoid network requests entirely and work with a static configuration.
+The Node.js and Next.js SDKs support bootstrapping, which allows you to pass a pre-configured DevCycle configuration during initialization. This is particularly useful for testing scenarios where you want to avoid network requests entirely and work with a static configuration. 
+
+You can find more information in our [Boostrapping and Server-Side Rendering](/sdk/server-side-sdks/node/node-bootstrapping) docs.
 
 ```javascript
 const bootstrapConfig = {
