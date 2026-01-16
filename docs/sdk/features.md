@@ -1,6 +1,5 @@
 ---
 title: Features and Functionality
-sidebar_position: 1
 ---
 
 DevCycle strives to ensure that all our APIs and SDKs have identical functionality
