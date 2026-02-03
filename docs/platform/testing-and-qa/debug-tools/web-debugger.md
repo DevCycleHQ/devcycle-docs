@@ -24,7 +24,7 @@ The Web Debugger does not change project-level targeting rules or audiences. It 
 ![Screenshot of Web Debugger](/web-debugger.png)
 
 :::info
-The Web Debugger is currently in beta. If you have any feedback or suggestions, please let us know by [email](mailto:product@devcycle.com) or on our [Discord](https://discord.gg/8uEqSsRKy5).
+The Web Debugger is currently in beta. If you have any feedback or suggestions, please let us know by [email](mailto:product@devcycle.com).
 :::
 
 ## Installation

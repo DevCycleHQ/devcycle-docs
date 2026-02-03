@@ -67,6 +67,5 @@ Both tools use the same DevCycle APIs and can be used together seamlessly.
 
 ## Getting Help
 
-- **Community**: [Discord](https://discord.gg/8uEqSsRKy5)
 - **Issues**: [GitHub](https://github.com/DevCycleHQ/cli/issues)
 - **Support**: [Contact Us](mailto:support@devcycle.com)

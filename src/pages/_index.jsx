@@ -47,7 +47,7 @@ const Welcome = () => {
                     Find answers to all your DevCycle implementation questions, and learn more about how to start using our management dashboard, APIs, SDKs, and more. 
                   </p>
                   <p className="mt-4 text-md leading-6 text-blue-200">
-                  If you need help along the way feel free to reach out to our team on <a className="text-white font-bold hover:text-blue-200" href="https://discord.gg/8uEqSsRKy5"> Discord for additional support</a>.
+                  If you need help along the way feel free to reach out to our team via <a className="text-white font-bold hover:text-blue-200" href="mailto:support@devcycle.com">email for additional support</a>.
                   </p>
                   <a
                     href="/home"

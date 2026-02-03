@@ -61,4 +61,4 @@ After invalidation - the token is no longer available for use - and any future r
 After completing these steps, your application should be using the newly generated SDK keys and the compromised keys should be invalidated. Remember to periodically check for any security issues and always follow the best practices for keeping your SDK keys secure.
 
 
-For further assistance or support, please **[contact our support team](mailto:support@devcycle.com)** or ask us on our **[Discord](https://discord.gg/8uEqSsRKy5)**.
+For further assistance or support, please **[contact our support team](mailto:support@devcycle.com)**.

@@ -307,5 +307,4 @@ Once configured, try asking your AI assistant:
 
 - **GitHub Issues**: [GitHub Issues](https://github.com/DevCycleHQ/cli/issues)
 - **General Documentation**: [DevCycle Docs](https://docs.devcycle.com)
-- **DevCycle Community**: [Discord](https://discord.gg/8uEqSsRKy5)
 - **Support**: [Contact Support](mailto:support@devcycle.com)

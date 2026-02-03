@@ -56,4 +56,4 @@ For more information about API and SDK key security, check out the following res
 - **[Storing Sensitive Info in React Native](https://reactnative.dev/docs/security)**
 
 
-For further assistance or support, please **[contact our support team](mailto:support@devcycle.com)** or ask us on our **[Discord](https://discord.gg/8uEqSsRKy5)**.
+For further assistance or support, please **[contact our support team](mailto:support@devcycle.com)**.

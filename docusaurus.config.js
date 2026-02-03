@@ -493,12 +493,6 @@ const config = {
               target: '_blank',
               rel: null,
             },
-            {
-              href: 'https://discord.gg/8uEqSsRKy5',
-              label: 'Discord',
-              target: '_blank',
-              rel: null,
-            },
           ],
         },
         {
@@ -516,12 +510,6 @@ const config = {
           position: 'right',
           className: 'header-signup-link',
           label: 'Sign Up',
-        },
-        {
-          href: 'https://discord.gg/8uEqSsRKy5',
-          position: 'right',
-          className: 'header-discord-link',
-          'aria-label': 'Discord',
         },
       ],
     },
@@ -547,10 +535,6 @@ const config = {
               label: 'Github',
               href: 'https://github.com/devcyclehq',
             },
-            {
-              label: 'Discord',
-              href: 'https://discord.gg/8uEqSsRKy5',
-            },
           ],
         },
         {
@@ -572,10 +556,6 @@ const config = {
             {
               label: 'Twitter',
               href: 'https://twitter.com/devcyclehq',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discord.gg/8uEqSsRKy5',
             },
           ],
         },

@@ -25,7 +25,7 @@ The following SDKs support obfuscation:
 - Next.js
 
 The unobfuscated data will still be available via the mobile and server SDK tokens. If you have a need for obfuscation
-on mobile, let us know in the [community discord.](https://discord.gg/8uEqSsRKy5)
+on mobile, please [contact us](mailto:support@devcycle.com).
 
 Using the feature requires use of the [DevCycle CLI](https://docs.devcycle.com/cli/). Follow the setup guide in the 
 CLI documentation to install it and initialize in your repository.
