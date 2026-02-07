@@ -100,7 +100,7 @@ event = {
 m.devcycleClient.track(event)
 ```
 
-The SDK will flush events every 10s or `flushEventsMS` specified in the options. To manually flush events, call:
+The SDK will flush events every 10s or `flushEventsIntervalMs` specified in the options. To manually flush events, call:
 
 ```javascript
 m.devcycleClient.flushEvents()

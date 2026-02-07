@@ -250,7 +250,7 @@ DevCycleEvent event = DevCycleEvent.builder()
 devcycleClient.track(event);
 ```
 
-The SDK will flush events every 10s or `flushEventsMS` specified in the options.
+The SDK will flush events every 10s or `flushEventsIntervalMs` specified in the options.
 
 **Manually Flushing Events**
 
