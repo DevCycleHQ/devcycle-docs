@@ -160,7 +160,7 @@ const event = {
 devcycleClient.track(event)
 ```
 
-The SDK will flush events every 10s or `flushEventsMS` specified in the Provider options. To manually flush events, call:
+The SDK will flush events every 10s or `eventFlushIntervalMS` specified in the Provider options. To manually flush events, call:
 
 ```js
 await devcycleClient.flushEvents()

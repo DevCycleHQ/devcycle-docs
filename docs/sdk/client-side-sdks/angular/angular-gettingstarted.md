@@ -26,7 +26,7 @@ const devCycleProvider = new DevCycleAngularProvider(
   { /* DevCycle Options */ }
 );
 
-// A `targetingKey` or `user_id` is required to initialize the DevCycle Provider.
+// Provide a `targetingKey` or `user_id` to avoid an anonymous user.
 OpenFeature.setContext({
   targetingKey: "user123"
 });
@@ -52,9 +52,10 @@ It's best to initialize DevCycle in your root module, so that it can be initiali
 
 :::
 
-### Required TargetingKey
+### TargetingKey or user_id
 
-For DevCycle SDK to work we require either a `targetingKey` or `user_id` to be set on the OpenFeature context. This is used to identify the user as the user_id for a DevCycleUser in DevCycle.
+DevCycle recommends setting a `targetingKey` or `user_id` on the OpenFeature context to identify the user.
+If neither is set, the provider initializes an anonymous user and evaluates flags for that anonymous user.
 
 
 ### Context properties to DevCycleUser
