@@ -108,12 +108,10 @@ All actions affecting **Production Environments** are restricted for roles below
 | `organization:write:members`  |          |                        |             |                 | ✅          | ✅          |
 | `organization:read:billing`   | ✅       | ✅                     | ✅          | ✅              | ✅          | ✅          |
 | `organization:write:billing`  |          |                        |             |                 |             | ✅          |
-| `organization:read:projects`  |          |                        | ✅          |                 | ✅          | ✅          |
 | `project:read`                | ✅       | ✅                     | ✅          | ✅              | ✅          |             |
 | `project:write`               |          |                        |             |                 | ✅          |             |
 | `project:write:settings`      |          |                        |             | ✅              | ✅          |             |
 | `project:delete`              |          |                        |             |                 | ✅          |             |
-| `feature:read:staleness`      | ✅       |                        |             | ✅              | ✅          |             |
 | `feature:read`                | ✅       | ✅                     | ✅          | ✅              | ✅          |             |
 | `feature:write`               |          | ✅                     | ✅          | ✅              | ✅          |             |
 | `feature:publish`             |          |                        | ✅          | ✅              | ✅          |             |
@@ -128,7 +126,6 @@ All actions affecting **Production Environments** are restricted for roles below
 | `audience:delete`             |          |                        |             | ✅              | ✅          |             |
 | `variable:read`               | ✅       | ✅                     | ✅          | ✅              | ✅          |             |
 | `variable:write`              |          | ✅                     | ✅          | ✅              | ✅          |             |
-| `variable:write:prod`         |          |                        | ✅          |                 | ✅          |             |
 | `environment:read`            | ✅       | ✅                     | ✅          | ✅              | ✅          |             |
 | `environment:write`           |          |  ✅  | ✅          | ✅              | ✅          |             |
 | `environment:delete`          |          |                        |             | ✅              | ✅          |             |
@@ -149,11 +146,9 @@ All actions affecting **Production Environments** are restricted for roles below
 | `metricassociation:write`     |          | ✅                     | ✅          | ✅              | ✅          |             |
 | `metricassociation:delete`    |          | ✅                     | ✅          | ✅              | ✅          |             |
 | `project:read:overrides`      | ✅       | ✅                     | ✅          | ✅              | ✅          |             |
-| `project:write:overrides`     | ✅       | ✅                     | ✅          | ✅              | ✅          |             |
 | `webhook:read`                | ✅       | ✅                     | ✅          | ✅              | ✅          |             |
 | `webhook:write`               |          | ✅                     | ✅          | ✅              | ✅          |             |
 | `webhook:delete`              |          |                        | ✅          | ✅              | ✅          |             |
-| `project:read:tokens`         | ✅       |                        |             |                 | ✅          |             |
 | `project:write:tokens`        |          |                        |             |                 | ✅          |             |
 
 ---
