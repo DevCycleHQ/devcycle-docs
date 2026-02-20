@@ -105,9 +105,7 @@ All actions affecting **Production Environments** are restricted for roles below
 | `organization:read:settings`  | ✅       | ✅                     | ✅          | ✅              | ✅          | ✅          |
 | `organization:write:settings` |          |                        |             |                 | ✅          | ✅          |
 | `organization:read:members`   | ✅       | ✅                     | ✅          | ✅              | ✅          | ✅          |
-| `organization:write:members`  |          |                        |             |                 | ✅          | ✅          |
 | `organization:read:billing`   | ✅       | ✅                     | ✅          | ✅              | ✅          | ✅          |
-| `organization:write:billing`  |          |                        |             |                 |             | ✅          |
 | `project:read`                | ✅       | ✅                     | ✅          | ✅              | ✅          |             |
 | `project:write`               |          |                        |             |                 | ✅          |             |
 | `project:write:settings`      |          |                        |             | ✅              | ✅          |             |
@@ -116,13 +114,8 @@ All actions affecting **Production Environments** are restricted for roles below
 | `feature:write`               |          | ✅                     | ✅          | ✅              | ✅          |             |
 | `feature:publish`             |          |                        | ✅          | ✅              | ✅          |             |
 | `feature:delete`              |          |                        |             | ✅              | ✅          |             |
-| `feature:status:archive`      |          | ✅                     | ✅          | ✅              | ✅          |             |
-| `feature:status:complete`     |          |                        | ✅          | ✅              | ✅          |             |
-| `feature:read:config`         | ✅       | ✅                     | ✅          | ✅              | ✅          |             |
-| `feature:write:config`        |          | ✅ | ✅          | ✅              | ✅          |             |
 | `audience:write`              |          | ✅                     | ✅          | ✅              | ✅          |             |
 | `audience:read`               | ✅       | ✅                     | ✅          | ✅              | ✅          |             |
-| `audience:write:prod`         |          |                        | ✅          | ✅              | ✅          |             |
 | `audience:delete`             |          |                        |             | ✅              | ✅          |             |
 | `variable:read`               | ✅       | ✅                     | ✅          | ✅              | ✅          |             |
 | `variable:write`              |          | ✅                     | ✅          | ✅              | ✅          |             |
@@ -132,24 +125,7 @@ All actions affecting **Production Environments** are restricted for roles below
 | `variation:read`              | ✅       | ✅                     | ✅          | ✅              | ✅          |             |
 | `variation:write`             |          | ✅                     | ✅          | ✅              | ✅          |             |
 | `variation:delete`            |          | ✅                     | ✅          | ✅              | ✅          |             |
-| `results:read`                | ✅       | ✅                     | ✅          | ✅              | ✅          |             |
-| `user:read`                   | ✅       | ✅                     | ✅          | ✅              | ✅          |             |
-| `user:write`                  | ✅       | ✅                     | ✅          | ✅              | ✅          |             |
-| `auditlog:read`               | ✅       | ✅                     | ✅          | ✅              | ✅          |             |
-| `customproperty:read`         | ✅       | ✅                     | ✅          | ✅              | ✅          |             |
-| `customproperty:write`        |          | ✅                     | ✅          | ✅              | ✅          |             |
-| `customproperty:delete`       |          | ✅                     | ✅          | ✅              | ✅          |             |
-| `metric:read`                 | ✅       | ✅                     | ✅          | ✅              | ✅          |             |
-| `metric:write`                |          | ✅                     | ✅          | ✅              | ✅          |             |
-| `metric:delete`               |          | ✅                     | ✅          | ✅              | ✅          |             |
-| `metricassociation:read`      | ✅       | ✅                     | ✅          | ✅              | ✅          |             |
-| `metricassociation:write`     |          | ✅                     | ✅          | ✅              | ✅          |             |
-| `metricassociation:delete`    |          | ✅                     | ✅          | ✅              | ✅          |             |
 | `project:read:overrides`      | ✅       | ✅                     | ✅          | ✅              | ✅          |             |
-| `webhook:read`                | ✅       | ✅                     | ✅          | ✅              | ✅          |             |
-| `webhook:write`               |          | ✅                     | ✅          | ✅              | ✅          |             |
-| `webhook:delete`              |          |                        | ✅          | ✅              | ✅          |             |
-| `project:write:tokens`        |          |                        |             |                 | ✅          |             |
 
 ---
 
