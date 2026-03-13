@@ -128,27 +128,15 @@ For more details, see the [Claude Code MCP documentation](https://docs.anthropic
 </TabItem>
 <TabItem value="opencode" label="OpenCode">
 
-**Step 1: Access MCP Configuration**
+**Step 1: Add DevCycle MCP Server**
 
-Locate and edit your OpenCode configuration file. This can be either `opencode.json` in your project root or `~/.config/opencode/opencode.json` for global configuration. To learn more, see the [OpenCode MCP documentation](https://opencode.ai/docs/mcp-servers/).
+Run the following command and follow the interactive prompts to add the DevCycle MCP server (name: `devcycle`, type: `remote`, url: `https://mcp.devcycle.com/mcp`):
 
-**Step 2: Add DevCycle MCP Server**
-
-Add the following configuration to your `opencode.json`:
-
-```json
-{
-  "$schema": "https://opencode.ai/config.json",
-  "mcp": {
-    "devcycle": {
-      "type": "remote",
-      "url": "https://mcp.devcycle.com/mcp"
-    }
-  }
-}
+```bash
+opencode mcp add
 ```
 
-**Step 3: Authenticate**
+**Step 2: Authenticate**
 
 Run the following command to authenticate with DevCycle:
 
@@ -162,6 +150,8 @@ opencode mcp auth devcycle
 4. Return to your terminal where authentication will complete
 
 The next time you start OpenCode, the DevCycle MCP tools will be available.
+
+For more details, see the [OpenCode MCP documentation](https://opencode.ai/docs/mcp-servers/).
 
 </TabItem>
 <TabItem value="claude" label="Claude Desktop">
