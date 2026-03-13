@@ -448,6 +448,25 @@ Locate and edit your configuration file at `~/.gemini/settings.json`:
 For more details, see the [Gemini CLI MCP documentation](https://github.com/google-gemini/gemini-cli/blob/main/docs/tools/mcp-server.md#how-to-set-up-your-mcp-server).
 
 </TabItem>
+<TabItem value="opencode" label="OpenCode">
+
+Add the following to your `opencode.json` configuration file:
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "devcycle": {
+      "type": "local",
+      "command": ["dvc-mcp"]
+    }
+  }
+}
+```
+
+For more details, see the [OpenCode MCP documentation](https://opencode.ai/docs/mcp-servers/).
+
+</TabItem>
 </Tabs>
 
 ## Error Handling

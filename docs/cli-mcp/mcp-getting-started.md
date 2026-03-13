@@ -272,6 +272,47 @@ Restart your Gemini CLI session for the changes to take effect.
 For more details, see the [Gemini CLI MCP documentation](https://github.com/google-gemini/gemini-cli/blob/main/docs/tools/mcp-server.md#how-to-set-up-your-mcp-server).
 
 </TabItem>
+<TabItem value="opencode" label="OpenCode">
+
+**Step 1: Access MCP Configuration**
+
+Locate and edit your OpenCode configuration file, `opencode.json`, in your project root or global config directory. To learn more, see the [OpenCode MCP documentation](https://opencode.ai/docs/mcp-servers/).
+
+**Step 2: Add DevCycle MCP Server**
+
+Add the following configuration to your `opencode.json`:
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "devcycle": {
+      "type": "remote",
+      "url": "https://mcp.devcycle.com/mcp"
+    }
+  }
+}
+```
+
+**Step 3: Restart OpenCode**
+
+Restart your OpenCode session for the changes to take effect.
+
+**Step 4: Authentication**
+
+OpenCode automatically handles OAuth authentication for remote MCP servers. You can also manually trigger authentication:
+
+```bash
+opencode mcp auth devcycle
+```
+
+1. When you first use DevCycle MCP tools, OpenCode will detect the authentication requirement and initiate the OAuth flow
+2. This will open a browser page at `mcp.devcycle.com` for authorization
+3. Review and click **"Allow Access"** to grant permissions
+4. If you have multiple organizations, select your desired organization at `auth.devcycle.com`
+5. Return to OpenCode where the DevCycle MCP tools will be active
+
+</TabItem>
 </Tabs>
 
 <br></br>
