@@ -276,7 +276,7 @@ For more details, see the [Gemini CLI MCP documentation](https://github.com/goog
 
 **Step 1: Access MCP Configuration**
 
-Locate and edit your OpenCode configuration file, `opencode.json`, in your project root or global config directory. To learn more, see the [OpenCode MCP documentation](https://opencode.ai/docs/mcp-servers/).
+Locate and edit your OpenCode configuration file. This can be either `opencode.json` in your project root or `~/.config/opencode/opencode.json` for global configuration. To learn more, see the [OpenCode MCP documentation](https://opencode.ai/docs/mcp-servers/).
 
 **Step 2: Add DevCycle MCP Server**
 
