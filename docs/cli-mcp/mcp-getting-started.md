@@ -294,14 +294,20 @@ Add the following configuration to your `opencode.json`:
 }
 ```
 
-**Step 3: Authentication**
+**Step 3: Authenticate**
 
-Start OpenCode and it will automatically detect the DevCycle MCP server and prompt you to authenticate:
+Run the following command to authenticate with DevCycle:
 
-1. OpenCode will open a browser page at `mcp.devcycle.com` for authorization
+```bash
+opencode mcp auth devcycle
+```
+
+1. This will open a browser page at `mcp.devcycle.com` for authorization
 2. Review and click **"Allow Access"** to grant permissions
 3. If you have multiple organizations, select your desired organization at `auth.devcycle.com`
-4. Return to OpenCode where the DevCycle MCP tools will be active
+4. Return to your terminal where authentication will complete
+
+The next time you start OpenCode, the DevCycle MCP tools will be available.
 
 </TabItem>
 </Tabs>
