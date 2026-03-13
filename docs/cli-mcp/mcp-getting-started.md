@@ -126,6 +126,44 @@ You'll see the DevCycle server listed as "disconnected • Enter to login":
 For more details, see the [Claude Code MCP documentation](https://docs.anthropic.com/claude/docs/mcp).
 
 </TabItem>
+<TabItem value="opencode" label="OpenCode">
+
+**Step 1: Access MCP Configuration**
+
+Locate and edit your OpenCode configuration file. This can be either `opencode.json` in your project root or `~/.config/opencode/opencode.json` for global configuration. To learn more, see the [OpenCode MCP documentation](https://opencode.ai/docs/mcp-servers/).
+
+**Step 2: Add DevCycle MCP Server**
+
+Add the following configuration to your `opencode.json`:
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "devcycle": {
+      "type": "remote",
+      "url": "https://mcp.devcycle.com/mcp"
+    }
+  }
+}
+```
+
+**Step 3: Authenticate**
+
+Run the following command to authenticate with DevCycle:
+
+```bash
+opencode mcp auth devcycle
+```
+
+1. This will open a browser page at `mcp.devcycle.com` for authorization
+2. Review and click **"Allow Access"** to grant permissions
+3. If you have multiple organizations, select your desired organization at `auth.devcycle.com`
+4. Return to your terminal where authentication will complete
+
+The next time you start OpenCode, the DevCycle MCP tools will be available.
+
+</TabItem>
 <TabItem value="claude" label="Claude Desktop">
 
 **Step 1: Access MCP Configuration**
@@ -270,44 +308,6 @@ Restart your Gemini CLI session for the changes to take effect.
 5. Return to the Gemini CLI where the DevCycle MCP tools will be active
 
 For more details, see the [Gemini CLI MCP documentation](https://github.com/google-gemini/gemini-cli/blob/main/docs/tools/mcp-server.md#how-to-set-up-your-mcp-server).
-
-</TabItem>
-<TabItem value="opencode" label="OpenCode">
-
-**Step 1: Access MCP Configuration**
-
-Locate and edit your OpenCode configuration file. This can be either `opencode.json` in your project root or `~/.config/opencode/opencode.json` for global configuration. To learn more, see the [OpenCode MCP documentation](https://opencode.ai/docs/mcp-servers/).
-
-**Step 2: Add DevCycle MCP Server**
-
-Add the following configuration to your `opencode.json`:
-
-```json
-{
-  "$schema": "https://opencode.ai/config.json",
-  "mcp": {
-    "devcycle": {
-      "type": "remote",
-      "url": "https://mcp.devcycle.com/mcp"
-    }
-  }
-}
-```
-
-**Step 3: Authenticate**
-
-Run the following command to authenticate with DevCycle:
-
-```bash
-opencode mcp auth devcycle
-```
-
-1. This will open a browser page at `mcp.devcycle.com` for authorization
-2. Review and click **"Allow Access"** to grant permissions
-3. If you have multiple organizations, select your desired organization at `auth.devcycle.com`
-4. Return to your terminal where authentication will complete
-
-The next time you start OpenCode, the DevCycle MCP tools will be available.
 
 </TabItem>
 </Tabs>
