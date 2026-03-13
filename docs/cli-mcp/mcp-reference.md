@@ -384,6 +384,17 @@ claude mcp add --transport stdio devcycle dvc-mcp
 ```
 
 </TabItem>
+<TabItem value="opencode" label="OpenCode">
+
+Run the following command and follow the interactive prompts to add the local DevCycle MCP server (name: `devcycle`, type: `local`, command: `dvc-mcp`):
+
+```bash
+opencode mcp add
+```
+
+For more details, see the [OpenCode MCP documentation](https://opencode.ai/docs/mcp-servers/).
+
+</TabItem>
 <TabItem value="claude" label="Claude Desktop">
 
 Locate and edit your Claude Desktop configuration file:

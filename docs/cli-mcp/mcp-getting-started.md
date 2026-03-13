@@ -126,6 +126,34 @@ You'll see the DevCycle server listed as "disconnected • Enter to login":
 For more details, see the [Claude Code MCP documentation](https://docs.anthropic.com/claude/docs/mcp).
 
 </TabItem>
+<TabItem value="opencode" label="OpenCode">
+
+**Step 1: Add DevCycle MCP Server**
+
+Run the following command and follow the interactive prompts to add the DevCycle MCP server (name: `devcycle`, type: `remote`, url: `https://mcp.devcycle.com/mcp`):
+
+```bash
+opencode mcp add
+```
+
+**Step 2: Authenticate**
+
+Run the following command to authenticate with DevCycle:
+
+```bash
+opencode mcp auth devcycle
+```
+
+1. This will open a browser page at `mcp.devcycle.com` for authorization
+2. Review and click **"Allow Access"** to grant permissions
+3. If you have multiple organizations, select your desired organization at `auth.devcycle.com`
+4. Return to your terminal where authentication will complete
+
+The next time you start OpenCode, the DevCycle MCP tools will be available.
+
+For more details, see the [OpenCode MCP documentation](https://opencode.ai/docs/mcp-servers/).
+
+</TabItem>
 <TabItem value="claude" label="Claude Desktop">
 
 **Step 1: Access MCP Configuration**
