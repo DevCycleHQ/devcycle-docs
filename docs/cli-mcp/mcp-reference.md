@@ -386,18 +386,10 @@ claude mcp add --transport stdio devcycle dvc-mcp
 </TabItem>
 <TabItem value="opencode" label="OpenCode">
 
-Add the following to your `opencode.json` configuration file:
+Run the following command and follow the interactive prompts to add the local DevCycle MCP server (name: `devcycle`, type: `local`, command: `dvc-mcp`):
 
-```json
-{
-  "$schema": "https://opencode.ai/config.json",
-  "mcp": {
-    "devcycle": {
-      "type": "local",
-      "command": ["dvc-mcp"]
-    }
-  }
-}
+```bash
+opencode mcp add
 ```
 
 For more details, see the [OpenCode MCP documentation](https://opencode.ai/docs/mcp-servers/).
