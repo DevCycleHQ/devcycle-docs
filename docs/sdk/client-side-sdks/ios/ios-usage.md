@@ -245,7 +245,7 @@ if (err) {
 
 ### Manually Flush Events
 
-The SDK will flush events every 10s or `flushEventsMS` specified in the options. To manually flush events, call:
+The SDK will flush events every 10s or `eventFlushIntervalMS` specified in the options. To manually flush events, call:
 
 **Swift**
 
