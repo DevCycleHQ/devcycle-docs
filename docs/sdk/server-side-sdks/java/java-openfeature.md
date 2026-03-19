@@ -92,8 +92,33 @@ public class OpenFeatureExample {
 Use a Variable value by passing the Variable key, default value, and EvaluationContext to one of the OpenFeature flag evaluation methods.
 
 ```java
-// Retrieve a boolean flag from the OpenFeature client
-Boolean variableValue = openFeatureClient.getBooleanValue("boolean-flag", false, new MutableContext("user-1234"));
+MutableContext context = new MutableContext("user-1234");
+
+// Retrieve a boolean flag value
+Boolean boolValue = openFeatureClient.getBooleanValue("boolean-flag", false, context);
+
+// Retrieve a string flag value
+String stringValue = openFeatureClient.getStringValue("string-flag", "default", context);
+
+// Retrieve an integer flag value
+Integer intValue = openFeatureClient.getIntegerValue("integer-flag", 0, context);
+
+// Retrieve a double flag value
+Double doubleValue = openFeatureClient.getDoubleValue("double-flag", 0.0, context);
+
+// Retrieve a json flag value
+Map<String,Object> defaultJsonData = new LinkedHashMap<>();
+defaultJsonData.put("default", "value");
+Value jsonResult = openFeatureClient.getObjectValue("json-flag", new Value(Structure.mapToStructure(defaultJsonData)), context);
+
+// Use the returned values in your application logic
+if (boolValue) {
+    // Feature is enabled
+    System.out.println("Feature is enabled! String value: " + stringValue);
+} else {
+    // Feature is disabled, default value was returned
+    System.out.println("Feature is disabled");
+}
 ```
 [//]: # 'wizard-evaluate-end'
 
@@ -140,21 +165,27 @@ The OpenFeature spec for JSON flags allows for any type of valid JSON value to b
 For example the following are all valid default value types to use with OpenFeature:
 
 ```java
-// Invalid JSON values for the DevCycle SDK, will return defaults
-openFeatureClient.getObjectValue("json-flag", new Value(new ArrayList<String>(Arrays.asList("value1", "value2"))));
-openFeatureClient.getObjectValue("json-flag", new Value(610));
-openFeatureClient.getObjectValue("json-flag", new Value(false));
-openFeatureClient.getObjectValue("json-flag", new Value("string"));
-openFeatureClient.getObjectValue("json-flag", new Value());
+MutableContext context = new MutableContext("user-1234");
+
+// Invalid JSON values for the DevCycle SDK, will return the default value with a TYPE_MISMATCH error
+Value listResult = openFeatureClient.getObjectValue("json-flag", new Value(new ArrayList<String>(Arrays.asList("value1", "value2"))), context);
+Value intResult = openFeatureClient.getObjectValue("json-flag", new Value(610), context);
+Value boolResult = openFeatureClient.getObjectValue("json-flag", new Value(false), context);
+Value stringResult = openFeatureClient.getObjectValue("json-flag", new Value("string"), context);
+Value nullResult = openFeatureClient.getObjectValue("json-flag", new Value(), context);
 ```
 
 However, these are not valid types for the DevCycle SDK, the DevCycle SDK only supports JSON Objects (as `Map<String,Object>`):
 
 ```java
+MutableContext context = new MutableContext("user-1234");
 
 Map<String,Object> defaultJsonData = new LinkedHashMap<>();
 defaultJsonData.put("default", "value");
-openFeatureClient.getObjectValue("json-flag", new Value(Structure.mapToStructure(defaultJsonData)));
+Value jsonResult = openFeatureClient.getObjectValue("json-flag", new Value(Structure.mapToStructure(defaultJsonData)), context);
+
+// Convert the returned Value back to a Map<String, Object>
+Map<String, Object> jsonMap = jsonResult.asStructure().asObjectMap();
 ```
 
-This is enforced both for both the flag values and the default values supplied to the `getObjectValue()` method. Invalid types will trigger a `dev.openfeature.sdk.exceptions.TypeMismatchError` exception.
+This is enforced for both the flag values and the default values supplied to the `getObjectValue()` method. Invalid types will return the default value with a `TYPE_MISMATCH` error code and an `ERROR` reason in the evaluation details.
