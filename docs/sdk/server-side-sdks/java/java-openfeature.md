@@ -106,6 +106,11 @@ Integer intValue = openFeatureClient.getIntegerValue("integer-flag", 0, context)
 // Retrieve a double flag value
 Double doubleValue = openFeatureClient.getDoubleValue("double-flag", 0.0, context);
 
+// Retrieve a json flag value
+Map<String,Object> defaultJsonData = new LinkedHashMap<>();
+defaultJsonData.put("default", "value");
+Value jsonResult = openFeatureClient.getObjectValue("json-flag", new Value(Structure.mapToStructure(defaultJsonData)), context);
+
 // Use the returned values in your application logic
 if (boolValue) {
     // Feature is enabled
@@ -162,7 +167,7 @@ For example the following are all valid default value types to use with OpenFeat
 ```java
 MutableContext context = new MutableContext("user-1234");
 
-// Invalid JSON values for the DevCycle SDK, will return defaults
+// Invalid JSON values for the DevCycle SDK, will return the default value with a TYPE_MISMATCH error
 Value listResult = openFeatureClient.getObjectValue("json-flag", new Value(new ArrayList<String>(Arrays.asList("value1", "value2"))), context);
 Value intResult = openFeatureClient.getObjectValue("json-flag", new Value(610), context);
 Value boolResult = openFeatureClient.getObjectValue("json-flag", new Value(false), context);
@@ -183,4 +188,4 @@ Value jsonResult = openFeatureClient.getObjectValue("json-flag", new Value(Struc
 Map<String, Object> jsonMap = jsonResult.asStructure().asObjectMap();
 ```
 
-This is enforced both for both the flag values and the default values supplied to the `getObjectValue()` method. Invalid types will trigger a `dev.openfeature.sdk.exceptions.TypeMismatchError` exception.
+This is enforced for both the flag values and the default values supplied to the `getObjectValue()` method. Invalid types will return the default value with a `TYPE_MISMATCH` error code and an `ERROR` reason in the evaluation details.
