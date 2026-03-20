@@ -47,6 +47,12 @@ ldd --version
 
 :::
 
+:::warning
+
+The Java Local Bucketing SDK uses the [wasmtime-java](https://github.com/kawamuray/wasmtime-java) binding which does not work with Docker Alpine images at this time. If working with Docker, please use non-alpine Linux distros or the Java Cloud Bucketing SDK.
+
+:::
+
 [//]: # 'wizard-install-start'
 
 ### Maven
