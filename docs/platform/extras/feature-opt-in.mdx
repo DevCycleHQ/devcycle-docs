@@ -5,7 +5,7 @@ sidebar_position: 2
 
 # Feature Opt-In
 
-Feature Opt-In provides the ability to make any Feature released via DevCycle have a self-serve way to enable it for end users. This all happens through a simple iFrame that can be implemented on your website, that is powered by DevCycle.
+Feature Opt-In provides the ability to make any Feature released via DevCycle have a self-serve way to enable it for end users. This all happens through a simple iFrame that can be implemented on your website, which is powered by DevCycle.
 
 This means that if you are looking to run a beta program, but don't want to manually manage access to beta Features you can just add them to the Feature Opt-In widget and your users can toggle them on or off as they wish.
 
@@ -33,7 +33,7 @@ Once in your Project Settings, navigate to the "Feature Opt-In" page:
 
 ![Feature Opt-In Settings](/oct-22-2022-feature-opt-in-1.png)
 
-Feature Opt-In is first enabled at the Project level. It needs to be enabled manually because it leverages EdgeDB to manage a user's opt-in state. As a result, Feature Opt-In is not available on Free plans at this time. Visit our [pricing page](https://devcycle.com/pricing) for more details.
+Feature Opt-In is first enabled at the Project-level. It needs to be enabled manually because it leverages EdgeDB to manage a user's opt-in state. This means that enabling Feature Opt-In on a project can impact billing for your account. For more information on EdgeDB pricing visit our [pricing page](https://devcycle.com/pricing).
 
 To enable Feature Opt-In, switch the toggle to "Opt-In Enabled".
 
@@ -63,7 +63,7 @@ window.postMessage({ type: "DVC.optIn.saved" }, "*")
 
 To make sure only the right Features are added to the Feature Opt-In widget, you need to explicitly enable Opt-In on each Feature that you want to show up in the widget.
 
-Make a specific Feature eligible for Opt-in by enabling Feature Opt-In under the Feature's settings section.
+Make a specific Feature eligible for Opt-In by enabling Feature Opt-In under the Feature's settings section.
 
 ![Enable Feature for Opt-In](/oct-22-2022-feature-opt-in-5.png)
 
