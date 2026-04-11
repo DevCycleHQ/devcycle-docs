@@ -150,7 +150,7 @@ Events can be tracked by calling the `track` method provided by the client objec
 ```js
 const event = {
   type: 'my_event_type', // this is required
-  date: Date().now(),
+  date: new Date(),
   target: 'my_target',
   value: 5,
   metaData: {
@@ -176,7 +176,7 @@ devcycleClient.flushEvents(() => {
 
 EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user.
 
-To get started, contact us at support@devcycle.com to enable EdgeDB for your project.
+To get started, enable EdgeDB on your project by following the guide [here](/platform/feature-flags/targeting/edgedb).
 
 Once you have EdgeDB enabled in your project, pass in the `enableEdgeDB` option to turn on EdgeDB mode for the SDK:
 

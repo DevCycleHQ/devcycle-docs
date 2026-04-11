@@ -78,7 +78,7 @@ flag_value = @open_feature_client.fetch_integer_value(flag_key: 'flag_key', defa
 
 ### Required Targeting Key
 
-For the DevCycle SDK to work we require either a `targeting_key` or `user_id` to be set on the OpenFeature context.
+The DevCycle provider requires either a `targeting_key` or `user_id` to be set on the OpenFeature context.
 This is used to identify the user as the `user_id` for a `DevCycleUser` in DevCycle.
 
 ### Context properties to DevCycleUser
