@@ -33,12 +33,12 @@ const devcycleClient = initializeDevCycle(
 
 ## Deferred Initialization
 
-In many cases, user data is not available at the time of initialization. If the intialization call is made without a
+In many cases, user data is not available at the time of initialization. If the initialization call is made without a
 `user` object, then by default the SDK will be instantiated with an "anonymous" user and a configuration will be
 downloaded from DevCycle. The SDK makes a call to get the configuration for anonymous user and initializes.
 
 If you would like to defer initialization of the SDK until your user data is available, you can pass the
-`deferInitialization` option to the `intializeDevCycle` method. This will cause the SDK to not fetch a configuration until the
+`deferInitialization` option to the `initializeDevCycle` method. This will cause the SDK to not fetch a configuration until the
 [`devcycleClient.identifyUser`](/sdk/client-side-sdks/javascript/javascript-usage#identifying-user) method is called with the user data.
 Until that config is retrieved, all calls
 to retrieve variable values will return their default values.

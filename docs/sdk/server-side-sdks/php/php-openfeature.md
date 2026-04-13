@@ -91,7 +91,7 @@ $flag_value = $openfeature_client->getStringValue("string-flag", "default", $ope
 
 ### Required TargetingKey
 
-For DevCycle SDK to work we require either a `targetingKey` or `user_id` to be set on the OpenFeature context.
+The DevCycle provider requires either a `targetingKey` or `user_id` to be set on the OpenFeature context.
 This is used to identify the user as the `user_id` for a `DevCycleUser` in DevCycle. Setting the `user_id` property
 will take priority over `targetingKey`.
 

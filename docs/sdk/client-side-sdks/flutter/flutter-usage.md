@@ -145,7 +145,7 @@ DevCycleEvent event = DevCycleEventBuilder()
 _devcycleClient.track(event);
 ```
 
-The SDK will flush events every 10s or `flushEventsMS` specified in the options. To manually flush events, call:
+The SDK will flush events every 10s or `flushEventsIntervalMs` specified in the options. To manually flush events, call:
 
 ```dart
 _devcycleClient.flushEvents();
@@ -162,9 +162,8 @@ _devcycleClient.flushEvents(([error]) => {
 ## EdgeDB
 
 EdgeDB allows you to save user data to our EdgeDB storage so that you don't have to pass in all the user data every time you identify a user.
-Read more about [EdgeDB](/platform/feature-flags/targeting/edgedb).
 
-To get started, contact us at support@devcycle.com to enable EdgeDB for your project.
+To get started, enable EdgeDB on your project by following the guide [here](/platform/feature-flags/targeting/edgedb).
 
 Once you have EdgeDB enabled in your project, pass in the enableEdgeDB option to turn on EdgeDB mode for the SDK:
 

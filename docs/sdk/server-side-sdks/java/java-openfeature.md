@@ -126,8 +126,8 @@ if (boolValue) {
 
 ### Required Targeting Key
 
-For DevCycle SDK to work we require either a `targeting key` or `user_id` attribute to be set on the OpenFeature context.
-This value is used to identify the user as the `user_id` property for a `DevCycleUser` in DevCycle.
+The DevCycle provider requires either a `targetingKey` or `user_id` to be set on the OpenFeature context.
+This is used to identify the user as the `user_id` for a `DevCycleUser` in DevCycle.
 
 ### Mapping Context Properties to DevCycleUser
 

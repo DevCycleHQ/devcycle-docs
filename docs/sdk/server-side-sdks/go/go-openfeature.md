@@ -96,7 +96,7 @@ Use a Variable value by passing the Variable key, default value, and EvaluationC
 
 ### Required TargetingKey
 
-For the DevCycle SDK to work we require either a `targetingKey` or `user_id` to be set on the OpenFeature context.
+The DevCycle provider requires either a `targetingKey` or `user_id` to be set on the OpenFeature context.
 This is used to identify the user as the `UserId` for a `devcycle.User` in DevCycle.
 
 ### Context properties to User

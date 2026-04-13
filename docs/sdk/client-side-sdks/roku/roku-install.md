@@ -22,7 +22,7 @@ import PromptContent from '!!raw-loader!@site/static/ai-prompts/roku.md'
 
 This version of the DevCycle Client SDK supports the following platforms:
 
-- **Roku OS 9.4+**
+- **Roku OS 9.1+**
 
 ## Installation
 
