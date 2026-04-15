@@ -4,7 +4,7 @@ sidebar_position: 1
 pagination_next: essentials/key-features
 ---
 
-DevCycle is a Feature Flag platform built for engineering teams of any size, helping you easily create, rollout, and cleanup Feature Flags without disrupting your workflow. To help teams fit Feature Flagging into their development process we’ve taken a different approach than most. This page is a great starting point to understanding how we think about Feature Flagging and how you can get the most of out of DevCycle.
+DevCycle is a Feature Flag platform built for engineering teams of any size, helping you easily create, rollout, and cleanup Feature Flags without disrupting your workflow. To help teams fit Feature Flagging into their development process we’ve taken a different approach than most. This page is a great starting point to understanding how we think about Feature Flagging and how you can get the most out of DevCycle.
 
 ## Getting Started
 
@@ -57,7 +57,7 @@ There are two types of Keys in DevCycle, an SDK Key and an API Key.
 
 ## Features
 
-Features are the main elements that you work with in DevCycle. They are meant to map to Features in your application and they are comprised of Variables and Targeting Rules that will change what your users will see in your application.
+Features are the main elements that you work with in DevCycle. They are meant to map to features in your application and they are comprised of Variables and Targeting Rules that will change what your users will see in your application.
 
 Features exist across all Environments. This means that you won’t have to create a separate Feature per Environment you work in. 
 
@@ -128,7 +128,7 @@ Metrics can be saved and reused across multiple Features.
 
 ## Status and Lifecycle
 
-A Feature Status indicates their current position in the Development Lifecycle. The statuses are a succinct way to understand a Feature's state, and each status has its own unique properties.
+A Feature Status indicates its current position in the Development Lifecycle. The statuses are a succinct way to understand a Feature's state, and each status has its own unique properties.
 
 DevCycle’s default Feature Statuses are:
 
