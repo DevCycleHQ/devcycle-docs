@@ -93,6 +93,6 @@
     "picomatch@^4.0.2": "4.0.4",
     "dompurify": "3.4.0",
     "follow-redirects": "1.16.0",
-    "uuid": "14.0.0"
+    "uuid": "^14.0.0"
   }
 }
