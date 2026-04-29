@@ -34,7 +34,7 @@
     "fast-safe-stringify": "^2.1.1",
     "mobx": "^6.13.7",
     "path-browserify": "^1.0.1",
-    "postcss": "^8.5.3",
+    "postcss": "^8.5.10",
     "postcss-import": "^15.1.0",
     "postcss-preset-env": "^9.6.0",
     "prism-react-renderer": "^2.4.1",
