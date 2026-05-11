@@ -95,7 +95,6 @@
     "follow-redirects": "^1.16.0",
     "uuid": "^14.0.0",
     "postcss": "^8.5.10",
-    "ip-address@npm:^9.0.5": "^10.1.1",
     "ip-address@npm:^10.0.1": "^10.1.1",
     "ip-address": "^10.1.1"
   }
