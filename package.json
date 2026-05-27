@@ -74,6 +74,8 @@
   "packageManager": "yarn@4.9.2",
   "resolutions": {
     "serialize-javascript": "7.0.5",
-    "qs": "^6.15.2"
+    "qs": "^6.15.2",
+    "fast-xml-parser": "^5.7.0",
+    "fast-xml-builder": "^1.1.7"
   }
 }
