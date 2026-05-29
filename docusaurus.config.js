@@ -207,40 +207,6 @@ const config = {
     [
       'docusaurus-plugin-remote-content',
       {
-        name: 'bitbucket.feature-usage-action',
-        sourceBaseUrl:
-          'https://bitbucket.org/devcyclehq/devcycle-code-refs-pipe/raw/main/',
-        outDir: 'docs/integrations/bitbucket/feature-usage-action',
-        documents: ['README.md'],
-        performCleanup: true,
-        modifyContent: (filename, content) => ({
-          content:
-            '# Bitbucket: Feature Flag Code Usages\n' +
-            'Get the integration on the [Bitbucket Marketplace](https://bitbucket.org/product/features/pipelines/integrations?&p=devcyclehq/devcycle-code-refs-pipe)\n' +
-            content,
-        }),
-      },
-    ],
-    [
-      'docusaurus-plugin-remote-content',
-      {
-        name: 'bitbucket.pr-insights-action',
-        sourceBaseUrl:
-          'https://bitbucket.org/devcyclehq/devcycle-pr-insights-pipe/raw/main/',
-        outDir: 'docs/integrations/bitbucket/pr-insights-action',
-        documents: ['README.md'],
-        performCleanup: true,
-        modifyContent: (filename, content) => ({
-          content:
-            '# Bitbucket: Feature Flag Change Insights on Pull Request\n' +
-            'Get the integration on the [Bitbucket Marketplace](https://bitbucket.org/product/features/pipelines/integrations?&p=devcyclehq/devcycle-pr-insights-pipe)\n' +
-            content,
-        }),
-      },
-    ],
-    [
-      'docusaurus-plugin-remote-content',
-      {
         name: 'gitlab.feature-usage-action',
         sourceBaseUrl:
           'https://gitlab.com/devcycle/devcycle-usages-ci-cd/-/raw/main/',
