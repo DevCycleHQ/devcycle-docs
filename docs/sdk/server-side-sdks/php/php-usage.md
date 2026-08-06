@@ -16,7 +16,7 @@ sidebar_custom_props: { icon: material-symbols:toggle-on }
 The full user data must be passed into every method. The only required field is `user_id`.
 The rest are optional and are used by the system for user segmentation into Variables and Features.
 
-See the User model in the [PHP user model doc](https://github.com/DevCycleHQ/php-server-sdk/blob/main/lib/Model/UserData.php) for all accepted fields including custom fields.
+See the User model in the [PHP user model doc](https://github.com/DevCycleHQ/php-server-sdk/blob/main/lib/Model/DevCycleUser.php) for all accepted fields including custom fields.
 
 ```php
 use DevCycle\Model\DevCycleUser;
