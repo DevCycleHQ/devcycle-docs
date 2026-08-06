@@ -116,7 +116,7 @@ or the SDK is not able to make requests to the DevCycle API directly. The instal
 
 See the [SDK Proxy](../../sdk-proxy/index.md) section for more information.
 
-Both client types implement `IDisposable`. Dispose the client during application shutdown to stop polling, realtime connections, timers, and event queue resources.
+`DevCycleCloudClient` and `DevCycleLocalClient` implement `IDisposable`. Dispose the client during application shutdown to stop polling, realtime connections, timers, and event queue resources.
 
 ## Realtime Updates
 

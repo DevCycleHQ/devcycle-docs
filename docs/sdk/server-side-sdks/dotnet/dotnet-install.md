@@ -20,7 +20,7 @@ import PromptContent from '!!raw-loader!@site/static/ai-prompts/dotnet.md'
 
 <AIPromptCopyButton promptContent={PromptContent} />
 
-The packages target .NET Standard 2.0 and .NET Standard 2.1. Confirm that your application target supports the selected framework before installing.
+The Cloud package targets .NET Standard 2.0 and .NET Standard 2.1. The Local package targets .NET Standard 2.0. Confirm that your application target supports the selected framework before installing.
 
 ## Local Bucketing
 
