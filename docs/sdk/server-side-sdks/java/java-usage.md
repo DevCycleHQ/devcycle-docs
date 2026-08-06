@@ -114,6 +114,12 @@ customData.put("some-key", "some-value");
 client.setClientCustomData(customData);
 ```
 
+Close the client during application shutdown to stop background polling, realtime connections, and event queue workers:
+
+```java
+client.close();
+```
+
 ## Override Logging
 
 The SDK logs to stdout by default and does not require any specific logging package. To integrate with your own logging system, such as Java Logging or SLF4J, you can create a wrapper that implements the IDevCycleLogger interface. Then you can set the logger into the Java Server SDK setting the Custom Logger property in the options object used to initialize the client.

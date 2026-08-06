@@ -63,14 +63,14 @@ You can use the SDK in your Maven project by adding the following to your _pom.x
 <dependency>
     <groupId>com.devcycle</groupId>
     <artifactId>java-server-sdk</artifactId>
-    <version>LATEST</version>
+    <version>2.9.3</version>
     <scope>compile</scope>
 </dependency>
 ```
 
 :::info
 
-Refer to the latest version of the SDK on [maven central](https://maven.org/artifact/com.devcycle/java-server-sdk) if you would not prefer Maven or Gradle to pull the latest version automatically by using `+`
+Refer to [Maven Central](https://maven.org/artifact/com.devcycle/java-server-sdk) for the latest release. Pin the version in your build so upgrades are deliberate.
 
 :::
 
@@ -79,7 +79,7 @@ Refer to the latest version of the SDK on [maven central](https://maven.org/arti
 Alternatively you can use the SDK in your Gradle project by adding the following to _build.gradle_:
 
 ```yaml
-implementation("com.devcycle:java-server-sdk:+")
+implementation("com.devcycle:java-server-sdk:2.9.3")
 ```
 [//]: # 'wizard-install-end'
 
