@@ -26,7 +26,7 @@ import PromptContent from '!!raw-loader!@site/static/ai-prompts/android-openfeat
 
 ### Requirements
 
-This integration requires **Android API version 26+** and is available starting from DevCycle Android SDK version `>= 2.6.0`.
+This integration requires **Android API version 26+**. The documented installation uses DevCycle Android SDK version `2.9.0` or later within the supported 2.x release line.
 
 ## Installation
 
