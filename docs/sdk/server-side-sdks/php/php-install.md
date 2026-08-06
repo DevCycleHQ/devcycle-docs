@@ -19,7 +19,7 @@ import PromptContent from '!!raw-loader!@site/static/ai-prompts/php.md'
 
 <AIPromptCopyButton promptContent={PromptContent} />
 
-Requires PHP 8.1 and later, plus the `curl`, `json`, and `mbstring` extensions.
+Requires PHP 8.4 and later, plus the `curl`, `json`, and `mbstring` extensions.
 
 ### Composer Installation
 [//]: # 'wizard-install-start'
