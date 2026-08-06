@@ -114,6 +114,8 @@ customData.put("some-key", "some-value");
 client.setClientCustomData(customData);
 ```
 
+## Shutdown
+
 Close the client during application shutdown to stop background polling, realtime connections, and event queue workers:
 
 ```java
