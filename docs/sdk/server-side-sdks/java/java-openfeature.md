@@ -131,7 +131,8 @@ if (boolValue) {
 
 DevCycle numeric values are represented as doubles by the Java OpenFeature provider. When using
 `getLongValue()`, the value must be an integral number within the double safe-integer range:
-`-(2^53 - 1)` through `2^53 - 1` (`-9_007_199_254_740_991` through `9_007_199_254_740_991`).
+`-9_007_199_254_740_991` through `9_007_199_254_740_991`, the inclusive range of integers
+exactly representable by an IEEE-754 double.
 
 Fractional values and values outside this range return the supplied default value with a
 `TYPE_MISMATCH` error. Use `getDoubleValue()` when fractional values are required.
