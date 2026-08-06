@@ -46,7 +46,6 @@ Initialize the DevCycle SDK and set the DevCycleProvider as the provider for Ope
 
 ```python
 from devcycle_python_sdk import DevCycleLocalClient, DevCycleLocalOptions
-from devcycle_python_sdk.models.user import DevCycleUser
 from openfeature import api
 from openfeature.evaluation_context import EvaluationContext
 import os
@@ -57,13 +56,18 @@ options = DevCycleLocalOptions()
 # create an instance of the DevCycleLocalClient class
 devcycle_client = DevCycleLocalClient(os.environ["DEVCYCLE_SERVER_SDK_KEY"], options)
 
-# set the provider for OpenFeature
-api.set_provider(devcycle_client.get_openfeature_provider())
+# set the provider for OpenFeature, waiting for it to be ready
+api.set_provider_and_wait(devcycle_client.get_openfeature_provider())
 
 # get the OpenFeature client
 open_feature_client = api.get_client()
 ```
 [//]: # 'wizard-initialize-end'
+
+Use `set_provider_and_wait()` rather than `set_provider()`. `set_provider_and_wait()` blocks until the
+provider is ready and raises a `GeneralError` if the DevCycle client fails to initialize. `set_provider()`
+returns immediately, so an initialization failure is only reported as a background `PROVIDER_ERROR` event
+while every evaluation returns your default value with the `PROVIDER_NOT_READY` error code.
 
 ### Evaluate a Variable
 Use a Variable value by setting the EvaluationContext, then passing the Variable key and default value to one of the OpenFeature flag evaluation methods.
@@ -80,7 +84,7 @@ context = EvaluationContext(
     )
 open_feature_client.context = context
 
-flag_value = client.get_boolean_value("boolean_flag", False)
+flag_value = open_feature_client.get_boolean_value("boolean_flag", False)
 ```
 [//]: # 'wizard-evaluate-end'
 
@@ -107,7 +111,7 @@ context = EvaluationContext(
             "country": "CA",
             "appVersion": "1.0.11",
             "appBuild": 1000,
-			"deviceModel": "Macbook",
+            "deviceModel": "Macbook",
             "customData": {"custom": "data"},
             "privateCustomData": {"private": "data"},
         },
@@ -132,12 +136,6 @@ context = EvaluationContext(
             "obj": {"key": "value"},
         },
     )
-openfeature.NewEvaluationContext(
-    "user_id",
-    map[string]interface{}{
-        "obj": map[string]interface{}{"key": "value"},
-    },
-)
 ```
 
 ### JSON Flag Limitations
