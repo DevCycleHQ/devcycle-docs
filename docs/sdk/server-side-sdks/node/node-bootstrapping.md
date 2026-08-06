@@ -18,7 +18,8 @@ To support these use-cases, the Node.js SDK provides functionality for generatin
 To use it, you must also have the DevCycle JS Client SDK installed in your server application. Follow the [setup docs](/sdk/client-side-sdks/javascript/javascript-install)
 for that SDK to get started.
 
-To enable this feature, initialize a Node.js client on the server and enable client bootstrapping mode:
+To enable this feature, initialize a Node.js client on the server and enable client bootstrapping mode. The `@devcycle/js-client-sdk`
+package must also be installed in the server application because the Node SDK uses it to build the client bootstrap payload:
 
 ```javascript
 // devcycle.ts
@@ -64,8 +65,8 @@ export default function App() {
 }
 ```
 
-Make sure you also pass the same "user" that was used to obtain the bootstrap config. You must also provide the client SDK key
-so that the client-side SDK can initialize. The SDK key you should use is available as the `sdkKey` field of the bootstrap config.
+Make sure you also pass the same `user` that was used to obtain the bootstrap config. You must also provide the client SDK key
+so that the client-side SDK can initialize. The key is available as the `clientSDKKey` field of the bootstrap config.
 
 ## Example
 Here is an example that connects all these pieces in Remix with the React SDK:

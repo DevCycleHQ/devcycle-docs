@@ -18,9 +18,9 @@ to be initialized.
 JS Example:
 
 ```javascript
-const DevCycle = require('@devcycle/nodejs-server-sdk')
+const { initializeDevCycle } = require('@devcycle/nodejs-server-sdk')
 
-const devcycleClient = await DevCycle.initializeDevCycle(
+const devcycleClient = await initializeDevCycle(
   process.env.DEVCYCLE_SERVER_SDK_KEY,
 ).onClientInitialized()
 ```
@@ -38,12 +38,14 @@ const devcycleClient = await initializeDevCycle(
 
 ## Initialization Options
 
-The SDK exposes various initialization options which can be set on the `initialization()` method:
+The SDK exposes various initialization options which can be passed to `initializeDevCycle`:
 
 [DevCycleOptions Typescript Schema](https://github.com/search?q=repo%3ADevCycleHQ%2Fjs-sdks+export+interface+DevCycleOptions+language%3ATypeScript+path%3A*types.ts&type=code)
 
 ```javascript
-const devcycleClient = await DevCycle.initializeDevCycle(
+const { initializeDevCycle } = require('@devcycle/nodejs-server-sdk')
+
+const devcycleClient = await initializeDevCycle(
   '<DEVCYCLE_SERVER_SDK_KEY>',
   {
     // Insert Options

@@ -21,6 +21,7 @@ import { DevCycleModule } from '@devcycle/nestjs-server-sdk'
 
 DevCycleModule.forRoot({
   key: '<DEVCYCLE_SERVER_SDK_KEY>',
+  // DevCycleModule uses Local Bucketing. Configure Cloud Bucketing with the Node.js SDK instead.
 })
 ```
 
@@ -70,8 +71,8 @@ DevCycleModule.forRoot({
   userFactory: async (context: ExecutionContext) => {
     const userData = await fetchUserData(context)
     return {
-      user_id: req.user.id,
-      email: req.user.email,
+      user_id: userData.id,
+      email: userData.email,
     }
   },
 })

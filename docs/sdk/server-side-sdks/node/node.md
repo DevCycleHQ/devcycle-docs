@@ -17,5 +17,7 @@ If you need access to [EdgeDB](https://docs.devcycle.com/platform/feature-flags/
 The SDK is available as a package on NPM, with a full Typescript interface. 
 It is also open source and can be viewed on the [DevCycle GitHub](https://github.com/DevCycleHQ/js-sdks/tree/main/sdk/nodejs).
 
+The Node.js SDK requires Node.js 16 or later.
+
 [![Npm package version](https://badgen.net/npm/v/@devcycle/nodejs-server-sdk)](https://www.npmjs.com/package/@devcycle/nodejs-server-sdk)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/js-sdks.svg?style=social&label=Star&maxAge=2592000)](https://github.com/devcyclehq/js-sdks)

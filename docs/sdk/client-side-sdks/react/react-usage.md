@@ -89,6 +89,21 @@ devcycleClient.identifyUser(user)
 
 The client object can be obtained from the [useDevCycleClient](#getting-the-devcycle-client) hook.
 
+## Conditional Rendering Helpers
+
+The SDK also exports `RenderIfEnabled` and `SwapComponents` helpers for rendering components from a variable value.
+`RenderIfEnabled` accepts a `variableKey` and defaults to rendering when the variable evaluates to `true`:
+
+```jsx
+import { RenderIfEnabled } from '@devcycle/react-client-sdk'
+
+<RenderIfEnabled variableKey="new-checkout">
+  <NewCheckout />
+</RenderIfEnabled>
+```
+
+Use `targetValue` and `defaultValue` when the variable should match a value other than `true`.
+
 To wait on Variables that will be returned from the `identify` call, you can pass in a callback or use the Promise returned if no callback is passed in:
 
 ```js
