@@ -43,6 +43,12 @@ class _MyAppState extends State<MyApp> {
     @override
     void initState() {
         super.initState();
+        // Use onInitialized when evaluations must wait for the first configuration.
+        _devcycleClient.onInitialized((error) {
+            if (error != null) {
+                print('DevCycle failed to initialize: $error');
+            }
+        });
     }
 
     ...
