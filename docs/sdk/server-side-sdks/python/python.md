@@ -14,10 +14,9 @@ If you need access to [EdgeDB](https://docs.devcycle.com/platform/feature-flags/
 
 <CustomDocCardList items={useCurrentSidebarCategory().items} columnWidth={6} />
 
-The SDK is available as a package on PyPI. It is also open source and can be viewed on Github.
+The SDK is available as a package on PyPI. It is also open source and can be viewed on GitHub.
 
 OpenFeature support is currently marked alpha in the SDK repository. Validate the integration in your application before relying on it in production.
 
 [![PyPI](https://badgen.net/pypi/v/devcycle-python-server-sdk)](https://pypi.org/project/devcycle-python-server-sdk/)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/python-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/python-server-sdk)
-

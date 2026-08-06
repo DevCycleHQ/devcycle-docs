@@ -23,7 +23,7 @@ import PromptContent from '!!raw-loader!@site/static/ai-prompts/python.md'
 
 ## PIP Install
 
-The DevCycle Python Server SDK requires Python 3.10 and above.
+The DevCycle Python Server SDK requires Python 3.10 and above. Python 3.8 and 3.9 are not supported by the current package metadata.
 
 ```shell-session
 $ pip install devcycle-python-server-sdk
