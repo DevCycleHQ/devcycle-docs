@@ -18,6 +18,7 @@ Using the builder pattern we can initialize the DevCycle SDK by providing the De
 
 ```dart
 import 'package:devcycle_flutter_client_sdk/devcycle_flutter_client_sdk.dart';
+import 'package:flutter/foundation.dart';
 
 void main() {
     runApp(const MyApp());
@@ -43,10 +44,10 @@ class _MyAppState extends State<MyApp> {
     @override
     void initState() {
         super.initState();
-        // Use onInitialized when evaluations must wait for the first configuration.
+        // onInitialized invokes this one-shot callback when the first configuration is ready.
         _devcycleClient.onInitialized((error) {
             if (error != null) {
-                print('DevCycle failed to initialize: $error');
+                debugPrint('DevCycle failed to initialize');
             }
         });
     }
