@@ -11,7 +11,7 @@ Welcome to the DevCycle PHP SDK. The SDK uses Cloud Bucketing through the
 [Bucketing API](https://docs.devcycle.com/bucketing-api/). Local-style bucketing is available through the separate
 [SDK Proxy](../../sdk-proxy/index.md), which must run alongside the PHP application or on a reachable host.
 
-If you need access to [EdgeDB](https://docs.devcycle.com/platform/feature-flags/targeting/edgedb) you will need to use the Cloud Bucketing mode of the SDK.
+If you need access to [EdgeDB](https://docs.devcycle.com/platform/feature-flags/targeting/edgedb), use the SDK's Cloud Bucketing integration rather than the SDK Proxy.
 
 <CustomDocCardList items={useCurrentSidebarCategory().items} columnWidth={6} />
 
