@@ -126,7 +126,7 @@ namespace Example {
 | DevCycle Option         | Type       | Description                                                                                                                                                                  |
 | ----------------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | enableEdgeDB            | bool       | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle. <br />NOTE: This is only available with Cloud Bucketing enabled.                                  |
-| configPollingIntervalMs | int        | Controls the polling interval in milliseconds to fetch new environment config changes, defaults to 1 second.                                                                  |
+| configPollingIntervalMs | int        | Controls the polling interval in milliseconds to fetch new environment config changes, defaults to 1 second, with a minimum value of 1 second.                              |
 | configPollingTimeoutMs  | int        | Controls the request timeout to fetch new environment config changes, defaults to 5 seconds.                                                                                  |
 | disableAutomaticEvents  | bool       | Disables logging of sdk generated events (e.g. aggVariableEvaluated, aggVariableDefaulted) to DevCycle.                                                                      |
 | disableCustomEvents     | bool       | Disables logging of custom events, from `track()` method, and user data to DevCycle.                                                                                         |
