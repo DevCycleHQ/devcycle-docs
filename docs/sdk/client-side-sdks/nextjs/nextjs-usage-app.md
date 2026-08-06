@@ -86,7 +86,7 @@ have been retrieved and rendering can take place with the correct values.
 
 :::caution
 Realtime updates require a supported Next.js version. The current SDK package requires Next.js 15.1.9 or later. If using an
-older supported version, disable realtime updates to prevent client-side errors. To do so, pass the option in your
+older SDK release with an older Next.js version, disable realtime updates to prevent client-side errors. To do so, pass the option in your
 initialization function:
 
 ```typescript

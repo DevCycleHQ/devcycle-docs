@@ -20,9 +20,11 @@ JS Example:
 ```javascript
 const { initializeDevCycle } = require('@devcycle/nodejs-server-sdk')
 
-const devcycleClient = await initializeDevCycle(
-  process.env.DEVCYCLE_SERVER_SDK_KEY,
-).onClientInitialized()
+initializeDevCycle(process.env.DEVCYCLE_SERVER_SDK_KEY)
+  .onClientInitialized()
+  .then((devcycleClient) => {
+    // Use the initialized client here.
+  })
 ```
 [//]: # 'wizard-initialize-end'
 
@@ -45,12 +47,13 @@ The SDK exposes various initialization options which can be passed to `initializ
 ```javascript
 const { initializeDevCycle } = require('@devcycle/nodejs-server-sdk')
 
-const devcycleClient = await initializeDevCycle(
-  '<DEVCYCLE_SERVER_SDK_KEY>',
-  {
-    // Insert Options
-  },
-).onClientInitialized()
+initializeDevCycle('<DEVCYCLE_SERVER_SDK_KEY>', {
+  // Insert Options
+})
+  .onClientInitialized()
+  .then((devcycleClient) => {
+    // Use the initialized client here.
+  })
 ```
 
 | DevCycle Option              | Type           | Description                                                                                                                                                                  |
