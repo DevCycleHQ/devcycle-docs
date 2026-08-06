@@ -35,7 +35,7 @@ To get all the Features returned in the config:
 features = m.devcycleClient.getAllFeatures()
 ```
 
-If the SDK has not finished initializing, these methods will return an empty object.
+If the SDK has not finished initializing, these methods log an error and return `invalid`. Wait until the DevCycle task has initialized before calling them.
 
 ### Get All Variables
 
@@ -45,7 +45,7 @@ To get all the variables returned in the config:
 variables = m.devcycleClient.getAllVariables()
 ```
 
-If the SDK has not finished initializing, these methods will return an empty object.
+If the SDK has not finished initializing, these methods log an error and return `invalid`. Wait until the DevCycle task has initialized before calling them.
 
 :::caution
 
