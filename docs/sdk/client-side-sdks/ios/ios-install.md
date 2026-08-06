@@ -54,7 +54,7 @@ To use the library with Swift Package Manager, include it as a dependency in you
 
 You can also add it through Xcode, i.e. `File > Swift Packages > Add Package Dependency`, then enter the repository clone URL.
 
-The version shown is the latest release verified for this documentation. Check the [SDK releases](https://github.com/DevCycleHQ/ios-client-sdk/releases) for newer compatible releases.
+Check the [SDK releases](https://github.com/DevCycleHQ/ios-client-sdk/releases) for newer compatible releases.
 
 [//]: # 'wizard-install-end'
 
