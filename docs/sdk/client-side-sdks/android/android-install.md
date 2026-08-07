@@ -21,7 +21,7 @@ import PromptContent from '!!raw-loader!@site/static/ai-prompts/android.md'
 
 ## Requirements
 
-This version of the DevCycle Android Client SDK supports a minimum Android API Version 23.
+This version of the DevCycle Android Client SDK supports a minimum Android API Version 26 (Android 8.0).
 
 :::info
 **Proguard/R8:** If minifying your project, DevCycle requires **Android Gradle Plugin 7.1.x or higher**
@@ -33,13 +33,13 @@ This version of the DevCycle Android Client SDK supports a minimum Android API V
 
 The SDK can be installed into your Android project by adding the following to _build.gradle_:
 
-```yaml
-implementation("com.devcycle:android-client-sdk:+")
+```gradle
+implementation("com.devcycle:android-client-sdk:2.9.0")
 ```
 [//]: # 'wizard-install-end'
 
 :::info
 
-Refer to the latest version of the SDK on [maven central](https://maven.org/artifact/com.devcycle/android-client-sdk) if you would not prefer gradle to pull the latest version automatically by using `+`
+Refer to [Maven Central](https://maven.org/artifact/com.devcycle/android-client-sdk) for the latest release. Pin the version in your build so upgrades are deliberate.
 
 :::

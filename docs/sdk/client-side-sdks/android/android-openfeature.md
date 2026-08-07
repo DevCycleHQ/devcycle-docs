@@ -26,7 +26,7 @@ import PromptContent from '!!raw-loader!@site/static/ai-prompts/android-openfeat
 
 ### Requirements
 
-This integration requires **Android API version 23+** and is available starting from DevCycle Android SDK version `>= 2.6.0`.
+This integration requires **Android API version 26+**. The documented installation uses DevCycle Android SDK version `2.9.0` or later within the supported 2.x release line.
 
 ## Installation
 
@@ -35,8 +35,8 @@ The DevCycle OpenFeature Provider is included in the main Android SDK. To add it
 ### Gradle
 
 ```gradle
-implementation("com.devcycle:android-client-sdk:2.6.3+")
-implementation("dev.openfeature:kotlin-sdk:0.6.2+")
+implementation("com.devcycle:android-client-sdk:2.9.0")
+implementation("dev.openfeature:kotlin-sdk:0.6.2")
 ```
 
 ### Maven
@@ -45,18 +45,18 @@ implementation("dev.openfeature:kotlin-sdk:0.6.2+")
 <dependency>
     <groupId>com.devcycle</groupId>
     <artifactId>android-client-sdk</artifactId>
-    <version>2.6.3+</version>
+    <version>2.9.0</version>
     <scope>compile</scope>
 </dependency>
 <dependency>
     <groupId>dev.openfeature</groupId>
     <artifactId>kotlin-sdk</artifactId>
-    <version>0.6.2+</version>
+    <version>0.6.2</version>
     <scope>compile</scope>
 </dependency>
 ```
 
-This package automatically includes the OpenFeature Android Kotlin SDK as a dependency.
+The Android SDK includes the OpenFeature Kotlin SDK as a dependency. Pin both direct dependencies to versions compatible with your application.
 
 ## Getting Started
 
@@ -351,4 +351,4 @@ An example Android application demonstrating how to use the DevCycle OpenFeature
 
 ### Development
 
-For more details, see the [DevCycle Android SDK GitHub repository](https://github.com/DevCycleHQ/android-client-sdk). 
+For more details, see the [DevCycle Android SDK GitHub repository](https://github.com/DevCycleHQ/android-client-sdk).
