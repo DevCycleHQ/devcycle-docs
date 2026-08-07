@@ -21,7 +21,7 @@ import PromptContent from '!!raw-loader!@site/static/ai-prompts/flutter.md'
 
 ## Requirements
 
-This version of the DevCycle Flutter Client SDK requires a minimum of version of Flutter 2.5.0 (dart 2.14.0), iOS 13.7 and Android API Version 23.
+This version of the DevCycle Flutter Client SDK requires Flutter 2.5.0 or later (Dart 2.14.0), iOS 12.0 or later, and Android API 23 or later.
 
 ## Installation
 
@@ -40,7 +40,7 @@ The SDK can be installed into your Flutter project by running `flutter pub add d
 The SDK can be installed into your Flutter project by adding the following to your `pubspec.yaml`:
 
 ```dart
-devcycle_flutter_client_sdk: ^1.8.0
+devcycle_flutter_client_sdk: ^1.11.7
 ```
 
 Then, run `flutter pub get`.
