@@ -7,7 +7,7 @@ sidebar_custom_props: { icon: material-symbols:rocket }
 ---
 
 [![Nuget Cloud](https://badgen.net/nuget/v/DevCycle.SDK.Server.Cloud)](https://www.nuget.org/packages/DevCycle.SDK.Server.Cloud/)
-[![Nuget Local](https://badgen.net/nuget/v/DevCycle.SDK.Server.Cloud)](https://www.nuget.org/packages/DevCycle.SDK.Server.Local/)
+[![Nuget Local](https://badgen.net/nuget/v/DevCycle.SDK.Server.Local)](https://www.nuget.org/packages/DevCycle.SDK.Server.Local/)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/dotnet-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/dotnet-server-sdk)
 
 ## Cloud Bucketing - Initializing SDK
@@ -126,12 +126,12 @@ namespace Example {
 | DevCycle Option         | Type       | Description                                                                                                                                                                  |
 | ----------------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | enableEdgeDB            | bool       | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle. <br />NOTE: This is only available with Cloud Bucketing enabled.                                  |
-| configPollingIntervalMs | int        | Controls the polling interval in milliseconds to fetch new environment config changes, defaults to 10 seconds, minimum value is 1 second.                                    |
-| configPollingTimeoutMs  | int        | Controls the request timeout to fetch new environment config changes, defaults to 5 seconds, must be less than the configPollingIntervalMS value, minimum value is 1 second. |
+| configPollingIntervalMs | int        | Controls the polling interval in milliseconds to fetch new environment config changes, defaults to 1 second, with a minimum value of 1 second.                              |
+| configPollingTimeoutMs  | int        | Controls the request timeout to fetch new environment config changes, defaults to 5 seconds. Values below the configured polling interval are raised to that interval.        |
 | disableAutomaticEvents  | bool       | Disables logging of sdk generated events (e.g. aggVariableEvaluated, aggVariableDefaulted) to DevCycle.                                                                      |
 | disableCustomEvents     | bool       | Disables logging of custom events, from `track()` method, and user data to DevCycle.                                                                                         |
 | flushEventQueueSize     | int        | Controls the maximum size the event queue can grow to until a flush is forced. Defaults to `1000`.                                                                           |
-| maxEventsInQueue        | int        | Controls the maximum size the event queue can grow to until events are dropped. Defaults to `2000`.                                                                          |
+| maxEventsInQueue        | int        | Controls the maximum size the event queue can grow to until events are dropped. Defaults to `2000`, with a maximum of `20000`.                                                 |
 | eventRequestChunkSize   | int        | Count of events to chunk per event upload request. Defaults to `100`.                                                                                                        |
 | eventFlushIntervalMs    | int        | Controls the interval between flushing events to the DevCycle servers. Defaults to `10000`.                                                                                  |
 | cdnUri                  | string     | Contact support for usage instructions.                                                                                                                                      |

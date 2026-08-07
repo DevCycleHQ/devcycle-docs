@@ -7,7 +7,7 @@ sidebar_custom_props: { icon: material-symbols:toggle-on }
 ---
 
 [![Nuget Cloud](https://badgen.net/nuget/v/DevCycle.SDK.Server.Cloud)](https://www.nuget.org/packages/DevCycle.SDK.Server.Cloud/)
-[![Nuget Local](https://badgen.net/nuget/v/DevCycle.SDK.Server.Cloud)](https://www.nuget.org/packages/DevCycle.SDK.Server.Local/)
+[![Nuget Local](https://badgen.net/nuget/v/DevCycle.SDK.Server.Local)](https://www.nuget.org/packages/DevCycle.SDK.Server.Local/)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/dotnet-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/dotnet-server-sdk)
 
 [//]: # 'wizard-evaluate-start'
@@ -115,6 +115,8 @@ To further enable various deployment configurations - we provide a background pr
 or the SDK is not able to make requests to the DevCycle API directly. The installation and setup process for the proxy can be found here: https://github.com/DevCycleHQ/sdk-proxy#readme.
 
 See the [SDK Proxy](../../sdk-proxy/index.md) section for more information.
+
+`DevCycleCloudClient` and `DevCycleLocalClient` implement `IDisposable`. Dispose the client during application shutdown to stop polling, realtime connections, timers, and event queue resources.
 
 ## Realtime Updates
 

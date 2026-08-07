@@ -7,7 +7,7 @@ sidebar_custom_props: { icon: material-symbols:install-desktop }
 ---
 
 [![Nuget Cloud](https://badgen.net/nuget/v/DevCycle.SDK.Server.Cloud)](https://www.nuget.org/packages/DevCycle.SDK.Server.Cloud/)
-[![Nuget Local](https://badgen.net/nuget/v/DevCycle.SDK.Server.Cloud)](https://www.nuget.org/packages/DevCycle.SDK.Server.Local/)
+[![Nuget Local](https://badgen.net/nuget/v/DevCycle.SDK.Server.Local)](https://www.nuget.org/packages/DevCycle.SDK.Server.Local/)
 [![GitHub](https://img.shields.io/github/stars/devcyclehq/dotnet-server-sdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/DevCycleHQ/dotnet-server-sdk)
 
 ## AI-Powered Install
@@ -19,6 +19,8 @@ import PromptContent from '!!raw-loader!@site/static/ai-prompts/dotnet.md'
 <MCPInstall />
 
 <AIPromptCopyButton promptContent={PromptContent} />
+
+The Cloud package targets .NET Standard 2.0 and .NET Standard 2.1. The Local package targets .NET Standard 2.0. Confirm that your application target supports the selected framework before installing.
 
 ## Local Bucketing
 
