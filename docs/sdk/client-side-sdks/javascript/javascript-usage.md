@@ -83,7 +83,7 @@ variable.onUpdate((value) => {
 })
 ```
 
-## Identifying User
+## Identifying Users
 
 To identify a different user, or the same user passed into the initialize function with more attributes, pass in the entire user attribute object into `identifyUser`:
 

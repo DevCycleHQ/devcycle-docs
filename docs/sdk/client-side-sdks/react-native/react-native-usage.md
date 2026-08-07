@@ -25,16 +25,15 @@ The hook will return the default value if the SDK has not yet finished initializ
 
 ```js
 import { useVariableValue } from '@devcycle/react-native-client-sdk'
+import { Text } from 'react-native'
 
 const DevCycleFeaturePage = () => {
   const variableKey = 'my-feature'
-  const defaultValue = 'false'
+  const defaultValue = false
   const featureVariable = useVariableValue(variableKey, defaultValue)
 
   return (
-    <div>
-      {featureVariable ? <div>Variable on!</div> : <div>Variable off</div>}
-    </div>
+    <Text>{featureVariable ? 'Variable on!' : 'Variable off'}</Text>
   )
 }
 ```

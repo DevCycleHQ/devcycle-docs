@@ -34,7 +34,7 @@ const getUserIdentity = async () => {
   }
 }
 
-export const { getVariableValue, getClientContext } = setupDevCycle({
+export const { getVariableValue, getClientContext, track } = setupDevCycle({
   // Server SDK Key. This will be private and used to retrieve configuration data, so you MUST use the server SDK key.
   serverSDKKey: process.env.DEVCYCLE_SERVER_SDK_KEY ?? '',
   // Client SDK Key. This will be public and sent to the client, so you MUST use the client SDK key.
@@ -85,8 +85,8 @@ It will also await the retrieval of the DevCycle configuration, thus blocking fu
 have been retrieved and rendering can take place with the correct values.
 
 :::caution
-Due to a bug in Next.js, realtime updates functionality is only available in Next.js 14.1 and above. If using a version
-below that, you _must_ disable realtime updates to prevent clientside errors. To do so, pass the option in your
+Realtime updates require a supported Next.js version. The current SDK package requires Next.js 15.1.9 or later. If using an
+older SDK release with an older Next.js version, disable realtime updates to prevent client-side errors. To do so, pass the option in your
 initialization function:
 
 ```typescript

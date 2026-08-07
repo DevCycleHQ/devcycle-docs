@@ -31,7 +31,7 @@ The React Native SDK is available as a package on npm. A separate React Native E
 
 ## Requirements
 
-This SDK is compatible with _React Native_ version 0.64.0 and above.
+This SDK requires _React Native_ version 0.68.0 or above. The package also requires React 17.0.2 or above.
 
 :::warning
 

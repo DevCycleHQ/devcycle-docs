@@ -13,14 +13,14 @@ sidebar_custom_props: { icon: material-symbols:toggle-on }
 
 As this is a DevCycle OpenFeature Provider, using the [Angular OpenFeature SDK](https://openfeature.dev/docs/reference/technologies/client/web/angular#how-to-use), you need to use the OpenFeature APIs to get the value of a variable.
 
-If you need access to the DevCycle Client for access to the methods like `track` / `allFeatures` / `allVariables`, you can use the `devcycleClient()` method on the `DevCycleAngularProvider` object:
+If you need access to the DevCycle Client for access to the methods like `track` / `allFeatures` / `allVariables`, you can use the `devcycleClient` property on the `DevCycleAngularProvider` object:
 
 ```typescript
 const devCycleProvider = new DevCycleAngularProvider(
   environment.DEVCYCLE_CLIENT_SDK_KEY,
   { /* DevCycle Options */ }
 );
-const devcycleClient = devCycleProvider.devcycleClient();
+const devcycleClient = devCycleProvider.devcycleClient;
 const features = devcycleClient.allFeatures()
 const variables = devcycleClient.allVariables()
 ```
@@ -134,4 +134,3 @@ However, these are not valid types for the DevCycle SDK, the DevCycle SDK only s
 // Valid JSON Object as the default value, will be evaluated by the DevCycle SDK
 openFeatureClient.getObjectValue('json-flag', { default: 'value' })
 ```
-

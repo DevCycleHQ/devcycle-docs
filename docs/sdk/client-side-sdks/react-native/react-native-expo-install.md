@@ -38,13 +38,13 @@ Install the SDK dependencies, run the following command
 ### npx
 
 ```bash
-npx expo install @react-native-async-storage/async-storage react-native-get-random-values react-native-device-info react-native-sse
+npx expo install @react-native-async-storage/async-storage react-native-get-random-values react-native-device-info
 ```
 
 ### yarn
 
 ```bash
-yarn expo install @react-native-async-storage/async-storage react-native-get-random-values react-native-device-info react-native-sse
+yarn expo install @react-native-async-storage/async-storage react-native-get-random-values react-native-device-info
 ```
 
 ## Install Pods
@@ -58,7 +58,7 @@ npx pod-install
 The [@react-native-async-storage/async-storage](https://www.npmjs.com/package/@react-native-async-storage/async-storage) package provides the ability to leverage on Device Storage that is used for caching by the SDK.
 The [react-native-get-random-values](https://www.npmjs.com/package/react-native-get-random-values) package provides a polyfill for cryptographic functionality used to generate random IDs.
 The [react-native-device-info](https://www.npmjs.com/package/react-native-device-info) package provides information about the current device running the SDK, which is required to correctly apply targeting rules.
-The [react-native-sse](https://www.npmjs.com/package/react-native-sse) package provides SSE connection functionality to enable real-time updates.
+The bare React Native SDK uses `react-native-sse` for realtime updates. The Expo package supplies its own Expo-compatible configuration and does not list `react-native-sse` as a package dependency.
 
 [//]: # 'wizard-initialize-start'
 

@@ -14,9 +14,9 @@ sidebar_custom_props: { icon: material-symbols:rocket }
 - If the JS SDK is installed using NPM, call `initializeDevCycle` with your client key, a user object, and an optional options object.
 - Otherwise, If you're using the CDN to install the JS SDK, call `DevCycle.initializeDevCycle` with your client key, a user object, and an optional options object.
 
-The user object needs either a `user_id`, or `isAnonymous` set to `true` for an anonymous user. The options object is optional,
-but can passed a `logWriter` for a custom logging solution and a `logLevel`, which must be one of `info`, `debug`, `warn` or `error`.
-The default options are to set the `logWriter` to be the console and the `logLevel` to `error`.
+The user object needs either a `user_id`, or `isAnonymous` set to `true` for an anonymous user. The options object is optional.
+It accepts a `logger` implementation for custom logging and a `logLevel`, which must be one of `info`, `debug`, `warn` or `error`.
+The default logger writes to the console and the default `logLevel` is `error`.
 
 ```javascript
 const user = { user_id: 'my_user' }
@@ -39,7 +39,7 @@ downloaded from DevCycle. The SDK makes a call to get the configuration for anon
 
 If you would like to defer initialization of the SDK until your user data is available, you can pass the
 `deferInitialization` option to the `initializeDevCycle` method. This will cause the SDK to not fetch a configuration until the
-[`devcycleClient.identifyUser`](/sdk/client-side-sdks/javascript/javascript-usage#identifying-user) method is called with the user data.
+[`devcycleClient.identifyUser`](/sdk/client-side-sdks/javascript/javascript-usage#identifying-users) method is called with the user data.
 Until that config is retrieved, all calls
 to retrieve variable values will return their default values.
 
@@ -82,10 +82,11 @@ The SDK exposes various initialization options which can be set on the `initiali
 | ---------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
 | enableEdgeDB                 | Boolean                                                                                                  | Enables the usage of EdgeDB for DevCycle that syncs User Data to DevCycle.                                     |
 | logger                       | [DVCLogger](https://github.com/DevCycleHQ/js-sdks/blob/main/lib/shared/types/src/logger.ts#L2)           | Logger override to replace default logger                                                                      |
-| logLevel                     | [DVCDefaultLogLevel](https://github.com/DevCycleHQ/js-sdks/blob/main/lib/shared/types/src/logger.ts#L12) | Set log level of the default logger. Options are: `debug`, `info`, `warn`, `error`. Defaults to `info`.        |
+| logLevel                     | [DVCDefaultLogLevel](https://github.com/DevCycleHQ/js-sdks/blob/main/lib/shared/types/src/logger.ts#L12) | Set log level of the default logger. Options are: `debug`, `info`, `warn`, `error`. Defaults to `error`.        |
 | eventFlushIntervalMS         | Number                                                                                                   | Controls the interval between flushing events to the DevCycle servers in milliseconds, defaults to 10 seconds. |
 | flushEventQueueSize          | Number                                                                                                   | Controls the maximum size the event queue can grow to until a flush is forced. Defaults to `100`.              |
 | maxEventQueueSize            | Number                                                                                                   | Controls the maximum size the event queue can grow to until events are dropped. Defaults to `1000`.            |
+| bootstrapConfig              | BucketedUserConfig                                                                                       | Bootstraps the SDK with configuration fetched by a server-side renderer, avoiding an initial config request.   |
 | apiProxyURL                  | String                                                                                                   | Allows the SDK to communicate with a proxy of DevCycle bucketing API / client SDK API.                         |
 | configCacheTTL               | Number                                                                                                   | The maximum allowed age of a cached config in milliseconds, defaults to 30 days                                 |
 | disableConfigCache           | Boolean                                                                                                  | Disable the use of cached configs                                                                              |
