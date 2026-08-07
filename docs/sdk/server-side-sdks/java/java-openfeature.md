@@ -103,6 +103,9 @@ String stringValue = openFeatureClient.getStringValue("string-flag", "default", 
 // Retrieve an integer flag value
 Integer intValue = openFeatureClient.getIntegerValue("integer-flag", 0, context);
 
+// Retrieve a long flag value
+Long longValue = openFeatureClient.getLongValue("long-flag", 0L, context);
+
 // Retrieve a double flag value
 Double doubleValue = openFeatureClient.getDoubleValue("double-flag", 0.0, context);
 
@@ -123,6 +126,15 @@ if (boolValue) {
 [//]: # 'wizard-evaluate-end'
 
 **NOTE: use `DevCycleCloudClient` \ `DevCycleCloudOptions` for Cloud Bucketing mode.**
+
+### Long Values
+
+DevCycle numeric values are represented as doubles by the Java OpenFeature provider. When using
+`getLongValue()`, the value must be an integral number within the double safe-integer range:
+`-(2^53 - 1)` through `2^53 - 1` (`-9_007_199_254_740_991` through `9_007_199_254_740_991`).
+
+Fractional values and values outside this range return the supplied default value with a
+`TYPE_MISMATCH` error. Use `getDoubleValue()` when fractional values are required.
 
 ### Required Targeting Key
 
