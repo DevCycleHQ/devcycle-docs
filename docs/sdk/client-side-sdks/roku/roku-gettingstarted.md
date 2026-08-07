@@ -88,7 +88,7 @@ The DevCycleUser can be built using the following methods [DevCycleUser](https:/
 
 The SDK exposes various initialization options which can be used by passing a `DevCycleOptions` object to the `options` parameter of `InitializeDevCycleClient` method:
 
-[DevCycle Options](https://github.com/DevCycleHQ-Labs/roku-client-sdk/blob/main/components/DevCycle/DevCycleOptions.brs)
+[DevCycle Options](https://github.com/DevCycleHQ/roku-client-sdk/blob/main/components/DevCycle/DevCycleOptions.brs)
 
 | Method                       | Parameter | Default | Description                                                                                                    |
 | ---------------------------- | --------- | ------- | -------------------------------------------------------------------------------------------------------------- |
