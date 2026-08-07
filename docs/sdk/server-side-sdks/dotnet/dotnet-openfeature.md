@@ -93,7 +93,7 @@ EvaluationContext ctx = EvaluationContext.Builder()
 ```
 [//]: # 'wizard-initialize-end'
 
-`SetProviderAsync` waits for the provider to finish initializing before it returns. This ensures that the Local Bucketing SDK has downloaded its initial configuration before you evaluate a flag.
+`SetProviderAsync` waits for the provider to finish initializing before it returns. For Local Bucketing, this includes waiting for the initial configuration to download before you evaluate a flag.
 
 Keep this initialization path asynchronous. Do not block on the returned task with `.Wait()`, `.Result`, or `.GetAwaiter().GetResult()`. Blocking can deadlock applications that use a UI or legacy ASP.NET synchronization context.
 
