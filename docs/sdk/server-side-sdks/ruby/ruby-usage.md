@@ -131,7 +131,7 @@ To assist with segmentation and bucketing you can set a custom data hash that wi
 ```ruby
 begin
   # Set client custom data
-  custom_data = {"some-key" : "some-value"}
+  custom_data = { "some-key" => "some-value" }
   devcycle_client.set_client_custom_data(custom_data)
 rescue => e
   puts "Exception when calling DevCycle::Client->set_client_custom_data: #{e}"

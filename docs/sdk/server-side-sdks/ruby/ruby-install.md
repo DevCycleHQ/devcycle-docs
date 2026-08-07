@@ -23,6 +23,8 @@ import PromptContent from '!!raw-loader!@site/static/ai-prompts/ruby.md'
 
 ## Gem Install
 
+The SDK supports Ruby 3.4 or later.
+
 Install the gem:
 
 ```ruby
