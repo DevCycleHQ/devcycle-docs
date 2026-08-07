@@ -67,7 +67,7 @@ Initialize the DevCycle SDK and set the DevCycleProvider as the provider for Ope
 ```csharp
 // Both Cloud, and Local are supported by the OpenFeature Provider. This example uses the Cloud Provider for sake of brevity in the configuration.
 var devCycleClient = new DevCycleCloudClientBuilder().SetEnvironmentKey(SDK_ENV_VAR).SetLogger(new NullLoggerFactory()).Build();
-OpenFeature.Api.Instance.SetProvider(devCycleClient.GetOpenFeatureProvider());
+await OpenFeature.Api.Instance.SetProviderAsync(devCycleClient.GetOpenFeatureProvider());
 
 FeatureClient oFeatureClient = OpenFeature.Api.Instance.GetClient();
 // The evaluation context is an example of a fully populated DevCycleUser. The only required value is a bucketing key of `user_id` or `targetingKey`
@@ -92,6 +92,10 @@ EvaluationContext ctx = EvaluationContext.Builder()
     .Build();
 ```
 [//]: # 'wizard-initialize-end'
+
+`SetProviderAsync` waits for the provider to finish initializing before it returns. This ensures that the Local Bucketing SDK has downloaded its initial configuration before you evaluate a flag.
+
+Keep this initialization path asynchronous. Do not block on the returned task with `.Wait()`, `.Result`, or `.GetAwaiter().GetResult()`. Blocking can deadlock applications that use a UI or legacy ASP.NET synchronization context.
 
 ### Evaluate a Variable
 Use a Variable value by passing the Variable key, default value, and EvaluationContext to one of the OpenFeature flag evaluation methods
