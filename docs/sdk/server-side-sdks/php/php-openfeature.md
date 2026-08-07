@@ -38,7 +38,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "devcycle/php-server-sdk": "*"
+    "devcycle/php-server-sdk": "^2.2"
   }
 }
 ```
