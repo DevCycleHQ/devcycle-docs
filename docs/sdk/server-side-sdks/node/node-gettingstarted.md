@@ -70,4 +70,4 @@ initializeDevCycle('<DEVCYCLE_SERVER_SDK_KEY>', {
 | flushEventQueueSize          | Number         | Controls the maximum size the event queue can grow to until a flush is forced. Defaults to `1000`.                                                                           |
 | maxEventQueueSize            | Number         | Controls the maximum size the event queue can grow to until events are dropped. Defaults to `2000`.                                                                          |
 | apiProxyURL                  | String         | Allows the SDK to communicate with a proxy of DevCycle bucketing API / client SDK API.                                                                                       |
-| disableRealtimeUpdates       | Boolean        | Disables the usage of realtime updates SSE connections for DevCycle, will revert to polling against the config CDN.                                                          |
+| disableRealTimeUpdates       | Boolean        | Disables the usage of realtime updates SSE connections for DevCycle, will revert to polling against the config CDN.                                                          |
