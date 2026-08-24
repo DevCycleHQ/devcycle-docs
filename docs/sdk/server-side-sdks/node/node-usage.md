@@ -171,13 +171,13 @@ This feature reduces the number of polling requests that are made to the DevCycl
 use a long-lived HTTP connection (Server Sent Events) to receive updates when there is a new config available.
 This reduces outbound network traffic, as well as optimizes the SDK for efficiency.
 
-To disable realtime updates, pass in the `disableRealtimeUpdates` option to the SDK initialization:
+To disable realtime updates, pass in the `disableRealTimeUpdates` option to the SDK initialization:
 
 ```typescript
 import { initializeDevCycle } from '@devcycle/nodejs-server-sdk'
 
 const devcycleClient = initializeDevCycle('<DEVCYCLE_SERVER_SDK_KEY>', {
-  disableRealtimeUpdates: true,
+  disableRealTimeUpdates: true,
 })
 ```
 
