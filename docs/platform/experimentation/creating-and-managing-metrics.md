@@ -6,6 +6,8 @@ sidebar_position: 2
 
 :::info
 Metrics are available to all customers on any plan and rely on **Custom Events** that must be sent to DevCycle. All plans come with an included amount of free events. When exceeded, additional costs will be incurred. To learn more, read about our [pricing](https://devcycle.com/pricing), or [contact us](mailto:support@devcycle.com).
+
+Note: Server-side Metrics are limited to specific Metrics types. See more about [Metrics types](platform/experimentation/creating-and-managing-metrics#types) in it's section.
 :::
 
 This article explains how to create, define, and manage all of the Metrics in a Project.
@@ -62,7 +64,9 @@ To set up a Metric, the following items are needed:
 
 ### Types
 
-When making a Metric, the types of Metrics will contain a small definition
+There are different methods of calculating results and Metric Types allow you to select the type of calculation that you'd like to produce.
+
+*Note: Per-User Metric Types cannot be used with server-side implementations.*
 
 ![Type Definitions](/create-metric-descriptions.png)
 
