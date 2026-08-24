@@ -7,7 +7,7 @@ sidebar_position: 2
 :::info
 Metrics are available to all customers on any plan and rely on **Custom Events** that must be sent to DevCycle. All plans come with an included amount of free events. When exceeded, additional costs will be incurred. To learn more, read about our [pricing](https://devcycle.com/pricing), or [contact us](mailto:support@devcycle.com).
 
-Note: Server-side Metrics are limited to specific Metrics types. See more about [Metrics types](platform/experimentation/creating-and-managing-metrics#types) in it's section.
+Note: Server-side Metrics are limited to specific Metrics types. See [Metrics types](/platform/experimentation/creating-and-managing-metrics#types) below.
 :::
 
 This article explains how to create, define, and manage all of the Metrics in a Project.
