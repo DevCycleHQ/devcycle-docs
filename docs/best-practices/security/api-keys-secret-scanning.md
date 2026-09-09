@@ -49,7 +49,7 @@ For more information about API and SDK key security, check out the following res
 
 - **[GitHub Secret Scanning Documentation](https://docs.github.com/en/code-security/secret-security/about-secret-scanning)**
 - **[How to Store and Access API Keys in a React Application](https://www.makeuseof.com/react-api-keys-store-access/)**
-- **[Storing Secret Keys in Android](https://guides.codepath.com/android/storing-secret-keys-in-android)**
+- **[Storing Secret Keys in Android](https://guides.codepath.org/android/Storing-Secret-Keys-in-Android)**
 - **[How to securely handle the Third-party Keys in iOS](https://medium.com/@karthianandhanit/how-to-securely-handle-the-third-party-keys-in-ios-adc6266efc1f)**
 - **[How To Protect Your API Key In Production With Next.js API Route](https://www.smashingmagazine.com/2021/12/protect-api-key-production-nextjs-api-route/)**
 - **[How to Store API Keys in Flutter](https://codewithandrea.com/articles/flutter-api-keys-dart-define-env-files/#:~:text=the%20API%20key%20should%20be,API%20you%20intend%20to%20use)**
