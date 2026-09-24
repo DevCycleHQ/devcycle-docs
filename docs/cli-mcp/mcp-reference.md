@@ -27,6 +27,18 @@ The DevCycle MCP Server provides comprehensive feature flag management capabilit
 
 :::
 
+:::info
+**Targeting a project**
+
+Most tools operate on a project. You can choose one in either of two ways:
+
+- Call [`select_project`](#select_project) once, and it applies to every later tool call in the same session.
+- Pass an optional `projectKey` to an individual tool, which takes precedence over the selected project for that call only.
+
+Per-call `projectKey` is the option to use when your MCP host starts a new session for each request, since a selection made with `select_project` will not carry over.
+
+:::
+
 ### Feature Management
 
 #### `list_features`
@@ -44,6 +56,7 @@ List all features in the current project with optional search and pagination.
 - `createdBy` (optional): Filter by creator user ID
 - `type` (optional): Feature type (`release`, `experiment`, `permission`, `ops`)
 - `status` (optional): Feature status (`active`, `complete`, `archived`)
+- `projectKey` (optional): Project to target. Defaults to the project set by `select_project`.
 
 #### `create_feature` ⚠️
 
@@ -62,6 +75,7 @@ Create a new feature flag.
 - `variables` (optional): Array of variables to create or reassociate with this feature
 - `controlVariation` (optional): The key of the variation that is used as the control for Metrics
 - `settings` (optional): Feature-level settings configuration
+- `projectKey` (optional): Project to target. Defaults to the project set by `select_project`.
 
 #### `update_feature` ⚠️
 
@@ -79,6 +93,9 @@ Update an existing feature flag.
 - `settings` (optional): Updated feature-level settings configuration
 - `sdkVisibility` (optional): Updated SDK visibility settings
 - `controlVariation` (optional): Updated control variation key for Metrics
+- `configurations` (optional): Updated environment-specific targeting configurations (key-value map of environment keys)
+- `summary` (optional): Updated feature summary
+- `projectKey` (optional): Project to target. Defaults to the project set by `select_project`.
 
 #### `update_feature_status` ⚠️
 
@@ -89,6 +106,7 @@ Update the status of a feature flag.
 - `key`: Feature key
 - `status`: New status (`active`, `complete`, `archived`)
 - `staticVariation` (optional): Variation to serve if status is `complete`
+- `projectKey` (optional): Project to target. Defaults to the project set by `select_project`.
 
 #### `delete_feature` ⚠️⚠️
 
@@ -97,6 +115,7 @@ Delete a feature flag from ALL environments.
 **Parameters:**
 
 - `key`: Feature key to delete
+- `projectKey` (optional): Project to target. Defaults to the project set by `select_project`.
 
 #### `cleanup_feature`
 
@@ -122,6 +141,7 @@ Get feature flag audit log history from DevCycle. Returns audit log entities mat
 - `environment` (optional): Environment key to filter by
 - `user` (optional): User ID to filter by
 - `action` (optional): Action type to filter by
+- `projectKey` (optional): Project to target. Defaults to the project set by `select_project`.
 
 ### Variable Management
 
@@ -134,6 +154,12 @@ List all variables in the current project.
 - `search` (optional): Search query
 - `page` (optional): Page number
 - `perPage` (optional): Items per page
+- `sortBy` (optional): Sort field (`createdAt`, `updatedAt`, `name`, `key`, `createdBy`, `propertyKey`)
+- `sortOrder` (optional): Sort order (`asc`, `desc`)
+- `feature` (optional): Filter by feature key
+- `type` (optional): Filter by variable type (`String`, `Boolean`, `Number`, `JSON`)
+- `status` (optional): Filter by variable status (`active`, `archived`)
+- `projectKey` (optional): Project to target. Defaults to the project set by `select_project`.
 
 #### `create_variable` ⚠️
 
@@ -148,6 +174,9 @@ Create a new variable.
 - `defaultValue` (optional): Default value
 - `_feature` (optional): Associated feature key
 - `validationSchema` (optional): Validation rules
+- `persistent` (optional): Whether the variable is intended to be long-lived
+- `tags` (optional): Tags to organize variables
+- `projectKey` (optional): Project to target. Defaults to the project set by `select_project`.
 
 #### `update_variable` ⚠️
 
@@ -160,6 +189,9 @@ Update an existing variable.
 - `description` (optional): New description
 - `type` (optional): New type
 - `validationSchema` (optional): New validation rules
+- `persistent` (optional): Whether the variable is intended to be long-lived
+- `tags` (optional): Tags to organize variables
+- `projectKey` (optional): Project to target. Defaults to the project set by `select_project`.
 
 #### `delete_variable` ⚠️⚠️
 
@@ -168,6 +200,7 @@ Delete a variable from ALL environments.
 **Parameters:**
 
 - `key`: Variable key to delete
+- `projectKey` (optional): Project to target. Defaults to the project set by `select_project`.
 
 ### SDK Installation
 
@@ -181,28 +214,19 @@ Fetch DevCycle SDK installation instructions and follow the guide to install the
 
 ### Project Management
 
-#### `list_projects`
+#### `get_current_project`
 
-List all projects in the organization.
+Get details of a project, defaulting to the currently selected one.
 
 **Parameters:**
 
-- `search` (optional): Search query
-- `page` (optional): Page number (default: 1)
-- `perPage` (optional): Items per page (default: 100, max: 1000)
-- `sortBy` (optional): Sort field (`createdAt`, `updatedAt`, `name`, `key`, `createdBy`)
-- `sortOrder` (optional): Sort order (`asc`, `desc`)
-- `createdBy` (optional): Filter by creator user ID
-
-#### `get_current_project`
-
-Get details of the currently selected project.
-
-**Parameters:** None
+- `projectKey` (optional): Project to target. Defaults to the project set by `select_project`.
 
 #### `select_project`
 
 Select a project to use for subsequent MCP operations. Returns the current project, its environments, and SDK keys.
+
+The selection is remembered for the rest of the session. If your MCP host starts a new session per request, pass a `projectKey` to each tool instead.
 
 **Parameters:**
 
@@ -214,7 +238,9 @@ Select a project to use for subsequent MCP operations. Returns the current proje
 
 Get current DevCycle identity for self-targeting.
 
-**Parameters:** None
+**Parameters:**
+
+- `projectKey` (optional): Project to target. Defaults to the project set by `select_project`.
 
 #### `update_self_targeting_identity`
 
@@ -223,12 +249,15 @@ Update DevCycle identity for testing.
 **Parameters:**
 
 - `dvc_user_id`: DevCycle User ID (use empty string to clear)
+- `projectKey` (optional): Project to target. Defaults to the project set by `select_project`.
 
 #### `list_self_targeting_overrides`
 
 List all active overrides for the current project.
 
-**Parameters:** None
+**Parameters:**
+
+- `projectKey` (optional): Project to target. Defaults to the project set by `select_project`.
 
 #### `set_self_targeting_override` ⚠️
 
@@ -239,6 +268,7 @@ Set an override to test a specific variation.
 - `feature_key`: Feature key
 - `environment_key`: Environment key
 - `variation_key`: Variation to serve
+- `projectKey` (optional): Project to target. Defaults to the project set by `select_project`.
 
 #### `clear_feature_self_targeting_overrides` ⚠️
 
@@ -248,6 +278,7 @@ Clear overrides for a specific feature/environment.
 
 - `feature_key`: Feature key
 - `environment_key`: Environment key
+- `projectKey` (optional): Project to target. Defaults to the project set by `select_project`.
 
 ### Results & Analytics
 
@@ -265,6 +296,7 @@ Get total variable evaluations per time period for a specific feature.
 - `environment` (optional): Environment key to filter results
 - `period` (optional): Time aggregation period (`day`, `hour`, `month`)
 - `sdkType` (optional): Filter by SDK type (`client`, `server`, `mobile`, `api`)
+- `projectKey` (optional): Project to target. Defaults to the project set by `select_project`.
 
 #### `get_project_total_evaluations`
 
@@ -274,11 +306,10 @@ Get total variable evaluations per time period for the entire project.
 
 - `startDate` (optional): Start date as Unix timestamp (milliseconds since epoch)
 - `endDate` (optional): End date as Unix timestamp (milliseconds since epoch)
-- `platform` (optional): Platform filter for evaluation results
-- `variable` (optional): Variable key filter for evaluation results
 - `environment` (optional): Environment key to filter results
 - `period` (optional): Time aggregation period (`day`, `hour`, `month`)
 - `sdkType` (optional): Filter by SDK type (`client`, `server`, `mobile`, `api`)
+- `projectKey` (optional): Project to target. Defaults to the project set by `select_project`.
 
 ## Authentication Methods
 
