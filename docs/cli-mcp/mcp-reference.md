@@ -394,12 +394,24 @@ Locate and edit your configuration file at `~/.codex/config.toml`:
 command = "dvc-mcp"
 ```
 
-For more details, see the [OpenAI Codex MCP documentation](https://github.com/openai/codex/blob/main/docs/config.md#mcp-servers).
+For more details, see the [OpenAI Codex MCP documentation](https://developers.openai.com/codex/mcp).
+
+</TabItem>
+<TabItem value="codex-app" label="Codex App">
+
+The Codex app (part of the ChatGPT desktop app) shares `~/.codex/config.toml` with the Codex CLI. Add the same configuration there, or go to **Settings** → **MCP servers** → **"Add server"**, choose **STDIO**, and enter `dvc-mcp` as the command:
+
+```toml
+[mcp_servers.devcycle]
+command = "dvc-mcp"
+```
+
+For more details, see the [OpenAI Codex MCP documentation](https://developers.openai.com/codex/mcp).
 
 </TabItem>
 <TabItem value="cursor" label="Cursor">
 
-Add the following to your `~/.cursor/mcp_settings.json` file:
+Add the following to your `~/.cursor/mcp.json` file:
 
 ```json
 {
@@ -414,11 +426,11 @@ Add the following to your `~/.cursor/mcp_settings.json` file:
 </TabItem>
 <TabItem value="vscode" label="VS Code">
 
-Add the following to your `settings.json` file:
+Add the following to your workspace `.vscode/mcp.json` file, or run **"MCP: Open User Configuration"** from the Command Palette to add it for all workspaces. To learn more, see the [VS Code MCP documentation](https://code.visualstudio.com/docs/agent-customization/mcp-servers).
 
 ```json
 {
-  "mcp.servers": {
+  "servers": {
     "devcycle": {
       "command": "dvc-mcp"
     }

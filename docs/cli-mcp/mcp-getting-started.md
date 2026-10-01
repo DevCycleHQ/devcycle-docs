@@ -43,40 +43,40 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="mcp-clients">
 <TabItem value="claude-code" label="Claude Code" default>
 
-**Step 1: Open Terminal**
-Open your terminal to access the Claude CLI.
+**Step 1: Add DevCycle MCP Server**
 
-**Step 2: Add DevCycle MCP Server**
+Run the following command in your terminal:
 
 ```bash
 claude mcp add --transport http devcycle https://mcp.devcycle.com/mcp
 ```
 
-**Step 3: Manage MCP Connection**
-In the Claude CLI, enter the MCP management interface:
+**Step 2: Manage MCP Connection**
+
+Start Claude Code and enter the MCP management interface:
 
 ```bash
 /mcp
 ```
 
-**Step 4: Authentication**
-You'll see the DevCycle server listed as "disconnected • Enter to login":
+**Step 3: Authentication**
 
-1. Select the DevCycle server and press Enter to login
-2. Follow the CLI prompts to initiate the Authentication process
-3. This will open a browser page at `mcp.devcycle.com` for authorization
-4. Review and click **"Allow Access"** to grant permissions
-5. If you have multiple organizations, select your desired organization at `auth.devcycle.com`
-6. Return to Claude Code where the server will show as connected
+You'll see the DevCycle server listed as **"Needs authentication"**:
 
-For more details, see the [Claude Code MCP documentation](https://docs.anthropic.com/claude/docs/mcp).
+1. Select the DevCycle server and press Enter to authenticate
+2. This will open a browser page at `mcp.devcycle.com` for authorization
+3. Review and click **"Allow Access"** to grant permissions
+4. If you have multiple organizations, select your desired organization at `auth.devcycle.com`
+5. Return to Claude Code where the server will show as connected
+
+For more details, see the [Claude Code MCP documentation](https://code.claude.com/docs/en/mcp).
 
 </TabItem>
 <TabItem value="codex" label="Codex CLI">
 
 **Step 1: Access MCP Configuration**
 
-Locate and edit your OpenAI Codex CLI configuration file:
+Locate and edit your Codex configuration file. This file is shared by the Codex CLI, the Codex IDE extension, and the ChatGPT desktop app:
 
 - **All platforms**: `~/.codex/config.toml`
 
@@ -89,26 +89,49 @@ Add the following TOML configuration to enable the DevCycle MCP server:
 url = "https://mcp.devcycle.com/mcp"
 ```
 
-**Step 3: Restart Codex CLI**
+**Step 3: Authentication**
 
-Restart your Codex CLI session for the changes to take effect.
+Run the following command to log in to the DevCycle MCP server:
 
-**Step 4: Authentication**
+```bash
+codex mcp login devcycle
+```
 
-1. When you first use DevCycle MCP tools, the Codex CLI will prompt for authentication
+1. This will open a browser page at `mcp.devcycle.com` for authorization
+2. Review and click **"Allow Access"** to grant permissions
+3. If you have multiple organizations, select your desired organization at `auth.devcycle.com`
+4. Start a new Codex session where the DevCycle MCP tools will be active
+
+For more details, see the [OpenAI Codex MCP documentation](https://developers.openai.com/codex/mcp).
+
+</TabItem>
+<TabItem value="codex-app" label="Codex App">
+
+The Codex app is now part of the ChatGPT desktop app, and shares its MCP configuration with the Codex CLI and IDE extension.
+
+**Step 1: Add DevCycle MCP Server**
+
+1. Open the ChatGPT desktop app and go to **Settings** → **MCP servers**
+2. Click **"Add server"** and choose **Streamable HTTP**
+3. Enter `devcycle` as the name and `https://mcp.devcycle.com/mcp` as the URL
+4. Save the server, then click **"Restart"**
+
+**Step 2: Authentication**
+
+1. Click **"Authenticate"** next to the DevCycle server in the MCP servers list
 2. This will open a browser page at `mcp.devcycle.com` for authorization
 3. Review and click **"Allow Access"** to grant permissions
 4. If you have multiple organizations, select your desired organization at `auth.devcycle.com`
-5. Return to the Codex CLI where the DevCycle MCP tools will be active
+5. Return to the app where the DevCycle MCP tools will be active in Codex
 
-For more details, see the [OpenAI Codex MCP documentation](https://github.com/openai/codex/blob/main/docs/config.md#mcp-servers).
+For more details, see the [OpenAI Codex MCP documentation](https://developers.openai.com/codex/mcp).
 
 </TabItem>
 <TabItem value="cursor" label="Cursor">
 
 <a href="cursor://anysphere.cursor-deeplink/mcp/install?name=DevCycle&config=eyJ1cmwiOiAiaHR0cHM6Ly9tY3AuZGV2Y3ljbGUuY29tL21jcCJ9Cg==" className="mcp-install-button" target="_blank" rel="noopener noreferrer">📦 Install in Cursor</a>
 
-To open Cursor and automatically add the DevCycle MCP, click the install button above. Alternatively, add the following to your `~/.cursor/mcp_settings.json` file. To learn more, see the [Cursor documentation](https://docs.cursor.com/advanced/mcp).
+To open Cursor and automatically add the DevCycle MCP, click the install button above. Alternatively, add the following to your `~/.cursor/mcp.json` file. To learn more, see the [Cursor documentation](https://cursor.com/docs/mcp).
 
 ```json
 {
@@ -122,8 +145,8 @@ To open Cursor and automatically add the DevCycle MCP, click the install button 
 
 **Authentication in Cursor:**
 
-1. After configuration, you'll see DevCycle MCP listed as **"Needs login"** with a yellow indicator
-2. Click on the DevCycle MCP server to initiate the authorization process
+1. After configuration, you'll see DevCycle MCP listed as **"Needs authentication"** on Cursor's **Customize** page
+2. Click **"Connect"** on the DevCycle MCP server to initiate the authorization process
 3. This opens a browser authorization page at `mcp.devcycle.com`
 4. Review and click **"Allow Access"** to grant permissions
 5. If you have multiple organizations, select your desired organization at `auth.devcycle.com`
@@ -134,12 +157,13 @@ To open Cursor and automatically add the DevCycle MCP, click the install button 
 
 <a href="https://vscode.dev/redirect/mcp/install?name=DevCycle&config=%7B%22url%22%3A%20%22https%3A%2F%2Fmcp.devcycle.com%2Fmcp%22%7D" className="mcp-install-button" target="_blank" rel="noopener noreferrer">📦 Install in VS Code</a>
 
-To open VS Code and automatically add the DevCycle MCP, click the install button above. Alternatively, add the following to your `.continue/config.json` file. To learn more, see the [Continue documentation](https://docs.continue.dev/reference/Model-Context-Protocol).
+To open VS Code and automatically add the DevCycle MCP, click the install button above. Alternatively, add the following to your workspace `.vscode/mcp.json` file, or run **"MCP: Open User Configuration"** from the Command Palette to add it for all workspaces. To learn more, see the [VS Code MCP documentation](https://code.visualstudio.com/docs/agent-customization/mcp-servers).
 
 ```json
 {
-  "mcpServers": {
-    "DevCycle": {
+  "servers": {
+    "devcycle": {
+      "type": "http",
       "url": "https://mcp.devcycle.com/mcp"
     }
   }
@@ -148,8 +172,8 @@ To open VS Code and automatically add the DevCycle MCP, click the install button
 
 **Authentication in VS Code:**
 
-1. After configuration, open the MCP settings panel in VS Code
-2. Find the DevCycle MCP server and click **"Start Server"**
+1. After configuration, run **"MCP: List Servers"** from the Command Palette, or use the **Start** code lens in `mcp.json`
+2. Select the DevCycle MCP server and start it
 3. VS Code will show a dialog: "The MCP Server Definition 'DevCycle' wants to authenticate to mcp.devcycle.com"
 4. Click **"Allow"** to proceed with authentication
 5. This opens a browser authorization page at `mcp.devcycle.com`
@@ -160,44 +184,26 @@ To open VS Code and automatically add the DevCycle MCP, click the install button
 </TabItem>
 <TabItem value="claude" label="Claude Desktop">
 
-**Step 1: Access MCP Configuration**
+Claude Desktop connects to the DevCycle MCP as a custom connector, so there's no configuration file to edit. Connectors added here are also available on claude.ai.
 
-**Option 1: Through Claude Desktop Settings (Recommended)**
+**Step 1: Add the DevCycle Connector**
 
-1. Open Claude Desktop and go to **Settings**
-2. Navigate to **Developer** → **Local MCP servers**
-3. Click **"Edit Config"** to open the configuration file directly
+1. Open Claude Desktop and go to **Customize** → **Connectors**
+2. Click **"+ Add"**, then **"Add custom connector"**
+3. Enter `DevCycle` as the name and `https://mcp.devcycle.com/mcp` as the remote MCP server URL, then click **"Continue"**
+4. Keep the default authentication settings and click **"Add"**
 
-**Option 2: Manual Configuration File**
-Alternatively, locate and edit your Claude Desktop configuration file:
+**Team and Enterprise plans:** An Owner must first add the connector in **Organization settings** → **Connectors** using the same URL. Members then find DevCycle under **Customize** → **Connectors** and click **"Connect"**.
 
-- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
-- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+**Step 2: Authentication**
 
-**Step 2: Add DevCycle Configuration**
-Add or merge the following configuration:
-
-```json
-{
-  "mcpServers": {
-    "devcycle": {
-      "command": "npx",
-      "args": ["mcp-remote@0.1.18", "https://mcp.devcycle.com/mcp"]
-    }
-  }
-}
-```
-
-**Step 3: Restart Claude Desktop**
-Close and reopen Claude Desktop for the changes to take effect.
-
-**Step 4: Authentication**
-
-1. When you first use DevCycle MCP tools, Claude Desktop will prompt for authentication
+1. Click **"Connect"** on the DevCycle connector if you aren't prompted to sign in automatically
 2. This will open a browser page at `mcp.devcycle.com` for authorization
 3. Review and click **"Allow Access"** to grant permissions
 4. If you have multiple organizations, select your desired organization at `auth.devcycle.com`
-5. Return to Claude Desktop where the MCP tools will be active
+5. Return to Claude Desktop and enable DevCycle from the **"+"** menu → **"Connectors"** in a conversation
+
+Free plans are limited to one custom connector. For more details, see the [Claude custom connectors documentation](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp).
 
 </TabItem>
 <TabItem value="opencode" label="OpenCode">
