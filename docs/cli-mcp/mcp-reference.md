@@ -376,7 +376,16 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <Tabs groupId="mcp-clients">
-<TabItem value="cursor" label="Cursor" default>
+<TabItem value="claude-code" label="Claude Code" default>
+
+Run the following command:
+
+```bash
+claude mcp add --transport stdio devcycle dvc-mcp
+```
+
+</TabItem>
+<TabItem value="cursor" label="Cursor">
 
 Add the following to your `~/.cursor/mcp_settings.json` file:
 
@@ -406,24 +415,16 @@ Add the following to your `settings.json` file:
 ```
 
 </TabItem>
-<TabItem value="claude-code" label="Claude Code">
+<TabItem value="codex" label="Codex CLI">
 
-Run the following command:
+Locate and edit your configuration file at `~/.codex/config.toml`:
 
-```bash
-claude mcp add --transport stdio devcycle dvc-mcp
+```toml
+[mcp_servers.devcycle]
+command = "dvc-mcp"
 ```
 
-</TabItem>
-<TabItem value="opencode" label="OpenCode">
-
-Run the following command and follow the interactive prompts to add the local DevCycle MCP server (name: `devcycle`, type: `local`, command: `dvc-mcp`):
-
-```bash
-opencode mcp add
-```
-
-For more details, see the [OpenCode MCP documentation](https://opencode.ai/docs/mcp-servers/).
+For more details, see the [OpenAI Codex MCP documentation](https://github.com/openai/codex/blob/main/docs/config.md#mcp-servers).
 
 </TabItem>
 <TabItem value="claude" label="Claude Desktop">
@@ -446,9 +447,20 @@ Add the following configuration:
 ```
 
 </TabItem>
-<TabItem value="windsurf" label="Windsurf">
+<TabItem value="opencode" label="OpenCode">
 
-In Windsurf Settings → Cascade → Manage MCPs → View raw config:
+Run the following command and follow the interactive prompts to add the local DevCycle MCP server (name: `devcycle`, type: `local`, command: `dvc-mcp`):
+
+```bash
+opencode mcp add
+```
+
+For more details, see the [OpenCode MCP documentation](https://opencode.ai/docs/mcp-servers/).
+
+</TabItem>
+<TabItem value="antigravity" label="Antigravity CLI">
+
+Locate and edit your configuration file at `~/.gemini/config/mcp_config.json`:
 
 ```json
 {
@@ -460,22 +472,12 @@ In Windsurf Settings → Cascade → Manage MCPs → View raw config:
 }
 ```
 
-</TabItem>
-<TabItem value="codex" label="Codex CLI">
-
-Locate and edit your configuration file at `~/.codex/config.toml`:
-
-```toml
-[mcp_servers.devcycle]
-command = "dvc-mcp"
-```
-
-For more details, see the [OpenAI Codex MCP documentation](https://github.com/openai/codex/blob/main/docs/config.md#mcp-servers).
+For more details, see the [Antigravity MCP documentation](https://antigravity.google/docs/mcp).
 
 </TabItem>
-<TabItem value="gemini" label="Gemini CLI">
+<TabItem value="devin-desktop" label="Devin Desktop">
 
-Locate and edit your configuration file at `~/.gemini/settings.json`:
+Locate and edit your Devin MCP configuration file at `~/.config/devin/mcp_config.json` (`%APPDATA%\devin\mcp_config.json` on Windows):
 
 ```json
 {
@@ -487,7 +489,7 @@ Locate and edit your configuration file at `~/.gemini/settings.json`:
 }
 ```
 
-For more details, see the [Gemini CLI MCP documentation](https://github.com/google-gemini/gemini-cli/blob/main/docs/tools/mcp-server.md#how-to-set-up-your-mcp-server).
+For more details, see the [Devin MCP documentation](https://docs.devin.ai/cli/extensibility/mcp/configuration).
 
 </TabItem>
 </Tabs>
