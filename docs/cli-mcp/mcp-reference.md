@@ -431,7 +431,7 @@ For more details, see the [OpenAI Codex MCP documentation](https://developers.op
 </TabItem>
 <TabItem value="cursor" label="Cursor">
 
-Add the following to your `~/.cursor/mcp.json` file:
+Go to **Customize** → **MCPs** in Cursor and click **"New MCP Server"**, which opens your `~/.cursor/mcp.json` file, then add the following configuration:
 
 ```json
 {

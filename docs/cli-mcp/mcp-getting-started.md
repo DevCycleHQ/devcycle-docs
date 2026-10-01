@@ -155,7 +155,7 @@ For more details, see the [OpenAI Codex MCP documentation](https://developers.op
 
 <a href="cursor://anysphere.cursor-deeplink/mcp/install?name=DevCycle&config=eyJ1cmwiOiAiaHR0cHM6Ly9tY3AuZGV2Y3ljbGUuY29tL21jcCJ9Cg==" className="mcp-install-button" target="_blank" rel="noopener noreferrer">📦 Install in Cursor</a>
 
-To open Cursor and automatically add the DevCycle MCP, click the install button above. Alternatively, add the following to your `~/.cursor/mcp.json` file. To learn more, see the [Cursor documentation](https://cursor.com/docs/mcp).
+To open Cursor and automatically add the DevCycle MCP, click the install button above. Alternatively, go to **Customize** → **MCPs** in Cursor and click **"New MCP Server"**, which opens your `~/.cursor/mcp.json` file, then add the following configuration. To learn more, see the [Cursor documentation](https://cursor.com/docs/mcp).
 
 ```json
 {
@@ -169,8 +169,8 @@ To open Cursor and automatically add the DevCycle MCP, click the install button 
 
 **Authentication in Cursor:**
 
-1. After configuration, you'll see DevCycle MCP listed as **"Needs authentication"** on Cursor's **Customize** page
-2. Click **"Connect"** on the DevCycle MCP server to initiate the authorization process
+1. After configuration, DevCycle MCP will be listed under **Needs Attention** as **"Needs authentication"** in **Customize** → **MCPs**
+2. Click **"Authenticate"** on the DevCycle MCP server to initiate the authorization process
 3. This opens a browser authorization page at `mcp.devcycle.com`
 4. Review and click **"Allow Access"** to grant permissions
 5. If you have multiple organizations, select your desired organization at `auth.devcycle.com`
