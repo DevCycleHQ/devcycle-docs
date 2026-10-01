@@ -72,6 +72,38 @@ You'll see the DevCycle server listed as "disconnected • Enter to login":
 For more details, see the [Claude Code MCP documentation](https://docs.anthropic.com/claude/docs/mcp).
 
 </TabItem>
+<TabItem value="codex" label="Codex CLI">
+
+**Step 1: Access MCP Configuration**
+
+Locate and edit your OpenAI Codex CLI configuration file:
+
+- **All platforms**: `~/.codex/config.toml`
+
+**Step 2: Add DevCycle MCP Server**
+
+Add the following TOML configuration to enable the DevCycle MCP server:
+
+```toml
+[mcp_servers.devcycle]
+url = "https://mcp.devcycle.com/mcp"
+```
+
+**Step 3: Restart Codex CLI**
+
+Restart your Codex CLI session for the changes to take effect.
+
+**Step 4: Authentication**
+
+1. When you first use DevCycle MCP tools, the Codex CLI will prompt for authentication
+2. This will open a browser page at `mcp.devcycle.com` for authorization
+3. Review and click **"Allow Access"** to grant permissions
+4. If you have multiple organizations, select your desired organization at `auth.devcycle.com`
+5. Return to the Codex CLI where the DevCycle MCP tools will be active
+
+For more details, see the [OpenAI Codex MCP documentation](https://github.com/openai/codex/blob/main/docs/config.md#mcp-servers).
+
+</TabItem>
 <TabItem value="cursor" label="Cursor">
 
 <a href="cursor://anysphere.cursor-deeplink/mcp/install?name=DevCycle&config=eyJ1cmwiOiAiaHR0cHM6Ly9tY3AuZGV2Y3ljbGUuY29tL21jcCJ9Cg==" className="mcp-install-button" target="_blank" rel="noopener noreferrer">📦 Install in Cursor</a>
@@ -124,38 +156,6 @@ To open VS Code and automatically add the DevCycle MCP, click the install button
 6. Review and click **"Allow Access"** to grant permissions
 7. If you have multiple organizations, select your desired organization at `auth.devcycle.com`
 8. You'll be redirected back to VS Code with the server now active
-
-</TabItem>
-<TabItem value="codex" label="Codex CLI">
-
-**Step 1: Access MCP Configuration**
-
-Locate and edit your OpenAI Codex CLI configuration file:
-
-- **All platforms**: `~/.codex/config.toml`
-
-**Step 2: Add DevCycle MCP Server**
-
-Add the following TOML configuration to enable the DevCycle MCP server:
-
-```toml
-[mcp_servers.devcycle]
-url = "https://mcp.devcycle.com/mcp"
-```
-
-**Step 3: Restart Codex CLI**
-
-Restart your Codex CLI session for the changes to take effect.
-
-**Step 4: Authentication**
-
-1. When you first use DevCycle MCP tools, the Codex CLI will prompt for authentication
-2. This will open a browser page at `mcp.devcycle.com` for authorization
-3. Review and click **"Allow Access"** to grant permissions
-4. If you have multiple organizations, select your desired organization at `auth.devcycle.com`
-5. Return to the Codex CLI where the DevCycle MCP tools will be active
-
-For more details, see the [OpenAI Codex MCP documentation](https://github.com/openai/codex/blob/main/docs/config.md#mcp-servers).
 
 </TabItem>
 <TabItem value="claude" label="Claude Desktop">
