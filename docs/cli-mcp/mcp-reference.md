@@ -385,6 +385,18 @@ claude mcp add --transport stdio devcycle dvc-mcp
 ```
 
 </TabItem>
+<TabItem value="codex" label="Codex CLI">
+
+Locate and edit your configuration file at `~/.codex/config.toml`:
+
+```toml
+[mcp_servers.devcycle]
+command = "dvc-mcp"
+```
+
+For more details, see the [OpenAI Codex MCP documentation](https://github.com/openai/codex/blob/main/docs/config.md#mcp-servers).
+
+</TabItem>
 <TabItem value="cursor" label="Cursor">
 
 Add the following to your `~/.cursor/mcp_settings.json` file:
@@ -413,18 +425,6 @@ Add the following to your `settings.json` file:
   }
 }
 ```
-
-</TabItem>
-<TabItem value="codex" label="Codex CLI">
-
-Locate and edit your configuration file at `~/.codex/config.toml`:
-
-```toml
-[mcp_servers.devcycle]
-command = "dvc-mcp"
-```
-
-For more details, see the [OpenAI Codex MCP documentation](https://github.com/openai/codex/blob/main/docs/config.md#mcp-servers).
 
 </TabItem>
 <TabItem value="claude" label="Claude Desktop">
