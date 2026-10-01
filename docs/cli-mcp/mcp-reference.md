@@ -375,13 +375,33 @@ export DEVCYCLE_PROJECT_KEY="your-project-key"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<Tabs groupId="mcp-clients">
+<Tabs groupId="mcp-clients" className="mcp-client-tabs">
 <TabItem value="claude-code" label="Claude Code" default>
 
 Run the following command:
 
 ```bash
 claude mcp add --transport stdio devcycle dvc-mcp
+```
+
+</TabItem>
+<TabItem value="claude" label="Claude Desktop">
+
+Locate and edit your Claude Desktop configuration file:
+
+- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+
+Add the following configuration:
+
+```json
+{
+  "mcpServers": {
+    "devcycle": {
+      "command": "dvc-mcp"
+    }
+  }
+}
 ```
 
 </TabItem>
@@ -431,26 +451,6 @@ Add the following to your workspace `.vscode/mcp.json` file, or run **"MCP: Open
 ```json
 {
   "servers": {
-    "devcycle": {
-      "command": "dvc-mcp"
-    }
-  }
-}
-```
-
-</TabItem>
-<TabItem value="claude" label="Claude Desktop">
-
-Locate and edit your Claude Desktop configuration file:
-
-- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
-- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
-
-Add the following configuration:
-
-```json
-{
-  "mcpServers": {
     "devcycle": {
       "command": "dvc-mcp"
     }

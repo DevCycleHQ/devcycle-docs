@@ -40,7 +40,7 @@ These instructions use the remote DevCycle MCP server. For installation of the l
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<Tabs groupId="mcp-clients">
+<Tabs groupId="mcp-clients" className="mcp-client-tabs">
 <TabItem value="claude-code" label="Claude Code" default>
 
 **Step 1: Add DevCycle MCP Server**
@@ -70,6 +70,30 @@ You'll see the DevCycle server listed as **"Needs authentication"**:
 5. Return to Claude Code where the server will show as connected
 
 For more details, see the [Claude Code MCP documentation](https://code.claude.com/docs/en/mcp).
+
+</TabItem>
+<TabItem value="claude" label="Claude Desktop">
+
+Claude Desktop connects to the DevCycle MCP as a custom connector, so there's no configuration file to edit. Connectors added here are also available on claude.ai.
+
+**Step 1: Add the DevCycle Connector**
+
+1. Open Claude Desktop and go to **Customize** → **Connectors**
+2. Click **"+ Add"**, then **"Add custom connector"**
+3. Enter `DevCycle` as the name and `https://mcp.devcycle.com/mcp` as the remote MCP server URL, then click **"Continue"**
+4. Keep the default authentication settings and click **"Add"**
+
+**Team and Enterprise plans:** An Owner must first add the connector in **Organization settings** → **Connectors** using the same URL. Members then find DevCycle under **Customize** → **Connectors** and click **"Connect"**.
+
+**Step 2: Authentication**
+
+1. Click **"Connect"** on the DevCycle connector if you aren't prompted to sign in automatically
+2. This will open a browser page at `mcp.devcycle.com` for authorization
+3. Review and click **"Allow Access"** to grant permissions
+4. If you have multiple organizations, select your desired organization at `auth.devcycle.com`
+5. Return to Claude Desktop and enable DevCycle from the **"+"** menu → **"Connectors"** in a conversation
+
+Free plans are limited to one custom connector. For more details, see the [Claude custom connectors documentation](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp).
 
 </TabItem>
 <TabItem value="codex" label="Codex CLI">
@@ -180,30 +204,6 @@ To open VS Code and automatically add the DevCycle MCP, click the install button
 6. Review and click **"Allow Access"** to grant permissions
 7. If you have multiple organizations, select your desired organization at `auth.devcycle.com`
 8. You'll be redirected back to VS Code with the server now active
-
-</TabItem>
-<TabItem value="claude" label="Claude Desktop">
-
-Claude Desktop connects to the DevCycle MCP as a custom connector, so there's no configuration file to edit. Connectors added here are also available on claude.ai.
-
-**Step 1: Add the DevCycle Connector**
-
-1. Open Claude Desktop and go to **Customize** → **Connectors**
-2. Click **"+ Add"**, then **"Add custom connector"**
-3. Enter `DevCycle` as the name and `https://mcp.devcycle.com/mcp` as the remote MCP server URL, then click **"Continue"**
-4. Keep the default authentication settings and click **"Add"**
-
-**Team and Enterprise plans:** An Owner must first add the connector in **Organization settings** → **Connectors** using the same URL. Members then find DevCycle under **Customize** → **Connectors** and click **"Connect"**.
-
-**Step 2: Authentication**
-
-1. Click **"Connect"** on the DevCycle connector if you aren't prompted to sign in automatically
-2. This will open a browser page at `mcp.devcycle.com` for authorization
-3. Review and click **"Allow Access"** to grant permissions
-4. If you have multiple organizations, select your desired organization at `auth.devcycle.com`
-5. Return to Claude Desktop and enable DevCycle from the **"+"** menu → **"Connectors"** in a conversation
-
-Free plans are limited to one custom connector. For more details, see the [Claude custom connectors documentation](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp).
 
 </TabItem>
 <TabItem value="opencode" label="OpenCode">
