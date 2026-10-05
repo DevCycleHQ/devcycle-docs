@@ -347,6 +347,15 @@ html[data-theme='dark'] .DocSearch {
   color: #3b82f6 !important;
 }
 
+/* MCP client tabs: wrap onto extra rows instead of squeezing labels onto two lines */
+.mcp-client-tabs {
+  flex-wrap: wrap;
+}
+
+.mcp-client-tabs .tabs__item {
+  white-space: nowrap;
+}
+
 /* Architecture diagram dark mode fixes */
 [data-theme='dark'] img[src*="architecture-docs-diagrams"],
 [data-theme='dark'] img[src*="architecture-api-diagram"],

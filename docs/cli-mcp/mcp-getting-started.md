@@ -3,9 +3,9 @@ title: MCP Getting Started
 displayed_sidebar: cli_mcp
 ---
 
-# DevCyle MCP Getting Started
+# DevCycle MCP Getting Started
 
-The DevCycle Model Context Protocol (MCP) Server is based on the DevCycle CLI, it enables AI-powered code editors like Cursor and Windsurf, or general-purpose tools like Claude Desktop, to interact directly with your DevCycle projects and make changes on your behalf.
+The DevCycle Model Context Protocol (MCP) Server is based on the DevCycle CLI and enables AI coding tools like Claude Code and Cursor, or general-purpose tools like Claude Desktop, to interact directly with your DevCycle projects and make changes on your behalf.
 
 ## Quick Setup
 
@@ -40,12 +40,122 @@ These instructions use the remote DevCycle MCP server. For installation of the l
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<Tabs groupId="mcp-clients">
-<TabItem value="cursor" label="Cursor" default>
+<Tabs groupId="mcp-clients" className="mcp-client-tabs">
+<TabItem value="claude-code" label="Claude Code" default>
+
+**Step 1: Add DevCycle MCP Server**
+
+Run the following command in your terminal:
+
+```bash
+claude mcp add --transport http devcycle https://mcp.devcycle.com/mcp
+```
+
+**Step 2: Manage MCP Connection**
+
+Start Claude Code and enter the MCP management interface:
+
+```bash
+/mcp
+```
+
+**Step 3: Authentication**
+
+You'll see the DevCycle server listed as **"Needs authentication"**:
+
+1. Select the DevCycle server and press Enter to authenticate
+2. This will open a browser page at `mcp.devcycle.com` for authorization
+3. Review and click **"Allow Access"** to grant permissions
+4. If you have multiple organizations, select your desired organization at `auth.devcycle.com`
+5. Return to Claude Code where the server will show as connected
+
+For more details, see the [Claude Code MCP documentation](https://code.claude.com/docs/en/mcp).
+
+</TabItem>
+<TabItem value="claude" label="Claude Desktop">
+
+Claude Desktop connects to the DevCycle MCP as a custom connector, so there's no configuration file to edit. Connectors added here are also available on claude.ai.
+
+**Step 1: Add the DevCycle Connector**
+
+1. Open Claude Desktop and go to **Customize** → **Connectors**
+2. Click **"+ Add"**, then **"Add custom connector"**
+3. Enter `DevCycle` as the name and `https://mcp.devcycle.com/mcp` as the remote MCP server URL, then click **"Continue"**
+4. Keep the default authentication settings and click **"Add"**
+
+**Team and Enterprise plans:** An Owner must first add the connector in **Organization settings** → **Connectors** using the same URL. Members then find DevCycle under **Customize** → **Connectors** and click **"Connect"**.
+
+**Step 2: Authentication**
+
+1. Click **"Connect"** on the DevCycle connector if you aren't prompted to sign in automatically
+2. This will open a browser page at `mcp.devcycle.com` for authorization
+3. Review and click **"Allow Access"** to grant permissions
+4. If you have multiple organizations, select your desired organization at `auth.devcycle.com`
+5. Return to Claude Desktop and enable DevCycle from the **"+"** menu → **"Connectors"** in a conversation
+
+Free plans are limited to one custom connector. For more details, see the [Claude custom connectors documentation](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp).
+
+</TabItem>
+<TabItem value="codex" label="Codex CLI">
+
+**Step 1: Access MCP Configuration**
+
+Locate and edit your Codex configuration file. This file is shared by the Codex CLI, the Codex IDE extension, and the ChatGPT desktop app:
+
+- **All platforms**: `~/.codex/config.toml`
+
+**Step 2: Add DevCycle MCP Server**
+
+Add the following TOML configuration to enable the DevCycle MCP server:
+
+```toml
+[mcp_servers.devcycle]
+url = "https://mcp.devcycle.com/mcp"
+```
+
+**Step 3: Authentication**
+
+Run the following command to log in to the DevCycle MCP server:
+
+```bash
+codex mcp login devcycle
+```
+
+1. This will open a browser page at `mcp.devcycle.com` for authorization
+2. Review and click **"Allow Access"** to grant permissions
+3. If you have multiple organizations, select your desired organization at `auth.devcycle.com`
+4. Start a new Codex session where the DevCycle MCP tools will be active
+
+For more details, see the [OpenAI Codex MCP documentation](https://developers.openai.com/codex/mcp).
+
+</TabItem>
+<TabItem value="codex-app" label="Codex App">
+
+The Codex app is now part of the ChatGPT desktop app, and shares its MCP configuration with the Codex CLI and IDE extension.
+
+**Step 1: Add DevCycle MCP Server**
+
+1. Open the ChatGPT desktop app and go to **Settings** → **MCP servers**
+2. Click **"Add server"** and choose **Streamable HTTP**
+3. Enter `devcycle` as the name and `https://mcp.devcycle.com/mcp` as the URL
+4. Save the server, then click **"Restart"**
+
+**Step 2: Authentication**
+
+1. Click **"Authenticate"** next to the DevCycle server in the MCP servers list
+2. This will open a browser page at `mcp.devcycle.com` for authorization
+3. Review and click **"Allow Access"** to grant permissions
+4. If you have multiple organizations, select your desired organization at `auth.devcycle.com`
+5. Return to the app where the DevCycle MCP tools will be active in Codex
+
+For more details, see the [OpenAI Codex MCP documentation](https://developers.openai.com/codex/mcp).
+
+</TabItem>
+<TabItem value="cursor" label="Cursor">
 
 <a href="cursor://anysphere.cursor-deeplink/mcp/install?name=DevCycle&config=eyJ1cmwiOiAiaHR0cHM6Ly9tY3AuZGV2Y3ljbGUuY29tL21jcCJ9Cg==" className="mcp-install-button" target="_blank" rel="noopener noreferrer">📦 Install in Cursor</a>
 
-To open Cursor and automatically add the DevCycle MCP, click the install button above. Alternatively, add the following to your `~/.cursor/mcp_settings.json` file. To learn more, see the [Cursor documentation](https://docs.cursor.com/advanced/mcp).
+To open Cursor and automatically add the DevCycle MCP, click the install button above. Alternatively, go to **Customize** → **MCPs** in Cursor and click **"New MCP Server"**, which opens your `~/.cursor/mcp.json` file, then add the following configuration. To learn more, see the [Cursor documentation](https://cursor.com/docs/mcp).
 
 ```json
 {
@@ -59,8 +169,8 @@ To open Cursor and automatically add the DevCycle MCP, click the install button 
 
 **Authentication in Cursor:**
 
-1. After configuration, you'll see DevCycle MCP listed as **"Needs login"** with a yellow indicator
-2. Click on the DevCycle MCP server to initiate the authorization process
+1. After configuration, DevCycle MCP will be listed under **Needs Attention** as **"Needs authentication"** in **Customize** → **MCPs**
+2. Click **"Authenticate"** on the DevCycle MCP server to initiate the authorization process
 3. This opens a browser authorization page at `mcp.devcycle.com`
 4. Review and click **"Allow Access"** to grant permissions
 5. If you have multiple organizations, select your desired organization at `auth.devcycle.com`
@@ -71,12 +181,13 @@ To open Cursor and automatically add the DevCycle MCP, click the install button 
 
 <a href="https://vscode.dev/redirect/mcp/install?name=DevCycle&config=%7B%22url%22%3A%20%22https%3A%2F%2Fmcp.devcycle.com%2Fmcp%22%7D" className="mcp-install-button" target="_blank" rel="noopener noreferrer">📦 Install in VS Code</a>
 
-To open VS Code and automatically add the DevCycle MCP, click the install button above. Alternatively, add the following to your `.continue/config.json` file. To learn more, see the [Continue documentation](https://docs.continue.dev/reference/Model-Context-Protocol).
+To open VS Code and automatically add the DevCycle MCP, click the install button above. Alternatively, add the following to your workspace `.vscode/mcp.json` file, or run **"MCP: Open User Configuration"** from the Command Palette to add it for all workspaces. To learn more, see the [VS Code MCP documentation](https://code.visualstudio.com/docs/agent-customization/mcp-servers).
 
 ```json
 {
-  "mcpServers": {
-    "DevCycle": {
+  "servers": {
+    "devcycle": {
+      "type": "http",
       "url": "https://mcp.devcycle.com/mcp"
     }
   }
@@ -85,45 +196,14 @@ To open VS Code and automatically add the DevCycle MCP, click the install button
 
 **Authentication in VS Code:**
 
-1. After configuration, open the MCP settings panel in VS Code
-2. Find the DevCycle MCP server and click **"Start Server"**
-3. VS Code will show a dialog: "The MCP Server Definition 'DevCycle' wants to authenticate to mcp.devcycle.com"
+1. After configuration, run **"MCP: List Servers"** from the Command Palette, or use the **Start** code lens in `mcp.json`
+2. Select the DevCycle MCP server and start it
+3. VS Code will show a dialog saying the MCP server definition wants to authenticate to `mcp.devcycle.com`
 4. Click **"Allow"** to proceed with authentication
 5. This opens a browser authorization page at `mcp.devcycle.com`
 6. Review and click **"Allow Access"** to grant permissions
 7. If you have multiple organizations, select your desired organization at `auth.devcycle.com`
 8. You'll be redirected back to VS Code with the server now active
-
-</TabItem>
-<TabItem value="claude-code" label="Claude Code">
-
-**Step 1: Open Terminal**
-Open your terminal to access the Claude CLI.
-
-**Step 2: Add DevCycle MCP Server**
-
-```bash
-claude mcp add --transport http devcycle https://mcp.devcycle.com/mcp
-```
-
-**Step 3: Manage MCP Connection**
-In the Claude CLI, enter the MCP management interface:
-
-```bash
-/mcp
-```
-
-**Step 4: Authentication**
-You'll see the DevCycle server listed as "disconnected • Enter to login":
-
-1. Select the DevCycle server and press Enter to login
-2. Follow the CLI prompts to initiate the Authentication process
-3. This will open a browser page at `mcp.devcycle.com` for authorization
-4. Review and click **"Allow Access"** to grant permissions
-5. If you have multiple organizations, select your desired organization at `auth.devcycle.com`
-6. Return to Claude Code where the server will show as connected
-
-For more details, see the [Claude Code MCP documentation](https://docs.anthropic.com/claude/docs/mcp).
 
 </TabItem>
 <TabItem value="opencode" label="OpenCode">
@@ -154,122 +234,60 @@ The next time you start OpenCode, the DevCycle MCP tools will be available.
 For more details, see the [OpenCode MCP documentation](https://opencode.ai/docs/mcp-servers/).
 
 </TabItem>
-<TabItem value="claude" label="Claude Desktop">
+<TabItem value="antigravity" label="Antigravity CLI">
+
+Antigravity CLI replaces Gemini CLI. The same MCP configuration is shared by Antigravity CLI and the Antigravity desktop app.
 
 **Step 1: Access MCP Configuration**
 
-**Option 1: Through Claude Desktop Settings (Recommended)**
+Locate and edit your Antigravity MCP configuration file:
 
-1. Open Claude Desktop and go to **Settings**
-2. Navigate to **Developer** → **Local MCP servers**
-3. Click **"Edit Config"** to open the configuration file directly
+- **All platforms**: `~/.gemini/config/mcp_config.json`
 
-**Option 2: Manual Configuration File**
-Alternatively, locate and edit your Claude Desktop configuration file:
+**Step 2: Add DevCycle MCP Server**
 
-- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
-- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
-
-**Step 2: Add DevCycle Configuration**
-Add or merge the following configuration:
+Add or merge the following configuration to enable the DevCycle MCP server:
 
 ```json
 {
   "mcpServers": {
     "devcycle": {
-      "command": "npx",
-      "args": ["mcp-remote@0.1.18", "https://mcp.devcycle.com/mcp"]
-    }
-  }
-}
-```
-
-**Step 3: Restart Claude Desktop**
-Close and reopen Claude Desktop for the changes to take effect.
-
-**Step 4: Authentication**
-
-1. When you first use DevCycle MCP tools, Claude Desktop will prompt for authentication
-2. This will open a browser page at `mcp.devcycle.com` for authorization
-3. Review and click **"Allow Access"** to grant permissions
-4. If you have multiple organizations, select your desired organization at `auth.devcycle.com`
-5. Return to Claude Desktop where the MCP tools will be active
-
-</TabItem>
-<TabItem value="windsurf" label="Windsurf">
-
-**Step 1: Access MCP Configuration**
-
-1. Open Windsurf and go to **Settings > Winsurf Settings**
-2. Scroll to the **Cascade** section
-3. Click **"Manage MCPs"**
-
-**Step 2: Edit Raw Configuration**
-
-1. In the "Manage MCP servers" interface, click **"View raw config"**
-2. Add the following configuration to the JSON file:
-
-```json
-{
-  "mcpServers": {
-    "DevCycle": {
       "serverUrl": "https://mcp.devcycle.com/mcp"
     }
   }
 }
 ```
 
-**Step 3: Refresh and Authenticate**
+**Step 3: Manage MCP Connection**
 
-1. Save the configuration file
-2. Click **"Refresh"** in the "Manage MCP servers" interface
-3. The DevCycle server will appear and prompt for authentication
-4. Follow the authentication flow:
-   - Browser opens at `mcp.devcycle.com` for authorization
-   - Click **"Allow Access"** to grant permissions
-   - If you have multiple organizations, select your desired organization at `auth.devcycle.com`
-   - Return to Windsurf where DevCycle will show as "Enabled" with all tools available which can be configured independently
+Start Antigravity CLI with `agy`, then enter the MCP management interface:
 
-</TabItem>
-<TabItem value="codex" label="Codex CLI">
-
-**Step 1: Access MCP Configuration**
-
-Locate and edit your OpenAI Codex CLI configuration file:
-
-- **All platforms**: `~/.codex/config.toml`
-
-**Step 2: Add DevCycle MCP Server**
-
-Add the following TOML configuration to enable the DevCycle MCP server:
-
-```toml
-[mcp_servers.devcycle]
-url = "https://mcp.devcycle.com/mcp"
+```bash
+/mcp
 ```
-
-**Step 3: Restart Codex CLI**
-
-Restart your Codex CLI session for the changes to take effect.
 
 **Step 4: Authentication**
 
-1. When you first use DevCycle MCP tools, the Codex CLI will prompt for authentication
+1. Use the arrow keys to select the DevCycle server, choose **Authenticate**, and press Enter
 2. This will open a browser page at `mcp.devcycle.com` for authorization
 3. Review and click **"Allow Access"** to grant permissions
 4. If you have multiple organizations, select your desired organization at `auth.devcycle.com`
-5. Return to the Codex CLI where the DevCycle MCP tools will be active
+5. If prompted, paste the authorization code back into the terminal
+6. Return to Antigravity CLI where the DevCycle MCP tools will be active
 
-For more details, see the [OpenAI Codex MCP documentation](https://github.com/openai/codex/blob/main/docs/config.md#mcp-servers).
+For more details, see the [Antigravity MCP documentation](https://antigravity.google/docs/mcp).
 
 </TabItem>
-<TabItem value="gemini" label="Gemini CLI">
+<TabItem value="devin-desktop" label="Devin Desktop">
+
+Devin Desktop (formerly Windsurf) configures MCP servers for its default Devin Local agent in the Devin config files.
 
 **Step 1: Access MCP Configuration**
 
-Locate and edit your Gemini CLI settings file:
+Locate and edit your Devin MCP configuration file:
 
-- **All platforms**: `~/.gemini/settings.json`
+- **macOS/Linux**: `~/.config/devin/mcp_config.json`
+- **Windows**: `%APPDATA%\devin\mcp_config.json`
 
 **Step 2: Add DevCycle MCP Server**
 
@@ -285,19 +303,20 @@ Add or merge the following configuration to enable the DevCycle MCP server:
 }
 ```
 
-**Step 3: Restart Gemini CLI**
+**Step 3: Authentication**
 
-Restart your Gemini CLI session for the changes to take effect.
+Run the following command to log in to the DevCycle MCP server:
 
-**Step 4: Authentication**
+```bash
+devin mcp login devcycle
+```
 
-1. When you first use DevCycle MCP tools, the Gemini CLI will prompt for authentication
-2. This will open a browser page at `mcp.devcycle.com` for authorization
-3. Review and click **"Allow Access"** to grant permissions
-4. If you have multiple organizations, select your desired organization at `auth.devcycle.com`
-5. Return to the Gemini CLI where the DevCycle MCP tools will be active
+1. This will open a browser page at `mcp.devcycle.com` for authorization
+2. Review and click **"Allow Access"** to grant permissions
+3. If you have multiple organizations, select your desired organization at `auth.devcycle.com`
+4. Return to Devin Desktop and open a new agent tab where the DevCycle MCP tools will be active
 
-For more details, see the [Gemini CLI MCP documentation](https://github.com/google-gemini/gemini-cli/blob/main/docs/tools/mcp-server.md#how-to-set-up-your-mcp-server).
+For more details, see the [Devin MCP documentation](https://docs.devin.ai/cli/extensibility/mcp/configuration).
 
 </TabItem>
 </Tabs>

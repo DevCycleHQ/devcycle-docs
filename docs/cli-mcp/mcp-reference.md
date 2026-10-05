@@ -375,55 +375,14 @@ export DEVCYCLE_PROJECT_KEY="your-project-key"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<Tabs groupId="mcp-clients">
-<TabItem value="cursor" label="Cursor" default>
-
-Add the following to your `~/.cursor/mcp_settings.json` file:
-
-```json
-{
-  "mcpServers": {
-    "devcycle": {
-      "command": "dvc-mcp"
-    }
-  }
-}
-```
-
-</TabItem>
-<TabItem value="vscode" label="VS Code">
-
-Add the following to your `settings.json` file:
-
-```json
-{
-  "mcp.servers": {
-    "devcycle": {
-      "command": "dvc-mcp"
-    }
-  }
-}
-```
-
-</TabItem>
-<TabItem value="claude-code" label="Claude Code">
+<Tabs groupId="mcp-clients" className="mcp-client-tabs">
+<TabItem value="claude-code" label="Claude Code" default>
 
 Run the following command:
 
 ```bash
 claude mcp add --transport stdio devcycle dvc-mcp
 ```
-
-</TabItem>
-<TabItem value="opencode" label="OpenCode">
-
-Run the following command and follow the interactive prompts to add the local DevCycle MCP server (name: `devcycle`, type: `local`, command: `dvc-mcp`):
-
-```bash
-opencode mcp add
-```
-
-For more details, see the [OpenCode MCP documentation](https://opencode.ai/docs/mcp-servers/).
 
 </TabItem>
 <TabItem value="claude" label="Claude Desktop">
@@ -446,21 +405,6 @@ Add the following configuration:
 ```
 
 </TabItem>
-<TabItem value="windsurf" label="Windsurf">
-
-In Windsurf Settings → Cascade → Manage MCPs → View raw config:
-
-```json
-{
-  "mcpServers": {
-    "devcycle": {
-      "command": "dvc-mcp"
-    }
-  }
-}
-```
-
-</TabItem>
 <TabItem value="codex" label="Codex CLI">
 
 Locate and edit your configuration file at `~/.codex/config.toml`:
@@ -470,12 +414,24 @@ Locate and edit your configuration file at `~/.codex/config.toml`:
 command = "dvc-mcp"
 ```
 
-For more details, see the [OpenAI Codex MCP documentation](https://github.com/openai/codex/blob/main/docs/config.md#mcp-servers).
+For more details, see the [OpenAI Codex MCP documentation](https://developers.openai.com/codex/mcp).
 
 </TabItem>
-<TabItem value="gemini" label="Gemini CLI">
+<TabItem value="codex-app" label="Codex App">
 
-Locate and edit your configuration file at `~/.gemini/settings.json`:
+The Codex app (part of the ChatGPT desktop app) shares `~/.codex/config.toml` with the Codex CLI. Add the same configuration there, or go to **Settings** → **MCP servers** → **"Add server"**, choose **STDIO**, and enter `dvc-mcp` as the command:
+
+```toml
+[mcp_servers.devcycle]
+command = "dvc-mcp"
+```
+
+For more details, see the [OpenAI Codex MCP documentation](https://developers.openai.com/codex/mcp).
+
+</TabItem>
+<TabItem value="cursor" label="Cursor">
+
+Go to **Customize** → **MCPs** in Cursor and click **"New MCP Server"**, which opens your `~/.cursor/mcp.json` file, then add the following configuration:
 
 ```json
 {
@@ -487,7 +443,65 @@ Locate and edit your configuration file at `~/.gemini/settings.json`:
 }
 ```
 
-For more details, see the [Gemini CLI MCP documentation](https://github.com/google-gemini/gemini-cli/blob/main/docs/tools/mcp-server.md#how-to-set-up-your-mcp-server).
+</TabItem>
+<TabItem value="vscode" label="VS Code">
+
+Add the following to your workspace `.vscode/mcp.json` file, or run **"MCP: Open User Configuration"** from the Command Palette to add it for all workspaces. To learn more, see the [VS Code MCP documentation](https://code.visualstudio.com/docs/agent-customization/mcp-servers).
+
+```json
+{
+  "servers": {
+    "devcycle": {
+      "command": "dvc-mcp"
+    }
+  }
+}
+```
+
+</TabItem>
+<TabItem value="opencode" label="OpenCode">
+
+Run the following command and follow the interactive prompts to add the local DevCycle MCP server (name: `devcycle`, type: `local`, command: `dvc-mcp`):
+
+```bash
+opencode mcp add
+```
+
+For more details, see the [OpenCode MCP documentation](https://opencode.ai/docs/mcp-servers/).
+
+</TabItem>
+<TabItem value="antigravity" label="Antigravity CLI">
+
+Locate and edit your configuration file at `~/.gemini/config/mcp_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "devcycle": {
+      "command": "dvc-mcp"
+    }
+  }
+}
+```
+
+For more details, see the [Antigravity MCP documentation](https://antigravity.google/docs/mcp).
+
+</TabItem>
+<TabItem value="devin-desktop" label="Devin Desktop">
+
+Locate and edit your Devin MCP configuration file at `~/.config/devin/mcp_config.json` (`%APPDATA%\devin\mcp_config.json` on Windows):
+
+```json
+{
+  "mcpServers": {
+    "devcycle": {
+      "command": "dvc-mcp"
+    }
+  }
+}
+```
+
+For more details, see the [Devin MCP documentation](https://docs.devin.ai/cli/extensibility/mcp/configuration).
 
 </TabItem>
 </Tabs>
