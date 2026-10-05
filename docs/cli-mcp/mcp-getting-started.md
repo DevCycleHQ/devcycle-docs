@@ -3,9 +3,9 @@ title: MCP Getting Started
 displayed_sidebar: cli_mcp
 ---
 
-# DevCyle MCP Getting Started
+# DevCycle MCP Getting Started
 
-The DevCycle Model Context Protocol (MCP) Server is based on the DevCycle CLI, it enables AI coding tools like Claude Code and Cursor, or general-purpose tools like Claude Desktop, to interact directly with your DevCycle projects and make changes on your behalf.
+The DevCycle Model Context Protocol (MCP) Server is based on the DevCycle CLI and enables AI coding tools like Claude Code and Cursor, or general-purpose tools like Claude Desktop, to interact directly with your DevCycle projects and make changes on your behalf.
 
 ## Quick Setup
 
@@ -198,7 +198,7 @@ To open VS Code and automatically add the DevCycle MCP, click the install button
 
 1. After configuration, run **"MCP: List Servers"** from the Command Palette, or use the **Start** code lens in `mcp.json`
 2. Select the DevCycle MCP server and start it
-3. VS Code will show a dialog: "The MCP Server Definition 'DevCycle' wants to authenticate to mcp.devcycle.com"
+3. VS Code will show a dialog saying the MCP server definition wants to authenticate to `mcp.devcycle.com`
 4. Click **"Allow"** to proceed with authentication
 5. This opens a browser authorization page at `mcp.devcycle.com`
 6. Review and click **"Allow Access"** to grant permissions
