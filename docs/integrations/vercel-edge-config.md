@@ -69,6 +69,8 @@ or
 yarn add @devcycle/vercel-edge-config @vercel/global-config
 ```
 
+`@vercel/global-config` support requires `@devcycle/vercel-edge-config` v0.17.10 or later. Earlier versions use the deprecated `@vercel/edge-config` package instead.
+
 Follow the SDK-specific instructions below:
 
 #### Node.js
