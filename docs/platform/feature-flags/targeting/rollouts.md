@@ -1,6 +1,5 @@
 ---
 title: Scheduling & Rollouts
-description: Schedule Feature releases and configure gradual and multi-step rollouts
 sidebar_position: 5
 ---
 

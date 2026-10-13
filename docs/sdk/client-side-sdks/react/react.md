@@ -1,6 +1,5 @@
 ---
 title: React SDK
-description: The DevCycle React SDK for React web applications, also used by the React Native SDK
 ---
 
 import CustomDocCardList from '@site/src/components/CustomDocCardList'

@@ -148,18 +148,6 @@ const LLMS_ROUTE_RULES = [
   { route: '/examples', categoryName: 'Examples' },
 ]
 
-/**
- * Prepend frontmatter to remote content. Without a description, Docusaurus
- * uses the first line of the page, which is often a heading or badge.
- */
-const withFrontMatter = (fields, content) =>
-  '---\n' +
-  Object.entries(fields)
-    .map(([key, value]) => `${key}: ${JSON.stringify(value)}`)
-    .join('\n') +
-  '\n---\n' +
-  content
-
 const removeDocsSections = (content, sectionNames, headerIdentifier = '##') => {
   let result = content
   for (const sectionName of sectionNames) {
@@ -306,29 +294,7 @@ const config = {
                 return inFence ? line : line.replace(/^(#{1,5})\s/, '#$1 ')
               })
               .join('\n')
-            return {
-              content: filename.includes('mcp-worker')
-                ? withFrontMatter(
-                    {
-                      title: 'DevCycle MCP Cloudflare Worker',
-                      description:
-                        'The hosted DevCycle MCP server, running as a Cloudflare Worker with OAuth authentication',
-                    },
-                    reduced,
-                  )
-                : reduced,
-            }
-          }
-          if (filename.endsWith('mcp.md')) {
-            return {
-              content: withFrontMatter(
-                {
-                  description:
-                    'Tools, authentication, and configuration for the local and hosted DevCycle MCP servers',
-                },
-                content,
-              ),
-            }
+            return { content: reduced }
           }
           return undefined
         },
@@ -349,18 +315,12 @@ const config = {
               '# DevCycle VSCode Extension \n##',
             )
             return {
-              content: withFrontMatter(
-                {
-                  description:
-                    'Manage and track DevCycle feature flags from Visual Studio Code',
-                },
-                removeDocsSections(noTitle, [
-                  'About DevCycle',
-                  'Documentation',
-                  'Sign Up for DevCycle',
-                  'Contributing',
-                ]),
-              ),
+              content: removeDocsSections(noTitle, [
+                'About DevCycle',
+                'Documentation',
+                'Sign Up for DevCycle',
+                'Contributing',
+              ]),
             }
           }
           return undefined
@@ -377,15 +337,10 @@ const config = {
         documents: ['README.md'],
         performCleanup: true,
         modifyContent: (filename, content) => ({
-          content: withFrontMatter(
-            {
-              description:
-                'Show DevCycle Variable code usages in the dashboard with a GitHub Action',
-            },
+          content:
             '# GitHub: Feature Flag Code Usages \n' +
-              'Get the integration on the [GitHub Marketplace](https://github.com/marketplace/actions/devcycle-feature-flag-code-usages)\n' +
-              content,
-          ),
+            'Get the integration on the [GitHub Marketplace](https://github.com/marketplace/actions/devcycle-feature-flag-code-usages)\n' +
+            content,
         }),
       },
     ],
@@ -399,15 +354,10 @@ const config = {
         documents: ['README.md'],
         performCleanup: true,
         modifyContent: (filename, content) => ({
-          content: withFrontMatter(
-            {
-              description:
-                'Comment on pull requests with the DevCycle Features added or removed in each change, using a GitHub Action',
-            },
+          content:
             '# GitHub: Feature Flag Change Insights on Pull Request \n' +
-              'Get the integration on the [GitHub Marketplace](https://github.com/marketplace/actions/devcycle-feature-flag-insights-for-pull-requests)\n' +
-              content,
-          ),
+            'Get the integration on the [GitHub Marketplace](https://github.com/marketplace/actions/devcycle-feature-flag-insights-for-pull-requests)\n' +
+            content,
         }),
       },
     ],
@@ -421,15 +371,10 @@ const config = {
         documents: ['README.md'],
         performCleanup: true,
         modifyContent: (filename, content) => ({
-          content: withFrontMatter(
-            {
-              description:
-                'Show DevCycle Variable code usages in the dashboard with a GitLab CI/CD pipeline',
-            },
+          content:
             '# GitLab: Feature Flag Code Usages \n' +
-              'Get the integration here: https://gitlab.com/devcycle/devcycle-usages-ci-cd\n' +
-              content,
-          ),
+            'Get the integration here: https://gitlab.com/devcycle/devcycle-usages-ci-cd\n' +
+            content,
         }),
       },
     ],
@@ -443,15 +388,10 @@ const config = {
         documents: ['README.md'],
         performCleanup: true,
         modifyContent: (filename, content) => ({
-          content: withFrontMatter(
-            {
-              description:
-                'Comment on merge requests with the DevCycle Features added or removed in each change, using a GitLab CI/CD pipeline',
-            },
+          content:
             '# GitLab: Feature Flag Change Insights on Merge Request\n' +
-              'Get the integration here: https://gitlab.com/devcycle/devcycle-pr-insights-ci-cd\n' +
-              content,
-          ),
+            'Get the integration here: https://gitlab.com/devcycle/devcycle-pr-insights-ci-cd\n' +
+            content,
         }),
       },
     ],

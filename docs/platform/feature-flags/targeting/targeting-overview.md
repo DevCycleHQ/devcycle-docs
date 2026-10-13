@@ -1,6 +1,5 @@
 ---
 title: Targeting Overview
-description: Use Targeting Rules to grant Features to specific user groups, roll out Features incrementally, and test different Feature configurations
 sidebar_position: 1
 ---
 

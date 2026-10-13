@@ -1,6 +1,5 @@
 ---
 title: Installation 
-description: Install the DevCycle SDK Proxy from source, as a Docker image, or as an OS packaged binary
 ---
 
 # Installation

@@ -1,6 +1,5 @@
 ---
 title: Flutter SDK
-description: The DevCycle Flutter Client SDK, which uses the Client SDK APIs and globally distributed edge workers for segmentation and bucketing
 ---
 import CustomDocCardList from '@site/src/components/CustomDocCardList'
 import {useCurrentSidebarCategory} from '@docusaurus/theme-common';

@@ -1,6 +1,5 @@
 ---
 title: Custom Domains
-description: Send DevCycle SDK requests and cookies through your own domain so ad blockers and browser privacy features don't block them
 sidebar_position: 1
 ---
 

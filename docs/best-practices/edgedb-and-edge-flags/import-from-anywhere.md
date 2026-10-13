@@ -1,6 +1,5 @@
 ---
 title: Super Segments Integrations via Zapier
-description: Import user data from external sources like Salesforce into EdgeDB with Zapier
 sidebar_position: 3
 ---
 

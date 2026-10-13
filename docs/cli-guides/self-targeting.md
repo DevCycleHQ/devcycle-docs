@@ -1,6 +1,5 @@
 ---
 title: Self-Targeting
-description: Manage your DevCycle Identity and Self-Targeting Overrides with the DevCycle CLI
 sidebar_position: 8
 displayed_sidebar: cli_mcp
 ---

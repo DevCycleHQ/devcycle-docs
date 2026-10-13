@@ -1,6 +1,5 @@
 ---
 title: Go SDK
-description: The DevCycle Go Server SDK, supporting Local Bucketing and Cloud Bucketing modes
 ---
 
 import CustomDocCardList from '@site/src/components/CustomDocCardList'

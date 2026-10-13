@@ -1,6 +1,5 @@
 ---
 title: Overview
-description: A self-hosted proxy between DevCycle SDKs and the DevCycle APIs, for restricted networks or to share one external connection across many SDK instances
 
 ---
 

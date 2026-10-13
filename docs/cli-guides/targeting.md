@@ -1,6 +1,5 @@
 ---
 title: Targeting Rules
-description: View, update, enable, and disable Targeting Rules with the DevCycle CLI
 sidebar_position: 7
 displayed_sidebar: cli_mcp
 ---

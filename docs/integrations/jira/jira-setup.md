@@ -1,6 +1,5 @@
 ---
 title: 'DevCycle Jira Integration Setup'
-description: Install the DevCycle app for Jira and connect it to your DevCycle Organization or Project
 sidebar_position: 1
 ---
 

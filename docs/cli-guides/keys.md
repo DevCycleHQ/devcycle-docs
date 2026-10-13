@@ -1,6 +1,5 @@
 ---
 title: SDK Keys
-description: Retrieve SDK keys for your Environments with the DevCycle CLI
 sidebar_position: 3
 displayed_sidebar: cli_mcp
 ---

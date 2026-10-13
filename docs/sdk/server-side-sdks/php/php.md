@@ -1,6 +1,5 @@
 ---
 title: PHP SDK
-description: The DevCycle PHP Server SDK, which uses Cloud Bucketing, with local bucketing available through the SDK Proxy
 ---
 
 import CustomDocCardList from '@site/src/components/CustomDocCardList'

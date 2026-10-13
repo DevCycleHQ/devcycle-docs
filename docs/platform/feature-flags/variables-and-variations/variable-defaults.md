@@ -1,6 +1,5 @@
 ---
 title: Variable Defaults
-description: When DevCycle SDKs fall back to the default value you provide in code for a Variable
 sidebar_position: 3
 ---
 

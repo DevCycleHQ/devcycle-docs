@@ -1,6 +1,5 @@
 ---
 title: Features
-description: Create, view, update, and delete Features with the DevCycle CLI
 sidebar_position: 4
 displayed_sidebar: cli_mcp
 ---

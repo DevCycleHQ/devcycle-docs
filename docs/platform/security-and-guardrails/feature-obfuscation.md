@@ -1,6 +1,5 @@
 ---
 title: Feature Obfuscation
-description: Obfuscate Variable keys in web SDKs so unreleased Feature names can't be found in the code shipped to users
 sidebar_position: 4
 ---
 

@@ -1,6 +1,5 @@
 ---
 title: Random Variations
-description: Serve a random distribution of Variations to users who match a Targeting Rule
 sidebar_position: 4
 ---
 

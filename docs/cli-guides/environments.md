@@ -1,6 +1,5 @@
 ---
 title: Environments
-description: Create, view, and update Environments with the DevCycle CLI
 sidebar_position: 2
 displayed_sidebar: cli_mcp
 ---

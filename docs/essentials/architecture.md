@@ -1,6 +1,5 @@
 ---
 title: System Architecture
-description: The design goals behind DevCycle and how its APIs, edge workers, and Client, Mobile, and Server SDKs deliver and evaluate Feature configurations
 sidebar_position: 3
 ---
 

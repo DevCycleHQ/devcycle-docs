@@ -1,6 +1,5 @@
 ---
 title: Projects
-description: Create and view Projects with the DevCycle CLI
 sidebar_position: 1
 displayed_sidebar: cli_mcp
 ---

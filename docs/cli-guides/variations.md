@@ -1,6 +1,5 @@
 ---
 title: Variations
-description: Create, view, and update Variations with the DevCycle CLI
 sidebar_position: 6
 displayed_sidebar: cli_mcp
 ---

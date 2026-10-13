@@ -1,6 +1,5 @@
 ---
 title: Variables
-description: Create, view, and update Variables with the DevCycle CLI
 sidebar_position: 5
 displayed_sidebar: cli_mcp
 ---

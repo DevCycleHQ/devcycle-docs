@@ -1,6 +1,5 @@
 ---
 title: iOS SDK
-description: The DevCycle Swift Client SDK for iOS, macOS, tvOS, and watchOS applications
 ---
 
 import CustomDocCardList from '@site/src/components/CustomDocCardList'
