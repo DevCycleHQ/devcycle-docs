@@ -1,5 +1,6 @@
 ---
 title: Creating and Managing Metrics
+description: Create, define, and manage Metrics in a Project, and attach them to Features to measure their impact
 
 sidebar_position: 2
 ---

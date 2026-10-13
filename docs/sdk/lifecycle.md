@@ -1,5 +1,6 @@
 ---
 title: SDK Release Lifecycle
+description: How long each DevCycle SDK major version is supported, and which fixes are backported to previous versions
 ---
 
 # SDK Release Lifecycle

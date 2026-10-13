@@ -1,5 +1,6 @@
 ---
 title: How Metrics are Calculated
+description: How DevCycle calculates Metric results and statistical significance for binary conversion and value optimization Metrics
 sidebar_position: 3
 ---
 

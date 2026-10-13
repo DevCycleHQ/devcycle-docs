@@ -1,5 +1,6 @@
 ---
 title: Ruby SDK
+description: The DevCycle Ruby Server SDK, supporting Local Bucketing and Cloud Bucketing modes
 ---
 
 import CustomDocCardList from '@site/src/components/CustomDocCardList'

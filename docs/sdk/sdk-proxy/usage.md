@@ -1,5 +1,6 @@
 ---
 title: Usage
+description: Run the SDK Proxy and configure server SDKs to connect to it
 ---
 
 ## Running the SDK Proxy

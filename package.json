@@ -53,6 +53,7 @@
     "@docusaurus/tsconfig": "^3.9.2",
     "@docusaurus/types": "^3.9.2",
     "@iconify-icon/react": "^1.0.8",
+    "@signalwire/docusaurus-plugin-llms-txt": "^1.2.2",
     "@types/react": "^18.3.20",
     "typescript": "~5.8.2"
   },

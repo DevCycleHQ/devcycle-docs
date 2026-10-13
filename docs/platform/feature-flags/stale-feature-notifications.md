@@ -1,5 +1,6 @@
 ---
 title: Stale Feature Notifications 
+description: How DevCycle detects potentially stale Features, and how to act on, snooze, or disable stale Feature notifications
 sidebar_position: 5
 ---
 

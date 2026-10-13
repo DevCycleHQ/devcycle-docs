@@ -1,5 +1,6 @@
 ---
 title: Feature Experimentation
+description: Why and how to run and analyze Experiments on your Features in DevCycle
 sidebar_position: 1
 ---
 

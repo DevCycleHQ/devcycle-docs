@@ -1,5 +1,6 @@
 ---
 title: "Tutorial: Funnel Experiment"
+description: Set up and analyze a funnel experiment across a multi-step sign-up flow
 
 sidebar_position: 5
 ---

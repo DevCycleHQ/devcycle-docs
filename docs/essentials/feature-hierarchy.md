@@ -1,5 +1,6 @@
 ---
 title: Feature Hierarchy
+description: How Features, Variables, Variations, and Targeting Rules relate to each other in DevCycle
 sidebar_position: 4
 ---
 In a traditional Feature Flagging platform, there is only one type of entity to worry about: a `Feature Flag`! In these 

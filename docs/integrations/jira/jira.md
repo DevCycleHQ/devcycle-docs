@@ -1,5 +1,6 @@
 ---
 title: DevCycle Feature Flag Management for Jira
+description: Connect DevCycle Features to Jira issues with the DevCycle app for Jira
 ---
 
 import CustomDocCardList from '@site/src/components/CustomDocCardList'

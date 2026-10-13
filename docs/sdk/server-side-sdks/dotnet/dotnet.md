@@ -1,5 +1,6 @@
 ---
 title: .NET SDK
+description: The DevCycle .NET / C# SDK for Cloud Bucketing and Local Bucketing
 ---
 
 import CustomDocCardList from '@site/src/components/CustomDocCardList'

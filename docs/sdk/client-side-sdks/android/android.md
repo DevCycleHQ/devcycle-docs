@@ -1,5 +1,6 @@
 ---
 title: Android SDK
+description: The DevCycle Android Client SDK, which uses the Client SDK APIs and globally distributed edge workers for segmentation and bucketing
 sidebar_position: 4
 ---
 import CustomDocCardList from '@site/src/components/CustomDocCardList'

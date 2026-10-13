@@ -1,5 +1,6 @@
 ---
 title: "Sending DevCycle Data as a Custom Event to Google Analytics 4 (GTM Specific)"
+description: Send DevCycle Feature and Variation data to Google Analytics 4 with Google Tag Manager
 sidebar_position: 1
 ---
 
