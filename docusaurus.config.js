@@ -1,5 +1,9 @@
 require('dotenv').config()
 const path = require('path')
+const {
+  rehypeLlmsCleanup,
+  rehypeLlmsFixIndexLinks,
+} = require('./plugins/rehype-llms-cleanup')
 import remarkEmbedder from '@remark-embedder/core'
 const YouTubeTransformer = {
   name: 'YouTubeTransformer',
@@ -55,6 +59,95 @@ const VSCODE_EXTENSION_VERSION = 'v1.4.10' // auto updated by extension release 
 
 const AI_PROMPTS_VERSION = 'main' // AI prompts repository branch
 
+const SITE_URL = process.env.CF_PAGES
+  ? 'https://docs.devcycle.com'
+  : 'http://localhost:3000'
+
+/**
+ * Section names for llms.txt. Routes not listed here are grouped by their
+ * top-level path segment.
+ */
+const LLMS_SDK_NAMES = {
+  'client-side-sdks': {
+    android: 'Android',
+    angular: 'Angular',
+    flutter: 'Flutter',
+    ios: 'iOS',
+    javascript: 'JavaScript',
+    nextjs: 'Next.js',
+    react: 'React',
+    'react-native': 'React Native',
+    roku: 'Roku',
+  },
+  'server-side-sdks': {
+    dotnet: '.NET',
+    go: 'Go',
+    java: 'Java',
+    nestjs: 'NestJS',
+    node: 'Node.js',
+    php: 'PHP',
+    python: 'Python',
+    ruby: 'Ruby',
+  },
+}
+
+const LLMS_EXCLUDE_ROUTES = [
+  '/search',
+  '/management-api/**',
+  '/bucketing-api/**',
+  // Example app pages only link out to GitHub repos and sandboxes
+  '/sdk/**/*-example',
+  // Generated `dvc --help` output; cli-guides covers the same commands
+  '/cli/docs/**',
+  // Build and deploy notes for the hosted MCP worker itself
+  '/cli/mcp-worker{,/}',
+  // Video-only page
+  '/platform/experimentation/tutorial-experiment-setup',
+]
+
+const LLMS_ROUTE_RULES = [
+  { route: '/quickstart', categoryName: 'Quickstart' },
+  { route: '/essentials/**', categoryName: 'Essentials' },
+  { route: '/platform/**', categoryName: 'Platform', depth: 2 },
+  ...Object.entries({
+    'account-management': 'Account Management',
+    experimentation: 'Experimentation',
+    extras: 'Extras',
+    'feature-flags': 'Feature Flags',
+    'security-and-guardrails': 'Security and Guardrails',
+    'testing-and-qa': 'Testing and QA',
+  }).map(([dir, categoryName]) => ({
+    route: `/platform/${dir}/**`,
+    categoryName,
+    depth: 2,
+  })),
+  { route: '/sdk/**', categoryName: 'SDKs' },
+  { route: '/sdk/sdk-proxy/**', categoryName: 'SDK Proxy', depth: 2 },
+  {
+    route: '/sdk/client-side-sdks/**',
+    categoryName: 'Client-Side SDKs',
+    depth: 3,
+  },
+  {
+    route: '/sdk/server-side-sdks/**',
+    categoryName: 'Server-Side SDKs',
+    depth: 3,
+  },
+  ...Object.entries(LLMS_SDK_NAMES).flatMap(([group, sdks]) =>
+    Object.entries(sdks).map(([dir, categoryName]) => ({
+      route: `/sdk/${group}/${dir}/**`,
+      categoryName,
+      depth: 3,
+    })),
+  ),
+  { route: '/integrations/**', categoryName: 'Integrations' },
+  { route: '/cli-mcp/**', categoryName: 'MCP Server' },
+  { route: '/cli-guides/**', categoryName: 'CLI Guides' },
+  { route: '/cli/**', categoryName: 'CLI' },
+  { route: '/best-practices/**', categoryName: 'Best Practices' },
+  { route: '/examples', categoryName: 'Examples' },
+]
+
 const removeDocsSections = (content, sectionNames, headerIdentifier = '##') => {
   let result = content
   for (const sectionName of sectionNames) {
@@ -100,6 +193,64 @@ const config = {
     },
     path.resolve(__dirname, 'plugins', 'custom-gtm'),
     [
+      path.resolve(__dirname, 'plugins', 'llms-txt.js'),
+      {
+        siteTitle: 'DevCycle Docs',
+        siteDescription:
+          'DevCycle is a feature flag management and experimentation platform with SDKs for every major language, native OpenFeature providers, a CLI, and an MCP server for AI coding tools.',
+        depth: 1,
+        includeOrder: [
+          '/',
+          '/quickstart',
+          '/essentials/**',
+          '/platform/**',
+          '/sdk/**',
+          '/integrations/**',
+          '/cli-mcp/**',
+          '/cli-guides/**',
+          '/cli/**',
+          '/best-practices/**',
+          '/examples',
+        ],
+        optionalLinks: [
+          {
+            title: 'Management API OpenAPI spec',
+            url: 'https://api.devcycle.com/openapi.json',
+            description:
+              'Manage projects, features, variables, environments, and targeting',
+          },
+          {
+            title: 'Bucketing API OpenAPI spec',
+            url: 'https://bucketing-api.devcycle.com/openapi.yaml',
+            description:
+              'Evaluate variables and track events for a user, used by Cloud Bucketing SDKs',
+          },
+          {
+            title: 'DevCycle on GitHub',
+            url: 'https://github.com/DevCycleHQ',
+          },
+        ],
+        content: {
+          enableLlmsFullTxt: true,
+          relativePaths: false,
+          excludeRoutes: LLMS_EXCLUDE_ROUTES,
+          beforeDefaultRehypePlugins: [
+            [rehypeLlmsCleanup, { siteUrl: SITE_URL }],
+          ],
+          rehypePlugins: [
+            [
+              rehypeLlmsFixIndexLinks,
+              {
+                siteUrls: [SITE_URL, 'https://docs.devcycle.com'],
+                excludeRoutes: LLMS_EXCLUDE_ROUTES,
+              },
+            ],
+          ],
+          routeRules: LLMS_ROUTE_RULES,
+        },
+      },
+    ],
+    [
       'docusaurus-plugin-remote-content',
       {
         name: 'cli',
@@ -134,10 +285,16 @@ const config = {
         performCleanup: true,
         modifyContent: (filename, content) => {
           if (filename.includes('README')) {
-            return {
-              // reduce headers to use with table of contents
-              content: content.replace(/#\s/g, '## '),
-            }
+            // reduce headers to use with table of contents, skipping code blocks
+            let inFence = false
+            const reduced = content
+              .split('\n')
+              .map((line) => {
+                if (/^\s*(```|~~~)/.test(line)) inFence = !inFence
+                return inFence ? line : line.replace(/^(#{1,5})\s/, '#$1 ')
+              })
+              .join('\n')
+            return { content: reduced }
           }
           return undefined
         },
@@ -343,9 +500,7 @@ const config = {
     },
     DEVCYCLE_CLIENT_SDK_KEY: process.env.DEVCYCLE_CLIENT_SDK_KEY,
   },
-  url: process.env.CF_PAGES
-    ? 'https://docs.devcycle.com'
-    : 'http://localhost:3000',
+  url: SITE_URL,
   baseUrl: '/',
   favicon: 'devcycle_favicon.svg',
   scripts: [
