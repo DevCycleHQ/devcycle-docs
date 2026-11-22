@@ -1,0 +1,5 @@
+insight_id,exact_title,association_status,variable_key,operator_rationale,file_name,language,match_start,match_end,coverage_notes,next_investigation
+d92f41e9-676f-4af8-b4a5-589f231bd048,Export help panel hides keyboard instructions,operator-assigned,export-help-panel,Reviewer chose the help-panel behavior,fixture/literal.ts,typescript,2,2,Literal reference only,Inspect keyboard help in the relevant build
+3e52ff61-d7da-4752-a247-85e15bcd1390,Schedule screen omits the timezone label,operator-assigned,schedule-timezone-label,Reviewer chose the schedule label,fixture/literal.ts,typescript,3,3,Literal reference only,Review label behavior with the code owner
+bee31942-907c-4267-84b7-b807d799b512,Dismissing an export clears the confirmation,operator-assigned,dismissal-confirmation,Reviewer read the constant assignment,fixture/alias-dynamic.ts,typescript,2,2,Explicit alias does not resolve computed lookups,Inspect computed lookup separately
+05ff4821-f1f5-41c1-9cdd-af65e90af40c,,missing-id,,,,,,,Requested ID absent from the saved complete page,Obtain authorized source before assigning a key
