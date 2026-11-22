@@ -1,0 +1,54 @@
+[
+  {
+    "request": {
+      "updated_since": "2026-06-01T00:00:00Z",
+      "limit": 200
+    },
+    "response": {
+      "data": [
+        {
+          "id": "d92f41e9-676f-4af8-b4a5-589f231bd048",
+          "title": "Export help panel hides keyboard instructions",
+          "updated_at": "2026-06-01T10:00:00Z",
+          "severity": "low",
+          "source": "synthetic-export-help-review",
+          "created_at": null,
+          "origin": "direct",
+          "relayed_by": null,
+          "products": [],
+          "product_features": []
+        },
+        {
+          "id": "3e52ff61-d7da-4752-a247-85e15bcd1390",
+          "title": "Schedule screen omits the timezone label",
+          "updated_at": "2026-06-01T11:00:00Z",
+          "severity": "medium",
+          "source": "synthetic-schedule-label-review",
+          "created_at": null,
+          "origin": "direct",
+          "relayed_by": null,
+          "products": [],
+          "product_features": []
+        },
+        {
+          "id": "bee31942-907c-4267-84b7-b807d799b512",
+          "title": "Dismissing an export clears the confirmation",
+          "updated_at": "2026-06-01T12:00:00Z",
+          "severity": "low",
+          "source": "synthetic-dismissal-review",
+          "created_at": null,
+          "origin": "direct",
+          "relayed_by": null,
+          "products": [],
+          "product_features": []
+        }
+      ],
+      "pagination": {
+        "limit": 200,
+        "has_more": false,
+        "next_cursor": null,
+        "sync_until": "2026-06-02T00:00:00Z"
+      }
+    }
+  }
+]
